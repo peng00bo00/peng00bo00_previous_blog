@@ -44,7 +44,20 @@ MEng. in Architectural and Civil Engineering
 
 BEng. in Civil Engineering
 
-
 ## Publications
+
+### A Novel Vision-Based Framework for Identifying Dynamic Vehicle Loads on Long-Span Bridges: A Case Study of Jiangyin Bridge, China
+
+### Manufacturing and Characterization of Lunar Regolith Simulants
+
+### Engineering Practices on Surface Disease Inspection and Performance Evaluation of Concrete Bridges in China
+
+### An Automated Inspection Method for the Steel Box Girder Bottom of Long-span Bridges Based on Deep Learning
+
+### Steel Box-Girder Bridge Diseases Identification Based on Computer Vision System
+
+### Corrosion Segmentation and Quantitative Analysis Based on Deep Neural Networks
+
+### Current Status and Thinking of Chinese Ancient Bridges Protection
 
 ## Research Experience
