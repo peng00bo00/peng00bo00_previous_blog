@@ -29,3 +29,18 @@ key: page-about
 **Hi there!**
 
 My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https://nyuad.nyu.edu/en/). My major is civil engineering, and I'm also pursing my second master degree in computer science at [Georgia Tech's OMSCS program](https://omscs.gatech.edu/). This blog is used to record what I've learned and anything I'm interested in.
+
+## Education
+
+### **New York University Abu Dhabi** `2019.9 -`
+
+```
+Pittsburgh, PA
+```
+
+Ph.D. candidate in Civil Engineering
+
+
+## Publications
+
+## Research Experience
