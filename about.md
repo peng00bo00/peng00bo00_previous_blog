@@ -39,10 +39,10 @@ My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https:/
 - **Georgia Institute of Technology** <span style="float:right">2021.01 - Present</span> \
   Pursing MS in CS at OMSCS program
 
-- **Tongji University** <span style="float:right">2016.09 - 2019.6</span> \
+- **Tongji University** <span style="float:right">2016.09 - 2019.06</span> \
   MEng in Architectural and Civil Engineering 
 
-- **Tongji University** <span style="float:right">2012.09 - 2016.6</span> \
+- **Tongji University** <span style="float:right">2012.09 - 2016.06</span> \
   BEng in Civil Engineering
 
 ## Research Interests
