@@ -31,36 +31,32 @@ key: page-about
 My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https://nyuad.nyu.edu/en/). My major is civil engineering, and I'm also pursing my second master degree in computer science at [Georgia Tech's OMSCS program](https://omscs.gatech.edu/). This blog is used to record what I've learned and anything I'm interested in.
 
 ## Education
-
-### <p style="text-align:left;">New York University Abu Dhabi<span style="float:right;">2019.9 - Present</span></p>
-
-
-<!-- **New York University Abu Dhabi** <p align="right">2019.9 - Present</p>  -->
+**New York University Abu Dhabi**
 
 Ph.D. candidate in Civil Engineering
 
-**Tongji University** <p align="right">2016.9 - 2019.6</p> 
+**Tongji University**
 
 MEng. in Architectural and Civil Engineering
 
-**Tongji University** <p align="right">2012.9 - 2016.6</p> 
+**Tongji University**
 
 BEng. in Civil Engineering
 
 ## Publications
 
-**A Novel Vision-Based Framework for Identifying Dynamic Vehicle Loads on Long-Span Bridges: A Case Study of Jiangyin Bridge, China**
+1. **A Novel Vision-Based Framework for Identifying Dynamic Vehicle Loads on Long-Span Bridges: A Case Study of Jiangyin Bridge, China**
 
-**Manufacturing and Characterization of Lunar Regolith Simulants**
+2. **Manufacturing and Characterization of Lunar Regolith Simulants**
 
-**Engineering Practices on Surface Disease Inspection and Performance Evaluation of Concrete Bridges in China**
+3. **Engineering Practices on Surface Disease Inspection and Performance Evaluation of Concrete Bridges in China**
 
-**An Automated Inspection Method for the Steel Box Girder Bottom of Long-span Bridges Based on Deep Learning**
+4. **An Automated Inspection Method for the Steel Box Girder Bottom of Long-span Bridges Based on Deep Learning**
 
-**Steel Box-Girder Bridge Diseases Identification Based on Computer Vision System**
+5. **Steel Box-Girder Bridge Diseases Identification Based on Computer Vision System**
 
-**Corrosion Segmentation and Quantitative Analysis Based on Deep Neural Networks**
+6. **Corrosion Segmentation and Quantitative Analysis Based on Deep Neural Networks**
 
-**Current Status and Thinking of Chinese Ancient Bridges Protection**
+7. **Current Status and Thinking of Chinese Ancient Bridges Protection**
 
 ## Research Experience
