@@ -91,3 +91,36 @@ Computer Graphics
 - **Vehicle Load Identification and Data Fusion Based on Computer Vision**
 
 - **Surface Diseases Identification for Long-Span Cable Bridge**
+
+## Online Courses
+
+### Coursera
+
+- [TensorFlow: Advanced Techniques Specialization](https://www.coursera.org/account/accomplishments/specialization/certificate/AJH4JFB2A5G3)
+- [Generative Adversarial Networks (GANs) Specialization](https://www.coursera.org/account/accomplishments/specialization/certificate/C3PHRNMFCM4K)
+- [Natural Language Processing Specialization](https://www.coursera.org/account/accomplishments/specialization/certificate/H4BJ6E5RC8J2)
+- [Machine Learning Techniques](https://www.coursera.org/account/accomplishments/records/TZZND77JM4WC)
+- [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/account/accomplishments/specialization/TPPW7ULRFQWM)
+
+### edX
+
+- MITx's Statistics and Data Science MicroMasters Program
+  - [6.431x: Probability - The Science of Uncertainty and Data](https://courses.edx.org/certificates/a3aefb59a2bb475ca26bd82bd43ef415)
+  - [14.310Fx: Data Analysis in Social Science](https://courses.edx.org/certificates/5af507dff5514989841bce1a6c5d1ac7)
+  - [18.6501x: Fundamentals of Statistics](https://courses.edx.org/certificates/1783bf04e0c14829a4441dea6352d633)
+  - [6.86x: Machine Learning with Python-From Linear Models to Deep Learning](https://courses.edx.org/certificates/89370aa3297745c19c3e88a7985ee688)
+
+- [Computer Graphics](https://courses.edx.org/certificates/e945d191df7e474ca5eb34a8eea0fc09)
+
+### Graphics And Mixed Environment Seminar (GAMES)
+
+- GAMES-102: Geometry Modeling and Processing
+- [GAMES-101: Introduction to Modern Computer Graphics](https://drive.google.com/file/d/1sFM-XCCETFKUXzpLc7QV5fH6Aa6_-oGl/view?usp=sharing)
+
+### 深蓝学院
+
+- [基于深度学习的物体检测](https://drive.google.com/file/d/1zmaeH0U_E0I9dqRlq0TO1aGBn57ve0Ho/view)
+- [ROS理论与实践：以移动机器人为例](https://drive.google.com/file/d/1zmaeH0U_E0I9dqRlq0TO1aGBn57ve0Ho/view)
+- [移动机器人运动规划](https://drive.google.com/file/d/17Ou80-BUz0Ug56jqK8XtM3EeZZpUcfQo/view)
+- [视觉SLAM理论与实践](https://drive.google.com/file/d/1zJmIHwe-A55HYZPpHbvPTlzJh1nDd2Tb/view)
+- [机器人学中的状态估计](https://drive.google.com/file/d/15kC1DwbkPKjwmURQ2j-krpxXRgayqoWh/view)
