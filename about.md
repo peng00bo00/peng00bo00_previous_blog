@@ -113,7 +113,7 @@ Computer Graphics
 - [Python 3 Programming Specialization](https://www.coursera.org/account/accomplishments/specialization/NN2V3TNQHDJE?utm_medium=certificate&utm_source=link&utm_campaign=copybutton_certificate&utm_content=cert_image)
 - **[Self-Driving Cars Specialization](https://coursera.org/share/530053b05e3585b65b869f68de1c378b)**
 - **[Algorithms Specialization](https://www.coursera.org/account/accomplishments/specialization/8JM43K5JMSG2?utm_medium=certificate&utm_source=link&utm_campaign=copybutton_certificate)**
-- Programming Languages(Part [A](https://www.coursera.org/account/accomplishments/verify/TG8KAYBVQ8XN), [B](https://www.coursera.org/account/accomplishments/verify/3Z26B4U48M6W), [C](https://www.coursera.org/account/accomplishments/verify/4C3H55AFVZPB))
+- Programming Languages([Part A](https://www.coursera.org/account/accomplishments/verify/TG8KAYBVQ8XN), [B](https://www.coursera.org/account/accomplishments/verify/3Z26B4U48M6W), [C](https://www.coursera.org/account/accomplishments/verify/4C3H55AFVZPB))
 - [AI For Everyone](https://www.coursera.org/account/accomplishments/verify/J79SM79P6BRP)
 - Machine Learning Foundations([Part I](https://www.coursera.org/account/accomplishments/verify/MD5PYGJSRHS2), [II](https://www.coursera.org/account/accomplishments/verify/JTLXL6PVYR4Z))
 - [Advanced Machine Learning with TensorFlow on Google Cloud Platform Specialization](https://www.coursera.org/account/accomplishments/specialization/Q5SHZHKB3UXB)
