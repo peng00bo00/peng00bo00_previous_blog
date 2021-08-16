@@ -37,13 +37,13 @@ My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https:/
   PhD candidate in Civil Engineering
 
 - **Georgia Institute of Technology** <span style="float:right">2021.01 - Present</span> \
-Pursing MS in CS at OMSCS program
+  Pursing MS in CS at OMSCS program
 
 - **Tongji University** <span style="float:right">2016.09 - 2019.6</span> \
-MEng in Architectural and Civil Engineering 
+  MEng in Architectural and Civil Engineering 
 
 - **Tongji University** <span style="float:right">2012.09 - 2016.6</span> \
-BEng in Civil Engineering
+  BEng in Civil Engineering
 
 ## Research Interests
 
@@ -58,36 +58,36 @@ Computer Graphics
   IEEE Transactions on Intelligent Transportation Systems
 
 - **Manufacturing and Characterization of Lunar Regolith Simulants** \
-   Rotana Hay, Bo Peng, and Kemal Celik \
-   72nd International Astronautical Congress 2021 (submitted)
+  Rotana Hay, Bo Peng, and Kemal Celik \
+  72nd International Astronautical Congress 2021 (submitted)
 
 - **Engineering Practices on Surface Disease Inspection and Performance Evaluation of Concrete Bridges in China** \
-   Airong Chen, Xurui Fang, Zichao Pan, Dalei Wang, Yue Pan and Bo Peng \
-   Structural Concrete
+  Airong Chen, Xurui Fang, Zichao Pan, Dalei Wang, Yue Pan and Bo Peng \
+  Structural Concrete
 
 - **An Automated Inspection Method for the Steel Box Girder Bottom of Long-span Bridges Based on Deep Learning** \
-   Dalei Wang, Yiquan Zhang, Yue Pan, Bo Peng, Haoran Liu, and Rujin Ma \
-   IEEE Access
+  Dalei Wang, Yiquan Zhang, Yue Pan, Bo Peng, Haoran Liu, and Rujin Ma \
+  IEEE Access
 
 - **Steel Box-Girder Bridge Diseases Identification Based on Computer Vision System** \
-   Dalei Wang, Yue Pan and Bo Peng \
-   9th International Association for Bridge Maintenance and Safety (IABMAS 2018)
+  Dalei Wang, Yue Pan and Bo Peng \
+  9th International Association for Bridge Maintenance and Safety (IABMAS 2018)
 
 - **Corrosion Segmentation and Quantitative Analysis Based on Deep Neural Networks** \
-   Dalei Wang, Bo Peng and Yue Pan \
-   9th International Association for Bridge Maintenance and Safety (IABMAS 2018)
+  Dalei Wang, Bo Peng and Yue Pan \
+  9th International Association for Bridge Maintenance and Safety (IABMAS 2018)
 
 - **Current Status and Thinking of Chinese Ancient Bridges Protection** \
-   Bo Peng, Dalei Wang \
-   International Association for Bridge and Structural Engineering (IABSE 2017)
+  Bo Peng, Dalei Wang \
+  International Association for Bridge and Structural Engineering (IABSE 2017)
 
 
 ## Research Experience
 
-- Characterization and Manufacturing of Lunar Regolith Simulants
+- **Characterization and Manufacturing of Lunar Regolith Simulants**
 
-- GEOSPATIAL MODELING OF URBAN THERMODYNAMICS: Infrastructure, Environment, and Microclimate in Cities
+- **GEOSPATIAL MODELING OF URBAN THERMODYNAMICS: Infrastructure, Environment, and Microclimate in Cities**
 
-- Vehicle Load Identification and Data Fusion Based on Computer Vision
+- **Vehicle Load Identification and Data Fusion Based on Computer Vision**
 
-- Surface Diseases Identification for Long-Span Cable Bridge
+- **Surface Diseases Identification for Long-Span Cable Bridge**
