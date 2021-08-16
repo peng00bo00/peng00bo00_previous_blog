@@ -32,13 +32,17 @@ My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https:/
 
 ## Education
 
-### **New York University Abu Dhabi** `2019.9 -`
-
-```
-Pittsburgh, PA
-```
+**New York University Abu Dhabi** <p align="right">2019.9 - Present</p> 
 
 Ph.D. candidate in Civil Engineering
+
+**Tongji University** <p align="right">2016.9 - 2019.6</p> 
+
+MEng. in Architectural and Civil Engineering
+
+**Tongji University** <p align="right">2012.9 - 2016.6</p> 
+
+BEng. in Civil Engineering
 
 
 ## Publications
