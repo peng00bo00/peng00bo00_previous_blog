@@ -32,7 +32,10 @@ My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https:/
 
 ## Education
 
-**New York University Abu Dhabi** <p align="right">2019.9 - Present</p> 
+### <p style="text-align:left;">New York University Abu Dhabi<span style="float:right;">2019.9 - Present</span></p>
+
+
+<!-- **New York University Abu Dhabi** <p align="right">2019.9 - Present</p>  -->
 
 Ph.D. candidate in Civil Engineering
 
@@ -46,18 +49,18 @@ BEng. in Civil Engineering
 
 ## Publications
 
-### A Novel Vision-Based Framework for Identifying Dynamic Vehicle Loads on Long-Span Bridges: A Case Study of Jiangyin Bridge, China
+**A Novel Vision-Based Framework for Identifying Dynamic Vehicle Loads on Long-Span Bridges: A Case Study of Jiangyin Bridge, China**
 
-### Manufacturing and Characterization of Lunar Regolith Simulants
+**Manufacturing and Characterization of Lunar Regolith Simulants**
 
-### Engineering Practices on Surface Disease Inspection and Performance Evaluation of Concrete Bridges in China
+**Engineering Practices on Surface Disease Inspection and Performance Evaluation of Concrete Bridges in China**
 
-### An Automated Inspection Method for the Steel Box Girder Bottom of Long-span Bridges Based on Deep Learning
+**An Automated Inspection Method for the Steel Box Girder Bottom of Long-span Bridges Based on Deep Learning**
 
-### Steel Box-Girder Bridge Diseases Identification Based on Computer Vision System
+**Steel Box-Girder Bridge Diseases Identification Based on Computer Vision System**
 
-### Corrosion Segmentation and Quantitative Analysis Based on Deep Neural Networks
+**Corrosion Segmentation and Quantitative Analysis Based on Deep Neural Networks**
 
-### Current Status and Thinking of Chinese Ancient Bridges Protection
+**Current Status and Thinking of Chinese Ancient Bridges Protection**
 
 ## Research Experience
