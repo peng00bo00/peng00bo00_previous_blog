@@ -24,6 +24,8 @@ titles:
   fr-LU   : *FR
   # @end locale config
 key: page-about
+aside:
+  toc: true
 ---
 
 **Hi there!**
@@ -31,25 +33,27 @@ key: page-about
 My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https://nyuad.nyu.edu/en/). My major is civil engineering, and I'm also pursing my second master degree in computer science at [Georgia Tech's OMSCS program](https://omscs.gatech.edu/). This blog is used to record what I've learned and anything I'm interested in.
 
 ## Education
-**New York University Abu Dhabi** <span style="float:right">2018.03~2018.05</span>
+**New York University Abu Dhabi** <span style="float:right">2019.09 - Present</span>
 
 PhD candidate in Civil Engineering
 
-**Georgia Institute of Technology**
+**Georgia Institute of Technology** <span style="float:right">2021.01 - Present</span>
 
 Pursing MS in CS at OMSCS program
 
-**Tongji University**
+**Tongji University** <span style="float:right">2016.09 - 2019.6</span>
 
-MEng in Architectural and Civil Engineering
+MEng in Architectural and Civil Engineering 
 
-**Tongji University**
+**Tongji University** <span style="float:right">2012.09 - 2016.6</span>
 
 BEng in Civil Engineering
 
 ## Publications
 
-1. **A Novel Vision-Based Framework for Identifying Dynamic Vehicle Loads on Long-Span Bridges: A Case Study of Jiangyin Bridge, China**
+1. **A Novel Vision-Based Framework for Identifying Dynamic Vehicle Loads on Long-Span Bridges: A Case Study of Jiangyin Bridge, China** \
+   Yue Pan, Dalei Wang, Bo Peng, and Yiqing Dong \
+   IEEE Transactions on Intelligent Transportation Systems
 
 2. **Manufacturing and Characterization of Lunar Regolith Simulants**
 
@@ -64,3 +68,11 @@ BEng in Civil Engineering
 7. **Current Status and Thinking of Chinese Ancient Bridges Protection**
 
 ## Research Experience
+
+1. Characterization and Manufacturing of Lunar Regolith Simulants
+
+2. GEOSPATIAL MODELING OF URBAN THERMODYNAMICS: Infrastructure, Environment, and Microclimate in Cities
+
+3. Vehicle Load Identification and Data Fusion Based on Computer Vision
+
+4. Surface Diseases Identification for Long-Span Cable Bridge
