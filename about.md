@@ -103,25 +103,25 @@ Computer Graphics
 ### Coursera
 
 - [TensorFlow: Advanced Techniques Specialization](https://www.coursera.org/account/accomplishments/specialization/AJH4JFB2A5G3)
-- **[Generative Adversarial Networks (GANs) Specialization](https://www.coursera.org/account/accomplishments/specialization/C3PHRNMFCM4K)**
-- **[Natural Language Processing Specialization](https://www.coursera.org/account/accomplishments/specialization/H4BJ6E5RC8J2)**
+- [Generative Adversarial Networks (GANs) Specialization](https://www.coursera.org/account/accomplishments/specialization/C3PHRNMFCM4K)
+- [Natural Language Processing Specialization](https://www.coursera.org/account/accomplishments/specialization/H4BJ6E5RC8J2)
 - [Machine Learning Techniques](https://www.coursera.org/account/accomplishments/records/TZZND77JM4WC)
 - [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/account/accomplishments/specialization/TPPW7ULRFQWM)
 - [TensorFlow: Data and Deployment Specialization](https://www.coursera.org/account/accomplishments/specialization/6CUL5BFC2KDY)
-- **[Reinforcement Learning Specialization](https://www.coursera.org/account/accomplishments/specialization/ACF5RTP39TL4?utm_medium=certificate&utm_source=link&utm_campaign=copybutton_certificate)**
+- [Reinforcement Learning Specialization](https://www.coursera.org/account/accomplishments/specialization/ACF5RTP39TL4?utm_medium=certificate&utm_source=link&utm_campaign=copybutton_certificate)
 - [DeepLearning.AI TensorFlow Developer](https://www.coursera.org/account/accomplishments/specialization/GRH7SZ5Q8AN3?utm_medium=certificate&utm_source=link&utm_campaign=copybutton_certificate)
 - [Python 3 Programming Specialization](https://www.coursera.org/account/accomplishments/specialization/NN2V3TNQHDJE?utm_medium=certificate&utm_source=link&utm_campaign=copybutton_certificate&utm_content=cert_image)
-- **[Self-Driving Cars Specialization](https://coursera.org/share/530053b05e3585b65b869f68de1c378b)**
-- **[Algorithms Specialization](https://www.coursera.org/account/accomplishments/specialization/8JM43K5JMSG2?utm_medium=certificate&utm_source=link&utm_campaign=copybutton_certificate)**
+- [Self-Driving Cars Specialization](https://coursera.org/share/530053b05e3585b65b869f68de1c378b)
+- [Algorithms Specialization](https://www.coursera.org/account/accomplishments/specialization/8JM43K5JMSG2?utm_medium=certificate&utm_source=link&utm_campaign=copybutton_certificate)
 - Programming Languages([Part A](https://www.coursera.org/account/accomplishments/verify/TG8KAYBVQ8XN), [B](https://www.coursera.org/account/accomplishments/verify/3Z26B4U48M6W), [C](https://www.coursera.org/account/accomplishments/verify/4C3H55AFVZPB))
 - [AI For Everyone](https://www.coursera.org/account/accomplishments/verify/J79SM79P6BRP)
 - Machine Learning Foundations([Part I](https://www.coursera.org/account/accomplishments/verify/MD5PYGJSRHS2), [II](https://www.coursera.org/account/accomplishments/verify/JTLXL6PVYR4Z))
 - [Advanced Machine Learning with TensorFlow on Google Cloud Platform Specialization](https://www.coursera.org/account/accomplishments/specialization/Q5SHZHKB3UXB)
-- **[Deep Learning Specialization](https://www.coursera.org/account/accomplishments/specialization/JNFMNVM28EQB)**
-- **[Machine Learning](https://www.coursera.org/account/accomplishments/verify/64EGDCWSG9U8)**
+- [Deep Learning Specialization](https://www.coursera.org/account/accomplishments/specialization/JNFMNVM28EQB)
+- [Machine Learning](https://www.coursera.org/account/accomplishments/verify/64EGDCWSG9U8)
 - [Machine Learning with TensorFlow on Google Cloud Platform Specialization](https://www.coursera.org/account/accomplishments/specialization/V86PDQ73FAZ8)
 - [Applied Data Science with Python Specialization](https://www.coursera.org/account/accomplishments/specialization/EB5H3RH3JCYX)
-- **[Probabilistic Graphical Models Specialization](https://www.coursera.org/account/accomplishments/specialization/GJGBQCDT5SBN)**
+- [Probabilistic Graphical Models Specialization](https://www.coursera.org/account/accomplishments/specialization/GJGBQCDT5SBN)
 
 ### edX
 
