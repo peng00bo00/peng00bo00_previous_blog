@@ -33,20 +33,16 @@ aside:
 My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https://nyuad.nyu.edu/en/). My major is civil engineering, and I'm also pursing my second master degree in computer science at [Georgia Tech's OMSCS program](https://omscs.gatech.edu/). This blog is used to record what I've learned and anything I'm interested in.
 
 ## Education
-**New York University Abu Dhabi** <span style="float:right">2019.09 - Present</span>
-
+**New York University Abu Dhabi** <span style="float:right">2019.09 - Present</span> \
 PhD candidate in Civil Engineering
 
-**Georgia Institute of Technology** <span style="float:right">2021.01 - Present</span>
-
+**Georgia Institute of Technology** <span style="float:right">2021.01 - Present</span> \
 Pursing MS in CS at OMSCS program
 
-**Tongji University** <span style="float:right">2016.09 - 2019.6</span>
-
+**Tongji University** <span style="float:right">2016.09 - 2019.6</span> \
 MEng in Architectural and Civil Engineering 
 
-**Tongji University** <span style="float:right">2012.09 - 2016.6</span>
-
+**Tongji University** <span style="float:right">2012.09 - 2016.6</span> \
 BEng in Civil Engineering
 
 ## Research Interests
