@@ -51,6 +51,10 @@ BEng in Civil Engineering
 
 ## Research Interests
 
+Machine Learning in Civil Engineering, 
+Computer Vision, 
+Computer Graphics
+
 ## Publications
 
 1. **A Novel Vision-Based Framework for Identifying Dynamic Vehicle Loads on Long-Span Bridges: A Case Study of Jiangyin Bridge, China** \
@@ -62,7 +66,7 @@ BEng in Civil Engineering
    72nd International Astronautical Congress 2021 (submitted)
 
 3. **Engineering Practices on Surface Disease Inspection and Performance Evaluation of Concrete Bridges in China** \
-   Airong Chen, Xurui Fang, Zichao Pan, Bo Peng \
+   Airong Chen, Xurui Fang, Zichao Pan, Dalei Wang, Yue Pan and Bo Peng \
    Structural Concrete
 
 4. **An Automated Inspection Method for the Steel Box Girder Bottom of Long-span Bridges Based on Deep Learning** \
@@ -70,11 +74,11 @@ BEng in Civil Engineering
    IEEE Access
 
 5. **Steel Box-Girder Bridge Diseases Identification Based on Computer Vision System** \
-   Dalei Wang, Yue Pan, Bo Peng \
+   Dalei Wang, Yue Pan and Bo Peng \
    9th International Association for Bridge Maintenance and Safety (IABMAS 2018)
 
 6. **Corrosion Segmentation and Quantitative Analysis Based on Deep Neural Networks** \
-   Dalei Wang, Bo Peng, Yue Pan \
+   Dalei Wang, Bo Peng and Yue Pan \
    9th International Association for Bridge Maintenance and Safety (IABMAS 2018)
 
 7. **Current Status and Thinking of Chinese Ancient Bridges Protection** \
