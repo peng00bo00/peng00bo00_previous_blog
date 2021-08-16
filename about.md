@@ -57,41 +57,41 @@ Computer Graphics
 
 ## Publications
 
-1. **A Novel Vision-Based Framework for Identifying Dynamic Vehicle Loads on Long-Span Bridges: A Case Study of Jiangyin Bridge, China** \
+- **A Novel Vision-Based Framework for Identifying Dynamic Vehicle Loads on Long-Span Bridges: A Case Study of Jiangyin Bridge, China** \
    Yue Pan, Dalei Wang, Bo Peng, and Yiqing Dong \
    IEEE Transactions on Intelligent Transportation Systems
 
-2. **Manufacturing and Characterization of Lunar Regolith Simulants** \
+- **Manufacturing and Characterization of Lunar Regolith Simulants** \
    Rotana Hay, Bo Peng, and Kemal Celik \
    72nd International Astronautical Congress 2021 (submitted)
 
-3. **Engineering Practices on Surface Disease Inspection and Performance Evaluation of Concrete Bridges in China** \
+- **Engineering Practices on Surface Disease Inspection and Performance Evaluation of Concrete Bridges in China** \
    Airong Chen, Xurui Fang, Zichao Pan, Dalei Wang, Yue Pan and Bo Peng \
    Structural Concrete
 
-4. **An Automated Inspection Method for the Steel Box Girder Bottom of Long-span Bridges Based on Deep Learning** \
+- **An Automated Inspection Method for the Steel Box Girder Bottom of Long-span Bridges Based on Deep Learning** \
    Dalei Wang, Yiquan Zhang, Yue Pan, Bo Peng, Haoran Liu, and Rujin Ma \
    IEEE Access
 
-5. **Steel Box-Girder Bridge Diseases Identification Based on Computer Vision System** \
+- **Steel Box-Girder Bridge Diseases Identification Based on Computer Vision System** \
    Dalei Wang, Yue Pan and Bo Peng \
    9th International Association for Bridge Maintenance and Safety (IABMAS 2018)
 
-6. **Corrosion Segmentation and Quantitative Analysis Based on Deep Neural Networks** \
+- **Corrosion Segmentation and Quantitative Analysis Based on Deep Neural Networks** \
    Dalei Wang, Bo Peng and Yue Pan \
    9th International Association for Bridge Maintenance and Safety (IABMAS 2018)
 
-7. **Current Status and Thinking of Chinese Ancient Bridges Protection** \
+- **Current Status and Thinking of Chinese Ancient Bridges Protection** \
    Bo Peng, Dalei Wang \
    International Association for Bridge and Structural Engineering (IABSE 2017)
 
 
 ## Research Experience
 
-1. Characterization and Manufacturing of Lunar Regolith Simulants
+- Characterization and Manufacturing of Lunar Regolith Simulants
 
-2. GEOSPATIAL MODELING OF URBAN THERMODYNAMICS: Infrastructure, Environment, and Microclimate in Cities
+- GEOSPATIAL MODELING OF URBAN THERMODYNAMICS: Infrastructure, Environment, and Microclimate in Cities
 
-3. Vehicle Load Identification and Data Fusion Based on Computer Vision
+- Vehicle Load Identification and Data Fusion Based on Computer Vision
 
-4. Surface Diseases Identification for Long-Span Cable Bridge
+- Surface Diseases Identification for Long-Span Cable Bridge
