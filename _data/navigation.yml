@@ -48,3 +48,12 @@ header:
       fr-LU   : *FR
       # @end locale config
     url: /about.html
+
+DDG:
+  - title: DDG课程笔记
+    children: 
+      - title: 外代数与外微分
+        url: /_posts/2021-08-15-DDG-NOTES-1.md
+
+      - title: 曲面与曲率
+        url: /_posts/2021-08-15-DDG-NOTES-2.md
