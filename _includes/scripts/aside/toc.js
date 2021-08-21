@@ -29,7 +29,7 @@
       toc && toc.setOptions({
         disabled: tocDisabled
       });
-    }, 200));
+    }, 100));
 
   });
 })();
