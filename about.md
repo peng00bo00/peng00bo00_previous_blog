@@ -100,6 +100,12 @@ Computer Graphics
 
 ## Online Courses
 
+### OMSCS
+
+- CS 6200: Graduate Intro to OS
+- CSE 6220: Intro to High-Performance Computing
+- CS 6601: Artificial Intelligence
+
 ### Coursera
 
 - [TensorFlow: Advanced Techniques Specialization](https://www.coursera.org/account/accomplishments/specialization/AJH4JFB2A5G3)
