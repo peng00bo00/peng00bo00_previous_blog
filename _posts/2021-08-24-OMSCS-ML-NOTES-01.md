@@ -100,7 +100,7 @@ $$
 对于决策树的ID3算法，它的restriction bias为节点特征构成的所有决策树，而preference bias则包括：
 
 - 优先选择较短的树(short trees over longer trees)；
-- 优先选择靠近根节点且具有最大信息增益的树(trees with highest information gain cloest to the root)。
+- 优先选择靠近根节点且具有最大信息增益的树(trees with highest information gain closest to the root)。
 
 ## Other Considerations
 
