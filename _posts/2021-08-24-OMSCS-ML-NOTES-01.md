@@ -91,7 +91,16 @@ $$
 
 其中$\text{Gini}(Y \vert X_i)$表示节点属性为$X_i$的子集上类别$Y$对应的基尼指数。与信息增益相反，节点的基尼指数越大表示样本集合的复杂度越大，因此在特征选择时需要选择基尼指数最小的特征。
 
-## Inductive Bias
+## Bias
+
+对于给定的数据集可能存在多个不同的模型都能够满足我们的需求，而此时我们的学习算法只能给出一个特定的模型。换句话说我们的学习算法在模型构成的集合中进行了选择，即算法对模型有一定的**偏好(bias)**。
+
+偏好分为2种：restriction bias以及preference bias。其中restriction bias对应模型的**假设空间(hypothesis space)** $H$，它代表模型所能表示的范围。以决策树为例，决策树的hypothesis space为给定数据集上所有决策树构成的集合，此时我们并不会考虑其他类型的模型。而preference bias则对应学习算法在假设空间中的偏好：我们可以把学习的过程抽象为在假设空间里进行搜索，此时学习算法会根据自身的preference bias从假设空间中寻找的合适的模型(假设)。
+
+对于决策树的ID3算法，它的restriction bias为节点特征构成的所有决策树，而preference bias则包括：
+
+- 优先选择较短的树(short trees over longer trees)；
+- 优先选择靠近根节点且具有最大信息增益的树(trees with highest information gain cloest to the root)。
 
 ## Other Considerations
 
