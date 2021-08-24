@@ -66,3 +66,12 @@ DDG:
 
       - title: 测地线
         url: /2021/08/23/DDG-NOTES-5.html
+
+OMSCS-ML:
+  - title: ML课程笔记
+    children: 
+      - title: Supervised Learning
+        -title: Decision Tree Learning
+
+      - title: Unsupervised Learning
+      - title: Reinforcement Learning
