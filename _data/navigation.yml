@@ -71,7 +71,7 @@ OMSCS-ML:
   - title: OMSCS-ML课程笔记
     children: 
       - title: Supervised Learning
-        -title: Decision Trees
+        - title: Decision Trees
 
       - title: Unsupervised Learning
       - title: Reinforcement Learning
