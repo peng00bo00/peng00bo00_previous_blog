@@ -68,7 +68,7 @@ DDG:
         url: /2021/08/23/DDG-NOTES-5.html
 
 OMSCS-ML:
-  - title: ML课程笔记
+  - title: OMSCS-ML课程笔记
     children: 
       - title: Supervised Learning
         -title: Decision Trees
