@@ -36,7 +36,7 @@ $$
 
 其中$p_i$表示$X$不同取值对应的概率。信息熵描述了随机变量的混乱程度，可以证明当随机变量为均匀分布时信息熵最大。
 
-接着我们定义随机变量$Y$在已知$X$的情况下对应的**条件熵(conditional entropy)** $H(Y|X)$为：
+接着我们定义随机变量$Y$在已知$X$的情况下对应的**条件熵(conditional entropy)**$H(Y \vert X)$为：
 
 $$
 H(Y|X) = \sum_{i=1}^m P(x_i) H(Y| X = x_i) = -\sum_{i=1}^m P(x_i) \sum_{j=1}^n P(y_j | x_i) \log P(y_j | x_i)
@@ -86,7 +86,7 @@ $$
 \text{Gini}(X) = \sum_{i=1}^m \frac{\vert X_i \vert}{\vert X \vert} \text{Gini}(Y | X_i)
 $$
 
-其中$\text{Gini}(Y | X_i)$ 表示节点属性为$X_i$的子集上类别$Y$对应的基尼指数。与信息增益相反，节点的基尼指数越大表示样本集合的复杂度越大，因此在特征选择时需要选择基尼指数最小的特征。
+其中$\text{Gini}(Y \vert X_i)$表示节点属性为$X_i$的子集上类别$Y$对应的基尼指数。与信息增益相反，节点的基尼指数越大表示样本集合的复杂度越大，因此在特征选择时需要选择基尼指数最小的特征。
 
 ## Inductive Bias
 
