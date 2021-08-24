@@ -1,6 +1,6 @@
 ---
 layout: article
-title: ML课程笔记01-Decision Trees
+title: OMSCS-ML课程笔记01-Decision Trees
 tags: ["OMSCS", "ML"]
 key: OMSCS-ML-01
 aside:
