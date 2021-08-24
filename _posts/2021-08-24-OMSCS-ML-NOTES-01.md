@@ -39,7 +39,10 @@ $$
 接着我们定义随机变量$Y$在已知$X$的情况下对应的**条件熵(conditional entropy)**$H(Y \vert X)$为：
 
 $$
-H(Y|X) = \sum_{i=1}^m P(x_i) H(Y| X = x_i) = -\sum_{i=1}^m P(x_i) \sum_{j=1}^n P(y_j | x_i) \log P(y_j | x_i)
+\begin{aligned}
+H(Y|X) &= \sum_{i=1}^m P(x_i) H(Y| X = x_i) \\
+&= -\sum_{i=1}^m P(x_i) \sum_{j=1}^n P(y_j | x_i) \log P(y_j | x_i)
+\end{aligned}
 $$
 
 最后我们定义信息增益$g(Y, X)$为熵与条件熵之差：
