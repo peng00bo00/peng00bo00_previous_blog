@@ -76,3 +76,17 @@ OMSCS-ML:
   - title: Unsupervised Learning
 
   - title: Reinforcement Learning
+
+OMSCS-CV:
+  - title: Image Processing
+    children: 
+      - title: Linear Image Processing
+        url: /2021/08/25/OMSCS-CV-NOTES-01.html
+      
+  - title: Stereo Vision
+
+  - title: Feature Detection and Matching
+
+  - title: Motion and Tracking
+
+  - title: Recognition
