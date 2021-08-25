@@ -102,7 +102,7 @@ $$
 <img src="https://i.imgur.com/23SLRc2.png" width="20%">
 </div>
 
-因此要正确的实现图像模糊的效果我们需要类似于上图的核。实际中常用的核是**高斯核(Gaussian kernel)**，它可以看做是高斯函数的离散形式：
+因此要正确的实现图像模糊的效果我们需要类似于上图的核。实际中比较常用的是**高斯核(Gaussian kernel)**，它可以看做是高斯函数的离散形式：
 
 <div align=center>
 <img src="https://i.imgur.com/2WtpHvU.png" width="70%">
