@@ -172,6 +172,22 @@ $$
 
 ## Filters as Templates
 
+我们还可以把滤波的过程看做是用给定的**模板(template)**在图像上进行搜索。以一维信号为例，假设我们希望从已知信号中找到一个给定的模板。我们可以把该模板作为滤波器在原始信号上进行滤波，在滤波窗口中原始信号与滤波器越相近响应越强。因此只需在响应信号中寻找最大值即可找到模板在原始信号中的位置：
+
+<div align=center>
+<img src="https://i.imgur.com/NaY5Pdx.png" width="52%">
+<img src="https://i.imgur.com/PXVHfw1.png" width="20%">
+<img src="https://i.imgur.com/k2lrpEQ.png" width="50%">
+</div>
+
+在图像上使用模板进行滤波的过程也称为**模板匹配(template matching)**。模板匹配的结果表示图像对应区域与模板的相似程度，匹配的响应越强表示该区域与模板越相似。
+
+<div align=center>
+<img src="https://i.imgur.com/U4y0rHi.png" width="60%">
+</div>
+
+需要额外说明的是进行模板匹配时需要保证待搜寻的目标与模板的大小、方向以及外观尽可能相似，否则可能会出现无法匹配的情况。
+
 ## Edge Detection: Gradients
 
 ## Edge detection: 2D Operators
