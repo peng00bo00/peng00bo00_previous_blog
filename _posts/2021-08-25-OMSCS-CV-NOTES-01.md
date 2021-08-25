@@ -117,6 +117,59 @@ $$
 
 ## Linearity and Convolution
 
+接下来讨论相关滤波的性质。设$f_1$和$f_2$为函数，$a$为常量，称系统$H$为线性系统(算子)如果它满足可加性和数乘性质：
+
+- $H(f_1 + f_2) = H(f_1) + H(f_2)$
+- $H(a \cdot f) = a \cdot H(f)$
+
+然后引入**脉冲函数(impulse)**的概念：在离散情况下某个给定位置取1的函数称为脉冲函数。
+
+<div align=center>
+<img src="https://i.imgur.com/BxOVn7u.png" width="30%">
+</div>
+
+将脉冲函数序列输入到系统$H$中可以得到响应$h(t)$，如果$H$是线性系统我们还可以通过响应$h(t)$来描述系统的性质。
+
+<div align=center>
+<img src="https://i.imgur.com/Lmzpryw.png" width="60%">
+</div>
+
+可以证明相关滤波是线性系统。因此可以将脉冲函数$F(x, y)$输入到任意滤波器$H(u, v)$中，得到响应$G(x, y)$：
+
+<div align=center>
+<img src="https://i.imgur.com/i0hpXOb.png" width="70%">
+</div>
+
+不难发现响应$G(x, y)$对滤波器$H(u, v)$进行了翻转。因此类似于相关滤波的运算我们可以定义**卷积(convolution)**为：
+
+$$
+G(i, j) = \sum_{u=-k}^k \sum_{v=-k}^k H(u, v) F(i-u, j-v)
+$$
+
+上式记为$G = H * F$，容易验证使用卷积来代替相关滤波就可以使脉冲函数的响应与卷积核相同。实际上卷积还具有非常有用的性质，包括：
+
+- 线性且平移不变；
+- 交换性：$f * g = g * f$；
+- 结合性：$f * (g * h) = (f * g) * h$；
+- 恒等式：$e * f = f$，其中$e$为脉冲函数；
+- 微分性质：$\frac{\partial}{\partial x} (f * g) = \frac{\partial f}{\partial x} * g$
+
+显然对于对称的卷积核，卷积运算与相关滤波是等价的；对于不对称的滤波核则可以通过调整卷积核的形式来达到一样的效果。这表示我们可以用卷积来描述滤波的过程，同时也不再区分卷积和相关滤波。
+
+利用卷积的结合性还可以降低计算的复杂度。假设卷积核$G$可以通过两个一维卷积核表示：
+
+$$
+G = c * r
+$$
+
+因此使用$G$直接进行滤波与分别使用一维卷积核$c$和$r$进行滤波是等价的：
+
+$$
+G * F = (c * r) * F = c * (r * F)
+$$
+
+假设$G$的尺寸为$W \times W$，$F$的尺寸为$H \times H$，则直接进行卷积的计算复杂度为$O(W^2 H^2)$而分解后的计算复杂度则为$O(W H^2)$。因此使用小的卷积核来替代大的卷积核可以极大地提高程序的性能。
+
 ## Filters as Templates
 
 ## Edge Detection: Gradients
