@@ -60,19 +60,19 @@ $$
 在这样的假设下我们可以使用滑动平均的方法对图像进行滤波，具体地针对每个像素点取它周围像素的平均值作为滤波的结果。假设我们已知图像$F(x,y)$，对它使用滑动平均进行滤波的过程如下：
 
 <div align=center>
-<img src="https://i.imgur.com/iCybD4n.png" width="45%">
+<img src="https://i.imgur.com/iCybD4n.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/VGJ9mqJ.png" width="45%">
+<img src="https://i.imgur.com/VGJ9mqJ.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/SBpay1T.png" width="45%">
+<img src="https://i.imgur.com/SBpay1T.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/YaSgCw1.png" width="45%">
+<img src="https://i.imgur.com/YaSgCw1.png" width="50%">
 </div>
 
 以上过程写成数学表达式为：
@@ -92,27 +92,27 @@ $$
 使用**方块核(box filter)**进行滤波可以图像模糊的效果如下：
 
 <div align=center>
-<img src="https://i.imgur.com/ubX9JEI.png" width="20%">
-<img src="https://i.imgur.com/GQa2SBz.png" width="20%">
+<img src="https://i.imgur.com/ubX9JEI.png" width="30%">
+<img src="https://i.imgur.com/GQa2SBz.png" width="30%">
 </div>
 
 仔细观察可以发现图像中有很多的方块状伪影。产生这种现象的原因是方块核并不能正确地反映图像模糊的过程：我们可以想象眼前有一个亮点不断离我们远去，随着距离的增加图像应该是中间亮边缘暗的，如下图所示：
 
 <div align=center>
-<img src="https://i.imgur.com/23SLRc2.png" width="10%">
+<img src="https://i.imgur.com/23SLRc2.png" width="20%">
 </div>
 
 因此要正确的实现图像模糊的效果我们需要类似于上图的核。实际中常用的核是**高斯核(Gaussian kernel)**，它可以看做是高斯函数的离散形式：
 
 <div align=center>
-<img src="https://i.imgur.com/2WtpHvU.png" width="50%">
+<img src="https://i.imgur.com/2WtpHvU.png" width="70%">
 </div>
 
 使用高斯核代替方块核可以得到更加合理的模糊效果：
 
 <div align=center>
-<img src="https://i.imgur.com/ubX9JEI.png" width="20%">
-<img src="https://i.imgur.com/zVfSVk4.png" width="20%">
+<img src="https://i.imgur.com/ubX9JEI.png" width="30%">
+<img src="https://i.imgur.com/zVfSVk4.png" width="30%">
 </div>
 
 ## Linearity and Convolution
