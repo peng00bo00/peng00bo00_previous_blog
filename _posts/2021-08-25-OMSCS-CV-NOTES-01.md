@@ -31,7 +31,7 @@ $$
 
 其中$r(x, y)$，$g(x, y)$，$b(x, y)$分别表示三个通道上的色彩值。
 
-由于计算机不能表示连续的对象，因此计算机中的数字图像实际上是经过离散后的结果，此时我们也可以把图像理解为一个数组或是矩阵。
+由于计算机不能表示连续的对象，计算机中的数字图像实际上是经过离散后的结果，此时我们也可以把图像理解为一个数组或是矩阵。
 
 <div align=center>
 <img src="https://i.imgur.com/Pxskgo5.png" width="32%">
@@ -189,5 +189,60 @@ $$
 需要额外说明的是进行模板匹配时需要保证待搜寻的目标与模板的大小、方向以及外观尽可能相似，否则可能会出现无法匹配的情况。
 
 ## Edge Detection: Gradients
+
+人眼可以通过图像的边缘来认识图像的内容，因此边缘是一种重要的图像特征。边缘可以有各种各样的定义，在图像处理中最常见的是把图像灰度值发生剧烈变化的区域定义为边缘，因此可以把图像导数取极值的位置视为图像的边缘。
+
+<div align=center>
+<img src="https://i.imgur.com/v4rZcWL.png" width="60%">
+</div>
+
+由于图像是二元函数，实际上这里"导数"指的是图像的**梯度(gradient)**：
+
+$$
+\nabla f = 
+\begin{bmatrix}
+\frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y}
+\end{bmatrix}
+$$
+
+梯度的方向为：
+
+$$
+\theta = \arctan \bigg(\frac{\nabla_y f}{\nabla_x f}\bigg)
+$$
+
+对应的模长为：
+
+$$
+\Vert \nabla f \Vert = \sqrt{\bigg(\frac{\partial f}{\partial x}\bigg)^2 + \bigg(\frac{\partial f}{\partial y}\bigg)^2}
+$$
+
+在图像上使用差分代替微分得到图像上的梯度算子：
+
+$$
+\frac{\partial f(x, y)}{\partial x} \approx f(x+1, y) - f(x, y)
+$$
+
+$$
+\frac{\partial f(x, y)}{\partial y} \approx f(x, y+1) - f(x, y)
+$$
+
+显然我们可以把差分的形式通过滤波进行表示从而得到相应的滤波核。实际应用中更为常用的梯度算子包括Sobel算子、Prewitt算子、Roberts算子等，它们对应的滤波核如下：
+
+<div align=center>
+<img src="https://i.imgur.com/nsaDue1.png" width="60%">
+</div>
+
+需要说明的是这里"滤波"指的是相关滤波，如果使用卷积滤波来计算的话则需要对滤波核进行相应的处理。在实际应用中由于噪声的存在直接计算梯度可能会产生较大的误差，因此往往需要首先对图像进行降噪然后在计算梯度。假设我们使用高斯核进行降噪，利用卷积的微分性质可以把高斯滤波和边缘检测合并成一个算子：
+
+<div align=center>
+<img src="https://i.imgur.com/6POXCm5.png" width="70%">
+</div>
+
+因此只需要使用高斯核的一阶导数进行滤波即可。为了获得边缘的位置我们需要在响应信号上再次求导，导数为0的位置即为边缘。再次利用卷积的微分性质将求导运算整合到卷积核中，得到高斯核的二阶导。使用高斯核的二阶导进行滤波，响应信号为0的位置即为边缘：
+
+<div align=center>
+<img src="https://i.imgur.com/yCDgJoa.png" width="70%">
+</div>
 
 ## Edge detection: 2D Operators
