@@ -87,7 +87,7 @@ $$
 G(i, j) = \sum_{u=-k}^k \sum_{v=-k}^k H(u, v) F(i+u, j+v)
 $$
 
-其中$H(u, v)$满足$\sum H(u, v) = 1$，它代表邻域内不同像素具有的权重，称为滤波器的**核(kernel)**或者**模板(mask)**。上述的滤波过程称为**相关滤波(correlation filtering)**，记为$G = H \otimes F$。
+其中$H(u, v)$满足$\sum H(u, v) = 1$，它代表邻域内不同像素具有的权重，称为滤波器的**核(kernel)**。上述的滤波过程称为**相关滤波(correlation filtering)**，记为$G = H \otimes F$。
 
 使用**方块核(box filter)**进行滤波可以图像模糊的效果如下：
 
