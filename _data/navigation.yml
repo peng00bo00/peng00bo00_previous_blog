@@ -78,15 +78,23 @@ OMSCS-ML:
   - title: Reinforcement Learning
 
 OMSCS-CV:
-  - title: Image Processing
+  - title: Image Processing for Computer Vision
     children: 
       - title: Linear Image Processing
         url: /2021/08/25/OMSCS-CV-NOTES-01.html
-      
-  - title: Stereo Vision
+  
+  - title: Camera Models and Views
 
-  - title: Feature Detection and Matching
+  - title: Feature and Matching
+
+  - title: Lightness and Brightness
+
+  - title: Image Motion
 
   - title: Motion and Tracking
 
-  - title: Recognition
+  - title: Classification and Recognition
+
+  - title: Miscellaneous Operations
+
+  - title: Human Vision
