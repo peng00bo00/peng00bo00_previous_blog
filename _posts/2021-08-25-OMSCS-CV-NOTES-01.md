@@ -246,3 +246,53 @@ $$
 </div>
 
 ## Edge detection: 2D Operators
+
+最后来讨论图像上的边缘检测。类似于一维信号，我们同样可以将高斯核与求梯度进行结合从而加速计算：
+
+<div align=center>
+<img src="https://i.imgur.com/snLlyTQ.png" width="70%">
+</div>
+
+通常情况下寻找图像中的边缘可以采用如下的流程：
+
+1. 对图像进行滤波并计算梯度；
+2. 对梯度进行阈值化保留梯度较强的区域；
+3. 对当前得到的边缘进行细化；
+4. 将细化后的边缘重新连接得到最终的边缘。
+
+<div align=center>
+<img src="https://i.imgur.com/BoiLtDt.png" width="30%">
+<img src="https://i.imgur.com/4HtBHwl.png" width="30%">
+<img src="https://i.imgur.com/pG4n0sU.png" width="30%">
+</div>
+
+图像边缘检测算法中最常用的是Canny算法同样采用了这样一套流程。在边缘的细化过程中Canny算法通过**非极大值抑制(non-maximum suppression)**来清除杂乱的边缘，而在最后一步则使用了2套阈值来连接细化后的边缘：
+
+- 利用高阈值和低阈值将边缘划分为强边缘(大于高阈值)、弱边缘(介于高阈值和低阈值之间)和非边缘(小于低阈值)；
+- 对于强边缘进行保留，并对非边缘进行抑制；
+- 对于弱边缘，如果它附近存在强边缘则进行保留否则进行抑制。
+
+<div align=center>
+<img src="https://i.imgur.com/MZMukk7.png" width="30%">
+<img src="https://i.imgur.com/bzfOUUk.png" width="30%">
+<img src="https://i.imgur.com/M0YhYbD.png" width="30%">
+<img src="https://i.imgur.com/kmqd4Px.png" width="30%">
+<img src="https://i.imgur.com/OjbfqJN.png" width="30%">
+</div>
+
+此外值得一提的是高斯模糊过程中方差的选取也会对边缘检测的最终效果产生一定的影响：使用较大的$\sigma$会得到图像中较为显著的边缘，反之较小的$\sigma$则会保留图像中细节部分的边缘。因此$\sigma$的取值还需要结合实际需求进行选择。
+
+<div align=center>
+<img src="https://i.imgur.com/UBDvzKp.png" width="70%">
+</div>
+
+除了一阶梯度算子外我们也可以使用二阶梯度算子(**Laplace算子**)来进行边缘检测，其定义为函数在两个方向上二阶导数的和。我们同样可以将高斯滤波与Laplace算子进行结合，得到**LoG算子(Laplacian of Gaussian)**。类似于一维信号的边缘检测，使用LoG算子进行滤波后图像的过0点即为所需边缘。
+
+$$
+\nabla^2 h = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2}
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/mCzoRkl.png" width="36%">
+<img src="https://i.imgur.com/vg6nar8.png" width="30%">
+</div>
