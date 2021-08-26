@@ -147,8 +147,8 @@ Computer Graphics
 ### 深蓝学院
 
 - [机器人学中的状态估计(State Estimation for Robotics)](https://drive.google.com/file/d/15kC1DwbkPKjwmURQ2j-krpxXRgayqoWh/view)
-- [视觉SLAM理论与实践(Visual SLAM Foundations)](https://drive.google.com/file/d/1zJmIHwe-A55HYZPpHbvPTlzJh1nDd2Tb/view)
+- [视觉SLAM理论与实践(Introduction to Visual SLAM)](https://drive.google.com/file/d/1zJmIHwe-A55HYZPpHbvPTlzJh1nDd2Tb/view)
 - [移动机器人运动规划(Motion Planning for Mobile Robotics)](https://drive.google.com/file/d/17Ou80-BUz0Ug56jqK8XtM3EeZZpUcfQo/view)
-- [ROS理论与实践：以移动机器人为例(ROS Foundations)](https://drive.google.com/file/d/1zmaeH0U_E0I9dqRlq0TO1aGBn57ve0Ho/view)
+- [ROS理论与实践：以移动机器人为例(Introduction to ROS)](https://drive.google.com/file/d/1zmaeH0U_E0I9dqRlq0TO1aGBn57ve0Ho/view)
 - [基于深度学习的物体检测(Object Detection with Deep Learning)](https://drive.google.com/file/d/1zmaeH0U_E0I9dqRlq0TO1aGBn57ve0Ho/view)
-- [激光SLAM理论与实践(Laser SLAM Foundations)](https://drive.google.com/file/d/1I9WT7E_g86ECZW-JDgEdE6FQvcw-Q1iE/view?usp=sharing)
+- [激光SLAM理论与实践(Introduction to Laser SLAM)](https://drive.google.com/file/d/1I9WT7E_g86ECZW-JDgEdE6FQvcw-Q1iE/view?usp=sharing)
