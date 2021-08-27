@@ -63,6 +63,21 @@ I(X; Y) &= D_{KL}(P(X, Y) \Vert P(X)P(Y)) \\
 \end{aligned}
 $$
 
+利用Venn图可将互信息与熵的关系表示如下：
+
+$$
+\begin{aligned}
+I(X; Y) = I(Y; X) &= H(Y) - H(Y|X) \\
+&= H(X) - H(X|Y) \\
+&= H(X) + H(Y) - H(X, Y) \\
+&= H(X, Y) - H(X|Y)- H(Y|X)
+\end{aligned}
+$$
+
+<div align=center>
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Entropy-mutual-information-relative-entropy-relation-diagram.svg" width="40%">
+</div>
+
 互信息度量了随机变量$X$和$Y$的相关性，互信息越大表示$X$和$Y$的相关性越强，且互信息为0等价于$X$和$Y$相互独立。因此ID3算法使用信息增益进行特征选择实质上是每次选择与类别信息最相关的一个特征对数据进行划分。
 
 ### Information Gain Ratio
