@@ -50,7 +50,7 @@ $$
 
 ## Training
 
-### Perceptron Learning
+### Perceptron Training
 
 对于线性可分的数据，感知机的学习算法如下：
 
@@ -77,9 +77,17 @@ $$
 
 ## Sigmoid
 
+感知机使用单位阶跃函数作为激活函数，它的主要缺陷在于函数在0点不可导而在其他位置导数恒为0。在神经网络中更常用的函数是sigmoid函数，其定义为：
+
+$$
+\sigma(x) = \frac{1}{1 + e^{-x}}
+$$
+
 <div align=center>
 <img src="https://raw.githubusercontent.com/siebenrock/activation-functions/master/plots/sigmoid.png" width="40%">
 </div>
+
+显然sigmoid函数更加光滑，而且由于函数自身的归一化性质我们也可以把函数的输出视为概率进而应用到分类问题中。神经网络中其他常用的激活函数可参见[Activation Functions](https://github.com/siebenrock/activation-functions)。
 
 ## Neural Network Sketch
 
