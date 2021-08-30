@@ -39,7 +39,7 @@ f(x) =
 $$
 
 <div align=center>
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Dirac_distribution_CDF.svg" width="40%">
+<img src="https://raw.githubusercontent.com/siebenrock/activation-functions/master/plots/binary_step.png" width="40%">
 </div>
 
 ## Gradient Descent
