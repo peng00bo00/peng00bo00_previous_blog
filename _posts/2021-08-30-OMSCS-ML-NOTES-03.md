@@ -26,7 +26,7 @@ $$
 
 ## Perceptron
 
-最简单的神经网络为**感知机(perceptron)**，此时神经元的阈值为0且激活函数为阶跃函数：
+最简单的神经网络为**感知机(perceptron)**，此时神经元的阈值为0且对应激活函数为**单位阶跃函数(heaviside step function)**：
 
 $$
 f(x) = 
@@ -45,6 +45,10 @@ $$
 ## Gradient Descent
 
 ## Sigmoid
+
+<div align=center>
+<img src="https://raw.githubusercontent.com/siebenrock/activation-functions/master/plots/sigmoid.png" width="40%">
+</div>
 
 ## Neural Network Sketch
 
