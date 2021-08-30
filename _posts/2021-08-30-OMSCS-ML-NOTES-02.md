@@ -38,7 +38,7 @@ $$
 \mathbf{X}^T (\mathbf{y} - \mathbf{X} \beta) = 0
 $$
 
-最后得到$\beta$的估计值：
+求解方程最后得到$\beta$的估计值：
 
 $$
 \hat{\beta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}
