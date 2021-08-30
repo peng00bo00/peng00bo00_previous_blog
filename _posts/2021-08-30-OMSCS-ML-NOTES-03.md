@@ -38,6 +38,10 @@ f(x) =
 \right.
 $$
 
+<div align=center>
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Dirac_distribution_CDF.svg" width="40%">
+</div>
+
 ## Gradient Descent
 
 ## Sigmoid
