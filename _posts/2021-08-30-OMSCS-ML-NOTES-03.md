@@ -101,10 +101,13 @@ $$
 
 ### Restriction Bias
 
-最后我们来讨论神经网络的偏好。
+最后我们来讨论神经网络的偏好。从前面的内容中不难发现神经网络的限制是比较少的，即使是感知机也有非常强的表达能力。实际上**通用逼近定理(universal approximation theorem)**证明了对于任意的连续函数，只要有足够多的神经元我们可以通过单隐层神经网络以任意精度进行近似。这表明神经网络具有非常强大的表达能力，当出现其他模型无法处理的情况时神经网络仍然可以有非常好的表现。同时需要注意的是神经网络强大的表达能力也说明它非常容易出现过拟合的问题，因此在使用时往往还需要结合正则化、交叉验证等方法来对模型的复杂度进行控制。
 
 ### Preference Bias
+
+神经网络的偏好还取决于网络的初值。由于梯度下降会使模型向最小化误差的方向移动，初值的选取对于模型的最终性能起着至关重要的作用。通常情况下我们会选择比较小的随机值来初始化网络，这意味着模型的复杂度会相对较低而且每次训练模型不会卡在某些局部极小值上。因此神经网络在训练时同等条件下会优先选择相对简单的模型。
 
 ## Reference
 
 - Chapter 4: ARTIFICIAL NEURAL NETWORKS, [Machine Learning, Tom Mitchell, McGraw Hill, 1997.](http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html)
+- [Universal approximation theorem](https://en.wikipedia.org/wiki/Universal_approximation_theorem)
