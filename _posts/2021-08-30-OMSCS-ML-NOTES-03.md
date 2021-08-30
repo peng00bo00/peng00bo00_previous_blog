@@ -48,6 +48,28 @@ $$
 <img src="https://i.imgur.com/6XI7z9z.png" width="70%">
 </div>
 
+## Sigmoid
+
+感知机使用单位阶跃函数作为激活函数，它的主要缺陷在于函数在0点不可导而在其他位置导数恒为0。在神经网络中更常用的函数是sigmoid函数，其定义为：
+
+$$
+\sigma(x) = \frac{1}{1 + e^{-x}}
+$$
+
+<div align=center>
+<img src="https://raw.githubusercontent.com/siebenrock/activation-functions/master/plots/sigmoid.png" width="40%">
+</div>
+
+显然sigmoid函数更加光滑，而且由于函数自身的归一化性质我们也可以把函数的输出视为概率进而应用到分类问题中。神经网络中其他常用的激活函数可参见[Activation Functions](https://github.com/siebenrock/activation-functions)。
+
+## Neural Network Sketch
+
+我们把神经元按照一定的拓扑关系连接起来就形成了神经网络。一般而言网络可分为输入层、隐层和输出层，其中隐层和输出层对应网络的主要计算过程。同时由于网络的每一层都是可导的，我们可以从后向前计算输出对输入的导数，这就为神经网络的训练提供了理论保证。
+
+<div align=center>
+<img src="https://1.cms.s81c.com/sites/default/files/2021-01-06/ICLH_Diagram_Batch_01_03-DeepNeuralNetwork-WHITEBG.png" width="80%">
+</div>
+
 ## Training
 
 ### Perceptron Training
@@ -74,22 +96,6 @@ $$
    4. 重复以上步骤直至数据集上总误差收敛。
 
 因此对于不同类型的任务只需要选择合适的误差函数并计算相应的偏导数即可。对于大型神经网络显式计算偏导数基本是不现实的，实际中一般是通过**反向传播算法(backpropagation)**从后向前计算每一层的偏导数。同时需要说明的是与感知机学习算法不同，梯度下降算法**不能**保证收敛到全局最优。
-
-## Sigmoid
-
-感知机使用单位阶跃函数作为激活函数，它的主要缺陷在于函数在0点不可导而在其他位置导数恒为0。在神经网络中更常用的函数是sigmoid函数，其定义为：
-
-$$
-\sigma(x) = \frac{1}{1 + e^{-x}}
-$$
-
-<div align=center>
-<img src="https://raw.githubusercontent.com/siebenrock/activation-functions/master/plots/sigmoid.png" width="40%">
-</div>
-
-显然sigmoid函数更加光滑，而且由于函数自身的归一化性质我们也可以把函数的输出视为概率进而应用到分类问题中。神经网络中其他常用的激活函数可参见[Activation Functions](https://github.com/siebenrock/activation-functions)。
-
-## Neural Network Sketch
 
 ## Bias
 
