@@ -88,6 +88,9 @@ OMSCS-CV:
     children: 
       - title: Linear Image Processing
         url: /2021/08/25/OMSCS-CV-NOTES-01.html
+      
+      - title: Hough Transform
+        url: /2021/08/31/OMSCS-CV-NOTES-02.html
   
   - title: Camera Models and Views
 
