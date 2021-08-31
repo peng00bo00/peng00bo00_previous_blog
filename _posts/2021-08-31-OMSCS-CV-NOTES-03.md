@@ -116,3 +116,43 @@ $$
 </div>
 
 ## 	Aliasing
+
+本节最后从频域角度来理解图像的混淆问题。由于计算机不能直接表示连续的信号，我们需要通过采样来对连续信号进行离散。当采样的频率低于信号自身的频率时采样的结果就不能完全反映原始信号的信息，更严重的问题是我们无法区分采样的信号是来自于信号原始信号还是更高频的信号，这样的现象称为**混淆(aliasing)**。
+
+<div align=center>
+<img src="https://i.imgur.com/5Ru2Jth.png" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/Bpty2ef.png" width="70%">
+</div>
+
+从频域的角度取理解，我们可以把采样的过程表示为原始信号与脉冲序列的乘积。根据卷积定理，采样后的信号从频域上看相当于对原始信号的频谱进行了平移，平移的间隔与采样间隔成反比。在脉冲序列频率足够高的情况下平移后的频谱间不会相互影响，此时不会出现混淆的问题。
+
+<div align=center>
+<img src="https://i.imgur.com/WjfMniG.png" width="70%">
+</div>
+
+但是当原始信号存在较多的高频成分或是脉冲序列的频率不够高时，采样后的频谱会相互叠加到一起进而出现混淆的情况。此时频谱中的高频成分会混入到低频成分中，使得我们丢失了信号中的各种细节。
+
+<div align=center>
+<img src="https://i.imgur.com/RKSVMwU.png" width="70%">
+</div>
+
+因此我们可以通过增加采样频率的方式来避免信号出现混淆。实际中更常用的方法是在采样前利用一个低通滤波器过滤掉原始信号中的高频成分，然后对处理后的信号进行采样。尽管这样做会损失掉信号中的一些高频信息，但可以保证采样后不会出现混淆的问题。
+
+<div align=center>
+<img src="https://i.imgur.com/dSRgULN.png" width="70%">
+</div>
+
+混淆的现象在图像处理中并不少见。以图像的缩放为例，如果在每次缩放时只是删去一半的行和列就很容易出现混淆。
+
+<div align=center>
+<img src="https://i.imgur.com/FICsGsU.png" width="70%">
+</div>
+
+处理的方法也很简单，只要在每次缩放前先对图像进行高斯滤波即可。
+
+<div align=center>
+<img src="https://i.imgur.com/ZNRtnzd.png" width="70%">
+</div>
