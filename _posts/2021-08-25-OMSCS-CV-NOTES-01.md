@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-CV课程笔记01-Linear Image Processing
-tags: ["OMSCS", "CV"]
+tags: ["OMSCS", "CS6476-CV"]
 key: OMSCS-CV-01
 aside:
   toc: true

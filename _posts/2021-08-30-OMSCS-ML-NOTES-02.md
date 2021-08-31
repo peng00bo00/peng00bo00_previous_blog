@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-ML课程笔记02-Regression
-tags: ["OMSCS", "ML"]
+tags: ["OMSCS", "CS7641-ML"]
 key: OMSCS-ML-02
 aside:
   toc: true

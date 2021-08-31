@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-ML课程笔记03-Neural Networks
-tags: ["OMSCS", "ML"]
+tags: ["OMSCS", "CS7641-ML"]
 key: OMSCS-ML-03
 aside:
   toc: true
