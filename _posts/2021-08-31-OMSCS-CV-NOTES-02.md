@@ -71,9 +71,23 @@ $$
 <img src="https://i.imgur.com/buEoPYd.png" width="30%">
 </div>
 
+使用极坐标作为参数平面的霍夫线变换算法流程如下：
+
+<div align=center>
+<img src="https://i.imgur.com/7CQ1AiD.png" width="90%">
+</div>
+
 因此霍夫线变换将直线检测的问题转化为参数平面的计数问题，所需的空间复杂度为参数平面网格的大小$O(k^2)$，时间复杂度为边缘点的数量$O(n)$。
 
 在标准流程外我们还可以利用图像梯度的方向显式指定参数$\theta$，或是赋予不同参数不同的权重来提升算法的效果。
+
+<div align=center>
+<img src="https://i.imgur.com/Kv5MMyH.png" width="90%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/guV5rpq.png" width="90%">
+</div>
 
 ## Hough Circle Transform
 
