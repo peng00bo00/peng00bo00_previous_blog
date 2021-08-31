@@ -31,7 +31,7 @@ $F(u)$表示$f(x)$在对应频率$u$上的权重，它的实部和虚部分别�
 与之对应的，通过**逆傅里叶变换(inverse Fourier transform)**可以将频域函数$F(u)$变换为时域函数$f(x)$：
 
 $$
-f(x) = \int_{-\infty}^\infty f(x) e^{i 2 \pi u x} du
+f(x) = \int_{-\infty}^\infty F(u) e^{i 2 \pi u x} du
 $$
 
 需要说明的是傅里叶变换仅在函数可积时成立，即函数$f(x)$需要满足：
@@ -82,5 +82,37 @@ $$
 </div>
 
 ## Convolution in Frequency Domain
+
+卷积运算与频域分析有着深刻的联系。以一维信号为例，假设信号$g$为$f$和$h$的卷积$g = f * h$，此时$g$的频域形式为：
+
+$$
+\begin{aligned}
+G(u) &= \int_{-\infty}^\infty g(x) e^{-i 2 \pi u x} dx \\
+&= \int_{-\infty}^\infty \int_{-\infty}^\infty f(\tau) h(x - \tau) e^{-i 2 \pi u x} d \tau dx \\
+&=\int_{-\infty}^\infty \int_{-\infty}^\infty [f(\tau) e^{-i 2 \pi u \tau}] [h(x - \tau) e^{-i 2 \pi u (x - \tau)}] d \tau dx \\
+&= \int_{-\infty}^\infty f(\tau) e^{-i 2 \pi u \tau} d \tau \int_{-\infty}^\infty h(x') e^{-i 2 \pi u x'} dx' \\
+&=F(u) H(u)
+\end{aligned}
+$$
+
+上式说明在时域函数的卷积相当于频域函数的乘积，称为**卷积定理(convolution theorem)**。类似地可以证明频域函数的卷积等价于时域函数的乘积。
+
+通过卷积定理我们还可以从频域的角度来认识卷积滤波。以高斯滤波为例，从频域上看使用高斯核进行滤波相当于保留了图像的低频成分同时抑制了高频成分。由于滤波去掉了高频信息(细节)，图像自然会变得模糊。
+
+<div align=center>
+<img src="https://i.imgur.com/4SbCZaU.png" width="70%">
+</div>
+
+除了卷积定理外，傅里叶变换的其他常用性质包括：
+
+- Linearity：$c_1 f(x) + c_2 g(x) \Leftrightarrow c_1 F(x) + c_2 G(x)$
+- Scaling：$f(ax) \Leftrightarrow \frac{1}{\vert a \vert} F(\frac{u}{a})$
+- Differentiation：$\frac{d^n}{d x^n} f(x) \Leftrightarrow (i 2 \pi u)^n F(u)$
+
+同时一些常用函数的傅里叶变换如下：
+
+<div align=center>
+<img src="https://i.imgur.com/JnEx6sX.png" width="70%">
+</div>
 
 ## 	Aliasing
