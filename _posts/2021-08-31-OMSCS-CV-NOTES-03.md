@@ -201,4 +201,6 @@ $$
 
 ## Reference
 
+- [Fourier transform](https://en.wikipedia.org/wiki/Fourier_transform)
+- [Convolution theorem](https://en.wikipedia.org/wiki/Convolution_theorem)
 - [Sampling Theory 101](https://web.cs.ucdavis.edu/~okreylos/PhDStudies/Winter2000/SamplingTheory.html)
