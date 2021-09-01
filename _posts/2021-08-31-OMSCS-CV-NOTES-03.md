@@ -127,7 +127,49 @@ $$
 <img src="https://i.imgur.com/Bpty2ef.png" width="70%">
 </div>
 
-从频域的角度取理解，我们可以把采样的过程表示为原始信号与脉冲序列的乘积。根据卷积定理，采样后的信号从频域上看相当于对原始信号的频谱进行了平移，平移的间隔与采样间隔成反比。在脉冲序列频率足够高的情况下平移后的频谱间不会相互影响，此时不会出现混淆的问题。
+为了更好的理解混淆的现象，首先需要引入**脉冲序列(impulse train)**的相关概念：
+
+$$
+\text{comb}_M (x) = \sum_{k=-\infty}^\infty \delta(x - k M)
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/lfbQB0T.png" width="50%">
+</div>
+
+显然脉冲序列$\text{comb}_M (x)$是一个周期为$M$的函数，因此我们可以用**傅里叶级数(Fourier series)**将其展开：
+
+$$
+\text{comb}_M (x) = \sum_{k=-\infty}^\infty A_k e^{i \frac{2 \pi}{M} k x}
+$$
+
+$$
+A_k = \frac{1}{M} \int_{-\frac{M}{2}}^{\frac{M}{2}} \delta(x - k M) e^{-i \frac{2 \pi}{M} k x} d x = \frac{1}{M}
+$$
+
+这样得到使用傅里叶级数表示的脉冲序列：
+
+$$
+\text{comb}_M (x) = \frac{1}{M} \sum_{k=-\infty}^\infty e^{i \frac{2 \pi}{M} k x}
+$$
+
+再通过傅里叶变换得到脉冲序列的频域表示：
+
+$$
+\begin{aligned}
+\int_{-\infty}^\infty \text{comb}_M (x) \cdot e^{-i 2 \pi u x} dx &= \frac{1}{M} \sum_{k=-\infty}^\infty \int_{-\infty}^\infty e^{i \frac{2 \pi}{M} k x} \cdot e^{-i 2 \pi u x} dx \\
+&= \frac{1}{M} \sum_{k=-\infty}^\infty \delta(u -\frac{k}{M}) \\
+&= \frac{1}{M} \text{comb}_\frac{1}{M} (u)
+\end{aligned}
+$$
+
+上式说明周期为$M$的脉冲序列经过傅里叶变换后得到周期为$\frac{1}{M}$的脉冲序列。
+
+<div align=center>
+<img src="https://i.imgur.com/3xHfTeg.png" width="80%">
+</div>
+
+采样的过程可以表示为原始信号与脉冲序列的乘积，在时域上得到一系列幅值变化的脉冲信号。根据卷积定理，采样后的信号从频域上看相当于对原始信号的频谱进行了平移，平移的间隔与采样间隔成反比。在脉冲序列频率足够高的情况下平移后的频谱间不会相互影响，此时不会出现混淆的问题。
 
 <div align=center>
 <img src="https://i.imgur.com/WjfMniG.png" width="70%">
@@ -156,3 +198,7 @@ $$
 <div align=center>
 <img src="https://i.imgur.com/ZNRtnzd.png" width="70%">
 </div>
+
+## Reference
+
+- [Sampling Theory 101](https://web.cs.ucdavis.edu/~okreylos/PhDStudies/Winter2000/SamplingTheory.html)
