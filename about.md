@@ -54,7 +54,7 @@ Computer Graphics
 ## Publications
 
 - **A Novel Vision-Based Framework for Identifying Dynamic Vehicle Loads on Long-Span Bridges: A Case Study of Jiangyin Bridge, China** \
-  Yue Pan, Dalei Wang, Bo Peng, and Yiqing Dong \
+  Yue Pan, Dalei Wang, Yiqing Dong, and Bo Peng \
   IEEE Transactions on Intelligent Transportation Systems
 
 - **Manufacturing and Characterization of Lunar Regolith Simulants** \
