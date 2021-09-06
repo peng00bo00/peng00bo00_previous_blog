@@ -110,4 +110,4 @@ $$
 ## Reference
 
 - Chapter 4: ARTIFICIAL NEURAL NETWORKS, [Machine Learning, Tom Mitchell, McGraw Hill, 1997.](http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html)
-- [Universal approximation theorem](https://en.wikipedia.org/wiki/Universal_approximation_theorem)
+- [Wikipedia: Universal approximation theorem](https://en.wikipedia.org/wiki/Universal_approximation_theorem)

@@ -86,5 +86,5 @@ k-fold交叉验证的一种极端情况是取k为训练数据总数，此时每�
 
 ## Reference
 - [Chapter 3: Linear Methods for Regression](https://web.stanford.edu/~hastie/ElemStatLearn/printings/ESLII_print12_toc.pdf#page=62)
-- [Polynomial Regression](https://en.wikipedia.org/wiki/Polynomial_regression)
-- [Cross Validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics))
+- [Wikipedia: Polynomial Regression](https://en.wikipedia.org/wiki/Polynomial_regression)
+- [Wikipedia: Cross Validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics))

@@ -137,5 +137,5 @@ $$
 如果图像上Hough table出现了尺度或朝向的变化则需要将尺度因子和角度变化加入到遍历中，同时在计算几何形状中心点坐标时也需要考虑相应的缩放和旋转变换。
 
 ## Reference
-- [Hough Transform](https://en.wikipedia.org/wiki/Hough_transform)
-- [Generalized Hough Transform](https://en.wikipedia.org/wiki/Generalised_Hough_transform)
+- [Wikipedia: Hough Transform](https://en.wikipedia.org/wiki/Hough_transform)
+- [Wikipedia: Generalized Hough Transform](https://en.wikipedia.org/wiki/Generalised_Hough_transform)
