@@ -54,6 +54,7 @@ k-NN的restriction bias由距离函数控制，理论上讲只要可以构造出
 
 ## Reference
 
+- Chapter 8: INSTANCE-BASED LEARNING, [Machine Learning, Tom Mitchell, McGraw Hill, 1997.](http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html)
 - 第3章：k邻近法，统计学习方法（第2版）
 - [Wikipedia: k-d tree](https://en.wikipedia.org/wiki/K-d_tree)
 - [Wikipedia: Curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality#Machine_Learning)
