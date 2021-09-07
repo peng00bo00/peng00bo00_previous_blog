@@ -1,6 +1,6 @@
 ---
 layout: article
-title: OMSCS-ML课程笔记04-Ensemble Learning
+title: OMSCS-ML课程笔记05-Ensemble Learning
 tags: ["OMSCS", "CS7641-ML"]
 key: OMSCS-ML-05
 aside:
