@@ -90,6 +90,7 @@ OMSCS-CV:
         url: /2021/08/31/OMSCS-CV-NOTES-02.html
       - title: Frequency Domain Analysis
         url: /2021/08/31/OMSCS-CV-NOTES-03.html
+  
   - title: Camera Models and Views
     children: 
       - title: Camera Models
