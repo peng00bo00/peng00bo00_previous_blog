@@ -87,13 +87,13 @@ $$
 <img src="https://i.imgur.com/4RD9spN.png" width="70%">
 </div>
 
-焦距的在成像中的另一个应用是滑动变焦(dolly zoom)。只需要改变焦距和成像距离而无需移动物体就可以干扰人眼对空间的认知，这在很多影视作品中都有应用。
+焦距的在成像中的另一个应用是**滑动变焦(dolly zoom)**。只需要改变焦距和成像距离而无需移动物体就可以干扰人眼对空间的认知，这在很多影视作品中都有应用。
 
 <div align=center>
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Contra-zoom_aka_dolly_zoom_animation.gif" width="40%">
 </div>
 
-现实生活中的透镜由于制造工艺等因素会存在一定的缺陷，其中最常见的缺陷是畸变(distortion)，此时原本的直线在投影后会变成曲线：
+现实生活中的透镜由于制造工艺等因素会存在一定的缺陷，其中最常见的缺陷是**畸变(distortion)**，此时原本的直线在投影后会变成曲线：
 
 <div align=center>
 <img src="https://i.imgur.com/WUKSPF8.png" width="50%">
@@ -125,3 +125,5 @@ $$
 </div>
 
 ## Perspective Imaging
+
+对于现代相机而言通过复杂的透镜系统可以去除掉绝大部分的镜头缺陷，使得最终呈现的图像类似于针孔相机的成像结果，因此在进行分析时我们可以直接假定图像来自于针孔相机模型。
