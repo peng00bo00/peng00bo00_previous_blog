@@ -20,14 +20,22 @@ bagging是最简单的集成方法：在训练时每次只选取全部数据中�
 
 ## Boosting
 
-bagging方法通过训练一系列相互独立的模型来提升性能，而boosting方法则是通过修改模型和数据的权重来提升性能。boosting方法在训练过程中会为每个模型赋予不同的权重，而在预测时对所有模型的输出计算加权平均。以二分类问题为例，boosting方法的训练流程如下：
+bagging方法通过训练一系列相互独立的模型来提升性能，而boosting方法则是通过修改模型和数据的权重来提升性能。boosting方法在训练过程中会为每个模型赋予不同的权重，如果当前模型对某个样本分类错误则会提高该样本的权重，使得模型会更关注那些被错误分类的难分样本(hard example)；而在预测时对所有模型的输出计算加权平均。以二分类问题为例，boosting方法的训练流程如下：
 
 1. 初始化样本的权重$\mathbb{D}_1$；
 2. 利用当前的样本权重训练一个分类器$h_t(x)$；
 3. 计算当前分类器在数据集上的误差$\varepsilon_t$，进而更新模型权重$\alpha_t$和样本权重$\mathbb{D}_t$；
-4. 回到步骤2直到获得足够数量的分类器，最终的分类器为$h_t(x)$的线性组合：$h(x) = \text{sign} \big( \sum_t \alpha_t h_t(x) \big)$
+4. 回到步骤2直到获得足够数量的分类器，最终的分类器为$h_t(x)$的线性组合：$h(x) = \text{sign} \big( \sum_t \alpha_t h_t(x) \big)$。
 
 ## AdaBoost
+
+显然如何更新样本以及模型的权重对于boosting方法的效果起着至关重要的作用。boosting方法中最具代表性的是AdaBoost算法，它利用指数函数来自适应地更新权重，具体而言：
+
+1. 初始化样本的权重为均匀权重$\mathbb{D}_1(x_i) = \frac{1}{n}$；
+2. 利用当前的样本权重训练一个分类器$h_t(x)$；
+3. 根据当前样本权重计算当前分类器在数据集上的加权误差$\varepsilon_t = \sum_{i=1}^n \mathbb{D}_t(x_i) I(h_t(x_i) \neq y_i)$；
+4. 当前分类器的模型权重为$\alpha_t = \frac{1}{2} \log \frac{1 - \varepsilon_t}{\varepsilon_t}$；
+5. 更新训练数据集上的样本权重$$\mathbb{D}_{t+1}(x_i) = \frac{\mathbb{D}_{t}(x_i)}{Z_t} \exp \{-\alpha_t y_i h_t(x_i) \}$$
 
 ## Reference
 
