@@ -54,16 +54,12 @@ DDG:
     children: 
       - title: 外代数与外微分
         url: /2021/08/15/DDG-NOTES-1.html
-
       - title: 曲面与曲率
         url: /2021/08/17/DDG-NOTES-2.html
-
       - title: Laplace算子
         url: /2021/08/19/DDG-NOTES-3.html
-
       - title: 曲面参数化
         url: /2021/08/21/DDG-NOTES-4.html
-
       - title: 测地线
         url: /2021/08/23/DDG-NOTES-5.html
 
@@ -72,16 +68,12 @@ OMSCS-ML:
     children: 
       - title: Decision Trees
         url: /2021/08/24/OMSCS-ML-NOTES-01.html
-      
       - title: Regression
         url: /2021/08/30/OMSCS-ML-NOTES-02.html
-
       - title: Neural Networks
         url: /2021/08/30/OMSCS-ML-NOTES-03.html
-      
       - title: Instance Based Learning
         url: /2021/09/06/OMSCS-ML-NOTES-04.html
-
       - title: Ensemble Learning
         url: /2021/09/07/OMSCS-ML-NOTES-05.html
 
