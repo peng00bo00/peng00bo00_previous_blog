@@ -141,7 +141,7 @@ $$
 <img src="https://i.imgur.com/fsAw1Bv.png" width="40%">
 </div>
 
-如果直接使用基于滑窗的匹配方法，即使得到了最佳匹配可能也与实际情况相差甚远。
+如果直接使用基于滑窗的匹配方法，即使每一点都得到了最佳匹配最终得到的视差图可能也与实际情况相差甚远。
 
 <div align=center>
 <img src="https://i.imgur.com/RsiisNW.png" width="70%">
@@ -156,7 +156,7 @@ $$
 不过使用动态规划得到的匹配结果可能会出现一些条纹状的伪影，这是由于每一行的计算的相互独立的；同时需要注意的是动态规划这样的方法不能直接在二维图像上使用。
 
 <div align=center>
-<img src="https://i.imgur.com/5VUjPN2.png" width="50%">
+<img src="https://i.imgur.com/5VUjPN2.png" width="40%">
 </div>
 
 使用全局信息来进行立体匹配的思路是将匹配问题转化为最优化问题。我们可以定义系统总体的能量包括每个点匹配后的具有的能量$E_\text{data}$以及匹配结果的光滑性$E_\text{smooth}$：
