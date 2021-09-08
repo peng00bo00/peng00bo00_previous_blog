@@ -95,6 +95,8 @@ OMSCS-CV:
     children: 
       - title: Camera Models
         url: /2021/09/07/OMSCS-CV-NOTES-04.html
+      - title: Stereo Geometry
+        url: /2021/09/08/OMSCS-CV-NOTES-05.html
 
   - title: Feature and Matching
 
