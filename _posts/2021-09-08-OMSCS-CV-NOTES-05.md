@@ -1,6 +1,6 @@
 ---
 layout: article
-title: OMSCS-CV课程笔记5-Stereo Geometry
+title: OMSCS-CV课程笔记05-Stereo Geometry
 tags: ["OMSCS", "CS6476-CV"]
 key: OMSCS-CV-05
 aside:
