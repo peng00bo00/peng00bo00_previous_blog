@@ -125,4 +125,117 @@ $$
 
 ## Perspective Imaging
 
-对于现代相机而言通过复杂的透镜系统可以去除掉绝大部分的镜头缺陷，使得最终呈现的图像类似于针孔相机的成像结果，因此在进行分析时我们可以直接假定图像来自于针孔相机模型。
+对于现代相机而言通过复杂的透镜系统可以去除掉绝大部分的镜头缺陷，使得最终呈现的图像类似于针孔相机的成像结果，因此在进行分析时可以直接假定图像来自于针孔相机模型。
+
+### Modeling Projection
+
+对针孔相机的投影过程进行建模，我们可以在**投影中心(center of projection, COP)**建立坐标系将空间中的点投影到**投影平面(projection plane, PP)**上。根据相似三角形可以得到投影前后坐标的变换公式：
+
+$$
+(X, Y, Z) \rightarrow (-d \frac{X}{Z}, -d \frac{Y}{Z}, -d)
+$$
+
+在投影平面上可以丢掉z坐标得到平面坐标：
+
+$$
+(x', y') = (-d \frac{X}{Z}, -d \frac{Y}{Z})
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/icZd1oR.png" width="50%">
+</div>
+
+需要说明的是这里为了数学上推导的方便把投影平面放到了相机朝向的后方；同时为了保证相机坐标系是右手系还规定z轴的正方向指向相机后方，在其它的资料中的建模方式可能与此不同进而导致坐标变换公式存在一些差异。
+
+### Homogeneous Coordinates
+
+显然针孔相机的投影过程不是一个线性变换，但实际上我们可以利用**齐次坐标(homogeneous coordinates)**的技巧将投影过程表示为一个线性变换。具体来说，齐次坐标是在原有的坐标上额外添加一个维度：
+
+$$
+(x, y) \rightarrow (x, y, 1)
+$$
+
+$$
+(x, y, z) \rightarrow (x, y, z, 1)
+$$
+
+同时我们规定齐次坐标向原有坐标的转换方法是除以最后一维的数值：
+
+$$
+(x, y, w) \rightarrow (\frac{x}{w}, \frac{y}{w})
+$$
+
+$$
+(x, y, z, w) \rightarrow (\frac{x}{w}, \frac{y}{w}, \frac{z}{w})
+$$
+
+上式说明齐次坐标具有尺度不变性：在齐次坐标上乘以一个非0常数不会改变原有的坐标。
+
+### Perspective Projection
+
+通过齐次坐标就可以把投影过程表示为线性变换的形式：
+
+$$
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & \frac{1}{f} & 0 \\
+\end{bmatrix}
+
+\begin{bmatrix}
+x \\ y \\ z \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+x \\ y \\ \frac{1}{f} z
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+\frac{f}{z} x \\ \frac{f}{z} y
+\end{bmatrix}
+=
+\begin{bmatrix}
+u \\ v
+\end{bmatrix}
+$$
+
+其中$f$表示投影中心到投影平面的距离，也就是焦距。由于齐次坐标具有尺度不变性，上式可以改写为：
+
+$$
+\begin{bmatrix}
+f & 0 & 0 & 0 \\
+0 & f & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+\end{bmatrix}
+
+\begin{bmatrix}
+x \\ y \\ z \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+fx \\ fy \\ z
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+\frac{f}{z} x \\ \frac{f}{z} y
+\end{bmatrix}
+$$
+
+显然空间中的点经过投影后再图像平面上仍然是点，类似地直线和多边形经过投影后仍然是直线和多边形。同时可以证明空间中平行的直线在投影后会相交，假设空间中经过点$(x_0, y_0, z_0)$的直线为：
+
+$$
+x(t) = x_0 + a t \\
+y(t) = y_0 + b t \\
+z(t) = z_0 + c t \\
+$$
+
+投影后的点坐标为：
+
+$$
+x'(t) = \frac{f}{z(t)} x(t) = \frac{f \cdot (x_0 + a t)}{z_0 + c t} \\
+y'(t) = \frac{f}{z(t)} y(t) = \frac{f \cdot (y_0 + b t)}{z_0 + c t} \\
+$$
+
+当$t \to \infty$时投影后的点会趋于$(\frac{fa}{c}, \frac{fb}{c})$，这说明空间中方向为$(a, b, c)$的平行直线经过投影后都会相交于投影平面上的一个点，称为**灭点(vanishing point)**。
+
+### Other Models
