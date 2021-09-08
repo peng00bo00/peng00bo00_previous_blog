@@ -53,10 +53,37 @@ $$
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/VsrLBpm.png" width="40%">
-<img src="https://i.imgur.com/kyIZpCb.png" width="40%">
+<img src="https://i.imgur.com/PxpRpoM.png" width="80%">
 </div>
 
-## Epipolar geometry
+## Epipolar Geometry
 
-## Stereo correspondence
+在大部分实际应用中我们很难保证两个相机相互平行，此时利用图像还原空间信息会相对困难一些。
+
+<div align=center>
+<img src="https://i.imgur.com/C24pXGH.png" width="80%">
+</div>
+
+设空间点P在两张图像上的投影分别为$p$和$p'$。P点与两个投影中心构成了一个平面称为**极平面(epipolar plane)**，极平面与投影平面的交线称为**极线(epipolar line)**，基线与投影平面的交点称为**极点(epipole)**。根据几何关系不难发现极平面上的点会被投影到成像平面的极线上，此外同一投影平面上所有的极线都交于极点。极点、极线和极平面之间的关系称为**对极约束(epipolar constraint)**。
+
+<div align=center>
+<img src="https://i.imgur.com/0opuZb6.png" width="60%">
+</div>
+
+对极约束的一个直接应用是加速图像上点的匹配：对于图像上的任一点在寻找匹配时无需在另一张图像上进行遍历，根据对极约束我们只需要在极线上进行搜索即可，这样大大加快了匹配的过程。
+
+<div align=center>
+<img src="https://i.imgur.com/lhbFEwV.png" width="70%">
+</div>
+
+当两个相机相互平行时，极线会变成图像中相互平行的水平直线。此时极点位于成像平面的无穷远处。
+
+<div align=center>
+<img src="https://i.imgur.com/fF306IR.png" width="60%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/N6tFdY1.png" width="70%">
+</div>
+
+## Stereo Correspondence
