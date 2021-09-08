@@ -14,7 +14,7 @@ sidebar:
 
 ## Cameras and Images
 
-在图像处理中我们把图像视为一种二维函数，但现实生活中的图像不仅仅是一个二维函数。实际上图像是三维空间中的点在二维平面上的投影，我们通过相机来将三维空间中的点投影到平面上。
+在图像处理中我们把图像视为一种二维函数，但现实生活中的图像不仅仅是一个二维函数。实际上图像是空间中的点在二维平面上的投影，我们通过相机将三维空间中的点投影到图像平面上。
 
 ### Pinhole Camera
 
@@ -32,7 +32,7 @@ sidebar:
 
 ### Lenses
 
-实际中更常用的相机是带镜头的相机，我们利用镜头来将光线汇聚到底片上。通常情况下我们假定镜头是足够薄，这样可以得到**成像公式(thin lens equation)**：
+实际中更常用的相机是带镜头的相机，我们利用镜头来将光线汇聚到底片上。通常情况下我们假定镜头足够薄，这样根据几何关系可以得到**成像公式(thin lens equation)**：
 
 $$
 \frac{1}{z} + \frac{1}{Z} = \frac{1}{f}
@@ -49,8 +49,7 @@ $$
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/DaRkn9B.png" width="40%">
-<img src="https://i.imgur.com/2wKpATI.png" width="40%">
+<img src="https://i.imgur.com/9BSP6EO.png" width="70%">
 </div>
 
 在成像过程中另一个重要参数是**视野(field of view)** $\phi$，它与焦距$f$以及底片尺寸$d$有关。当底片尺寸确定时焦距越大，视野越小。
@@ -100,8 +99,8 @@ $$
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/t0NdfnY.png" width="32%">
 <img src="https://i.imgur.com/jJvUc0j.png" width="47%">
+<img src="https://i.imgur.com/t0NdfnY.png" width="32%">
 </div>
 
 另一种常见的缺陷是**色差(chromatic aberration)**，它是指透镜无法将各种波长的色光都聚焦在同一点上的现象。
