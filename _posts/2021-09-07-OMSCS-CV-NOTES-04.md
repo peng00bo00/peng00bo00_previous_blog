@@ -221,7 +221,7 @@ fx \\ fy \\ z
 \end{bmatrix}
 $$
 
-显然空间中的点经过投影后再图像平面上仍然是点，类似地直线和多边形经过投影后仍然是直线和多边形。同时可以证明空间中平行的直线在投影后会相交，假设空间中经过点$(x_0, y_0, z_0)$的直线为：
+上式定义的投影过程称为**透视投影(perspective projection)**。显然空间中的点经过透视投影后再图像平面上仍然是点，直线和多边形经过投影后仍然是直线和多边形。同时可以证明空间中平行的直线在透视投影后会相交，假设空间中经过点$(x_0, y_0, z_0)$的直线为：
 
 $$
 x(t) = x_0 + a t \\
@@ -236,6 +236,76 @@ x'(t) = \frac{f}{z(t)} x(t) = \frac{f \cdot (x_0 + a t)}{z_0 + c t} \\
 y'(t) = \frac{f}{z(t)} y(t) = \frac{f \cdot (y_0 + b t)}{z_0 + c t} \\
 $$
 
-当$t \to \infty$时投影后的点会趋于$(\frac{fa}{c}, \frac{fb}{c})$，这说明空间中方向为$(a, b, c)$的平行直线经过投影后都会相交于投影平面上的一个点，称为**灭点(vanishing point)**。
+当$t \to \infty$时投影后的点会趋于$(\frac{fa}{c}, \frac{fb}{c})$，这说明空间中方向为$(a, b, c)$的平行直线经过透视投影后都会相交于投影平面上的一个点，称为**灭点(vanishing point)**。类似地，空间中同一平面上的所有直线经过投影后它们的灭点会位于投影平面的同一直线上。
+
+<div align=center>
+<img src="https://i.imgur.com/crwBf0k.png" width="50%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/SRtZixs.png" width="50%">
+</div>
 
 ### Other Models
+
+除了透视投影外，常用的投影模型还包括**正交投影(orthographic projection)**和**弱透视投影(weak perspective projection)**。在正交投影中我们直接丢掉空间点的z坐标，对应的投影计算公式为：
+
+$$
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{bmatrix}
+
+\begin{bmatrix}
+x \\ y \\ z \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+x \\ y \\ 1
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+x \\ y
+\end{bmatrix}
+$$
+
+正交投影表示物距$z$和焦距$f$趋于无穷大情况下相机的投影过程，可以近似望远镜的成像效果。同时空间中平行的直线经过正交投影后仍是平行的，因此正交投影也称为**平行投影(parallel projection)**。
+
+<div align=center>
+<img src="https://i.imgur.com/9fdnnPi.png" width="50%">
+</div>
+
+另一种常见的投影模型是弱透视投影，此时我们假定空间中的点都位于距离投影中心$z_0$远的平面上。根据透视变换的原理得到投影后点的坐标为：
+
+$$
+(x', y') = (\frac{f x}{z_0}, \frac{f y}{z_0})
+$$
+
+写成矩阵形式为：
+
+$$
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & \frac{1}{s} \\
+\end{bmatrix}
+
+\begin{bmatrix}
+x \\ y \\ z \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+x \\ y \\ \frac{1}{s}
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+sx \\ sy
+\end{bmatrix}
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/SOD6Xsa.png" width="70%">
+</div>
+
+和透视投影相比弱透视投影要简单一些，但投影的结果不如透视投影精确。
