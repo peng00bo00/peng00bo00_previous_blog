@@ -87,3 +87,102 @@ $$
 </div>
 
 ## Stereo Correspondence
+
+利用对极约束可以加速对应点匹配但并没有解决如何匹配的问题，因此我们仍然需要对应点的匹配算法来计算视差图。为了便于讨论这里假定空间中的点都能够在两个相机中观察到，而且极线均为水平直线。
+
+<div align=center>
+<img src="https://i.imgur.com/9mWVECF.png" width="60%">
+</div>
+
+最基本的匹配方法是利用相似性进行匹配。对于空间中的点可以认为它在两张图像中的投影是相似的，因此可以利用滑窗的方式来计算视差。
+
+<div align=center>
+<img src="https://i.imgur.com/1JJyoTQ.png" width="70%">
+</div>
+
+显然对于左边图像给定的窗口，在右边图像中匹配代价最小、相似性最高的位置即为该窗口的匹配点。
+
+<div align=center>
+<img src="https://i.imgur.com/K4RbgFe.png" width="70%">
+</div>
+
+对于具有显著特征的区域，上述基于相似性的匹配算法基本可以得到良好的匹配结果；但对于特征不明显的低纹理区域直接进行匹配可能无法得到令人满意的结果。
+
+<div align=center>
+<img src="https://i.imgur.com/Qtj0U3D.png" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/A3ZFrEE.png" width="70%">
+</div>
+
+同时窗口的尺寸对于匹配的结果也会产生一定的影响。如果窗口尺寸过小，窗口可能无法捕捉到图像的纹理信息导致很多区域上无法进行匹配；而如果窗口尺寸过大则可能会在匹配时失去一些细节导致结果过于平滑。
+
+<div align=center>
+<img src="https://i.imgur.com/6m8TWrv.png" width="70%">
+</div>
+
+立体匹配时的另一个常见问题是**遮挡(occlusion)**。此时场景中的某些点仅能在一个相机中观测到，在这样的情况下进行匹配是无法得到合理的匹配结果的。
+
+<div align=center>
+<img src="https://i.imgur.com/ZSskp9W.png" width="60%">
+</div>
+
+在一些匹配算法中可能会使用匹配点的顺序来优化匹配结果，此时我们假定匹配点在左右两张图像中必须按照相同的顺序出现。
+
+<div align=center>
+<img src="https://i.imgur.com/F7uVJVn.png" width="60%">
+</div>
+
+当然这样的假定在某些情况下也是不能得到满足的。
+
+<div align=center>
+<img src="https://i.imgur.com/FiGSUO8.png" width="40%">
+<img src="https://i.imgur.com/fsAw1Bv.png" width="40%">
+</div>
+
+如果直接使用基于滑窗的匹配方法，即使得到了最佳匹配可能也与实际情况相差甚远。
+
+<div align=center>
+<img src="https://i.imgur.com/RsiisNW.png" width="70%">
+</div>
+
+在一些更现代的方法中往往还会结合一些全局的信息来辅助和优化匹配的过程，比如说在对每一行进行匹配的时候可以利用动态规划来计算当前行的最优匹配。
+
+<div align=center>
+<img src="https://i.imgur.com/S3Vl6dm.png" width="70%">
+</div>
+
+不过使用动态规划得到的匹配结果可能会出现一些条纹状的伪影，这是由于每一行的计算的相互独立的；同时需要注意的是动态规划这样的方法不能直接在二维图像上使用。
+
+<div align=center>
+<img src="https://i.imgur.com/5VUjPN2.png" width="50%">
+</div>
+
+使用全局信息来进行立体匹配的思路是将匹配问题转化为最优化问题。我们可以定义系统总体的能量包括每个点匹配后的具有的能量$E_\text{data}$以及匹配结果的光滑性$E_\text{smooth}$：
+
+$$
+E_\text{data} = \sum_i (W_1(i) - W_2(i + D(i)))^2
+$$
+
+$$
+E_\text{smooth} = \sum_i \sum_{\text{neighbors} \ j} \rho(D(i) - D(j))
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/wR0b97x.png" width="70%">
+</div>
+
+$E_\text{data}$描述了每个点单独匹配的结果，匹配效果越好能量越小；而$E_\text{smooth}$则描述了视差图的光滑程度，匹配的结果越光滑能量越小。显然一个良好的全局匹配应该最小化系统的总体能量，一般可以通过graph-cut等算法来求解。使用全局信息优化后的匹配结果如下图所示，可以发现此时匹配得到的视差图已经非常接近真实的视差。
+
+<div align=center>
+<img src="https://i.imgur.com/3Av27LE.png" width="70%">
+</div>
+
+最后需要说明的是立体匹配仍然是一个没有完全解决的问题，目前立体匹配的难点包括：
+
+1. 低纹理的区域很难进行匹配；
+2. 遮挡问题还没有很好的解决办法；
+3. 场景中光照发生改变或者表面反光的区域很难进行匹配；
+4. 两个相机的位置差异过大时拍摄的图片会有很大的区别，此时很难进行匹配；
+5. 如果极线的计算存在误差，有时可能无法进行匹配。
