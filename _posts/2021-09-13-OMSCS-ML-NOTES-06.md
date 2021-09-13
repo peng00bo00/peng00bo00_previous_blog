@@ -176,7 +176,7 @@ $$
 K(x, y) = \langle \phi(x), \phi(y) \rangle
 $$
 
-利用核函数可以将优化问题改写成：
+利用核函数我们可以避免计算高维向量$\phi(x)$从而加速模型的训练，此时优化问题可以改写成核函数的形式：
 
 $$
 \begin{aligned}
@@ -197,6 +197,10 @@ $$
 $$
 f(x) = \text{sign} \bigg( \sum_{i=1}^N \alpha_i y_i K(x, x_i) + b \bigg)
 $$
+
+显然并不是任意的二元函数都可以作为核函数来使用，实际上核函数是**正定核函数(positive definite kernel function)**，它们满足对称正定的条件即对应的Gramm矩阵$K$为半正定矩阵。
+
+在实践中一般很少从零开始构造核函数，往往是利用一些已有的核函数并在此基础上调整相关的参数。常用的核函数包括多项式核(polynomial kernel)、高斯核(Gaussian kernel)等。
 
 ## Back to Boosting
 
