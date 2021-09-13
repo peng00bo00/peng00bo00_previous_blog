@@ -37,7 +37,7 @@ bagging方法通过训练一系列相互独立的模型来提升性能，而boos
 
 4. 当前分类器的模型权重为：$$\alpha_t = \frac{1}{2} \log \frac{1 - \varepsilon_t}{\varepsilon_t}$$
 
-5. 更新训练数据集上的样本权重：$$\mathbb{D}_{t+1}(x_i) = \frac{\mathbb{D}_{t}(x_i)}{Z_t} \exp \{-\alpha_t y_i h_t(x_i) \}$$ $$Z_t = \sum_{i=1}^n \mathbb{D}_{t}(x_i) \exp \{-\alpha_t y_i h_t(x_i) \}$$
+5. 更新训练数据集上的样本权重：$$\mathbb{D}_{t+1}(x_i) = \frac{\mathbb{D}_{t}(x_i)}{Z_t} \exp \{-\alpha_t y_i h_t(x_i) \}$$; $$Z_t = \sum_{i=1}^n \mathbb{D}_{t}(x_i) \exp \{-\alpha_t y_i h_t(x_i) \}$$
 
 6. 回到步骤2直到获得足够数量的分类器，最终的分类器为$h_t(x)$的线性组合：$$h(x) = \text{sign} \bigg( \sum_t \alpha_t h_t(x) \bigg)$$
 
