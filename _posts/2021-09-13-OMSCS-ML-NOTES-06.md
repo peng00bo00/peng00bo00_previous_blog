@@ -14,8 +14,17 @@ sidebar:
 
 ## Linear SVM
 
+**支持向量机(support vector machine, SVM)**是经典的二分类模型。从几何的角度上讲，二分类问题可以理解为在空间中寻找一个**超平面(hyperplane)**来将数据划分为两部分。
+
+<div align=center>
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Svm_separating_hyperplanes_%28SVG%29.svg" width="30%">
+</div>
+
 ## Kernel Methods
 
 ## Back to Boosting
 
 ## Reference
+
+- 第7章：支持向量机，统计学习方法（第2版）
+- [Wikipedia: Support-vector machine](https://en.wikipedia.org/wiki/Support-vector_machine)
