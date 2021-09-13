@@ -134,6 +134,24 @@ $$
 \end{aligned}
 $$
 
+此时的优化问题为关于$\alpha$的凸二次规划问题，可以使用二次规划的相关算法求解。求解得到拉格朗日乘子向量$\alpha$后带入约束条件即可计算出超平面参数：
+
+$$
+w = \sum_{i=1}^N \alpha_i y_i x_i
+$$
+
+$$
+b = y_j - \sum_{i=1}^N \alpha_i y_i x_i^T x_j
+$$
+
+其中$x_j$和$y_j$需要满足对应的乘子$\alpha_j > 0$。
+
+利用原始问题的KKT条件还可以进一步证明拉格朗日乘子向量$\alpha$仅在支持向量处存在非0值，因此$\alpha$实际上是非常稀疏的。换句话说我们只需要记录几个支持向量的乘子就可以计算分类超平面，而对应的决策函数则可以表示为支持向量内积的形式：
+
+$$
+f(x) = \text{sign} \bigg( \sum_{i=1}^N \alpha_i y_i x_i^T x + b \bigg)
+$$
+
 ## Kernel Methods
 
 ## Back to Boosting
@@ -142,3 +160,4 @@ $$
 
 - 第7章：支持向量机，统计学习方法（第2版）
 - [Wikipedia: Support-vector machine](https://en.wikipedia.org/wiki/Support-vector_machine)
+- [Wikipedia: Karush–Kuhn–Tucker conditions](https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions)
