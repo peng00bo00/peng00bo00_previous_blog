@@ -39,7 +39,7 @@ bagging方法通过训练一系列相互独立的模型来提升性能，而boos
 
 5. 更新训练数据集上的样本权重：$$\mathbb{D}_{t+1}(x_i) = \frac{\mathbb{D}_{t}(x_i)}{Z_t} \exp \{-\alpha_t y_i h_t(x_i) \}$$; $$Z_t = \sum_{i=1}^n \mathbb{D}_{t}(x_i) \exp \{-\alpha_t y_i h_t(x_i) \}$$
 
-6. 回到步骤2直到获得足够数量的分类器，最终的分类器为$h_t(x)$的线性组合：$$h(x) = \text{sign} \bigg( \sum_t \alpha_t h_t(x) \bigg)$$
+6. 回到步骤2直到获得足够数量的分类器，最终的分类器为$h_t(x)$的线性组合：$$h(x) = \text{sign} \big( \sum_t \alpha_t h_t(x) \big)$$
 
 结合AdaBoost算法的训练过程不难发现单个分类器的权重$\alpha_t$描述了该分类器在总体中的重要性，加权后分类误差$\varepsilon_t$越小分类器的的重要性就越大。同时在样本权重的更新中对于分类正确的样本其权重会以$e^{-\alpha_t}$进行衰减，而错误样本的权重则会以$e^{\alpha_t}$进行放大，这说明AdaBoost算法在不改变训练数据总量的情况下调整了数据的分布，使得每次训练单个分类器都会更加关注之前分类错误的样本。此外还可以证明AdaBoost算法的训练误差是以指数速率下降的，这表明AdaBoost算法的训练过程是非常高效的。
 
