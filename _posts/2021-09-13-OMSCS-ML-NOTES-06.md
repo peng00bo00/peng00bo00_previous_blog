@@ -20,6 +20,8 @@ sidebar:
 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Svm_separating_hyperplanes_%28SVG%29.svg" width="40%">
 </div>
 
+### Maximal Margin Hyperplanes
+
 SVM通过最大化两个类别数据到超平面的距离来求解这个的超平面。假设超平面方程为$w^T x + b = 0$，对于正负样本有：
 
 $$
@@ -64,6 +66,71 @@ $$
 \begin{aligned}
 \min_{w, b} \ \ & \frac{1}{2} \Vert w \Vert^2 \\
 \text{s.t.} \  \ & y_i (w^T x_i + b) \geq 1
+\end{aligned}
+$$
+
+求解得到分类超平面后对应的决策函数为：
+
+$$
+f(x) = \text{sign} (w^T x + b)
+$$
+
+### Dual Problem
+
+对于SVM的约束优化问题我们可以使用**拉格朗日乘子法(Lagrange multiplier)**进行求解。为此构造拉格朗日函数如下：
+
+$$
+L(w, b, \alpha) = \frac{1}{2} \Vert w \Vert^2 - \sum_{i=1}^N \alpha_i y_i (w^T x_i + b) + \sum_{i=1}^N \alpha_i
+$$
+
+其中$\alpha = (\alpha_1, \alpha_2, ..., \alpha_N)$为拉格朗日乘子向量。此时约束优化问题等价于拉格朗日函数的极小极大问题，称为**原始问题(primal problem)**：
+
+$$
+\min_{w. b} \max_{\alpha, \ \alpha_i \geq 0} L(w, b, \alpha)
+$$
+
+我们定义拉格朗日函数的极大极小问题为极小极大问题的**对偶问题(dual problem)**：
+
+$$
+\max_{\alpha, \ \alpha_i \geq 0} \min_{w. b} L(w, b, \alpha)
+$$
+
+对于线性可分的情况我们可以通过求解对偶问题来得到原始问题的最优解。分别对$w$和$b$求偏导并令导数为0可以得到：
+
+$$
+\frac{\partial L}{\partial w} = w - \sum_{i=1}^N \alpha_i y_i x_i = 0 \Leftrightarrow w = \sum_{i=1}^N \alpha_i y_i x_i
+$$
+
+$$
+\frac{\partial L}{\partial b} = - \sum_{i=1}^N \alpha_i y_i = 0 \Leftrightarrow \sum_{i=1}^N \alpha_i y_i = 0
+$$
+
+将上述条件带入$L$得到：
+
+$$
+\begin{aligned}
+\min_{w. b} L(w, b, \alpha) &= \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j x_i^T x_j - \sum_{i=1}^N \alpha_i y_i \bigg( x_i^T \sum_{j=1}^N \alpha_j y_j x_j + b \bigg) + \sum_{i=1}^N \alpha_i \\
+&= -\frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j x_i^T x_j + \sum_{i=1}^N \alpha_i
+\end{aligned}
+$$
+
+然后对$L$求极大得到关于$\alpha$的约束优化问题：
+
+$$
+\begin{aligned}
+\max_\alpha \ \ & -\frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j x_i^T x_j + \sum_{i=1}^N \alpha_i \\
+\text{s.t.} \  \ & \sum_{i=1}^N \alpha_i y_i = 0 \\
+& \alpha_i \geq 0
+\end{aligned}
+$$
+
+更常见的形式是带约束的最小化问题：
+
+$$
+\begin{aligned}
+\min_\alpha \ \ & \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j x_i^T x_j - \sum_{i=1}^N \alpha_i \\
+\text{s.t.} \  \ & \sum_{i=1}^N \alpha_i y_i = 0 \\
+& \alpha_i \geq 0
 \end{aligned}
 $$
 
