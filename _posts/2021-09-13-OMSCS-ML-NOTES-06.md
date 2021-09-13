@@ -95,7 +95,7 @@ $$
 \max_{\alpha, \ \alpha_i \geq 0} \min_{w. b} L(w, b, \alpha)
 $$
 
-对于线性可分的情况我们可以通过求解对偶问题来得到原始问题的最优解。分别对$w$和$b$求偏导并令导数为0可以得到：
+对于线性可分情况SVM的原始问题与对偶问题有相同的解，因此我们可以通过求解对偶问题来获得原始问题的最优解。分别对$w$和$b$求偏导并令导数为0可以得到：
 
 $$
 \frac{\partial L}{\partial w} = w - \sum_{i=1}^N \alpha_i y_i x_i = 0 \Leftrightarrow w = \sum_{i=1}^N \alpha_i y_i x_i
