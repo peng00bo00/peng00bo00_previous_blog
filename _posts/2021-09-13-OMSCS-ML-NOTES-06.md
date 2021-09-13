@@ -204,6 +204,14 @@ $$
 
 ## Back to Boosting
 
+本节最后我们从margin的角度来分析boosting方法。boosting的决策函数可以表示为：
+
+$$
+f(x) = \text{sign} \bigg( \frac{\sum_i \alpha_i h_i(x)}{\sum_i \alpha_i} \bigg)
+$$
+
+注意到上式和[Ensemble Learning](/2021/09/07/OMSCS-ML-NOTES-05.html#boosting)一节中给出的形式有所区别，这里我们多了分母项$\sum_i \alpha_i$。由于任意$\alpha_i > 0$，使用上式定义的决策函数并不会改变函数的结果，同时加入分母项之后可以保证决策函数的输出在[-1, +1]区间内。
+
 ## Reference
 
 - 第7章：支持向量机，统计学习方法（第2版）
