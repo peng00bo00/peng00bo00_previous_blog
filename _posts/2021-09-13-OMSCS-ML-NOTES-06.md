@@ -154,6 +154,50 @@ $$
 
 ## Kernel Methods
 
+对于线性不可分的情况使用SVM是不能得到分类超平面的。对于这样的问题常用的处理方式是构造一个到高维的映射$\phi(x)$然后在更高维的空间中使用SVM。以下图为例，在二维平面上不存在分类超平面但在三维空间中则可以很容易地对样本进行划分。
+
+<div align=center>
+<img src="https://i.imgur.com/uEvAnYQ.png" width="70%">
+</div>
+
+同样地，利用映射$\phi(x)$可以得到高维空间中的约束优化问题：
+
+$$
+\begin{aligned}
+\min_\alpha \ \ & \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j \phi(x_i)^T \phi(x_j) - \sum_{i=1}^N \alpha_i \\
+\text{s.t.} \  \ & \sum_{i=1}^N \alpha_i y_i = 0 \\
+& \alpha_i \geq 0
+\end{aligned}
+$$
+
+不难发现此时非线性的SVM与线性SVM没有任何本质区别，只需要将低维向量$x$映射到高维空间中即可。实际上我们并不需要去显式地定义映射$\phi(x)$，只需要内积项$\langle \phi(x_i), \phi(x_j) \rangle = \phi(x_i)^T \phi(x_j)$就可以求解SVM。我们定义核函数为低维向量在高维空间中的内积：
+
+$$
+K(x, y) = \langle \phi(x), \phi(y) \rangle
+$$
+
+利用核函数可以将优化问题改写成：
+
+$$
+\begin{aligned}
+\min_\alpha \ \ & \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j K(x_i, x_j)- \sum_{i=1}^N \alpha_i \\
+\text{s.t.} \  \ & \sum_{i=1}^N \alpha_i y_i = 0 \\
+& \alpha_i \geq 0
+\end{aligned}
+$$
+
+求解拉格朗日乘子向量$\alpha$后带入约束条件得到偏置项：
+
+$$
+b = y_j - \sum_{i=1}^N \alpha_i y_i K(x_i, x_j)
+$$
+
+对应的决策函数为：
+
+$$
+f(x) = \text{sign} \bigg( \sum_{i=1}^N \alpha_i y_i K(x, x_i) + b \bigg)
+$$
+
 ## Back to Boosting
 
 ## Reference
