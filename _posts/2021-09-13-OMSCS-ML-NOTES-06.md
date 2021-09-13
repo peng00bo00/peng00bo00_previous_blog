@@ -20,6 +20,53 @@ sidebar:
 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Svm_separating_hyperplanes_%28SVG%29.svg" width="40%">
 </div>
 
+SVM通过最大化两个类别数据到超平面的距离来求解这个的超平面。假设超平面方程为$w^T x + b = 0$，对于正负样本有：
+
+$$
+\begin{aligned}
+w^T x_i + b &\geq +1,  & &y_i = +1 \\
+w^T x_i + b &\leq -1, & &y_i = -1 \\
+\end{aligned}
+$$
+
+换句话说
+
+$$
+y_i (w^T x_i + b) \geq 1
+$$
+
+当且仅当$x_i$到超平面的距离最小时取等号，此时的$x_i$称为**支持向量(support vector)**。
+
+对于任意点$x_i$，它到超平面的距离为：
+
+$$
+\gamma_i = \frac{y_i (w^T x_i + b)}{\Vert w \Vert}
+$$
+
+将支持向量带入上式可以得到正负两类样本到超平面的最小距离为：
+
+$$
+\gamma = \frac{2}{\Vert w \Vert} \sim \frac{1}{\Vert w \Vert^2}
+$$
+
+进而得到SVM对应的约束优化问题：
+
+$$
+\begin{aligned}
+\max_{w, b} \ \ & \frac{1}{\Vert w \Vert^2} \\
+\text{s.t.} \  \ & y_i (w^T x_i + b) \geq 1
+\end{aligned}
+$$
+
+由于最大化$\frac{1}{\Vert w \Vert^2}$与最小化$\frac{1}{2} \Vert w \Vert^2$是等价的，因此更常见的SVM优化形式是：
+
+$$
+\begin{aligned}
+\min_{w, b} \ \ & \frac{1}{2} \Vert w \Vert^2 \\
+\text{s.t.} \  \ & y_i (w^T x_i + b) \geq 1
+\end{aligned}
+$$
+
 ## Kernel Methods
 
 ## Back to Boosting
