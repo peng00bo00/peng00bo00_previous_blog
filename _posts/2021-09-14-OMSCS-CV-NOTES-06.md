@@ -118,7 +118,23 @@ i_A \cdot k_B & j_A \cdot k_B & k_A \cdot k_B \\
 \end{bmatrix}
 $$
 
-其中$^Bi_A$表示$A$坐标系的基矢量$i_A$在$B$坐标系中的坐标。我们称$^B_AR$为$A$坐标系到$B$坐标系的旋转矩阵，它的第i行j列元素为$B$坐标系第j个基矢量与$A$坐标系第i个基矢量的内积。同时需要注意的是旋转矩阵是一个正交阵，即$R^T R = I$。
+其中$^Bi_A$表示$A$坐标系的基矢量$i_A$在$B$坐标系中的坐标。我们称$^B_AR$为$A$坐标系到$B$坐标系的旋转矩阵，它的第i行j列元素为$B$坐标系第j个基矢量与$A$坐标系第i个基矢量的内积。同时需要注意的是旋转矩阵是一个**正交阵(orthogonal matrix)**即$R^T R = I$，而且旋转矩阵不具有交换性$R_1 R_2 \neq R_2 R_1$。
+
+类似于平移变换，我们同样可以把刚体旋转用齐次坐标来表示，从而得到矩阵形式：
+
+$$
+\begin{bmatrix}
+^BP \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+^B_AR & 0 \\
+0^T & 1
+\end{bmatrix}
+\begin{bmatrix}
+^AP \\ 1
+\end{bmatrix}
+$$
 
 ### Rigid Transformations
 
