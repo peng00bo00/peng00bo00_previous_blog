@@ -180,9 +180,90 @@ $$
 
 ## Instrinsic Camera Calibration
 
-### Ideal Intrinsic Parameters
-
 ### Real Intrinsic Parameters
+
+接下来考虑相机坐标系投影到图像坐标系的过程。对于理想情况下的针孔相机模型，我们只需要知道相机的焦距就可以完成投影：
+
+$$
+u = f \frac{x}{z}
+$$
+
+$$
+v = f \frac{y}{z}
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/iOtIdbv.png" width="60%">
+</div>
+
+然而现实中相机的投影并不会这样完美。首先图像上的像素坐标没有物理意义也不代表现实中的长度，同时$u$、$v$两个方向上单位像素的长度也不一定严格相等。因此我们不能够直接使用焦距$f$来表示投影过程，而是需要引入2个方向上的待定参数$\alpha$和$\beta$：
+
+$$
+u = \alpha \frac{x}{z}
+$$
+
+$$
+v = \beta \frac{y}{z}
+$$
+
+另一方面，按照上式进行投影后图像的原点会位于图像的中心。但在图像处理中图像的原点并不在图像中心，因此我们需要考虑将投影后相机的原点进行平移：
+
+$$
+u = \alpha \frac{x}{z} + u_0
+$$
+
+$$
+v = \beta \frac{y}{z} + v_0
+$$
+
+此外，如果$u$和$v$两个方向不是严格垂直的话投影公式会变得更加复杂：
+
+$$
+u = \alpha \frac{x}{z} - \alpha \frac{y}{z} \cot (\theta) + u_0
+$$
+
+$$
+v = \frac{\beta}{\sin (\theta)} \frac{y}{z} + v_0
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/Jlna2vV.png" width="60%">
+</div>
+
+我们将整个投影过程用齐次坐标来表达就得到了相机的**内参数矩阵(intrinsic matrix)** $K$：
+
+$$
+\begin{bmatrix}
+z \cdot u \\ z \cdot v \\ z
+\end{bmatrix}
+=
+\begin{bmatrix}
+\alpha & -\alpha \cot (\theta) & u_0 & 0 \\
+0 & \frac{\beta}{\sin (\theta)} & v_0 & 1 \\
+0 & 0 & 1 & 0
+\end{bmatrix}
+
+\begin{bmatrix}
+x \\ y \\ z \\ 1
+\end{bmatrix}
+$$
+
+$$
+p' = K \  ^Cp
+$$
+
+利用齐次坐标的另一个好处是我们可以去掉矩阵的最后一列，得到更常见的内参数矩阵形式：
+
+$$
+K = 
+\begin{bmatrix}
+f & s & c_x \\
+0 & a f & c_y \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+其中$f$为焦距；$s$表示坐标轴的倾斜程度，在理想情况下为0；$c_x$和$c_y$为图像坐标系原点的偏移量；$a$为像素的长宽比，理想条件下为1.0。显然相机的内参数矩阵$K$一共有5个自由度。
 
 ### Camera Parameters
 
