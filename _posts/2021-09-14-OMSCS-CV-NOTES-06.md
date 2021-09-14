@@ -23,7 +23,51 @@ sidebar:
 
 ## Extrinsic Camera Calibration
 
+世界坐标到相机坐标的变换是三维空间点的刚体变换，一共有6个外参数：3个平移+3个旋转。
+
+<div align=center>
+<img src="https://i.imgur.com/q2OohzA.png" width="70%">
+</div>
+
 ### Translation
+
+空间点$P$在坐标系$A$中的坐标可以写成基矢量和的形式：
+
+$$
+^AP = (^Ax, ^Ay, ^Az) = ^Ax \cdot i_A + ^Ay \cdot j_A + ^Az \cdot k_A
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/7dTllok.png" width="40%">
+</div>
+
+假设空间中还存在另一个坐标系$B$，它与$A$只相差一个平移。根据矢量加法$P$点在坐标系$B$中的坐标为：
+
+$$
+^BP = ^B(O_A) + ^AP
+$$
+
+其中$^B(O_A)$表示$A$坐标系中的原点$O_A$在$B$坐标系中的坐标。
+
+<div align=center>
+<img src="https://i.imgur.com/MkKRUPH.png" width="70%">
+</div>
+
+我们利用齐次坐标来重写上式可以得到平移变换的矩阵形式：
+
+$$
+\begin{bmatrix}
+^BP \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+I_{3 \times 3} & ^B(O_A) \\
+0^T & 1
+\end{bmatrix}
+\begin{bmatrix}
+^AP \\ 1
+\end{bmatrix}
+$$
 
 ### Rotation
 
