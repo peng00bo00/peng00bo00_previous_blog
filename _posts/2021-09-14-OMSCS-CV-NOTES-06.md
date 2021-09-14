@@ -14,7 +14,7 @@ sidebar:
 
 ## Geometric Camera Calibration
 
-在[Camera Models](/2021/09/07/OMSCS-CV-NOTES-04.html#modeling-projection)一节中我们介绍了齐次坐标和相机的投影模型，从而将三维空间中的点投影到图像平面上。本节课中我们会把这个方法推广到更一般的情形中：我们不再假定坐标原点位于相机的投影中心，而是将任意坐标系下的点投影到图像平面上。我们把确定空间坐标与图像坐标之间关系的过程称为**相机的几何标定(geometric camera calibration)**。
+在[Camera Models](/2021/09/07/OMSCS-CV-NOTES-04.html#modeling-projection)一节中我们介绍了齐次坐标和相机的投影模型，从而将三维空间中的点投影到图像平面上。本节课中我们会把这个方法推广到更一般的情形中：我们不再假定坐标原点位于相机的投影中心，而是将任意坐标系下的点投影到图像平面上。我们把确定空间坐标与图像坐标之间关系的过程称为**相机的几何标定(geometric camera calibration)**，简称相机标定。
 
 相机标定包括2部分内容：
 
@@ -118,7 +118,7 @@ i_A \cdot k_B & j_A \cdot k_B & k_A \cdot k_B \\
 \end{bmatrix}
 $$
 
-其中$^Bi_A$表示$A$坐标系的基矢量$i_A$在$B$坐标系中的坐标。我们称$^B_AR$为$A$坐标系到$B$坐标系的旋转矩阵。
+其中$^Bi_A$表示$A$坐标系的基矢量$i_A$在$B$坐标系中的坐标。我们称$^B_AR$为$A$坐标系到$B$坐标系的旋转矩阵，它的第i行j列元素为$B$坐标系第j个基矢量与$A$坐标系第i个基矢量的内积。同时需要注意的是旋转矩阵是一个正交阵，即$R^T R = I$。
 
 ### Rigid Transformations
 
