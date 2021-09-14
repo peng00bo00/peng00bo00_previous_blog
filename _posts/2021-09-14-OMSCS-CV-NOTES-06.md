@@ -276,3 +276,65 @@ $$
 从前面的推导不难发现相机矩阵一共有11个自由度：其中6个来自于外参数矩阵(3个平移+3个旋转)，另外5个来自于内参数矩阵。需要注意的是直接使用相机矩阵得到的坐标是图像平面上的齐次坐标，需要对最后一维进行归一化才能得到所需的像素坐标。
 
 ## Calibrating Cameras
+
+### Direct Linear Calibration
+
+本节最后我们来讨论如何对相机进行标定。如果不考虑相机矩阵$M$的结构，只把它当做是一般的$3 \times 4$矩阵，则可以通过求解线性方程组来进行标定。具体地，假设空间中点坐标为$(X_i, Y_i, Z_i)$，它在图像上的坐标为$(u_i, v_i)$，利用相机矩阵可以构造出变换关系：
+
+$$
+\begin{bmatrix}
+u_i \\ v_i \\ 1
+\end{bmatrix}
+\simeq
+\begin{bmatrix}
+w \cdot u_i \\ w \cdot v_i \\ w
+\end{bmatrix}
+=
+\begin{bmatrix}
+m_{00} & m_{01} & m_{02} & m_{03} \\
+m_{10} & m_{11} & m_{12} & m_{13} \\
+m_{20} & m_{21} & m_{22} & m_{23} \\
+\end{bmatrix}
+
+\begin{bmatrix}
+X_i \\ Y_i \\ Z_i \\ 1
+\end{bmatrix}
+$$
+
+$$
+u_i = \frac{m_{00} X_i + m_{01} Y_i + m_{02} Z_i + m_{03}}{m_{20} X_i + m_{21} Y_i + m_{22} Z_i + m_{23}}
+$$
+
+$$
+v_i = \frac{m_{10} X_i + m_{11} Y_i + m_{12} Z_i + m_{13}}{m_{20} X_i + m_{21} Y_i + m_{22} Z_i + m_{23}}
+$$
+
+通过移项，我们可以把方程组改写成关于相机矩阵的方程：
+
+$$
+u_i (m_{20} X_i + m_{21} Y_i + m_{22} Z_i + m_{23}) = m_{00} X_i + m_{01} Y_i + m_{02} Z_i + m_{03}
+$$
+
+$$
+v_i (m_{20} X_i + m_{21} Y_i + m_{22} Z_i + m_{23}) = m_{10} X_i + m_{11} Y_i + m_{12} Z_i + m_{13}
+$$
+
+对应的矩阵形式为：
+
+$$
+\begin{bmatrix}
+X_i & Y_i & Z_i & 1 & 0 & 0 & 0 & 0 & -u_i X_i & -u_i Y_i & -u_i Z_i & -u_i \\
+0 & 0 & 0 & 0 & X_i & Y_i & Z_i & 1 & -v_i X_i & -v_i Y_i & -v_i Z_i & -v_i \\
+\end{bmatrix}
+\begin{bmatrix}
+m_{00} \\ m_{01} \\ m_{02} \\ m_{03} \\ m_{10} \\ m_{11} \\ m_{12} \\ m_{13} \\ m_{20} \\ m_{21} \\ m_{22} \\ m_{23}
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\ 0
+\end{bmatrix}
+$$
+
+上式说明相机标定可以通过求解一个齐次线性方程组来实现。由于相机矩阵具有12个变量，我需要至少6对对应点才能求解这个方程组。
+
+### Multi-Plane Calibration
