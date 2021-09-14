@@ -1,6 +1,6 @@
 ---
 layout: article
-title: OMSCS-CV课程笔记06-Stereo Geometry
+title: OMSCS-CV课程笔记06-Camera Calibration
 tags: ["OMSCS", "CS6476-CV"]
 key: OMSCS-CV-06
 aside:
