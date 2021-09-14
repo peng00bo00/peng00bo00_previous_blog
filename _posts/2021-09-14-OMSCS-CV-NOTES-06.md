@@ -138,6 +138,46 @@ $$
 
 ### Rigid Transformations
 
+我们把平移和旋转组合到一起就得到了刚体变换公式：
+
+$$
+^BP = ^B_AR \ ^AP + ^B O_A
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/oEcdNCI.png" width="70%">
+</div>
+
+同样利用齐次坐标可以得到矩阵形式：
+
+$$
+\begin{bmatrix}
+^BP \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+I_{3 \times 3} & ^BO_A \\
+0^T & 1
+\end{bmatrix}
+\begin{bmatrix}
+^B_AR & 0 \\
+0^T & 1
+\end{bmatrix}
+\begin{bmatrix}
+^AP \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+^B_AR & ^BO_A \\
+0^T & 1
+\end{bmatrix}
+\begin{bmatrix}
+^AP \\ 1
+\end{bmatrix}
+$$
+
+我们记矩阵$^B_AT=\begin{bmatrix}^B_AR & ^B(O_A) \\ 0^T & 1 \end{bmatrix}$为坐标系$A$到坐标系$B$的刚体变换矩阵，它的逆阵$^A_BT = {^B_AT}^{-1}$为坐标系$B$到坐标系$A$的刚体变换矩阵。当我们取$A$为世界坐标系同时取$B$为相机坐标系时，$^B_AT$表示世界坐标到相机坐标的变换，因此也称其为相机的**外参数矩阵(extrinsic parameter matrix)**。显然外参数矩阵是一个$4\times4$的可逆矩阵，它具有3个旋转自由度和3个平移自由度。
+
 ## Instrinsic Camera Calibration
 
 ## Calibrating Cameras
