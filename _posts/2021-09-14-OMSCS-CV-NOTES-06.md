@@ -335,6 +335,89 @@ m_{00} \\ m_{01} \\ m_{02} \\ m_{03} \\ m_{10} \\ m_{11} \\ m_{12} \\ m_{13} \\ 
 \end{bmatrix}
 $$
 
+即
+
+$$
+A m = 0
+$$
+
 上式说明相机标定可以通过求解一个齐次线性方程组来实现。由于相机矩阵具有12个变量，我需要至少6对对应点才能求解这个方程组。
+
+为了避免平凡解，一般可以设置一个额外的约束条件$\Vert m \Vert = 1$。此时求解齐次方程等价于约束优化问题：
+
+$$
+\begin{aligned}
+\min \ \ & \Vert A m \Vert \\
+\text{s.t.} \ \ & \Vert m \Vert = 1
+\end{aligned}
+$$
+
+利用**奇异值分解(singular value decomposition, SVD)**可以证明上述最优化问题的解为矩阵$A^T A$的最小特征值对应的特征向量，这里简单进行一下推导。首先对矩阵$A$进行奇异值分解：
+
+$$
+A = U D V^T
+$$
+
+其中$U$和$V$为正交矩阵，$D$为对角矩阵且对角元素均为非负数。将奇异值分解带入优化目标得到：
+
+$$
+\Vert A m \Vert = \Vert U D V^T m \Vert = \Vert D V^T m \Vert
+$$
+
+$$
+\Vert m \Vert = \Vert V^T m \Vert = 1
+$$
+
+令$y = V^T m$，我们可以把原始的优化问题转为为一个新的优化问题：
+
+$$
+\begin{aligned}
+\min \ \ & \Vert D y \Vert \\
+\text{s.t.} \ \ & \Vert y \Vert = 1
+\end{aligned}
+$$
+
+由于$D$为对角元素非负的对角矩阵，$\Vert D y \Vert$的最小值为$D$中的最小对角元素。此时$y$仅在该元素位置为1，其余位置均为0。我们可以将$D$的对角元素按从大到小顺序重新排列，这样$y = (0, 0, ..., 0, 1)^T$，即：
+
+$$
+V^T m = 
+\begin{bmatrix}
+0 \\  \vdots \\ 0 \\ 1
+\end{bmatrix}
+$$
+
+上式说明$m$为$V$的最后一列，即$A$最小奇异值对应的右奇异向量，也就是$A^T A$的最小特征值对应的特征向量。
+
+另一种求解方程$Am=0$的方法是将相机矩阵的最后一个元素固定为1，此时的投影过程为：
+
+$$
+\begin{bmatrix}
+u_i \\ v_i \\ 1
+\end{bmatrix}
+\simeq
+\begin{bmatrix}
+w \cdot u_i \\ w \cdot v_i \\ w
+\end{bmatrix}
+=
+\begin{bmatrix}
+m_{00} & m_{01} & m_{02} & m_{03} \\
+m_{10} & m_{11} & m_{12} & m_{13} \\
+m_{20} & m_{21} & m_{22} & 1 \\
+\end{bmatrix}
+
+\begin{bmatrix}
+X_i \\ Y_i \\ Z_i \\ 1
+\end{bmatrix}
+$$
+
+$$
+u_i = \frac{m_{00} X_i + m_{01} Y_i + m_{02} Z_i + m_{03}}{m_{20} X_i + m_{21} Y_i + m_{22} Z_i + 1}
+$$
+
+$$
+v_i = \frac{m_{10} X_i + m_{11} Y_i + m_{12} Z_i + m_{13}}{m_{20} X_i + m_{21} Y_i + m_{22} Z_i + 1}
+$$
+
+不过需要注意的是相机矩阵本身对$m_{23}$没有任何约束，因此假定$m_{23}=1$的解法在$m_{23}$接近0时会有严重的数值精度问题。
 
 ### Multi-Plane Calibration
