@@ -420,4 +420,22 @@ $$
 
 不过需要注意的是相机矩阵本身对$m_{23}$没有任何约束，因此假定$m_{23}=1$的解法在$m_{23}$接近0时会有严重的数值精度问题。
 
+直接法进行相机标定的主要缺陷在于它没有使用正确的误差函数。优化目标$\Vert A m \Vert$没有任何的几何意义，我们称其为**代数误差(algebraic error)**。而理想的相机矩阵需要保证$X_i$经过投影后与图像上的对应点$x_i$尽可能接近，因此我们把$X_i$再图像上的投影$\hat{x}_i$与对应点$x_i$之间的距离称为**几何误差(geometric error)**或重**投影误差(reprojection error)**，相应的优化问题可表示为：
+
+$$
+\min_M \sum_i d(\hat{x}_i, x_i)
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/bUIcq1u.png" width="30%">
+</div>
+
+由于投影过程是非线性的，我们无法像直接法那样显式地计算优化问题的解，一般情况下需要通过牛顿法(Newton method)等非线性优化算法来迭代求解。我们把直接法和非线性优化结合起来就得到了相机标定的**Gold Standard算法**：
+
+<div align=center>
+<img src="https://i.imgur.com/pH201iB.png" width="60%">
+</div>
+
+### Camera Center from M
+
 ### Multi-Plane Calibration
