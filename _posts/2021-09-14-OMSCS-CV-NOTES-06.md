@@ -450,7 +450,7 @@ $$
 M x = \lambda M P + (1 - \lambda) M C
 $$
 
-由于$x$在$PC$直线上，投影后$x$与$P$具有相同的图像坐标。因此$MC = 0$，换句话说$C$位于$M$的零空间中。我们把$M$写成増广矩阵的形式$$M = \begin{bmatrix} Q \ | \ b \end{bmatrix}$$，可以得到$C$的齐次坐标为：
+由于$x$在$PC$直线上，投影后$x$与$P$具有相同的图像坐标。因此$MC = 0$，换句话说$C$位于$M$的零空间中。我们把$M$写成増广矩阵的形式$M = \begin{bmatrix} Q \ \vert \ b \end{bmatrix}$，可以得到$C$的齐次坐标为：
 
 $$
 C = 
