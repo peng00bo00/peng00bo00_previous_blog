@@ -436,7 +436,7 @@ $$
 <img src="https://i.imgur.com/pH201iB.png" width="60%">
 </div>
 
-### Camera Center from M
+### Finding Camera Center from M
 
 通过相机标定得到相机矩阵$M$后可以反推出很多有用的性质，比如说我们可以得到投影中心在世界坐标系下的坐标$C$。对于空间中任意点$P$，假设$x$位于$P$和投影中心$C$连成的直线上：
 
