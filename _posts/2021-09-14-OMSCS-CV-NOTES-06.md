@@ -71,6 +71,55 @@ $$
 
 ### Rotation
 
+对于刚体旋转，我们分别取$P$点在两个坐标系下的表示为：
+
+$$
+P = 
+\begin{bmatrix}
+i_A & j_A & k_A
+\end{bmatrix}
+\begin{bmatrix}
+^Ax \\ ^Ay \\ ^Az
+\end{bmatrix}
+=
+\begin{bmatrix}
+i_B & j_B & k_B
+\end{bmatrix}
+\begin{bmatrix}
+^Bx \\ ^By \\ ^Bz
+\end{bmatrix}
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/kMAzvq3.png" width="40%">
+</div>
+
+因此我们可以得到刚体旋转的坐标变换公式：
+
+$$
+^BP = ^B_AR \ ^AP
+$$
+
+$$
+^B_AR
+= 
+\begin{bmatrix}
+i_A \cdot i_B & j_A \cdot i_B & k_A \cdot i_B \\
+i_A \cdot j_B & j_A \cdot j_B & k_A \cdot j_B \\
+i_A \cdot k_B & j_A \cdot k_B & k_A \cdot k_B \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+^Bi_A & ^Bj_A & ^Bk_A
+\end{bmatrix}
+=
+\begin{bmatrix}
+{^Ai_B}^T \\ {^Aj_B}^T \\ {^Ak_B}^T
+\end{bmatrix}
+$$
+
+其中$^Bi_A$表示$A$坐标系的基矢量$i_A$在$B$坐标系中的坐标。我们称$^B_AR$为$A$坐标系到$B$坐标系的旋转矩阵。
+
 ### Rigid Transformations
 
 ## Instrinsic Camera Calibration
