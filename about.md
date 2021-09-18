@@ -34,7 +34,7 @@ My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https:/
 
 ## Education
 - **New York University Abu Dhabi** <span style="float:right">2019.09 - Present</span> \
-  PhD candidate in Civil Engineering
+  PhD candidate in Civil and Urban Engineering
 
 - **Georgia Institute of Technology** <span style="float:right">2021.01 - Present</span> \
   Pursing MS in CS at OMSCS program
