@@ -19,3 +19,5 @@ sidebar:
 ## VC Dimension
 
 ## Reference
+
+- Chapter 7: COMPUTATIONAL LEARNING THEORY, [Machine Learning, Tom Mitchell, McGraw Hill, 1997.](http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html)
