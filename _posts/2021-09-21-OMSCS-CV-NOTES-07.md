@@ -134,6 +134,44 @@ $$
 
 ## Homographies and Mosaics
 
+图像上的齐次坐标实际上可以从三维空间进行理解。此时多出来的一维$w$表示空间点的深度，因此图像平面上的点实际上表示的是空间中位于平面$z=1$上的点。同时利用齐次坐标的规范化性质，坐标$(x, y, 1)$可以理解为从原点出发经过图像平面上点$(x, y, 1)$的射线。
+
+<div align=center>
+<img src="https://i.imgur.com/Q56tdOx.png" width="30%">
+</div>
+
+利用齐次坐标的几何意义可以实现图像平面到图像平面的变换。假设空间中存在2个具有相同成像中心的图像平面PP1和PP2，我们想要计算两个图像平面的变换关系。对于空间中的点P可以做一条成像中心C到P点的连线与图像平面分别交于P1和P2两点，如下图所示：
+
+<div align=center>
+<img src="https://i.imgur.com/eMIOhuM.png" width="30%">
+</div>
+
+不难发现实际上我们不需要考虑两个平面的空间关系，只需要知道投影点的坐标变换关系就可以实现PP1和PP2之间的转换。
+
+### Panorama
+
+图像平面变换的一个典型应用是获得**全景图(panorama)**。我们可以利用图像平面的变换将不同角度拍摄的图像变换到一个固定的角度，从而获得更大的视野。
+
+<div align=center>
+<img src="https://i.imgur.com/vNAPQjy.png" width="70%">
+</div>
+
+全景图拼接的本质是把不同的成像平面变换到一个给定的平面上，从而得到空间点在该平面上的投影。因此这样的过程需要保证不同图像的成像中心是同一点，同时视野的角度需要小于180°，否则会产生一些扭曲的问题。
+
+<div align=center>
+<img src="https://i.imgur.com/Wl2B40P.png" width="20%">
+</div>
+
+### Homography
+
+图像平面到图像平面的变换可以利用投影变换的单应矩阵$H$来描述，两幅图像上对应点的坐标满足：
+
+$$
+p' = H p
+$$
+
+由于单应矩阵$H$具有8个自由度，我们需要至少4组对应点才能求解。类似于计算相机矩阵的过程，我们可以假定$H$矩阵的最后一个元素为1来求解；而实际中更常用的方式是利用奇异值分解来计算，整个计算流程类似于[Direct Linear Calibration](/2021/09/14/OMSCS-CV-NOTES-07.html#direct-linear-calibration)。
+
 ## Projective Geometry
 
 ## Essential matrix
