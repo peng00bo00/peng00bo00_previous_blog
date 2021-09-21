@@ -255,6 +255,84 @@ $$
 
 ## Projective Geometry
 
+对于二维平面，我们可以利用齐次坐标来表示直线方程：
+
+$$
+a x + b y + c = 0 \Leftrightarrow 
+\begin{bmatrix}
+a & b & c
+\end{bmatrix}
+\begin{bmatrix}
+x \\ y \\ 1
+\end{bmatrix}
+= 0
+$$
+
+其中向量$l = \begin{bmatrix} a & b & c \end{bmatrix}^T$表示直线方程的参数。从代数的角度上看直线方程与坐标向量并没有本质区别，都只是一个三维的向量。因此平面直线与齐次坐标是对偶的。
+
+如果把齐次坐标看成是经过原点的射线，那么平面直线同样可以理解为经过原点的平面与成像平面的交线。此时直线向量$l$表示该平面的法向量。
+
+<div align=center>
+<img src="https://i.imgur.com/VxsaaFK.png" width="30%">
+</div>
+
+利用对偶性可以方便地计算平面上的直线方程。假设图像平面上存在两个点$p_1$和$p_2$，经过两个点的直线$l$需要满足：
+
+$$
+l^T p_1 = 0
+$$
+
+$$
+l^T p_2 = 0
+$$
+
+从空间中来看通过$p_1$和$p_2$的直线实际上就是射线张成的平面与图像平面的交线，该平面的法向为：
+
+$$
+l = p_1 \times p_2
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/UkgvEpm.png" width="30%">
+</div>
+
+类似地，假设图像上存在两条直线$l_1$和$l_2$且它们的交点为$p$。$p$点的坐标同样可以由$l_1$和$l_2$给出
+
+$$
+l_1^T p = 0
+$$
+
+$$
+l_2^T p = 0
+$$
+
+$$
+p = l_1 \times l_2
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/LSNdXw7.png" width="30%">
+</div>
+
+上面的分析说明在投影空间下直线与点是相互对偶的，利用叉积运算可以方便地求解直线方程和直线交点。
+
+<div align=center>
+<img src="https://i.imgur.com/k7ztm6Z.png" width="30%">
+<img src="https://i.imgur.com/MkPW4OZ.png" width="37%">
+</div>
+
+当齐次坐标的最后一维为0时，坐标向量$(x, y, 0)$与成像平面平行。我们称此时的点为**理想点(ideal points)**，它位于成像平面上的无穷远处。
+
+<div align=center>
+<img src="https://i.imgur.com/ICZc5Dq.png" width="40%">
+</div>
+
+类似地，当直线向量的最后一维为0时，直线向量$l = (a, b, 0)$平行于成像平面且在成像平面上该直线通过原点。这样的直线称为**理想直线(ideal line)**，显然无穷远处的理想点都满足理想直线的方程，也就是位于某些理想直线上。
+
+<div align=center>
+<img src="https://i.imgur.com/zoGZRLl.png" width="40%">
+</div>
+
 ## Essential matrix
 
 ## Fundamental matrix
