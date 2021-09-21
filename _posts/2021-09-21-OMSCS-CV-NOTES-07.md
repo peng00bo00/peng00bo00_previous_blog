@@ -170,7 +170,88 @@ $$
 p' = H p
 $$
 
-由于单应矩阵$H$具有8个自由度，我们需要至少4组对应点才能求解。类似于计算相机矩阵的过程，我们可以假定$H$矩阵的最后一个元素为1来求解；而实际中更常用的方式是利用奇异值分解来计算，整个计算流程类似于[Direct Linear Calibration](/2021/09/14/OMSCS-CV-NOTES-07.html#direct-linear-calibration)。
+由于单应矩阵$H$具有8个自由度，我们需要至少4组对应点才能求解。类似于计算相机矩阵的过程，我们可以假定$H$矩阵的最后一个元素为1来求解；而实际中更常用的方式是利用奇异值分解来计算，整个计算流程类似于[Direct Linear Calibration](/2021/09/14/OMSCS-CV-NOTES-07.html#direct-linear-calibration)中介绍的方法。
+
+### 3D Planes
+
+使用单应矩阵来描述图像平面变换的另一个好处在于我们可以任意空间平面到图像平面的投影。假设空间中的点分布于某个平面上，对应的平面方程为：
+
+$$
+a X + b Y + c Z + d = 0
+$$
+
+我们将平面方程带入到投影过程得到：
+
+$$
+\begin{bmatrix}
+u \\ v \\ 1
+\end{bmatrix}
+\simeq
+\begin{bmatrix}
+m_{00} & m_{01} & m_{02} & m_{03} \\
+m_{10} & m_{11} & m_{12} & m_{13} \\
+m_{20} & m_{21} & m_{22} & m_{23} \\
+\end{bmatrix}
+
+\begin{bmatrix}
+X \\ Y \\ \frac{a X + b Y + d}{-c} \\ 1
+\end{bmatrix}
+$$
+
+由于$Z$项是其它三维的线性组合，我们可以把相机矩阵的第3列合并到其它列中，得到新的投影方程：
+
+$$
+\begin{bmatrix}
+u \\ v \\ 1
+\end{bmatrix}
+\simeq
+\begin{bmatrix}
+m_{00}' & m_{01}' & 0 & m_{03}' \\
+m_{10}' & m_{11}' & 0 & m_{13}' \\
+m_{20}' & m_{21}' & 0 & m_{23}' \\
+\end{bmatrix}
+
+\begin{bmatrix}
+X \\ Y \\ \frac{a X + b Y + d}{-c} \\ 1
+\end{bmatrix}
+$$
+
+上式说明当空间中的点位于同一平面上时，我们只需要一个$3 \times 3$的矩阵就可以描述投影过程，即单应矩阵$H$描述了三维平面到图像平面的投影。
+
+### Image Rectification
+
+我们可以把图像看做空间中的一个平面，这样利用单应矩阵就可以完成对图像的矫正(rectification)。
+
+<div align=center>
+<img src="https://i.imgur.com/cdZL4iN.png" width="50%">
+</div>
+
+图像矫正的一个常见应用是把透视投影矫正为正交投影，使原本相交于灭点的平行直线在投影后仍保持平行，这样方便我们在矫正后的图像上进行处理。
+
+<div align=center>
+<img src="https://i.imgur.com/Zbzgzag.png" width="30%">
+<img src="https://i.imgur.com/o5Yvycu.png" width="45%">
+</div>
+
+### Image Warping
+
+使用单应矩阵进行图像变换时需要注意的是我们实际上是对变换后的图像进行处理。具体来说对于变换后图像$g(x, y)$上的点$(x', y')$，我们需要把原始图像$f(x, y)$上对应点$(x, y)$处的像素拷贝过来。
+
+<div align=center>
+<img src="https://i.imgur.com/JYmu3Q0.png" width="70%">
+</div>
+
+在大多数情况下原始图像上对应点的坐标都不是正数，因此我们需要通过插值的方式来计算像素值。实践中往往会利用双线性插值来进行计算：
+
+$$
+\begin{aligned}
+f(x, y) &= (1-a)(1-b) \cdot f(i, j) \\ &+ a(1-b) \cdot f(i+1, j) \\ &+ ab \cdot f(i+1, j+1) \\ &+ (1-a)b \cdot f(i, j+1)
+\end{aligned}
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/JKHbo4b.png" width="30%">
+</div>
 
 ## Projective Geometry
 
