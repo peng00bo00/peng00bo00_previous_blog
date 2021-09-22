@@ -170,7 +170,7 @@ $$
 p' = H p
 $$
 
-由于单应矩阵$H$具有8个自由度，我们需要至少4组对应点才能求解。类似于计算相机矩阵的过程，我们可以假定$H$矩阵的最后一个元素为1来求解；而实际中更常用的方式是利用奇异值分解来计算，整个计算流程类似于[Direct Linear Calibration](/2021/09/14/OMSCS-CV-NOTES-07.html#direct-linear-calibration)中介绍的方法。
+由于单应矩阵$H$具有8个自由度，我们需要至少4组对应点才能求解。类似于计算相机矩阵的过程，我们可以假定$H$矩阵的最后一个元素为1来求解；而实际中更常用的方式是利用奇异值分解来计算，整个计算流程类似于[Direct Linear Calibration](/2021/09/14/OMSCS-CV-NOTES-06.html#direct-linear-calibration)中介绍的方法。
 
 ### 3D Planes
 
@@ -333,6 +333,130 @@ $$
 <img src="https://i.imgur.com/zoGZRLl.png" width="40%">
 </div>
 
-## Essential matrix
+## Essential Matrix
 
-## Fundamental matrix
+在[Epipolar Geometry](/2021/09/08/OMSCS-CV-NOTES-05.html#epipolar-geometry)一节中我们介绍过双目相机的对极约束。空间点$P$与两个成像中心构成的平面称为**极平面(epipolar plane)**；$P$点在成像平面$\Pi$上的投影$p$对应$\Pi'$平面上的一条直线，称为**极线(epipolar line)**；成像中心$O'$在$\Pi$平面上的投影称为**极点(epipole)**；同时$\Pi$平面上所有的极线都相交于极点。
+
+<div align=center>
+<img src="https://i.imgur.com/p0etcdX.png" width="60%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/BAK9HMw.png" width="50%">
+</div>
+
+几何意义之外，对极约束在代数上也具有非常优雅的形式。假设空间中存在两个成像中心$O_c$和$O_c'$，且两个相机的相对位姿可以通过平移$T$和旋转$R$来表示。为不失一般性我们假定世界坐标系与$O_c$坐标系重合，此时空间点$X$在$O_c'$坐标系下的坐标为：
+
+$$
+X' = R X + T
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/9cA77SJ.png" width="50%">
+</div>
+
+在等式两端同时叉乘$T$得到：
+
+$$
+T \times X' = T \times R X + T \times T = T \times R X
+$$
+
+然后再同时点乘$X'$得到：
+
+$$
+X' \cdot (T \times X') = X' \cdot (T \times R X) = 0
+$$
+
+我们把向量叉乘改写成矩阵乘法的形式：
+
+$$
+T \times R = 
+\begin{bmatrix}
+0 & -T_3 & T_2 \\
+T_3 & 0 & -T_1 \\
+-T_2 & T_1 & 0 \\
+\end{bmatrix}
+
+\begin{bmatrix}
+R_{11} & R_{12} & R_{13} \\
+R_{21} & R_{22} & R_{23} \\
+R_{31} & R_{32} & R_{33} \\
+\end{bmatrix}
+=
+T_\times R
+$$
+
+$$
+X' \cdot (T_\times R X) = 0
+$$
+
+令$E = T_\times R$，上式可化简为：
+
+$$
+X'^T E X= 0
+$$
+
+其中矩阵$E$称为**本质矩阵(essential matrix)**。如果把$X$和$X'$换成相应的齐次坐标，那么本质矩阵实际上给出了极线的表达式。令$l' = EX$，此时对极约束可以改写为$X'^T l' = 0$，即$X$在$\Pi'$平面上的投影$X'$位于极线$l' = EX$上。
+
+利用基本矩阵还可以从代数角度证明平行放置的双目相机空间点的投影一定在同一水平直线上。由于此时没有相对旋转，旋转矩阵$R$退化为单位阵$I$，同时位移项$T$仅有x方向分量：
+
+$$
+R = I
+$$
+
+$$
+T = (-B, 0, 0)^T
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/c7UEgWU.png" width="30%">
+</div>
+
+我们把旋转和平移带入到本质矩阵的计算公式，得到退化的本质矩阵：
+
+$$
+E = T_\times R = T_\times
+=
+\begin{bmatrix}
+0 & 0 & 0 \\
+0 & 0 & B \\
+0 &-B & 0 \\
+\end{bmatrix}
+$$
+
+假设$P$点在两个投影平面的投影分别为$p_l = (x, y, f)$和$p_r = (x', y', f)$，带入对极约束可以得到：
+
+$$
+p_l^T E p_r = 0 \Leftrightarrow
+\begin{bmatrix}
+x' & y' & f
+\end{bmatrix}
+
+\begin{bmatrix}
+0 & 0 & 0 \\
+0 & 0 & B \\
+0 &-B & 0 \\
+\end{bmatrix}
+
+\begin{bmatrix}
+x \\ y \\ f
+\end{bmatrix}
+=
+\begin{bmatrix}
+x' & y' & f
+\end{bmatrix}
+
+\begin{bmatrix}
+0 \\ Bf \\ -By
+\end{bmatrix}
+
+= 0
+$$
+
+$$
+y' = y
+$$
+
+也就是说同一点投影后在两个成像平面上一定具有相同的y坐标，即位于同一条水平直线上。
+
+## Fundamental Matrix
