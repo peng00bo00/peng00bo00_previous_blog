@@ -255,6 +255,8 @@ $$
 
 ## Projective Geometry
 
+### Point and Line Duality
+
 对于二维平面，我们可以利用齐次坐标来表示直线方程：
 
 $$
@@ -320,6 +322,8 @@ $$
 <img src="https://i.imgur.com/k7ztm6Z.png" width="30%">
 <img src="https://i.imgur.com/MkPW4OZ.png" width="37%">
 </div>
+
+### Ideal Points and Lines
 
 当齐次坐标的最后一维为0时，坐标向量$(x, y, 0)$与成像平面平行。我们称此时的点为**理想点(ideal points)**，它位于成像平面上的无穷远处。
 
