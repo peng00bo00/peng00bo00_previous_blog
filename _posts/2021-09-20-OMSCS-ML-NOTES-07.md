@@ -50,7 +50,7 @@ $$
 error_D(h) \leq \varepsilon, \ \forall h \in VS_{H, X}
 $$
 
-这说明每个样本从分布$D$中抽样出的概率最大为$(1 - \varepsilon)$，否则一致假设$h$的泛化误差会大于$\varepsilon$。由于训练数据是独立同分布的，抽样出样本集$X$的概率最大为$(1 - \varepsilon)^n$，也就是说任意假设$h$是一致假设的概率最大为$(1 - \varepsilon)^n$。如果版本空间中总共包含$k$个假设，那么这些假设在样本集$X$上满足一致条件的概率最大为$k(1 - \varepsilon)^n$。在大多数情况下我们无法得知假设空间的大小，因此进一步对概率进行缩放得到版本空间不满足$\varepsilon$-exhausted条件的概率上界：
+如果假设空间中存在$k$个假设，它们的泛化误差都大于$\varepsilon$。那么它们中如果有1个位于版本空间$VS_{H, X}$中的话，版本空间就不再是$\varepsilon$-exhausted。我们设这个泛化误差大于$\varepsilon$且位于版本空间的假设为$h$，在这样的情况下每个样本从分布$D$中抽样出的概率最大为$(1 - \varepsilon)$，否则$h$就不再是一致假设了。由于训练数据是独立同分布的，抽样出样本集$X$的概率最大为$(1 - \varepsilon)^n$，也就是说$h$在样本集$X$上是一致假设的概率最大为$(1 - \varepsilon)^n$。由于我们一共有$k$个这样假设，它们中至少有一个位于版本空间的概率小于等于$k(1 - \varepsilon)^n$。在大多数情况下我们无法得知$k$的具体值，因此进一步对概率进行缩放得到版本空间不满足$\varepsilon$-exhausted条件的概率上界：
 
 $$
 k(1 - \varepsilon)^n \leq \vert H \vert (1 - \varepsilon)^n \leq \vert H \vert e^{- \varepsilon n}
