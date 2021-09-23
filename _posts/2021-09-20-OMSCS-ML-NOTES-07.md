@@ -50,7 +50,7 @@ $$
 error_D(h) \leq \varepsilon, \ \forall h \in VS_{H, X}
 $$
 
-这说明每个样本从分布$D$中抽样出的概率最大为$(1 - \varepsilon)$。由于训练数据是独立同分布的，抽样出$X$的概率最大为$(1 - \varepsilon)^n$，也就是说任意假设$h$是一致的概率最大为$(1 - \varepsilon)^n$。如果版本空间中总共包含$k$个假设，那么这些假设在样本集$X$上满足一致条件的概率最大为$k(1 - \varepsilon)^n$。在大多数情况下我们无法得知假设空间的大小，因此进一步对概率进行缩放得到版本空间不满足$\varepsilon$-exhausted条件的概率上界：
+这说明每个样本从分布$D$中抽样出的概率最大为$(1 - \varepsilon)$，否则一致假设$h$的泛化误差会大于$\varepsilon$。由于训练数据是独立同分布的，抽样出样本集$X$的概率最大为$(1 - \varepsilon)^n$，也就是说任意假设$h$是一致假设的概率最大为$(1 - \varepsilon)^n$。如果版本空间中总共包含$k$个假设，那么这些假设在样本集$X$上满足一致条件的概率最大为$k(1 - \varepsilon)^n$。在大多数情况下我们无法得知假设空间的大小，因此进一步对概率进行缩放得到版本空间不满足$\varepsilon$-exhausted条件的概率上界：
 
 $$
 k(1 - \varepsilon)^n \leq \vert H \vert (1 - \varepsilon)^n \leq \vert H \vert e^{- \varepsilon n}
@@ -66,7 +66,7 @@ $$
 n \geq \frac{1}{\varepsilon} (\ln \vert H \vert + \ln \frac{1}{\delta})
 $$
 
-上式说明我们至少需要$n = \frac{1}{\varepsilon} (\ln \vert H \vert + \ln \frac{1}{\delta})$数量的样本才能保证学习到的一致假设$h$满足误差界$error_D(h) \leq \varepsilon$。
+上式说明我们至少需要$n = \frac{1}{\varepsilon} (\ln \vert H \vert + \ln \frac{1}{\delta})$数量的样本才能保证学习到的一致假设$h$满足泛化误差$error_D(h) \leq \varepsilon$。
 
 ## VC Dimension
 
