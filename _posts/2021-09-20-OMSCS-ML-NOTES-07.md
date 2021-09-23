@@ -66,7 +66,7 @@ $$
 n \geq \frac{1}{\varepsilon} (\ln \vert H \vert + \ln \frac{1}{\delta})
 $$
 
-上式说明我们至少需要$n = \frac{1}{\varepsilon} (\ln \vert H \vert + \ln \frac{1}{\delta})$数量的样本才能保证学习到的一致假设$h$满足泛化误差$error_D(h) \leq \varepsilon$。
+上式也被称为**Haussler定理(Haussler theorem)**，它说明我们至少需要$n = \frac{1}{\varepsilon} (\ln \vert H \vert + \ln \frac{1}{\delta})$数量的样本才能保证学习到的一致假设$h$满足泛化误差$error_D(h) \leq \varepsilon$。
 
 ## VC Dimension
 
