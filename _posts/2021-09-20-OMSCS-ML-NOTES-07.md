@@ -20,6 +20,8 @@ sidebar:
 
 ## PAC Learning
 
+### PAC Learnable
+
 计算学习理论的主要成果是**概率近似正确理论(probably approximately correct, PAC)**，基于PAC学习理论我们可以去计算学习算法的样本复杂度。在介绍具体的理论前首先要引入一些相关的概念：假设样本$X$都是从某个分别$D$中采样得到的；$D$可以是任意的分布同时学习器$L$无法得知$D$的信息；学习器$L$的目标是从假设空间$H$中学习到正确的概念$c$，同时$c$存在于假设空间$H$中。设学习器学习到的假设为$h$，我们定义$h$在分布$D$上的误差为：
 
 $$
@@ -33,6 +35,8 @@ $$
 > 设正确概念的集合$C$，大小为$n$的样本集合为$X$，学习器为$L$，假设空间为$H$。称$C$是**PAC可学习(PAC-learnable)**的当且仅当$C$中的任意正确概念$c \in C$能够被学习器$L$以概率$(1-\delta)$从$X$中进行学习，学习到的假设$h$在分布$D$上的误差满足$error_D(h) \leq \varepsilon$，且学习所需的时间为$\frac{1}{\varepsilon}$、$\frac{1}{\delta}$、$n$以及$\vert c \vert$的多项式函数。
 
 PAC学习对于学习器$L$提出了两个要求：首先学习器要有足够高的成功概率$(1-\delta)$以及足够低的误差$error_D(h) \leq \varepsilon$；同时学习算法要保证足够的效率，必须是$\frac{1}{\varepsilon}$和$\frac{1}{\delta}$的多项式函数。
+
+### Sample Complexity
 
 ## VC Dimension
 
