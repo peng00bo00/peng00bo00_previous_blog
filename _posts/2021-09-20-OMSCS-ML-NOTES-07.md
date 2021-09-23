@@ -31,7 +31,7 @@ $$
 需要说明的是学习器$L$是从样本$X$中进行学习的，因此无法直接计算在分布$D$上误差$error_D(h)$而只能计算$h$在训练数据上的误差。我们把在训练样本$X$上与正确的概念$c$表现一致的假设$h$称为是**一致的(consistent)**，一致假设构成的集合称为**版本空间(version space)**：
 
 $$
-VS_{H, D} = \{h \in H \vert h(x) = c(x) , \forall \langle x, c(x) \rangle \in D \}
+VS_{H, X} = \{h \in H \vert h(x) = c(x) , \forall \langle x, c(x) \rangle \in X \}
 $$
 
 显然在给定样本$X$的条件下可能存在多个一致的假设，它们在训练样本$X$上的误差为0。同时由于$X$都是从$D$中采样得到的，$X$自身可能会对学习器产生一些误导使得学习器学到一些不存在于分布$D$中的信息。
@@ -43,6 +43,30 @@ $$
 PAC学习对于学习器$L$提出了两个要求：首先学习器要有足够高的成功概率$(1-\delta)$以及足够低的误差$error_D(h) \leq \varepsilon$；同时学习算法要保证足够的效率，必须是$\frac{1}{\varepsilon}$和$\frac{1}{\delta}$的多项式函数。
 
 ### Sample Complexity
+
+PAC可学习实际上暗示了学习器的样本复杂度同样是多项式函数。对于版本空间$VS_{H, X}$，我们称它是$\varepsilon$-exhausted如果其中的任意假设$h$在分布$D$上的误差小于$\varepsilon$：
+
+$$
+error_D(h) \leq \varepsilon, \ \forall h \in VS_{H, X}
+$$
+
+这说明每个样本从分布$D$中抽样出的概率最大为$(1 - \varepsilon)$。由于训练数据是独立同分布的，抽样出$X$的概率最大为$(1 - \varepsilon)^n$，也就是说任意假设$h$是一致的概率最大为$(1 - \varepsilon)^n$。如果版本空间中总共包含$k$个假设，那么这些假设在样本集$X$上满足一致条件的概率最大为$k(1 - \varepsilon)^n$。在大多数情况下我们无法得知假设空间的大小，因此进一步对概率进行缩放得到版本空间不满足$\varepsilon$-exhausted条件的概率上界：
+
+$$
+k(1 - \varepsilon)^n \leq \vert H \vert (1 - \varepsilon)^n \leq \vert H \vert e^{- \varepsilon n}
+$$
+
+其中$\vert H \vert$表示假设空间的大小。上式说明学习器$L$学习失败的概率一定小于等于$\vert H \vert e^{- \varepsilon n}$，我们再令这个上界小于等于某个小量$\delta$就能得到PAC学习的样本复杂度：
+
+$$
+\vert H \vert e^{- \varepsilon n} \leq \delta
+$$
+
+$$
+n \geq \frac{1}{\varepsilon} (\ln \vert H \vert + \ln \frac{1}{\delta})
+$$
+
+上式说明我们至少需要$n = \frac{1}{\varepsilon} (\ln \vert H \vert + \ln \frac{1}{\delta})$数量的样本才能保证学习到的一致假设$h$满足误差界$error_D(h) \leq \varepsilon$。
 
 ## VC Dimension
 
