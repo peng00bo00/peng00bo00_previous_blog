@@ -74,7 +74,7 @@ Haussler定理的一个主要缺陷在于它过于高估了样本复杂度。当
 
 对于二分问题，假设空间$H$中的假设对样本赋予标记的每种可能结果称为对样本的一种**对分(dichotomy)**。显然对于包含$n$个样本的数据集所有可能的标记总共有$2^n$种可能性。如果假设空间$H$能够实现样本上的所有对分，则称样本能被假设空间$H$**打散(shattering)**。在此基础上我们给出**VC维(Vapnik and Chervonenkis dimension)**的定义：
 
-> 假设空间$H$的VC维是能被$H$打散的最大样本集的大小，即$$VC(H) = \max {\Pi_H (m) = 2^m}$$
+> 假设空间$H$的VC维是能被$H$打散的最大样本集的大小，即$$VC(H) = \max \{ m: \Pi_H (m) = 2^m \}$$
 
 $VC(H) = d$表示存在大小为$d$的样本集能被假设空间$H$打散，但这并不意味着任意大小为$d$的样本集都能被$H$打散。同时VC维与样本分布$D$无关，仅与假设空间$H$有关。因此在数据未知的情况下仍然能够计算出VC维。
 
@@ -83,6 +83,14 @@ $VC(H) = d$表示存在大小为$d$的样本集能被假设空间$H$打散，但
 <div align=center>
 <img src="https://i.imgur.com/LaiOIaX.png" width="70%">
 </div>
+
+使用VC维来代替假设空间的模可以得到更准确的样本复杂度：
+
+$$
+n \geq \frac{1}{\varepsilon} (4 \log_2 \big( \frac{2}{\delta} \big) + 8 VC(H) \log_2 \big( \frac{13}{\varepsilon} \big) )
+$$
+
+利用VC维还可以证明假设空间$H$是可学习的当且仅当它的VC维有限。
 
 ## Reference
 
