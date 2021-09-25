@@ -70,6 +70,12 @@ $$
 
 ## VC Dimension
 
+Haussler定理的一个主要缺陷在于它过于高估了样本复杂度。当假设空间$H$存在无穷多假设时，按照Haussler定理我们需要无穷多的样本才能保证PAC可学习，这与我们的认知是相违背的。实际上对于包含无穷多假设的假设空间，其中很多的假设是相互等价的，显然将它们视作不同的假设会极大地增加样本复杂度。因此我们需要缩小$\vert H \vert$来获得样本复杂度的一个更紧的界。
+
+对于二分问题，假设空间$H$中的假设对样本赋予标记的每种可能结果称为对样本的一种**对分(dichotomy)**。显然对于包含$n$个样本的数据集所有可能的标记总共有$2^n$种可能性。如果假设空间$H$能够实现样本上的所有对分，则称样本能被假设空间$H$**打散(shattering)**。在此基础上我们给出**VC维(Vapnik and Chervonenkis dimension)**的定义：
+
+> 假设空间$H$的VC维是能被$H$打散的最大样本集的大小，即$$VC(H) = \max {\PI_H (m) = 2^m}$$
+
 ## Reference
 
 - Chapter 7: COMPUTATIONAL LEARNING THEORY, [Machine Learning, Tom Mitchell, McGraw Hill, 1997.](http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html)
