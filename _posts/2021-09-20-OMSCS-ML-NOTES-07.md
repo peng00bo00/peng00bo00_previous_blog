@@ -78,6 +78,12 @@ Haussler定理的一个主要缺陷在于它过于高估了样本复杂度。当
 
 $VC(H) = d$表示存在大小为$d$的样本集能被假设空间$H$打散，但这并不意味着任意大小为$d$的样本集都能被$H$打散。同时VC维与样本分布$D$无关，仅与假设空间$H$有关。因此在数据未知的情况下仍然能够计算出VC维。
 
+以平面上的二分类问题为例，对于线性分类器当我们有3个样本时无论样本如何布置都可以实现对分，但对于4个样本的情况则会出现无法对分的情况。因此二分问题中线性分类器的VC维为3，同时可以证明$n$维情况下的VC维为$n+1$。
+
+<div align=center>
+<img src="https://i.imgur.com/LaiOIaX.png" width="70%">
+</div>
+
 ## Reference
 
 - Chapter 7: COMPUTATIONAL LEARNING THEORY, [Machine Learning, Tom Mitchell, McGraw Hill, 1997.](http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html)
