@@ -83,7 +83,7 @@ h_{ML} &= \underset{h \in H}{\arg \max} P(D \vert h) \\
 \end{aligned}
 $$
 
-与最小二乘法的优化目标相同。上式说明贝叶斯视角下的最小二乘法实际上就是对高斯噪声下的数据进行极大似然估计。
+等式右端与最小二乘法的优化目标相同，这说明贝叶斯视角下的最小二乘法实际上就是对高斯噪声下的数据进行极大似然估计。
 
 ### Minimum Description Length Principle
 
