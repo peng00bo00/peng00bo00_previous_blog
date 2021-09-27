@@ -35,13 +35,13 @@ $$
 显然我们希望求解得到的假设$h$为在已知数据情况下概率最大的假设，称之为**最大后验假设(maximum a posteriori hypothesis)**：
 
 $$
-h_{MAP} = \argmax_{h \in H} P(D \vert h) P(h)
+h_{MAP} = \arg \max_{h \in H} P(D \vert h) P(h)
 $$
 
 上式说明后验概率取决于假设$h$生成数据集$D$的似然$P(D \vert h)$以及假设自身的先验概率$P(h)$。如果我们假设$h$服从均匀分布则可以省略掉先验项$P(h)$，此时计算得到的假设称为**最大似然假设(maximum likelihood hypothesis)**：
 
 $$
-h_{ML} = \argmax_{h \in H} P(D \vert h)
+h_{ML} = \arg \max_{h \in H} P(D \vert h)
 $$
 
 ### Bayesian Classification
