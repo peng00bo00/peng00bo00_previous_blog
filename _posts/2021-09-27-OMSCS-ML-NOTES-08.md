@@ -119,6 +119,24 @@ $$
 
 ## Bayesian Inference
 
+### Bayesian Networks
+
+贝叶斯理论在机器学习中另一个重要应用是进行**推断(inference)**。所谓"推断"是指在给定一些已知条件(evidence)的前提下计算其它随机变量条件概率的过程，但在介绍推断前我们需要引入**贝叶斯网络(Bayesian networks)**的相关知识。贝叶斯网络是一种结构化表示概率的方法，它利用随机变量间的条件独立性将**联合概率分布(joint distribution)**分解为一系列条件概率的乘积。以下图为例，图中所示随机变量的联合概率可以表示为：
+
+$$
+P(A, B, C, D, E) = P(A) P(B) P(C \vert A, B) P(D \vert B, C) P(E \vert C, D)
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/SVug9j1.png" width="70%">
+</div>
+
+有了联合概率后利用**边缘化(marginalization)**将无关的变量约掉并计算给定已知条件下的概率分布，也就是在贝叶斯网络上进行推断。
+
+对于高维随机变量显式进行推断往往是比较困难的，实际应用中可以通过**采样(sampling)**的方式来进行近似推断。通过采样可以生成大量的样本来表示贝叶斯网络的联合概率，通过这些样本来计算条件概率会比直接进行边缘化要容易很多。
+
+### Naive Bayes
+
 ## Reference
 
 - Chapter 6: BAYESIAN LEARNING, [Machine Learning, Tom Mitchell, McGraw Hill, 1997.](http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html)
