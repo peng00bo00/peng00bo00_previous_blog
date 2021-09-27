@@ -2,7 +2,7 @@
 layout: article
 title: OMSCS-ML课程笔记07-Computational Learning Theory
 tags: ["OMSCS", "CS7641-ML"]
-key: OMSCS-ML-06
+key: OMSCS-ML-07
 aside:
   toc: true
 sidebar:
