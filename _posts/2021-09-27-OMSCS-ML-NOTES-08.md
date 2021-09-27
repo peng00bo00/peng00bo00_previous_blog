@@ -46,7 +46,7 @@ $$
 
 因此贝叶斯学习的基本框架是首先根据domain knowledge来设置先验$P(h)$，然后计算后验概率$P(h \vert D)$并选择其中具有最大后验的假设。不过需要说明的是在大多数情况下显式计算后验概率是不现实的(intractable)。
 
-### Least-squared Error Hypothesis
+### Least-Squared Error Hypothesis
 
 尽管在很多时候我们无法显式计算后验概率，但我们仍然可以利用贝叶斯法则来理解很多问题。以回归问题为例，假设存在一个函数$h$将自变量$x$映射到$y$，由于噪声$e$的存在我们观测到的结果实际上是带噪声的数据：
 
@@ -84,6 +84,20 @@ h_{ML} &= \underset{h \in H}{\arg \max} P(D \vert h) \\
 $$
 
 与最小二乘法的优化目标相同。上式说明贝叶斯视角下的最小二乘法实际上就是对高斯噪声下的数据进行极大似然估计。
+
+### Minimum Description Length Principle
+
+先验$P(h)$对于计算最大后验假设会产生重大的影响，通过取对数可以将最大后验估计表示为：
+
+$$
+\begin{aligned}
+h_{MAP} &= \underset{h \in H}{\arg \max} P(D \vert h) P(h) \\
+&= \underset{h \in H}{\arg \max} \log P(D \vert h) + \log P(h) \\
+&= \underset{h \in H}{\arg \min} -\log P(D \vert h) - \log P(h)
+\end{aligned}
+$$
+
+从信息论的角度上看对于任意随机事件$x$进行编码所需的最小字节数为$- \log P(x)$表示将事件$x$。因此，最大后验也可以认为是选择最小编码长度的假设：似然项$-\log P(D \vert h)$表示给定假设$h$对数据集$D$进行编码所需的长度，$h$生成数据集$D$的概率越大所需字节数越小；而先验项$-\log P(h)$则表示假设$h$自身的复杂度，$h$越简单对它进行编码所需的字节数越小。这说明最大后验估计会倾向于选择更为简单的假设，从而防止出现过拟合的问题。
 
 ### Bayesian Classification
 
