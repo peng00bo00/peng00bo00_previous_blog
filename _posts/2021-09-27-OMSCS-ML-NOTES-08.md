@@ -101,4 +101,20 @@ $$
 
 ### Bayesian Classification
 
+贝叶斯学习理论除了可以选择假设还可以对新的数据进行预测。假设在数据集$D$外有一个来自同样分布的数据$v$，利用贝叶斯公式可以计算后验概率：
+
+$$
+P(v \vert D) = \sum_{h \in H} P(v, h \vert D) = \sum_{h \in H} P(v \vert D, h) P(h \vert D) = \sum_{h \in H} P(v \vert h) P(h \vert D)
+$$
+
+上式说明数据$v$在已知数据集$D$情况下的后验概率等于假设空间中每个假设$h$产生$v$概率的加权求和，每个假设$h$的权重等于它在数据集上的后验概率。
+
+对于分类问题可以令$v$表示新样本对应的类别，此时的最大后验估计为：
+
+$$
+\underset{v \in V}{\arg \max} \sum_{h \in H} P(v \vert h) P(h \vert D)
+$$
+
+满足上式的分类器称为**贝叶斯最优分类器(Bayes optimal classifier)**，它是在相同假设空间和先验条件下的最优分类器。同时贝叶斯最优分类器的输出是假设空间中每个假设输出的加权，对应的权重是相应假设的后验概率。
+
 ## Bayesian Inference
