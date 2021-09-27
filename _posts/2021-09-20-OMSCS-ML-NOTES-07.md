@@ -44,7 +44,7 @@ PAC学习对于学习器$L$提出了两个要求：首先学习器要有足够�
 
 ### Sample Complexity
 
-PAC可学习实际上暗示了学习器的样本复杂度同样是多项式函数。对于版本空间$VS_{H, X}$，我们称它是$\varepsilon$-exhausted如果其中的任意假设$h$在分布$D$上的误差小于$\varepsilon$：
+假设学习器处理每个样本所需的时间为常数，那么PAC可学习实际上暗示了学习器的样本复杂度同样是多项式函数，这样我们就把学习算法的时间复杂度转化为样本复杂度。在推导PAC可学习的样本复杂度前我们还需要补充一些相关的知识。对于版本空间$VS_{H, X}$，我们称它是$\varepsilon$-exhausted如果其中的任意假设$h$在分布$D$上的误差小于$\varepsilon$：
 
 $$
 error_D(h) \leq \varepsilon, \ \forall h \in VS_{H, X}
