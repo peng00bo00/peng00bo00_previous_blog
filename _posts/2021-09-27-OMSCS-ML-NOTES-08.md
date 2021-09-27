@@ -41,10 +41,49 @@ $$
 上式说明后验概率取决于假设$h$生成数据集$D$的似然$P(D \vert h)$以及假设自身的先验概率$P(h)$。如果我们假设$h$服从均匀分布则可以省略掉先验项$P(h)$，此时计算得到的假设称为**最大似然假设(maximum likelihood hypothesis)**：
 
 $$
-h_{ML} = \arg \max_{h \in H} P(D \vert h)
+h_{ML} = \underset{h \in H}{\arg \max} P(D \vert h)
 $$
 
-因此贝叶斯学习的基本框架是首先根据domain knowledge来设置先验$P(h)$
+因此贝叶斯学习的基本框架是首先根据domain knowledge来设置先验$P(h)$，然后计算后验概率$P(h \vert D)$并选择其中具有最大后验的假设。不过需要说明的是在大多数情况下显式计算后验概率是不现实的(intractable)。
+
+### Least-squared Error Hypothesis
+
+尽管在很多时候我们无法显式计算后验概率，但我们仍然可以利用贝叶斯法则来理解很多问题。以回归问题为例，假设存在一个函数$h$将自变量$x$映射到$y$，由于噪声$e$的存在我们观测到的结果实际上是带噪声的数据：
+
+$$
+d_i = h(x_i) + e_i
+$$
+
+其中噪声$e$与自变量$x$相互独立，且服从正态分布$e \sim N(0, \sigma^2)$。噪声的加法模型说明训练数据$(x_i, d_i)$来自于正态分布$d_i \sim N(h(x_i), \sigma^2)$，每个样本的概率为：
+
+$$
+p = \frac{1}{\sqrt{2 \pi} \sigma} \exp \bigg\{ -\frac{(d_i - h(x_i))^2}{2 \sigma^2} \bigg\}
+$$
+
+由于样本是独立同分布的，似然函数为它们概率的乘积：
+
+$$
+P(D \vert h) = \prod_i \frac{1}{\sqrt{2 \pi} \sigma} \exp \bigg\{ -\frac{(d_i - h(x_i))^2}{2 \sigma^2} \bigg\} \sim \prod_i \exp \bigg\{ -\frac{(d_i - h(x_i))^2}{2 \sigma^2} \bigg\}
+$$
+
+通过取对数得到累加的形式：
+
+$$
+\ln P(D \vert h) \sim -\sum_i (d_i - h(x_i))^2
+$$
+
+如果我们假设$h$服从均匀分布，可以得到极大似然估计：
+
+$$
+\begin{aligned}
+h_{ML} &= \underset{h \in H}{\arg \max} P(D \vert h) \\
+&= \underset{h \in H}{\arg \max} \ln P(D \vert h) \\
+&= \underset{h \in H}{\arg \max} -\sum_i (d_i - h(x_i))^2 \\
+&= \underset{h \in H}{\arg \min} \sum_i (d_i - h(x_i))^2
+\end{aligned}
+$$
+
+与最小二乘法的优化目标相同。上式说明贝叶斯视角下的最小二乘法实际上就是对高斯噪声下的数据进行极大似然估计。
 
 ### Bayesian Classification
 
