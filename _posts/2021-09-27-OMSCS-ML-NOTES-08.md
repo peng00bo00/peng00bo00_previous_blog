@@ -137,6 +137,28 @@ $$
 
 ### Naive Bayes
 
+本节最后介绍了**朴素贝叶斯(naive bayes)**分类器的相关知识。对于分类问题我们假定样本的各个属性在给定样本类别条件下是相互独立的，也就是说样本属性满足如下图所示的贝叶斯网络：
+
+<div align=center>
+<img src="https://i.imgur.com/UF3kMQO.png" width="40%">
+</div>
+
+此时样本的联合概率为：
+
+$$
+P(C, X_1, ..., X_n) = P(C) \prod_i^n P(X_i \vert C)
+$$
+
+因此给定样本属性预测样本类别的分类问题等价于在贝叶斯网络上对类别节点进行推断，利用贝叶斯公式可以表示为：
+
+$$
+P(C \vert X_1, ..., X_n) = \frac{P(C, X_1, ..., X_n)}{P(X_1, ..., X_n)} \sim P(C, X_1, ..., X_n) = P(C) \prod_i^n P(X_i \vert C)
+$$
+
+也就是说给定样本属性条件下样本类别的后验概率正比于类别的先验乘以样本属性的似然函数。根据最大后验估计，我们只需要选择给出最大后验概率的类别作为分类器输出即可。
+
+和其他分类算法相比，朴素贝叶斯分类器的参数非常少而且进行推断的代价也很小。同时，朴素贝叶斯的学习过程非常容易，我们只需要在训练数据上计算类别先验以及每个属性的条件概率即可。但需要注意的是朴素贝叶斯分类器中样本属性条件独立的假设过于强了，实际中的数据基本不会满足这样的假设。尽管如此，朴素贝叶斯分类器仍然是非常强大的机器学习模型，在很多实际问题中都有大量的应用。
+
 ## Reference
 
 - Chapter 6: BAYESIAN LEARNING, [Machine Learning, Tom Mitchell, McGraw Hill, 1997.](http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html)
