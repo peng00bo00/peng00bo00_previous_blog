@@ -118,3 +118,7 @@ $$
 满足上式的分类器称为**贝叶斯最优分类器(Bayes optimal classifier)**，它是在相同假设空间和先验条件下的最优分类器。同时贝叶斯最优分类器的输出等于假设空间中每个假设输出的加权求和，对应的权重是相应假设的后验概率。
 
 ## Bayesian Inference
+
+## Reference
+
+- Chapter 6: BAYESIAN LEARNING, [Machine Learning, Tom Mitchell, McGraw Hill, 1997.](http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html)
