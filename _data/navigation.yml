@@ -109,6 +109,9 @@ OMSCS-CV:
         url: /2021/09/21/OMSCS-CV-NOTES-07.html
 
   - title: Feature and Matching
+    children:
+      -title: Feature and Matching
+        url: /2021/09/28/OMSCS-CV-NOTES-08.html
 
   - title: Lightness and Brightness
 
