@@ -146,7 +146,33 @@ $$
 <img src="https://i.imgur.com/wHmtQVl.png" width="70%">
 </div>
 
-显然我们希望图像的特征点对于尺度变换也具有一定的不变性，为此我们首先需要对"尺度"进行定义。
+显然我们希望图像的特征点对于尺度变换也具有一定的不变性，为此我们首先需要对"尺度"进行定义。所谓"尺度"可以理解成图像的邻域性质，我们可以在不同的图像上使用尺寸不同的邻域进行观察，同样的特征应该会得到相同的结果。
+
+<div align=center>
+<img src="https://i.imgur.com/hByCzs6.png" width="50%">
+</div>
+
+接下来我们的问题就是如何在不同的图像上选择相应的邻域尺寸。一种解决办法是把特征定义成一个与邻域尺寸有关的函数，然后在不同大小的邻域上计算它，这样我们总能在某个尺度上找到所需的特征。同时这样的特征还需要在对应尺度上有稳定的响应，这样我们就可以把它在不同尺度上响应的最大值作为尺度不变的特征。
+
+实践中一般可以通过图像卷积来构造尺度不变特征，比较常用的卷积核包括LoG算子(Laplacian of Gaussian)和DoG算子(Difference of Gaussians)：
+
+$$
+LoG = \sigma^2 (G_{xx} (x, y, \sigma) + G_{yy} (x, y, \sigma))
+$$
+
+$$
+DoG = G(x, y, k \sigma) - G(x, y, \sigma)
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/f4IAqeI.png" width="40%">
+</div>
+
+其中不同的方差项$\sigma$对应不同的尺度。这样在特征点检测时同时在不同尺度上的每张图像都进行检测并在不同尺度上选择最大响应的特征就构造出了尺度不变的特征点。比如说Harris-Laplacian角点检测算法中利用LoG算子来构造尺度空间，它要求角点不仅要在图像空间上是局部极值还要在相邻尺度上也是一个局部极值，这样使得检测出的角点也具有尺度不变性。
+
+<div align=center>
+<img src="https://i.imgur.com/z74t3TC.png" width="50%">
+</div>
 
 ## Feature Descriptors
 
