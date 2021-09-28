@@ -109,7 +109,9 @@ OMSCS-CV:
         url: /2021/09/21/OMSCS-CV-NOTES-07.html
 
   - title: Feature and Matching
-    url: /2021/09/28/OMSCS-CV-NOTES-08.html
+    children: 
+      - title: Camera Models
+        url: /2021/09/07/OMSCS-CV-NOTES-04.html
 
   - title: Lightness and Brightness
 
