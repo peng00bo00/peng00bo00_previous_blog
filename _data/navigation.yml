@@ -87,6 +87,8 @@ OMSCS-ML:
     children:
       - title: Information Theory
         url: /2021/10/04/OMSCS-ML-NOTES-09.html
+      - title: Randomized Optimization
+        url: /2021/10/04/OMSCS-ML-NOTES-10.html
 
   - title: Reinforcement Learning
 
