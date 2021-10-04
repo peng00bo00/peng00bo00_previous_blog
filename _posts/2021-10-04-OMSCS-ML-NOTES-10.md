@@ -82,6 +82,35 @@ $$
 
 其中$\pi(X_i)$表示节点$X_i$的父节点。这样概率密度的估计问题就转换为贝叶斯网络的结构学习问题，我们希望能从给定的样本上学习到树形结构和相应的条件概率。
 
+记样本的真实分布为$P$，树形贝叶斯网络定义的分布为$\hat{P}_\pi$。我们可以通过最小化$P$和$\hat{P}_\pi$的KL散度来实现结构学习：
+
+$$
+\begin{aligned}
+D_{KL} (P \Vert \hat{P}_\pi) &= \sum_x P(x) \log \bigg( \frac{P(x)}{\hat{P}_\pi} \bigg) =  \sum_x P(x) \big( \log P(x) - \log \hat{P}_\pi \big) \\
+&= -H(P) - \sum_x P(x) \log \hat{P}_\pi \\
+&= -H(P) - \sum_x P(x) \log \prod_{i=1}^n p(x_i \vert \pi(x_i)) \\
+&= -H(P) - \sum_x \sum_{i=1}^n P(x) \log p(x_i \vert \pi(x_i)) \\
+&= -H(P) + \sum_{i=1}^n H(X_i \vert \pi(X_i))
+\end{aligned}
+$$
+
+由于第一项$-H(P)$与$\pi$无关，我们可以将它省略得到最小化目标函数：
+
+$$
+J_\pi = \sum_{i=1}^n H(X_i \vert \pi(X_i))
+$$
+
+再结合条件熵的性质可以得到：
+
+$$
+\begin{aligned}
+J_\pi &= \sum_{i=1}^n H(X_i \vert \pi(X_i)) = \sum_{i=1}^n H(X_i, \pi(X_i)) - H(\pi(X_i)) \\
+&= \sum_{i=1}^n H(X_i, \pi(X_i)) - \sum_{i=1}^n H(X_i) \\
+&= - \sum_{i=1}^n \bigg( H(X_i) - H(X_i, \pi(X_i)) \bigg) \\
+&= - \sum_{i=1}^n I(X_i ; \pi(X_i))
+\end{aligned}
+$$
+
 ## Reference
 
 - [Wikipedia: Hill climbing](https://en.wikipedia.org/wiki/Hill_climbing)
