@@ -119,6 +119,9 @@ OMSCS-CV:
         url: /2021/09/28/OMSCS-CV-NOTES-08.html
 
   - title: Lightness and Brightness
+  children: 
+      - title: Lightness and Brightness
+        url: /2021/10/05/OMSCS-CV-NOTES-09.html
 
   - title: Image Motion
 
