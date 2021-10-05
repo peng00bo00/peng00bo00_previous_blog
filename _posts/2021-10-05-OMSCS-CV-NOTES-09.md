@@ -168,3 +168,61 @@ $$
 当然这样的方法对于的三维空间物体是不适用的，这是因为通常情况下三维空间中物体接收到的光线不满足缓慢变化的假设。
 
 ## Shape from Shading
+
+通过着色我们还可以重建物体的表面。假设空间中的曲面方程为$z(x, y)$，定义$p$、$q$分别为曲面在两个方向上的负导数：
+
+$$
+p = -\frac{\partial z}{\partial x}, q = -\frac{\partial z}{\partial y}
+$$
+
+对于曲面上的任意点，我们可以利用$p$和$q$定义出两个切向量：
+
+$$
+t_x = (1, 0, -p)^T, t_y = (0, 1, -q)^T
+$$
+
+因此该点的曲面法向为：
+
+$$
+n = \frac{t_x \times t_y}{\Vert t_x \times t_y \Vert} = \frac{1}{\sqrt{p^2 + q^2 + 1}} (p, q, 1)^T
+$$
+
+我们可以把法向$n$移动到单位球上并将它延长到$z=1$的平面上，这个平面称为Gradient Space。显然对于任意方向的法向我们总能在Gradient Space上找到法向与平面的交点，且交点坐标恰为$(p, q, 1)$。
+
+<div align=center>
+<img src="https://i.imgur.com/21ftIF2.png" width="50%">
+</div>
+
+类似地，我们把光线入射方向也映射到Gradient Space上，得到入射方向的单位向量：
+
+$$
+s = \frac{1}{\sqrt{p_S^2 + q_S^2 + 1}} (p_S, q_S, 1)^T
+$$
+
+此时入射方向与法向的夹角为：
+
+$$
+\cos \theta_i = n \cdot s = \frac{p \cdot p_S + q \cdot q_S + 1}{\sqrt{p^2 + q^2 + 1} \cdot \sqrt{p_S^2 + q_S^2 + 1}}
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/AMS0xIk.png" width="50%">
+</div>
+
+假设物体表面是Lambert面，对应的albedo为$\rho$；同时假定来自光源的入射光强度为$k$。那么曲面上任意点的反射光强度为：
+
+$$
+I = \rho \cdot k \cdot \cos \theta_i = \rho \cdot k (n \cdot s)
+$$
+
+不妨设$\rho \cdot k = 1$，此时反射光可以化简为：
+
+$$
+I = n \cdot s = \frac{p \cdot p_S + q \cdot q_S + 1}{\sqrt{p^2 + q^2 + 1} \cdot \sqrt{p_S^2 + q_S^2 + 1}} = R(p, q)
+$$
+
+我们称$R(p, q)$为Lambert面的Reflectance Map。曲面的法向一定在$R(p, q) = I$所定义的曲线上，如下图所示。同时$R(p, q)$仅在$(p_S, q_S)$处取最大值$(p, q) = 1$，此时光线入射方向与法向重合；$R(p, q)$在直线$p \cdot p_S + q \cdot q_S + 1 = 0$上取最小值$(p, q) = 0$，此时入射方向与法向相互垂直。
+
+<div align=center>
+<img src="https://i.imgur.com/R0VwyQQ.png" width="60%">
+</div>
