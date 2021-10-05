@@ -72,7 +72,7 @@ $$
 <img src="https://i.imgur.com/YvrBSi4.png" width="52%">
 </div>
 
-### Diffuse Reflection and Lambertian BRDF
+#### Diffuse Reflection and Lambertian BRDF
 
 漫反射的一个重要特征是无论观察的角度如何，漫反射的强度都是一样的。换句话说漫反射材质的BRDF是一个常数，我们称之为**反照率(albedo)：**
 
@@ -90,7 +90,7 @@ $$
 <img src="https://i.imgur.com/SFRrA3O.png" width="60%">
 </div>
 
-### Specular Reflection and Mirror BRDF
+#### Specular Reflection and Mirror BRDF
 
 对于镜面反射的BRDF，我们可以利用$\delta$函数来描述只在给定方向上存在radiance的情况：
 
