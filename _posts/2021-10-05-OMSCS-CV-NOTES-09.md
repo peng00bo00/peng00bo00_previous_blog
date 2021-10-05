@@ -1,6 +1,6 @@
 ---
 layout: article
-title: OMSCS-CV课程笔记08-Lightness and Brightness
+title: OMSCS-CV课程笔记09-Lightness and Brightness
 tags: ["OMSCS", "CS6476-CV"]
 key: OMSCS-CV-09
 aside:
