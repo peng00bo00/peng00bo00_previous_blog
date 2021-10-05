@@ -97,19 +97,34 @@ $$
 由于第一项$-H(P)$与$\pi$无关，我们可以将它省略得到最小化目标函数：
 
 $$
-J_\pi = \sum_{i=1}^n H(X_i \vert \pi(X_i))
+\min_\pi J_\pi = \sum_{i=1}^n H(X_i \vert \pi(X_i))
 $$
 
-再结合条件熵的性质可以得到：
+为了便于推导，我们在$J_\pi$基础上添加一项得到新的目标函数：
+
+$$
+\min_\pi J'_\pi = \sum_{i=1}^n H(X_i \vert \pi(X_i)) - \sum_{i=1}^n H(X_i)
+$$
+
+其中新增的一项$-\sum_{i=1}^n H(X_i)$与$\pi$无关，因此不会改变最终$\pi$的取值。再结合条件熵的性质可以得到：
 
 $$
 \begin{aligned}
-J_\pi &= \sum_{i=1}^n H(X_i \vert \pi(X_i)) = \sum_{i=1}^n H(X_i, \pi(X_i)) - H(\pi(X_i)) \\
-&= \sum_{i=1}^n H(X_i, \pi(X_i)) - \sum_{i=1}^n H(X_i) \\
+\min_\pi J'_\pi &= \sum_{i=1}^n H(X_i \vert \pi(X_i)) - \sum_{i=1}^n H(X_i) \\
 &= - \sum_{i=1}^n \bigg( H(X_i) - H(X_i, \pi(X_i)) \bigg) \\
 &= - \sum_{i=1}^n I(X_i ; \pi(X_i))
 \end{aligned}
 $$
+
+我们最后把最小化问题取负号转换成最大化问题，得到最终的目标函数形式：
+
+$$
+\begin{aligned}
+\max_\pi -J'_\pi = \max_\pi \sum_{i=1}^n I(X_i ; \pi(X_i))
+\end{aligned}
+$$
+
+上式说明我们可以通过最大化节点之间的互信息来完成对概率密度的估计。具体而言我们首先需要将所有的节点连接起来形成一个全连接图，图上边的权重为两端节点的互信息；然后在图上构造一颗最大生成树就得到了所需的树形结构，一般可以使用[Prim算法](https://en.wikipedia.org/wiki/Prim%27s_algorithm)来实现；得到网络结构后再对网络的边进行参数估计就得到了完整的概率密度函数。
 
 ## Reference
 
