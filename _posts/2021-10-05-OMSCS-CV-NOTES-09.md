@@ -118,4 +118,53 @@ $$
 
 ## Lightness
 
+在上一节中我们介绍了物体的反射模型。对于相机来说物体的反射光决定了图片上接收到的颜色，但人眼对于颜色的感知是不完全由接收到的光线决定的。以下图为例，A和B两块棋盘格上的颜色是完全相同的，但人眼往往会认为A处的颜色会更深一些。
+
+<div align=center>
+<img src="https://i.imgur.com/I0a6Vlo.png" width="30%">
+<img src="https://i.imgur.com/QGAiVSi.png" width="30%">
+</div>
+
+类似地，图像的空间感也会干扰人眼对颜色的认知。
+
+<div align=center>
+<img src="https://i.imgur.com/NhNL6oN.png" width="50%">
+</div>
+
+实际上人眼会把接收到的光线进行分解，具体而言人的视觉系统会把光分解成illumination和reflectance两部分。当我们看到某个物体时，大脑会尽可能将我们看到的颜色还原成它在白光下的颜色。因此对于不同光照条件下的同一个物体，人眼往往会看到相同的颜色；相应地，人眼对于光源的变化则没有那么敏感。
+
+从前一节的内容中我们知道物体的颜色可以表示为光照$E$与反射方程$R$的乘积：
+
+$$
+L(x, y) = R(x, y) \cdot E(x, y)
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/uNIsSqc.png" width="50%">
+</div>
+
+那么对于具有不同反照率的平面物体在变化的光源下会得到类似于下面的图像：
+
+<div align=center>
+<img src="https://i.imgur.com/g0AE3LE.png" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/eusF6q4.png" width="50%">
+</div>
+
+如果假定光照是缓慢变化的，那么我们可以从照射得到的图像上恢复物体的反照率。具体而言需要只对图像取对数并计算导数：
+
+<div align=center>
+<img src="https://i.imgur.com/DzEtWNP.png" width="50%">
+</div>
+
+由于光照是缓慢变化的，在取对数后光照对应导数中非常小的部分，我们可以使用阈值化来过滤掉它。这样我们对过滤后的函数进行积分就能够重建出物体的albedo(和真实值只相差一个常数)。
+
+<div align=center>
+<img src="https://i.imgur.com/PyEj30h.png" width="60%">
+</div>
+
+当然这样的方法对于的三维空间物体是不适用的，这是因为通常情况下三维空间中物体接收到的光线不满足缓慢变化的假设。
+
 ## Shape from Shading
