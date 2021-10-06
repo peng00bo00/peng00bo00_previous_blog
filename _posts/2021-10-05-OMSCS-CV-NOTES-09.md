@@ -49,7 +49,7 @@ f(\theta_i, \varphi_i; \theta_r, \varphi_r) = f(\theta_r, \varphi_r; \theta_i, \
 $$
 
 $$
-f(\theta_i, \varphi_i; \theta_r, \varphi_r) = f(\theta_i, \theta_r; \varphi_i - \varphi_r)
+f(\theta_i, \varphi_i; \theta_r, \varphi_r) = f(\theta_i, \theta_r, \varphi_i - \varphi_r)
 $$
 
 ### Reflection Models
@@ -187,7 +187,7 @@ $$
 n = \frac{t_x \times t_y}{\Vert t_x \times t_y \Vert} = \frac{1}{\sqrt{p^2 + q^2 + 1}} (p, q, 1)^T
 $$
 
-我们可以把法向$n$移动到单位球上并将它延长到$z=1$的平面上，这个平面称为Gradient Space。显然对于任意方向的法向我们总能在Gradient Space上找到法向与平面的交点，且交点坐标恰为$(p, q, 1)$。
+我们可以把法向$n$移动到单位球上并将它延长到$z=1$的平面上，这个平面称为gradient space。显然对于任意方向的法向我们总能在gradient space上找到法向与平面的交点，且交点坐标恰为$(p, q, 1)$。
 
 <div align=center>
 <img src="https://i.imgur.com/21ftIF2.png" width="50%">
@@ -225,4 +225,62 @@ $$
 
 <div align=center>
 <img src="https://i.imgur.com/R0VwyQQ.png" width="60%">
+</div>
+
+因此对于平面图像上的任意一点我们可以取出该点的像素值并在gradient space绘制出对应的曲线，该点在曲面上的法向一定位于这条曲线上。尽管如此，我们还是无法确定法向的具体方向。
+
+<div align=center>
+<img src="https://i.imgur.com/4e0Kl7w.png" width="60%">
+</div>
+
+想要确定具体地法向一般有两种做法。第一种方法是引入额外的约束，比如说假定已知曲面的边界而且曲面比较光滑，再通过一系列复杂的优化是就解出具体的法向。当然这样的方法在实际中的效果并不好，工程上更常用的方法是利用多张不同光源下的图像来重建曲面，这样的方法称为**光度立体(photometric stereo)**。
+
+具体来说，我们需要固定相机和物体的位置然后利用3个不同角度的光源来拍摄图像。假设入射光的强度均为1，在每个光源下曲面上的反射光满足方程：
+
+$$
+I_i = \rho \ n \cdot s_i
+$$
+
+联立3个光源可以得到矩阵方程：
+
+$$
+\begin{bmatrix}
+I_1 \\ I_2 \\ I_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+s_1^T \\ s_2^T \\ s_3^T
+\end{bmatrix}
+\rho n
+$$
+
+记$$\hat{n} = \rho n$$，通过求解线性方程组可以得到：
+
+$$
+\hat{n} = \rho n = S^{-1} I
+$$
+
+上式对于包含多组不同光源的图像仍然适用。由于法向$n$是单位向量，我们只需要对$$\hat{n}$$进行规范化即可得到曲面法向，同时我们还可以得到该点的反照率：
+
+$$
+\rho = \vert \hat{n} \vert, n = \frac{\hat{n}}{\rho}
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/ujRHsB8.png" width="37%">
+<img src="https://i.imgur.com/FdKsPgK.png" width="15%">
+<img src="https://i.imgur.com/eoV5j1W.png" width="15%">
+<img src="https://i.imgur.com/bahr9yZ.png" width="15%">
+</div>
+
+光度立体的本质是在gradient space上求曲线交点。对于每个给定的光源，我们都可以在gradient space上画出相应的曲线，且待求的法向一定位于这些曲线的交点上。由于每条曲线都是二次曲线，我们至少需要3条曲线才能确定这个交点。
+
+<div align=center>
+<img src="https://i.imgur.com/L2zTZgL.png" width="50%">
+</div>
+
+利用光度立体的方法我们可以重建曲面的法线并对曲面的albedo进行估计，如下图所示。
+
+<div align=center>
+<img src="https://i.imgur.com/3ni3ROf.png" width="70%">
 </div>
