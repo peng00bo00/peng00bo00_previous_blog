@@ -125,3 +125,4 @@ EM算法的本质对存在隐变量的数据进行极大似然估计，在每次
 - [Wikipedia: k-means clustering](https://en.wikipedia.org/wiki/K-means_clustering)
 - 第9章：EM算法及其推广，统计学习方法（第2版）
 - [Wikipedia: Expectation–maximization algorithm](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)
+- [An Impossibility Theorem for Clustering](https://www.cs.cornell.edu/home/kleinber/nips15.pdf)
