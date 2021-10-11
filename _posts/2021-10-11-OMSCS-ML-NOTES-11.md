@@ -85,3 +85,33 @@ k-Means算法的缺陷在于它会倾向于构造出"圆形"的簇。以下图�
 </div>
 
 ## Soft Clustering
+
+前面介绍的两种聚类算法是将每个样本划分到唯一确定的簇中，但在有些情况下这样的做法是不合适的。假设我们已经有两个簇，此时再两个簇的中间再添加一个新的数据如下图所示。显然将该点划分到任何一个簇都是不合适的，因为它到两个簇的距离相等。更合理的做法是把这个点同时分配到两个簇中，此时它对两个簇的贡献分别是0.5。
+
+<div align=center>
+<img src="https://i.imgur.com/kRFSIET.png" width="50%">
+</div>
+
+从上面的例子可以发现soft clustering的基本思想是把概率的思想引入到聚类算法中，每个数据点都包含一个概率分布对应$k$个不同的簇。更进一步，我们可以假定数据集是从$k$个正态分布中采样得到的，每个正态分布对应一个概率来表示从这个分布中进行抽样。我们的目标是从数据中学习到这$k$个正态分布的参数以及它们对应的先验概率。
+
+值得注意的是我们不知道每个数据点是从哪个正态分布中抽样得到的，因此这些变量也被称为**隐变量(hidden variable)**。对于包含隐变量的问题我们可以使用**EM算法**来进行求解，它包含E步和M步两个更新过程：
+
+$$
+E(z_{ij}) = \frac{P(x_i \vert \mu=\mu_j)}{\sum_{j=1}^k P(x_i \vert \mu=\mu_j)}
+$$
+
+$$
+\mu_j = \frac{\sum_i E(z_{ij}) x_i}{\sum_i E(z_{ij})}
+$$
+
+其中$z_{ij}$表示样本$x_i$来自于第$j$个分布的概率；$P(x_i \vert \mu=\mu_j)$为$x_i$从第$j$个分布进行采样的概率。因此EM算法的E步实际上是将样本$x_i$按照概率分配到不同的分布中，然后在M步根据每个样本的权重重新估计每个分布对应的参数。
+
+EM算法的本质对存在隐变量的数据进行极大似然估计，在每次迭代时首先对隐变量进行估计然后再更新参数。可以证明EM算法可以保证每次迭代后数据集上的似然函数都会递增，因此EM算法能够保证收敛但无法保证会收敛到全局最优。同时EM算法不局限于正态分布的情况，它可以拓展到任意的概率分布只要它能够进行求解。
+
+## Reference
+
+- 第14章：聚类方法，统计学习方法（第2版）
+- [Wikipedia: Single-linkage clustering](https://en.wikipedia.org/wiki/Single-linkage_clustering)
+- [Wikipedia: k-means clustering](https://en.wikipedia.org/wiki/K-means_clustering)
+- 第9章：EM算法及其推广，统计学习方法（第2版）
+- [Wikipedia: Expectation–maximization algorithm](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)
