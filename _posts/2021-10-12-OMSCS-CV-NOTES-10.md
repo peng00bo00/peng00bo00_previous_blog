@@ -14,4 +14,112 @@ sidebar:
 
 ## Image Motion
 
-## Optical flow
+在前面的课程中我们介绍了如何对单张图像进行处理，而从本节课开始我们将讨论对视频和图像序列进行分析和处理。其中，**运动检测(motion detection)**是视频分析的基本内容。对于输入的图像序列我们希望得到图像中物体的运动信息，进而实现各种视觉任务。
+
+运动检测主要分为两类，一种是基于特征点的检测而另一种则是基于光度的检测。在前面的课程中我们已经涉及了图像特征点的内容，我们可以在图像序列上对每帧图像都进行特征点识别然后对这些特征点进行跟踪从而完成运动检测。这类方法适用于图像发生大变形的场景，但缺点是只能得到稀疏的检测结果。而本节课则主要介绍第二种方法，即基于光度信息的运动检测。与第一种方法相反，它只适用于图像变化比较小的场景但却可以得到稠密的检测结果。
+
+## Optical Flow
+
+### Brightness Constraint
+
+光流(optical flow)是实现稠密运动检测的基本方法。当图像运动较小时，我们可以通过光流来得到图像上每一点的运动状况。
+
+<div align=center>
+<img src="https://i.imgur.com/lCeJJK0.png" width="90%">
+</div>
+
+光流法的目标是估计图像上每一点的运动状态，在具体推导光流前我们首先需要做出2个基本假设：
+
+1. **光度一致(brightness constancy)**：同一个点在不同图像上具有相同的光度(颜色)；
+2. 小变形：图像上的任意点在运动前后不会发生比较大的位置变化。
+
+基于光度一致假设，我们可以得到方程：
+
+$$
+I(x, y, t) = I(x+u, y+v, t+1) \Leftrightarrow I(x+u, y+v, t+1) - I(x, y, t) = 0
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/pI2SEaf.png" width="70%">
+</div>
+
+利用泰勒展开，我们可以把$t+1$时刻的图像表示为：
+
+$$
+I(x+u, y+v, t+1) \approx I(x, y, t+1) + I_x u + I_y v
+$$
+
+这样得到**光度一致约束方程(brightness constancy constraint equation)**：
+
+$$
+\begin{aligned}
+0 &= I(x+u, y+v, t+1) - I(x, y, t) \\
+&= I(x, y, t+1) + I_x u + I_y v - I(x, y, t) \\
+&= I_t + I_x u + I_y v
+\end{aligned}
+$$
+
+### LK Optical Flow
+
+接下来的问题是如何求解这个方程。对于图像上的任意点我们可以计算光度值的导数$I_x, I_y, I_t$，但此时我们有2个未知数却只有一个方程。一种直观的解决方法是把每个点的邻域也考虑进来，构造一个超定方程来求解。假设我们考虑每个点周围$5 \times 5$的邻域，我们可以得到方程组：
+
+$$
+\begin{bmatrix}
+I_x(p_1) & I_y(p_1) \\
+I_x(p_2) & I_y(p_2) \\
+\vdots & \vdots \\
+I_x(p_{25}) & I_y(p_{25})
+\end{bmatrix}
+
+\begin{bmatrix}
+u \\ v
+\end{bmatrix}
+= 
+-
+\begin{bmatrix}
+I_t(p_1) \\ I_t(p_2) \\ \vdots \\ I_t(p_{25})
+\end{bmatrix}
+
+\Leftrightarrow
+A d = b
+$$
+
+对于这样的方程组我们使用它的最小二乘解：
+
+$$
+(A^T A) d = A^T b
+$$
+
+更常见的形式为：
+
+$$
+\begin{bmatrix}
+\sum I_x I_x & \sum I_x I_y \\
+\sum I_y I_x & \sum I_y I_y \\
+\end{bmatrix}
+
+\begin{bmatrix}
+u \\ v
+\end{bmatrix}
+= 
+
+\begin{bmatrix}
+-\sum I_x I_t \\ -\sum I_y I_t
+\end{bmatrix}
+$$
+
+这种方法最早由Lukas和Kanade于1981年提出，因此求解这个方程得到的光流也称为LK光流。除此之外，LK光流还提出了通过迭代来处理图像运动过大的问题：当图像运动过大时首先估计一个粗糙的解，然后把运动后的图像按照这个解反变换到运动前的状态再次进行运动估计。如此反复迭代从而得到一个更加准确的运动估计：
+
+<div align=center>
+<img src="https://i.imgur.com/VbJpNdm.png" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/e1YmPUb.png" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/MX5DC4V.png" width="70%">
+</div>
+
+### Hierarchical LK
