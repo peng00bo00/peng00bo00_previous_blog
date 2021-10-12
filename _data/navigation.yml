@@ -126,6 +126,9 @@ OMSCS-CV:
         url: /2021/10/05/OMSCS-CV-NOTES-09.html
 
   - title: Motion and Tracking
+    children: 
+      - title: Motion Detection
+        url: /2021/10/12/OMSCS-CV-NOTES-10.html
 
   - title: Classification and Recognition
 
