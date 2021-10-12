@@ -123,3 +123,41 @@ $$
 </div>
 
 ### Hierarchical LK
+
+LK光流的一个主要问题在于混淆(aliasing)：在很多情况下计算得到的解只是最近的解但并不是真实的解。
+
+<div align=center>
+<img src="https://i.imgur.com/tDniTqT.png" width="70%">
+</div>
+
+实际工程中一般会通过多尺度的方法来处理这个问题：从高尺度出发首先估计一个粗糙的解，然后逐步缩小尺度并对粗糙解进行更新，直到获得一个精准的解。
+
+<div align=center>
+<img src="https://i.imgur.com/H0ysJHB.png" width="70%">
+</div>
+
+在介绍多尺度光流前我们首先引入多尺度的概念。在[Aliasing](/2021/08/31/OMSCS-CV-NOTES-03.html#aliasing)一节中我们介绍过利用高斯模糊来处理对图像进行降采样时产生的走样问题。
+
+<div align=center>
+<img src="https://i.imgur.com/VgzTvqp.png" width="70%">
+</div>
+
+我们对同一张图像不断地使用高斯模糊和降采样进行处理，就能够得到一个图像序列称为**高斯金字塔(Gaussian pyramid)**：
+
+<div align=center>
+<img src="https://i.imgur.com/GxPL03S.png" width="70%">
+</div>
+
+在高斯金字塔中原始图像位于最底层，每向上前进一层图像的常和宽就缩减为原来的1/2。因此高斯金字塔实际上就是同一张图像在不同尺度(分辨率)下的不同表示，层数越高对应的尺度越大图像也就越模糊。
+
+另一种常用的图像金字塔是**拉普拉斯金字塔(Laplacian pyramid)**。它的构造过程与高斯金字塔相同，但在存储时保留最顶层的图像高尺度图像以及每一层与相邻层的差，也就是DoG算子的运算结果。由于高斯滤波是一个低通滤波器，图像与它经过滤波后的差对应原始图像的高频成分，因此我们也可以认为拉普拉斯金字塔存储了图像在不同频段上的信息。
+
+<div align=center>
+<img src="https://i.imgur.com/1OblycC.png" width="70%">
+</div>
+
+拉普拉斯金字塔的具体构造过程如下：我们把原始图像放在$G_0$层，然后自下而上利用Reduce操作得到一系列长宽减半的图像序列$G_1, G_2, ...$；然后对于这些高层的图像再利用Expand操作恢复分辨率并与下一层图像作差得到拉普拉斯金字塔$L_0, L_1, L_2, ...$
+
+<div align=center>
+<img src="https://i.imgur.com/4QqPIMu.png" width="70%">
+</div>
