@@ -161,3 +161,22 @@ LK光流的一个主要问题在于混淆(aliasing)：在很多情况下计算�
 <div align=center>
 <img src="https://i.imgur.com/4QqPIMu.png" width="70%">
 </div>
+
+不难发现构造拉普拉斯金字塔的核心在于Reduce和Expand操作，这可以利用卷积来实现：
+
+<div align=center>
+<img src="https://i.imgur.com/3CD42QT.png" width="70%">
+</div>
+
+最后我们把多尺度的思想结合的光流中就得到了多尺度LK光流：
+
+1. 对于两张输入图像，首先构造出它们的$k$层高斯金字塔并初始化光流向量$u_{k+1}$和$v_{k+1}$；
+2. 从第$k$层开始不断向下一层移动：
+   1. 利用Expand操作恢复$u_{i+1}$和$v_{i+1}$的分辨率并乘以2以获得当前层上的光流向量$u_i$和$v_i$；
+   2. 利用当前的光流向量$u_i$和$v_i$将运动后的图像$I_2$恢复到运动前，记为$I_2'$；
+   3. 利用LK光流计算$I_1$和$I_2'$之间的光流向量$\delta u_i$和$\delta v_i$；
+   4. 把$\delta u_i$和$\delta v_i$叠加到当前层的光流向量上$u_i \leftarrow u_i + \delta u_i, v_i \leftarrow v_i + \delta v_i$。
+
+<div align=center>
+<img src="https://i.imgur.com/4OInNkk.png" width="80%">
+</div>
