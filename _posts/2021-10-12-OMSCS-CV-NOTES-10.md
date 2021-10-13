@@ -22,7 +22,7 @@ sidebar:
 
 ### Brightness Constraint
 
-光流(optical flow)是实现稠密运动检测的基本方法。当图像运动较小时，我们可以通过光流来得到图像上每一点的运动状况。
+**光流(optical flow)**是实现稠密运动检测的基本方法。当图像运动较小时，我们可以通过光流来得到图像上每一点的运动状况。
 
 <div align=center>
 <img src="https://i.imgur.com/lCeJJK0.png" width="90%">
@@ -180,3 +180,141 @@ LK光流的一个主要问题在于混淆(aliasing)：在很多情况下计算�
 <div align=center>
 <img src="https://i.imgur.com/4OInNkk.png" width="80%">
 </div>
+
+### Motion Models
+
+在[Image to Image Projections](/2021/09/21/OMSCS-CV-NOTES-07.html#image-to-image-projections)一节中我们介绍过常用的几何变换包括平移变换(translation)、刚体(欧式)变换(Euclidean transform)、相似变换(similarity transform)、仿射变换(affine transform)以及投影变换(projective transform)等。
+
+<div align=center>
+<img src="https://i.imgur.com/jImNSiW.png" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/tCNa840.png" width="70%">
+</div>
+
+当空间中的物体发生刚体变换时，物体的运动速度满足：
+
+$$
+\begin{bmatrix}
+V_X \\ V_Y \\ V_Z
+\end{bmatrix}
+= 
+\begin{bmatrix}
+0 & -\omega_Z & \omega_Y \\
+\omega_Z & 0 & -\omega_X \\
+-\omega_Y & \omega_X & 0
+\end{bmatrix}
+\begin{bmatrix}
+X \\ Y \\ Z
+\end{bmatrix}
++
+\begin{bmatrix}
+V_{T_X} \\ V_{T_Y} \\ V_{T_Z}
+\end{bmatrix}
+$$
+
+$$
+V = \Omega \times R + T
+$$
+
+在相机坐标系下，成像平面上物体运动的速度可以表示为：
+
+$$
+u = \frac{d x}{d t} = \frac{d}{d t} \bigg( f \frac{X}{Z} \bigg) = f \frac{Z V_X - X V_Z}{Z^2} = f \frac{V_X}{Z} - f \frac{X}{Z} \frac{V_Z}{Z} = f \frac{V_X}{Z} - x \frac{V_Z}{Z}
+$$
+
+$$
+v = \frac{d y}{d t} = \frac{d}{d t} \bigg( f \frac{Y}{Z} \bigg) = f \frac{Z V_Y - Y V_Z}{Z^2} = f \frac{V_Y}{Z} - f \frac{Y}{Z} \frac{V_Z}{Z} = f \frac{V_Y}{Z} - y \frac{V_Z}{Z}
+$$
+
+然后带入刚体变换运动方程得到：
+
+$$
+\begin{bmatrix}
+u(x, y) \\ v(x, y)
+\end{bmatrix}
+=
+\frac{1}{Z(x, y)}
+\begin{bmatrix}
+-f & 0 & x \\
+0 & -f & y \\
+\end{bmatrix}
+
+\begin{bmatrix}
+V_{T_X} \\ V_{T_Y} \\ V_{T_Z}
+\end{bmatrix}
++
+\begin{bmatrix}
+\frac{xy}{f} & -\frac{f + x^2}{f} & y \\
+\frac{f + y^2}{f} & -\frac{xy}{f} & -x \\
+\end{bmatrix}
+
+\begin{bmatrix}
+\omega_X \\ \omega_Y \\ \omega_Z
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+u(x, y) \\ v(x, y)
+\end{bmatrix}
+=
+\frac{1}{Z(x, y)} A(x, y) T + B(x, y) \Omega
+$$
+
+上式说明了空间中物体的运动与平面图像运动之间的关系。同时注意到深度$Z(x, y)$只与物体平移相关，这说明当物体(相机)发生纯旋转时我们可以忽略物体的深度利用图像特征来估计物体运动。
+
+同时，如果空间中的点都位于同一平面上则可以证明图像平面上的运动会退化为：
+
+$$
+u(x, y) = a_1 + a_2 x + a_3 y + a_7 x^2 + a_8 xy
+$$
+
+$$
+v(x, y) = a_4 + a_5 x + a_6 y + a_7 xy + a_8 y^2
+$$
+
+也就是说我们需要至少4组对应点才能恢复物体的运动，这与单应矩阵的要求是一致的。更进一步，如果这个平面是平行于成像平面的话，此时图像上的运动为：
+
+$$
+u(x, y) = a_1 + a_2 x + a_3 y
+$$
+
+$$
+v(x, y) = a_4 + a_5 x + a_6 y
+$$
+
+即图像运动是一个仿射变换。把此时的运动向量带入到光度一致约束方程可以得到：
+
+$$
+I_t + I_x u + I_y v = I_t + I_x (a_1 + a_2 x + a_3 y) + I_y (a_4 + a_5 x + a_6 y) = 0
+$$
+
+我们可以把每个像素邻域带入方程中，构造光度误差：
+
+$$
+Err(a) = \sum [I_t + I_x (a_1 + a_2 x + a_3 y) + I_y (a_4 + a_5 x + a_6 y)]^2
+$$
+
+然后通过最小二乘法来得到运动参数：
+
+$$
+\begin{bmatrix}
+I_x & I_x x_1 & I_x y_1 & I_y & I_y x_1 & I_y y_1 \\
+I_x & I_x x_2 & I_x y_2 & I_y & I_y x_2 & I_y y_2 \\
+& & \vdots & & & \\
+I_x & I_x x_n & I_x y_n & I_y & I_y x_n & I_y y_n
+\end{bmatrix}
+
+\begin{bmatrix}
+a_1 \\ a_2 \\ a_3 \\ a_4 \\ a_5 \\ a_6
+\end{bmatrix}
+= 
+-
+\begin{bmatrix}
+I_t^1 \\ I_t^2 \\ \vdots \\ I_t^n
+\end{bmatrix}
+$$
+
+求解上式得到的光流称为基于模型的光流(model-based flow)。
