@@ -59,7 +59,7 @@ Computer Graphics
 
 - **Manufacturing and Characterization of Lunar Regolith Simulants** \
   Rotana Hay, Bo Peng, and Kemal Celik \
-  72nd International Astronautical Congress 2021 (submitted)
+  72nd International Astronautical Congress 2021
 
 - **Engineering Practices on Surface Disease Inspection and Performance Evaluation of Concrete Bridges in China** \
   Airong Chen, Xurui Fang, Zichao Pan, Dalei Wang, Yue Pan and Bo Peng \
