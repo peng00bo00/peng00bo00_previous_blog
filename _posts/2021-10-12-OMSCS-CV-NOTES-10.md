@@ -313,7 +313,7 @@ a_1 \\ a_2 \\ a_3 \\ a_4 \\ a_5 \\ a_6
 = 
 -
 \begin{bmatrix}
-I_t^1 \\ I_t^2 \\ \vdots \\ I_t^n
+I_t^{(1)} \\ I_t^{(2)} \\ \vdots \\ I_t^{(n)}
 \end{bmatrix}
 $$
 
