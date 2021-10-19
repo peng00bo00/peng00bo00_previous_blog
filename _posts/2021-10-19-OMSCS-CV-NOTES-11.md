@@ -112,6 +112,108 @@ $$
 
 ### The Kalman Filter
 
+对于线性高斯系统我们可以使用**Kalman滤波(Kalman filter)**来完成状态估计的任务。我们假设系统在$t$时刻的动力学模型为：
+
+$$
+X_t = D_t X_{t-1} + \varepsilon_{d_t}
+$$
+
+$$
+\varepsilon_{d_t} \sim N(0, \Sigma_{d_t})
+$$
+
+观测模型为：
+
+$$
+y_t = M_t X_t + \varepsilon_{m_t}
+$$
+
+$$
+\varepsilon_{m_t} \sim N(0, \Sigma_{m_t})
+$$
+
+以一维状态估计为例，系统的动力学模型和观测模型可以表示为：
+
+$$
+x_t = d \cdot x_{t-1} + \varepsilon_{d_t}
+$$
+
+$$
+y_t = m \cdot x_t + \varepsilon_{m_t}
+$$
+
+其中$\varepsilon_{d_t}$和$\varepsilon_{m_t}$分别表示均值为0方差为$\sigma_d^2$和$\sigma_m^2$的高斯噪声。
+
+系统在$t$时刻的状态服从正态分布$X_t \sim N(\mu_t^-, (\sigma_t^-)^2)$。利用动力学模型可以得到预测过程的状态更新公式：
+
+$$
+\mu_t^- = d \cdot \mu_{t-1}^+
+$$
+
+$$
+(\sigma_t^-)^2 = \sigma_d^2 + (d \cdot \sigma_{t-1}^+)^2
+$$
+
+其中$\mu_{t-1}^+$和$(\sigma_{t-1}^+)^2$分别表示上一时刻系统状态的均值和方差。
+
+利用观测方程，$t$时刻的观测量可以表示为$Y_t \sim N(m \cdot x_t, \sigma_m^2)$。结合修正过程的状态估计公式：
+
+$$
+P(X_t \vert y_0, \dots, y_t) 
+= \frac{P(y_t \vert X_t) P(X_t \vert y_0, \dots, y_{t-1})}{\int P(y_t \vert X_t) P(X_t \vert y_0, \dots, y_{t-1}) d X_t}
+$$
+
+可以得到修正过程的状态更新公式：
+
+$$
+\mu_t^+ = \frac{\mu_t^- \sigma_m^2 + m y_t (\sigma_t^-)^2}{\sigma_m^2 + m^2 (\sigma_t^-)^2}
+$$
+
+$$
+(\sigma_t^+)^2 = \frac{\sigma_m^2 (\sigma_t^-)^2}{\sigma_m^2 + m^2 (\sigma_t^-)^2}
+$$
+
+记$a = \frac{\sigma_m^2}{m^2}$，$b = (\sigma_t^-)^2$。状态更新公式可以化简为：
+
+$$
+\begin{aligned}
+\mu_t^+ &= \frac{\mu_t^- \sigma_m^2 + m y_t (\sigma_t^-)^2}{\sigma_m^2 + m^2 (\sigma_t^-)^2} \\
+&= \frac{\frac{\mu_t^- \sigma_m^2}{m^2} + \frac{y_t (\sigma_t^-)^2}{m}}{\frac{\sigma_m^2}{m^2} + (\sigma_t^-)^2} \\
+&= \frac{a \mu_t^- + b \frac{y_t}{m}}{a + b} \\
+&= \frac{(a + b) \mu_t^- + b (\frac{y_t}{m} - \mu_t^-)}{a + b} \\
+&= \mu_t^- + \frac{b}{a + b} (\frac{y_t}{m} - \mu_t^-) \\
+&= \mu_t^- + k (\frac{y_t}{m} - \mu_t^-)
+\end{aligned}
+$$
+
+上式说明系统真实状态最有可能的位置等于预测值$\mu_t^-$与残差$(\frac{y_t}{m} - \mu_t^-)$加权求和，加权系数$k = \frac{b}{a + b}$称为**Kalman增益(Kalman gain)**。
+
+对于多维状态的情况，Kalman滤波的矩阵形式为：
+
+- 预测过程：
+
+$$
+x_t^- = D_t x_{t-1}^+
+$$
+
+$$
+\Sigma_t^- = D_t \Sigma_{t-1}^+ D_t^T + \Sigma_{d_t}
+$$
+
+- 修正过程：
+
+$$
+K_t = \Sigma_t^- M_t^T (M_t \Sigma_t^- M_t^T + \Sigma_{m_t})^{-1}
+$$
+
+$$
+x_t^+ = x_t^- + K_t (y_t - M_t x_t^-)
+$$
+
+$$
+\Sigma_t^+ = (I - K_t M_t) \Sigma_t^-
+$$
+
 ## Non-Parametric Models
 
 ## Reference
