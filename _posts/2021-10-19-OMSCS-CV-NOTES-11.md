@@ -12,6 +12,14 @@ sidebar:
 > 这个系列是Gatech OMSCS 计算机视觉课程([CS 6476: Computer Vision](https://omscs.gatech.edu/cs-6476-computer-vision))的同步课程笔记。课程内容涉及图像处理以及传统计算机视觉的相关理论和方法，本节主要介绍目标跟踪的相关内容。
 <!--more-->
 
+## Introduction to Tracking
+
 ## Parametric Models
 
+### Tracking as Inference
+
+### The Kalman Filter
+
 ## Non-Parametric Models
+
+## Reference
