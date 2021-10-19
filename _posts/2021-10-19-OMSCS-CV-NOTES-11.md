@@ -173,6 +173,8 @@ $$
 (\sigma_t^+)^2 = \frac{\sigma_m^2 (\sigma_t^-)^2}{\sigma_m^2 + m^2 (\sigma_t^-)^2}
 $$
 
+从上式中不难发现更新后的均值和方差取决于预测模型的误差$(\sigma_t^-)^2$以及观测模型误差$\sigma_m^2$。当预测模型完全正确时($(\sigma_t^-)^2 = 0$)，系统更新后的状态等于预测阶段的状态；而当观测模型完全正确时($\sigma_m^2 = 0$)，系统更新后的状态等于观测到的状态。
+
 记$a = \frac{\sigma_m^2}{m^2}$，$b = (\sigma_t^-)^2$。状态更新公式可以化简为：
 
 $$
@@ -214,6 +216,17 @@ $$
 \Sigma_t^+ = (I - K_t M_t) \Sigma_t^-
 $$
 
+迭代使用上面的几个公式即可完成对系统状态的估计。
+
+<div align=center>
+<img src="https://i.imgur.com/ZoFjxBY.png" width="70%">
+</div>
+
+Kalman滤波非常简洁而且高效，但需要注意的是它的使用前提是线性高斯系统。当系统的动力学模型不是线性方程或者噪声不满足正态分布假定时，使用Kalman滤波则不能得到正确的结果。
+
 ## Non-Parametric Models
 
 ## Reference
+
+- [Wikipedia: Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter)
+- Chapter 3: Linear Gaussian Estimation, [State Estimation for Robotics](http://asrl.utias.utoronto.ca/~tdb/bib/barfoot_ser17.pdf#page=53)
