@@ -1,6 +1,6 @@
 ---
 layout: article
-title: OMSCS-ML课程笔记11-Feature Selection and Transform
+title: OMSCS-ML课程笔记12-Feature Selection and Transform
 tags: ["OMSCS", "CS7641-ML"]
 key: OMSCS-ML-12
 aside:
