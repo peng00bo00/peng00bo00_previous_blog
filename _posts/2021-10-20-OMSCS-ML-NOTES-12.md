@@ -47,5 +47,34 @@ relevance实际上描述了特征带来的信息。对于特定的学习器，�
 
 ## Feature Transform
 
+除了特征选择外，在机器学习中另一种常用的特征处理方法是**特征变换(feature transformation)**：我们利用已有的特征来构造出一组新的特征，并在这些新的特征上完成机器学习的任务。我们希望这组新的特征能够包含原始特征的全部信息，同时尽可能紧凑从而避免维数灾难的问题。
+
+显然对特征进行变换有各种各样的方式，但这里我们只考虑对特征进行线性变换。
+
+### PCA
+
+**主成分分析(principal component analysis, PCA)**是线性特征变换的基本方法。在特征空间中我们把数据分布方差较大的方向称为**主成分(principal component)**，而PCA的思想就是把数据投影到不同的主方向上从而在主方向构成的空间中重新表达当前的数据集。
+
+<div align=center>
+<img src="https://i.imgur.com/qFBND88.png" width="70%">
+</div>
+
+PCA的主要流程如下：
+
+1.  对数据集$X$进行中心化处理，使得$X$的每个特征均值为0；
+2.  构造新的样本矩阵$X' = \frac{1}{\sqrt{n-1}} X$；
+3.  对$X'$进行奇异值分解，得到$X' = U \Sigma V^T$；
+4.  利用右奇异向量矩阵对$X$进行投影即可$Y = V^T X$。
+
+主成分分析的另一个重要应用是对数据进行降维。在很多时候我们不需要全部的主成分向量，只需要最重要的几个方向即可。此时我们需要对奇异值从大到小进行排序，并选出其中最大的$k$个奇异值和对应的奇异向量方向构造投影矩阵。
+
+### ICA
+
+另一种常用的特征变换方式是**独立成分分析(independent component analysis, ICA)**。假设数据集上的特征为$X = \{x_1, x_2, \dots \}$，ICA的目的通过一个线性变换将特征$X$变换为$Y = \{y_1, y_2, \dots \}$使得任意$y_i$和$y_j$相互独立，同时可以证明这样的过程等价于最大化$X$和$Y$之间的互信息$I(X; Y)$。
+
+### Alternatives
+
 ## Reference
 
+- [Wikipedia: Principal component analysis](https://en.wikipedia.org/wiki/Principal_component_analysis)
+- [Wikipedia: Independent component analysis](https://en.wikipedia.org/wiki/Independent_component_analysis)
