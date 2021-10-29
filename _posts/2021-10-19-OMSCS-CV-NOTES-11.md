@@ -292,9 +292,15 @@ $$
 <img src="https://i.imgur.com/9wpXNVy.png" width="40%">
 </div>
 
+在实际使用粒子滤波时还有很多技巧来提高算法的运行效率：
+
+- 当粒子的权重分布比较均匀时我们可以省略掉重采样的过程；
+- 如果某些粒子的权重明显大于其他粒子，我们可以在动力学模型和观测方程中提高噪声的比例来获得更光滑的估计结果；
+- 我们可以引入系统状态的先验来加速粒子滤波收敛的过程，如使用Kalman滤波来初始化系统状态；
+- 当粒子滤波运行失败时还需要一些重启算法的策略。
+
 ## Reference
 
 - [Wikipedia: Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter)
 - Chapter 3: Linear Gaussian Estimation, [State Estimation for Robotics](http://asrl.utias.utoronto.ca/~tdb/bib/barfoot_ser17.pdf#page=53)
-
 - Chapter 4: Nonlinear Non-Gaussian Estimation, [State Estimation for Robotics](http://asrl.utias.utoronto.ca/~tdb/bib/barfoot_ser17.pdf#page=107)
