@@ -266,7 +266,35 @@ $$
 
 ### Particle Filters
 
+粒子滤波(particle filter)是求解非线性非高斯系统的Bayes滤波器的经典方法，它的核心思想是利用大量的粒子(样本)和它们对应的权重(概率)来表示系统的状态分布。假设我们已经有$t-1$时刻系统的状态分布，首先需要从这个先验分布中采样出$N$个粒子，然后将它们输入到动力学模型中得到$N$个预测状态，并且利用观测值$z_t$来更新粒子的(未归一化)权重$P(z_t \vert x_t)$作为$t$时刻的系统状态。上述过程可以用下图来进行表示：
+
+<div align=center>
+<img src="https://i.imgur.com/jDz7UNC.png" width="60%">
+</div>
+
+粒子滤波在机器人定位中有经典的应用，在初始时刻我们可以将粒子均匀分布在地图上：
+
+<div align=center>
+<img src="https://i.imgur.com/R5ZiFmV.png" width="40%">
+</div>
+
+每当我们有了新的观测值时，利用粒子滤波来更新机器人当前的状态：
+
+<div align=center>
+<img src="https://i.imgur.com/mtkvb21.png" width="40%">
+<img src="https://i.imgur.com/gYQDNDf.png" width="40%">
+</div>
+
+随着迭代的进行，机器人的位置会迅速收敛到真实的位置：
+
+<div align=center>
+<img src="https://i.imgur.com/fCHwDnY.png" width="40%">
+<img src="https://i.imgur.com/9wpXNVy.png" width="40%">
+</div>
+
 ## Reference
 
 - [Wikipedia: Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter)
 - Chapter 3: Linear Gaussian Estimation, [State Estimation for Robotics](http://asrl.utias.utoronto.ca/~tdb/bib/barfoot_ser17.pdf#page=53)
+
+- Chapter 4: Nonlinear Non-Gaussian Estimation, [State Estimation for Robotics](http://asrl.utias.utoronto.ca/~tdb/bib/barfoot_ser17.pdf#page=107)
