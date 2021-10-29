@@ -63,7 +63,7 @@ $$
 P(X_t \vert Y_0 = y_0, \dots , Y_{t-1} = y_{t-1}, Y_t = y_t)
 $$
 
-我们进一步对问题进行简化。假设动力学模型和观测模型满足一节马尔科夫性，系统当前时刻的状态仅与前一时刻有关而且任意时刻的观测仅与该时刻的系统状态有关：
+我们进一步对问题进行简化。假设动力学模型和观测模型满足一阶马尔科夫性，系统当前时刻的状态仅与前一时刻有关而且任意时刻的观测仅与该时刻的系统状态有关：
 
 $$
 P(X_t \vert X_0, \dots, X_{t-1}) = P(X_t \vert X_{t-1})
@@ -225,6 +225,46 @@ $$
 Kalman滤波非常简洁而且高效，但需要注意的是它的使用前提是线性高斯系统。当系统的动力学模型不是线性方程或者噪声不满足正态分布假定时，使用Kalman滤波则不能得到正确的结果。
 
 ## Non-Parametric Models
+
+### Bayes Filters
+
+在实际应用中绝大多数的系统是非线性非高斯的，因此严格来说我们不能使用Kalman滤波来对系统状态进行估计。在这种情况下我们需要利用Bayes滤波来进行状态估计。假设系统状态的先验为$p(x)$，动力学模型为$p(x_t \vert u_t, x_{t-1})$，观测模型为$p(z \vert x)$，那么在给定观测和控制序列$\{ u_1, z_2, ... \}$的条件下我们希望对系统当前的状态$x_t$进行估计：
+
+$$
+P(x_t \vert u_1, z_2, ..., u_{t-1}, z_t)
+$$
+
+类似于Kalman滤波的假设，我们可以利用如下所示的概率图对系统进行建模：
+
+<div align=center>
+<img src="https://i.imgur.com/qF4GWO9.png" width="40%">
+</div>
+
+因此结合Bayes公式和马尔科夫性可以得到：
+
+$$
+\begin{aligned}
+P(x_t \vert u_1, z_2, ..., u_{t-1}, z_t) &= \eta P(z_t \vert x_t, u_1, z_2, ..., u_{t-1}) P(x_t \vert u_1, z_2, ..., u_{t-1}) \\
+&= \eta P(z_t \vert x_t) P(x_t \vert u_1, z_2, ..., u_{t-1}) \\
+&= \eta P(z_t \vert x_t) \int P(x_t, x_{t-1} \vert u_1, z_2, ..., u_{t-1}) d x_{t-1} \\
+&= \eta P(z_t \vert x_t) \int P(x_t \vert u_1, z_2, ..., u_{t-1}, x_{t-1}) P(x_{t-1} \vert u_1, z_2, ..., u_{t-1}) d x_{t-1} \\
+&= \eta P(z_t \vert x_t) \int P(x_t \vert u_{t-1}, x_{t-1}) P(x_{t-1} \vert u_1, z_2, ..., u_{t-1}) d x_{t-1}
+\end{aligned}
+$$
+
+记$Bel(x_t) = P(x_t \vert u_1, z_2, ..., u_{t-1}, z_t)$，我们可以整理得到递推公式：
+
+$$
+Bel(x_t) = \eta P(z_t \vert x_t) \int P(x_t \vert u_{t-1}, x_{t-1}) Bel(x_{t-1}) d x_{t-1}
+$$
+
+使用上式递推进行状态估计的算法称为Bayes滤波器。实际上Kalman滤波器正是线性高斯系统的Bayes滤波器，但对于非线性非高斯的系统则一般无法显式计算出Bayes滤波器的结果。
+
+<div align=center>
+<img src="https://i.imgur.com/DVZJBpr.png" width="60%">
+</div>
+
+### Particle Filters
 
 ## Reference
 
