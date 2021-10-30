@@ -45,8 +45,58 @@ $$
 
 ## Bellman Equation
 
+对于给定的策略$\Pi$，我们可以定义根据该策略在状态$s$下对应的效用为：
+
+$$
+U^\Pi (s) = \mathbb{E} \bigg[ \sum_{t=0}^\infty \gamma^t R(s_t) \bigg\vert \Pi, s_0 = s \bigg]
+$$
+
+上式可以理解为从$s$开始智能体按照策略$\Pi$来行动并获得一系列回报序列，这些序列效用的期望即为策略$\Pi$在状态$s$下的效用。
+
+显然最优策略$\Pi^*$对于任意状态$s$满足：
+
+$$
+\Pi^* = \arg \max_{\Pi} \mathbb{E} \bigg[ \sum_{t=0}^\infty \gamma^t R(s_t) \bigg\vert \Pi \bigg]
+$$
+
+它在状态$s$下对应的行为需要最大化后续的效用：
+
+$$
+\Pi^* (s) = \arg \max_{a \in A(s)} \sum_{s'} T(s, a, s') U(s')
+$$
+
+$U(s)$表示按照最优策略$\Pi^*$获得的效用，称为**真实效用(true utility)**，即$U(s) = U^{\Pi^*}(s)$。我们把上面的式子结合到一起就得到了最优策略的效用：
+
+$$
+U(s) = R(s) + \gamma \cdot \max_{a \in A(s)} \sum_{s'} T(s, a, s') U(s')
+$$
+
+上式是求解MDP问题最重要的方程，称为**Bellman方程(Bellman equation)**。
+
 ## Finding Policies
 
 ### Value Iteration
 
+本节最后的问题是如何来求解Bellman方程。由于Bellman方程是非线性的，我们很难显式地进行求解，一般需要采用迭代的方法：
+
+$$
+\hat{U}_{t+1}(s) = R(s) + \gamma \cdot \max_{a \in A(s)} \sum_{s'} T(s, a, s') \hat{U}_t(s')
+$$
+
+式中$\hat{U}_t(s)$为$t$时刻状态$s$的效用。这样的迭代过程称为**价值迭代(value iteration)**，同时可以证明从任意的效用函数出发，通过价值迭代总可以收敛到真实效用。
+
 ### Policy Iteration
+
+除了价值迭代外另一种常用的求解方法为**策略迭代(policy iteration)**。对于任意给定的策略$\Pi_t$我们可以利用Bellman方程计算它在$t$步的效用：
+
+$$
+U_t(s) = R(s) + \gamma \sum_{s'} T(s, \Pi_t(s), s') U_t(s')
+$$
+
+然后我们选择具有最大效用的行为来改进它：
+
+$$
+\Pi_{t+1} (s) = \arg \max_{a \in A(s)} \sum_{s'} T(s, a, s') U_t(s')
+$$
+
+如此反复迭代即可得到最优策略。类似于价值迭代，我们同样可以证明无论初始策略如何采用策略迭代一定会收敛到最优策略。
