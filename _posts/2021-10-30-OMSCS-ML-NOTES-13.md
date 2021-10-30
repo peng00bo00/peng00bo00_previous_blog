@@ -29,8 +29,24 @@ sidebar:
 <img src="https://images.deepai.org/django-summernote/2019-03-19/c8c9f96b-cc21-4d33-8b37-cb810f599e6e.png" width="40%">
 </div>
 
-强化学习的目标是得到一个最优的**策略(policy)**使得智能体能够获得尽可能多的回报。所谓"策略"是指行为关于状态的函数$\Pi(s): S \rightarrow A$，它告诉智能体在给定的状态$s$下该如何确定自身的行为。
+强化学习的目标是得到一个最优的**策略(policy)**使得智能体能够获得尽可能多的回报。所谓"策略"是指行为关于状态的函数$\Pi(s): S \rightarrow A$，它告诉智能体在给定的状态$s$下该如何确定自身的行为。在所有的策略中能够最大化回报的策略称为**最优策略(optimal policy)**，一般用$\Pi^*$来表示。
+
+接下来的问题是如何衡量回报的大小。假设智能体的决策序列是无限的，我们需要引入一个**折扣系数(discount factor)**来计算回报序列的**效用(utility)**：
+
+$$
+U(s_0, s_1, s_2, ...) = \sum_{t=0}^\infty \gamma^t R(s_t)
+$$
+
+其中$\gamma$的取值范围是$0 \lt \gamma \lt 1$，$\gamma$越接近于0表示越关注于当前阶段的收益，$\gamma$越接近于1表示越关注于长远阶段的收益。引入折扣系数的主要目的是将效用转化为一个几何级数的计算，使得对于无限长的序列效用值仍然能够收敛：
+
+$$
+\sum_{t=0}^\infty \gamma^t R(s_t) \leq \sum_{t=0}^\infty \gamma^t R_{\max} = \frac{R_{\max}}{1 - \gamma}
+$$
 
 ## Bellman Equation
 
 ## Finding Policies
+
+### Value Iteration
+
+### Policy Iteration
