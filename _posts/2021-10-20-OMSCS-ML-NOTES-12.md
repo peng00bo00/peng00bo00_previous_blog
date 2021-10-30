@@ -74,7 +74,10 @@ PCA的主要流程如下：
 
 ### Alternatives
 
+处理PCA和ICA之外，其它常用的降维算法还包括RCA以及LDA等。
+
 ## Reference
 
 - [Wikipedia: Principal component analysis](https://en.wikipedia.org/wiki/Principal_component_analysis)
 - [Wikipedia: Independent component analysis](https://en.wikipedia.org/wiki/Independent_component_analysis)
+- [Wikipedia: Linear discriminant analysis](https://en.wikipedia.org/wiki/Linear_discriminant_analysis)

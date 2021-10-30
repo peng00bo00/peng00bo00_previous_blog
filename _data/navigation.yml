@@ -95,6 +95,9 @@ OMSCS-ML:
         url: /2021/10/20/OMSCS-ML-NOTES-12.html
 
   - title: Reinforcement Learning
+    children:
+        - title: Markov Decision Processes
+          url: /2021/10/30/OMSCS-ML-NOTES-13.html
 
 OMSCS-CV:
   - title: Image Processing for Computer Vision
