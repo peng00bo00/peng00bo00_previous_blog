@@ -96,6 +96,16 @@ $$
 
 ### Estimating Q-function
 
+由于我们不知道外界环境的状态转移$T$，我们不能显式地去计算Q函数。假设我们观测到了状态转移序列$\langle s, a, r, s' \rangle$，我们可以使用下式来更新Q函数：
+
+$$
+\hat{Q}(s, a) = \hat{Q}(s, a) + \alpha_t \cdot \bigg( r + \gamma \cdot \max_{a'} \hat{Q}(s', a') - \hat{Q}(s, a) \bigg)
+$$
+
+其中$\alpha_t$称为学习率，一般可以取$\alpha_t = \frac{1}{t}$。可以证明当状态$s$和行为$a$能够无限次地重新访问时，按照上式更新的Q函数会收敛到Bellman方程的解，即$\hat{Q}(s, a) \rightarrow Q(s, a)$。
+
+### Choosing Actions
+
 ## Reference
 
 - [Wikipedia: Q-learning](https://en.wikipedia.org/wiki/Q-learning)
