@@ -118,7 +118,7 @@ $$
 \hat{\Pi}(s) = 
 \left\{
 \begin{aligned}
-& \argmax_{a \in A(s)} \hat{Q}(s, a)， & & \text{with probability} \ 1 - \varepsilon \\
+& \arg \max_{a \in A(s)} \hat{Q}(s, a)， & & \text{with probability} \ 1 - \varepsilon \\
 & \text{random action} ，& & \text{otherwise}
 \end{aligned}
 \right.
