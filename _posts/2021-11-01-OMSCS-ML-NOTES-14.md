@@ -124,7 +124,7 @@ $$
 \right.
 $$
 
-这样的策略称为**$\varepsilon$-greedy exploration**。当我们对$\varepsilon$进行衰减时，我们不仅能够保证Q函数的收敛，同时学习到的策略$\hat{\Pi}$也会收敛到最优策略。
+这样的策略称为**$\mathbf{\varepsilon}$-greedy exploration**。当我们对$\varepsilon$进行衰减时，我们不仅能够保证Q函数的收敛，同时学习到的策略$\hat{\Pi}$也会收敛到最优策略。
 
 从一个更高的层面上讲，我们希望策略$\hat{\Pi}$能够在学习过程中探索不同的可能性，同时利用到已经学习到的内容，这种情况称为**Explore-Exploit dilemma**。Explore-Exploit dilemma是强化学习的基本问题，我们需要智能体在和环境的互动中尽可能多地探索不同的可能性，同时还要利用已有的信息做出最优的决策，这就需要对explore和exploit这两个过程进行权衡。
 
