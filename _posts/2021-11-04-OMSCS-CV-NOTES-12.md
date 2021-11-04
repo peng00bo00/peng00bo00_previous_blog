@@ -83,4 +83,117 @@ $$
 
 ## Principle Component Analysis
 
+机器学习在计算机视觉中还有很多的应用，不过在讨论这些具体应用前我们先介绍**主成分分析(principle component analysis, PCA)**在计算机视觉中的应用。
+
+我们定义数据集的**主成分(principal components)**为数据方差最大的方向。以下图为例，显然第一个主成分对应对角线方向。其余主成分方向与之前定义的主成分相互垂直，表示除去当前主方向后方差最大的方向。
+
+<div align=center>
+<img src="https://i.imgur.com/xCIVT2n.png" width="40%">
+<img src="https://i.imgur.com/bDLYbvS.png" width="40%">
+</div>
+
+### Fitting a Line
+
+假设已经知道主成分(法向)的方向$(a, b)$，我们可以通过最小化样本到直线的距离来计算主成分所在直线的截距：
+
+$$
+E(a, b, d) = \sum_i (a x_i + b y_i - d)^2
+$$
+
+$$
+\frac{\partial E}{\partial d} = 0 \Rightarrow -2 \sum_i (a x_i + b y_i - d) = 0
+$$
+
+$$
+d = a \bar{x} + b \bar{y}
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/aEMwkmk.png" width="30%">
+</div>
+
+把$d$代回$E(a, b, d)$中，得到：
+
+$$
+\begin{aligned}
+E(a, b, d) &= \sum_i (a x_i + b y_i - d)^2 \\
+&= \sum_i [a (x_i - \bar{x}) + b (y_i - \bar{y})]^2 \\
+&= \Vert B n \Vert^2
+\end{aligned}
+$$
+
+$$
+B = 
+\begin{bmatrix}
+x_1 - \bar{x} & y_1 - \bar{y} \\
+\vdots & \vdots \\
+x_n - \bar{x} & y_n - \bar{y} \\
+\end{bmatrix}
+,
+n = 
+\begin{bmatrix}
+a \\ b
+\end{bmatrix}
+$$
+
+换句话说，求解主方向相当于求解约束优化问题：
+
+$$
+\begin{aligned}
+\min_n & &  & n^T B^T B n \\
+\text{s.t.} & & & n^T n = 1
+\end{aligned}
+$$
+
+### Algebraic Interpretation
+
+从代数的角度上讲，最小化点到直线的距离等价于最大化投影后点的距离。在此基础上我们可以得到PCA更常见的形式：
+
+$$
+E = \sum_i (x^T P_i)^2 = x^T B^T B x
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/0zjSOUQ.png" width="40%">
+</div>
+
+令$M = B^T B$，得到约束优化问题：
+
+$$
+\begin{aligned}
+\max_n & &  & x^T B^T B x \\
+\text{s.t.} & & & x^T x = 1
+\end{aligned}
+$$
+
+通过Lagrange乘子法得到：
+
+$$
+\max L = x^T M x + \lambda (1 - x^T x)
+$$
+
+$$
+\frac{\partial L}{\partial x} = 2M x - 2 \lambda x = 0
+$$
+
+$$
+M x = \lambda x
+$$
+
+也就是说$x$实际上是$M$矩阵的最大特征向量。
+
+实际上$M$矩阵对应了数据的协方差矩阵：
+
+$$
+M = B^T B =
+\begin{bmatrix}
+\sum_i x_i^2 & \sum_i x_i y_i \\
+\sum_i x_i y_i & \sum_i y_i^2
+\end{bmatrix}
+$$
+
+从这个角度上看，主成分也是协方差矩阵所定义的相互垂直的方向。
+
+### Dimensionality Reduction
+
 ## Appearance-Based Tracking
