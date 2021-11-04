@@ -196,4 +196,35 @@ $$
 
 ### Dimensionality Reduction
 
+PCA的一个重要应用是对数据进行降维。对于高维的数据，我们可以仅采用少量几个的主方向来描述原始数据。以下图为例，我们可以用橙色点在$v_1$方向上的投影来对它们进行区分：
+
+<div align=center>
+<img src="https://i.imgur.com/TkwvCwZ.png" width="40%">
+</div>
+
+PCA在人脸识别上有很经典的应用。我们可以把人脸图像视为一个高维的向量，通过PCA我们可以得到人脸的平均值和特征向量：
+
+<div align=center>
+<img src="https://i.imgur.com/tFRWR5j.png" width="70%">
+</div>
+
+这样任意一张人脸图像都可以用它在特征向量上的投影来表示：
+
+<div align=center>
+<img src="https://i.imgur.com/6r5ECjd.png" width="70%">
+<img src="https://i.imgur.com/UXKEBVz.png" width="90%">
+</div>
+
+换句话说我们可以把人脸视为特征空间中的点，这样就可以利用生成式模型来解决人脸识别的问题：
+
+<div align=center>
+<img src="https://i.imgur.com/fbTf6YM.png" width="70%">
+</div>
+
+当然需要说明的是PCA也有自身的局限性，在大多数情况下主方向都不一定适合分类问题。
+
+<div align=center>
+<img src="https://i.imgur.com/Zpl3Uv4.png" width="40%">
+</div>
+
 ## Appearance-Based Tracking
