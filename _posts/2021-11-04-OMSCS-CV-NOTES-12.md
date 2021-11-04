@@ -9,3 +9,8 @@ sidebar:
   nav: OMSCS-CV
 ---
 
+## Recognition
+
+## Principle Component Analysis
+
+## Appearance-Based Tracking
