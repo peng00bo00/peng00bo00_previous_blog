@@ -59,7 +59,27 @@ $$
 R(s) = P(4 \rightarrow 9 \vert s) L(4 \rightarrow 9) + P(9 \rightarrow 4 \vert s) L(9 \rightarrow 4)
 $$
 
-其中$P(4 \rightarrow 9 \vert s)$和$P(9 \rightarrow 4 \vert s)$分别表示模型$s$发生错误的概率，$L(4 \rightarrow 9)$和$L(9 \rightarrow 4)$则是发生这种错误时产生的损失。
+其中$P(4 \rightarrow 9 \vert s)$和$P(9 \rightarrow 4 \vert s)$分别表示模型$s$发生错误的概率，$L(4 \rightarrow 9)$和$L(9 \rightarrow 4)$则是发生这种错误时产生的损失。使得总体风险最小的模型$s$称为最优分类器。
+
+在模型的决策边界上样本$x$产生两种错误的损失相等，即
+
+$$
+P(9 \vert x) L(9 \rightarrow 4) = P(4 \vert x) L(4 \rightarrow 9)
+$$
+
+换句话说，我们需要去计算模型给出类别标签$c$的概率$P(c \vert x)$。利用Bayes公式可以表示为：
+
+$$
+P(c \vert x) = \frac{P(x \vert c) P(c)}{P(x)} \propto P(x \vert c) P(c)
+$$
+
+其中$P(c)$表示类别标签$c$的概率，称为**先验(prior)**；而$P(x \vert c)$表示从类别$c$中生成样本$x$的概率，称为**似然(likelihood)**。此时样本$x$对应的标签为：
+
+$$
+c^* = \arg \max_c P(c \vert x) = \arg \max_c P(x \vert c) P(c)
+$$
+
+不难发现生成式模型的核心在于计算不同类别的先验以及似然，一般情况下这可以通过对训练数据进行建模来实现。
 
 ## Principle Component Analysis
 
