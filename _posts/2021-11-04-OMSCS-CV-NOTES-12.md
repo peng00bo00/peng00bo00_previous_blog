@@ -1,6 +1,6 @@
 ---
 layout: article
-title: OMSCS-CV课程笔记12-Generative models
+title: OMSCS-CV课程笔记12-Generative Models
 tags: ["OMSCS", "CS6476-CV"]
 key: OMSCS-CV-12
 aside:
@@ -8,3 +8,4 @@ aside:
 sidebar:
   nav: OMSCS-CV
 ---
+

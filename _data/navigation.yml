@@ -140,6 +140,9 @@ OMSCS-CV:
         url: /2021/10/19/OMSCS-CV-NOTES-11.html
 
   - title: Classification and Recognition
+    children: 
+      - title: Generative Models
+        url: /2021/11/04/OMSCS-CV-NOTES-12.html
 
   - title: Miscellaneous Operations
 
