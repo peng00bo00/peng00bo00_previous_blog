@@ -226,5 +226,3 @@ PCA在人脸识别上有很经典的应用。我们可以把人脸图像视为�
 <div align=center>
 <img src="https://i.imgur.com/Zpl3Uv4.png" width="40%">
 </div>
-
-## Appearance-Based Tracking
