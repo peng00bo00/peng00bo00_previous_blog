@@ -94,7 +94,7 @@ $$
 \end{aligned}
 $$
 
-接下来我们把这两种情况下$A$的收益函数画在一张图上，得到它们的交点$P=0.4$。这个点表示当$P$取0.4时，无论$B$采取什么样的策略(pure strategy或者mixed strategy)$A$获得的期望收益都是相同的。
+接下来我们把这两种情况下$A$的收益函数画在一张图上，得到它们的交点$P=0.4$。这个点表示当$P$取0.4时，无论$B$采取什么样的策略(pure strategy或者mixed strategy)$A$获得的期望收益都是相同的。但需要注意的是这一点并不意味着最优概率或是最优收益。
 
 <div align=center>
 <img src="https://i.imgur.com/qsrX1jm.png" width="40%">
@@ -102,9 +102,33 @@ $$
 
 ### Prisoner’s Dilemma
 
+接下来我们再去掉零和博弈的约束，然后介绍著名的**囚徒困境(prisoner’s dilemma)**：
+
+- 假设有两个囚犯分开接受审讯；
+- 每个囚徒可以选择保持沉默或是向警方招供；
+- 如果两名囚犯都保持沉默的话每个人获得1年的刑期；
+- 如果两名囚犯都招供的话每个人获得6年的刑期；
+- 如果一名囚犯招供而另一名囚犯保持沉默，则招供的可以免罪而保持沉默的获得9年刑期。
+
+整个博弈过程的收益可以用如下所示的矩阵来表示：
+
+<div align=center>
+<img src="https://i.imgur.com/GaABC13.png" width="40%">
+</div>
+
+对于每一名囚犯来说他的最优策略都是选择招供，这是因为此时无论另一名囚犯如何选择他的刑期都是最短的。但在这种情况下两个人都会获得6年的刑期，而如果两个人都保持沉默的话每个人只有1年的刑期。换句话说每名囚犯的最优策略并不会导致总体的最优，要想达到总体最优每名囚犯的策略都依赖于另一名囚犯的策略。
+
 ### Nash Equilibrium
+
+囚徒困境对于多名玩家的情况同样成立。假设有$n$名玩家，每名玩家可行的策略为集合$s_i$，我们称策略$s_1^* \in s_1, s_2^* \in s_2, ..., s_n^* \in s_n$达到了**Nash均衡(Nash equilibrium)**当且仅当对每名玩家有：
+
+$$
+s_i^* = \arg \max_{s_i} U(s_1^*, ..., s_i, ..., s_n^*)
+$$
 
 ## Reference
 
 - [Wikipedia: Minimax](https://en.wikipedia.org/wiki/Minimax)
 - [Wikipedia: Minimax theorem](https://en.wikipedia.org/wiki/Minimax_theorem)
+- [Wikipedia: Prisoner's dilemma](https://en.wikipedia.org/wiki/Prisoner%27s_dilemma)
+- [Wikipedia: Nash equilibrium](https://en.wikipedia.org/wiki/Nash_equilibrium)
