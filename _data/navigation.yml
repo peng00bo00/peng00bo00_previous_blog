@@ -145,6 +145,8 @@ OMSCS-CV:
     children: 
       - title: Generative Models
         url: /2021/11/04/OMSCS-CV-NOTES-12.html
+      - title: Discriminative Models
+        url: /2021/11/09/OMSCS-CV-NOTES-13.html
 
   - title: Miscellaneous Operations
 
