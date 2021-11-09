@@ -51,7 +51,9 @@ sidebar:
 
 在计算机视觉中常用的分类模型如下：
 
-
+<div align=center>
+<img src="https://i.imgur.com/z0s2Y9O.png" width="80%">
+</div>
 
 ## Boosting and Face Detection
 
