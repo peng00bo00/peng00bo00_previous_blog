@@ -13,3 +13,11 @@ sidebar:
 <!--more-->
 
 ## Classification: Discriminative Models
+
+## Boosting and Face Detection
+
+## Support Vector Machines
+
+## Bag of Visual Words
+
+## Reference
