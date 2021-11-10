@@ -171,3 +171,5 @@ GAMES103:
     children: 
       - title: Introduction
         url: /2021/11/04/GAMES103-NOTES-01.html
+      - title: Math Background
+        url: /2021/11/10/GAMES103-NOTES-02.html
