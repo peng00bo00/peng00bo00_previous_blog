@@ -140,7 +140,9 @@ Nash均衡有很多优秀的性质，比如说我们可以不断地删除所有�
 
 ## Stochastic Games and Multiagent RL
 
+### Generalization
 
+### Solving Stochastic Games
 
 ## Reference
 
