@@ -130,6 +130,18 @@ $$
 
 Nash均衡有很多优秀的性质，比如说我们可以不断地删除所有可能的**被支配策略(strictly dominated strategies)**，而Nash均衡总是会保留下来。更重要的是对于有限玩家和有限策略的博弈，至少存在一个Nash均衡点。
 
+## Uncertainty
+
+### Tit-for-Tat
+
+### Folk Theorem
+
+### Pavlov’s Strategy
+
+## Stochastic Games and Multiagent RL
+
+
+
 ## Reference
 
 - [Wikipedia: Minimax](https://en.wikipedia.org/wiki/Minimax)
