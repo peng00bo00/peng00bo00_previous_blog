@@ -182,7 +182,7 @@ $$
 
 Pavlov’s strategy同样达成了Nash均衡。它的另一个特点是如果两名囚犯都采取Pavlov’s strategy，那么无论他们的初始状态如何，最终都会选择相互合作。
 
-最后我们介绍一些**computational folk theorem**：
+最后我们介绍一下**computational folk theorem**：
 
 > You can build a Pavlov-like machine for any game and construct a subgame perfect Nash equilibrium in polynomial time.
 
