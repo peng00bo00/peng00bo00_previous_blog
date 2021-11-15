@@ -190,7 +190,49 @@ Pavlov’s strategy同样达成了Nash均衡。它的另一个特点是如果两
 
 ### Generalization
 
+接下来我们把强化学习的相关概念拓展到多智能体上。假设我们有两个智能体$a$和$b$，整个系统包括：
+
+- 状态$s$，同时包括两个智能体的状态；
+- 行为$A_i$，每个智能体都有各自的行为；
+- 状态转移$T(s, (a, b), s')$由系统状态以及两个智能体的行为共同决定；
+- 奖励函数$R_1(s, (a, b))$和$R_2(s, (a, b))$，每个智能体都有各自的奖励函数；
+- 折扣系数$\gamma$由整个系统共享。
+
+这样定义的系统称为**generalization of MDPs**。
+
 ### Solving Stochastic Games
+
+对于多智能体的情况我们同样可以建立Bellman方程：
+
+$$
+Q_i^* (s, (a, b)) = R_i (s, (a, b)) + \gamma \sum_{s'} \bigg[ T(s, (a, b), s') \cdot \max_{a', b'} Q_i^* (s', (a', b')) \bigg]
+$$
+
+如果是零和博弈则可以理解利用$\text{minimax}$来代替$\max$：
+
+$$
+Q_i^* (s, (a, b)) = R_i (s, (a, b)) + \gamma \sum_{s'} \bigg[ T(s, (a, b), s') \cdot \underset{a', b'}{\text{minimax}} \ Q_i^* (s', (a', b')) \bigg]
+$$
+
+我们同样可以利用Q-learning的方式来进行更新：
+
+$$
+Q_i (s, (a, b)) = (1 - \alpha) \cdot Q_i (s, (a, b)) + \alpha \bigg[ r_i + \gamma \cdot \underset{a', b'}{\text{minimax}} \ Q_i (s', (a', b')) \bigg]
+$$
+
+上式称为**minimax-Q**。
+
+对于更一般的非零和博弈的情况我们需要使用Nash均衡来取代$\text{minimax}$，对应的Bellman方程和Q-learning算法为：
+
+$$
+Q_i^* (s, (a, b)) = R_i (s, (a, b)) + \gamma \sum_{s'} \bigg[ T(s, (a, b), s') \cdot \underset{a', b'}{\text{Nash}} \ Q_i^* (s', (a', b')) \bigg]
+$$
+
+$$
+Q_i (s, (a, b)) = (1 - \alpha) \cdot Q_i (s, (a, b)) + \alpha \bigg[ r_i + \gamma \cdot \underset{a', b'}{\text{Nash}} \ Q_i (s', (a', b')) \bigg]
+$$
+
+这个算法称为Nash-Q。需要注意的是由于Nash均衡的存在，Nash-Q可能不会收敛(存在多个Nash均衡)而且每个智能体的策略是相互依赖的，这些问题导致直接求解Nash-Q是非常困难的。
 
 ## Reference
 
