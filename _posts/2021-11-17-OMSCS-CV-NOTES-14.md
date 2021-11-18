@@ -196,10 +196,10 @@ $$
 
 因此直接求解的方法是对所有可能的状态序列$\{ q_1, q_2, ..., q_T \}$进行求和。然而这种直接求解的计算复杂度为$O(TN^T)$，在实际计算中是不可行的。
 
-实际中解决evaluation使用的是前后向算法，它分为前向计算和后向计算两个步骤。前向计算通过递归的方式来计算前向概率$\alpha_t$：
+实际中解决evaluation问题使用的是前后向算法，它分为前向计算和后向计算两个步骤。前向计算通过递归的方式来计算前向概率$\alpha_t$：
 
 $$
-\alpha_t (i) = P(o_1, ..., o_t, q=i \vert \lambda)
+\alpha_t (i) = P(o_1, ..., o_t, q_t=i \vert \lambda)
 $$
 
 它表示到$t$时刻为止观测到$\{ o_1, ..., o_t \}$且状态为$q_t = i$的概率，它可以通过递归的方式来求解：
@@ -208,4 +208,37 @@ $$
 \alpha_{t+1} (j) = \bigg[ \sum_{i=1}^N \alpha_t (i) a_{ij} \bigg] b_j(o_{t+1})
 $$
 
+当递推到$T$时刻时，$P(O \vert \lambda)$可通过对前向概率求和来计算：
+
+$$
+P(O \vert \lambda) = \sum_{i=1}^N \alpha_T (i)
+$$
+
+使用前向概率递推计算的复杂度为$O(N^2 T)$，远低于直接计算的复杂度。类似地，我们可以定义后向概率为：
+
+$$
+\beta_t (i) = P(o_{t+1}, o_{t+2}, ..., o_T \vert q_t = i, \lambda)
+$$
+
+递推时首先初始化：
+
+$$
+\beta_T (i) = 1
+$$
+
+然后从后向前递推：
+
+$$
+\beta_t (i) = \sum_{i=1}^N a_{ij} b_j (o_{t+1}) \beta_{t+1} (j)
+$$
+
+当递推到$t=1$时刻只需要再求和即可：
+
+$$
+P(O \vert \lambda) = \sum_{i=1}^N \pi_i b_1 (o_1) \beta_1 (i)
+$$
+
 ## Reference
+
+- [Wikipedia: Hidden Markov model](https://en.wikipedia.org/wiki/Hidden_Markov_model)
+- 第10章：隐马尔科夫模型，统计学习方法（第2版）
