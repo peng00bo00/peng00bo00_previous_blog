@@ -78,6 +78,76 @@ $$
 
 ## Activity Recognition
 
+### Human Activity in Video
+
+对视频中人的行为进行识别是比较困难的任务，一般来说没有一个通用的解决方法。常用的方法包括对单帧图像进行识别或是结合一些运动的信息进行识别等。从算法层面来讲进行行为识别可以分为**基于模型的动作识别(model based action recognition)**以及**基于模型的行为识别(model based activity recognition)**两种：动作识别是对人体的不同部位以及姿态进行识别，而行为识别则是在动作的基础上根据模型来识别人的行为
+
+<div align=center>
+<img src="https://i.imgur.com/YgHcGCo.png" width="80%">
+</div>
+
+目前行为识别主流方式是通过结合时空的模式来进行分析。一般来说这类方法不需要显式地对人体进行跟踪，只需要从视频中提取物体的运动模式并训练一个分类器即可。
+
+### Motion History Images
+
+要进行行为识别就需要将物体的运动记录下来，一种经典的处理方法是使用**运动历史图(motion history image, MHI)**来保存运动信息。MHI通过对图像中的像素进行更新来记录物体的运动信息：
+
+$$
+I_\tau (x, y, t) = 
+\left\{
+\begin{aligned}
+& \tau, & & \text{if moving} \\
+& \max \{I_\tau (x, y, t-1), 0 \}, & & \text{otherwise}
+\end{aligned}
+\right.
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/q5azR6T.png" width="30%">
+</div>
+
+在MHI的基础上进行阈值化就可以得到**运动能量图(motion energy image, MEI)**，MEI和MHI共同组成了运动在时空上的模板：
+
+<div align=center>
+<img src="https://i.imgur.com/bj1cevE.png" width="70%">
+</div>
+
+对于视频中运动的物体我们利用这种时空上的模板进行模板匹配从而实现简单的行为识别：
+
+<div align=center>
+<img src="https://i.imgur.com/zO8xkNf.png" width="70%">
+</div>
+
+### Image Moments
+
+除了直接使用模板外我们还可以利用模板的统计特征来训练分类器从而实现行为识别。最简单的图像特征是**矩(moment)**，它定义为：
+
+$$
+M_{ij} = \sum_x \sum_y x^i y^j I(x, y)
+$$
+
+类似地，可以定义图像的**中心矩(central moments)**为：
+
+$$
+\mu_{pq} = \sum_x \sum_y (x - \bar{x})^p (y - \bar{y})^q I(x, y)
+$$
+
+$$
+\bar{x} = \frac{M_{10}}{M_{00}}, \bar{y} = \frac{M_{01}}{M_{00}}
+$$
+
+中心矩是一个平移不变量，同样的形状无论发生什么样的平移它的中心矩保持不变。实践中更常用的图像矩特征是**Hu矩(Hu moment)**，它是一个包含7个矩的特征，而且具有平移和尺度不变性。Hu矩的定义如下：
+
+<div align=center>
+<img src="https://i.imgur.com/48cDuns.png" width="70%">
+</div>
+
+有了特征后就可以利用各种机器学习模型来完成行为的识别，主要流程如下：
+
+<div align=center>
+<img src="https://i.imgur.com/E4JE3Fj.png" width="70%">
+</div>
+
 ## Hidden Markov Models
 
 ## Reference
