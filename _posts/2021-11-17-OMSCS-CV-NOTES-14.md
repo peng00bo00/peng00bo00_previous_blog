@@ -150,4 +150,62 @@ $$
 
 ## Hidden Markov Models
 
+### Markov Models
+
+本节课最后介绍了**隐马尔科夫模型(hidden Markov model, HMM)**在行为识别中的应用。在正式介绍HMM前首先需要引入马尔科夫模型的概念，简单来说马尔科夫模型是满足一阶马尔科夫性的模型，它由3部分组成：
+
+- **状态(state)**：$\{ S_1, S_2, ..., S_n \}$
+- **状态转移概率(state transition probabilities)**：$a_{ij} = P(q_{t+1} = S_i \vert q_t = S_j)$
+- **初始状态分布(Initial state distribution:)**：$\pi_i = P(q_1 = S_i)$
+
+<div align=center>
+<img src="https://i.imgur.com/8sLmxaT.png" width="50%">
+</div>
+
+在马尔科夫模型的基础上，HMM中指系统状态不可见但是我们可以对系统进行观测，系统状态到观测结果的过程由**发射概率(emission probabilities)**控制：
+
+$$
+b_j (k) = P( o_t = k \vert q_t = S_j)
+$$
+
+因此，HMM可以看做是由状态转移、发射概率以及初始状态分布构成的三元组$\lambda = (A, B, \pi)$。
+
+### 3 Computational Problems of HMMs
+
+HMM可以求解三种问题：
+
+- Evaluation：给定模型$\lambda = (A, B, \pi)$，计算观测序列$O = \{ o_1, o_2, ..., o_T \}$的概率；
+- Decoding：给定模型$\lambda = (A, B, \pi)$和观测序列$O = \{ o_1, o_2, ..., o_T \}$，计算产生该观测序列最有可能的状态序列；
+- Learning：给定观测序列$O = \{ o_1, o_2, ..., o_T \}$，学习产生该序列最有可能的模型$\lambda = (A, B, \pi)$。
+
+以上问题都有非常经典的求解方法，本节课中只介绍了evaluation的求解过程。evalution可以形式化为计算如下定义的概率：
+
+$$
+P(O \vert \lambda) = \sum_q P(O \vert q, \lambda) P(q \vert \lambda)
+$$
+
+其中，
+
+$$
+P(O \vert q, \lambda) = \prod_t P(o_t \vert q_t, \lambda) = b_{q_1} (o_1) b_{q_2} (o_2) ... b_{q_T} (o_T)
+$$
+
+$$
+P(q \vert \lambda) = \pi_{q_1} a_{q_1 q_2} a_{q_2 q_3} ... a_{q_{T-1} q_T}
+$$
+
+因此直接求解的方法是对所有可能的状态序列$\{ q_1, q_2, ..., q_T \}$进行求和。然而这种直接求解的计算复杂度为$O(TN^T)$，在实际计算中是不可行的。
+
+实际中解决evaluation使用的是前后向算法，它分为前向计算和后向计算两个步骤。前向计算通过递归的方式来计算前向概率$\alpha_t$：
+
+$$
+\alpha_t (i) = P(o_1, ..., o_t, q=i \vert \lambda)
+$$
+
+它表示到$t$时刻为止观测到$\{ o_1, ..., o_t \}$且状态为$q_t = i$的概率，它可以通过递归的方式来求解：
+
+$$
+\alpha_{t+1} (j) = \bigg[ \sum_{i=1}^N \alpha_t (i) a_{ij} \bigg] b_j(o_{t+1})
+$$
+
 ## Reference
