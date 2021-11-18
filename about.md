@@ -152,3 +152,4 @@ Computer Graphics
 - [ROS理论与实践：以移动机器人为例(Introduction to ROS)](https://drive.google.com/file/d/1zmaeH0U_E0I9dqRlq0TO1aGBn57ve0Ho/view)
 - [基于深度学习的物体检测(Object Detection with Deep Learning)](https://drive.google.com/file/d/1zmaeH0U_E0I9dqRlq0TO1aGBn57ve0Ho/view)
 - [激光SLAM理论与实践(Introduction to Laser SLAM)](https://drive.google.com/file/d/1I9WT7E_g86ECZW-JDgEdE6FQvcw-Q1iE/view?usp=sharing)
+- [C++基础与深度解析(C++ Foundations)]()
