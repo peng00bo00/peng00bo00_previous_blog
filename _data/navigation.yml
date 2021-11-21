@@ -167,6 +167,8 @@ GNN:
         url: /2021/10/10/GNN-NOTES-04.html
       - title: 图神经网络的鲁棒性
         url: /2021/11/07/GNN-NOTES-05.html
+      - title: 图神经网络的可扩展性
+        url: /2021/11/21/GNN-NOTES-06.html
 
 GAMES103:
   - title: GAMES103课程笔记
