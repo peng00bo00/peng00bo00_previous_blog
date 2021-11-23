@@ -245,9 +245,57 @@ k-means是非常简单高效的聚类算法，但需要注意的是k-means的聚
 
 ## Segmentation by Graph Partitioning
 
+更高级的图像分割方法是基于graph partitioning的分割方法。此时我们不再把图像视为二维的数组，而是把图像看成是一张全连接图，图上任意两点$p$和$q$之间的边权重$w_{pq}$可由下式计算：
+
+$$
+w_{pq} = \exp \bigg( -\frac{1}{2} \text{dist}(x_p, x_q)^2 \bigg)
+$$
+
+其中距离函数$\text{dist}(x_p, x_q)$描述了$p$、$q$两点在颜色和位置上的差异。
+
+<div align=center>
+<img src="https://i.imgur.com/FSlf9e6.png" width="30%">
+<img src="https://i.imgur.com/GaBEkEC.png" width="30%">
+</div>
+
+从图论的角度上看，图像分割的实质是将原始的图划分成若干个子图。因此我们只需要从图上删除连接不同区域间权重较小的边即可，这样相似的节点(像素)会属于同一个子图(分割)。
+
+<div align=center>
+<img src="https://i.imgur.com/X6WuyF7.png" width="50%">
+</div>
+
+基于图论进行图像分割的经典算法是**图割(graph cut)**，它的基本思路是将原始图分割成互不相连的两部分，同时每删除一条边就要支付这条边的权重作为代价。显然一个好的分割要有尽可能小的代价，因此这种算法也称为minimum cut。
+
+<div align=center>
+<img src="https://i.imgur.com/A5vRrUt.png" width="40%">
+</div>
+
+实践中发现直接使用minimum cut容易产生过小且互不联通的区域，因此需要进行一些改进。在normalized cut算法中对优化目标进行了规范化从而避免出现过分割的问题：
+
+<div align=center>
+<img src="https://i.imgur.com/ulyipzf.png" width="70%">
+</div>
+
+normalized cut算法的流程如下：
+
+<div align=center>
+<img src="https://i.imgur.com/zbKqY39.png" width="70%">
+</div>
+
+使用normalized cut进行图像分割的一些结果如下：
+
+<div align=center>
+<img src="https://i.imgur.com/XIA8Vuo.png" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/WO5HJWk.png" width="70%">
+</div>
+
 ## Reference
 
 - [Wikipedia: CIE 1931 color space](https://en.wikipedia.org/wiki/CIE_1931_color_space#:~:text=The%20CIE%20RGB%20color%20space%20is%20one%20of%20many%20RGB,John%20Guild%20with%20seven%20observers.)
 - [Wikipedia: CIELAB color space](https://en.wikipedia.org/wiki/CIELAB_color_space)
 - [Wikipedia: Gamut](https://en.wikipedia.org/wiki/Gamut)
 - [Wikipedia: k-means clustering](https://en.wikipedia.org/wiki/K-means_clustering)
+- [Wikipedia: Graph cuts in computer vision](https://en.wikipedia.org/wiki/Graph_cuts_in_computer_vision)
