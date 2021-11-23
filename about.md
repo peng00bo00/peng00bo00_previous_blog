@@ -102,9 +102,11 @@ Computer Graphics
 
 ### OMSCS
 
-- CS 6200: Graduate Intro to OS
-- CSE 6220: Intro to High-Performance Computing
-- CS 6601: Artificial Intelligence
+- [CS 6200: Graduate Intro to OS](https://omscs.gatech.edu/cs-6200-introduction-operating-systems)
+- [CSE 6220: Intro to High-Performance Computing](https://omscs.gatech.edu/cse-6220-intro-hpc)
+- [CS 6601: Artificial Intelligence](https://omscs.gatech.edu/cs-6601-artificial-intelligence)
+- [CS 6476: Computer Vision](https://omscs.gatech.edu/cs-6476-computer-vision)
+- [CS 7641: Machine Learning](https://omscs.gatech.edu/cs-7641-machine-learning)
 
 ### Coursera
 
