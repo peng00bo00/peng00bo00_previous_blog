@@ -14,8 +14,125 @@ sidebar:
 
 ## Color Spaces
 
+### Human Vision System
+
+人眼对颜色的感知是通过视网膜上的棒状(rods)和锥形(cones)细胞来实现的。在视网膜上分布着6,000,000-7,000,000个锥形细胞，它们形成了我们用肉眼看到的图像。同时这些锥形细胞根据它们对颜色的感知可以分为3种：64%对红色敏感，32%对绿色敏感，2%对蓝色敏感，这样的分布构成了"三原色"的生理学基础。
+
+<div align=center>
+<img src="https://i.imgur.com/xTBWTkJ.png" width="35%">
+<img src="https://i.imgur.com/IfcYSWh.png" width="51%">
+</div>
+
+从物理学的角度上讲，这些不同类型的锥形细胞对不同波长的光存在不同的响应。从响应的绝对值上讲人眼对红光最为敏感，其次是绿光，最后才是蓝光。
+
+<div align=center>
+<img src="https://i.imgur.com/HNJgono.png" width="32%">
+<img src="https://i.imgur.com/Y3oRcPi.png" width="50%">
+</div>
+
+还需要说明的是与颜色相比人眼对于亮度的变化更为敏感：下方左边图片字体和背景使用了相同的颜色但是具有不同的亮度，我们可以轻松地识别出图上的文字；而右边的图片则使用了具有相同亮度不同颜色的文字和背景，我们要识别出文字则困难得多。
+
+<div align=center>
+<img src="https://i.imgur.com/In8LsVR.png" width="40%">
+<img src="https://i.imgur.com/EZUocv5.png" width="40%">
+</div>
+
+### CIE Color Space
+
+显然我们希望能够从物理的角度定量描述不同颜色的差异，这样的想法促成了**CIE RGB颜色空间(CIE RGB color space)**的诞生。之后人们对空间进行了规范化，得到了**CIE XYZ颜色空间(CIE XYZ color space)**。人眼能够感知到的颜色在XYZ颜色空间中呈一个马蹄形：
+
+<div align=center>
+<img src="https://i.imgur.com/RuTtJup.png" width="35%">
+</div>
+
+除此之外还有**LAB颜色空间(CIELAB color space)**，其中L表示亮度，A和B分别表示颜色坐标。不同亮度下的颜色有不同的显示效果，因此LAB颜色空间也可以认为是一个柱体。
+
+<div align=center>
+<img src="https://i.imgur.com/ReCGhhC.png" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/KX7dwZQ.png" width="30%">
+</div>
+
+其它常用的颜色空间还包括HSV以及HSL空间等，当然最常见的颜色空间还是RGB空间。
+
+<div align=center>
+<img src="https://i.imgur.com/zZaMvi6.png" width="60%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/E0kbqe8.png" width="60%">
+</div>
+
+还需要注意的一点是不同的颜色空间、软件以及显示设备存在不同**色域(color gamut)**，因此不是所有的颜色都能够在不同的设备上显示出来。一些常见软硬件的色域可参考下图：
+
+<div align=center>
+<img src="https://i.imgur.com/6hKXnMM.png" width="30%">
+<img src="https://i.imgur.com/dTa9sEl.png" width="33%">
+<img src="https://i.imgur.com/RGqVta9.png" width="28%">
+</div>
+
+### Color Vectors
+
+对于彩色图像我们可以把图像上每个点的颜色用一个向量来表示：
+
+<div align=center>
+<img src="https://i.imgur.com/cgX5apG.png" width="70%">
+</div>
+
+进一步可以将图像上的所有像素放置在颜色空间中，得到图像的颜色分布：
+
+<div align=center>
+<img src="https://i.imgur.com/HaeIPmM.png" width="70%">
+</div>
+
+我们可以在图像上使用颜色进行滤波，从而识别图像上的不同物体：
+
+<div align=center>
+<img src="https://i.imgur.com/E5aN2w2.png" width="70%">
+</div>
+
+但这样做的缺陷在于同一个颜色在不同光照条件下会产生不同的效果：
+
+<div align=center>
+<img src="https://i.imgur.com/XOCVyez.png" width="50%">
+</div>
+
+因此更合理的做法是将亮度从颜色向量中分离出来，仅对颜色进行滤波：
+
+<div align=center>
+<img src="https://i.imgur.com/TskwA6J.png" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/DtmzThU.png" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/8mvtHY6.png" width="70%">
+</div>
+
+分离亮度后可以得到图像的颜色分布如下：
+
+<div align=center>
+<img src="https://i.imgur.com/pThycY2.png" width="70%">
+</div>
+
+最后在YUV空间中进行滤波就能够得到更好的分割结果：
+
+<div align=center>
+<img src="https://i.imgur.com/kM69g24.png" width="70%">
+</div>
+
 ## Segmentation
 
 ## Mean Shift Segmentation
 
 ## Segmentation by Graph Partitioning
+
+## Reference
+
+- [Wikipedia: CIE 1931 color space](https://en.wikipedia.org/wiki/CIE_1931_color_space#:~:text=The%20CIE%20RGB%20color%20space%20is%20one%20of%20many%20RGB,John%20Guild%20with%20seven%20observers.)
+- [Wikipedia: CIELAB color space](https://en.wikipedia.org/wiki/CIELAB_color_space)
+- [Wikipedia: Gamut](https://en.wikipedia.org/wiki/Gamut)
