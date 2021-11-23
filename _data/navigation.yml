@@ -151,6 +151,9 @@ OMSCS-CV:
         url: /2021/11/17/OMSCS-CV-NOTES-14.html
 
   - title: Miscellaneous Operations
+    children: 
+      - title: Color Spaces and Segmentation
+        url: /2021/11/23/OMSCS-CV-NOTES-15.html
 
   - title: Human Vision
 

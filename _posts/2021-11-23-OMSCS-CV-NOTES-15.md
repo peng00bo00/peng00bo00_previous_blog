@@ -1,6 +1,6 @@
 ---
 layout: article
-title: OMSCS-CV课程笔记15-	Color Spaces and Segmentation
+title: OMSCS-CV课程笔记15-Color Spaces and Segmentation
 tags: ["OMSCS", "CS6476-CV"]
 key: OMSCS-CV-15
 aside:
