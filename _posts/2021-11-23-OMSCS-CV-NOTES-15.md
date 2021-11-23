@@ -201,6 +201,48 @@ k-means是非常简单高效的聚类算法，但需要注意的是k-means的聚
 
 ## Mean Shift Segmentation
 
+除了k-means之外，mean shift也是图像分割中常用的分割算法。mean shift的本质是在特征空间中寻找样本的众数或是局部极大值，它的主要流程如下：
+
+<div align=center>
+<img src="https://i.imgur.com/Mkj4DJB.png" width="40%">
+<img src="https://i.imgur.com/9iSazdy.png" width="40%">
+<img src="https://i.imgur.com/jIwYr4D.png" width="40%">
+<img src="https://i.imgur.com/FkR219M.png" width="40%">
+<img src="https://i.imgur.com/coGjDID.png" width="40%">
+<img src="https://i.imgur.com/rqWaMo1.png" width="40%">
+<img src="https://i.imgur.com/rBeq4aY.png" width="40%">
+</div>
+
+使用mean shift进行聚类时需要将图像上每个像素转换成特征空间中的点，然后把每个点作为起点进行mean shift。最终算法收敛到的局部极值即为聚类中心：
+
+<div align=center>
+<img src="https://i.imgur.com/HwR6QEY.png" width="50%">
+</div>
+
+一些实验结果表明使用mean shift进行分割可以得到非常好的效果：
+
+<div align=center>
+<img src="https://i.imgur.com/z8owpte.png" width="40%">
+<img src="https://i.imgur.com/W7aEpDI.png" width="40%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/k5NYIIY.png" width="40%">
+<img src="https://i.imgur.com/eoDrJRd.png" width="40%">
+</div>
+
+除了颜色之外我们还可以使用"纹理"作为特征来构造特征空间，这样对于图像中颜色接近的区域也能取得很好的分割结果。所谓"纹理"可以理解为局部的图像统计信息，通常可以使用局部梯度的直方图来表示。
+
+<div align=center>
+<img src="https://i.imgur.com/F55YyMa.png" width="70%">
+</div>
+
+对于某些图片使用纹理空间会得到更好的分割结果
+
+<div align=center>
+<img src="https://i.imgur.com/Gv6WgJ9.png" width="70%">
+</div>
+
 ## Segmentation by Graph Partitioning
 
 ## Reference
