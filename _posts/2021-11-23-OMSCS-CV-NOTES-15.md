@@ -127,6 +127,78 @@ sidebar:
 
 ## Segmentation
 
+**图像分割(image segmentation)**是计算机视觉中的重要任务之一，我们希望能够将图像上属于同一物体的区域聚合到一起：
+
+<div align=center>
+<img src="https://i.imgur.com/geOutwL.png" width="40%">
+<img src="https://i.imgur.com/tmOTCBb.png" width="40%">
+</div>
+
+图像分割的经典应用是抠图，我们希望能够将图像中非背景的部分从背景中分离出来：
+
+<div align=center>
+<img src="https://i.imgur.com/DWQPTjZ.png" width="20%">
+<img src="https://i.imgur.com/bC762K1.png" width="20%">
+<img src="https://i.imgur.com/WtN1Zjt.png" width="20%">
+</div>
+
+图像分割的另一个重要应用是**超像素(superpixel)**。超像素类似于马赛克的效果，它将图像划分成若干个区域这样就可以用这些区域来描述原来的图像：
+
+<div align=center>
+<img src="https://i.imgur.com/G3RGOw5.png" width="30%">
+<img src="https://i.imgur.com/QtUwB6O.png" width="30%">
+</div>
+
+### Clustering
+
+实现图像分割最简单的方式是利用直方图进行阈值化。以下图为例，我们可以通过直方图发现图像存在3个区域，每个区域对应不同的物体。
+
+<div align=center>
+<img src="https://i.imgur.com/pBOSAkR.png" width="70%">
+</div>
+
+然而当图像存在噪声时就不能使用这样的方法了，此时每个物体不再具有特定的颜色而是在颜色附近波动。因此图像分割的目标是从图像中找到这些代表颜色来表示不同的物体。
+
+<div align=center>
+<img src="https://i.imgur.com/sl9z07X.png" width="70%">
+</div>
+
+从机器学习的角度上讲这样的过程称为**聚类(clustering)**，我们希望从数据集中寻找到若干个"代表"作为中心，进而将数据集划分为不同的区域。对于像素而言，只需要把它们看做是一般的向量使用SSD作为误差度量即可。
+
+<div align=center>
+<img src="https://i.imgur.com/EbdTcry.png" width="60%">
+</div>
+
+假设我们知道了每个样本的类别，那么只需要对每个类别取平均就可以得到该类别的"代表"；而如果我们知道了每个类别的"代表"，则可以通过计算样本与每个"代表"的距离来获得它的类别。从这个角度上看聚类问题实际上是一个chicken-egg问题：我们既不知道样本的类别，也不知道聚类的中心，因此无法直接进行求解。
+
+### K-Means
+
+k-means是解决聚类问题的经典算法，它的流程如下：
+
+1. 初始化聚类中心$c_1$, $c_2$, ..., $c_K$
+2. 计算数据集上的每个点与聚类中心的距离，然后将它划分到距离最近的类别中
+3. 将聚类中心更新为该类别中样本的平均值
+4. 重复第2步到第3步直到收敛
+
+使用k-means进行图像分割需要注意选择合适的特征空间。以彩色图像为例，我们可以在灰度化的图像上进行聚类也可以在颜色空间中聚类，聚类的结果往往会具有一些差异。
+
+<div align=center>
+<img src="https://i.imgur.com/lqWrasJ.png" width="70%">
+</div>
+
+除此之外我们还可以把像素的坐标也加到特征空间中，这样在聚类时也会考虑像素空间位置的相似性：
+
+<div align=center>
+<img src="https://i.imgur.com/mING289.png" width="50%">
+</div>
+
+k-means是非常简单高效的聚类算法，但需要注意的是k-means的聚类结果与初值有关因此容易显然局部最优。此外k-means对内存的需求较高，需要提前指定k的取值，而且只能得到"球形"分布的聚类结果。
+
+<div align=center>
+<img src="https://i.imgur.com/LmkEDUU.png" width="40%">
+<img src="https://i.imgur.com/0cLfCLM.png" width="40%">
+</div>
+
 ## Mean Shift Segmentation
 
 ## Segmentation by Graph Partitioning
@@ -136,3 +208,4 @@ sidebar:
 - [Wikipedia: CIE 1931 color space](https://en.wikipedia.org/wiki/CIE_1931_color_space#:~:text=The%20CIE%20RGB%20color%20space%20is%20one%20of%20many%20RGB,John%20Guild%20with%20seven%20observers.)
 - [Wikipedia: CIELAB color space](https://en.wikipedia.org/wiki/CIELAB_color_space)
 - [Wikipedia: Gamut](https://en.wikipedia.org/wiki/Gamut)
+- [Wikipedia: k-means clustering](https://en.wikipedia.org/wiki/K-means_clustering)
