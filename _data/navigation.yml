@@ -154,6 +154,8 @@ OMSCS-CV:
     children: 
       - title: Color Spaces and Segmentation
         url: /2021/11/23/OMSCS-CV-NOTES-15.html
+      - title: Binary Morphology
+        url: /2021/11/28/OMSCS-CV-NOTES-16.html
 
   - title: Human Vision
 
