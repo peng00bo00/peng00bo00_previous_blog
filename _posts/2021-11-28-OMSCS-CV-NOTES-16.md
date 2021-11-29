@@ -68,9 +68,105 @@ sidebar:
 
 ### Dilation and Erosion
 
+**数学形态学(mathematical morphology)**是研究对二值图像的形态进行变换的学科，它的基本操作包括**膨胀(dilation)**和**腐蚀(erosion)**两种运算。膨胀会扩张物体的区域，可以用来增大图形或是填充孔洞。
+
+<div align=center>
+<img src="https://i.imgur.com/8zGrcCJ.png" width="40%">
+</div>
+
+而腐蚀则可以看成与膨胀相反的操作，它会缩减图形的区域：
+
+<div align=center>
+<img src="https://i.imgur.com/wI6V1kH.png" width="40%">
+</div>
+
+要严格的定义膨胀和腐蚀操作我们需要引入**结构单元(struct element)**的概念。结构单元是一个带原点的二值掩码，常用的结构单元包括矩形单元、六边形单元以及圆形单元等。
+
+<div align=center>
+<img src="https://i.imgur.com/v1uVSoy.png" width="70%">
+</div>
+
+通过结构单元我们可以将膨胀运算定义如下：把结构单元的原点放置在二值图像上并与该区域进行或运算，如果结构单元接触到了图像上的1则将该处标记为1，最后遍历二值图像的每一个像素就得到了膨胀后的图像：
+
+<div align=center>
+<img src="https://i.imgur.com/ubnodcM.png" width="70%">
+</div>
+
+对二值图像进行膨胀后的结果可参考下图：
+
+<div align=center>
+<img src="https://i.imgur.com/ErNMf6k.png" width="70%">
+</div>
+
+类似地，腐蚀则是令结构单元与局部区域进行与运算，如果结构单元内都是前景则将该处标记为1：
+
+<div align=center>
+<img src="https://i.imgur.com/gZ8dmFP.png" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/QMYfVyC.png" width="70%">
+</div>
+
+需要注意的是膨胀和腐蚀不是互逆的运算，对图像先进行膨胀然后腐蚀或是先腐蚀后膨胀不会恢复到初始状态。
+
 ### Opening and Closing
 
+在膨胀和腐蚀的基础上我们可以定义**开运算(opening)**和**闭运算(closing)**。开运算是先对图像进行腐蚀然后再使用相同的结构单元进行膨胀，可以证明开运算相当于求解二值图像$A$中所有包含结构单元$B$的区域：
+
+<div align=center>
+<img src="https://i.imgur.com/6mdvM5I.png" width="70%">
+</div>
+
+如果我们使用一个非常大的结构单元，那么可以用开运算来提取二值图像的中心区域：
+
+<div align=center>
+<img src="https://i.imgur.com/Cz5AxLI.png" width="70%">
+</div>
+
+类似地，闭运算是先腐蚀然后再进行膨胀。它可以理解为结构单元$B$在二值图像$A$外侧运动时所不能接触到的区域：
+
+<div align=center>
+<img src="https://i.imgur.com/bUoaV0B.png" width="70%">
+</div>
+
+闭运算的一个重要应用是填充阈值化后图像内部的孔洞：
+
+<div align=center>
+<img src="https://i.imgur.com/eOuogUB.png" width="70%">
+</div>
+
+同时开运算和闭运算都是**幂等(idempotent)**的，重复对图像进行开运算或是闭运算都只会获得相同的结果。此外类似于膨胀和腐蚀的关系，开运算与闭运算也不是互逆的运算，先进行开运算然后闭运算不能恢复原图：
+
+<div align=center>
+<img src="https://i.imgur.com/UFGXROF.png" width="70%">
+</div>
+
+将开运算和闭运算结合起来我们可以实现不同的形态操作：
+
+<div align=center>
+<img src="https://i.imgur.com/OAMskJx.png" width="70%">
+</div>
+
 ### Basic Morphological Algorithms
+
+将这些形态学操作与布尔运算结合起来我们还可以得到更多的形态学算法，包括提取边界、细化、加粗等：
+
+<div align=center>
+<img src="https://i.imgur.com/O0IiEOm.png" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/yRc7SLU.png" width="40%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/wQWLbMP.png" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/4rdTGo0.png" width="65%">
+</div>
 
 ## Reference
 
