@@ -81,4 +81,25 @@ sidebar:
 
 ### Depth Images
 
+最后我们来考虑如何表示三维空间中的物体。最基本的表示方法是使用**深度图(depth image)**来记录每个像素到相机位置的深度，但需要注意深度图是依赖于视角的，当相机位置发生改变时深度图也随之改变。同时，深度图中不包含任何的物体几何信息以及物体的位置信息，想要获得物体在空间中的实际位置则必须要先知道相机的位姿。
+
+<div align=center>
+<img src="https://i.imgur.com/5vvdiCa.png" width="40%">
+<img src="https://i.imgur.com/6PwmOFu.png" width="40%">
+</div>
+
 ### Point Clouds
+
+更加流行的表示方法是使用**点云(point cloud)**，它可以简单理解为一系列带坐标和深度的点。和深度图相比，点云数据与观察视角无关，且包含了物体表面的几何与位置信息。不过点云往往是相对稀疏的，而且它的质量也在很大程度上依赖于传感器的质量。
+
+<div align=center>
+<img src="https://i.imgur.com/uT4lYrQ.png" width="70%">
+</div>
+
+通过点云数据我们可以重建物体的表面以及法向信息，同时一些研究还表明我们可以利用点云来构造特征描述子，进而实现基于点云的物体识别。
+
+<div align=center>
+<img src="https://i.imgur.com/dBjAXwH.png" width="20%">
+<img src="https://i.imgur.com/vqLIeqi.png" width="39%">
+<img src="https://i.imgur.com/xAG3hFc.png" width="22%">
+</div>
