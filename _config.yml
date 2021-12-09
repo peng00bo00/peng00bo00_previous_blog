@@ -218,12 +218,13 @@ defaults:
       show_edit_on_github: true
       show_subscribe: false
       pageview: true
+  ## gallery
   - scope:
       path: "_gallery"
     values:
       layout: article
       nav_key: gallery
-    show_date: false
+      show_date: false
 
 
 ## => Plugins
