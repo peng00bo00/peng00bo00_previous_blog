@@ -6,4 +6,6 @@ articles:
   type: grid
 ---
 
-<div class="article__content" markdown="1">
+My first simple RayTracer!
+
+![Imgur](https://i.imgur.com/X4xeIgf.jpg)
