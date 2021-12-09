@@ -219,9 +219,9 @@ defaults:
       show_subscribe: false
       pageview: true
   - scope:
-      layout: article
       path: "_gallery"
     values:
+      layout: article
       nav_key: gallery
     show_date: false
 
