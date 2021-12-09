@@ -218,7 +218,6 @@ defaults:
       show_edit_on_github: true
       show_subscribe: false
       pageview: true
-  
   - scope:
       layout: article
       path: "_gallery"
