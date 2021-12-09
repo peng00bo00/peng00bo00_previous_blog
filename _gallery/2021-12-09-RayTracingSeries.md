@@ -1,8 +1,12 @@
 ---
 layout: article
-title: Ray Tracing Series
-key: raytracing
+title: Koblenz 2020
+key: koblenz-2020
+cover: https://i.imgur.com/X4xeIgf.jpg
 ---
+
+
+<!--more-->
 
 My first simple RayTracer!
 
