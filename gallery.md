@@ -1,6 +1,5 @@
 ---
-layout: articles
-title: Gallery
+layout: article
 key: gallery
 articles:
   data_source: site.photos
