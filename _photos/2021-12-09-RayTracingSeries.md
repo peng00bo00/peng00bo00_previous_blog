@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Ray Tracing
+title: Ray Tracing in One Weekend Book Series
 key: gallery
 cover: https://i.imgur.com/X4xeIgf.jpg
 ---
