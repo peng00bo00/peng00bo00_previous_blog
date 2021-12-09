@@ -202,7 +202,7 @@ exclude:
   - /vendor
 
 collections:
-  gallery:
+  photos:
     output: true
 
 defaults:
@@ -218,13 +218,14 @@ defaults:
       show_edit_on_github: true
       show_subscribe: false
       pageview: true
-  ## gallery
+  ## photos
   - scope:
-      path: "_gallery"
-    values:
       layout: article
-      nav_key: gallery
-      show_date: false
+      path: "_photos"
+    values:
+      nav_key: photos
+    show_date: false
+
 
 
 ## => Plugins

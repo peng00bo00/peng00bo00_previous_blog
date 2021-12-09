@@ -24,9 +24,9 @@ header:
       # @end locale config
     url: /archive.html
   
-  - title:      Gallery
-    url:        /gallery.html
-    key:        gallery
+  - title:      Photos
+    url:        /photos.html
+    key:        photos
 
   - titles:
       # @start locale config
