@@ -220,6 +220,7 @@ defaults:
       pageview: true
   - scope:
       path: "_gallery"
+      type: gallery
     values:
       layout: article
       nav_key: gallery
