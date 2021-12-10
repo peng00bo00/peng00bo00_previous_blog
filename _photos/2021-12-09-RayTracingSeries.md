@@ -13,4 +13,6 @@ My first simple ray tracer! Codes from [_Ray Tracing in One Weekend_](https://ra
 
 ![Imgur](https://i.imgur.com/X4xeIgf.jpg)
 
+![Imgur](https://i.imgur.com/jIKyO5W.jpg)
+
 ![Imgur](https://i.imgur.com/aDrWA05.jpg)
