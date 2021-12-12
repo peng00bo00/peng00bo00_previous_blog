@@ -9,7 +9,7 @@ aside:
 
 ## Cornell Box
 
-### Whitted Sytle Ray Tracing
+### Whitted-Style Ray Tracing
 
 <div align=center>
 <img src="https://i.imgur.com/UCeO8Mk.png" width="70%">
