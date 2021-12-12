@@ -2,7 +2,7 @@
 layout: article
 title: Learning PBRT
 key: gallery
-cover: https://i.imgur.com/qLIDGQi.png
+cover: https://i.imgur.com/tGBNHhe.png
 aside:
   toc: true
 ---
