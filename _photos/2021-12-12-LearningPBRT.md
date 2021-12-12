@@ -7,6 +7,9 @@ aside:
   toc: true
 ---
 
+> This photo album is used to record what I've learned in [_PBRT_](https://www.pbrt.org/).
+<!--more-->
+
 ## Cornell Box
 
 ### Whitted-Style Ray Tracing
