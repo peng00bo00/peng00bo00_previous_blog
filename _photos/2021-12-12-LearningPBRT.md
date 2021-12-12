@@ -3,7 +3,6 @@ layout: article
 title: Learning PBRT
 key: gallery
 cover: https://i.imgur.com/qLIDGQi.png
-tags: ["CG", "Rendering", "PBRT"]
 aside:
   toc: true
 ---

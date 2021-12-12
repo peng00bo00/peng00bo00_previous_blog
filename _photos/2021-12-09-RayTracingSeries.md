@@ -2,7 +2,6 @@
 layout: article
 title: Ray Tracing in One Weekend Book Series
 key: gallery
-tags: ["CG", "Rendering"]
 cover: https://i.imgur.com/X4xeIgf.jpg
 ---
 

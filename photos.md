@@ -7,5 +7,4 @@ articles:
   type: grid
 ---
 
-{%- include tags.html -%}
 <div class="article__content" markdown="1">
