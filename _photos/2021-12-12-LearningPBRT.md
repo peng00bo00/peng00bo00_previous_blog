@@ -10,6 +10,12 @@ aside:
 > This photo album is used to record what I've learned in [_PBRT_](https://www.pbrt.org/).
 <!--more-->
 
+## The PBRT Book
+
+<div align=center>
+<img src="https://i.imgur.com/tGBNHhe.png" width="100%">
+</div>
+
 ## Cornell Box
 
 ### Whitted-Style Ray Tracing
