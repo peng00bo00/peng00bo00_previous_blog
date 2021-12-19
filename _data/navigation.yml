@@ -206,3 +206,5 @@ PBRT:
     children: 
       - title: Intersection Acceleration
         url: /2021/12/18/PBRT-NOTES-01.html
+      - title: Color and Radiometry
+        url: /2021/12/19/PBRT-NOTES-02.html
