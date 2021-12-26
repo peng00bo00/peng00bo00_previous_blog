@@ -214,3 +214,5 @@ PBRT:
         url: /2021/12/19/PBRT-NOTES-02.html
       - title: Camera Models
         url: /2021/12/20/PBRT-NOTES-03.html
+      - title: Sampling and Reconstruction
+        url: /2021/12/26/PBRT-NOTES-04.html
