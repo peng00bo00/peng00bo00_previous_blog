@@ -16,7 +16,7 @@ aside:
 <img src="https://i.imgur.com/tGBNHhe.png" width="100%">
 </div>
 
-## Cornell Box
+## PBRT Rendering
 
 ### Whitted-Style Ray Tracing
 
@@ -28,4 +28,18 @@ aside:
 
 <div align=center>
 <img src="https://i.imgur.com/qLIDGQi.png" width="70%">
+</div>
+
+## My Implementation
+
+### Direct Light Integration
+
+<div align=center>
+<img src="https://i.imgur.com/cUSfxv9.png" width="70%">
+</div>
+
+### Path Tracing
+
+<div align=center>
+<img src="https://i.imgur.com/8QniMRG.png" width="70%">
 </div>
