@@ -49,25 +49,20 @@ aside:
 #### Plastic
 
 <div align=center>
-<img src="https://i.imgur.com/Xbjhr8v.png" width="70%">
+<img src="https://i.imgur.com/Xbjhr8v.png" width="45%">
+<img src="https://i.imgur.com/gnx8fJl.png" width="45%">
 </div>
 
-<div align=center>
-<img src="https://i.imgur.com/gnx8fJl.png" width="70%">
-</div>
 
 #### Metal
 
 <div align=center>
-<img src="https://i.imgur.com/KCziAr1.png" width="70%">
-</div>
-
-<div align=center>
-<img src="https://i.imgur.com/zJhP5Rq.png" width="70%">
+<img src="https://i.imgur.com/KCziAr1.png" width="45%">
+<img src="https://i.imgur.com/zJhP5Rq.png" width="45%">
 </div>
 
 #### Glass
 
 <div align=center>
-<img src="https://i.imgur.com/ddPBddo.png" width="70%">
+<img src="https://i.imgur.com/ddPBddo.png" width="45%">
 </div>
