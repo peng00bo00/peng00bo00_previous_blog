@@ -46,10 +46,20 @@ aside:
 
 ### Microfacet Materials
 
+#### Plastic
+
 <div align=center>
 <img src="https://i.imgur.com/Xbjhr8v.png" width="70%">
 </div>
 
+#### Metal
+
 <div align=center>
 <img src="https://i.imgur.com/KCziAr1.png" width="70%">
+</div>
+
+#### Glass
+
+<div align=center>
+<img src="https://i.imgur.com/ddPBddo.png" width="70%">
 </div>
