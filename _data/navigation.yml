@@ -230,3 +230,9 @@ PBRT:
         url: /2022/01/02/PBRT-NOTES-06.html
       - title: Texture
         url: /2022/01/06/PBRT-NOTES-07.html
+
+OMSCS-DL:
+  - title: Introduction to Neural Networks
+    children: 
+      - title: Linear Classifiers and Gradient Descent
+        url: /2022/01/12/OMSCS-DL-NOTES-01.html
