@@ -52,6 +52,44 @@ sidebar:
 
 ## Supervised Learning and Parametric Models
 
+根据提供数据的类型，机器学习大体可以分为**监督学习(supervised learning)**、**无监督学习(unsupervised Learning)**以及**强化学习(reinforcement Learning)**三种。
+
+<div align=center>
+<img src="https://i.imgur.com/Jtjcx6p.png" width="80%">
+</div>
+
+其中监督学习是指对于给定的数据$X$和标签$Y$，算法通过不断的学习输出一个函数$f$将$X$映射为$Y$。基于深度学习的监督学习算法已经取得了非常显著的效果，在本课程中也主要介绍深度学习在监督学习范畴中的应用。
+
+<div align=center>
+<img src="https://i.imgur.com/4NEaFSM.png" width="80%">
+</div>
+
+### Supervised Learning
+
+根据模型是否具有参数，监督学习还可以细分为参数化模型和非参数化模型两类。前者的代表是**逻辑回归(logistic regression)**和**神经网络(neural networks)**，而后者的代表则包括**决策树(decision tree)**和**kNN(k nearest neighbor)**。
+
+<div align=center>
+<img src="https://i.imgur.com/teS9jEN.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/4qntRan.png" width="80%">
+</div>
+
+### Traditional Machine Learning
+
+以图像分类为例，在深度学习诞生之前的经典分类算法是利用一个参数模型$f(x, W)$将输入图像映射为一个类别向量，然后去得分最高的那个维度作为图像的分类结果。
+
+<div align=center>
+<img src="https://i.imgur.com/QRV908Q.png" width="80%">
+</div>
+
+由于图像是一个高维的数组，直接带入模型进行训练的效率非常低，因此往往会利用人工设计的图像特征(如直方图)来表示整张图像。这样整个计算流程可以划分为特征工程和分类模型两部分。
+
+<div align=center>
+<img src="https://i.imgur.com/O359SH1.png" width="80%">
+</div>
+
 ## Components of Parametric Learning
 
 ## Gradient Descent
