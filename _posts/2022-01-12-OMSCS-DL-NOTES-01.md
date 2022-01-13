@@ -174,4 +174,34 @@ sidebar:
 
 ## Gradient Descent
 
+对于给定的模型和损失函数，模型的训练过程可以看成是一个寻找最优参数的优化问题。在机器学习中求解这种优化问题可以考虑使用随机搜索、遗传算法等不同类型的算法，但目前主流的优化算法仍然是基于**梯度下降(gradient descent)**的相关方法。简单来说，在梯度下降中我们把损失函数看做是关于模型参数的函数，然后通过沿当前点的负梯度方向前进从而寻找到最优点。
+
+<div align=center>
+<img src="https://i.imgur.com/H3g7POO.png" width="80%">
+</div>
+
+梯度下降方法的总体流程如下：
+
+<div align=center>
+<img src="https://i.imgur.com/YMyZ3ag.png" width="80%">
+</div>
+
+在计算梯度值时有时还会使用数据集上的全部或是一部分样本，此时的梯度下降也称为**full batch gradient descent**和**mini-batch gradient descent**。
+
+<div align=center>
+<img src="https://i.imgur.com/oZ56R97.png" width="80%">
+</div>
+
+还需要说明的是要保证梯度下降能够收敛需要使用比较小的步长，而且梯度下降是不能保证收敛到全局最优的。不过在实践中发现即使收敛到局部最优，训练得到的模型也往往有足够好的效果。
+
+<div align=center>
+<img src="https://i.imgur.com/HNItfCk.png" width="80%">
+</div>
+
+那么梯度下降最终的问题是如何计算损失函数关于参数的导数。显然显式计算过于复杂但使用数值梯度精度又不够高，因此在深度学习框架中使用了链式法则来逐步计算梯度。对于任意可导的函数，它可以分解成一系列比较简单的可导函数的复合。这样在计算梯度时可以从后向前计算每一个可导函数的梯度，然后利用链式法则乘起来就得到了复合函数的梯度。
+
+<div align=center>
+<img src="https://i.imgur.com/79VOmCa.png" width="80%">
+</div>
+
 ## How is Deep Learning Different?
