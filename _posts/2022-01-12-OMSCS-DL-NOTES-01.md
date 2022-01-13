@@ -205,3 +205,39 @@ sidebar:
 </div>
 
 ## How is Deep Learning Different?
+
+本节课最后讨论了深度学习与传统机器学习的差异。目前来看，深度学习的主要特点在于**层级化(hierarchical compositionality)**、**端对端(end-to-end learning)**和**分布式表示(distributed representations)**。
+
+<div align=center>
+<img src="https://i.imgur.com/TOELRrw.png" width="80%">
+</div>
+
+### Hierarchical Compositionality
+
+前面介绍过深度学习会将一系列简单的可导函数复合成一个复杂的函数。
+
+<div align=center>
+<img src="https://i.imgur.com/WZtuemI.png" width="80%">
+</div>
+
+这些简单的函数并不是相互独立的单元，实际上这些函数存在着层级的关系。以图像识别为例，通过可视化单元响应人们发现浅层的单元对应着浅层的图像信息，而后面更深层的单元则对应更高阶的视觉信息。
+
+<div align=center>
+<img src="https://i.imgur.com/3DpDJmF.jpg" width="80%">
+</div>
+
+### End-to-End Learning
+
+深度学习的另一个重要特征是整个学习过程是端对端的。在传统机器学习中需要手动设计人工特征来作为模型的输入，而在深度学习中我们直接使用原始数据，即特征提取器会和模型会一起进行训练。
+
+<div align=center>
+<img src="https://i.imgur.com/6mfaFfL.png" width="80%">
+</div>
+
+### Distributed Representations
+
+深度学习最后一个特点是模型学习到的是分布式的表示。每个单元不会学习到某个特征全部的信息，我们需要把所有的单元组合到一起才能得到特征的完整表示。
+
+<div align=center>
+<img src="https://i.imgur.com/5leFsng.png" width="80%">
+</div>
