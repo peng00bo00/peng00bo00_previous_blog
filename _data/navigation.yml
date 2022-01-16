@@ -236,3 +236,9 @@ OMSCS-DL:
     children: 
       - title: Linear Classifiers and Gradient Descent
         url: /2022/01/12/OMSCS-DL-NOTES-01.html
+
+OMSCS-SIM:
+  - title: Simulation and Modeling for Engineering and Science
+    children: 
+      - title: Whirlwind Tour of Simulation
+        url: /2022/01/16/OMSCS-SIM-NOTES-01.html
