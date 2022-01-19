@@ -53,7 +53,84 @@ sidebar:
 
 ## Computation Graphs
 
+我们不仅可以为神经网络添加全连接层，理论上任意可导的函数都可以添加到网络中。同时，在模型的末端还需要添加一个可导的损失函数以便训练网络。
+
+<div align=center>
+<img src="https://i.imgur.com/9yUOxDc.png" width="80%">
+</div>
+
+对于复杂的模型，我们还需要关注如何前向计算损失函数以及如何计算损失函数对于每一层参数的导数。
+
+<div align=center>
+<img src="https://i.imgur.com/cdbpq9z.png" width="80%">
+</div>
+
+为了开发出通用的算法，我们需要把整个模型看做是一张**计算图(computation graph)**。
+
+<div align=center>
+<img src="https://i.imgur.com/HMV1b0m.png" width="80%">
+</div>
+
+一些函数的计算图表示如下：
+
+<div align=center>
+<img src="https://i.imgur.com/eSjWbdS.png" width="40%">
+<img src="https://i.imgur.com/SmzDlVE.png" width="43%">
+</div>
+
 ## Backpropagation
+
+对于给定的计算图，模型的训练包括**前向计算(forward pass)**和**反向计算(backward pass)**两个步骤。在前向计算中，我们把数据带入到图上的输入节点并依次计算节点的输出，然后在反向计算中从损失函数出发从后向前计算损失函数的导数。这个算法称为**反向传播(backpropagation)**算法。
+
+<div align=center>
+<img src="https://i.imgur.com/r9YNsd6.png" width="80%">
+</div>
+
+### Forward Pass
+
+前向计算的过程比较简单，我们只需要按照节点的拓扑顺序从前到后计算节点输出即可。不过在进行前向计算时可能会保存一些中间结果以方便反向计算时计算导数。
+
+<div align=center>
+<img src="https://i.imgur.com/rxOAwDW.png" width="80%">
+</div>
+
+### Backward Pass
+
+在进行反向计算时我们需要计算损失函数关于每一层参数的导数。从模型的最后一层开始，首先计算损失函数对于输出层的导数$\frac{\partial L}{\partial h^l}$、$\frac{\partial L}{\partial W}$，并把输入项的导数$\frac{\partial L}{\partial h^l}$传给上一层。
+
+<div align=center>
+<img src="https://i.imgur.com/KY7B6oF.png" width="80%">
+</div>
+
+然后考虑损失函数关于其它层的导数。实际上我们不会直接计算损失函数对于某一层的导数，而是首先计算该层的输出关于输入以及参数的导数$\frac{\partial h^l}{\partial h^{l-1}}$、$\frac{\partial h^l}{\partial W}$。由于计算图上每一层都是可导的，我们可以解析地计算这些局部导数。
+
+<div align=center>
+<img src="https://i.imgur.com/X9IQUFw.png" width="80%">
+</div>
+
+得到局部导数后再结合**链式法则(chain rule)**将后一层计算的导数乘以当前层的局部导数就可以得到损失函数关于当前层的导数。
+
+<div align=center>
+<img src="https://i.imgur.com/AloXoaO.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/gD9Wh6x.png" width="80%">
+</div>
+
+这样从后向前依次计算就得到了损失函数关于模型每一层的导数。
+
+<div align=center>
+<img src="https://i.imgur.com/N1VW4fN.png" width="80%">
+</div>
+
+### Update with Gradients
+
+得到导数后再结合梯度优化算法就可以更新模型的参数。综合以上步骤可以发现，反向传播算法的本质就是利用链式法则和计算图来计算损失函数关于模型参数的导数。
+
+<div align=center>
+<img src="https://i.imgur.com/ZqGeoDT.png" width="80%">
+</div>
 
 ## Automatic Differentiation
 
