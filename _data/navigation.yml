@@ -238,6 +238,8 @@ OMSCS-DL:
     children: 
       - title: Linear Classifiers and Gradient Descent
         url: /2022/01/12/OMSCS-DL-NOTES-01.html
+      - title: Neural Networks
+        url: /2022/01/19/OMSCS-DL-NOTES-02.html
 
 OMSCS-SIM:
   - title: Simulation and Modeling for Engineering and Science
