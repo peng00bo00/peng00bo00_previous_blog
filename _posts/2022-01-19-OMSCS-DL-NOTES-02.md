@@ -88,7 +88,7 @@ sidebar:
 
 ### Forward Pass
 
-前向计算的过程比较简单，我们只需要按照节点的拓扑顺序从前到后计算节点输出即可。不过在进行前向计算时可能会保存一些中间结果以方便反向计算时计算导数。
+前向计算的过程比较简单，我们只需要按照节点的拓扑顺序从前到后计算节点输出即可。不过在进行前向计算时可能需要保存一些中间结果以方便反向计算时计算导数。
 
 <div align=center>
 <img src="https://i.imgur.com/rxOAwDW.png" width="80%">
@@ -134,7 +134,93 @@ sidebar:
 
 ## Automatic Differentiation
 
+反向传播算法不仅仅适用于链式模型，实际上对于任意拓扑结构的计算图只要它是**有向无环图(directed acyclic graph, DAG)**都可以利用反向传播来计算导数。这种利用图的结构以及链式法则来计算导数的方法称为**自动微分(automatic differentiation)**。
+
+<div align=center>
+<img src="https://i.imgur.com/JTJQuH6.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/5i8i01w.png" width="80%">
+</div>
+
+### A Simple Example
+
+举一个简单的例子，我们可以把$f(x_1, x_2) = x_1 x_2 + \sin (x_2)$等价地表示为包含两个输入节点和一个输出节点的计算图如下：
+
+<div align=center>
+<img src="https://i.imgur.com/zPhSNqe.png" width="80%">
+</div>
+
+在计算导数时在每个节点上将后一层节点传过来的导数以及自身的局部导数相乘即可获得所需的导数。还需要注意的一点是在反向计算时每个节点需要把所有的路径上的导数相加才是输出关于当前节点的导数。
+
+<div align=center>
+<img src="https://i.imgur.com/grEj8gF.png" width="80%">
+</div>
+
+### Patterns of Gradient Flow
+
+在进行反向计算时不同的运算有着不同的传播模式。对于相加运算，它会把自身的导数直接复制给所有参与计算的节点。
+
+<div align=center>
+<img src="https://i.imgur.com/9Py0QsJ.png" width="80%">
+</div>
+
+对于相乘运算，每个参与节点接收到的导数等于相乘后的导数乘以另一个参与节点。
+
+<div align=center>
+<img src="https://i.imgur.com/7YZ8ihx.png" width="80%">
+</div>
+
+而对于最大值运算，导数只会传递给取最大值处的节点，其它节点接收到的导数为0。
+
+<div align=center>
+<img src="https://i.imgur.com/pxuSDhW.png" width="80%">
+</div>
+
+### Computational Implementation
+
+深度学习框架的本质就是大量事先定义好的计算节点，这样用户在定义模型时实际上定义了一个巨大的计算图。在模型训练时框架会调用反向传播算法来计算损失函数关于每个节点的导数，从而实现模型的更新。
+
+<div align=center>
+<img src="https://i.imgur.com/MtLjbGm.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/ZCa3bn2.png" width="80%">
+</div>
+
 ## Vectorization and Jacobians
+
+本节课最后讨论了**向量化(vectorization)**在深度学习中的应用。实际上在现代深度学习中我们几乎不会使用标量形式的节点来进行计算，通过向量化可以充分利用硬件的性能进而提高计算效率。
+
+<div align=center>
+<img src="https://i.imgur.com/m1DYdnV.png" width="80%">
+</div>
+
+对于全连接层，矩阵形式的前向计算非常简单，只需要使用矩阵乘法来代替标量乘法即可。
+
+<div align=center>
+<img src="https://i.imgur.com/DKDM8Fy.png" width="80%">
+</div>
+
+而在反向计算时则要复杂一些。输出向量关于输入向量的局部导数等于系数矩阵$W$，在计算导数时只需要和后面传过来的导数相乘即可。真正的难点在于计算输出向量关于系数矩阵的局部导数，通过维度分析不难发现这个局部导数实际上是一个张量，我们需要通过张量内积的方式来计算导数矩阵。不过我们可以把系数矩阵$W$看成是若干个行向量$w_i$，这样就可以分别计算每一个行向量的局部导数矩阵而无需引入张量内积。更进一步的分析发现，每个行向量的局部导数矩阵是一个稀疏矩阵，仅在对应行上存在元素，这样就可以进一步化简反向计算的过程。
+
+<div align=center>
+<img src="https://i.imgur.com/csxaiqx.png" width="90%">
+</div>
+
+除了全连接层之外，非线性激活函数也需要进行向量化。由于激活函数是单独作用在每个元素上的，在进行前向计算时需要进行逐元素的操作。
+
+<div align=center>
+<img src="https://i.imgur.com/uogorRw.png" width="80%">
+</div>
+
+类似地，激活函数在反向计算时也需要进行向量化。由于前向计算时是对每个元素单独进行的计算，因此局部的导数矩阵是一个稀疏的对角矩阵。利用这一点同样可以提高反向计算时的效率。
+
+<div align=center>
+<img src="https://i.imgur.com/oskVWQ9.png" width="80%">
+</div>
 
 ## Reference
 
