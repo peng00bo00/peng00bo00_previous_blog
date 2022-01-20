@@ -357,3 +357,59 @@ $$
 </div>
 
 ## Jointly Distributed Random Variables
+
+### Joint Distribution
+
+本节课最后回顾了多元随机变量和它们的联合概率分布。
+
+<div align=center>
+<img src="https://i.imgur.com/5MxLRpQ.jpg" width="60%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/MFxszhU.jpg" width="75%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/eSB6qxQ.jpg" width="73%">
+</div>
+
+对于联合概率，我们可以通过**边缘化(marginalization)**来获得每个随机变量单独的概率分布。
+
+<div align=center>
+<img src="https://i.imgur.com/9O9SwwE.jpg" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/lzujXYe.jpg" width="60%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/p1LF5dn.jpg" width="60%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/eIHGuYD.jpg" width="70%">
+</div>
+
+如果两个随机变量相互独立，则它们的联合概率还可以写成因子相乘的形式。
+
+<div align=center>
+<img src="https://i.imgur.com/hlvdX8T.jpg" width="80%">
+</div>
+
+### Conditional Distribution
+
+利用联合概率我们可以计算多元随机变量的条件概率。
+
+<div align=center>
+<img src="https://i.imgur.com/8x7VypM.jpg" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/oMyKGW3.jpg" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/y8ZVCay.jpg" width="75%">
+</div>
