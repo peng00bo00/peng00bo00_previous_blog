@@ -246,3 +246,5 @@ OMSCS-SIM:
     children: 
       - title: Whirlwind Tour of Simulation
         url: /2022/01/16/OMSCS-SIM-NOTES-01.html
+      - title: Calculus, Probability, and Statistics Primers
+        url: /2022/01/20/OMSCS-SIM-NOTES-02.html
