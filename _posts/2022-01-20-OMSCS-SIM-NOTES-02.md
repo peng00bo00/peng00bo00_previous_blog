@@ -43,7 +43,7 @@ $$
 $$
 
 $$
-[\cos (x)]' = \sin (x)
+[\cos (x)]' = -\sin (x)
 $$
 
 $$
@@ -53,3 +53,34 @@ $$
 $$
 [\arctan (x)]' = \frac{1}{1 + x^2}
 $$
+
+同时，导数的运算法则为：
+
+$$
+[a f(x) + b]' = a f'(x)
+$$
+
+$$
+[f(x) + g(x)]' = f'(x) + g'(x)
+$$
+
+$$
+[f(x) g(x)]' = f'(x) g(x) + f(x) g'(x)
+$$
+
+$$
+\bigg[ \frac{f(x)}{g(x)} \bigg]' = \frac{g(x) f'(x) - f(x) g'(x)}{g^2 (x)}
+$$
+
+$$
+[f(g(x))]' = f'(g(x)) g'(x)
+$$
+
+函数$f(x)$仅在其导数为0的位置取极值，而借助于二阶导数，我们还可以判断函数的极值点类型。
+
+<div align=center>
+<img src="https://i.imgur.com/O4C9DTm.jpg" width="80%">
+<img src="https://i.imgur.com/l99hEFq.jpg" width="80%">
+<img src="https://i.imgur.com/yRTCQs6.jpg" width="80%">
+<img src="https://i.imgur.com/gapqWiE.jpg" width="80%">
+</div>
