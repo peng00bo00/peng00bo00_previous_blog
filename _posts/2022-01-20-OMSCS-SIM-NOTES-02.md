@@ -197,3 +197,35 @@ $$
 </div>
 
 ## Probability Basics
+
+接下来复习一下概率论的相关知识。
+
+<div align=center>
+<img src="https://i.imgur.com/WdPvNR2.jpg" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/7i2shoo.jpg" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/RzUg9Ja.jpg" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/JiXLH3c.jpg" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/DoxdVLe.jpg" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/twpvTdQ.jpg" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/vt84Thk.jpg" width="80%">
+</div>
+
+## Simulating Random Variables
