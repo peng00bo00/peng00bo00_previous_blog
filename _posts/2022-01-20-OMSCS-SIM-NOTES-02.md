@@ -84,3 +84,23 @@ $$
 <img src="https://i.imgur.com/yRTCQs6.jpg" width="80%">
 <img src="https://i.imgur.com/gapqWiE.jpg" width="80%">
 </div>
+
+## Finding Zeros
+
+在很多时候我们需要去计算函数的零点。对于复杂的函数可能无法解析地求得函数的零点，在这种情况下需要使用一些数值计算方法来求解。最基本的方法是**二分法(bisection)**：
+
+<div align=center>
+<img src="https://i.imgur.com/FK7YfdR.jpg" width="80%">
+</div>
+
+除了二分法之外我们还可以通过**Newton's method**来迭代计算函数的零点。
+
+<div align=center>
+<img src="https://i.imgur.com/kWZpm2U.jpg" width="80%">
+</div>
+
+$$
+x_{i+1} = x_i - \frac{g(x_i)}{g'(x_i)}
+$$
+
+## Integration
