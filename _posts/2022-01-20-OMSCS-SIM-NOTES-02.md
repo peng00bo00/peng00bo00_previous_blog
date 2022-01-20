@@ -198,6 +198,8 @@ $$
 
 ## Probability Basics
 
+### Probabilities
+
 接下来复习一下概率论的相关知识。
 
 <div align=center>
@@ -207,6 +209,8 @@ $$
 <div align=center>
 <img src="https://i.imgur.com/7i2shoo.jpg" width="80%">
 </div>
+
+### Random Variables
 
 <div align=center>
 <img src="https://i.imgur.com/RzUg9Ja.jpg" width="80%">
@@ -229,3 +233,23 @@ $$
 </div>
 
 ## Simulating Random Variables
+
+那么如何使用计算机来产生各种类型的随机变量呢？对于任意连续型随机变量$X$我们可以通过它的CDF来进行采样，实际上$F(X)$服从(0, 1)区间上的均匀分布：
+
+<div align=center>
+<img src="https://i.imgur.com/ONHtqto.jpg" width="70%">
+</div>
+
+稍后我们会来证明这个定理。由于$F(X) \sim \text{Unif} (0, 1)$，我们可以通过对(0, 1)区间上的均匀分布进行采样再映射回$X$实现对任意分布的采样，这种采样方法称为**逆变换方法(inverse transform method)**。以参数为$\lambda$的指数分布为例，假设$X \sim \text{Exp} (\lambda)$则它的CDF为$F(X) = 1 - e^{-\lambda X}$，根据逆变换方法可以得到采样公式为：
+
+$$
+X = - \frac{1}{\lambda} \ln (1 - U), \ U \sim \text{Unif} (0, 1)
+$$
+
+对于逆变换方法我们需要生成(0, 1)区间上的均匀分布的随机数，我们可以利用上节课介绍的[伪随机数生成算法](/2022/01/16/OMSCS-SIM-NOTES-01.html#generating-randomness)来实现：
+
+<div align=center>
+<img src="https://i.imgur.com/99sOakO.jpg" width="70%">
+</div>
+
+## Great Expectations
