@@ -249,7 +249,79 @@ $$
 对于逆变换方法我们需要生成(0, 1)区间上的均匀分布的随机数，我们可以利用上节课介绍的[伪随机数生成算法](/2022/01/16/OMSCS-SIM-NOTES-01.html#generating-randomness)来实现：
 
 <div align=center>
-<img src="https://i.imgur.com/99sOakO.jpg" width="70%">
+<img src="https://i.imgur.com/99sOakO.jpg" width="80%">
 </div>
 
 ## Great Expectations
+
+期望是随机变量的一个重要性质，离散和连续型随机变量的期望分别定义为：
+
+<div align=center>
+<img src="https://i.imgur.com/mlQQeF1.jpg" width="80%">
+</div>
+
+常用分布的期望如下：
+
+<div align=center>
+<img src="https://i.imgur.com/Ld2D6SJ.jpg" width="60%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/jmRFcSj.jpg" width="60%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/0xhI99V.jpg" width="68%">
+</div>
+
+### LOTUS
+
+对于作用在随机变量上的函数，我们可以利用**law of the unconscious statistician(LOTUS)**来计算它的期望：
+
+<div align=center>
+<img src="https://i.imgur.com/Q1BfpMI.jpg" width="80%">
+</div>
+
+函数$h(X)$可以是任意形式，而对于幂函数我们称对应的期望为$X$的**n阶矩($n$th moment of $X$)**。除了幂函数我们还可以利用LOTUS来定义**n阶中心矩($n$th central moment of $X$)**和**方差(variance)**：
+
+<div align=center>
+<img src="https://i.imgur.com/cqiZ8pe.jpg" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/e3SZJE8.jpg" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/laWzyB9.jpg" width="70%">
+</div>
+
+期望和方差的一个重要性质是线性性：
+
+<div align=center>
+<img src="https://i.imgur.com/2GXb4pA.jpg" width="80%">
+</div>
+
+### Moment Generating Functions
+
+和期望有关的另一个函数是**动量母函数(moment generating functions, MGF)**：
+
+<div align=center>
+<img src="https://i.imgur.com/Cg2Cs2J.jpg" width="70%">
+</div>
+
+常用分布的MGF为：
+
+<div align=center>
+<img src="https://i.imgur.com/uZ9CZCv.jpg" width="70%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/cMgct85.jpg" width="70%">
+</div>
+
+我们可以通过对MGF求导来计算$X$的n阶矩：
+
+<div align=center>
+<img src="https://i.imgur.com/5rwFJMQ.jpg" width="70%">
+</div>
