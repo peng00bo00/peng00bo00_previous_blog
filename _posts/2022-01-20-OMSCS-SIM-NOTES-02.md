@@ -76,7 +76,7 @@ $$
 [f(g(x))]' = f'(g(x)) g'(x)
 $$
 
-函数$f(x)$仅在其导数为0的位置取极值，而借助于二阶导数，我们还可以判断函数的极值点类型。
+函数$f(x)$仅在其导数为0的位置取极值，而借助于二阶导数我们还可以进一步判断极值点的类型。
 
 <div align=center>
 <img src="https://i.imgur.com/O4C9DTm.jpg" width="80%">
@@ -104,3 +104,78 @@ x_{i+1} = x_i - \frac{g(x_i)}{g'(x_i)}
 $$
 
 ## Integration
+
+除了微分之外，我们还需要计算积分。
+
+<div align=center>
+<img src="https://i.imgur.com/koVKCub.jpg" width="80%">
+<img src="https://i.imgur.com/VZNQw5I.jpg" width="80%">
+</div>
+
+常用函数的积分公式如下：
+
+$$
+\int x^k dx = \frac{x^{k+1}}{k+1} + C, k \neq -1
+$$
+
+$$
+\int \frac{dx}{x} dx = \ln \vert x \vert + C
+$$
+
+$$
+\int e^x dx = e^x + C
+$$
+
+$$
+\int \cos (x) dx = \sin (x) + C
+$$
+
+$$
+\int \frac{dx}{1 + x^2} = \arctan (x) + C
+$$
+
+(定)积分的常用性质为：
+
+$$
+\int_a^a f(x) dx = 0
+$$
+
+$$
+\int_a^b f(x) dx = - \int_b^a f(x) dx
+$$
+
+$$
+\int_a^b f(x) dx = \int_a^c f(x) dx + \int_c^b f(x) dx
+$$
+
+$$
+\int [f(x) + g(x)] dx = \int f(x) dx + \int g(x) dx
+$$
+
+$$
+\int f(x) g'(x) dx = f(x) g(x) - \int g(x) f'(x) dx
+$$
+
+$$
+\int f(g(x)) g'(x) dx = \int f(u) du
+$$
+
+在微积分中**泰勒级数展开(Taylor series expansion)**是一种非常常用的方法：
+
+<div align=center>
+<img src="https://i.imgur.com/x6MpwFu.jpg" width="80%">
+</div>
+
+在$a=0$处进行展开得到的级数称为Maclaurin级数，常用函数的Maclaurin级数为：
+
+$$
+\sin (x) = \sum_{k=0}^\infty \frac{(-1)^k x^{2k + 1}}{(2k + 1)!}
+$$
+
+$$
+\cos (x) = \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!}
+$$
+
+$$
+e^x = \sum_{k=0}^\infty \frac{x^k}{k!}
+$$
