@@ -323,5 +323,37 @@ $$
 我们可以通过对MGF求导来计算$X$的n阶矩：
 
 <div align=center>
-<img src="https://i.imgur.com/5rwFJMQ.jpg" width="70%">
+<img src="https://i.imgur.com/5rwFJMQ.jpg" width="60%">
 </div>
+
+## Functions of a Random Variable
+
+当我们把某个函数$h$作用在随机变量$X$上时，输出$h(X)$也会是一个随机变量，它有着自己的PDF/CDF。
+
+<div align=center>
+<img src="https://i.imgur.com/OYlz7AK.jpg" width="50%">
+</div>
+
+想要计算任意函数$h$作用后得到的随机变量是十分困难的，但对于某些特定的函数我们可以解析地计算出$h(X)$的分布。实际上逆变换方法可以看做是$h$取CDF情况下$h(X)$的分布：
+
+<div align=center>
+<img src="https://i.imgur.com/sYlQlWS.jpg" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/seI0VHO.jpg" width="60%">
+</div>
+
+更进一步，如果$h$的性质比较好我们还可以利用链式法则来计算$h(X)$的PDF：
+
+<div align=center>
+<img src="https://i.imgur.com/ghgotnM.jpg" width="80%">
+</div>
+
+实际上我们可以利用这个定理来证明LOTUS：
+
+<div align=center>
+<img src="https://i.imgur.com/Dgu8fJc.jpg" width="80%">
+</div>
+
+## Jointly Distributed Random Variables
