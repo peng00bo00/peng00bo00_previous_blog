@@ -160,6 +160,16 @@ $$
 \int f(g(x)) g'(x) dx = \int f(u) du
 $$
 
+### Riemann Sums
+
+对于复杂的函数，有时可能很难通过解析的形式来计算定积分。此时我们可以将函数拆分成若干个小区间然后在每个区间上计算函数包围的面积，最后把它们加起来近似定积分的值。这种做法称为黎曼和(Riemann sums)：
+
+<div align=center>
+<img src="https://i.imgur.com/U3BPt2S.jpg" width="80%">
+</div>
+
+### Taylor Series Expansion
+
 在微积分中**泰勒级数展开(Taylor series expansion)**是一种非常常用的方法：
 
 <div align=center>
@@ -179,3 +189,11 @@ $$
 $$
 e^x = \sum_{k=0}^\infty \frac{x^k}{k!}
 $$
+
+另一个常用的工具是**洛必达法则(L'Hospital's rule)**，它指出当极限存在时可以利用函数的导数来代替函数值计算极限：
+
+<div align=center>
+<img src="https://i.imgur.com/bCweIqe.jpg" width="70%">
+</div>
+
+## Probability Basics
