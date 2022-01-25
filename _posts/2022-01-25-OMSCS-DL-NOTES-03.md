@@ -302,4 +302,30 @@ Adagrad的缺陷在于随着训练轮数的增加梯度累计值会不断增长�
 
 ## Data Augmentation
 
+**数据增强(data augmentation)**是一种常用的训练技巧，我们可以对原始数据进行各种各样的变换从而提高数据集的丰富性。以图像分类为例，常用的数据增强包括随机翻转、裁剪、染色、几何变换以及它们的复合等。
+
+<div align=center>
+<img src="https://i.imgur.com/7zEKy92.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/Gt6fPKZ.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/S21Q5fv.jpg" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/vYlNZVB.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/TySSbnu.jpg" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/3mmXB4f.png" width="80%">
+</div>
+
 ## Training Neural Networks
