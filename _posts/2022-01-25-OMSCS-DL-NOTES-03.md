@@ -156,15 +156,111 @@ batch normalization在现代神经网络中有着大量的应用。一般可以�
 
 ## Optimizers
 
+我们知道神经网络的训练过程等价于一个优化问题。和其它常见的优化问题相比，神经网络的优化具有明显的非凸性和非线性，因此神经网络的优化更加复杂目前也没有比较好的理论来进行指导。
+
+<div align=center>
+<img src="https://i.imgur.com/A4SQMN5.png" width="80%">
+</div>
+
+### Loss Landscape
+
+目前对神经网络进行训练的主流方法仍是基于梯度下降的相关算法。由于神经网络的目标函数有着明显的非凸性，在进行优化时往往会遇到大量的局部极值。除此之外一些常见的问题还包括梯度的噪声、鞍点以及目标函数的病态。
+
+<div align=center>
+<img src="https://i.imgur.com/rIWjpBw.png" width="80%">
+</div>
+
+#### Noisy Gradients
+
+在计算梯度时我们会取一部分数据来计算损失函数并进行反向传播，然后它们的梯度取平均作为当前批次数据的梯度。这种计算梯度的方法是无偏的，但往往具有比较大的方差。体现在优化上就是函数不会沿着一个确定的优化方向，而是在最优方向附近不断摆动前进。
+
+<div align=center>
+<img src="https://i.imgur.com/sac9PJF.png" width="80%">
+</div>
+
+#### Loss Surface Geometry
+
+在优化过程中根据优化函数的几何性质可以把极值点分为局部极值、plateaus以及鞍点几种。如果训练时函数陷入到这些位置上则很难进行进一步的优化。
+
+<div align=center>
+<img src="https://i.imgur.com/lnwtvOE.png" width="80%">
+</div>
+
 ### Adding Momentum
 
-### Adagrad
+为了克服局部极值的问题我们可以在优化过程中引入**动量项(momentum)**。所谓"动量项"是指对过去的梯度进行一定的平均，这样即使当前的梯度很小通过动量项仍然可以获得足够大的更新值从而越过局部极值。
 
-### RMSProp
+<div align=center>
+<img src="https://i.imgur.com/4yfwG4g.png" width="80%">
+</div>
 
-### Adam
+<div align=center>
+<img src="https://i.imgur.com/n8CJ5j2.png" width="75%">
+</div>
+
+如果对动量项进行展开，不难发现动量项本质是对过去的梯度进行了指数加权平均。越老的梯度具有的权重越小，越近的梯度具有的权重越大。
+
+<div align=center>
+<img src="https://i.imgur.com/4yugSQv.png" width="80%">
+</div>
+
+另一种常用的动量项是**Nesterov动量(Nesterov momentum)**，它的方式是沿着当前速度方向移动一步然后再计算梯度。
+
+<div align=center>
+<img src="https://i.imgur.com/TKZVf6k.png" width="80%">
+</div>
+
+### Per-Parameter Learning Rate
+
+除了在更新过程中引入动量项之外，我们还可以动态地调整学习率从而加速模型的训练过程。常见的算法包括Adagrad、RMSProp以及Adam等。
+
+<div align=center>
+<img src="https://i.imgur.com/268aOKZ.png" width="80%">
+</div>
+
+#### Adagrad
+
+Adagrad的思想是利用梯度的统计值来衰减实际学习率。如果梯度在某个方向上有着很大的累计值，那么说明优化函数在这个方向上有着较大的曲率，因此我们需要缩减该方向上移动的步长。
+
+<div align=center>
+<img src="https://i.imgur.com/u1KhvPA.png" width="80%">
+</div>
+
+#### RMSProp
+
+Adagrad的缺陷在于随着训练轮数的增加梯度累计值会不断增长，使得在所有方向上移动的步长都会比较小。为了克服这个问题RMSProp使用了滑动平均的方式来更新梯度累计值，从而避免实际学习率过小的问题。
+
+<div align=center>
+<img src="https://i.imgur.com/KhkYb3T.png" width="80%">
+</div>
+
+#### Adam
+
+更进一步，Adam算法提出了使用梯度的一阶矩和二阶矩来进行更新的方式。
+
+<div align=center>
+<img src="https://i.imgur.com/Jqx4jYv.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/B9Xh6UI.png" width="80%">
+</div>
+
+#### Behavior of Optimizers
+
+近期的研究显示，不同的优化算法在不同的优化函数上的行为有着巨大的差异。而标准SGD+Momentum的方式可能有着更好的泛化性能，当然和上面提到过的自适应方法相比标准SGD+Momentum需要进行更多的调试才能得到比较好的效果。
+
+<div align=center>
+<img src="https://i.imgur.com/bx7K9zJ.png" width="80%">
+</div>
 
 ### Learning Rate Schedules
+
+最后，我们还可以显式指定学习率的更新策略来加速训练过程。基本的思想是在一开始选择比较大的学习率，然后当损失函数收敛后使用比较小的学习率来进行更进一步的优化。同时一些近期的研究还显示周期性的学习率也能够获得比较好的训练效果。
+
+<div align=center>
+<img src="https://i.imgur.com/ClewPfY.png" width="80%">
+</div>
 
 ## Regularization
 
