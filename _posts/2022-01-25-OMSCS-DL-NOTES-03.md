@@ -329,3 +329,77 @@ Adagrad的缺陷在于随着训练轮数的增加梯度累计值会不断增长�
 </div>
 
 ## Training Neural Networks
+
+### The Process of Training
+
+本节课最后讨论了训练神经网络时的各种注意事项。总结一下，在训练神经网络时我们需要去监视模型的各种曲线，包括损失曲线、正确率曲线等，这样就可以利用曲线的行为来帮助判断训练的程度。同时还需要注意在训练时不要使用**测试集(test set)**上的数据，如果想要调整模型的超参数则可以使用**验证集(validation set)**的数据或是利用**交叉验证(cross-validation)**来调整参数。
+
+<div align=center>
+<img src="https://i.imgur.com/T7novsS.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/QtnKyah.png" width="80%">
+</div>
+
+### Sanity Checking
+
+我们需要关注损失曲线在训练过程中的行为从而保证模型的训练过程是正确的。对于大多数常见的损失函数的取值范围往往是非负的，而且随机初始化的模型在训练开始阶段模型的行为是可以预测的。如果损失函数不满足这些性质则说明模型可能存在一些问题。一个常用的技巧是在正式训练之前首先用一个小的数据集让模型进行过拟合从而保证模型自身没有问题。
+
+<div align=center>
+<img src="https://i.imgur.com/i6cka2Q.png" width="80%">
+</div>
+
+### Loss
+
+如果在训练过程中发现损失曲线下降缓慢则说明当前学习率比较低，而如果出现损失上升或是NaN的情况则说明学习率可能是过大的。
+
+<div align=center>
+<img src="https://i.imgur.com/qqbuNnR.png" width="80%">
+</div>
+
+### Overfitting
+
+我们还可以利用模型在训练集合验证集上两条损失曲线来判断模型训练的程度。如果出现了训练集上损失不断下降但在验证集上损失上升则表明出现了过拟合的问题；而如果两条曲线非常接近或者损失都很大则说明出现了欠拟合，模型需要进一步的训练。
+
+<div align=center>
+<img src="https://i.imgur.com/K2WJQRN.png" width="80%">
+</div>
+
+### Hyper-Parameter Tuning
+
+在深度学习中我们往往需要对模型的超参数进行调参。最基本的调参方法是首先划定一个大致的范围进行训练，然后在其中选择性能较好的部分继续进行调参。当然目前也有一些自动化的调参方法，但这些方法往往有着比较高的计算代价。
+
+<div align=center>
+<img src="https://i.imgur.com/BqjteHv.png" width="80%">
+</div>
+
+需要注意的是超参数之间往往存在着一些依赖关系，因此在调参时不能够单独调整每个参数再将结果组合起来。
+
+<div align=center>
+<img src="https://i.imgur.com/rVAGZie.png" width="80%">
+</div>
+
+### Loss and Other Metrics
+
+最后还需要说明的是尽管我们优化的是损失函数，但实际关心的则是模型的其它性能度量，比如说正确率、精度等。一般来说模型的损失越小性能度量就越好，但二者的关系实际上非常复杂。
+
+<div align=center>
+<img src="https://i.imgur.com/xyKaUVN.png" width="80%">
+</div>
+
+一个简单的例子是交叉熵与分类正确率。我们知道交叉熵越小模型的分类正确率就越高，但在训练时经常发生的现象是收敛后损失函数只发生了很小的变化而精度却会有明显的提升。造成这种现象的原因是交叉熵中的对数函数，当概率比较高时继续提高概率只会导致对数函数微小的变化。
+
+<div align=center>
+<img src="https://i.imgur.com/EpkOH05.png" width="80%">
+</div>
+
+其它常用的性能度量包括TPR/FPR曲线、PR曲线、AUC等。这些度量与损失函数的关系更为复杂，因此在进行训练时往往还会同时监视这些性能度量来指示模型的训练程度。
+
+<div align=center>
+<img src="https://i.imgur.com/MFgNGoX.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/oWn0vQQ.png" width="80%">
+</div>
