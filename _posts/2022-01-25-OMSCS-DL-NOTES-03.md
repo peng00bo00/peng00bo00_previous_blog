@@ -264,7 +264,41 @@ Adagrad的缺陷在于随着训练轮数的增加梯度累计值会不断增长�
 
 ## Regularization
 
+在训练神经网络时我们往往还需要引入一些**正则项(regularization)**来避免模型出现过拟合的问题。
+
+<div align=center>
+<img src="https://i.imgur.com/YcgIE03.png" width="80%">
+</div>
+
+最简单的正则项是把模型参数的范数加入到损失函数中，这样可以避免出现过大的参数。
+
+<div align=center>
+<img src="https://i.imgur.com/xEnBBXA.png" width="80%">
+</div>
+
 ### Dropout
+
+另一种常用的正则化方法是**dropout**，它会在训练过程中将模型的一部分输出设置为0从而限制模型的学习能力。
+
+<div align=center>
+<img src="https://i.imgur.com/dxoCq8n.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/1HaQAPA.png" width="80%">
+</div>
+
+类似于batch normalization，dropout在进行推断时也有着和训练时不同的行为。由于训练时将一部分输出设置为了0，我们需要保证在推断时模型的参数的分布与训练时保持一致。因此常用的方法是在推断时将所有参数乘以$p$，或是在训练时将每一层的输出除以$p$。
+
+<div align=center>
+<img src="https://i.imgur.com/jVThPPj.png" width="80%">
+</div>
+
+最后关于dropout背后的原理目前有两种解释：其一是任务dropout避免了模型过于依赖某些特定的特征从而防止出现过拟合；而另一种解释则是认为通过dropout我们实际上训练了$2^n$个模型，这样最终的模型等价于利用集成学习的方式来减轻过拟合。
+
+<div align=center>
+<img src="https://i.imgur.com/v4TlPV9.png" width="80%">
+</div>
 
 ## Data Augmentation
 
