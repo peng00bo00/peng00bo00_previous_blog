@@ -72,12 +72,70 @@ ReLU函数的缺陷在于反向传播时它会将输入数据小于0的部分导
 
 ## Initialization
 
-## Preprocessing, Normalization, and Augmentation
+在训练模型前我们还需要为模型赋予一定的初值，这样的过程称为**初始化(initialization)**。初始化对于模型的训练过程有着重要的影响，一个好的初始化不仅可以加快模型的训练过程，还往往会提升模型最终的性能
+
+<div align=center>
+<img src="https://i.imgur.com/EBt3z6M.png" width="80%">
+</div>
+
+### A Poor Initialization
+
+一个不好的初始化是将模型的所有参数初始化为一个常数(比如说0)，在这种情况下模型会出现退化的问题。具体来说在进行反向传播时每一个节点得到的梯度都是相同的，因此模型在更新时所有的参数都会更新为相同的值。显然这种情况下模型的性能不会很好。
+
+<div align=center>
+<img src="https://i.imgur.com/fVHh6Er.png" width="80%">
+</div>
+
+### Gaussian/Normal Initialization
+
+因此更加常用的初始化方法是进行随机初始化，比如说利用均匀分布或是正态分布来初始化参数。这样初始化会使模型参数都分布在一个比较小的区间上，这意味着模型对于不同类型的特征没有明显的偏好，也即所有的输入特征都是相同重要的。
+
+<div align=center>
+<img src="https://i.imgur.com/NMZLcxE.png" width="80%">
+</div>
+
+还需要说明的是深层网络对于模型的初始化十分敏感。研究发现随着网络层数的增加每一层输出的标准差会不断缩小，这就会导致反向传播时浅层的参数获得的梯度比较小使得训练大型神经网络更加困难。而如果一味地增加初始化的值则容易导致饱和的问题，同样无法训练大型的神经网络。
+
+<div align=center>
+<img src="https://i.imgur.com/97M2VGh.png" width="80%">
+</div>
+
+### Xavier Initialization
+
+为了解决这样的问题人们提出了**Xavier初始化(Xavier initialization)**，它的思想是通过调整初始化参数使得每一层的输入和输出都具有类似的分布。
+
+<div align=center>
+<img src="https://i.imgur.com/QpsUES9.png" width="80%">
+</div>
+
+Xavier初始化利用($-\frac{\sqrt{6}}{\sqrt{n_j + n_{j+1}}}$, $\frac{\sqrt{6}}{\sqrt{n_j + n_{j+1}}}$)上的均匀分布来进行初始化。在实践中人们还发现只需要对正态分布初始化稍作变换也能够达到类似的效果。
+
+<div align=center>
+<img src="https://i.imgur.com/QyLt38i.png" width="80%">
+</div>
+
+## Normalization
+
+### Preprocessing
+
+### Batch Normalization
 
 ## Optimizers
 
+### Adding Momentum
+
+### Adagrad
+
+### RMSProp
+
+### Adam
+
+### Learning Rate Schedules
+
 ## Regularization
+
+### Dropout
 
 ## Data Augmentation
 
-## The Process of Training Neural Networks
+## Training Neural Networks
