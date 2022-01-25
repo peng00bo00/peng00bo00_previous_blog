@@ -118,7 +118,41 @@ Xavier初始化利用($-\frac{\sqrt{6}}{\sqrt{n_j + n_{j+1}}}$, $\frac{\sqrt{6}}
 
 ### Preprocessing
 
+除了模型参数外输入数据自身的分布也会对模型的训练过程产生影响，因此在深度学习中我们还会对输入数据进行一定的**规范化(normalization)**来使得模型的训练过程更加稳定。常用的规范化方法包括直接减去均值并除以标准差，以及利用**白化(whitening)**将数据各个方向都进行规范化等。
+
+<div align=center>
+<img src="https://i.imgur.com/HI9AUBt.png" width="80%">
+</div>
+
 ### Batch Normalization
+
+除此之外在深度学习中我们还可以单独设计一个规范化层来实现对任意数据的规范化。**batch normalization**就是这样的一种规范化方法，它会首先统计当前输入批次数据的均值和方差并对它们进行标准化。
+
+<div align=center>
+<img src="https://i.imgur.com/yBWXQzG.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/h7U1TyX.png" width="80%">
+</div>
+
+然后batch normalization利用两个可学习的参数$\gamma$和$\beta$将标准化后的数据规范化到指定的区间上。和传统的规范化方法相比batch normalization利用可学习参数来调节规范化后的范围，因此往往具有更好的效果。
+
+<div align=center>
+<img src="https://i.imgur.com/ijIBzzx.png" width="80%">
+</div>
+
+batch normalization在现代神经网络中有着大量的应用。一般可以将它放置在激活函数前来避免激活函数的输入过大从而导致的饱和问题。
+
+<div align=center>
+<img src="https://i.imgur.com/7VYbmKj.png" width="80%">
+</div>
+
+需要说明的是batch normalization在模型训练和推断时有着不同的行为。在进行推断时不会再计算当前数据上的均值和方差，而是在训练过程中存储它们的估计值来表示总体数据集上的行为。同时每一批次数据的量对于batch normalization也有着重要的影响，如果数量比较小则可能无法获得稳定的估计值。而对于数量很大的情况有时无法使用单个GPU来存储数据，此时需要使用一些分布式的方法来进行训练。
+
+<div align=center>
+<img src="https://i.imgur.com/23KPPyp.png" width="80%">
+</div>
 
 ## Optimizers
 
