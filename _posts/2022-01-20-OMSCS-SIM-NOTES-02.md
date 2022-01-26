@@ -360,7 +360,7 @@ $$
 
 ### Joint Distribution
 
-本节课最后回顾了多元随机变量和它们的联合概率分布。
+我们把一维随机变量拓展到多维可以得到多元随机变量和它们的联合概率分布。
 
 <div align=center>
 <img src="https://i.imgur.com/5MxLRpQ.jpg" width="60%">
@@ -413,3 +413,47 @@ $$
 <div align=center>
 <img src="https://i.imgur.com/y8ZVCay.jpg" width="75%">
 </div>
+
+## Conditional Expectation
+
+在条件概率的基础上我们可以定义**条件期望(conditional expectation)**。条件期望$E[Y \vert X]$可以理解为一个关于随机变量$X$的函数，它是$Y$在条件概率$f(Y \vert X)$下的期望。
+
+<div align=center>
+<img src="https://i.imgur.com/sLpzn2Y.jpg" width="75%">
+</div>
+
+### Double Expectations
+
+条件期望的一个重要应用是利用条件期望$E[Y \vert X]$来计算$Y$自身的期望，这称为**全期望定理(law of total expectation)**。
+
+<div align=center>
+<img src="https://i.imgur.com/1svvJse.jpg" width="75%">
+</div>
+
+在很多情况下直接计算期望比较困难，但条件期望的计算时相对容易的。在这种情况下使用全期望定理就可以方便地计算原始随机变量的期望。
+
+<div align=center>
+<img src="https://i.imgur.com/6diNKR3.jpg" width="75%">
+<img src="https://i.imgur.com/BVu78Zm.jpg" width="75%">
+</div>
+
+类似地，我们还可以把$Y$定义为某个事件发生的概率，这样就可以利用全期望定理来计算概率。
+
+<div align=center>
+<img src="https://i.imgur.com/pDghvs3.jpg" width="75%">
+<img src="https://i.imgur.com/OcCF6dP.jpg" width="75%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/QWFfild.jpg" width="75%">
+</div>
+
+### Variance Eecomposition
+
+类似于全期望定理，我们也可以对$Y$的方差进行分解，称为**全方差定理(law of total variance)**。
+
+<div align=center>
+<img src="https://i.imgur.com/BnZqHDY.jpg" width="75%">
+</div>
+
+## Covariance and Correlation
