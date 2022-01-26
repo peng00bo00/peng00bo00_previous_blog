@@ -457,3 +457,41 @@ $$
 </div>
 
 ## Covariance and Correlation
+
+在进一步介绍多元随机变量前我们首先把LOTUS进行推广。
+
+<div align=center>
+<img src="https://i.imgur.com/n4lBDQB.jpg" width="75%">
+</div>
+
+同时我们还需要引入**独立同分布(independent and identically distributed, iid)**的概念。
+
+<div align=center>
+<img src="https://i.imgur.com/n4lBDQB.jpg" width="75%">
+</div>
+
+### Covariance
+
+在LOTUS的基础上就可以定义多元随机变量的**协方差(covariance)**，它描述了随机变量之间的相关性。不过需要注意的是协方差为0并不表示随机变量相互独立。
+
+<div align=center>
+<img src="https://i.imgur.com/cmQMWRL.jpg" width="75%">
+</div>
+
+协方差具有线性性。
+
+<div align=center>
+<img src="https://i.imgur.com/Ulc2zTG.jpg" width="75%">
+</div>
+
+### Correlation
+
+与协方差类似的还有**相关系数(correlation)**，它是一个规范化的系数来度量随机变量的相关性。
+
+<div align=center>
+<img src="https://i.imgur.com/C6a9c1x.jpg" width="75%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/j76qhhR.jpg" width="75%">
+</div>
