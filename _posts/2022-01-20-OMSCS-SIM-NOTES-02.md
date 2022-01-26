@@ -565,3 +565,29 @@ $$
 <div align=center>
 <img src="https://i.imgur.com/bZelF70.jpg" width="75%">
 </div>
+
+## Limit Theorems
+
+<div align=center>
+<img src="https://i.imgur.com/WuiJnY7.jpg" width="75%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/fs9B8EX.jpg" width="75%">
+</div>
+
+### Central Limit Theorem
+
+**中心极限定理(central limit theorem, CLT)**指出，当样本数目比较大的时候相互独立随机变量的均值经标准化后依分布收敛于标准正态分布。
+
+<div align=center>
+<img src="https://i.imgur.com/dwcUSFS.jpg" width="75%">
+</div>
+
+## Estimation
+
+### Unbiased Estimators
+
+### Maximum Likelihood Estimation
+
+## Confidence Intervals
