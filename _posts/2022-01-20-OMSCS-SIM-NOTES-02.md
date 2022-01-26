@@ -586,8 +586,68 @@ $$
 
 ## Estimation
 
+我们可以利用随机变量来估计概率分布的参数。不过需要注意的是随机变量的函数仍然是一个随机变量，因此我们的估计值也是一个随机变量。
+
+<div align=center>
+<img src="https://i.imgur.com/qA7igAN.jpg" width="75%">
+<img src="https://i.imgur.com/lHFYG7F.jpg" width="75%">
+</div>
+
+由于参数的估计值是一个随机变量，我们希望它能够近似真实的参数而且具有的比较小的方差。
+
+<div align=center>
+<img src="https://i.imgur.com/9O1bkE7.jpg" width="75%">
+<img src="https://i.imgur.com/K3HIokz.jpg" width="75%">
+</div>
+
 ### Unbiased Estimators
 
+**无偏估计(unbiased estimation)**是指参数估计值的期望等于真实的参数。最常用的无偏估计是样本均值，显然对于独立同分布的样本其均值的期望等于样本分布的期望。
+
+<div align=center>
+<img src="https://i.imgur.com/xfcVtkm.jpg" width="75%">
+</div>
+
+样本方差与之类似，不过需要注意计算样本方差时的分母为$n-1$。
+
+<div align=center>
+<img src="https://i.imgur.com/8iBN3aG.jpg" width="75%">
+<img src="https://i.imgur.com/AUzwfh1.jpg" width="75%">
+</div>
+
+对于两个无偏估计，我们认为方差小的估计更好。
+
+<div align=center>
+<img src="https://i.imgur.com/Cz2zNu1.jpg" width="75%">
+<img src="https://i.imgur.com/XHOVloj.jpg" width="75%">
+</div>
+
+### Mean Squared Error
+
+由于方差的存在有时无偏估计也不是一个好的估计。我们定义估计值与真实值之间平方差的期望为**平均平方误差(mean squared error, MSE)**，它度量了估计值与真实值之间的误差。
+
+<div align=center>
+<img src="https://i.imgur.com/shJERz5.jpg" width="75%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/s4oJnJ7.jpg" width="75%">
+</div>
+
 ### Maximum Likelihood Estimation
+
+**极大似然估计(maximum likelihood estimation, MLE)**是一种非常常用的参数估计方法。通过对样本的似然函数求极值我们可以得到最有可能生成这些样本的参数。
+
+<div align=center>
+<img src="https://i.imgur.com/iSoUiBZ.jpg" width="75%">
+</div>
+
+有时直接计算似然函数的极值比较困难，我们还可以通过对数函数来进行处理。
+
+<div align=center>
+<img src="https://i.imgur.com/o3pm95g.jpg" width="75%">
+<img src="https://i.imgur.com/UGAM0a1.jpg" width="75%">
+<img src="https://i.imgur.com/vGaoipV.jpg" width="75%">
+</div>
 
 ## Confidence Intervals
