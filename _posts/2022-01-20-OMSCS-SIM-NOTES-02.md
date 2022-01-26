@@ -651,3 +651,18 @@ $$
 </div>
 
 ## Confidence Intervals
+
+最后，我们可以利用一些已知的分布来估计参数的置信区间。
+
+<div align=center>
+<img src="https://i.imgur.com/Ea0xS9R.jpg" width="75%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/iJtEIgL.jpg" width="75%">
+<img src="https://i.imgur.com/fSZGGI1.jpg" width="75%">
+</div>
+
+## Reference
+
+- [Calculus, Probability, and Statistics Primers](https://studio.edx.org/assets/courseware/v1/c6b6e79b9ddda262529c17b784e1052e/asset-v1:GTx+ISYE6644x+2T2019+type@asset+block/Module02-CalcProbStatsReviewSlides-181230.pdf)
