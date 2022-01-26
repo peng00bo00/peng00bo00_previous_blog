@@ -495,3 +495,73 @@ $$
 <div align=center>
 <img src="https://i.imgur.com/j76qhhR.jpg" width="75%">
 </div>
+
+## Some Probability Distributions
+
+接下来我们总结一些常用概率分布的性质。
+
+### Bernoulli Distribution
+
+<div align=center>
+<img src="https://i.imgur.com/t0l5IhL.jpg" width="75%">
+</div>
+
+### Geometric Distribution
+
+<div align=center>
+<img src="https://i.imgur.com/PG7Y59s.jpg" width="75%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/eNrhnVj.jpg" width="75%">
+</div>
+
+### Poisson Distribution
+
+<div align=center>
+<img src="https://i.imgur.com/FkeL9HQ.jpg" width="75%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/id6L9fX.jpg" width="75%">
+</div>
+
+### Uniform Distribution
+
+<div align=center>
+<img src="https://i.imgur.com/RS9JpHB.jpg" width="75%">
+</div>
+
+### Exponential Distribution
+
+<div align=center>
+<img src="https://i.imgur.com/h31msA9.jpg" width="75%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/nyRoYo4.jpg" width="75%">
+</div>
+
+### Gamma Distribution
+
+<div align=center>
+<img src="https://i.imgur.com/bXwtSEs.jpg" width="75%">
+</div>
+
+### Triangular Distribution
+
+<div align=center>
+<img src="https://i.imgur.com/MwfXBZZ.jpg" width="75%">
+</div>
+
+### Beta Distribution
+
+<div align=center>
+<img src="https://i.imgur.com/IsJLZ2E.jpg" width="75%">
+</div>
+
+### Normal Distribution
+
+<div align=center>
+<img src="https://i.imgur.com/bZelF70.jpg" width="75%">
+</div>
