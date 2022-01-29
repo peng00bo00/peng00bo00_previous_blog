@@ -88,6 +88,100 @@ sidebar:
 
 ## Prediction and Evaluation
 
+### Model Evaluation Statistics
+
+预处理的第三步是选择合适的指标来评价模型的性能。
+
+<div align=center>
+<img src="https://i.imgur.com/zAjQOMi.png" width="80%">
+</div>
+
+对于分类任务常用的性能度量包括**精度(precision)**、**召回率(recall)**、**正确率(accuracy)**等，而对于回归问题则常用**MSE**等度量。
+
+<div align=center>
+<img src="https://i.imgur.com/NDuNZfw.png" width="80%">
+</div>
+
+同时我们还需要设置一个性能度量的**基准线(baseline)**，如果模型的性能低于基准线则说明训练得到的模型是无意义的。
+
+<div align=center>
+<img src="https://i.imgur.com/HuCGA6e.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/7yLw3ou.png" width="80%">
+</div>
+
+### Datasheets for Datasets
+
+最后我们还需要考虑如何重复整个试验过程。这一步比较简单，往往只需要用文档记录下一些试验的过程和细节即可。
+
+<div align=center>
+<img src="https://i.imgur.com/LJptziA.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/ELZdTTR.png" width="80%">
+</div>
+
 ## Data Cleaning for Machine Learning
 
+在准备数据阶段一般需要对收集到的数据进行一些清理工作。
+
+<div align=center>
+<img src="https://i.imgur.com/55xdkfE.png" width="80%">
+</div>
+
+### Missing Data
+
+在收集数据时最常见的问题是数据缺失，根据缺失的模式可以分为三种不同类型。
+
+<div align=center>
+<img src="https://i.imgur.com/Oor7bBl.png" width="80%">
+</div>
+
+对缺失的数据进行处理时最直接的方法是将缺失的数据删除，不过这样会丢失一些信息。
+
+<div align=center>
+<img src="https://i.imgur.com/RHvcbm8.png" width="80%">
+</div>
+
+因此实践中更常用的做法是使用特征的统计值来填充缺失的数据。
+
+<div align=center>
+<img src="https://i.imgur.com/ToXNDyq.png" width="80%">
+</div>
+
+### Transform
+
+获得完整的数据后需要根据数据的特征以及任务的类型将它们转换成合适的格式。
+
+<div align=center>
+<img src="https://i.imgur.com/p9p8XR9.png" width="80%">
+</div>
+
+### Pre-process
+
+有时还会进一步对数据进行一些归一化处理以方便模型的训练。
+
+<div align=center>
+<img src="https://i.imgur.com/qIjni2a.png" width="80%">
+</div>
+
+### Case Study: Depth Estimation
+
+以**深度估计(depth estimation)**为例，下面展示了整个数据集构建的流程。
+
+<div align=center>
+<img src="https://i.imgur.com/lB11hkN.png" width="80%">
+<img src="https://i.imgur.com/ggdu5Au.png" width="80%">
+<img src="https://i.imgur.com/aq7Mn8X.png" width="80%">
+</div>
+
 ## Managing Bias
+
+最后需要说明的是在构建数据集时要尽可能避免使用带有偏见或是歧视性的信息。
+
+<div align=center>
+<img src="https://i.imgur.com/Upsp5ze.png" width="80%">
+</div>
