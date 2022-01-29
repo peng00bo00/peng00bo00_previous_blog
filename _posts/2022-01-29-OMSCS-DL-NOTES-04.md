@@ -183,5 +183,5 @@ sidebar:
 最后需要说明的是在构建数据集时要尽可能避免使用带有偏见或是歧视性的信息。
 
 <div align=center>
-<img src="https://i.imgur.com/Upsp5ze.png" width="80%">
+<img src="https://i.imgur.com/SBI3sTE.png" width="80%">
 </div>
