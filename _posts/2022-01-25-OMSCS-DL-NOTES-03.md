@@ -294,7 +294,7 @@ Adagrad的缺陷在于随着训练轮数的增加梯度累计值会不断增长�
 <img src="https://i.imgur.com/jVThPPj.png" width="80%">
 </div>
 
-最后关于dropout背后的原理目前有两种解释：其一是任务dropout避免了模型过于依赖某些特定的特征从而防止出现过拟合；而另一种解释则是认为通过dropout我们实际上训练了$2^n$个模型，这样最终的模型等价于利用集成学习的方式来减轻过拟合。
+最后关于dropout背后的原理目前有两种解释：其一是认为dropout避免了模型过于依赖某些特定的特征从而防止出现过拟合；而另一种解释则是认为通过dropout我们实际上训练了$2^n$个模型，这样最终的模型等价于利用集成学习的方式来减轻过拟合。
 
 <div align=center>
 <img src="https://i.imgur.com/v4TlPV9.png" width="80%">
