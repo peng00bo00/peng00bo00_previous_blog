@@ -38,7 +38,7 @@ sidebar:
 
 #### Receptive Fields
 
-由于特征是局部的，在提取特征时我们不用把全图都考虑进来而只需要考虑一个小窗口上的区域即可，这个区域称为**感受野(receptive field)**。根据感受野的假定，我们可以把提取每个特征的参数量从M*N+N降低到(K1*K2+1)*N，这样就极大地降低了模型的复杂度。
+由于特征是局部的，在提取特征时我们不用把全图都考虑进来而只需要考虑一个小窗口上的区域即可，这个区域称为**感受野(receptive field)**。根据感受野的假定，我们可以把提取每个特征的参数量从M * N + N降低到(K1 * K2 + 1) * N，这样就极大地降低了模型的复杂度。
 
 <div align=center>
 <img src="https://i.imgur.com/OYTGgq9.png" width="80%">
@@ -46,7 +46,7 @@ sidebar:
 
 #### Shared Weights
 
-在感受野的基础上我们可以进一步假定输出的节点上都对应相同的特征，也就是说计算每个特征的权重是共享的。这样，每个特征对应的参数就降低为K1*K2+1。
+在感受野的基础上我们可以进一步假定输出的节点上都对应相同的特征，也就是说计算每个特征的权重是共享的。这样，每个特征对应的参数就降低为K1 * K2 + 1。
 
 <div align=center>
 <img src="https://i.imgur.com/eBYik2j.png" width="80%">
@@ -54,7 +54,7 @@ sidebar:
 
 #### Learn Many Features
 
-在每个邻域上我们可以同时计算多个特征，这样可以提高模型的表达能力。此时整个计算特征的参数量为(K1*K2+1)*M。
+在每个邻域上我们可以同时计算多个特征，这样可以提高模型的表达能力。此时整个计算特征的参数量为(K1 * K2 + 1) * M。
 
 <div align=center>
 <img src="https://i.imgur.com/x0qv0AP.png" width="80%">
@@ -84,6 +84,19 @@ sidebar:
 </div>
 
 ### Cross-Correlation
+
+与卷积类似的图像变换是**相关(cross-correlation)**，它也需要将核K在图像上滑动并求和。但与卷积不同的是相关运算不需要先对K进行旋转，只需要直接让K进行滑动即可。
+
+<div align=center>
+<img src="https://i.imgur.com/AEGVorv.png" width="80%">
+</div>
+
+在实际进行编程时我们不会区分卷积核相关的概念，而是统一使用相关进行运算。这一方面是因为相关运算比较简单易于实现，更重要的是我们不会指定核而是通过学习的方式来获得核的值。从这样的角度上讲，使用相关来代替卷积更方便我们理解计算的过程。
+
+<div align=center>
+<img src="https://i.imgur.com/Un7DvJk.png" width="80%">
+<img src="https://i.imgur.com/eCDYQ5q.png" width="80%">
+</div>
 
 ## Input and Output Sizes
 
