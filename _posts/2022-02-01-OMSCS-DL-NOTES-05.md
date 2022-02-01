@@ -14,6 +14,77 @@ sidebar:
 
 ## Convolution Layers
 
+### Limitation of Linear Layers
+
+在前面的课程中我们介绍过计算图和自动微分的概念。通过自动微分技术我们可以把任意可微的操作封装成一个计算图，并且利用反向传播来更新参数。这样整个模型的瓶颈就在于内存，只要模型能够放入到内存中我们就可以进行优化。
+
+<div align=center>
+<img src="https://i.imgur.com/55xEHM5.png" width="80%">
+</div>
+
+目前我们只介绍了线性层来对输入数据进行变换。对于输入为M维输出为N维的数据，线性层共需要M*N+N个参数。对于图像这种维度很高的数据而言线性层的参数是非常庞大的；更重要的是更多的模型参数意味着更高的模型复杂度，要训练这样巨大的模型需要有非常多的数据才能保证不出现过拟合的问题。
+
+<div align=center>
+<img src="https://i.imgur.com/jaXAR7F.png" width="80%">
+</div>
+
+### Locality of Features
+
+实际上对于图像这种数据我们并不需要如此多的参数来建立模型。图像这类数据的特点是它具有局部性，换句话说图像上的特征都只与它附近的数据相关与远处的数据无关。
+
+<div align=center>
+<img src="https://i.imgur.com/T3T8Wej.png" width="80%">
+</div>
+
+#### Receptive Fields
+
+由于特征是局部的，在提取特征时我们不用把全图都考虑进来而只需要考虑一个小窗口上的区域即可，这个区域称为**感受野(receptive field)**。根据感受野的假定，我们可以把提取每个特征的参数量从M*N+N降低到(K1*K2+1)*N，这样就极大地降低了模型的复杂度。
+
+<div align=center>
+<img src="https://i.imgur.com/OYTGgq9.png" width="80%">
+</div>
+
+#### Shared Weights
+
+在感受野的基础上我们可以进一步假定输出的节点上都对应相同的特征，也就是说计算每个特征的权重是共享的。这样，每个特征对应的参数就降低为K1*K2+1。
+
+<div align=center>
+<img src="https://i.imgur.com/eBYik2j.png" width="80%">
+</div>
+
+#### Learn Many Features
+
+在每个邻域上我们可以同时计算多个特征，这样可以提高模型的表达能力。此时整个计算特征的参数量为(K1*K2+1)*M。
+
+<div align=center>
+<img src="https://i.imgur.com/x0qv0AP.png" width="80%">
+</div>
+
+### Convolution
+
+实际上**卷积(convolution)**运算就是满足上面三条假定的运算。在信号处理和计算机视觉等领域中卷积运算有着大量的应用，我们可以通过卷积运算来得到输入信号在不同特征上的相应。
+
+<div align=center>
+<img src="https://i.imgur.com/IiSF4DZ.png" width="80%">
+</div>
+
+卷积运算的数学表达式如下。
+
+<div align=center>
+<img src="https://i.imgur.com/xltzvrN.png" width="80%">
+<img src="https://i.imgur.com/xFETaNj.png" width="75%">
+</div>
+
+对于给定的卷积核K，卷积运算可以理解为首先将K旋转90°然后在图像上进行滑动，在滑动时提取图像对应区域进行相乘并求和。
+
+<div align=center>
+<img src="https://i.imgur.com/H2dX1E3.png" width="80%">
+<img src="https://i.imgur.com/gTksPD2.png" width="80%">
+<img src="https://i.imgur.com/DnvydbD.png" width="80%">
+</div>
+
+### Cross-Correlation
+
 ## Input and Output Sizes
 
 ## Pooling Layers
