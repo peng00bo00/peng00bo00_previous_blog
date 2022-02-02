@@ -170,3 +170,37 @@ $$
 </div>
 
 ## Pooling Layers
+
+通常情况下我们会通过卷积运算来增加输出图像的通道数，而一味地增加通道数会使得数据的维度过高产生各种各样的问题。因此我们需要对图像数据的维度进行缩减，这可以通过**池化(pooling)**操作来实现。
+
+<div align=center>
+<img src="https://i.imgur.com/3KF0dWc.png" width="80%">
+</div>
+
+### Max Pooling
+
+最常用的池化操作是**最大值池化(max pooling)**。类似于卷积，我们同样使用一个窗口在图像上滑动每次提取窗口中的最大值作为输出。
+
+<div align=center>
+<img src="https://i.imgur.com/TfcZGHq.png" width="80%">
+</div>
+
+当然池化的种类不局限于最大值池化，我们也可以使用窗口内的均值或是任意的可微函数来进行池化。不过这样的池化层比较少见，目前主流的方法还是使用最大值进行池化。
+
+<div align=center>
+<img src="https://i.imgur.com/V8yPMuY.png" width="80%">
+</div>
+
+### Invariance
+
+池化层的一个特点是具有一定的**不变性(invariance)**，当输入图像发生微小的平移时池化层的输出是不变的。
+
+<div align=center>
+<img src="https://i.imgur.com/gqrqbYL.png" width="80%">
+</div>
+
+而卷积层则具有**等变性(equivariance)**，当输入图像发生平移时输出图像会发生同样的平移。
+
+<div align=center>
+<img src="https://i.imgur.com/dD1hioo.png" width="80%">
+</div>
