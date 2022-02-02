@@ -100,4 +100,73 @@ sidebar:
 
 ## Input and Output Sizes
 
+### Valid Convolution
+
+要实现卷积运算首先需要考虑卷积输出的尺寸。对于标准的卷积运算，卷积输出的尺寸为(H - k1 + 1) * (W - k2 + 1)，也就是说输出图像的长和宽会有一定程度的缩减。
+
+<div align=center>
+<img src="https://i.imgur.com/xCrj44p.png" width="80%">
+</div>
+
+### Padding
+
+如果想让卷积运算后的图像尺寸没有变化则需要在卷积前对图像的四周进行**填充(padding)**，最常见的填充方式是在四周填充一圈0。
+
+<div align=center>
+<img src="https://i.imgur.com/iF5DR09.png" width="80%">
+</div>
+
+### Stride
+
+有时我们会让卷积的**步长(stride)**大于1，此时卷积后图像的长宽尺寸分别为：
+
+$$
+h = \bigg\lfloor \frac{H - k_1}{s} \bigg\rfloor + 1
+$$
+
+$$
+w = \bigg\lfloor \frac{W - k_2}{s} \bigg\rfloor + 1
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/K5CWZJH.png" width="80%">
+</div>
+
+此时还需要额外注意图像边界上的情况。
+
+<div align=center>
+<img src="https://i.imgur.com/dqQhzn3.png" width="80%">
+</div>
+
+### Multiple Kernels
+
+对于多通道图像的情况，我认为每个核会把多通道的输入图像映射成一个单通道的输出图像。
+
+<div align=center>
+<img src="https://i.imgur.com/mlWcN5p.png" width="80%">
+<img src="https://i.imgur.com/jtbqPW5.png" width="80%">
+</div>
+
+对于多通道的输出，只需要将核并列起来即可。
+
+<div align=center>
+<img src="https://i.imgur.com/KDU4Ntj.png" width="80%">
+<img src="https://i.imgur.com/iM6I9IZ.png" width="80%">
+</div>
+
+这样卷积核K就是一个4维的张量K[C1, C2, k1, k2]。
+
+<div align=center>
+<img src="https://i.imgur.com/v2PtE0H.png" width="80%">
+</div>
+
+### Vectorization
+
+如果使用循环来实现卷积的话会使计算效率非常低下。注意到卷积核在每个位置上都只进行了内积运算，因此我们可以把卷积运算转换成矩阵运算。对于输入图像，我们把每一块的数据展开成一个行向量，同时把卷积核每一维的输出展开成一个列向量，这样整个卷积运算就可以使用矩阵乘法来表示。这样的向量化方法会使卷积运算更加高效，同时在计算梯度时也可以利用矩阵运算的反向传播公式来进行加速。
+
+<div align=center>
+<img src="https://i.imgur.com/RA86Njh.png" width="80%">
+<img src="https://i.imgur.com/IvkhVq9.png" width="80%">
+</div>
+
 ## Pooling Layers
