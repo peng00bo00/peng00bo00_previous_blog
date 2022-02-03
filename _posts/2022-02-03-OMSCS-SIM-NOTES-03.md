@@ -85,6 +85,26 @@ $$
 
 ## Making Some $\pi$
 
+MC的一个经典应用是估计圆周率$\pi$的值。假设$U_1$和$U_2$服从均匀分布$\text{Unif}(0, 1)$且相互独立，则点$(U_1, U_2)$位于圆内的条件为：
+
+$$
+\bigg(U_1 - \frac{1}{2} \bigg)^2 + \bigg(U_2 - \frac{1}{2} \bigg)^2 \leq \frac{1}{4}
+$$
+
+因此我们可以建立一个指示函数$I(u_1, u_2)$表示样本点是否落在圆内：
+
+$$
+I(u_1, u_2) =
+\left\{
+\begin{aligned}
+& 1, & & \text{if} \ \bigg(u_1 - \frac{1}{2} \bigg)^2 + \bigg(u_2 - \frac{1}{2} \bigg)^2 \leq \frac{1}{4} \\
+& 0, & & \text{otherwise} 
+\end{aligned}
+\right.
+$$
+
+显然$I(u_1, u_2)$的积分为$\frac{\pi}{4}$。通过MC我们只需要生成大量的样本然后计算知识函数并取均值即可完成对$\frac{\pi}{4}$的估计。
+
 ## Single-Server Queue
 
 ## (s; S) Inventory System
