@@ -44,7 +44,7 @@ $$
 
 其中，$u = \frac{x-a}{b-a}$。当然我们可以利用**梯形公式(trapezoidal rule)**或是**Gauss–Laguerre积分(Gauss–Laguerre quadrature)**来进行计算，不过当$g(x)$比较复杂时使用数值积分可能是比较困难的。在这种情况下我们可以使用随机模拟来进行计算，这种通过生成随机数来计算积分的方法称为**蒙特卡洛积分(Monte Carlo integration, MC)**。
 
-使用MC时我们首先从(0, 1)区间上的均匀分布进行采样，然后定义$I_i$为样本$U_i$计算得到的函数值：
+使用MC时我们首先从(0, 1)区间上的均匀分布进行采样，然后定义$I_i$为使用样本$U_i$计算得到的函数值：
 
 $$
 I_i = (b-a) \cdot g(a + (b-a) U_i)
@@ -78,10 +78,10 @@ $$
 那么$I$在$100(1-\alpha)\%$水平下的置信区间为：
 
 $$
-I \in \bar{I}_n \plusmn \sqrt{\frac{S_I^2}{n}} \cdot z_{\alpha/2}
+I \in \bar{I}_n \pm \sqrt{\frac{S_I^2}{n}} \cdot z_{\alpha/2}
 $$
 
-其中$z_{\alpha/2}$为标准正态分布$\alpha/2$对于的分位数，$S_I^2$为样本方差$S_I^2 = \frac{1}{n} \sum_{i=1}^n (I_i - \bar{I}_n)^2$。
+其中$z_{\alpha/2}$为标准正态分布$\alpha/2$处对应的分位数，$S_I^2$为样本方差$S_I^2 = \frac{1}{n-1} \sum_{i=1}^n (I_i - \bar{I}_n)^2$。
 
 ## Making Some $\pi$
 
