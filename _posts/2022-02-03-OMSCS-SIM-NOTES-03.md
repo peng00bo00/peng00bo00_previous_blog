@@ -151,7 +151,44 @@ $$
 
 ## (s; S) Inventory System
 
+接下来考虑一个库存管理系统。假设每件商品的售价为$d$，库存系统的管理策略为保证每一天开始库存中商品的数量至少为$s$，如果当天结束时库存小于$s$则需要进行补货将库存量提到$S$。记第$i$天结束后的库存量为$I_i$，当天的进货量为$Z_i$，它满足
+
+$$
+Z_i = 
+\left\{
+\begin{aligned}
+& S-I_i, & & \text{if} \ I_i < s \\
+& 0, & & \text{otherwise} 
+\end{aligned}
+\right.
+$$
+
+假设第$i$天进货的花费为$K+c Z_i$，每件商品在库存中的保管费用为$h$，商店的需求为$D_i$，如果当天库存量小于需求单位商品还会导致$p$的损失。在这些条件下我们可以建立商店的利润模型：
+
+<div align=center>
+<img src="https://i.imgur.com/SoZOQEl.png" width="80%">
+</div>
+
+通过模拟我们可以得到商店每天的利润：
+
+<div align=center>
+<img src="https://i.imgur.com/JGLLHvR.png" width="80%">
+</div>
+
 ## Simulating Random Variables
+
+本节课最后讨论了模拟随机变量的方法。对于离散型随机变量我们可以通过对[0, 1]区间上的均匀分布进行采样，然后利用逆变换采样来生成离散变量。
+
+<div align=center>
+<img src="https://i.imgur.com/IIAf0Pm.png" width="80%">
+<img src="https://i.imgur.com/kraSXdf.png" width="80%">
+</div>
+
+而对于连续型随机变量，只需要解出CDF的反函数再进行逆变换采样即可。
+
+<div align=center>
+<img src="https://i.imgur.com/sunRzaj.png" width="80%">
+</div>
 
 ## Reference
 
