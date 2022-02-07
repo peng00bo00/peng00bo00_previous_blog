@@ -157,3 +157,52 @@ CNN中一个常见的概念是**感受野(receptive fields)**。随着卷积层�
 </div>
 
 ## Transfer Learning & Generalization
+
+### Generalization
+
+模型的**泛化能力(generalization)**是机器学习最关心的指标。当我们训练好模型并应用在使用真实的数据上时误差的来源包括一下三个部分：
+
+- optimization error: 模型的训练过程中可能无法保证完全没有误差
+- estimation error: 即使模型在训练数据上完全没有误差，模型可能会发生过拟合
+- modeling error: 模型学习到的假设可能不适用于真实的数据
+
+对于比较简单的模型，optimization error和estimation error一般都会比较小；但此时模型的表达能力有限可能无法学习到合适的假设，进而导致比较大的modeling error。
+
+<div align=center>
+<img src="https://i.imgur.com/vGZjA6B.png" width="80%">
+</div>
+
+而对于更加复杂的模型，充分训练后往往可以学习到足够好的假设使得modeling error会比较小；但相对地模型的训练会更加困难，也更容易发生过拟合的现象。
+
+<div align=center>
+<img src="https://i.imgur.com/i7sGyDf.png" width="80%">
+<img src="https://i.imgur.com/vqqTf4c.png" width="80%">
+</div>
+
+### Transfer Learning
+
+很多现实中的机器学习任务都没有大量标注的数据，在这样的情况下可以考虑使用**迁移学习(transfer learning)**的方式来训练模型。迁移学习的基本思想是使用在大规模数据集上训练好的模型来进行初始化，然后在给定的数据集上进行微调从而加速模型的训练过程。常用的迁移学习方法是使用预训练的模型参数，然后将网络的最后一层换成一个新的全连接层，最后在训练模型时对模型进行微调或是固定卷积层的参数只对最后的全连接层进行更新。
+
+<div align=center>
+<img src="https://i.imgur.com/Nv73HAI.png" width="80%">
+<img src="https://i.imgur.com/9SJpzBI.png" width="80%">
+<img src="https://i.imgur.com/n5SG5Oi.png" width="80%">
+</div>
+
+目前已经有大量的实践证明了这种预训练模型的有效性，而且人们还发现这样预训练出来的模型参数不仅可以提升图像识别的效率，对于一些其它的视觉任务也有很大的帮助。
+
+<div align=center>
+<img src="https://i.imgur.com/a9VS6nc.png" width="80%">
+</div>
+
+当然这种迁移学习的方法也不是万能的。如果训练数据集和预训练的数据集相差太多迁移学习的效果就不会很好，而如果训练数据集上有足够多的数据迁移学习则可以加速模型的收敛过程。
+
+<div align=center>
+<img src="https://i.imgur.com/X5O61MC.png" width="80%">
+</div>
+
+目前深度学习中还有很多相关的领域去研究如何解决缺少数据标注的问题。
+
+<div align=center>
+<img src="https://i.imgur.com/2djPajl.png" width="80%">
+</div>
