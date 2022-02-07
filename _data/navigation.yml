@@ -254,6 +254,8 @@ OMSCS-DL:
     children: 
       - title: Convolution and Pooling Layers
         url: /2022/02/01/OMSCS-DL-NOTES-05.html
+      - title: Convolutional Neural Network Architectures
+        url: /2022/02/07/OMSCS-DL-NOTES-06.html
   - title: Structured Neural Representations
   - title: Advanced Topics
 
