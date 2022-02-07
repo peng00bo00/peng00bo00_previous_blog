@@ -66,6 +66,35 @@ sidebar:
 
 ## Simple Convolutional Neural Networks
 
+### Combining Convolution & Pooling Layers
+
+我们把卷积层和池化层也加进神经网络中就得到了**卷积神经网络(convolutional neural networks, CNN)**。
+
+<div align=center>
+<img src="https://i.imgur.com/GiND15U.png" width="80%">
+</div>
+
+典型的CNN通常还包括**全连接层(fully connected layers)**作为最终的分类器，这样整个网络可以理解为将图像输入到卷积层中提取特征然后利用全连接层对提取到的特征进行分类。
+
+<div align=center>
+<img src="https://i.imgur.com/lYoi2bL.png" width="80%">
+<img src="https://i.imgur.com/jR79SHy.png" width="80%">
+</div>
+
+CNN中一个常见的概念是**感受野(receptive fields)**。随着卷积层和池化层的增加特征图的长和宽尺寸会不但减少，因此特征图上每一个像素对应输入图像的区域会不断增加。这个对应的区域称为"感受野"。
+
+<div align=center>
+<img src="https://i.imgur.com/loGXuqV.png" width="80%">
+</div>
+
+### LeNet Architecture
+
+这样的网络结构可以追溯到80年代的LeNet，当时研究人员就提出了这种结构的CNN来进行手写数字和字母的识别。
+
+<div align=center>
+<img src="https://i.imgur.com/35FaNIP.png" width="80%">
+</div>
+
 ## Advanced Convolutional Networks
 
 ## Transfer Learning & Generalization
