@@ -93,8 +93,67 @@ CNN中一个常见的概念是**感受野(receptive fields)**。随着卷积层�
 
 <div align=center>
 <img src="https://i.imgur.com/35FaNIP.png" width="80%">
+<img src="https://i.imgur.com/0LDcKkz.png" width="80%">
+</div>
+
+由于CNN具有平移不变性和一定程度的旋转不变性，LeNet对于输入图片的几何变换都有比较好的适应性。
+
+<div align=center>
+<img src="https://i.imgur.com/wjcIxuk.png" width="80%">
+<img src="https://i.imgur.com/DZM8mWW.png" width="80%">
+<img src="https://i.imgur.com/HR7RsBa.png" width="80%">
 </div>
 
 ## Advanced Convolutional Networks
+
+### AlexNet
+
+现代CNN的流行始于2012年，当时AlexNet以巨大优势击败了传统人工特征+分类器的图像识别方法，从此基于CNN的模型成为了计算机视觉和图像识别领域的主流方法。
+
+<div align=center>
+<img src="https://i.imgur.com/z1TOh9E.png" width="80%">
+</div>
+
+整体来看AlexNet与LeNet在结构上的差异不大，但AlexNet使用了更加先进的激活函数以及一些现代的正则化方法，同时在大规模训练数据以及数据增强技术的加持下AlexNet超越了所有的传统图像识别方法。
+
+<div align=center>
+<img src="https://i.imgur.com/SdOhgEK.png" width="80%">
+</div>
+
+### VGG
+
+在AlexNet基础上人们还提出了各种各样的网络结构，比较经典的是VGG网络。和AlexNet相比，VGG包含更多的层数也因此有着更好的性能。
+
+<div align=center>
+<img src="https://i.imgur.com/m8oIsPT.jpg" width="80%">
+<img src="https://i.imgur.com/bX39yLd.png" width="80%">
+<img src="https://i.imgur.com/JF62kPF.png" width="80%">
+</div>
+
+### Inception Architecture
+
+同时人们还发现一味增加网络深度有时并不会提高模型的性能，因此在GoogLeNet中提出了inception module这样的单元来提取图像特征。inception module的核心是在一个层中包含多个不同尺寸的卷积核，这样就可以提取到同一输入下不同尺度上的特征并加以融合。
+
+<div align=center>
+<img src="https://i.imgur.com/jkZfh8i.png" width="80%">
+<img src="https://i.imgur.com/EMlMxQR.png" width="80%">
+</div>
+
+### Residual Blocks and Skip Connections
+
+为了解决训练深层网络十分困难的问题，人们提出了残差连接这样的结构形式。它的核心是在卷积后将输出特征图像与输入特征图像相加，这样使得输入特征总是可以得到来自输出特征的导数，从而避免了梯度消失的问题。
+
+<div align=center>
+<img src="https://i.imgur.com/MWcmN2l.png" width="80%">
+</div>
+
+### Evolving Architectures and AutoML
+
+近年来还涌现了一些基于进化算法以及强化学习的自动化网络设计方法，一些研究指出这类自动化网络设计方法可以超越以往的人工设计网络。除了寻找性能更好的网络结构外，一些研究还试图在保证性能的基础上减少模型的复杂度从而得到更高效的网络结构形式。
+
+<div align=center>
+<img src="https://i.imgur.com/fudd8Na.png" width="80%">
+<img src="https://i.imgur.com/jhFzIeM.png" width="80%">
+</div>
 
 ## Transfer Learning & Generalization
