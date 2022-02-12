@@ -145,7 +145,7 @@ Computer Graphics
 - [GAMES-101: Introduction to Modern Computer Graphics](https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html) ([certificate](https://drive.google.com/file/d/1sFM-XCCETFKUXzpLc7QV5fH6Aa6_-oGl/view?usp=sharing))
 - [GAMES-102: Geometry Modeling and Processing](http://staff.ustc.edu.cn/~lgliu/Courses/GAMES102_2020/default.html)
 - [GAMES-202: Real-Time High Quality Rendering](https://sites.cs.ucsb.edu/~lingqi/teaching/games202.html) ([certificate](https://drive.google.com/file/d/1vTDse2jZ0vbBUEShygA8kdeu2DjF2FeS/view?usp=sharing))
-- [GAMES-103: Intro to Physics-Based Animation](http://games-cn.org/games103/)
+- [GAMES-103: Intro to Physics-Based Animation](http://games-cn.org/games103/) ([certificate](https://drive.google.com/file/d/1Z0DoKhcsDher6W_PLvPhazSlsAaF5x0r/view?usp=sharing))
 
 ### 深蓝学院
 
