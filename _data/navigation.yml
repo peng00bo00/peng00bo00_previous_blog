@@ -238,6 +238,8 @@ PBRT:
         url: /2022/01/02/PBRT-NOTES-06.html
       - title: Texture
         url: /2022/01/06/PBRT-NOTES-07.html
+      - title: Volume Scattering
+        url: /2022/02/12/PBRT-NOTES-08.html
 
 OMSCS-DL:
   - title: Introduction to Neural Networks
