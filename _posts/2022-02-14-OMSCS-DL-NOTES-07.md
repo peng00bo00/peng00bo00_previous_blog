@@ -30,7 +30,7 @@ sidebar:
 
 ### Visualizing Output Maps
 
-我们同样可以提取网络的一些中间层输出结果进行可视化。需要注意的是由于池化的存在深层输出的尺寸可能都比较小，因此这种方法只适用于一些浅层的输出。
+我们同样可以提取网络的一些中间层特征图进行可视化。需要注意的是由于池化的存在深层输出的尺寸可能都比较小，因此这种方法只适用于一些浅层的输出。
 
 <div align=center>
 <img src="https://i.imgur.com/cv8kezw.png" width="80%">
@@ -203,3 +203,33 @@ sidebar:
 </div>
 
 ## Style Transfer
+
+基于梯度的可视化方法还可以用来实现**风格迁移(style transfer)**。风格迁移的难点是保证内容的基础上获得其它图像的风格，目前的常用做法是使用训练好的神经网络作为特征提取器，然后利用两张图像在网络的中间特征图构造损失并对输入图像进行反向传播和优化。
+
+<div align=center>
+<img src="https://i.imgur.com/KE4IV8m.png" width="80%">
+</div>
+
+为了保证图像内容的一致性，可以直接对内容图像的特征图进行拟合作为**内容损失(content loss)**。
+
+<div align=center>
+<img src="https://i.imgur.com/mGk5ApE.png" width="80%">
+</div>
+
+为了获得风格，一般会首先提取风格图像和输入图像特征图的Gram矩阵然后对Gram矩阵进行拟合得到**风格损失(style loss)**。最后把内容损失和风格损失组合到一起并对输入图像进行优化就可以实现风格迁移的效果。
+
+<div align=center>
+<img src="https://i.imgur.com/bnmLe45.png" width="80%">
+<img src="https://i.imgur.com/SFAYqO0.png" width="80%">
+</div>
+
+一些风格迁移的案例如下：
+
+<div align=center>
+<img src="https://i.imgur.com/lNKeX97.jpg" width="80%">
+<img src="https://i.imgur.com/xgs8yxu.jpg" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/RXelSJL.png" width="80%">
+</div>
