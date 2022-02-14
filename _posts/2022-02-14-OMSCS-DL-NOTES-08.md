@@ -140,7 +140,7 @@ script mode会对代码进行优化来提高运行效率并降低内存负载，
 
 ## Distributed Model Parallel
 
-在一些更复杂的场景中可能在不同的机器上都有不同的模型(组件)，同时每个机器又对应不同的数据，此时就需要使用RPC来进行训练。
+在一些更复杂的场景中可能在不同的机器上都有不同的模型(组件)，此时就需要使用RPC来进行训练。
 
 <div align=center>
 <img src="https://i.imgur.com/RaUqifG.png" width="80%">
