@@ -58,17 +58,81 @@ sidebar:
 
 ## Gradient-Based Visualizations
 
+在训练网络时我们利用反向传播算法来计算损失函数的梯度，而在可视化中我们同样可以利用反向传播来理解网络学习到的内容。根据反向传播的起点和终点主要有两种可视化方法：从损失出发计算网络所有层的梯度，以及从某一层出发计算输入图像的梯度。
+
+<div align=center>
+<img src="https://i.imgur.com/Exh5trk.png" width="80%">
+</div>
+
 ### Gradient of Loss w.r.t. Image
+
+从损失函数出发通过反向传播算法可以得到所有中间层的梯度，每一个梯度值对应损失函数在该处的响应，梯度越大表示该点对于损失函数越重要，每一层上梯度响应图称为一张**saliency map**。在实践中往往不会直接使用损失函数，而是使用模型最后分类层上某个类别的得分作为起点，然后计算类别得分关于输入图像的梯度作为saliency map。进行可视化时还会对梯度取绝对值并把所有通道上的梯度进行累加来获得输入图像有明显响应的区域。
+
+<div align=center>
+<img src="https://i.imgur.com/tvYAsTt.png" width="80%">
+</div>
 
 #### Object Segmentation for Free!
 
+利用saliency map我们可以使用分类模型对图像进行分割，从而得到指定类别的区域。
+
+<div align=center>
+<img src="https://i.imgur.com/VOUwaRi.png" width="80%">
+</div>
+
 #### Detecting Bias
+
+同时saliency map也可以帮助我们检查数据集是否是有偏(biased)的，训练好的模型在无偏的数据集上不会在非目标区域上有很强的响应。
+
+<div align=center>
+<img src="https://i.imgur.com/T6KrHWy.png" width="80%">
+</div>
 
 ### Gradient of Activation w.r.t. Input
 
+另一种基于梯度的可视化方法是选择中间层的一个神经元利用反向传播计算它关于输入图像的梯度。通过这种方法我们可以观察选中的神经元对输入图像上哪些区域有比较强的响应。
+
+<div align=center>
+<img src="https://i.imgur.com/90bJdqk.png" width="80%">
+</div>
+
 #### Guided Backprop
 
+除了标准反向传播外还可以使用一些变体来提升可视化的效果，如deconvnet会过滤掉非负的梯度，而guided backpropagation则同时过滤了非负的梯度和前向输入值。
+
+<div align=center>
+<img src="https://i.imgur.com/y3Rw9ZO.png" width="80%">
+</div>
+
+利用guided backpropagation我们可以可视化任意神经元在输入图像上感兴趣的区域，从而理解它学习到的内容。
+
+<div align=center>
+<img src="https://i.imgur.com/MHLOoEH.png" width="80%">
+</div>
+
+利用类似的方法我们可以可视化神经网络每一层上的每一个神经元。可视化的结果显示在浅层神经元会关注一些简单的图像信息(颜色、纹理等)，而随着层数的增加神经元则会关注图像上更加抽象和复杂的内容。
+
+<div align=center>
+<img src="https://i.imgur.com/vNIBfJh.png" width="80%">
+<img src="https://i.imgur.com/WhUOgEN.png" width="80%">
+<img src="https://i.imgur.com/k8EEj07.png" width="80%">
+<img src="https://i.imgur.com/cXa39zm.png" width="80%">
+</div>
+
 #### Grad-CAM
+
+在此基础上人们还开发出了更加复杂的可视化方法来研究神经网络感兴趣的区域。比如说Grad-CAM就是一种对梯度反向传播图进行一些额外操作以方便可视化的方法。
+
+<div align=center>
+<img src="https://i.imgur.com/ZKCby2j.png" width="80%">
+<img src="https://i.imgur.com/0XqWqI7.png" width="80%">
+<img src="https://i.imgur.com/FX8U20X.png" width="80%">
+<img src="https://i.imgur.com/vMOuGSG.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/ewjgphr.png" width="80%">
+</div>
 
 ## Optimizing the Input Images
 
