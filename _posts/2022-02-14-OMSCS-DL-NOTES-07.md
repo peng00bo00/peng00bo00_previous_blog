@@ -136,6 +136,70 @@ sidebar:
 
 ## Optimizing the Input Images
 
+利用反向传播我们不仅可以优化损失函数训练网络，还可以对输入图像进行优化来生成新的图像。
+
+<div align=center>
+<img src="https://i.imgur.com/rgij8NM.png" width="80%">
+</div>
+
+### Gradient Ascent on the Scores
+
+最基本的方法是把一张随机噪声图像作为输入，然后从某个类别得分进行反向传播并利用梯度上升来优化输入图像，在实际操作时还往往会结合一些正则项来提升优化后的图像质量。
+
+<div align=center>
+<img src="https://i.imgur.com/RQ61gI2.png" width="80%">
+<img src="https://i.imgur.com/gXTW31T.jpg" width="80%">
+</div>
+
+除此之外还有一些技巧比如说对梯度进行裁剪或是对输出进行高斯模糊来提升可视化的视觉效果。
+
+<div align=center>
+<img src="https://i.imgur.com/rZFYhIM.png" width="80%">
+<img src="https://i.imgur.com/xPACK55.jpg" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/ooxolUC.png" width="80%">
+</div>
+
 ## Testing Robustness
+
+### Adversarial Noise
+
+如果对真实的图像使用梯度上升，人们发现只需要少量的像素扰动就可以影响模型的识别结果。
+
+<div align=center>
+<img src="https://i.imgur.com/CCi1wk9.png" width="80%">
+</div>
+
+一些深入的研究显示这样的现象不止存在与深度学习中，实际上很多模型都会受到这种随机扰动的影响。目前的主流观点认为导致这种现象的原因主要是模型的线性部分。
+
+<div align=center>
+<img src="https://i.imgur.com/a7fAZjH.png" width="80%">
+</div>
+
+在此基础上甚至还发展出了一个新的研究领域称为**对抗攻击和防御(adversarial attacks/defenses)**。人们通过对针对性的训练来生成攻击样本从而影响模型的性能，同时研究如何设计更好的防御手段使模型对于这些攻击样本更加鲁棒。
+
+<div align=center>
+<img src="https://i.imgur.com/izwT8Un.png" width="80%">
+<img src="https://i.imgur.com/O1yzaND.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/KmlVFa3.png" width="80%">
+</div>
+
+### Analyzing Bias
+
+同时人们还利用类似的方法来研究CNN的偏好。通过实验人们发现CNN更倾向于使用纹理来识别物体，而人眼则倾向于使用形状。
+
+<div align=center>
+<img src="https://i.imgur.com/U80PnWM.png" width="80%">
+<img src="https://i.imgur.com/XbLrjiF.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/MK38dEI.png" width="80%">
+</div>
 
 ## Style Transfer
