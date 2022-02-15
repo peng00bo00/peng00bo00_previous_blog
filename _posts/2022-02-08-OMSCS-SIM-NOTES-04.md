@@ -78,3 +78,7 @@ sidebar:
 <div align=center>
 <img src="https://i.imgur.com/lDXQzhV.png" width="80%">
 </div>
+
+## Reference
+
+- [General Simulation Principles](https://studio.edx.org/assets/courseware/v1/51e20b9c9b80a3ec03f2c490424627ee/asset-v1:GTx+ISYE6644x+2T2019+type@asset+block/Module04-GeneralPrinciples_180527.pdf)

@@ -15,3 +15,7 @@ sidebar:
 本章节不涉及理论知识的讲解，只有Arena软件的使用方法。
 
 <div>{%- include extensions/slideshare.html id='11VfYqdVZvWyDr' -%}</div>
+
+## Reference
+
+- [Arena](https://www2.isye.gatech.edu/~sman/courses/6644/Module05-ARENA-210124.pdf)
