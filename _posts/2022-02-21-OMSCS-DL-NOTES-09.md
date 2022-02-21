@@ -109,4 +109,55 @@ FCN的缺陷在于输入图像经过网络后分辨率会缩减，造成一部�
 
 ## Single-Stage Object Detection
 
+### Object Detection Tasks
+
+目标检测是一种常见的计算机视觉任务，在目标检测中我们希望使用矩形框来标出图像中不同物体的位置和类别。目标检测的难点在于图像中物体的数量是未知的，因此需要一些额外的方法来提取图像中物体可能出现的位置。
+
+<div align=center>
+<img src="https://i.imgur.com/1KRU47R.png" width="80%">
+</div>
+
+目前基于深度学习的目标检测可以大致分为single-stage和two-stage两类，这里首先来介绍single-stage的相关方法。类似于图像分类，在目标检测中往往首先会通过一个CNN来提取图像的信息得到特征图，然后利用这张特征图进行后续的分类和回归操作。对于single-stage方法，模型会在特征图上同时进行bounding box的分类和回归，即图像特征在两个任务上是共享的。
+
+<div align=center>
+<img src="https://i.imgur.com/QkCjI7m.png" width="80%">
+<img src="https://i.imgur.com/JQS5hpf.png" width="80%">
+</div>
+
+显然目标检测额核心是获得图像中不同物体的proposal。在一些早期的工作中往往是使用传统计算机视觉的技术获得不同尺度不同位置下大量的bounding box，然后对这些proposal进行分类并通过NMS获得最终的bounding box。
+
+<div align=center>
+<img src="https://i.imgur.com/24fXuIO.jpg" width="80%">
+</div>
+
+### Single-Shot Detector (SSD)
+
+SSD是object detection的经典模型。在提取图像特征时它会生成一系列不同尺度下的特征图，然后在每个尺度下使用预先定义的**锚框(anchor)**作为region proposal，最后通过对这些锚框进行分类和回归来实现目标检测。
+
+<div align=center>
+<img src="https://i.imgur.com/pfRB4yS.png" width="80%">
+</div>
+
+### You Only Look Once (YOLO)
+
+YOLO也是经典的single-stage object detection模型。为了提升模型的运行速度，YOLO没有使用类似于SSD的多尺度结构而是在单一尺度上进行目标检测。
+
+<div align=center>
+<img src="https://i.imgur.com/vi0n0ST.png" width="80%">
+</div>
+
+### Evaluation
+
+在目标检测中一般会使用mAP来评价模型的准确性。mAP是PR曲线下的面积，它的计算方法如下：
+
+<div align=center>
+<img src="https://i.imgur.com/CK9JUue.png" width="80%">
+</div>
+
+除了mAP外很多模型还考虑了运行时的计算效率，因此在一些注重实时性的场景中FLOPs和FPS也是常用的性能指标。
+
+<div align=center>
+<img src="https://i.imgur.com/qld0nqG.png" width="80%">
+</div>
+
 ## Two-Stage Object Detectors
