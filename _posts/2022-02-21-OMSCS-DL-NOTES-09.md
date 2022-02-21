@@ -132,7 +132,7 @@ FCN的缺陷在于输入图像经过网络后分辨率会缩减，造成一部�
 
 ### Single-Shot Detector (SSD)
 
-SSD是object detection的经典模型。在提取图像特征时它会生成一系列不同尺度下的特征图，然后在每个尺度下使用预先定义的**锚框(anchor)**作为region proposal，最后通过对这些锚框进行分类和回归来实现目标检测。
+SSD是single-stage的经典模型。在提取图像特征时它会生成一系列不同尺度下的特征图，然后在每个尺度下使用预先定义的**锚框(anchor)**作为region proposal，最后通过对这些锚框进行分类和回归来实现目标检测。
 
 <div align=center>
 <img src="https://i.imgur.com/pfRB4yS.png" width="80%">
@@ -140,7 +140,7 @@ SSD是object detection的经典模型。在提取图像特征时它会生成一�
 
 ### You Only Look Once (YOLO)
 
-YOLO也是经典的single-stage object detection模型。为了提升模型的运行速度，YOLO没有使用类似于SSD的多尺度结构而是在单一尺度上进行目标检测。
+YOLO也是经典的single-stage模型。为了提升模型的运行速度，YOLO没有使用类似于SSD的多尺度结构而是在单一尺度上进行目标检测。
 
 <div align=center>
 <img src="https://i.imgur.com/vi0n0ST.png" width="80%">
@@ -161,3 +161,69 @@ YOLO也是经典的single-stage object detection模型。为了提升模型的�
 </div>
 
 ## Two-Stage Object Detectors
+
+single-stage方法没有显式的region proposal阶段，而是直接使用特征图来提取bounding box。而two-stage方法包含region proposal和bounding box classification两个阶段，整个目标检测流程可以分解为提取图像中的ROI然后对ROI进行分类。
+
+<div align=center>
+<img src="https://i.imgur.com/u6we4Yr.png" width="80%">
+</div>
+
+### R-CNN
+
+早期的two-stage模型使用selective search来获得ROI，然后使用CNN对这些区域进行分类作为最终的bounding box。这种方式的缺陷在于selective search的计算效率是非常低下的，基本无法做到实时计算。
+
+<div align=center>
+<img src="https://i.imgur.com/kIBfL5v.png" width="80%">
+</div>
+
+同时在对ROI进行分类时每个proposal都会使用CNN进行计算，这又导致了计算资源的浪费。
+
+<div align=center>
+<img src="https://i.imgur.com/StKWejr.png" width="80%">
+</div>
+
+### Fast R-CNN
+
+为了提升R-CNN的计算效率，在Fast R-CNN中首先将图像送入网络生成特征图，而在后续进行分类时则直接从特征图上提取ROI对应的区域作为分类特征。
+
+<div align=center>
+<img src="https://i.imgur.com/NeEDsGo.png" width="80%">
+</div>
+
+这种做法确实避免了图像特征的重复计算，但由于ROI的尺寸是不确定的无法直接将特征向量输入到分类器中。为了解决这个问题在Fast R-CNN中还提出了**ROI pooling**运算，它会将ROI划分为指定尺寸的网格并进行池化运算，这样就保证了任意大小的ROI都会生成固定尺寸的特征向量。
+
+<div align=center>
+<img src="https://i.imgur.com/oMVqUMa.png" width="80%">
+</div>
+
+这样就实现了端对端的目标检测。
+
+<div align=center>
+<img src="https://i.imgur.com/xB00K2g.png" width="80%">
+</div>
+
+### Faster R-CNN
+
+在Faster R-CNN中更进一步提出了**RPN(region proposal network)**来代替selective search进行region proposal。RPN的思想是在特征图上进行二分类来获得proposal，而后续的分类网络则是在特征图上对proposal进行分类。
+
+<div align=center>
+<img src="https://i.imgur.com/Iomwm0d.png" width="80%">
+</div>
+
+在RPN中同样使用了anchor的概念，每个anchor对应object得分以及bounding box的位置。在训练RPN时需要对object得分进行分类同时对bounding box的位置进行回归。
+
+<div align=center>
+<img src="https://i.imgur.com/H2MEtwd.png" width="80%">
+</div>
+
+### Mask R-CNN
+
+目前R-CNN系列模型已经发展到了Mask R-CNN，它不仅可以进行目标检测还可以对检测到的目标进行实例分割。
+
+<div align=center>
+<img src="https://i.imgur.com/TVPYpGe.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/MmQ5HM3.png" width="80%">
+</div>
