@@ -272,6 +272,8 @@ OMSCS-DL:
     children:
       - title: Introduction to Structured Representations
         url: /2022/02/28/OMSCS-DL-NOTES-11.html
+      - title: Language Models
+        url: /2022/02/28/OMSCS-DL-NOTES-12.html
   - title: Advanced Topics
 
 OMSCS-SIM:
