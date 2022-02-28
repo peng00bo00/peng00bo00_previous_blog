@@ -129,4 +129,73 @@ LSTM的正向计算过程可参见下图。
 
 ## RNN Language Model
 
+使用RNN训练语言模型只需要把词序列中的每个词作为输入然后用RNN来预测输出即可。
+
+<div align=center>
+<img src="https://i.imgur.com/s0XeUp3.png" width="80%">
+<img src="https://i.imgur.com/eQfsEo6.png" width="80%">
+</div>
+
+### Evaluating LM Performance
+
+要衡量模型的性能一般可以使用交叉熵(cross entropy)，交叉熵越小模型的性能就越好。
+
+<div align=center>
+<img src="https://i.imgur.com/2QT02IF.png" width="80%">
+</div>
+
+另一种常用的度量是**困惑度(perplexity)**，它是交叉熵的指数形式。
+
+<div align=center>
+<img src="https://i.imgur.com/Yvub8qG.png" width="80%">
+</div>
+
+### Training
+
+还需要说明的是在训练RNN时会使用给定的序列作为输入而不是语言模型预测出的词来进行训练。
+
+<div align=center>
+<img src="https://i.imgur.com/mPhWMRS.png" width="80%">
+</div>
+
 ## Masked Language Models
+
+目前性能最好的语言模型是基于掩码的预训练语言模型。这类语言模型一般是通过设计一个单独的预训练任务来获得，然后结合到不同的下游任务中以提高下游任务的性能。
+
+<div align=center>
+<img src="https://i.imgur.com/NbkCj7X.png" width="80%">
+</div>
+
+在训练语言模型时要求遮住一部分输入数据，然后利用模型来预测这些词来完成训练。
+
+<div align=center>
+<img src="https://i.imgur.com/HuDDUrH.png" width="80%">
+</div>
+
+得到语言模型和词嵌入后可以把它们作为下游任务的一部分继续训练。
+
+<div align=center>
+<img src="https://i.imgur.com/5C21YD6.png" width="80%">
+<img src="https://i.imgur.com/2tls8yB.png" width="80%">
+</div>
+
+同样的思路也可以用在机器翻译中，通过一个额外的语种嵌入来训练语言模型。
+
+<div align=center>
+<img src="https://i.imgur.com/WXuvoEs.png" width="80%">
+</div>
+
+## Knowledge Distillation
+
+目前这种基于预训练的超大规模语言模型已经统治了整个NLP领域，并且在一些指标上已经接近甚至超过了人类水平。
+
+<div align=center>
+<img src="https://i.imgur.com/03pRFjF.png" width="80%">
+</div>
+
+然而这些语言模型都具有海量的参数，在训练时也需要非常多的资源，在很多应用场景中我们无法部署这样的大型模型。为了缓解这样的问题，可以使用**知识蒸馏(knowledge distillation)**的方式来训练一个比较小的student模型作为替代。使用知识蒸馏进行训练时需要让大型的预训练模型来指导student模型，这需要在设计损失函数时同时考虑student模型与目标结果以及预训练模型结果这两部分的损失。
+
+<div align=center>
+<img src="https://i.imgur.com/m0KTBjM.png" width="80%">
+<img src="https://i.imgur.com/A86cfsf.png" width="80%">
+</div>
