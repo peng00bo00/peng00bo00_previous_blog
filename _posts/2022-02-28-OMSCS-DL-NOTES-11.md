@@ -68,7 +68,7 @@ sidebar:
 <img src="https://i.imgur.com/5vDhYmW.png" width="80%">
 </div>
 
-在进行消息传播时一种流行的方式是使用注意力机制。注意力机制往往会使用softmax()函数为每个节点分配不同的注意力权重，这样发送信息时会更加高效。
+在进行消息传播时一种流行的方式是使用注意力机制。注意力机制往往会使用softmax()函数为每个节点分配不同的注意力权重，这样在进行消息传播时会更加高效。
 
 <div align=center>
 <img src="https://i.imgur.com/KVUPMK7.png" width="80%">
