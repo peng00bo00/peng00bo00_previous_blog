@@ -269,7 +269,7 @@ OMSCS-DL:
       - title: Bias and Fairness
         url: /2022/02/21/OMSCS-DL-NOTES-10.html
   - title: Structured Neural Representations
-    childre:
+    children:
       - title: Introduction to Structured Representations
         url: /2022/02/28/OMSCS-DL-NOTES-11.html
   - title: Advanced Topics
