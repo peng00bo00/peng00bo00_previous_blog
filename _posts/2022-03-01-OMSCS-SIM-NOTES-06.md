@@ -20,7 +20,7 @@ sidebar:
 
 ## Some lousy generators
 
-早期的随机数生成算法是基于物理过程来产生真实的随机数，这类方法产生的结果有很好的随机性但几乎无法进行重复试验。后来人们还整理了随机数表格然后通过查表的方式来产生可复现的随机数。
+早期的随机数生成算法是基于物理过程来产生真实的随机数，这类方法产生的结果有很好的随机性但几乎无法进行重复试验。在此基础上人们还整理了随机数表格然后通过查表的方式来产生可复现的随机数。
 
 <div align=center>
 <img src="https://i.imgur.com/4zHNcm9.png" width="80%">
@@ -51,7 +51,7 @@ sidebar:
 
 ## Tausworthe Generator
 
-除了LCG外目前常用的随机数生成器还包括**Tausworthe生成器(Tausworthe generator)**。Tausworthe生成器定义了一个随机比特序列$B_i$，它通过位运算来生成新的比特。
+除了LCG外目前常用的随机数生成器还包括**Tausworthe生成器(Tausworthe generator)**。Tausworthe生成器定义了一个比特序列$B_i$，它通过位运算来生成新的比特。
 
 <div align=center>
 <img src="https://i.imgur.com/fUsCb5m.png" width="80%">
@@ -65,6 +65,22 @@ sidebar:
 </div>
 
 ## Generalizations of LCGs
+
+在实际使用LCG时一般会进行一些拓展，最常用的拓展方法是将线性变换推广成向量乘法，即每次取前$q$次的结果来计算新的随机数。
+
+<div align=center>
+<img src="https://i.imgur.com/AKylKQm.png" width="80%">
+</div>
+
+另一种常用的拓展方法是将两个LCG组合起来形成一个新的随机数生成器。
+
+<div align=center>
+<img src="https://i.imgur.com/uOJgFOJ.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/E3eJG9J.png" width="80%">
+</div>
 
 ## Choosing a Good Generator
 
