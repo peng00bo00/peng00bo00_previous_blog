@@ -76,15 +76,28 @@ sidebar:
 
 <div align=center>
 <img src="https://i.imgur.com/uOJgFOJ.png" width="80%">
+<img src="https://i.imgur.com/E3eJG9J.png" width="80%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/E3eJG9J.png" width="80%">
+<img src="https://i.imgur.com/5pFxexT.png" width="80%">
 </div>
 
 ## Choosing a Good Generator
 
 ### Some Theory
+
+关于LCG还有很多理论上的性质，这些性质证明起来比较复杂这里直接介绍相关的结论。
+
+<div align=center>
+<img src="https://i.imgur.com/hhHHnjz.png" width="80%">
+<img src="https://i.imgur.com/tmwrFpS.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/UHgwC7v.png" width="80%">
+<img src="https://i.imgur.com/5z087un.png" width="80%">
+</div>
 
 ### Statistical Tests
 
