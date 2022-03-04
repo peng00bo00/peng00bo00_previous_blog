@@ -242,6 +242,8 @@ PBRT:
         url: /2022/02/12/PBRT-NOTES-08.html
       - title: Light Sources
         url: /2022/02/27/PBRT-NOTES-09.html
+      - title: Monte Carlo Integration
+        url: /2022/03/04/PBRT-NOTES-09.html
 
 OMSCS-DL:
   - title: Introduction to Neural Networks
