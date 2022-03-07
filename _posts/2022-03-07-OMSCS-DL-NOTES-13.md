@@ -136,6 +136,72 @@ word2vec使用了softmax函数来计算正样本的概率。对于中心词$w_t$
 <img src="https://i.imgur.com/UsQzf0D.png" width="80%">
 </div>
 
-## World2vec
+## Applications
+
+接下来我们介绍各种嵌入技术的应用。
+
+### TagSpace, PageSpace
+
+TagSpace的目标是获得用户文本对应的标签，而PageSpace则描述了不同用户主页之间的相互关系。它们在社交媒体和门户网站中有着重要的应用价值。
+
+<div align=center>
+<img src="https://i.imgur.com/RAsZz1g.png" width="80%">
+<img src="https://i.imgur.com/sSV9U56.png" width="80%">
+</div>
+
+### VideoSpace
+
+类似地，我们可以对视频进行嵌入。每个视频包含的信息包括上传用户的个人信息、视频的图像信息以及文字描述信息。通过获取每个视频的嵌入我们可以更好地对视频内容进行甄别，同时也便于把视频推送给感兴趣的用户。
+
+<div align=center>
+<img src="https://i.imgur.com/uO2PUXV.png" width="80%">
+</div>
+
+### world2vec
+
+更进一步，我们可以把用户的任意信息通过图来表示，然后获取图上节点的嵌入。
+
+<div align=center>
+<img src="https://i.imgur.com/KUHroQQ.png" width="80%">
+</div>
+
+得到嵌入向量后就可以实现各种不同的功能，比如说分析用户的喜好、检测用户的异常行为、推送用户可能感兴趣的信息等。
+
+<div align=center>
+<img src="https://i.imgur.com/vBJ2K6A.png" width="80%">
+</div>
+
+同时图嵌入本身也有很多有价值的信息，比如说检测图上的不同聚类、把嵌入向量作为下游分类器的输入等。
+
+<div align=center>
+<img src="https://i.imgur.com/FgjW7DL.png" width="80%">
+</div>
+
+整个图嵌入的训练过程可以参考下图。
+
+<div align=center>
+<img src="https://i.imgur.com/Fg1iVu0.png" width="80%">
+</div>
+
+对于大规模的图数据，可以使用PyTorch-BigGraph来进行处理。
+
+<div align=center>
+<img src="https://i.imgur.com/hMnFnPt.png" width="80%">
+<img src="https://i.imgur.com/6WZXToK.png" width="80%">
+<img src="https://i.imgur.com/0rRs6r1.png" width="80%">
+</div>
 
 ## Additional Topics
+
+除了标准的图嵌入方法之外，一些近期的研究还试图学习节点之间的结构化嵌入。
+
+<div align=center>
+<img src="https://i.imgur.com/DOuP9ap.png" width="80%">
+</div>
+
+同时一些研究还表明嵌入可能是有倾向性的，如何识别并去除数据集的偏见也是一个热门的研究领域。
+
+<div align=center>
+<img src="https://i.imgur.com/DTYTD4P.png" width="80%">
+<img src="https://i.imgur.com/RbDCxuz.png" width="80%">
+</div>
