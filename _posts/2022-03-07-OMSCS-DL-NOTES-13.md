@@ -12,7 +12,7 @@ sidebar:
 > 这个系列是Gatech OMSCS 深度学习课程([CS 7643: Deep Learning](https://omscs.gatech.edu/cs-7643-deep-learning))的同步课程笔记。课程内容涉及深度学习的基本理论方法以及它在计算机视觉、自然语言处理以及决策理论等领域中的应用，本节主要介绍各种嵌入技术。
 <!--more-->
 
-**嵌入(embedding)**的目的是获得不同对象的结构化表示。在深度学习中embedding一般是指通过一个神经网络来将不同类型的对象向量表示，embedding的对象可以是词、图片、句子、概念等等。一个好的embedding需要将具有相似属性的对象映射到相邻的空间中，因此embedding问题的核心是如何训练神经网络来获得合适的embedding向量。
+**嵌入(embedding)**的目的是获得不同对象的结构化表示。在深度学习中embedding一般是指通过一个神经网络来将不同类型的对象转换为向量表示，embedding的对象可以是词、图片、句子、概念等等。一个好的embedding需要将具有相似属性的对象映射到相邻的空间中，因此embedding问题的核心是如何训练神经网络来获得合适的embedding向量。
 
 <div align=center>
 <img src="https://i.imgur.com/ZIPMwWv.png" width="80%">
@@ -21,13 +21,13 @@ sidebar:
 
 ## Word Embeddings
 
-**词嵌入(word embedding)**是NLP中的一个基础方法。它的基本思想是每个单词的意思是由它的上下文语境来决定的，因此可以通过单词的上下文来建立词向量。
+**词嵌入(word embedding)**是NLP中的一个基础方法。它的基本原理是**语义的分布假设(distributional semantics)**，即每个单词的语义是由它的上下文语境来决定的，因此可以通过单词的上下文来建立词向量。
 
 <div align=center>
 <img src="https://i.imgur.com/7cZY7xb.png" width="80%">
 </div>
 
-词嵌入并不是一个特别新的技术，实际上早在03年就提出了通过大量语料训练词向量的方法。不过词嵌入的大规模应用则要归功于13年提出的**word2vec**方法。
+实际上词嵌入并不是一个特别新的技术，早在03年就提出了通过大量语料训练词向量的方法。不过词嵌入的大规模应用则要归功于13年提出的**word2vec**方法。
 
 <div align=center>
 <img src="https://i.imgur.com/eN2HULc.png" width="80%">
@@ -62,7 +62,7 @@ word2vec使用了softmax函数来计算正样本的概率。对于中心词$w_t$
 <img src="https://i.imgur.com/T2S6W01.png" width="80%">
 </div>
 
-显然直接计算分母的代价过于巨大，实践中更常用的方法是通过**负样本采样(negative sampling)**来进行训练。在构造负样本时可以通过随机采样的方式选取正样本$k$倍的随机词来取代上下文词，然后训练一个二分类模型来获得最终所需的词向量。此时整个训练过程相当于最大化正样本出现的概率同时最小化负样本出现的概率。
+显然直接计算分母的代价过于巨大，因此实践中更常用的方法是通过**负样本采样(negative sampling)**来进行训练。在构造负样本时可以通过随机采样的方式选取正样本$k$倍的随机词来取代上下文词，然后训练一个二分类模型来获得最终所需的词向量。此时整个训练过程相当于最大化正样本出现的概率同时最小化负样本出现的概率。
 
 <div align=center>
 <img src="https://i.imgur.com/1yawVC0.png" width="80%">
@@ -90,6 +90,52 @@ word2vec使用了softmax函数来计算正样本的概率。对于中心词$w_t$
 
 ## Graph Embeddings
 
-## world2vec
+很多现实生活中的数据可以使用图结构来进行表示，通过**图嵌入(graph embedding)**技术我们可以研究图上不同之间的关系。
+
+<div align=center>
+<img src="https://i.imgur.com/3FTOTT4.png" width="80%">
+</div>
+
+图数据一个常见的例子是**推荐系统(recommender system)**。这样的图上包含用户和商品两类节点，而用户对商品的评价构成了图的边。当我们利用图嵌入学习到不同用户和商品的表示后就可以更有针对性地为用户推荐商品。
+
+<div align=center>
+<img src="https://i.imgur.com/z1IDuwo.png" width="80%">
+</div>
+
+图嵌的目标是获得图上每个节点的表示，使得有边相连接的节点有相似的节点向量。同时图嵌入的学习过程更类似于**无监督学习(unsupervised learning)**，我们无法事先得知每个节点的嵌入信息而是通过图结构来获取它们的嵌入。获得图嵌入后除了分析节点之间的关系外还可以使用节点向量来辅助下游的各种任务。
+
+<div align=center>
+<img src="https://i.imgur.com/peelTX1.png" width="80%">
+<img src="https://i.imgur.com/juh6MkB.png" width="80%">
+</div>
+
+在训练图嵌入时可以使用图上的边作为单位进行采样。首先我们需要去度量节点之间的相似度，一种常用的方法是通过cos距离来度量起点嵌入$\theta_s$和终点嵌入$\theta_d$之间的差异，如果图上有不止一种边的类型则还需要考虑不同边的种类$\theta_r$。这样我们可以把图上已有的边作为正样本，随机调整这些边得到负样本，通过训练SVM获得每个节点和边类型的嵌入。
+
+<div align=center>
+<img src="https://i.imgur.com/LEaJKzV.png" width="80%">
+<img src="https://i.imgur.com/V1GKE7K.png" width="80%">
+<img src="https://i.imgur.com/yu3lyh2.png" width="80%">
+</div>
+
+对于包含多种类型边的图，我们可以使用不同的方式对这些节点关系进行建模。
+
+<div align=center>
+<img src="https://i.imgur.com/kQOu7Gq.png" width="80%">
+</div>
+
+目前图嵌入已经在现实生活中取得了一定的应用。最常见的例子是知识图谱和问答系统，通过对知识库进行嵌入我们可以通过对图进行查询的方法来回答提问者的问题。除此之外直接对图上的节点进行可视化也能够发现嵌入后的节点具有一些聚类的性质。
+
+<div align=center>
+<img src="https://i.imgur.com/qUBNsLd.png" width="80%">
+<img src="https://i.imgur.com/vrgUhlL.png" width="80%">
+</div>
+
+对于大规模的图，如何计算负样本得分对于训练效率有着尤为重要的影响。试验表明，通过一些批量化的方法可以上百倍地提高训练的效率。
+
+<div align=center>
+<img src="https://i.imgur.com/UsQzf0D.png" width="80%">
+</div>
+
+## World2vec
 
 ## Additional Topics
