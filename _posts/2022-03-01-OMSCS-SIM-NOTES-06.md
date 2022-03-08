@@ -9,7 +9,7 @@ sidebar:
   nav: OMSCS-SIM
 ---
 
-> 这个系列是Gatech OMSCS 仿真和建模课程([ISYE 6644: Simulation and Modeling for Engineering and Science](https://omscs.gatech.edu/isye-6644-simulation-and-modeling-engineering-and-science))的同步课程笔记。课程内容涉及计算机模拟在统计分析和建模中的应用，本节介绍常用的随机数生成方法。
+> 这个系列是Gatech OMSCS 仿真和建模课程([ISYE 6644: Simulation and Modeling for Engineering and Science](https://omscs.gatech.edu/isye-6644-simulation-and-modeling-engineering-and-science))的同步课程笔记。课程内容涉及计算机模拟在统计分析和建模中的应用，本节介绍各种均匀分布随机数的生成方法。
 <!--more-->
 
 生成(0, 1)区间上的均匀分布随机数是各种随机模拟技术的基础，利用Uniform(0,1)可以构造出各种不同类型的随机变量。因此随机数生成算法的目标是产生一个伪随机数序列且它们服从相互独立的均匀分布。
