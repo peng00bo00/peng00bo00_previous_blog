@@ -241,7 +241,7 @@ $$
 <img src="https://i.imgur.com/VMuDFMM.png" width="80%">
 </div>
 
-因此可以利用计数过程来模拟单位时间内的到达数量。同时注意到相邻的到达时间服从指数分布Exp($\lambda$)，这样就可以利用指数分布的随机数序列来模拟计数过程。
+因此可以利用计数过程来生成Poisson分布的随机数。同时注意到相邻到达的时间间隔服从指数分布Exp($\lambda$)，这样就可以利用指数分布的随机数序列来模拟计数过程。
 
 <div align=center>
 <img src="https://i.imgur.com/BmaBBg8.png" width="80%">
