@@ -120,7 +120,7 @@ Erlang分布则是指数分布的和。
 <img src="https://i.imgur.com/nUyqVFC.png" width="80%">
 </div>
 
-利用CLT我们还可以构造出标准正态分布。
+根据CLT我们还可以利用大量的均匀分布来构造出标准正态分布。
 
 <div align=center>
 <img src="https://i.imgur.com/AZGPBYL.png" width="80%">
@@ -162,7 +162,104 @@ $$
 
 ### Proof
 
+接下来我们证明一下接受-拒绝方法的正确性。记事件$A$为接受样本$Y$，那么按照接受-拒绝方法得到的样本具有CDF：
+
+$$
+P(X \leq x) = P(Y \leq x \vert A) = \frac{P(A, Y \leq x)}{P(A)}
+$$
+
+而对于事件$A$则有：
+
+$$
+\begin{aligned}
+P(A \vert Y = y) &= P(U \leq g(Y) \vert Y = y) \\
+&= P(U \leq g(y) \vert Y = y) \\
+&= P(U \leq g(y)) \\
+&= g(y)
+\end{aligned}
+$$
+
+利用全概率公式可以得到联合概率：
+
+$$
+\begin{aligned}
+P(A, Y \leq x) &= \int_{-\infty}^\infty P(A, Y \leq x \vert Y = y) h(y) \ dy \\
+&= \int_{-\infty}^x P(A \vert Y = y) h(y) \ dy \\
+&= \frac{1}{c} \int_{-\infty}^x P(A \vert Y = y) t(y) \ dy \\
+&= \frac{1}{c} \int_{-\infty}^x g(y) t(y) \ dy \\
+&= \frac{1}{c} \int_{-\infty}^x f(y) \ dy
+\end{aligned}
+$$
+
+令$x \to \infty$可以得到：
+
+$$
+P(A) = \frac{1}{c} \int_{-\infty}^\infty f(y) \ dy = \frac{1}{c}
+$$
+
+把上面的这些式子带入CDF有：
+
+$$
+P(X \leq x) = \frac{P(A, Y \leq x)}{P(A)} = \int_{-\infty}^x f(y) \ dy
+$$
+
+因此$X$的PDF即为$f(x)$：
+
+$$
+\frac{d P(X \leq x)}{dx} = \frac{d}{dx} \int_{-\infty}^x f(y) \ dy = f(x)
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/q8zPyLo.png" width="80%">
+<img src="https://i.imgur.com/Yr1tzb9.png" width="80%">
+<img src="https://i.imgur.com/8K0NvPu.png" width="80%">
+</div>
+
 ### Continuous Examples
+
+在使用接受-拒绝方法进行采样时一般要求已知分布$h(y)$可以进行快速的采样，同时常数$c$需要尽可能接近1，这样可以保证不会拒绝掉太多的样本。
+
+<div align=center>
+<img src="https://i.imgur.com/cLPUtVc.png" width="80%">
+</div>
+
+对于CDF不可逆的函数我们无法使用逆变换方法进行采样，此时仍然可以使用接受-拒绝方法：
+
+<div align=center>
+<img src="https://i.imgur.com/IKD0SPg.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/AFRfc74.png" width="80%">
+</div>
+
+### Poisson Distribution
+
+接受-拒绝方法的经典应用是生成Poisson分布的随机数，这里介绍一种接受-拒绝方法的变体。根据定义，Poisson分布的样本可以理解为计数过程单位时间内的到达数量，参数$\lambda$为单位时间内的平均到达数量。
+
+<div align=center>
+<img src="https://i.imgur.com/VMuDFMM.png" width="80%">
+</div>
+
+因此可以利用计数过程来模拟单位时间内的到达数量。同时注意到相邻的到达时间服从指数分布Exp($\lambda$)，这样就可以利用指数分布的随机数序列来模拟计数过程。
+
+<div align=center>
+<img src="https://i.imgur.com/BmaBBg8.png" width="80%">
+</div>
+
+上面的推导说明我们只需要从均匀分布中采样出一个随机数序列，选择它们累乘恰好小于$e^{-\lambda}$时的序数即为来自Poisson分布的样本。
+
+<div align=center>
+<img src="https://i.imgur.com/FklndIq.png" width="80%">
+<img src="https://i.imgur.com/Hk4F1dO.png" width="80%">
+</div>
+
+对于参数$\lambda$比较大的情况还可以利用正态分布的随机数来近似Poisson分布。
+
+<div align=center>
+<img src="https://i.imgur.com/EpGjC8w.png" width="80%">
+<img src="https://i.imgur.com/wFzb7WD.png" width="80%">
+</div>
 
 ## Composition Method
 
@@ -171,3 +268,7 @@ $$
 ## Multivariate Normal Distribution
 
 ## Generating Stochastic Process
+
+## Reference
+
+- [Random Variate Generation](https://www2.isye.gatech.edu/~sman/courses/6644/Module07-RandomVariateGenerationSlides-201026.pdf)
