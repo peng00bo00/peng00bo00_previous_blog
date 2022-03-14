@@ -22,7 +22,7 @@ sidebar:
 
 ### Review of Softmax Function
 
-softmax函数是在多分类问题中非常常用的函数，它可以把给定的向量转换成一个概率分布。
+softmax函数是在分类问题中非常常用的函数，它可以把给定的向量转换成一个概率分布。
 
 <div align=center>
 <img src="https://i.imgur.com/gqKUD0q.png" width="80%">
@@ -60,5 +60,49 @@ softmax函数是在多分类问题中非常常用的函数，它可以把给定�
 </div>
 
 ## Attention
+
+attention的核心是计算一个关于输入的分布，根据对这个分布的使用方法可以分为hard和soft两类。目前在深度学习中常用的attention方法是soft attention，即把概率分布当做是加权求和的权重进行处理。
+
+<div align=center>
+<img src="https://i.imgur.com/78Zb5d4.png" width="80%">
+</div>
+
+### Attention in Machine Vision
+
+实际上attention方法也不是一个特别新的概念。在机器视觉领域，人们很早就提出了类似的方法对图像中的ROI进行定位。
+
+<div align=center>
+<img src="https://i.imgur.com/hq8jaJv.png" width="80%">
+</div>
+
+### Attention in NLP
+
+甚至在NLP领域中attention的思想也不是近几年才出现的。以机器翻译为例，在90年代人们就发现了翻译中的词和词之间不一定是一一对应的，因此可以利用一个概率分布来辅助机器翻译的过程。这种alignment的方式可以看做是attention的雏形。
+
+<div align=center>
+<img src="https://i.imgur.com/4GMuTuC.png" width="80%">
+</div>
+
+### Attention as a Layer
+
+目前attention的主流实现方法是把它作为网络的一个中间层。一般来说attention层包括一个输入向量集合$U$以及一个查询向量$q$，进行前向计算时利用softmax函数计算$U$和$q$内积的概率分布，然后再对$U$进行加权得到输出。
+
+<div align=center>
+<img src="https://i.imgur.com/gNgQ2FC.png" width="80%">
+<img src="https://i.imgur.com/B9xqtmv.png" width="80%">
+</div>
+
+从这样的角度来看attention层和fully connection层没有什么本质区别。把attention层串联在一起就得到了一种新的网络架构。
+
+<div align=center>
+<img src="https://i.imgur.com/YsKAiBp.png" width="80%">
+</div>
+
+在不同的应用中需要注意如何取设置向量集合$U$以及查询向量$q$，比如说在NLP中往往会把$U$设置为词向量而把$q$设置为隐状态。同时如果需要考虑输入元素的相对位置关系，还可以显式地添加position encoding进行训练。
+
+<div align=center>
+<img src="https://i.imgur.com/SitYnuc.png" width="80%">
+<img src="https://i.imgur.com/82TgmEj.png" width="80%">
+</div>
 
 ## Transformers
