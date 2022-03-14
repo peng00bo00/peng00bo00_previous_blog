@@ -115,7 +115,7 @@ attention模型的大规模应用得益于Transformer在NLP领域的展现出的
 
 ### Self-Attention
 
-self-attention直接把$U$中的每个元素$u_i$来计算查询向量。
+self-attention直接使用$U$中的每个元素$u_i$来计算查询向量。
 
 <div align=center>
 <img src="https://i.imgur.com/Mrock1b.png" width="80%">
