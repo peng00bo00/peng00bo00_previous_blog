@@ -14,7 +14,7 @@ sidebar:
 
 ## Softmax and Preview of Attention
 
-**注意力模型(attentaion model)**是最近几年深度学习领域非常火爆的模型。简单来说注意力模型的核心是为输入分配不同的计算权重，权重的大小一般可由softmax函数来动态确定。因此在介绍注意力模型的原理之前我们先回顾一下softmax函数。
+**注意力模型(attentaion model)**是最近几年深度学习领域非常火爆的模型。简单来说attentaion模型的核心是为输入分配不同的计算权重，权重的大小一般可由softmax函数来动态确定。因此在介绍attentaion模型的原理之前我们先回顾一下softmax函数。
 
 <div align=center>
 <img src="https://i.imgur.com/OY3k0MU.png" width="80%">
@@ -42,7 +42,7 @@ softmax函数是在分类问题中非常常用的函数，它可以把给定的�
 
 ### Selecting a Vector from a Set
 
-在很多应用场景中我们需要根据一个查询向量$q$来获取给定向量集合$U=\{ u_1, ..., u_N\}$中最接近的一个向量。最直观的做法是把$q$和$U$中的每一个向量做内积然后选择其中最大的那个作为输出；而利用softmax函数我们也可以对$U$计算概率来实现类似的功能。这种使用softmax函数来计算权重的方法称为**softmax注意力(softmax attention)**。
+在很多应用场景中我们需要根据一个查询向量$q$来获取给定向量集合$U=\{ u_1, ..., u_N\}$中最接近的一个向量。最直观的做法是把$q$和$U$中的每一个向量做内积然后选择其中最大的那个作为输出；而利用softmax函数我们也可以对$U$计算概率来实现类似的功能。这种使用softmax函数来计算权重的方法称为**softmax attention**。
 
 <div align=center>
 <img src="https://i.imgur.com/tmeLaHy.png" width="80%">
@@ -106,3 +106,36 @@ attention的核心是计算一个关于输入的分布，根据对这个分布�
 </div>
 
 ## Transformers
+
+attention模型的大规模应用得益于Transformer在NLP领域的展现出的强大性能。和传统的attention模型相比，Transformer的改进可以归结为self-attention、multi-head attention以及residual connections, layerNorm等几部分。
+
+<div align=center>
+<img src="https://i.imgur.com/K6lDFIA.png" width="80%">
+</div>
+
+### Self-Attention
+
+self-attention直接把$U$中的每个元素$u_i$来计算查询向量。
+
+<div align=center>
+<img src="https://i.imgur.com/Mrock1b.png" width="80%">
+</div>
+
+### Multi-Head Attention
+
+在multi-head attention中则会在一个attention层中同时计算多个加权向量，最后把它们用一个全连接层把它们组合起来作为整个attention层的输出。
+
+<div align=center>
+<img src="https://i.imgur.com/dmN5plS.png" width="80%">
+<img src="https://i.imgur.com/KWA4DP8.png" width="80%">
+</div>
+
+residual connections和layerNorm跟attention模型的关系不大，这里就不多做介绍了。除了标准Transformer外在不同的NLP任务中还会对模型进行一定的调整，根据任务自身的特点可以为Transformer添加position encoding、在训练language model时可以引入causal attention遮住句子中的一部分内容，以及在训练时使用一些加速的技巧等。
+
+<div align=center>
+<img src="https://i.imgur.com/d1PaCzm.png" width="80%">
+</div>
+
+## Reference
+
+- [The Illustrated Transformer](http://jalammar.github.io/illustrated-transformer/)
