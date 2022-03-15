@@ -367,6 +367,106 @@ $$
 
 ## Generating Stochastic Process
 
+本节最后我们来介绍如何对随机过程进行采样。
+
+### Markov Chains
+
+**马尔科夫链(Markov chain)**是一类重要的随机过程。简单来说马尔科夫链假设了系统在发生状态转移时的转移概率只与前一时刻的状态有关，与转移的历史过程无关。因此对离散马尔科夫链进行采样时只需要在每一步单独进行采样即可。
+
+<div align=center>
+<img src="https://i.imgur.com/YFjfmvA.png" width="80%">
+<img src="https://i.imgur.com/EZJNouZ.png" width="80%">
+</div>
+
+连续的情况与离散类似，只需要针对前一时刻的状态重新进行采样即可。考虑**齐次Poisson过程(homogeneous Poisson process)**，我们可以利用指数分布采样出连续的到达时间间隔，然后就可以通过记数的方式来对齐次Poisson过程进行采样。
+
+<div align=center>
+<img src="https://i.imgur.com/C4UMeOU.png" width="80%">
+</div>
+
+某些情况下我们已知[a, b]时间段上的到达数总量，目标是对到达时刻进行采样。此时只需要从均匀分布U(0, 1)进行采样，然后排序并变换到区间[a, b]上即可。
+
+<div align=center>
+<img src="https://i.imgur.com/wT1e5lu.png" width="80%">
+</div>
+
+### Nonhomogeneous Poisson Process
+
+对于**非齐次Poisson过程(nonhomogeneous Poisson Process)**，参数$\lambda$不再是一个常量而是关于时间的函数$\lambda(t)$，同时[a, b]时间内的到达数服从Poisson分布：
+
+$$
+N(b) - N(a) = \text{Poi} \bigg( \int_a^b \lambda(t) \ dt \bigg)
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/3n85lsP.png" width="80%">
+</div>
+
+因此对非齐次Poisson过程进行采样的一种方法是利用$\lambda(T_i)$对时间间隔进行采样。然而这种做法是**错误**的，这是因为$\lambda(T_i)$和$\lambda(t)$并不是同步的，我们不能认为$T_i$和$T_{i+1}$时间段内的$\lambda$是一个常数。
+
+<div align=center>
+<img src="https://i.imgur.com/Xm0HdcT.png" width="80%">
+</div>
+
+正确的做法是使用**Thinning算法**进行采样，此时我们直接使用时间段上最大的$\lambda^*$来采样时间间隔，然后按照概率$\frac{\lambda(t)}{\lambda^*}$保留采样的样本。
+
+<div align=center>
+<img src="https://i.imgur.com/vJiwpQv.png" width="80%">
+<img src="https://i.imgur.com/6szcjJa.png" width="80%">
+<img src="https://i.imgur.com/x8ephBl.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/HZhxxJB.png" width="80%">
+</div>
+
+### Time Series
+
+对于**时间序列(time series)**一般可以直接根据定义来进行采样。
+
+#### MA
+
+<div align=center>
+<img src="https://i.imgur.com/kTfuZd0.png" width="80%">
+<img src="https://i.imgur.com/KVCRf5h.png" width="80%">
+</div>
+
+#### AR
+
+<div align=center>
+<img src="https://i.imgur.com/2twthOO.png" width="80%">
+<img src="https://i.imgur.com/kAImDFO.png" width="80%">
+</div>
+
+#### ARMA
+
+<div align=center>
+<img src="https://i.imgur.com/z9k4ZsA.png" width="80%">
+</div>
+
+#### EAR
+
+<div align=center>
+<img src="https://i.imgur.com/cAkceHD.png" width="80%">
+</div>
+
+#### ARP
+
+<div align=center>
+<img src="https://i.imgur.com/pgDQrJJ.png" width="80%">
+<img src="https://i.imgur.com/NNsuYBs.png" width="80%">
+</div>
+
+### Queuing
+
+对于排队问题我们也有非常简单的采样方法。只要采样出了到达时刻和服务时间，其它的参数都可以通过定义计算出来。
+
+<div align=center>
+<img src="https://i.imgur.com/rRmEXyq.png" width="80%">
+</div>
+
+### Brownian Motion
+
 ## Reference
 
 - [Random Variate Generation](https://www2.isye.gatech.edu/~sman/courses/6644/Module07-RandomVariateGenerationSlides-201026.pdf)
