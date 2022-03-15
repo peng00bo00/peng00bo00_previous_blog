@@ -474,7 +474,7 @@ $$
 <img src="https://i.imgur.com/qWmQekj.png" width="80%">
 </div>
 
-对布朗运动进行采样的理论基础是**Donsker定理(Donsker's theorem)**，它指出均值为0方差为1的独立同分布随机变量序列会收敛到标准布朗运动上：
+对布朗运动进行采样的理论基础是**Donsker定理(Donsker's theorem)**，它指出均值为0方差为1的独立同分布随机变量序列经过变换后会收敛到标准布朗运动上：
 
 <div align=center>
 <img src="https://i.imgur.com/HZl9BFI.png" width="80%">
