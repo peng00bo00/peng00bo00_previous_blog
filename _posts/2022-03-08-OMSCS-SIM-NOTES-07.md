@@ -471,6 +471,35 @@ $$
 
 <div align=center>
 <img src="https://i.imgur.com/y1yj8b3.png" width="80%">
+<img src="https://i.imgur.com/qWmQekj.png" width="80%">
+</div>
+
+对布朗运动进行采样的理论基础是**Donsker定理(Donsker's theorem)**，它指出均值为0方差为1的独立同分布随机变量序列会收敛到标准布朗运动上：
+
+<div align=center>
+<img src="https://i.imgur.com/HZl9BFI.png" width="80%">
+</div>
+
+在此基础上就可以利用Bernoulli分布或是标准正态分布的样本来构造出布朗运动。
+
+<div align=center>
+<img src="https://i.imgur.com/6UL6erB.png" width="80%">
+</div>
+
+布朗运动的一些常用性质如下：
+
+<div align=center>
+<img src="https://i.imgur.com/MxjLgYu.png" width="80%">
+</div>
+
+#### Geometric Brownian Motion
+
+布朗运动的一个常见变体是**几何布朗运动(geometric Brownian motion)**，它可以用来对股票价格进行建模。
+
+<div align=center>
+<img src="https://i.imgur.com/TKq7r31.png" width="80%">
+<img src="https://i.imgur.com/ea5EhFN.png" width="80%">
+<img src="https://i.imgur.com/veukhhG.png" width="80%">
 </div>
 
 ## Reference
