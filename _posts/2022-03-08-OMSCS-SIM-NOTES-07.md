@@ -408,7 +408,7 @@ $$
 <img src="https://i.imgur.com/Xm0HdcT.png" width="80%">
 </div>
 
-正确的做法是使用**Thinning算法**进行采样，此时我们直接使用时间段上最大的$\lambda^*$来采样时间间隔，然后按照概率$\frac{\lambda(t)}{\lambda^*}$保留采样的样本。
+正确的做法是使用**Thinning算法**进行采样，此时我们直接使用时间段上最大的$\lambda^{*}$来采样时间间隔，然后按照概率$\frac{\lambda(t)}{\lambda^{*}}$保留采样的样本。
 
 <div align=center>
 <img src="https://i.imgur.com/vJiwpQv.png" width="80%">
