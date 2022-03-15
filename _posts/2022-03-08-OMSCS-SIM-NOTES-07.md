@@ -98,8 +98,6 @@ sidebar:
 <img src="https://i.imgur.com/2RPNuQ9.png" width="80%">
 </div>
 
-## Cutpoint Method
-
 ## Convolution Method
 
 这里**卷积(convolution)**是指把随机变量加起来构造新的随机变量。比如说二项分布Bin($n$, $p$)可以看做是$n$个参数为$p$的Bernoulli分布之和。
@@ -263,9 +261,109 @@ $$
 
 ## Composition Method
 
+**composition方法(composition method)**是指利用利用两个随机变量来构造出一个新的随机变量。如果随机变量$X$的CDF可以分解为某个随机变量的概率密度和另一个随机变量CDF乘积的形式，则可以使用composition方法通过对这两个随机变量进行采样来构造$X$。
+
+<div align=center>
+<img src="https://i.imgur.com/CAs9772.png" width="80%">
+<img src="https://i.imgur.com/S2G2lLW.png" width="80%">
+</div>
+
+对于**Laplace分布(Laplace distribution)**，我们可以把它的CDF利用Bernoulli分布进行分解。进行采样时只需要根据Bernoulli样本的结果选择对应的CDF进行采样即可。
+
+<div align=center>
+<img src="https://i.imgur.com/LOCjxAd.png" width="80%">
+<img src="https://i.imgur.com/vQFsQef.png" width="80%">
+</div>
+
 ## Special-Case Techniques
 
+对于某些特定的分布人们还开发出了一些特殊的采样方法。
+
+### Box–Muller Method
+
+**Box–Muller方法(Box–Muller method)**是利用两个独立均匀分布来构造标准正态分布的方法。进行采样时只需要先采样出两个相互独立的均匀分布样本$U_1$和$U_2$，然后进行简单的变形即可。
+
+<div align=center>
+<img src="https://i.imgur.com/j6s9up1.png" width="80%">
+</div>
+
+利用Box–Muller方法还可以证明正态分布相关的一些性质。比如说$\chi^2(2)$分布等价于指数分布Exp(1/2)、利用正切函数来构造Cauchy分布等。
+
+<div align=center>
+<img src="https://i.imgur.com/5e8aYxX.png" width="80%">
+<img src="https://i.imgur.com/51thSX0.png" width="80%">
+</div>
+
+除了Box–Muller方法外也可以使用**Polar方法(Polar method)**来构造标准正态分布，试验表明Polar方法的计算效率要比Box–Muller方法略高一些。
+
+<div align=center>
+<img src="https://i.imgur.com/vXBxCDl.png" width="80%">
+</div>
+
+### Order Statistics
+
+**次序统计量(order statistics)**定义为独立同分布的随机变量序列$X_1, \dots , X_n$中最小的那个，即$Y = \min \{ X_1, \dots, X_n \}$。显然$Y$也是一个随机变量，它的CDF记为$G(y)$可以通过$X_i$的CDF来进行构造。
+
+<div align=center>
+<img src="https://i.imgur.com/rRJHDGb.png" width="80%">
+<img src="https://i.imgur.com/JCELEHK.png" width="80%">
+</div>
+
+$G(y)$看起来比较复杂，但当$X_i$取某些特定的概率分布时$G(y)$往往具有十分简洁的形式。比如说当$X_i$来自指数分布Exp($\lambda$)时，$Y$服从参数为$n \lambda$的指数分布。
+
+<div align=center>
+<img src="https://i.imgur.com/6poWTqI.png" width="80%">
+</div>
+
+对于一些常用概率分布有时可能无法直接计算它们的CDF。此时可以通过概率分布之间的关系，利用简单的概率分布来构造出复杂的概率分布。
+
+<div align=center>
+<img src="https://i.imgur.com/Vx7tdPF.png" width="80%">
+</div>
+
 ## Multivariate Normal Distribution
+
+前面我们只介绍了如何生成一维随机变量的样本，在这一小节中则关注高维的正态分布。首先考虑二维的情况，对于二维正态分布我们需要两个维度上的均值、方差以及它们的相关系数来描述整个概率分布。
+
+<div align=center>
+<img src="https://i.imgur.com/OssdtVY.png" width="80%">
+</div>
+
+对于更高维度的情况我们只需要把均值和方差的概念推广到矩阵即可，因此描述高维正态分布只需要一个均值向量$\pmb{\mu}$和协方差矩阵$\pmb{\Sigma}$。
+
+<div align=center>
+<img src="https://i.imgur.com/oW5iw6I.png" width="80%">
+</div>
+
+从高维正态分布直接进行采样是比较困难的，但可以利用标准正态分布进行构造。记标准正态分布为$\pmb{Z} \sim \text{Nor}_k (\mathbf{0}, \pmb{I})$，我们可以通过一个线性变换将标准正态分布转换为所需的正态分布：
+
+$$
+\pmb{X} = \pmb{\mu} + \pmb{C} \pmb{Z}
+$$
+
+其中$\pmb{C}$为对协方差矩阵$\pmb{\Sigma}$进行Cholesky分解的结果：
+
+$$
+\pmb{\Sigma} = \pmb{C} \pmb{C}^T
+$$
+
+因此对$\pmb{X}$进行采样时只需要从$\pmb{Z}$中采样然后带入线性变换即可。
+
+<div align=center>
+<img src="https://i.imgur.com/HnM4jVy.png" width="80%">
+</div>
+
+大多数软件中都有Cholesky分解的实现，直接调用即可。
+
+<div align=center>
+<img src="https://i.imgur.com/TSInW87.png" width="80%">
+</div>
+
+综合上面的步骤可以得到多元正态分布的采样算法如下：
+
+<div align=center>
+<img src="https://i.imgur.com/ygjBAXW.png" width="80%">
+</div>
 
 ## Generating Stochastic Process
 
