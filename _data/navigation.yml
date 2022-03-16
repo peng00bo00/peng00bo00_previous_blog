@@ -221,6 +221,12 @@ GAMES103:
       - title: Smoothed Particle Hydrodynamics
         url: /2022/01/19/GAMES103-NOTES-12.html
 
+GAMES104:
+  - title: GAMES104课程笔记
+    children: 
+      - title: Overview of Game Engine
+        url: /2022/03/16/GAMES104-NOTES-01.html
+
 PBRT:
   - title: PBRT读书笔记
     children: 
