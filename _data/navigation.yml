@@ -226,6 +226,8 @@ GAMES104:
     children: 
       - title: Overview of Game Engine
         url: /2022/03/16/GAMES104-NOTES-01.html
+      - title: Layered Architecture of Game Engine
+        url: /2022/03/24/GAMES104-NOTES-02.html
 
 PBRT:
   - title: PBRT读书笔记
