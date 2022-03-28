@@ -54,6 +54,68 @@ sidebar:
 
 ## Markov Decision Processes
 
+### MDPs in the Context of RL
+
+要严格介绍强化学习则需要引入**Markov决策过程(Markov decision process, MDP)**。一个MDP包括状态空间$\mathcal{S}$、行为空间$\mathcal{A}$、奖励函数$\mathcal{R}(s, a, s')$、转移概率$\mathbb{T}(s, a, s')$以及折扣系数$\gamma$。同时MDP假定了转移概率$\mathbb{T}(s, a, s')$满足一阶Markov性，即$t$时刻到$t+1$时刻的转移概率只与$t$时刻的状态和行为有关，与状态和行为的历史无关。
+
+<div align=center>
+<img src="https://i.imgur.com/unY51D3.png" width="80%">
+</div>
+
+在强化学习中转移概率和奖励函数对于智能体是未知的，智能体只能通过和环境的互动来学习最优策略。当然在编程时程序员是需要知道转移概率和奖励函数的，毕竟这样才能编写出运行环境。
+
+<div align=center>
+<img src="https://i.imgur.com/n9x5dKO.png" width="80%">
+</div>
+
+以二维格子世界为例，智能体从三角形位置出发到达对应的格子时会获得相应的奖励。这个MDP的状态空间包括所有格子的坐标，行为空间为上下左右四个可能的前进方向，而奖励函数则是在指定格子上得到的反馈。需要说明的是环境的转移概率往往不是确定的，因此智能体实际的行为不一定完全符合规划的预期。
+
+<div align=center>
+<img src="https://i.imgur.com/J8huydN.png" width="80%">
+</div>
+
+### Solving MDPs: Optimal Policy
+
+求解MDP意味着寻找到当前环境下的**最优策略(optimal policy)**。智能体的策略可以是确定性的也可以是随机的，而一个好的策略不仅仅要考虑当前状态下的奖励，更要保证在将来的状态中有着比较高的奖励。
+
+<div align=center>
+<img src="https://i.imgur.com/Wzd8isN.png" width="80%">
+</div>
+
+我们为每一时刻$t$获得的奖励乘上一个折扣系数$\gamma^t$，定义策略$\pi$的回报为按照该策略执行后未来所有可能状态奖励的期望。这样最优策略$$\pi^*$$就是最大化这个折扣后奖励期望的策略。
+
+<div align=center>
+<img src="https://i.imgur.com/w8rXGON.png" width="80%">
+</div>
+
+### Discounting Future Rewards
+
+之所以考虑折扣后的奖励一方面是为了保证奖励序列可以收敛，另一方面通过折扣系数来控制智能体更关注于近期的奖励。一般来说$\gamma$越趋向于1越关注长期的奖励，而$\gamma$越趋向于0则会更关注短期的奖励。
+
+<div align=center>
+<img src="https://i.imgur.com/k05gjTz.png" width="80%">
+</div>
+
+### Value Function
+
+描述未来折扣后奖励期望的函数称为**价值函数(value function)**。在强化学习中包括两种价值函数：首先是描述状态$s$自身好坏的函数，称为**状态价值函数(state value function)**记为$V(s)$；另一种是描述在状态$s$下采取行为$a$的好坏的价值函数，称为**状态-行为价值函数(state-action value function)**记为$Q(s, a)$。
+
+<div align=center>
+<img src="https://i.imgur.com/YbIJ9Qe.png" width="80%">
+</div>
+
+状态价值函数定义为从$s$状态出发按照策略$\pi$选择动作后所有可能轨迹的折扣回报之和的期望。
+
+<div align=center>
+<img src="https://i.imgur.com/FMQnnsG.png" width="80%">
+</div>
+
+状态-行为价值函数与之类似，只不过除了$s$状态还需要考虑该时刻的行为$t$作为条件再计算期望。
+
+<div align=center>
+<img src="https://i.imgur.com/T5cAfEc.png" width="80%">
+</div>
+
 ## Algorithms for Solving MDPs
 
 ## Deep Q-Learning
