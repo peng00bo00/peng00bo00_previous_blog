@@ -118,6 +118,58 @@ sidebar:
 
 ## Algorithms for Solving MDPs
 
+### Optimal V & Q functions
+
+我们把最优策略$$\pi^*$$对应的价值函数记为$$V^*(s)$$和$$Q^*(s, a)$$，显然最优策略在状态$s$下给出的行为等于给定$s$条件下$$Q^*(s, a)$$取最大值时的动作$a$，同时两个价值函数需要满足如下关系：
+
+<div align=center>
+<img src="https://i.imgur.com/UB5vBvP.png" width="80%">
+</div>
+
+### Bellman Optimality Equations
+
+求解MDP的理论基础是**Bellman最优方程(Bellman optimality equation)**。我们把$$Q^*(s, a)$$进行展开，得到0时刻和后续时刻最优价值函数需要满足的关系式如下：
+
+<div align=center>
+<img src="https://i.imgur.com/XSQVQ4S.png" width="80%">
+</div>
+
+再利用$Q$函数和$V$函数之间的关系，可以得到最优价值函数的递推公式：
+
+<div align=center>
+<img src="https://i.imgur.com/GnANBgM.png" width="80%">
+</div>
+
+### Value Iteration
+
+利用$V$函数的递推关系可以得到**价值迭代(value iteration)**算法。在每一步迭代中需要对所有可能的状态和行为进行求和，因此价值迭代在每一步的计算复杂度为$O(\vert \mathcal{S} \vert^2 \vert \mathcal{A} \vert)$。
+
+<div align=center>
+<img src="https://i.imgur.com/jpLJk7P.png" width="80%">
+</div>
+
+### Q-Iteration
+
+如果使用$Q$函数来代替$V$函数则可以另一个价值迭代**(Q-iteration)**算法。
+
+<div align=center>
+<img src="https://i.imgur.com/ls2nhRl.png" width="80%">
+</div>
+
+### Policy Iteration
+
+类似于价值迭代，我们还可以从策略函数出发进行迭代求解。此时每个迭代中需要先估计当前策略的价值函数，然后按照估计出的价值函数来更新策略。可以证明这样的策略迭代算法同样能够收敛到最优策略，而且迭代次数一般要远小于价值迭代。
+
+<div align=center>
+<img src="https://i.imgur.com/msfFli0.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/VXErukZ.png" width="80%">
+</div>
+
+### State Spaces & Time Complexity
+
 ## Deep Q-Learning
 
 ## Policy Gradients, Actor-Critic
