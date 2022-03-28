@@ -293,6 +293,9 @@ OMSCS-DL:
       - title: Translation at Facebook and Automated Speech Recognition (ASR)
         url: /2022/03/21/OMSCS-DL-NOTES-16.html
   - title: Advanced Topics
+    children:
+      - title: Deep Reinforcement Learning
+        url: /2022/03/28/OMSCS-DL-NOTES-17.html
 
 OMSCS-SIM:
   - title: Simulation and Modeling for Engineering and Science
