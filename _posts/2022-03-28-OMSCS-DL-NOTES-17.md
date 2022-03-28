@@ -193,7 +193,7 @@ sidebar:
 <img src="https://i.imgur.com/RliWMOy.png" width="80%">
 </div>
 
-强化学习中进行采样的一种常用方法是**$\mathbf{\varepsilon}$-greedy**策略，此时我们通过一个超参数$\varepsilon$来控制随机策略和当前最优策略之间的比例。
+强化学习中进行采样的一种常用方法是**$\boldsymbol{\varepsilon}$-greedy**策略，此时我们通过一个超参数$\varepsilon$来控制随机策略和当前最优策略之间的比例。
 
 <div align=center>
 <img src="https://i.imgur.com/9YowQT5.png" width="80%">
@@ -212,3 +212,58 @@ sidebar:
 </div>
 
 ## Policy Gradients, Actor-Critic
+
+### Policy Gradient
+
+除了使用Bellman方程求解MDP外我们也可以考虑直接对累计奖励的期望进行优化来获取最优策略。
+
+<div align=center>
+<img src="https://i.imgur.com/aPqSYvV.png" width="80%">
+</div>
+
+利用环境的Markov性可以对状态序列进行分解，这样累计奖励的期望就是关于策略$\pi$以及回报$r$的函数。
+
+<div align=center>
+<img src="https://i.imgur.com/hBjDDnX.png" width="80%">
+<img src="https://i.imgur.com/q3N1KVl.png" width="80%">
+</div>
+
+最后我们使用梯度上升来求解这个优化问题，得到的算法就称为**策略梯度(policy gradient)**。
+
+<div align=center>
+<img src="https://i.imgur.com/JRWM3iA.png" width="80%">
+</div>
+
+计算目标函数关于策略的梯度需要一定的技巧。利用期望和微分的可交换性，我们可以先对状态序列求微分然后累加起来计算期望。同时结合对数函数的性质就可以把积分转换为对数策略函数与奖励函数乘积的期望形式。
+
+<div align=center>
+<img src="https://i.imgur.com/nn66zzA.png" width="80%">
+</div>
+
+由于状态转移概率与策略函数无关，我们还可以再丢掉期望中的状态转移部分。这样整个目标函数就是对数策略的梯度与累计奖励的乘积。
+
+<div align=center>
+<img src="https://i.imgur.com/A6L087c.png" width="80%">
+</div>
+
+### The REINFORCE Algorithm
+
+把上面介绍的技巧结合起来就得到了**REINFORCE**算法，它通过梯度上升的方式来逐步优化当前的策略。
+
+<div align=center>
+<img src="https://i.imgur.com/ZJKi2MV.png" width="80%">
+</div>
+
+实际应用REINFORCE算法时会发现它会产生非常大的方差从而导致训练过程的不稳定。要减小方差可以引入一个**基准线(baseline)** $b(s_t)$，这样在对对数策略加权时在累计回报的基础上减去一个基准值来降低方差。
+
+<div align=center>
+<img src="https://i.imgur.com/hq993mN.png" width="80%">
+</div>
+
+### Policy Gradient Variants
+
+除了REINFORCE算法之外，现代策略梯度算法还包括使用$Q$函数代替累计回报的**actor-critc算法**以及使用advantage代替$Q$函数的**advantage actor-critc算法**等其它方法。
+
+<div align=center>
+<img src="https://i.imgur.com/wcDS9my.png" width="80%">
+</div>
