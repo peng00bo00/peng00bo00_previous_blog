@@ -128,7 +128,7 @@ sidebar:
 
 ### Bellman Optimality Equations
 
-求解MDP的理论基础是**Bellman最优方程(Bellman optimality equation)**。我们把$$Q^*(s, a)$$进行展开，得到0时刻和后续时刻最优价值函数需要满足的关系式如下：
+求解MDP的理论基础是**Bellman最优方程(Bellman optimality equation)**。我们把$$Q^*(s, a)$$进行展开，得到0时刻奖励和后续时刻最优价值函数需要满足的关系式如下：
 
 <div align=center>
 <img src="https://i.imgur.com/XSQVQ4S.png" width="80%">
@@ -168,8 +168,47 @@ sidebar:
 <img src="https://i.imgur.com/VXErukZ.png" width="80%">
 </div>
 
-### State Spaces & Time Complexity
-
 ## Deep Q-Learning
+
+在深度学习时代人们还开发出了**deep Q-learning算法**来处理更加复杂环境下的强化学习问题。它的思想在于使用一个神经网络来表示$Q$函数，然后通过最小化当前时刻$Q$函数的预测值和下一时刻$Q$函数的目标值之间的误差来更新价值函数。实际编程时为了提高求解的稳定性一般会考虑使用两个网络来表示$Q$函数。这样在最小化误差时需要先冻结$Q_\text{old}$的参数只更新$Q_\text{new}$，然后再把更新后的参数赋值给$Q_\text{old}$进行新一轮的迭代。
+
+<div align=center>
+<img src="https://i.imgur.com/YnKXpKq.png" width="80%">
+<img src="https://i.imgur.com/2lPfipi.png" width="80%">
+<img src="https://i.imgur.com/55LLWwA.png" width="80%">
+</div>
+
+这样整个算法的流程为收集一系列的状态-动作-奖励样本，然后使用两个$Q$函数网络估计价值函数，最后通过最小化误差来更新$Q_\text{new}$并把更新后的参数赋给$Q_\text{old}$进入下一次迭代。
+
+<div align=center>
+<img src="https://i.imgur.com/QaCnoqy.png" width="80%">
+</div>
+
+### Exploration Problem
+
+为了使用deep Q-learning算法我们还需要一套收集数据的机制，这实际上是一个相当复杂的问题。它的难点之一在于如何去平衡智能体对环境的**探索(exploration)**以及**利用(exploitation)**当前的策略；同时我们还需要考虑数据样本之间往往不满足独立同分布假设，事实上使用同一策略进行采样时得到的状态序列必然是相互关联的。
+
+<div align=center>
+<img src="https://i.imgur.com/YrJPCko.png" width="80%">
+<img src="https://i.imgur.com/RliWMOy.png" width="80%">
+</div>
+
+强化学习中进行采样的一种常用方法是**$\mathbf{\varepsilon}$-greedy**策略，此时我们通过一个超参数$\varepsilon$来控制随机策略和当前最优策略之间的比例。
+
+<div align=center>
+<img src="https://i.imgur.com/9YowQT5.png" width="80%">
+</div>
+
+而对于数据之间相互关联的问题则可以通过一个**replay buffer**来处理。我们把所有生成的状态样本放入一个buffer中，然后在训练网络时直接从这个buffer中进行采样。
+
+<div align=center>
+<img src="https://i.imgur.com/M7Alptz.png" width="80%">
+</div>
+
+把上面这些技巧结合起来就得到了完整的deep Q-learning算法：
+
+<div align=center>
+<img src="https://i.imgur.com/AjFZX6k.png" width="80%">
+</div>
 
 ## Policy Gradients, Actor-Critic
