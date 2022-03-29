@@ -222,7 +222,59 @@ MLE的一个特点是具有不变性，$h(\theta)$的MLE等于直接把$h$作用
 
 ### Exponential Example
 
+对于连续型随机变量我们同样可以使用$\chi^2$拟合优度检验。
+
+<div align=center>
+<img src="https://i.imgur.com/Ynov9DD.png" width="80%">
+<img src="https://i.imgur.com/0llj6Hw.png" width="80%">
+<img src="https://i.imgur.com/gUhesJP.png" width="80%">
+</div>
+
 ### Weibull Example
+
+这里我们再举一个Weibull分布的例子。
+
+<div align=center>
+<img src="https://i.imgur.com/2KOLLnT.png" width="80%">
+<img src="https://i.imgur.com/UxfLUzi.png" width="80%">
+<img src="https://i.imgur.com/QpsB1pN.png" width="80%">
+<img src="https://i.imgur.com/SbfCE6D.png" width="80%">
+<img src="https://i.imgur.com/i99SOB2.png" width="80%">
+<img src="https://i.imgur.com/sUqQnwv.png" width="80%">
+<img src="https://i.imgur.com/FOe29qo.png" width="80%">
+<img src="https://i.imgur.com/mpVDyDa.png" width="80%">
+</div>
+
+### More Goodness-of-Fit Test
+
+除了$\chi^2$拟合优度检验之外还有很多不同形式的检验方法。这里介绍一下**Kolmogorov-Smirnov拟合优度检验(Kolmogorov-Smirnov goodness-of-fit test，K-S test)**，不同于$\chi^2$拟合优度检验K-S检验通过样本的经验分布的CDF来验证其是否来自给定的分布。当样本数量足够大时，经验分布的CDF应该趋向于真实分布的CDF。
+
+<div align=center>
+<img src="https://i.imgur.com/N5tED4r.png" width="80%">
+<img src="https://i.imgur.com/vBq20zi.png" width="80%">
+</div>
+
+实际上**Glivenko–Cantelli定理(Glivenko–Cantelli theorem)**指出，当样本数趋于无穷时经验分布的CDF会收敛到真实分布的CDF。因此我们可以计算经验分布和目标分布之间的最大差异，当这个最大差异足够小时即可认为样本确实来自我们估计的分布。
+
+<div align=center>
+<img src="https://i.imgur.com/QQgggC3.png" width="80%">
+</div>
+
+以均匀分布Unif(0, 1)为例，K-S检验的流程如下：
+
+<div align=center>
+<img src="https://i.imgur.com/57fvZ0d.png" width="80%">
+<img src="https://i.imgur.com/Q36QR61.png" width="80%">
+<img src="https://i.imgur.com/zSvcLnk.png" width="80%">
+</div>
+
+总结一下，K-S检验适用于各种不同类型的概率分布而且在计算时都比较容易。除了K-S检验之外其它常用的拟合优度检验还包括Anderson-Darling检验、Cramér-von Mises检验、Shapiro-Wilk检验等。
+
+<div align=center>
+<img src="https://i.imgur.com/qNit3Ma.png" width="80%">
+</div>
+
+## Problem Children
 
 ## Reference
 
