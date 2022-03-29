@@ -196,6 +196,34 @@ MLE的一个特点是具有不变性，$h(\theta)$的MLE等于直接把$h$作用
 
 ## Goodness-of-Fit Tests
 
+完成参数估计后我们还需要验证样本是否来自估计出的分布，此时就需要使用**拟合优度检验(goodness-of-fit tests)**。
+
+<div align=center>
+<img src="https://i.imgur.com/ArDwEyW.png" width="80%">
+</div>
+
+我们前面介绍过[$\chi^2$拟合优度检验](/2022/03/01/OMSCS-SIM-NOTES-06.html#chi2-goodness-of-fit-test)，这里把它推广到任意形式的概率分布上。
+
+<div align=center>
+<img src="https://i.imgur.com/1En7tN9.png" width="80%">
+<img src="https://i.imgur.com/SsjAVc5.png" width="80%">
+<img src="https://i.imgur.com/kAoZqqG.png" width="80%">
+</div>
+
+这里我们使用一个几何分布的例子来说明从参数估计到拟合优度检验的流程：
+
+<div align=center>
+<img src="https://i.imgur.com/LyqsJYk.png" width="80%">
+<img src="https://i.imgur.com/Vz16nCG.png" width="80%">
+<img src="https://i.imgur.com/4cQDRMv.png" width="80%">
+<img src="https://i.imgur.com/AHiewUK.png" width="80%">
+<img src="https://i.imgur.com/jC6as39.png" width="80%">
+</div>
+
+### Exponential Example
+
+### Weibull Example
+
 ## Reference
 
 - [Input Analysis](https://www2.isye.gatech.edu/~sman/courses/6644/Module08-InputAnalysis-210814.pdf)
