@@ -276,6 +276,46 @@ MLE的一个特点是具有不变性，$h(\theta)$的MLE等于直接把$h$作用
 
 ## Problem Children
 
+本节课最后讨论了实际进行输入分析时的常见问题和解决方法。
+
+<div align=center>
+<img src="https://i.imgur.com/PLh1avb.png" width="80%">
+</div>
+
+### No / Little Data
+
+最常见的问题是收集数据时没有办法获得足够多的数据，此时可以咨询一些专家来获得数据分布的统计特征并以此来生成随机样本。
+
+<div align=center>
+<img src="https://i.imgur.com/aMkL65K.png" width="80%">
+<img src="https://i.imgur.com/hQUR36n.png" width="80%">
+</div>
+
+### Nonstandard / Goofy / Mixture Distributions
+
+有时样本的分布不是常见的分布，甚至可能是由多个分布混合而成的。此时可以使用一些混合模型来估计这个分布。
+
+<div align=center>
+<img src="https://i.imgur.com/YCvZxjH.png" width="80%">
+</div>
+
+### Nonstationary Data
+
+有时分布的参数不是一个固定的值，需要考虑参数随时间的变化。在这种情况下可以考虑使用非齐次Poisson过程的相关方法进行模拟。
+
+<div align=center>
+<img src="https://i.imgur.com/wfElYzG.png" width="80%">
+</div>
+
+### Multivariate / Correlated Data
+
+另外样本之间可能是多维的，而且不一定满足独立同分布假设。此时可以使用多元随机变量或是时间序列的相关方法进行处理。
+
+<div align=center>
+<img src="https://i.imgur.com/6ZtCxp4.png" width="80%">
+<img src="https://i.imgur.com/E6WIoQm.png" width="80%">
+</div>
+
 ## Reference
 
 - [Input Analysis](https://www2.isye.gatech.edu/~sman/courses/6644/Module08-InputAnalysis-210814.pdf)
