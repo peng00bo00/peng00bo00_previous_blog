@@ -102,4 +102,85 @@ sidebar:
 
 ## Few-Shot Learning
 
+**少样本学习(few-shot learning)**的目的在于解决数据集上样本分布极不均衡的问题。很多常见的标签都有大量的数据，但是一些罕见的标签则通常只有很少的数据作为支持。因此我们希望可以通过在有着大量数据的标签上进行训练从而提升在这些罕见标签上模型的性能。
+
+<div align=center>
+<img src="https://i.imgur.com/R0QMacJ.png" width="80%">
+</div>
+
+### Finetuning
+
+少样本学习最直接的思路是使用fine-tuning的方式先在常见标签的数据上进行训练，然后在罕见标签数据上进行微调。
+
+<div align=center>
+<img src="https://i.imgur.com/RljWp6H.png" width="80%">
+</div>
+
+一些研究表明使用余弦相似度的分类模型要比神经网络更适合这样的训练模式。
+
+<div align=center>
+<img src="https://i.imgur.com/VuyAGZ2.png" width="80%">
+</div>
+
+实践中发现fine-tuning的方式并不完全适合少样本学习的问题，这主要是由于训练过程和微调过程是完全割裂的，我们无法直接利用常见标签数据的信息来指导少样本学习过程。
+
+<div align=center>
+<img src="https://i.imgur.com/CPsKuzN.png" width="80%">
+</div>
+
+### Meta-Training
+
+meta-training的思路是利用常见样本的数据来模拟少样本学习的过程。我们可以把训练数据假装成少样本数据，每次训练时从选择常见标签的几个样本分别作为训练数据和查询数据，这样训练过程和最终的测试过程是完全一致的。
+
+<div align=center>
+<img src="https://i.imgur.com/nZzVmvG.png" width="80%">
+</div>
+
+通过meta-training的学习过程，我们可以获得MatchingNet、ProtoNet以及RelationNet等不同形式的模型。
+
+<div align=center>
+<img src="https://i.imgur.com/IdPGsAX.png" width="80%">
+</div>
+
+从一个更高的层次来看，meta-training的本质是利用学习的方式来设计学习算法，也就是说我们可以通过学习来改进模型的初始化和训练方式从而更适应少样本学习的任务。
+
+<div align=center>
+<img src="https://i.imgur.com/ZuQKD4Z.png" width="80%">
+</div>
+
+本节课中我们主要介绍改进梯度下降以及模型初始化方式这两种meta-training方法。
+
+<div align=center>
+<img src="https://i.imgur.com/ViASPb8.png" width="80%">
+</div>
+
+### Meta-Learner LSTM
+
+回忆梯度下降法的参数更新方法，不难发现它和LSTM中cell的更新方法有一些类似之处。因此meta-learner LSTM的思路是把LSTM的训练方法引入到梯度下降中，这样就可以自适应地修正学习率和遗忘率。
+
+<div align=center>
+<img src="https://i.imgur.com/EovD0UH.png" width="80%">
+</div>
+
+使用LSTM训练方法的另一个好处是整个训练过程是可微的，我们可以把meta-learner LSTM展开成类似于LSTM的计算图这样就可以使用常用的网络模型进行训练。
+
+<div align=center>
+<img src="https://i.imgur.com/uUbTkpv.png" width="80%">
+</div>
+
+### Model-Agnostic Meta-Learning (MAML)
+
+MAML的思路是直接学习模型的初始化，整个模型的训练过程仍是基于SGD。
+
+<div align=center>
+<img src="https://i.imgur.com/lIeuy2n.png" width="80%">
+<img src="https://i.imgur.com/ovMIHj1.png" width="80%">
+</div>
+
+和meta-learner LSTM相比，MAML往往有着更好的理论保证。
+
+<div align=center>
+<img src="https://i.imgur.com/AiKXBSH.png" width="80%">
+</div>
+
 ## Unsupervised and Self-Supervised Learning
