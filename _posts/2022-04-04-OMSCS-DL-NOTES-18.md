@@ -184,3 +184,89 @@ MAML的思路是直接学习模型的初始化，整个模型的训练过程仍�
 </div>
 
 ## Unsupervised and Self-Supervised Learning
+
+在无监督学习中我们没有任何关于数据标签的信息，因此我们不能简单地通过最小化损失函数来进行学习。
+
+<div align=center>
+<img src="https://i.imgur.com/ouI7cGY.png" width="80%">
+<img src="https://i.imgur.com/1Biv184.png" width="80%">
+</div>
+
+### Autoencoders
+
+无监督学习的经典方法是使用自编码器来学习数据的表征。输入数据通过一个编码器来获得一个低维嵌入，然后通过解码器来还原原始数据。整个模型的损失是输入和输出之间的差距，因此无需标签信息仍然可以进行训练。
+
+<div align=center>
+<img src="https://i.imgur.com/3Ve4AKO.png" width="80%">
+</div>
+
+自编码器训练得到的编码器还可以服务于不同类型的下游任务。我们可以使用fine tuning的方式把编码器看做是一个特征提取器，然后在下游训练一个分类模型来完成分类任务。
+
+<div align=center>
+<img src="https://i.imgur.com/fLjR3kT.png" width="80%">
+</div>
+
+### Deep Clustering
+
+对于聚类任务我们希望可以通过一个神经网络把原始空间中的数据映射到一个更加紧凑的空间，从而便于各种聚类算法的应用。
+
+<div align=center>
+<img src="https://i.imgur.com/uVsiEuk.png" width="80%">
+</div>
+
+为此，我们可以使用伪标签的方法训练神经网络，然后把网络的特征层作为聚类的输入。
+
+<div align=center>
+<img src="https://i.imgur.com/XGx1UQ9.png" width="80%">
+</div>
+
+### Surrogate Tasks
+
+在长期的工程实践中人们总结了大量不同类型的视觉任务，我们可以通过处理这些代理任务来实现无监督数据特征的学习。
+
+<div align=center>
+<img src="https://i.imgur.com/vIG4eip.png" width="80%">
+</div>
+
+这些常见的代理任务包括colorization、jigsaw、rotation prediction等。它们不需要数据的标签信息，因此可以直接在无标签的数据上进行训练
+
+<div align=center>
+<img src="https://i.imgur.com/0HmUMcI.png" width="80%">
+<img src="https://i.imgur.com/GK2PuX5.png" width="80%">
+<img src="https://i.imgur.com/qYGMeEy.png" width="80%">
+</div>
+
+在评估性能时则可以使用自编码器的方式选择编码器的最后一层作为数据的特征。
+
+<div align=center>
+<img src="https://i.imgur.com/y7ig199.png" width="80%">
+</div>
+
+目前instance discrimination是一种非常流行的代理任务。在训练时我们把输入图像经过数据增强后的结果作为正样本，然后把数据集中的其它图像作为负样本来训练神经网络，网络的损失函数是其中一个正样本和另一个正样本之间的相似度以及它和其它负样本之间的差异。
+
+<div align=center>
+<img src="https://i.imgur.com/H7KjD2A.png" width="80%">
+</div>
+
+当然，如何选取负样本有很多的技巧。我们可以把每个batch中的样本分别作为正样本和负样本，然后计算每一对正负样本之间的损失；而更合理的方法是把负样本储存在一个memory bank中，在采样时直接从memory bank中提取上一个batch计算得到的图像特征，这样可以更有效地利用计算资源。
+
+<div align=center>
+<img src="https://i.imgur.com/tXmrDC0.png" width="80%">
+<img src="https://i.imgur.com/ip8S7eb.png" width="80%">
+</div>
+
+另一种选取负样本的方法是使用滑动平均更新后的编码器来计算负样本的特征。
+
+<div align=center>
+<img src="https://i.imgur.com/p1ypbtY.png" width="80%">
+</div>
+
+试验结果表明，instance discrimination可以很好地训练出图像特征从而服务于各种不同的视觉任务。
+
+<div align=center>
+<img src="https://i.imgur.com/joNIJcl.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/TZRnSRe.png" width="80%">
+</div>
