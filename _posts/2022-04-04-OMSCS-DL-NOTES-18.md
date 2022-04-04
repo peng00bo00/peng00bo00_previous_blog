@@ -40,6 +40,66 @@ sidebar:
 
 ## Semi-Supervised Learning
 
+在现实的机器学习任务中往往有着大量的无标签数据，而半监督学习的目标是把这些无标签的数据和有标签的数据结合起来并提升模型的性能。
+
+<div align=center>
+<img src="https://i.imgur.com/4byayB2.png" width="80%">
+</div>
+
+近期的一些研究指出，我们甚至可以通过半监督学习的方法来获得比监督学习更好的性能。
+
+<div align=center>
+<img src="https://i.imgur.com/IhXSa5E.png" width="80%">
+</div>
+
+### An Old Idea: Predictions of Multiple Views
+
+半监督学习的一种经典思想是使用模型在未标记的数据上进行预测，然后把预测的结果作为新的带标签数据进行训练。这种方法并不是一个很新的方法，实际上90年代人们就提出过类似的思想来训练数据。
+
+<div align=center>
+<img src="https://i.imgur.com/OhP6jHJ.png" width="80%">
+</div>
+
+### Pseudo-Labeling
+
+更加现代的做法是把数据集划分为有标签数据和无标签数据两类，对于有标签的数据按照通常的监督学习进行训练，而对于无标签数据则为它们赋予伪标签进行训练。在训练伪标签数据时我们需要结合数据增强的方法，通过最小化无标签数据在不同数据增强方法下模型输出的交叉熵来实现无标签数据的训练。
+
+<div align=center>
+<img src="https://i.imgur.com/b25fwFK.png" width="80%">
+</div>
+
+在实际训练时我们可以把标签数据和无标签数据放在一起同时进行训练。这样整个训练流程可以分成标签数据和无标签数据两个分支并且有着各自的损失函数，而把两个分支合并到一起就可以实现端到端的训练了。
+
+<div align=center>
+<img src="https://i.imgur.com/2rXMeNt.png" width="80%">
+</div>
+
+当然这种训练方法还有很多技巧，比如说合理地设计标签数据和无标签数据在一个batch中的比例、如何选取生成伪标签的阈值、如何设计学习率策略、利用滑动平均来更新模型参数等等。
+
+<div align=center>
+<img src="https://i.imgur.com/GYW8qrE.png" width="80%">
+</div>
+
+试验结果表明，使用半监督学习的方法可以提升分类模型的性能
+
+<div align=center>
+<img src="https://i.imgur.com/BAvj6NS.png" width="80%">
+<img src="https://i.imgur.com/JLepsLZ.png" width="80%">
+</div>
+
+### Other Methods
+
+除了上面介绍过的伪标签方法，在无监督学习中还可以使用对抗样本、知识蒸馏、label propagation等不同方法进行训练。
+
+<div align=center>
+<img src="https://i.imgur.com/fW7NY2L.png" width="80%">
+<img src="https://i.imgur.com/oEaubFz.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/sm7iBzC.png" width="80%">
+</div>
+
 ## Few-Shot Learning
 
 ## Unsupervised and Self-Supervised Learning
