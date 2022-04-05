@@ -96,6 +96,60 @@ sidebar:
 
 ## Finite-Horizon Simulation
 
+### Finite-Horizon Analysis
+
+finite-horizon simulation的目的是确定系统在相对短期内的行为。
+
+<div align=center>
+<img src="https://i.imgur.com/SV3I1g4.png" width="80%">
+<img src="https://i.imgur.com/wTpPJY2.png" width="80%">
+</div>
+
+其中，最简单的任务是使用样本均值来估计观测的结果。但需要注意的是由于样本之间不是独立同分布的，我们不能直接使用样本方差来来估计总体的方差。
+
+<div align=center>
+<img src="https://i.imgur.com/R0VTudP.png" width="80%">
+<img src="https://i.imgur.com/ZZgxjwJ.png" width="80%">
+</div>
+
+要解决这个问题也很简单，我们只需要进行**独立重复试验(independent replications, IR)**即可。
+
+<div align=center>
+<img src="https://i.imgur.com/QFZXu1I.png" width="80%">
+</div>
+
+通过独立重复试验，我们可以得到满足独立同分布假定的观测均值$Z_i$，此时就可以使用标准的参数估计方法来估计总体方差了。
+
+<div align=center>
+<img src="https://i.imgur.com/URqJmm4.png" width="80%">
+<img src="https://i.imgur.com/JY6uHPN.png" width="80%">
+</div>
+
+当每次试验中的观测数足够大时我们还可以使用中心极限定理来估计均值的置信区间。
+
+<div align=center>
+<img src="https://i.imgur.com/34nb4sJ.png" width="80%">
+</div>
+
+### Finite-Horizon Extensions
+
+在独立重复试验的基础上如果想要得到一个更紧的置信区间则可以考虑增加试验的次数。可以证明区间的半径与试验次数成平方反比关系，换句话说如果想要把区间半径减小一半需要4倍次数的试验。
+
+<div align=center>
+<img src="https://i.imgur.com/j5202pb.png" width="80%">
+</div>
+
+另一方面，我们还可以去估计均值以外其它统计量的置信区间。以分位数为例，我们可以推导出分位数的置信区间如下：
+
+<div align=center>
+<img src="https://i.imgur.com/hRJR82X.png" width="80%">
+<img src="https://i.imgur.com/Qipo6XC.png" width="80%">
+<img src="https://i.imgur.com/4ohSGjj.png" width="80%">
+<img src="https://i.imgur.com/HWFpkmT.png" width="80%">
+<img src="https://i.imgur.com/cWd4uj6.png" width="80%">
+<img src="https://i.imgur.com/Nj3SuEq.png" width="80%">
+</div>
+
 ## Initialization Problems
 
 ## Steady-State Analysis
