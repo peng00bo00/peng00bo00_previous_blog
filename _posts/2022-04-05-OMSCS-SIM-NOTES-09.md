@@ -54,6 +54,46 @@ sidebar:
 
 ## A Mathematical Interlude
 
+在正式介绍具体的结果分析方法前我们首先来看一下当样本之间存在相关性时会产生什么样的问题。这里我们假设样本具有相同的分布，但并不是相互独立的。
+
+<div align=center>
+<img src="https://i.imgur.com/MvYpTwQ.png" width="80%">
+</div>
+
+在这种情况下样本均值$E[\bar{Y}_n]$仍然等于分布的均值$\mu$，我们考虑它的方差可以得到如下公式：
+
+<div align=center>
+<img src="https://i.imgur.com/Wyqf0sE.png" width="80%">
+<img src="https://i.imgur.com/SNOxW1V.png" width="80%">
+<img src="https://i.imgur.com/0u5zuCq.png" width="80%">
+</div>
+
+当样本之间相互独立时，参数$\sigma^2$恰好等于分布的方差。但在样本之间相互关联的情况下$\sigma^2$往往会远大于真实的方差，这会导致在计算置信区间时产生非常大的误差。
+
+<div align=center>
+<img src="https://i.imgur.com/FeXCHqh.png" width="80%">
+</div>
+
+举一个具体的例子，我们假设样本由自回归过程产生。在这种条件下样本的均值会有非常巨大的方差。
+
+<div align=center>
+<img src="https://i.imgur.com/FyAJqeS.png" width="80%">
+</div>
+
+当我们使用样本均值对分布的其它参数进行估计时，样本之间的相关性同样会产生巨大的影响。以样本方差为例，如果我们直接套用独立同分布条件下的样本方差公式则会导致样本方差的期望远小于样本均值的方差。
+
+<div align=center>
+<img src="https://i.imgur.com/QqHoGcs.png" width="80%">
+<img src="https://i.imgur.com/bmtWNc9.png" width="80%">
+<img src="https://i.imgur.com/0fEj2DA.png" width="80%">
+</div>
+
+如果错误地使用了样本方差公式则会计算出远小于真实情况下的置信区间。
+
+<div align=center>
+<img src="https://i.imgur.com/exreS2E.png" width="80%">
+</div>
+
 ## Finite-Horizon Simulation
 
 ## Initialization Problems
