@@ -152,6 +152,27 @@ finite-horizon simulation的目的是确定系统在相对短期内的行为。
 
 ## Initialization Problems
 
+在进行仿真前我们还需要考虑系统的初始化问题。实际上初始化也会对最终的仿真结果产生影响，对于steady-state analysis而言初始化的过程尤为重要。
+
+<div align=center>
+<img src="https://i.imgur.com/wLSRutX.png" width="80%">
+<img src="https://i.imgur.com/drrF2Ej.png" width="80%">
+</div>
+
+检验初始化效果的常用方法如下：
+
+<div align=center>
+<img src="https://i.imgur.com/9yBjPtc.png" width="80%">
+</div>
+
+当我们检测到初始化过程存在误差时，可以通过截断或是延长试验时间的方式来修正误差。
+
+<div align=center>
+<img src="https://i.imgur.com/MWT6Ryl.png" width="80%">
+<img src="https://i.imgur.com/Z0uan4f.png" width="80%">
+<img src="https://i.imgur.com/fgHcmNs.png" width="80%">
+</div>
+
 ## Steady-State Analysis
 
 ## Reference
