@@ -175,6 +175,86 @@ finite-horizon simulation的目的是确定系统在相对短期内的行为。
 
 ## Steady-State Analysis
 
+### Batch Means
+
+在steady-state analysis中我们关心系统的长期行为，这里我们借用finite-horizon simulation中独立重复试验的一些概念来进行参数估计。
+
+<div align=center>
+<img src="https://i.imgur.com/2mi25t2.png" width="80%">
+<img src="https://i.imgur.com/TaZoD3R.png" width="80%">
+</div>
+
+在估计观测的均值时，我们把整个观测序列划分成若干个batch。当batch的长度足够大时可以认为每个batch上的均值服从独立同分布假设。
+
+<div align=center>
+<img src="https://i.imgur.com/vtfpsBC.png" width="80%">
+<img src="https://i.imgur.com/FHo7eTR.png" width="80%">
+</div>
+
+类似于独立重复试验，我们可以得到参数$\sigma^2$的估计如下：
+
+<div align=center>
+<img src="https://i.imgur.com/6Mc8yZc.png" width="80%">
+</div>
+
+进一步的分析可以发现$\hat{V}_B$并不是一个无偏估计，而是渐进无偏的。同样地，我们可以得到$\hat{V}_B$的方差。
+
+<div align=center>
+<img src="https://i.imgur.com/a47WvJY.png" width="80%">
+<img src="https://i.imgur.com/FgRQgf3.png" width="80%">
+</div>
+
+这样，就可以利用MSE得到$\hat{V}_B$总体的误差：
+
+<div align=center>
+<img src="https://i.imgur.com/EltPkGG.png" width="80%">
+</div>
+
+通过最小化MSE我们可以得到MSE的最优值：
+
+<div align=center>
+<img src="https://i.imgur.com/VSJgMzN.png" width="80%">
+<img src="https://i.imgur.com/vTzf2zi.png" width="80%">
+</div>
+
+我们同样可以计算均值$\mu$的置信区间，从形式上看它和finite-horizon simulation并没有什么区别。但需要注意的是finite-horizon simulation是通过独立重复试验来进行计算，而steady-state analysis则是把一个长的序列划分为batch进行计算。
+
+<div align=center>
+<img src="https://i.imgur.com/Yvxrspj.png" width="80%">
+</div>
+
+置信区间的一些常用性质如下：
+
+<div align=center>
+<img src="https://i.imgur.com/G90FgBs.png" width="80%">
+<img src="https://i.imgur.com/xonIMqX.png" width="80%">
+<img src="https://i.imgur.com/oVb6PGy.png" width="80%">
+</div>
+
+### Other Methods
+
+batch means并不是steady-state analysis的唯一方法，实际上有些方法有着更好的性质。比如说我们可以把独立重复试验应用在steady-state analysis中，然后在每次试验时再进行batch mean来获得更稳定的估计。
+
+<div align=center>
+<img src="https://i.imgur.com/KqEI3tS.png" width="80%">
+</div>
+
+另一种估计方法是使用有重叠的batch来进行估计。可以证明当序列和batch数量比较大时，有重叠的batch会比无重叠的估计方法有更好的性能。
+
+<div align=center>
+<img src="https://i.imgur.com/oPaowkj.png" width="80%">
+<img src="https://i.imgur.com/aEXYlDB.png" width="80%">
+<img src="https://i.imgur.com/xKn4v2p.png" width="80%">
+</div>
+
+除了上面介绍的两种方法之外还有一些更加复杂的估计方法。
+
+<div align=center>
+<img src="https://i.imgur.com/DDReSaG.png" width="80%">
+<img src="https://i.imgur.com/V7l70gX.png" width="80%">
+<img src="https://i.imgur.com/MrFuF3t.png" width="80%">
+</div>
+
 ## Reference
 
 - [Output Analysis](https://studio.edx.org/assets/courseware/v1/ddb0b74e23388195b0ac265c61c7c3c7/asset-v1:GTx+ISYE6644x+2T2019+type@asset+block/Module09-OutputAnalysis_171019.pdf)
