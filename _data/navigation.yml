@@ -230,6 +230,10 @@ GAMES104:
         url: /2022/03/24/GAMES104-NOTES-02.html
       - title: How to Build a Game World
         url: /2022/03/30/GAMES104-NOTES-03.html
+  - title: Rendering System
+    children: 
+      - title: Rendering on Game Engine
+        url: /2022/04/06/GAMES104-NOTES-04.html
 
 PBRT:
   - title: PBRT读书笔记
