@@ -26,12 +26,39 @@ sidebar:
 <img src="https://i.imgur.com/P5v3Jyk.png" width="80%">
 </div>
 
-显然如何获得生成式模型是比较困难的任务，目前常用的生成式模型算法可以分类如下：
+显然如何获得生成式模型是比较困难的任务，目前常用的生成式模型算法可以归纳如下：
 
 <div align=center>
 <img src="https://i.imgur.com/yWG7O0Z.png" width="80%">
 </div>
 
 ## PixelRNN & PixelCNN
+
+对于一张图片而言，我们可以把它的似然函数分解为每个像素似然函数的乘积。这样整个图片可以看做是一个大型的**贝叶斯网络(Bayesian network)**或是**语言模型(language model)**，我们只需要定义像素之间的连接关系再估计似然函数的形式即可计算概率分布。
+
+<div align=center>
+<img src="https://i.imgur.com/VoZKG81.png" width="80%">
+</div>
+
+PixelRNN就是基于上述思想实现的生成式模型。在PixelRNN中我们需要设置像素之间的连接(生成)关系，然后从某一个像素出发利用RNN来计算下一个像素的概率。显然PixelRNN的计算效率是比较低的，并且在训练时我们无法使用整张图片而是只能通过预测少量的像素来进行训练。
+
+<div align=center>
+<img src="https://i.imgur.com/QsUX6Ig.png" width="80%">
+</div>
+
+PixelCNN的思想与PixelRNN类似，不过它使用了卷积核来代替RNN生成像素。和PixelRNN相比PixelCNN的训练过程要快很多，但在进行生成时仍然效率很低。
+
+<div align=center>
+<img src="https://i.imgur.com/xB6nGGP.png" width="80%">
+</div>
+
+PixelRNN和PixelCNN有很多有趣的应用，除了直接生成图片外我们还可以遮住图片中的一部分区域然后估计这片区域可能的形式。当然PixelRNN和PixelCNN的生成过程是不符合天然图片的生成过程的，这导致了它们生成出的图片在很多细节上有不正确的结果。
+
+<div align=center>
+<img src="https://i.imgur.com/Nw0NU5s.png" width="80%">
+<img src="https://i.imgur.com/osR4OwU.png" width="80%">
+</div>
+
+## Generative Adversarial Networks
 
 ## Variational Autoencoders
