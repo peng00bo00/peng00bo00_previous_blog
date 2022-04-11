@@ -145,9 +145,99 @@ DCGAN对GAN的网络模型进行修正，从而获得更稳定的训练过程。
 <img src="https://i.imgur.com/1hgHWpN.png" width="80%">
 </div>
 
-
 <div align=center>
 <img src="https://i.imgur.com/AUthuzy.png" width="80%">
 </div>
 
 ## Variational Autoencoders
+
+**变分自编码器(variational autoencoders, VAE)**同样是这几年比较流行的生成式模型。和GAN相比，VAE是一种**显式方法(explicit method)**直接对样本的生成分布进行建模，但VAE没有去计算真实的概率分布函数而是使用多元正态分布去近似它。
+
+### Autoencoders
+
+从网络架构来看，VAE通过一个编码器和解码器获得与输入样本相一致的生成数据。在标准自编码器架构中，输入样本经过编码器得到一个低维空间中的嵌入，并且通过解码器来将这个嵌入还原数据，最后通过MSE来完成训练过程。
+
+<div align=center>
+<img src="https://i.imgur.com/myhu3Gb.png" width="80%">
+</div>
+
+在VAE中则对编码器的输出进行了修改。此时编码器会输出隐空间上的一个概率分布而不是隐层向量，相应地解码器则会从这个概率分布中进行采样并还原出生成样本。最后通过最大化生成样本与真实样本之间的VLB来实现训练过程。
+
+<div align=center>
+<img src="https://i.imgur.com/4vDzipa.png" width="80%">
+</div>
+
+VAE的解码器会输出样本的均值和(协)方差。对于多维的情况这里假定不同维度之间是相互独立的，这样只需要一个对角矩阵就可以描述样本分布的方差。
+
+<div align=center>
+<img src="https://i.imgur.com/MSMTbYU.png" width="80%">
+</div>
+
+而对于编码器，输入样本$X$经过编码器后会得到样本在低维空间上分布的均值和(协)方差。
+
+<div align=center>
+<img src="https://i.imgur.com/9qaYhjJ.png" width="80%">
+</div>
+
+把编码器和解码器组合到一起就得到了VAE的计算流程：输入数据$X$经过编码器得到隐空间上的分布$Z$，然后从$Z$中进行采样得到隐空间样本$z$并通过解码器来还原$X$对应的分布，最后从解码器得到的分布上进行采样就得到了新的样本。
+
+<div align=center>
+<img src="https://i.imgur.com/h7K6Z5X.png" width="80%">
+</div>
+
+### Maximizing Likelihood
+
+VAE的难点在于如何进行训练，这里我们利用MLE来推导VAE的目标函数。首先对样本$x^{(i)}$的对数似然函数进行变形，可以得到三项：
+
+<div align=center>
+<img src="https://i.imgur.com/qGUmSYJ.png" width="80%">
+<img src="https://i.imgur.com/x7TiWHI.png" width="80%">
+</div>
+
+接下来我们引入**KL散度(KL divergence)**的概念，它度量了两个概率分布之间的差异。
+
+<div align=center>
+<img src="https://i.imgur.com/z3ByKJy.png" width="80%">
+</div>
+
+利用KL散度我们可以把对数似然函数的后两项改成$q_\phi(z \vert x^{(i)})$与$p_\theta(z)$和$p_\theta(z \vert x^{(i)})$之间的KL散度。这样对数似然函数的三项都有各自的意义：第一项对应从解码器采样出$x^{(i)}$，第二项对应编码器输出的正态分布与隐空间上$z$先验分布之间的差异，而第三项则对应编码器的输出与解码器输出之间的差异。这里需要注意的是其中第三项是不可计算的，但我们知道它恒为正；而可计算的前两项也称为**ELBO(expected lower bound)**。显然ELBO是我们目标函数的一个下界，而VAE的训练过程就是去不断最大化下界的过程。
+
+<div align=center>
+<img src="https://i.imgur.com/xx2Bsrs.png" width="80%">
+<img src="https://i.imgur.com/gayRHex.png" width="80%">
+<img src="https://i.imgur.com/a6SYrAU.png" width="80%">
+</div>
+
+### Forward and Backward Passes
+
+VAE的实际训练过程如下：首先对于给定样本$x^{(i)}$我们利用生成器来获得$z$的后验分布$q_\phi(z \vert x^{(i)})$，当假定$z$的先验为多元正态分布时可以直接计算ELBO中的KL散度项。
+
+<div align=center>
+<img src="https://i.imgur.com/vkURr5l.png" width="80%">
+</div>
+
+接下来我们从后验分布$q_\phi(z \vert x^{(i)})$进行采样，并且将样本送入解码器中得到重建后$X$的分布$p_\theta(z \vert x^{(i)})$。把它带入到ELBO中就得到了完整的优化目标函数。
+
+<div align=center>
+<img src="https://i.imgur.com/4zSZcXn.png" width="80%">
+<img src="https://i.imgur.com/VyH8AbM.png" width="80%">
+</div>
+
+### Reparameterization Trick
+
+上述过程的一个缺陷在于从后验分布$q_\phi(z \vert x^{(i)})$进行采样的过程是不可导的，这样我们无法使用梯度下降的方法进行训练。为了解决这个问题人们提出了**重参数化(reparameterization)**的技巧：采样时首先从标准正态分布$N(0, 1)$中进行采样，然后利用后验分布的参数对样本进行线性变换来获得后验分布的样本。根据正态分布的性质，这样的采样过程等价于直接从后验分布$q_\phi(z \vert x^{(i)})$中进行采样，但此时整个采样过程已经是可导的了。
+
+<div align=center>
+<img src="https://i.imgur.com/LMAEgjk.png" width="80%">
+<img src="https://i.imgur.com/grLN3k3.png" width="80%">
+</div>
+
+使用VAE不仅可以生成逼真的样本，更可以利用后验概率的形式来控制样本生成的结果。因此VAE和其他生成模型相比往往有着更好的可解释性。
+
+<div align=center>
+<img src="https://i.imgur.com/CTBzKZJ.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/UKu1mo1.png" width="80%">
+</div>
