@@ -61,4 +61,93 @@ PixelRNN和PixelCNN有很多有趣的应用，除了直接生成图片外我们�
 
 ## Generative Adversarial Networks
 
+**生成对抗网络(generative adversarial networks, GAN)**是最近几年比较流行的生成式模型。和传统方法相比，GAN是一种**隐式方法(implicit method)**：它不会直接去计算$P(x)$的形式而是去对$P(x)$的采样过程进行建模。
+
+<div align=center>
+<img src="https://i.imgur.com/arMFklG.png" width="80%">
+</div>
+
+GAN的本质是计算一个简单的分布(如标准正态分布$N(0, 1)$)到样本生成分布$P(x)$的映射，这样我们可以简单地从已知分布中进行采样然后利用一个神经网络将这个样本映射到所需数据分布上，就实现了从$P(x)$中进行采样的过程。
+
+<div align=center>
+<img src="https://i.imgur.com/bhaMnjB.png" width="80%">
+<img src="https://i.imgur.com/5CD6EIG.png" width="80%">
+</div>
+
+当然要计算这样的一个分布到分布的映射没有那么的容易。在GAN中通过训练两个网络：**生成器(generator)**和**判别器(discriminator)**来实现完整的训练过程。其中生成器用来对样本进行映射，而判别器则用来判断生成器生成的样本是否足够接近真实的数据。
+
+<div align=center>
+<img src="https://i.imgur.com/fjWQ11x.png" width="80%">
+<img src="https://i.imgur.com/XgQKqzo.png" width="80%">
+</div>
+
+### Mini-Max Two Player Game
+
+GAN的训练过程可以视为两个网络相互博弈的过程。不过由于我们使用了神经网络来表示映射，目前尚不清楚这样的博弈过程是否能够达到**纳什均衡(Nash equilibria)**。对于生成器，它的优化目标是尽可能去让判别器相信它生成的样本是真实的数据；而判别器则是对真实样本和生成器的样本进行一个二分类，我们把真实的数据标记为正例而来自生成器的样本标记为反例。这样整个GAN的训练目标等价于求解一个极小极大问题：生成器负责极大化二分类损失，而判别器则是极小化损失。
+
+<div align=center>
+<img src="https://i.imgur.com/qjr2sku.png" width="80%">
+<img src="https://i.imgur.com/G7OLA4K.png" width="80%">
+<img src="https://i.imgur.com/BvjEGPY.png" width="80%">
+<img src="https://i.imgur.com/CjVCTeP.png" width="80%">
+</div>
+
+以图像生成为例，GAN的训练过程如下：我们首先采样出一系列随机种子然后利用生成器产生一系列样本，然后从数据集中采样出等量的真实图片并把它们混合到一起送入判别器中进行二分类。由于整个过程都是可导的，我们可以利用标准的梯度下降方法来训练两个网络。
+
+<div align=center>
+<img src="https://i.imgur.com/uUNa394.png" width="80%">
+</div>
+
+在实践中人们还发现训练开始时生成器的样本与真实样本差距过大，导致生成器很难从判别器那里获得梯度。为了缓解这样的问题还可以稍微修正一下生成器的损失函数，这样可以提高GAN训练时的稳定性。
+
+<div align=center>
+<img src="https://i.imgur.com/7DrVZjP.png" width="80%">
+</div>
+
+完整的GAN训练流程则如下图所示：
+
+<div align=center>
+<img src="https://i.imgur.com/4UirbLW.png" width="80%">
+</div>
+
+当我们完成训练后就可以利用随机种子和生成器来生成逼真的数据样本，同时判别器中的一些特征可以服务于不同的分类任务。
+
+<div align=center>
+<img src="https://i.imgur.com/5nNN1kU.png" width="80%">
+<img src="https://i.imgur.com/AP01Mgd.png" width="80%">
+</div>
+
+### Challenges
+
+目前来看训练GAN仍然是相对困难的，因此人们提出了不同的方法来改进原始的GAN训练过程。这些方法包括使用更稳定的网络架构、为目标函数添加正则项以及使用渐进的训练方法等。
+
+<div align=center>
+<img src="https://i.imgur.com/nfgXPO8.png" width="80%">
+</div>
+
+DCGAN对GAN的网络模型进行修正，从而获得更稳定的训练过程。
+
+<div align=center>
+<img src="https://i.imgur.com/yqKdvpz.png" width="80%">
+</div>
+
+通过对GAN目标函数的理论分析，人们还提出了添加噪声作为正则项的改进方法。
+
+<div align=center>
+<img src="https://i.imgur.com/czHCHKN.png" width="80%">
+</div>
+
+基于这些改进，目前GAN相关的方法以及可以生成高分辨率的逼真图像，同时GAN也可以用来生成语音、视频等其它形式的数据。
+
+<div align=center>
+<img src="https://i.imgur.com/gmx7udH.png" width="80%">
+<img src="https://i.imgur.com/xQkij75.png" width="80%">
+<img src="https://i.imgur.com/1hgHWpN.png" width="80%">
+</div>
+
+
+<div align=center>
+<img src="https://i.imgur.com/AUthuzy.png" width="80%">
+</div>
+
 ## Variational Autoencoders
