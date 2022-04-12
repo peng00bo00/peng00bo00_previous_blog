@@ -90,7 +90,32 @@ $$
 
 ## Comparison of Simulated Systems
 
+在随机模拟中数据之间往往不满足独立同分布假设，在这种情况下我们需要一些额外的处理来推导出置信区间。
+
+<div align=center>
+<img src="https://i.imgur.com/U0KJPLl.png" width="80%">
+<img src="https://i.imgur.com/PAy7qws.png" width="80%">
+</div>
+
 ### Confidence Intervals for Mean Differences
+
+利用独立重复试验，我们可以估计两个系统自身的均值和方差：
+
+<div align=center>
+<img src="https://i.imgur.com/cLoKVKK.png" width="80%">
+</div>
+
+得到均值和方差后就可以计算两个系统差异的置信区间：
+
+<div align=center>
+<img src="https://i.imgur.com/rWSWTo3.png" width="80%">
+</div>
+
+另一种可行的策略是把两个系统的试验看成是一对，然后利用[Paired CI Difference](#paired-ci-difference-two-means)的方法来估计置信区间：
+
+<div align=center>
+<img src="https://i.imgur.com/UPcwkd5.png" width="80%">
+</div>
 
 ### Variance Reduction Techniques
 
