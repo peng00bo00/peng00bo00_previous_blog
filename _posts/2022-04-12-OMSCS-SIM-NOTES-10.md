@@ -119,7 +119,81 @@ $$
 
 ### Variance Reduction Techniques
 
+#### Common Random Numbers
+
+在比较不同系统时我们可以通过对仿真过程的控制来减少随机模拟的方差。比如说我们可以将不同系统的随机输入设置为相同的值，这样就可以比较它们在同样条件下的性能。
+
+<div align=center>
+<img src="https://i.imgur.com/i1sk5bD.png" width="80%">
+</div>
+
+进一步可以证明这种使用相同随机输入的方法可以减少估计的方差并且能够给出更紧的置信区间。
+
+<div align=center>
+<img src="https://i.imgur.com/pf8tFQe.png" width="80%">
+<img src="https://i.imgur.com/QvUW7TZ.png" width="80%">
+<img src="https://i.imgur.com/R5Ji7zy.png" width="80%">
+</div>
+
+#### Antithetic Random Numbers
+
+减少方差的另一种方法是使用**对立变量(antithetic random numbers)**，它的思想是主动引入负相关的随机变量来减少估计的方差。
+
+<div align=center>
+<img src="https://i.imgur.com/UlVNRWi.png" width="80%">
+</div>
+
+以Monte Carlo积分为例，假设待估计的积分为$\int_1^2 \frac{1}{x} \ dx$，直接进行采样可以得到如下结果：
+
+<div align=center>
+<img src="https://i.imgur.com/eoPOkrJ.png" width="80%">
+<img src="https://i.imgur.com/eEWR3pu.png" width="80%">
+</div>
+
+接下来我们构造这些随机样本的对立变量$1-U_i$重新进行估计，然后对两次估计取均值可以得到一个更准确的积分估计值：
+
+<div align=center>
+<img src="https://i.imgur.com/LHyJXNm.png" width="80%">
+</div>
+
+#### Control Variates
+
+除此之外还可以使用**控制变量(control variates)**来减少方差。假设我们已知一个与$X$正相关的随机变量$Y$，我们可以利用$Y$来构造一个关于$X$的估计：
+
+$$
+C = \bar{X} - \beta (Y - \mathbb{E}[Y])
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/7rE8L0q.png" width="80%">
+</div>
+
+可以证明这个新的估计$C$是无偏的，而且有着比$\bar{X}$更小的方差。
+
+<div align=center>
+<img src="https://i.imgur.com/v2R0spq.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/NpzM75w.png" width="80%">
+</div>
+
 ## Ranking and Selection Methods
+
+很多任务中我们需要从多个系统中挑选出其中最好的那个，此时就需要对这些系统进行排序。
+
+<div align=center>
+<img src="https://i.imgur.com/h2T6V7H.png" width="80%">
+<img src="https://i.imgur.com/OtDABLW.png" width="80%">
+<img src="https://i.imgur.com/PtPwSrr.png" width="80%">
+<img src="https://i.imgur.com/fgXXhdq.png" width="80%">
+</div>
+
+### Find the Normal Distribution with the Largest Mean
+
+### Find the Bernoulli with the Largest Success Probability
+
+### Find the Most Probable Multinomial Cell
 
 ## Reference
 
