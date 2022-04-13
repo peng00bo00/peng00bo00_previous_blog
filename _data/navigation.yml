@@ -234,6 +234,8 @@ GAMES104:
     children: 
       - title: Rendering on Game Engine
         url: /2022/04/06/GAMES104-NOTES-04.html
+      - title: Lighting, Materials and Shaders
+        url: /2022/04/13/GAMES104-NOTES-05.html
 
 PBRT:
   - title: PBRT读书笔记
