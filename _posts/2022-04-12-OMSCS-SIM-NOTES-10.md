@@ -286,6 +286,33 @@ single-stage procedure的难点在于计算统计样本均值时所需的样本�
 
 ### Find the Most Probable Multinomial Cell
 
+对于multinomial分布的系统，我们希望了解系统的哪个输出具有最高的概率。这样的问题同样可以使用indifference zone方法。
+
+<div align=center>
+<img src="https://i.imgur.com/Wdo7MJe.png" width="80%">
+<img src="https://i.imgur.com/QlPePm3.png" width="80%">
+</div>
+
+根据多项分布的性质，我们可以计算产生样本的概率以及基于样本进行选择时结果正确的概率。
+
+<div align=center>
+<img src="https://i.imgur.com/IAbtIj4.png" width="80%">
+<img src="https://i.imgur.com/2VpqymO.png" width="80%">
+<img src="https://i.imgur.com/yELslCs.png" width="80%">
+<img src="https://i.imgur.com/KO7gvL7.png" width="80%">
+<img src="https://i.imgur.com/XJCPV95.png" width="80%">
+</div>
+
+在进行选择时同样需要考虑所需的样本数$n$。
+
+<div align=center>
+<img src="https://i.imgur.com/r8aC3n6.png" width="80%">
+<img src="https://i.imgur.com/ZRuPqrp.png" width="80%">
+<img src="https://i.imgur.com/vWsbHNj.png" width="80%">
+<img src="https://i.imgur.com/iv00aKG.png" width="80%">
+<img src="https://i.imgur.com/d4gmdqz.png" width="80%">
+</div>
+
 ## Reference
 
 - [Comparing Systems](https://www2.isye.gatech.edu/~sman/courses/6644/Module10-ComparingSystems-201128.pdf)
