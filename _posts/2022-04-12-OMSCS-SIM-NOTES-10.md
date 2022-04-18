@@ -256,6 +256,34 @@ single-stage procedure的难点在于计算统计样本均值时所需的样本�
 
 ### Find the Bernoulli with the Largest Success Probability
 
+对于Bernoulli系统，我们希望能够挑选出概率最大的那个。这里同样使用了indifference zone方法进行排序。
+
+<div align=center>
+<img src="https://i.imgur.com/gNo1drC.png" width="80%">
+<img src="https://i.imgur.com/ot2jgXj.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/oQkgkrT.png" width="80%">
+<img src="https://i.imgur.com/z4S4h2W.png" width="80%">
+<img src="https://i.imgur.com/4g4xkiP.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/tkZSJgV.png" width="80%">
+<img src="https://i.imgur.com/cVNPIxj.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/i0F4ofP.png" width="80%">
+<img src="https://i.imgur.com/CKOnNB4.png" width="80%">
+<img src="https://i.imgur.com/ne2nMzH.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/iLuJvfh.png" width="80%">
+</div>
+
 ### Find the Most Probable Multinomial Cell
 
 ## Reference
