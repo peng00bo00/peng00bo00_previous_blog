@@ -191,6 +191,69 @@ $$
 
 ### Find the Normal Distribution with the Largest Mean
 
+#### Introduction
+
+在排序问题中最常见的情况是从k个未知参数的正态分布中选出均值最大的那个分布。
+
+<div align=center>
+<img src="https://i.imgur.com/smqAcry.png" width="80%">
+</div>
+
+此时我们可以使用**无差异区域(indifference zone)**的方法进行选择。
+
+<div align=center>
+<img src="https://i.imgur.com/sLvPcdS.png" width="80%">
+<img src="https://i.imgur.com/a7xAhVi.png" width="80%">
+<img src="https://i.imgur.com/BCI0rYb.png" width="80%">
+</div>
+
+#### Single-Stage Procedures
+
+indifference zone方法中最基本的是single-stage procedure。single-stage procedure非常简单：我们假设k个系统都具有相同的方差，此时只需要根据样本均值进行排序并且选出均值最大的那个系统即可。
+
+<div align=center>
+<img src="https://i.imgur.com/Lj38AqS.png" width="80%">
+<img src="https://i.imgur.com/PZKsHO9.png" width="80%">
+</div>
+
+single-stage procedure的难点在于计算统计样本均值时所需的样本数。
+
+<div align=center>
+<img src="https://i.imgur.com/lezBojK.png" width="80%">
+<img src="https://i.imgur.com/xpmzCWn.png" width="80%">
+</div>
+
+所需样本数$n$的推导过程比较复杂，这里简单记录如下：
+
+<div align=center>
+<img src="https://i.imgur.com/wcR9bWm.png" width="80%">
+<img src="https://i.imgur.com/fAzB8o0.png" width="80%">
+<img src="https://i.imgur.com/9rkewdE.png" width="80%">
+<img src="https://i.imgur.com/CvKoWZZ.png" width="80%">
+</div>
+
+#### Two-Stage Procedures
+
+<div align=center>
+<img src="https://i.imgur.com/nS4zS5R.png" width="80%">
+<img src="https://i.imgur.com/PnrN0KH.png" width="80%">
+<img src="https://i.imgur.com/Vvc1XtC.png" width="80%">
+<img src="https://i.imgur.com/Q8lkQp5.png" width="80%">
+</div>
+
+#### Multi-Stage Procedure
+
+<div align=center>
+<img src="https://i.imgur.com/mc4gCmK.png" width="80%">
+<img src="https://i.imgur.com/Bi5Scfd.png" width="80%">
+<img src="https://i.imgur.com/vpda3qR.png" width="80%">
+<img src="https://i.imgur.com/Mbkol8K.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/YpqMGJ6.png" width="80%">
+</div>
+
 ### Find the Bernoulli with the Largest Success Probability
 
 ### Find the Most Probable Multinomial Cell
