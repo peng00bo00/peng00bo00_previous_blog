@@ -12,6 +12,24 @@ aside:
 
 ## LLFF Dataset
 
+### Fern
+
+<div align=center>
+<img src="https://i.imgur.com/WVeN2jJ.gif" width="60%">
+</div>
+
+### Flower
+
+<div align=center>
+<img src="https://i.imgur.com/Nha7tVa.gif" width="60%">
+</div>
+
+### Fortress
+
+<div align=center>
+<img src="https://i.imgur.com/wpbgK9K.gif" width="60%">
+</div>
+
 ## Blender Dataset
 
 ### Drum
