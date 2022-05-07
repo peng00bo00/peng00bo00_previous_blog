@@ -22,8 +22,24 @@ aside:
 
 ### Hotdog
 
+<div align=center>
+<img src="https://i.imgur.com/KRmrdpm.gif" width="40%">
+</div>
+
 ### Lego
 
 <div align=center>
 <img src="https://i.imgur.com/agozP0s.gif" width="40%">
+</div>
+
+### Materials
+
+<div align=center>
+<img src="https://i.imgur.com/giVol2o.gif" width="40%">
+</div>
+
+### Ship
+
+<div align=center>
+<img src="https://i.imgur.com/VgQULwm.gif" width="40%">
 </div>
