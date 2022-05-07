@@ -17,29 +17,29 @@ aside:
 ### Drum
 
 <div align=center>
-<img src="https://i.imgur.com/mGGxYwJ.gif" width="40%">
+<img src="https://i.imgur.com/mGGxYwJ.gif" width="60%">
 </div>
 
 ### Hotdog
 
 <div align=center>
-<img src="https://i.imgur.com/KRmrdpm.gif" width="40%">
+<img src="https://i.imgur.com/KRmrdpm.gif" width="60%">
 </div>
 
 ### Lego
 
 <div align=center>
-<img src="https://i.imgur.com/agozP0s.gif" width="40%">
+<img src="https://i.imgur.com/agozP0s.gif" width="60%">
 </div>
 
 ### Materials
 
 <div align=center>
-<img src="https://i.imgur.com/giVol2o.gif" width="40%">
+<img src="https://i.imgur.com/giVol2o.gif" width="60%">
 </div>
 
 ### Ship
 
 <div align=center>
-<img src="https://i.imgur.com/VgQULwm.gif" width="40%">
+<img src="https://i.imgur.com/VgQULwm.gif" width="60%">
 </div>
