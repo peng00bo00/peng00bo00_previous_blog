@@ -14,6 +14,16 @@ aside:
 
 ## Blender Dataset
 
+### Drum
+
+<div align=center>
+<img src="https://i.imgur.com/mGGxYwJ.gif" width="40%">
+</div>
+
+### Hotdog
+
 ### Lego
 
-![Imgur](https://i.imgur.com/agozP0s.gif)
+<div align=center>
+<img src="https://i.imgur.com/agozP0s.gif" width="40%">
+</div>
