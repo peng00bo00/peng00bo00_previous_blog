@@ -36,6 +36,18 @@ aside:
 <img src="https://i.imgur.com/9ikQNTW.gif" width="60%">
 </div>
 
+### Leaves
+
+<div align=center>
+<img src="https://i.imgur.com/YIBDXZO.gif" width="60%">
+</div>
+
+### Orchids
+
+<div align=center>
+<img src="https://i.imgur.com/NcoVN3P.gif" width="60%">
+</div>
+
 ## Blender Dataset
 
 ### Drum
