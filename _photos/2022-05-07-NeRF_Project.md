@@ -48,6 +48,18 @@ aside:
 <img src="https://i.imgur.com/NcoVN3P.gif" width="60%">
 </div>
 
+### Room
+
+<div align=center>
+<img src="https://i.imgur.com/XUgL5ZQ.gif" width="60%">
+</div>
+
+### Trex
+
+<div align=center>
+<img src="https://i.imgur.com/0d7e6A2.gif" width="60%">
+</div>
+
 ## Blender Dataset
 
 ### Drum
