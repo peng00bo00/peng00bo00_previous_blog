@@ -105,3 +105,41 @@ $$
 这种先计算当前策略效用函数再对策略进行更新的方法称为**策略迭代(policy iteration)**。
 
 ## The Bellman Equations
+
+Bellman方程有很多等价的形式。如果我们把奖励$R$定义为状态和动作的函数，则可以得到价值函数的递归形式：
+
+$$
+V(s) = \max_a \bigg( R(s, a) + \gamma \cdot \sum_{s'} T(s, a, s') \ V (s') \bigg)
+$$
+
+对上式进行展开可以得到：
+
+$$
+V(s_1) = \max_{a_1} \bigg( R(s_1, a_1) + \gamma \cdot \sum_{s_2} T(s_1, a_1, s_2) \ \max_{a_2} \bigg( R(s_2, a_2) + \gamma \cdot \sum_{s_3} T(s_2, a_2, s_3) ... \bigg) \bigg)
+$$
+
+我们可以把最外面括号中的内容定义为一个关于状态和动作的函数$Q(s, a)$，这样可以得到Q函数(quantity)的递归关系：
+
+$$
+Q(s, a) = R(s, a) + \gamma \cdot \sum_{s'} T(s, a, s') \ \max_{a'} Q(s', a')
+$$
+
+如果我们把上式中奖励$R(s, a)$后面的部分定义为$C(s, a)$，还可以得到C函数(continuation)的递归关系：
+
+$$
+C(s, a) = \gamma \cdot \sum_{s'} T(s, a, s') \ \max_{a'} \bigg( R(s', a') + C(s', a') \bigg)
+$$
+
+这样我们就推导了Bellman方程的三个等价形式，它们之间存在相互转换关系：
+
+$$
+V(s) = \max_a Q(s, a) = \max_a \bigg( R(s, a) + C(s, a) \bigg)
+$$
+
+$$
+Q(s, a) = R(s, a) + \gamma \cdot \sum_{s'} T(s, a, s') \ V(s') = R(s, a) + C(s, a)
+$$
+
+$$
+C(s, a) = \gamma \cdot \sum_{s'} T(s, a, s') \ V(s') = \gamma \cdot \sum_{s'} T(s, a, s') \ \max_{a'} Q(s', a')
+$$
