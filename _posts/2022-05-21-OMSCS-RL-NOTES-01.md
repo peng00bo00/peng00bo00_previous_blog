@@ -24,11 +24,11 @@ sidebar:
 2. **模型(model)**表示智能体从状态$s$执行动作$a$后转移到状态$s'$的概率，即$T(s, a, s') \sim P(s' \vert s, a)$；
 3. **动作(action)**表示智能体可以执行的行为$a$；
 4. **奖励(reward)**表示环境给予智能体的奖励信号，在不同算法中它可以记为$R(s)$、$R(s, a)$或者$R(s, a, s')$等；
-5. **策略(policy)**表示智能体进行决策的函数，它将状态$s$映射为一个动作$a$即$a = \pi(s)$，其中具有最大长期奖励的策略称为最优策略(optimal policy)，记为$\pi^*$；
+5. **策略(policy)**表示智能体进行决策的函数，它将状态$s$映射为一个动作$a$即$a = \pi(s)$，其中具有最大长期奖励的策略称为**最优策略(optimal policy)**，记为$\pi^*$；
 
 实际上状态、模型、动作以及奖励定义了整个待求解的问题，而强化学习的目标是求解出这个MDP的最优策略。
 
-## Sequences of Rewards
+### Sequences of Rewards
 
 在强化学习中一种常见的情况是考虑无限长序列的累计奖励：
 
@@ -48,6 +48,60 @@ $$
 U(s_0, s_1, ...) \leq \sum_{t=0}^\infty \gamma^t R_{\max} = \frac{R_{\max}}{1-\gamma}
 $$
 
-## Policies
+### Policies
+
+我们在上面提到过最优策略是使长期奖励最大的策略。在折扣系数的修正下我们可以更严格地来定义它：
+
+$$
+\pi^* = \arg \max_\pi \mathbb{E} \bigg[ \sum_{t=0}^\infty \gamma^t R(s_t) \bigg\vert \pi \bigg]
+$$
+
+同时，我们定义在策略$\pi$下的效用为：
+
+$$
+U^\pi (s) = \mathbb{E} \bigg[ \sum_{t=0}^\infty \gamma^t R(s_t) \bigg\vert \pi, s_0=s \bigg]
+$$
+
+这里需要对效用和奖励的概念进行区分：效用$U$需要考虑长期的累计奖励，而奖励$R$则只是当前状态的反馈信号。
+
+对于最优策略$\pi^*$，它和它对应的效用函数还需要满足：
+
+$$
+\pi^* (s) = \arg \max_a \sum_{s'} T(s, a, s') \ U^* (s')
+$$
+
+上式说明在状态$s$下，最优策略$\pi^*$给出的动作为所有可行动作中最大化下一状态$s'$效用期望的那个动作。
+
+更进一步，我们可以对$U^* (s)$进行展开：
+
+$$
+U^* (s) = R(s) + \gamma \cdot \max_a \sum_{s'} T(s, a, s') \ U^* (s')
+$$
+
+上式称为**Bellman方程(Bellman equation)**。Bellman方程是MDP中最核心的方程，它指出了最优策略下效用函数自身的递归关系。
+
+### Finding Policies
+
+显然Bellman方程是一个非线性方程一般无法直接进行求解，但是我们可以通过迭代的方法来计算最优策略对应的效用函数。具体来说，在每一步我们需要进行迭代：
+
+$$
+\hat{U}_{t+1} (s) = R(s) + \gamma \cdot \max_a \sum_{s'} T(s, a, s') \ \hat{U}_t (s')
+$$
+
+当迭代次数足够多时可以证明$\hat{U}_t$会收敛到最优效用函数上。这种通过不断迭代来计算最优效用函数以及最优策略的方法称为**价值迭代(value iteration)**。
+
+除了价值迭代之外，我们还可以从策略的角度出发来寻找最优策略。具体来说，在每一步我们首先计算当前策略的效用：
+
+$$
+U_t (s) = R(s) + \gamma \cdot \sum_{s'} T(s, \pi_t(s), s') \ U_t (s')
+$$
+
+然后利用计算出的效用函数来更新策略：
+
+$$
+\pi_{t+1} (s) = \arg \max_a \sum_{s'} T(s, a, s') \ U_t (s')
+$$
+
+这种先计算当前策略效用函数再对策略进行更新的方法称为**策略迭代(policy iteration)**。
 
 ## The Bellman Equations
