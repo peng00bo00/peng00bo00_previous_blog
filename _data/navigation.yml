@@ -350,3 +350,5 @@ OMSCS-RL:
     children: 
       - title: Introduction
         url: /2022/05/21/OMSCS-RL-NOTES-01.html
+      - title: Reinforcement Learning Basics
+        url: /2022/05/24/OMSCS-RL-NOTES-02.html
