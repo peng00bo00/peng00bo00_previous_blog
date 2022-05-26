@@ -246,6 +246,10 @@ GAMES104:
         url: /2022/05/11/GAMES104-NOTES-08.html
       - title: Advanced Animation Technology
         url: /2022/05/17/GAMES104-NOTES-09.html
+  - title: Physics System
+    children: 
+      - title: Basics of Animation Technology
+        url: /2022/05/26/GAMES104-NOTES-10.html
 
 PBRT:
   - title: PBRT读书笔记
