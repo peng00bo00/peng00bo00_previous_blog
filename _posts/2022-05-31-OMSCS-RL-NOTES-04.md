@@ -58,8 +58,12 @@ $$
 Q_t = B \ Q_{t-1}
 $$
 
-Bellman算子的一个重要性质是它是一个**压缩映射(contraction mapping)**。所谓压缩映射是指对于任意函数$F$和$G$存在$0 \leq \gamma \lt 1$满足：
+## Contraction Mapping
+
+Bellman算子的一个重要性质是它是一个**压缩映射(contraction mapping)**。所谓压缩映射是指对于任意函数$F$和$G$，存在$0 \leq \gamma \lt 1$使得对于算子$B$满足：
 
 $$
 \Vert B \ F - B \ G \Vert_\infty \leq \gamma \Vert F - G \Vert_\infty
 $$
+
+直观理解，压缩映射会不断减少两个函数之间的距离。
