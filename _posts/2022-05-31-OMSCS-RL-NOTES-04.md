@@ -48,3 +48,18 @@ $$
 [B \ Q] (s, a) = R(s, a) + \gamma \cdot \sum_{s'} T(s, a, s') \ \max_{a'} Q(s', a')
 $$
 
+利用Bellman算子，我们可以重写Bellman方程和TD(0)更新：
+
+$$
+Q^* = B \ Q^*
+$$
+
+$$
+Q_t = B \ Q_{t-1}
+$$
+
+Bellman算子的一个重要性质是它是一个**压缩映射(contraction mapping)**。所谓压缩映射是指对于任意函数$F$和$G$存在$0 \leq \gamma \lt 1$满足：
+
+$$
+\Vert B \ F - B \ G \Vert_\infty \leq \gamma \Vert F - G \Vert_\infty
+$$
