@@ -66,4 +66,32 @@ $$
 \Vert B \ F - B \ G \Vert_\infty \leq \gamma \Vert F - G \Vert_\infty
 $$
 
-直观理解，压缩映射会不断减少两个函数之间的距离。
+直观理解，压缩映射会不断减少两个函数之间的距离。压缩映射有很多有用的性质，比如说对于压缩映射$B$一定存在一个唯一的函数$F^*$满足方程：
+
+$$
+B \ F^* = F^*
+$$
+
+同时，我们可以从任意函数$F$开始利用$B$进行迭代，最终一定能收敛到$F^*$上：
+
+$$
+F_t = B \ F_{t-1} \Rightarrow F_t \rightarrow F^*
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/Y85m69p.png" width="80%">
+</div>
+
+容易验证Bellman算子满足压缩映射的定义：
+
+$$
+\begin{aligned}
+\Vert B \ Q_1 - B \ Q_2 \Vert_\infty &= \max_{s, a} \bigg\vert \gamma \sum_{s'} T(s, a, s') \bigg[ \max_{a'} Q_1(s', a') - \max_{a'} Q_2(s', a') \bigg] \bigg\vert \\
+&\leq \gamma \max_{s'} \vert \max_{a'} Q_1(s', a') - \max_{a'} Q_2(s', a') \vert \\
+&\leq \gamma \Vert  Q_1 - Q_2 \Vert_\infty
+\end{aligned}
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/OTjD0FM.png" width="80%">
+</div>
