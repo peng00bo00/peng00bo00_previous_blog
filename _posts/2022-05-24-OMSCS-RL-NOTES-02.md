@@ -9,7 +9,7 @@ sidebar:
   nav: OMSCS-RL
 ---
 
-> 这个系列是Gatech OMSCS 强化学习课程([CS 7642: Reinforcement Learning](https://omscs.gatech.edu/cs-7642-reinforcement-learning))的同步课程笔记。课程内容涉及强化学习算法的理论和相关应用，本节继续强化学习的概念。
+> 这个系列是Gatech OMSCS 强化学习课程([CS 7642: Reinforcement Learning](https://omscs.gatech.edu/cs-7642-reinforcement-learning))的同步课程笔记。课程内容涉及强化学习算法的理论和相关应用，本节继续介绍强化学习的概念。
 <!--more-->
 
 ## Reinforcement Learning Basics
