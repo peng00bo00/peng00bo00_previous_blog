@@ -94,4 +94,22 @@ $$
 
 <div align=center>
 <img src="https://i.imgur.com/OTjD0FM.png" width="80%">
+<img src="https://i.imgur.com/LYOqJKe.png" width="80%">
 </div>
+
+## Convergence
+
+Bellman算子作为一个压缩映射的直接推论是证明价值迭代算法的正确性。实际上存在如下定理保证了使用Bellman算子进行迭代的价值函数一定可以收敛到最优价值函数：
+
+<div align=center>
+<img src="https://i.imgur.com/CVM6Nd9.png" width="80%">
+</div>
+
+更进一步，我们可以证明TD learning算法能够收敛到最优价值函数：
+
+<div align=center>
+<img src="https://i.imgur.com/WDgiEOC.png" width="80%">
+<img src="https://i.imgur.com/BQUIYSr.png" width="80%">
+</div>
+
+## Generalized MDP
