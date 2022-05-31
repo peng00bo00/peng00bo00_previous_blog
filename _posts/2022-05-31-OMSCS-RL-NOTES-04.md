@@ -113,3 +113,13 @@ Bellman算子作为一个压缩映射的直接推论是证明价值迭代算法�
 </div>
 
 ## Generalized MDP
+
+除此之外，我们还可以对MDP以及Bellman方程的概念进行推广：
+
+<div align=center>
+<img src="https://i.imgur.com/kWEsF8a.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/ielFoAZ.png" width="80%">
+</div>
