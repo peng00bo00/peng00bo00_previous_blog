@@ -250,6 +250,8 @@ GAMES104:
     children: 
       - title: Basics Concepts
         url: /2022/05/26/GAMES104-NOTES-10.html
+      - title: Applications
+        url: /2022/06/05/GAMES104-NOTES-11.html
 
 PBRT:
   - title: PBRT读书笔记
