@@ -33,7 +33,7 @@ Q(s, a) = R(s, a) + \gamma \cdot \sum_{s'} T(s, a, s') \ \max_{a'} Q(s', a')
 $$
 
 $$
-Q_t(s_{t-1}, a_{t-1}) = Q_{t-1}(s_{t-1}, a_{t-1}) + \alpha_t \bigg[ r_t + \gamma \cdot \max_{a'} Q_{t-1}(s_{t-1}, a') - Q_{t-1}(s_{t-1}, a_{t-1}) \bigg]
+Q_t(s_{t-1}, a_{t-1}) = Q_{t-1}(s_{t-1}, a_{t-1}) + \alpha_t \bigg[ r_t + \gamma \cdot \max_{a'} Q_{t-1}(s_t, a') - Q_{t-1}(s_{t-1}, a_{t-1}) \bigg]
 $$
 
 <div align=center>

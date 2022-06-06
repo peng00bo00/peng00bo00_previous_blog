@@ -48,3 +48,29 @@ $$
 $$
 
 ## Policy Iteration
+
+**策略迭代(policy iteration, PI)**也是一种常用的求解MDP的算法。与VI不同的是，在每次迭代中PI会先更新当前的策略，然后利用新的策略再更新价值函数：
+
+<div align=center>
+<img src="https://i.imgur.com/fS82dvd.png" width="80%">
+</div>
+
+## Domination
+
+为了比较学习到的策略，我们需要引入一些相关的数学概念：
+
+<div align=center>
+<img src="https://i.imgur.com/2zF4T7r.png" width="80%">
+</div>
+
+在此基础上则可以证明PI的收敛性：
+
+<div align=center>
+<img src="https://i.imgur.com/qquIaHn.png" width="80%">
+<img src="https://i.imgur.com/2o3l9nB.png" width="80%">
+<img src="https://i.imgur.com/ksTfYAC.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/apBnU7K.png" width="80%">
+</div>
