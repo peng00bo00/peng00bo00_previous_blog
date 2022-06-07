@@ -26,7 +26,7 @@ $$
 V_t(s_{t-1}) = V_{t-1}(s_{t-1}) + \alpha_t \bigg[ r_t + \gamma V_{t-1} (s_t) - V_{t-1} (s_{t-1}) \bigg]
 $$
 
-我们把TD(0)的思路拓展到需要进行决策的情况，可以得到Q函数的更新算法：
+我们把TD(0)的思路拓展到需要进行决策的情况，可以得到Q-learning算法：
 
 $$
 Q(s, a) = R(s, a) + \gamma \cdot \sum_{s'} T(s, a, s') \ \max_{a'} Q(s', a')
