@@ -67,6 +67,73 @@ $$
 
 ## Reward Shaping
 
+在很多强化学习问题中智能体获得的奖励是非常稀疏的，直接进行学习可能很难学习到合理的策略。此时可以利用重构奖励函数的方法来鼓励智能体进行学习，这种方法就称为**reward shaping**。
+
+<div align=center>
+<img src="https://i.imgur.com/c6DvCMU.png" width="80%">
+</div>
+
 ### Potential-Based Shaping
 
+**potential-based shaping**的思想是把奖励函数视为关于状态的势函数：当智能体位于某些状态时会获得一定的奖励，而当它离开这些状态则会失去相应的奖励。换句话说我们可以把奖励函数定义为势函数的差值，进而避免智能体学习到次优策略：
+
+<div align=center>
+<img src="https://i.imgur.com/nVUO9RI.png" width="80%">
+</div>
+
+更严格的表述如下：我们定义关于状态的势函数$\psi(s)$，此时可以重新定义奖励函数为：
+
+$$
+R'(s, a, s') = R(s, a) - \psi(s) + \gamma \cdot \psi(s')
+$$
+
+可以证明potential-based shaping后的价值函数满足：
+
+$$
+\begin{aligned}
+Q(s, a) - \psi(s) &= \sum_{s'} T(s, a, s') \bigg( R(s, a) - \psi(s) + \gamma \psi(s') \bigg) + \gamma \cdot \max_{a'} \bigg[ Q(s', a') - \psi(s') \bigg] \\
+&= Q'(s, a)
+\end{aligned}
+$$
+
+由于势函数$\psi(s)$与行为$a$无关，经过shaping后仍然会得到与原始MDP相同的策略。
+
 ### Q-Learning with Potentials
+
+对于Q-learning算法，我们可以把势函数定义为最优状态价值函数，这样可以得到迭代步骤：
+
+$$
+Q(s, a) \leftarrow Q(s, a) + \alpha_t \bigg[ r - \psi(s) + \gamma \cdot \psi(s') + \gamma \cdot \max_{a'} Q(s', a') - Q(s, a) \bigg]
+$$
+
+$$
+\psi(s) = \max_a Q^*(s, a)
+$$
+
+此时可以证明学习到价值函数满足：
+
+$$
+\begin{aligned}
+Q(s, a) &= Q^*(s, a) - \psi(s) \\
+&= Q^*(s, a) - \max_a Q^*(s, a) \\
+&\leq 0
+\end{aligned}
+$$
+
+上式仅在最优行为上取等号，因此这样的学习算法可以避免很多数值上的问题。
+
+更进一步，我们可以将势函数定义为(随机)初始化时的最优状态价值函数：
+
+$$
+\psi(s) = \max_a Q_0(s, a)
+$$
+
+此时的Q-learning算法同样能够收敛都最优价值函数$Q^*$。
+
+<div align=center>
+<img src="https://i.imgur.com/hIvLgZo.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/6sBe1In.png" width="80%">
+</div>
