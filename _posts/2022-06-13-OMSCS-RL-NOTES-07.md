@@ -68,4 +68,52 @@ sidebar:
 
 ## Exploring Deterministic MDPs
 
+在K臂赌博机模型的基础上我们来考虑MDP。当MDP是确定性环境时我们可以在每个状态下尝试所有可能的行为并记录下奖励从而获得整个MDP的模型，然后使用求解MDP的相关算法来计算最优策略。但在很多情况下这样的计算代价是过于巨大的，因此更好的选择是在与环境进行交互时使用一些随机探索的策略来估计环境的模型。
+
+<div align=center>
+<img src="https://i.imgur.com/7QAqkFM.png" width="80%">
+</div>
+
+### MDP Optimization Criteria
+
+最简单的探索策略是使用完全随机的方式进行探索，但是这种策略的效率一般比较低。实际上我们可以借用K臂赌博机模型中的概念来对奖励进行估计，进而求解MDP的最优策略。
+
+<div align=center>
+<img src="https://i.imgur.com/cpDiTQ0.png" width="80%">
+<img src="https://i.imgur.com/u48eGGS.png" width="80%">
+</div>
+
+### Rmax Analysis
+
+上图中的算法称为Rmax算法，它的思想是把所有未预见的状态-奖励都标记为$R_{\max}$从而鼓励智能体去探索未知的环境。
+
+<div align=center>
+<img src="https://i.imgur.com/7QAqkFM.png" width="80%">
+<img src="https://i.imgur.com/dfz1FX7.png" width="80%">
+</div>
+
 ## General Stochastic MDPs
+
+对于随机环境的MDP问题，我们可以把Hoeffding bound和Rmax算法的思想结合起来：对于探索过的状态使用Hoeffding bound来估计，而对未探索的环境则标记为Rmax。这样修正过的算法称为general Rmax。
+
+<div align=center>
+<img src="https://i.imgur.com/LVZppWV.png" width="80%">
+<img src="https://i.imgur.com/mBGXiSC.png" width="80%">
+</div>
+
+基于simulation lemma可以证明当我们使用探索过程的样本对环境进行建模时，只要我们对环境的模型和真实模型比较接近，估计的价值函数会趋近于真实环境的价值函数。
+
+<div align=center>
+<img src="https://i.imgur.com/sQBF4UD.png" width="80%">
+<img src="https://i.imgur.com/3itTM7P.png" width="80%">
+</div>
+
+此外，利用explore-or-exploit lemma可以证明在仿真环境中学习到的最优策略会趋向于真实环境的最优策略。
+
+<div align=center>
+<img src="https://i.imgur.com/ITI0mMd.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/vXgTDco.png" width="80%">
+</div>
