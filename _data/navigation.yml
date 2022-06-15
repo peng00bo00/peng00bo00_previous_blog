@@ -252,6 +252,10 @@ GAMES104:
         url: /2022/05/26/GAMES104-NOTES-10.html
       - title: Applications
         url: /2022/06/05/GAMES104-NOTES-11.html
+  - title: Misc. System
+    children: 
+      - title: Effects
+        url: /2022/06/15/GAMES104-NOTES-12.html
 
 PBRT:
   - title: PBRT读书笔记
