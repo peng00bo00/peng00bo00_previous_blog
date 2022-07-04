@@ -88,3 +88,32 @@ $$
 </div>
 
 ## Monte-Carlo Tree Search
+
+除了使用Bellman方程来认识MDP外，我们还可以把MDP理解为一个**搜索(search)**问题。此时智能体所处的状态可以表示为一个节点，每当它执行某个行为时就会转移到下一个节点上。我们对智能体的历史行为进行展开就可以树这种数据结构来描述智能体的行为，同样地智能体可以利用子节点的价值来选择当前的最优行为。这样的算法称为**Monte-Carlo树搜索(Monte-Carlo tree search, MCTS)**。
+
+<div align=center>
+<img src="https://i.imgur.com/d709pZK.png" width="80%">
+</div>
+
+由于整个MDP对应的状态空间往往是非常巨大的，在进行搜索时往往不能对所有可能的状态进行遍历。此时可以使用采样的方法抽样出一些行为来继续向下搜索。而在对状态进行估值时也可以使用类似的采样方法采样出一系列轨迹，然后对这些轨迹上的奖励求平均来估计该状态的价值函数，最后自下而上对节点价值进行更新即可。
+
+<div align=center>
+<img src="https://i.imgur.com/trXlYZ3.png" width="80%">
+<img src="https://i.imgur.com/nDZ2Rh8.png" width="80%">
+</div>
+
+对节点进行估值时需要使用某个策略$\pi_r$来进行采样。最简单的方式是使用随机策略，但这种方式的效率往往过于低下，实践中往往需要结合MDP的特点和约束来设计进行采样的策略。
+
+<div align=center>
+<img src="https://i.imgur.com/fZn3wRZ.png" width="80%">
+</div>
+
+MCTS的一些性质如下：
+
+<div align=center>
+<img src="https://i.imgur.com/eylUfAx.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/ogCtfFP.png" width="80%">
+</div>
