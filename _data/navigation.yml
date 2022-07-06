@@ -256,6 +256,10 @@ GAMES104:
     children: 
       - title: Effects
         url: /2022/06/15/GAMES104-NOTES-12.html
+  - title: Tool Chains
+    children: 
+      - title: Foundation of Tool Chains
+        url: /2022/07/06/GAMES104-NOTES-13.html
 
 PBRT:
   - title: PBRT读书笔记
