@@ -65,5 +65,18 @@ sidebar:
 <img src="https://i.imgur.com/deH8CUs.png" width="80%">
 </div>
 
-## Repeated Games
+从几何的角度来看，我们可以把两名囚徒的收益用坐标轴上的点来表示。此时所有可能行为在平面上构成的凸包称为**可行域(feasible region)**，可以证明任意混合策略的回报一定位于可行域中。
 
+<div align=center>
+<img src="https://i.imgur.com/8KJyLb3.png" width="80%">
+</div>
+
+## Minmax Profile
+
+**minmax profile**是指在重复博弈过程中，每名玩家面对恶性策略时所能实现的回报。这里"恶性策略"是指其它的玩家会针对当前玩家，使其可能获得的回报尽可能减少。
+
+<div align=center>
+<img src="https://i.imgur.com/wvUzGWm.png" width="80%">
+</div>
+
+一般来说minmax profile是针对确定性策略的，而当我们需要考虑混合策略时还需要引入**security level**的概念。
