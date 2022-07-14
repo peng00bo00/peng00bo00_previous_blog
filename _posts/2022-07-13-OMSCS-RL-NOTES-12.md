@@ -79,4 +79,84 @@ sidebar:
 <img src="https://i.imgur.com/wvUzGWm.png" width="80%">
 </div>
 
+## Security Level Profile
+
 一般来说minmax profile是针对确定性策略的，而当我们需要考虑混合策略时还需要引入**security level**的概念。
+
+<div align=center>
+<img src="https://i.imgur.com/tSrPTTI.png" width="80%">
+</div>
+
+## Folksy Theorem
+
+<div align=center>
+<img src="https://i.imgur.com/CgfMmQZ.png" width="80%">
+</div>
+
+## Grim Trigger
+
+**Grim trigger**同样是囚徒困境中的一种经典策略，它是说在一开始会无条件选择合作以获得最大的共同回报，但如果对方选择了向警察招供那么在后续的博弈中会永远选择招供作为报复。可以证明Grim trigger同样实现了Nash均衡。
+
+<div align=center>
+<img src="https://i.imgur.com/14FUUri.png" width="80%">
+</div>
+
+## Implausible Threats
+
+Grim trigger在对方越界的之后会选择永远进行报复，但在现实的博弈中这样的行为实际上非常少见。在大多数情况下，报复的行为会更多地来自于对自身利益的最大化并且不考虑总体利益。
+
+<div align=center>
+<img src="https://i.imgur.com/GiS8w6p.png" width="80%">
+</div>
+
+## Pavlov
+
+接下来我们再介绍一下**Pavlov**策略，它是利用对方的行为来最大化自身的利益。在一开始Pavlov策略与TfT非常相似，都是从合作出发并且当对方选择告密时自己同样会进行告密。但Pavlov策略中囚徒选择告密后的行为则与TfT策略相反：如果对方选择合作自己仍会进行告密来获取利益，而如果对方选择告密自己则会选择合作。可以证明Pavlov策略实现了Nash均衡，同时也满足subgame perfect。
+
+<div align=center>
+<img src="https://i.imgur.com/m3Y0x9G.png" width="80%">
+<img src="https://i.imgur.com/WKp90DH.png" width="80%">
+</div>
+
+## Computational Folk Theorem
+
+Pavlov策略在囚徒困境之外的其它博弈中也有大量的应用。
+
+<div align=center>
+<img src="https://i.imgur.com/k9uu2fn.png" width="80%">
+</div>
+
+## Stochastic Games and Multiagent RL
+
+我们把MDP和重复博弈结合到一起就得到了**随机博弈(stochastic games)**，再基于随机博弈的框架我们就可以讨论**多智能体的强化学习问题(multiagent RL, MARL)**。在MARL中，智能体会在未知的环境中进行博弈同时试图最大化自身的收益。
+
+<div align=center>
+<img src="https://i.imgur.com/W5upmz9.png" width="80%">
+</div>
+
+更严格的来说，随机博弈可以按照如下方式来进行定义。
+
+<div align=center>
+<img src="https://i.imgur.com/qvchpVH.png" width="80%">
+</div>
+
+## Zero-Sum Stochastic Games
+
+当环境中任意时刻智能体之间的回报之和为0时可以结合零和博弈的相关理论来对MARL进行处理。实际上我们可以把Bellman方程以及Q-learning的方法迁移到零和博弈中用来计算智能体的价值函数以及最优策略：
+
+<div align=center>
+<img src="https://i.imgur.com/Ppm0wf6.png" width="80%">
+</div>
+
+## General-Sum Games
+
+对于更一般的MARL问题，我们同样可以利用Q-learning的框架进行求解。此时我们只需要将minimax操作替换为计算多智能体的Nash均衡即可，但需要注意此时的算法稳定性和收敛性往往都没有保障。
+
+<div align=center>
+<img src="https://i.imgur.com/M5WoKt1.png" width="80%">
+<img src="https://i.imgur.com/twHl7sK.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/7FZwZtG.png" width="80%">
+</div>
