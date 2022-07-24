@@ -262,6 +262,10 @@ GAMES104:
         url: /2022/07/06/GAMES104-NOTES-13.html
       - title: Applications & Advanced Topic
         url: /2022/07/08/GAMES104-NOTES-14.html
+  - title: Gameplay
+    children: 
+      - title: Gameplay Complexity and Building Blocks
+        url: /2022/07/24/GAMES104-NOTES-15.html
 
 PBRT:
   - title: PBRT读书笔记
