@@ -93,36 +93,36 @@ Geometry Processing
 
 ## Research Experience
 
-- **Characterization and Manufacturing of Lunar Regolith Simulants** \
-  Characterize commercial lunar regolith simulants with XRD, SEM and optical microscope. \
-  Produce lunar regolith simulants with local availiable deposits in the UAE. \
-  3D shape reconstruction of aggregates with micro-CT. \
-  Develop 3D shape descriptors with spherical harmonics
+- **Characterization and Manufacturing of Lunar Regolith Simulants**
+  - Characterize commercial lunar regolith simulants with XRD, SEM and optical microscope.
+  - Produce lunar regolith simulants with local availiable deposits in the UAE.
+  - 3D shape reconstruction of aggregates with micro-CT.
+  - Develop 3D shape descriptors with spherical harmonics.
 
-- **Geospatial Modelling of Urban Thermodynamics: Infrastructure, Environment, and Microclimate in Cities** \
-  Develop algorithms for thermal imaging interpretation and atmosphere compensation. \
-  Optimize camera pose and intrinsics with bundle adjustment. \
-  Monitor building facade temperature in New York city and Abu Dhabi.
-  Present pixel-level temperature comparison between thermal measurement and CFD simulation.
+- **Geospatial Modelling of Urban Thermodynamics: Infrastructure, Environment, and Microclimate in Cities**
+  - Develop algorithms for thermal imaging interpretation and atmosphere compensation.
+  - Optimize camera pose and intrinsics with bundle adjustment.
+  - Monitor building facade temperature in New York city and Abu Dhabi.
+  - Present pixel-level temperature comparison between thermal measurement and CFD simulation.
 
-- **Vehicle Load Identification and Data Fusion Based on Computer Vision** \
-  Create a vehicle detection dataset from surveillance videos. \
-  Develop vehicle detection and tracking algorithms with deep neural networks. \
-  Analyze traffic flow and loading history with Monte Carlo simulation.
+- **Vehicle Load Identification and Data Fusion Based on Computer Vision**
+  - Create a vehicle detection dataset from surveillance videos.
+  - Develop vehicle detection and tracking algorithms with deep neural networks.
+  - Analyze traffic flow and loading history with Monte Carlo simulation.
 
-- **Surface Diseases Identification for Long-Span Cable Bridge** \
-  Develop an automated image acquisition system to capture images under bridge deck. \
-  Create a surface disease dataset for steel bridge inspection. \
-  Train a semantic segmentation model for surface disease identification with deep neural networks.
+- **Surface Diseases Identification for Long-Span Cable Bridge**
+  - Develop an automated image acquisition system to capture images under bridge deck.
+  - Create a surface disease dataset for steel bridge inspection.
+  - Train a semantic segmentation model for surface disease identification with deep neural networks.
 
-- **Wind Resistance Analysis of Jiqi Yellow River Bridge** \
-  Finite element modeling and numerical simulation for wind resistance analysis.
+- **Wind Resistance Analysis of Jiqi Yellow River Bridge**
+  - Finite element modeling and numerical simulation for wind resistance analysis.
 
-- **Seismic Analysis of Pihe River Aqueduct** \
-  Finite element modeling and numerical simulation for seismic analysis.
+- **Seismic Analysis of Pihe River Aqueduct**
+  - Finite element modeling and numerical simulation for seismic analysis.
 
-- **Seismic Analysis of Wushui Bridge** \
-  Finite element modeling and numerical simulation for seismic analysis.
+- **Seismic Analysis of Wushui Bridge**
+  - Finite element modeling and numerical simulation for seismic analysis.
 
 ## Online Courses
 
