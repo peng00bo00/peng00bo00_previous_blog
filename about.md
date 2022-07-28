@@ -54,6 +54,18 @@ Geometry Processing
 
 ## Publications
 
+- **3D Shape Analysis of Lunar Regolith Simulants** \
+  Bo Peng, Rotana Hay, and Kemal Celik \
+  73rd International Astronautical Congress 2022 (*submitted*)
+
+- **Filler and Nucleation Effects of CaCO3 Polymorphs Derived from Limestone and Seashell on Hydration and Carbonation of Magnesium oxide (MgO) Cement (RMC)** \
+  Rotana Hay, Bo Peng, and Kemal Celik \
+  Cement and Concrete Research (*under review*)
+
+- **Engineering Practices on Surface Damage Inspection and Performance Evaluation of Concrete Bridges in China** \
+  Airong Chen, Xurui Fang, Zichao Pan, Dalei Wang, Yue Pan, and Bo Peng \
+  Structural Concrete
+
 - **A Novel Vision-Based Framework for Identifying Dynamic Vehicle Loads on Long-Span Bridges: A Case Study of Jiangyin Bridge, China** \
   Yue Pan, Dalei Wang, Yiqing Dong, and Bo Peng \
   IEEE Transactions on Intelligent Transportation Systems
@@ -62,20 +74,16 @@ Geometry Processing
   Rotana Hay, Bo Peng, and Kemal Celik \
   72nd International Astronautical Congress 2021
 
-- **Engineering Practices on Surface Disease Inspection and Performance Evaluation of Concrete Bridges in China** \
-  Airong Chen, Xurui Fang, Zichao Pan, Dalei Wang, Yue Pan and Bo Peng \
-  Structural Concrete
-
 - **An Automated Inspection Method for the Steel Box Girder Bottom of Long-span Bridges Based on Deep Learning** \
   Dalei Wang, Yiquan Zhang, Yue Pan, Bo Peng, Haoran Liu, and Rujin Ma \
   IEEE Access
 
 - **Steel Box-Girder Bridge Diseases Identification Based on Computer Vision System** \
-  Dalei Wang, Yue Pan and Bo Peng \
+  Dalei Wang, Yue Pan, and Bo Peng \
   9th International Association for Bridge Maintenance and Safety (IABMAS 2018)
 
 - **Corrosion Segmentation and Quantitative Analysis Based on Deep Neural Networks** \
-  Dalei Wang, Bo Peng and Yue Pan \
+  Dalei Wang, Bo Peng, and Yue Pan \
   9th International Association for Bridge Maintenance and Safety (IABMAS 2018)
 
 - **Current Status and Thinking of Chinese Ancient Bridges Protection** \
@@ -85,19 +93,36 @@ Geometry Processing
 
 ## Research Experience
 
-- **Characterization and Manufacturing of Lunar Regolith Simulants**
+- **Characterization and Manufacturing of Lunar Regolith Simulants** \
+  Characterize commercial lunar regolith simulants with XRD, SEM and optical microscope. \
+  Produce lunar regolith simulants with local availiable deposits in the UAE. \
+  3D shape reconstruction of aggregates with micro-CT. \
+  Develop 3D shape descriptors with spherical harmonics
 
-- **GEOSPATIAL MODELING OF URBAN THERMODYNAMICS: Infrastructure, Environment, and Microclimate in Cities**
+- **Geospatial Modelling of Urban Thermodynamics: Infrastructure, Environment, and Microclimate in Cities** \
+  Develop algorithms for thermal imaging interpretation and atmosphere compensation. \
+  Optimize camera pose and intrinsics with bundle adjustment. \
+  Monitor building facade temperature in New York city and Abu Dhabi.
+  Present pixel-level temperature comparison between thermal measurement and CFD simulation.
 
-- **Vehicle Load Identification and Data Fusion Based on Computer Vision**
+- **Vehicle Load Identification and Data Fusion Based on Computer Vision** \
+  Create a vehicle detection dataset from surveillance videos. \
+  Develop vehicle detection and tracking algorithms with deep neural networks. \
+  Analyze traffic flow and loading history with Monte Carlo simulation.
 
-- **Surface Diseases Identification for Long-Span Cable Bridge**
+- **Surface Diseases Identification for Long-Span Cable Bridge** \
+  Develop an automated image acquisition system to capture images under bridge deck. \
+  Create a surface disease dataset for steel bridge inspection. \
+  Train a semantic segmentation model for surface disease identification with deep neural networks.
 
-- **The Wind Resistance Checking of Jiqi Yellow River Bridge**
+- **Wind Resistance Analysis of Jiqi Yellow River Bridge** \
+  Finite element modeling and numerical simulation for wind resistance analysis.
 
-- **The Seismic Checking of Pihe River Aqueduct**
+- **Seismic Analysis of Pihe River Aqueduct** \
+  Finite element modeling and numerical simulation for seismic analysis.
 
-- **The Seismic Checking of Wushui Bridge**
+- **Seismic Analysis of Wushui Bridge** \
+  Finite element modeling and numerical simulation for seismic analysis.
 
 ## Online Courses
 
