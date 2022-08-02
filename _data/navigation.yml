@@ -400,3 +400,9 @@ OMSCS-RL:
         url: /2022/07/14/OMSCS-RL-NOTES-13.html
       - title: CCC
         url: /2022/07/18/OMSCS-RL-NOTES-14.html
+
+SA:
+  - title: Shape Analysis
+    children: 
+      - title: Introduction
+        url: /2022/08/02/SA-NOTES-01.html
