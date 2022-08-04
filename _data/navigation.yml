@@ -406,3 +406,5 @@ SA:
     children: 
       - title: Introduction
         url: /2022/08/02/SA-NOTES-01.html
+      - title: Linear and Variational Problems
+        url: /2022/08/04/SA-NOTES-02.html
