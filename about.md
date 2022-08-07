@@ -141,6 +141,7 @@ Geometry Processing
 - [CS 7641: Machine Learning](https://omscs.gatech.edu/cs-7641-machine-learning)
 - [CS 7643: Deep Learning](https://omscs.gatech.edu/cs-7643-deep-learning)
 - [ISYE 6644: Simulation and Modeling for Engineering and Science](https://omscs.gatech.edu/isye-6644-simulation-and-modeling-engineering-and-science)
+- [CS 7642: Reinforcement Learning](https://omscs.gatech.edu/cs-7642-reinforcement-learning)
 
 ### Coursera
 
