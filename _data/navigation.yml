@@ -408,5 +408,7 @@ SA:
         url: /2022/08/02/SA-NOTES-01.html
       - title: Linear and Variational Problems
         url: /2022/08/04/SA-NOTES-02.html
+  - title: Curves
+    children: 
       - title: Differential Geometry of Smooth Curves
         url: /2022/08/07/SA-NOTES-03.html
