@@ -412,3 +412,5 @@ SA:
     children: 
       - title: Differential Geometry of Smooth Curves
         url: /2022/08/07/SA-NOTES-03.html
+      - title: Discrete Differential Geometry of Polyline Curves
+        url: /2022/08/09/SA-NOTES-04.html
