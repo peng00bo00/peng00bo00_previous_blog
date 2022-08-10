@@ -270,6 +270,10 @@ GAMES104:
         url: /2022/07/26/GAMES104-NOTES-16.html
       - title: Advanced Artificial Intelligence
         url: /2022/07/28/GAMES104-NOTES-17.html
+  - title: Online Gaming
+    children: 
+      - title: Online Gaming Architecture Fundamentals
+        url: /2022/08/10/GAMES104-NOTES-18.html
 
 PBRT:
   - title: PBRT读书笔记
