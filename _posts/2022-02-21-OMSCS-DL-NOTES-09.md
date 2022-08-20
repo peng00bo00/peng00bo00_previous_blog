@@ -124,7 +124,7 @@ FCN的缺陷在于输入图像经过网络后分辨率会缩减，造成一部�
 <img src="https://i.imgur.com/JQS5hpf.png" width="80%">
 </div>
 
-显然目标检测额核心是获得图像中不同物体的proposal。在一些早期的工作中往往是使用传统计算机视觉的技术获得不同尺度不同位置下大量的bounding box，然后对这些proposal进行分类并通过NMS获得最终的bounding box。
+显然目标检测的核心是获得图像中不同物体的region proposal。在一些早期的工作中往往是使用传统计算机视觉的技术获得不同尺度不同位置下大量的bounding box，然后对这些proposal进行分类并通过NMS获得最终的bounding box。
 
 <div align=center>
 <img src="https://i.imgur.com/24fXuIO.jpg" width="80%">
