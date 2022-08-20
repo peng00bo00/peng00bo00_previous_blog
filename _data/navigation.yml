@@ -424,5 +424,7 @@ SA:
     children: 
       - title: Defining Surfaces and (sub)Manifolds; Mesh Data Structures
         url: /2022/08/15/SA-NOTES-05.html
+  - title: Curvature
+    children: 
       - title: Second Fundamental Form and Surface Curvature
         url: /2022/08/19/SA-NOTES-06.html
