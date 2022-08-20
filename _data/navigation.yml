@@ -428,3 +428,5 @@ SA:
     children: 
       - title: Second Fundamental Form and Surface Curvature
         url: /2022/08/19/SA-NOTES-06.html
+      - title: Approximating Gaussian/Mean/Principal Curvatures on Triangle Meshes
+        url: /2022/08/20/SA-NOTES-07.html
