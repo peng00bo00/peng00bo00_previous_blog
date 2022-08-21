@@ -60,3 +60,43 @@ $$
 <img src="https://i.imgur.com/HLOl1tB.gif" width="45%">
 <img src="https://i.imgur.com/KrAIIuX.gif" width="45%">
 </div>
+
+## Homework 2: Surfaces and Curvature
+
+### Mean Curvature Flow with Explicit Integrator
+
+$$
+\frac{\mathbf{p} (t+\tau) - \mathbf{p} (t)}{\tau} = - \mathbf{M}^{-1} (\mathbf{p} (t)) \cdot \mathbf{L} (\mathbf{p} (t)) \cdot \mathbf{p} (t)
+$$
+
+$$
+\mathbf{p} (t+\tau) = \mathbf{p} (t) - \tau \mathbf{M}^{-1} (\mathbf{p} (t)) \cdot \mathbf{L} (\mathbf{p} (t)) \cdot \mathbf{p} (t)
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/14jPnsN.gif" width="50%">
+</div>
+
+### Mean Curvature Flow with (Semi-)Implicit Integrator
+
+$$
+\frac{\mathbf{p} (t+\tau) - \mathbf{p} (t)}{\tau} = - \mathbf{M}^{-1} (\mathbf{p} (t)) \cdot \mathbf{L} (\mathbf{p} (t)) \cdot \mathbf{p} (t+\tau)
+$$
+
+$$
+\mathbf{p} (t+\tau) =\bigg(\mathbf{I} + \tau \mathbf{M}^{-1} (\mathbf{p} (t)) \cdot \mathbf{L} (\mathbf{p} (t)) \bigg)^{-1} \cdot \mathbf{p} (t) 
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/Bl0zqwZ.gif" width="50%">
+</div>
+
+### Non-Singular Mean Curvature Flow
+
+$$
+\mathbf{p} (t+\tau) = \bigg(\mathbf{I} + \tau \mathbf{M}^{-1} (\mathbf{p} (t)) \cdot \mathbf{L} (\mathbf{p} (0)) \bigg)^{-1} \cdot \mathbf{p} (t) 
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/ti9Ajtc.gif" width="50%">
+</div>
