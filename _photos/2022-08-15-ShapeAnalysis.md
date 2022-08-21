@@ -98,5 +98,5 @@ $$
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/ti9Ajtc.gif" width="50%">
+<img src="https://i.imgur.com/RDqlDh7.gif" width="50%">
 </div>
