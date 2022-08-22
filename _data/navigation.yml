@@ -430,3 +430,7 @@ SA:
         url: /2022/08/19/SA-NOTES-06.html
       - title: Discrete Surface Curvature
         url: /2022/08/20/SA-NOTES-07.html
+  - title: Geodesic Distances
+    children: 
+      - title: Geodesic Distances Intro & Theory
+        url: /2022/08/22/SA-NOTES-08.html
