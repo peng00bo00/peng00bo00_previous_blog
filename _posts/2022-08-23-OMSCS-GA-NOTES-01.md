@@ -203,6 +203,90 @@ LCS(X[], Y[]):
 
 ## Knapsack
 
+knapsack是经典的优化问题，我们希望在一定的约束下最大化最大价值：
+
+<div align=center>
+<img src="https://i.imgur.com/AqMxn1p.png" width="80%">
+</div>
+
+### Greedy Algorithm
+
+贪心算法是求解knapsack问题的一种经典解法，不过需要注意的是贪心算法往往不能得到问题的最优解。
+
+<div align=center>
+<img src="https://i.imgur.com/4RaHtnI.png" width="80%">
+</div>
+
+### Attempt1
+
+<div align=center>
+<img src="https://i.imgur.com/rGEnwFr.png" width="80%">
+<img src="https://i.imgur.com/l53NiJl.png" width="80%">
+</div>
+
+### Attempt2
+
+<div align=center>
+<img src="https://i.imgur.com/hvBRfA4.png" width="80%">
+<img src="https://i.imgur.com/zllCzsN.png" width="80%">
+</div>
+
+### DP Algorithm
+
+因此，使用DP来求解knapsack问题的伪代码如下：
+
+```
+KnapsackNoRepeat(w[], v[], B):
+    for b=0:B
+        K[0, b] = 0
+    for i=1:n
+        K[i, 0] = 0
+    
+    for i=1:n
+        for b=1:B
+            if w[i] <= b
+                K[i, b] = max(v[i]+K[i-1, b-w[i]], K[i-1, b])
+            else
+                K[i, b] = K[i-1, b]
+    
+    return K[i, b]
+```
+
+此时算法的复杂度为$O(nB)$。这里需要说明的是$O(nB)$依赖于限制$B$的值，而要表示$B$则需要$O(\log B)$的空间。因此这个算法并不是一个非常高效的算法。实际上人们已经证明knapsack问题是NP-complete，我们目前无法找到一个高效的解法。
+
+<div align=center>
+<img src="https://i.imgur.com/CHzHAfM.png" width="80%">
+</div>
+
+### Knapsack Repetition
+
+<div align=center>
+<img src="https://i.imgur.com/TWsPpKo.png" width="80%">
+<img src="https://i.imgur.com/edTQSrR.png" width="80%">
+</div>
+
+#### Simpler Subproblem
+
+<div align=center>
+<img src="https://i.imgur.com/zxxW6cI.png" width="80%">
+</div>
+
+因此对于允许重复的knapsack问题可以按照如下过程进行求解：
+
+```
+KnapsackRepeat(w[], v[], B):
+    for b=0:B
+        K[b] = 0
+
+        for i=1:n
+            if w[i] <= b & K[b] < v[i]+K[b-w[i]]
+                K[b] = v[i] + K[b-w[i]]
+    
+    return K[B]
+```
+
+此时算法的复杂度为$O(nB)$，仍然不是一个高效的解法。
+
 ## Chain Matrix Multiply
 
 ## Shortest Path Algorithms
