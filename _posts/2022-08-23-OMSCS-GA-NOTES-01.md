@@ -138,6 +138,69 @@ LIS(a[]):
 
 ## Longest Common Subsequence
 
+LCS问题的目标是计算两个序列中最长的公共子列：
+
+<div align=center>
+<img src="https://i.imgur.com/bA8GydQ.png" width="80%">
+</div>
+
+### Subproblem Attempt1
+
+<div align=center>
+<img src="https://i.imgur.com/7kqzCSh.png" width="80%">
+</div>
+
+### Recurrence Attempt1
+
+<div align=center>
+<img src="https://i.imgur.com/2q0zgaA.png" width="80%">
+<img src="https://i.imgur.com/JTJvkbb.png" width="80%">
+</div>
+
+### Subproblem Attempt2
+
+<div align=center>
+<img src="https://i.imgur.com/7ts0xtJ.png" width="80%">
+</div>
+
+### Recurrence Attempt2
+
+<div align=center>
+<img src="https://i.imgur.com/hW9KwqY.png" width="80%">
+<img src="https://i.imgur.com/YJjLKVP.png" width="80%">
+<img src="https://i.imgur.com/YueOEWA.png" width="80%">
+<img src="https://i.imgur.com/dLDg8o9.png" width="80%">
+</div>
+
+### DP Algorithm
+
+因此求解LCS的算法为：
+
+```
+LCS(X[], Y[]):
+    for i=0:n
+        L[i, 0] = 0
+    for j=0:n
+        L[0, j] = 0
+    
+    for i=1:n
+        for j=1:n
+            if X[i] == Y[j]
+                L[i, j] = 1 + L[i-1, j-1]
+            else
+                L[i, j] = max(L[i, j-1], L[i-1, j])
+    
+    return L[n, n]
+```
+
+此时算法的复杂度为$O(n^2)$。
+
+如果想要获得最长公共子列，还可以从L的右下角开始向上进行追溯：
+
+<div align=center>
+<img src="https://i.imgur.com/6KeLTki.png" width="80%">
+</div>
+
 ## Knapsack
 
 ## Chain Matrix Multiply
