@@ -143,6 +143,7 @@ Geometry Processing
 - [ISYE 6644: Simulation and Modeling for Engineering and Science](https://omscs.gatech.edu/isye-6644-simulation-and-modeling-engineering-and-science)
 - [CS 7642: Reinforcement Learning](https://omscs.gatech.edu/cs-7642-reinforcement-learning)
 <!-- - [CS 7638: Artificial Intelligence for Robotics](https://omscs.gatech.edu/cs-7638-artificial-intelligence-robotics) -->
+<!-- - [CS 6515: Intro to Grad Algorithms](https://omscs.gatech.edu/cs-6515-intro-graduate-algorithms) -->
 
 ### Coursera
 
