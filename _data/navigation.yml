@@ -434,3 +434,9 @@ SA:
     children: 
       - title: Geodesic Distances Intro & Theory
         url: /2022/08/22/SA-NOTES-08.html
+
+OMSCS-GA:
+  - title: Intro to Grad Algorithms
+    children: 
+      - title: Dynamic Programming
+        url: /2022/08/23/OMSCS-GA-NOTES-01.html
