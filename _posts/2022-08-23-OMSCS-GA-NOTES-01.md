@@ -80,6 +80,62 @@ Fib2(n):
 
 ## Longest Increasing Subsequence
 
+LIS问题的目标是在给定序列中寻找递增子列的长度，注意这里我们允许对原始序列进行删减来获得子列。
+
+<div align=center>
+<img src="https://i.imgur.com/InNHqpl.png" width="80%">
+</div>
+
+### Subproblem Attempt
+
+使用DP的步骤是首先定义一个subproblem，然后依次求解subproblem。
+
+<div align=center>
+<img src="https://i.imgur.com/OrvDRcO.png" width="80%">
+</div>
+
+对于LIS问题可以进行形式化如下：
+
+<div align=center>
+<img src="https://i.imgur.com/nH3zrPE.png" width="80%">
+</div>
+
+### Recurrence Attempt
+
+求解LIS问题的核心在于记录下序列中每个元素结尾时递增子列的长度。
+
+<div align=center>
+<img src="https://i.imgur.com/UpO1clv.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/wecKkrK.png" width="80%">
+<img src="https://i.imgur.com/mSrPH3M.png" width="80%">
+</div>
+
+### DP Algorithm
+
+因此我们可以基于DP来设计算法：
+
+```
+LIS(a[]):
+    for i=1:n
+        L[i] = 1
+
+        for j=1:i-1
+            if a[j] < a[i] & L[i] < 1+L[j]
+                L[i] = 1 + L[j]
+
+    max = 1
+    for i=2:n
+        if L[i] > L[max]
+            max = i
+
+    return max
+```
+
+此时算法的复杂度为$O(n^2)$。
+
 ## Longest Common Subsequence
 
 ## Knapsack
