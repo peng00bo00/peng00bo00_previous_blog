@@ -442,3 +442,9 @@ OMSCS-GA:
     children: 
       - title: Dynamic Programming
         url: /2022/08/23/OMSCS-GA-NOTES-01.html
+      - title: Randomized Algorithms
+      - title: Divide and Conquer
+      - title: Graph Algorithms
+      - title: Max-Flow
+      - title: Linear Programming
+      - title: NP-Completeness
