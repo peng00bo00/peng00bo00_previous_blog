@@ -436,6 +436,10 @@ SA:
         url: /2022/08/22/SA-NOTES-08.html
       - title: Geodesic Distances Algorithms
         url: /2022/08/24/SA-NOTES-09.html
+  - title: Inverse Distance Problems
+    children: 
+      - title: Distance Metrics and Embeddings
+        url: /2022/08/28/SA-NOTES-10.html
 
 OMSCS-GA:
   - title: Intro to Grad Algorithms
