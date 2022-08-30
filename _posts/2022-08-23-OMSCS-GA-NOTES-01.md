@@ -9,7 +9,7 @@ sidebar:
   nav: OMSCS-GA
 ---
 
-> 这个系列是Gatech OMSCS 高级算法课程([CS 6515: Intro to Grad Algorithms](https://omscs.gatech.edu/cs-6515-intro-graduate-algorithms))的同步课程笔记。课程内容涉及强化学习算法的理论和相关应用，本节主要介绍动态规划。
+> 这个系列是Gatech OMSCS 高级算法课程([CS 6515: Intro to Grad Algorithms](https://omscs.gatech.edu/cs-6515-intro-graduate-algorithms))的同步课程笔记。课程内容涉及动态规划、随机算法、分治、图算法、最大流、线性规划以及NP完备等高级算法的设计思想和相关应用，本节主要介绍动态规划。
 <!--more-->
 
 **动态规划(dynamic programming, DP)**是算法设计中非常重要的一种思想，很多复杂的问题都可以基于动态规划来进行求解。
@@ -364,3 +364,106 @@ ChainMultiply(m0, m1, ..., mn):
 </div>
 
 ## Shortest Path Algorithms
+
+动态规划的一个重要应用是计算最短路径，实际上经典的Dijkstra算法就是基于动态规划来进行设计的。
+
+<div align=center>
+<img src="https://i.imgur.com/kdv3aLQ.png" width="80%">
+</div>
+
+### Negative Weight Cycles
+
+Dijkstra算法的一个局限性在于它不能处理带负边的情况。对于更一般的图结构，我们希望能够找到图上权重和为负的环，同时计算出任意两个顶点之间的最短路径。
+
+<div align=center>
+<img src="https://i.imgur.com/ruFCOBY.png" width="80%">
+</div>
+
+### Single Source
+
+首先考虑单源最短路径问题。由于此时图上包含负边，我们不能直接使用Dijkstra算法进行求解。同时为了避免出现无限循环的问题，我们还要求每个节点最多被访问一次。
+
+<div align=center>
+<img src="https://i.imgur.com/utgmT6Z.png" width="80%">
+<img src="https://i.imgur.com/AZhFsqV.png" width="80%">
+<img src="https://i.imgur.com/cEXxH1G.png" width="80%">
+</div>
+
+这样我们可以推导出**Bellman-Ford算法**，它的复杂度为$O(mn)$：
+
+```
+Bellman-Ford(G, s, w):
+    for z in V
+        D[0, z] = inf
+    
+    D[0, s] = 0
+
+    for i=1:n-1
+        for z in V
+            D[i, z] = D[i-1, z]
+
+            for yz in E
+                if D[i, z] > D[i-1, y] + w[y, z]:
+                    D[i, z] = D[i-1, y] + w[y, z]
+    
+    return D[n-1, :]
+```
+
+<div align=center>
+<img src="https://i.imgur.com/ZlFiZrV.png" width="80%">
+</div>
+
+### Finding Negative Weight Cycle
+
+当图上有权重为负的环时还需要找到这样的环，此时该环上的路径其代价会更小一些。
+
+<div align=center>
+<img src="https://i.imgur.com/JoiX2hV.png" width="80%">
+</div>
+
+### All Pairs
+
+除了单源最短路径问题之外，在很多情况下我们希望计算图上任意两个节点之间的最短路径。对于这样的问题同样可以使用动态规划来进行建模和处理。
+
+<div align=center>
+<img src="https://i.imgur.com/n9rQbHR.png" width="80%">
+<img src="https://i.imgur.com/qIrRCLy.png" width="80%">
+<img src="https://i.imgur.com/j4qdxpN.png" width="80%">
+<img src="https://i.imgur.com/G5wVlUi.png" width="80%">
+<img src="https://i.imgur.com/vv7ZyT4.png" width="80%">
+<img src="https://i.imgur.com/eTOb0IX.png" width="80%">
+</div>
+
+整理之后可以得到**Floyd-Warshall算法**的伪代码如下：
+
+```
+Floyd-Warshall(G, w):
+    for i=1:n
+        for t=1:n
+            if st in E:
+                D[0, s, t] = w[s, t]
+            else:
+                D[0, s, t] = inf
+            
+    for i=1:n
+        for s=1:n
+            for t=1:n
+                D[i, s, t] = min(D[i-1, s, t], D[i-1, s, i]+D[i-1, i, t])
+
+    return D[i, :, :]
+```
+
+<div align=center>
+<img src="https://i.imgur.com/K0ZTLpJ.png" width="80%">
+</div>
+
+需要注意的是Floyd-Warshall算法假设图上没有权重为负的环，因此在使用时需要首先对图进行检测。
+
+<div align=center>
+<img src="https://i.imgur.com/CZ6c72t.png" width="80%">
+<img src="https://i.imgur.com/FvSIHcG.png" width="80%">
+</div>
+
+## Reference
+
+- [Dynamic Programming](https://teapowered.dev/assets/ga-notes.pdf#page=8)
