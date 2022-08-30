@@ -289,4 +289,78 @@ KnapsackRepeat(w[], v[], B):
 
 ## Chain Matrix Multiply
 
+### Motivation
+
+动态规划还可以用来处理矩阵乘法。回忆矩阵乘法的运算规则，新矩阵的每个元素都是$A$和$B$矩阵对应行列的内积。
+
+<div align=center>
+<img src="https://i.imgur.com/6uXt8oz.png" width="80%">
+</div>
+
+由于矩阵乘法的结合性，对于链式相乘的矩阵我们可以调整矩阵乘法的计算顺序从而改变整个乘法的计算复杂度。
+
+<div align=center>
+<img src="https://i.imgur.com/w1C3UOG.png" width="80%">
+</div>
+
+具体地，对于矩阵乘法$Z_{a \times c} = W_{a \times b} \cdot Y_{b \times c}$的计算复杂度为$O(abc)$。
+
+<div align=center>
+<img src="https://i.imgur.com/ujk2c9q.png" width="80%">
+</div>
+
+### General Problem
+
+因此，连续矩阵相乘的问题就可以使用动态规划的思路进行建模。
+
+<div align=center>
+<img src="https://i.imgur.com/vXBBgca.png" width="80%">
+</div>
+
+### Graphical View
+
+同时我们也可以使用二叉树来理解计算的过程，而我们的目标则是找到总体代价最小的树。
+
+<div align=center>
+<img src="https://i.imgur.com/s2l9PYS.png" width="80%">
+</div>
+
+### Substring
+
+<div align=center>
+<img src="https://i.imgur.com/w40ZPsG.png" width="80%">
+<img src="https://i.imgur.com/k6jcry4.png" width="80%">
+<img src="https://i.imgur.com/gMQp4mA.png" width="80%">
+<img src="https://i.imgur.com/5PLssSE.png" width="80%">
+<img src="https://i.imgur.com/2IiCARh.png" width="80%">
+</div>
+
+### DP Algorithm
+
+因此使用动态规划矩阵相乘计算最小复杂度的核心是从对角线开始逐步向上进行递推，它和上面介绍过的其它动态规划递推方法有显著区别。
+
+```
+ChainMultiply(m0, m1, ..., mn):
+    for i=1:n
+        C[i, i] = 0
+    
+    for s=1:n-1
+        for i=1:n-s
+            j=i+s
+            C[i, j] = inf
+
+            for l=1:j-1
+                cur = m[i-1]*m[l]*m[j] + C[i, l] + C[l+1, j]
+                if cur < C[i, j]
+                    C[i, j] = cur
+    
+    return C[1, n]
+```
+
+整个算法的复杂度为$O(n^3)$。
+
+<div align=center>
+<img src="https://i.imgur.com/m7cWQsf.png" width="80%">
+</div>
+
 ## Shortest Path Algorithms
