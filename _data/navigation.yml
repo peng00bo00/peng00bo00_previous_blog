@@ -276,6 +276,10 @@ GAMES104:
         url: /2022/08/10/GAMES104-NOTES-18.html
       - title: Online Gaming Architecture Advanced Topics
         url: /2022/08/17/GAMES104-NOTES-19.html
+  - title: Advanced Topics
+    children: 
+      - title: Data-Oriented Programming and Job System
+        url: /2022/08/31/GAMES104-NOTES-20.html
 
 PBRT:
   - title: PBRT读书笔记
