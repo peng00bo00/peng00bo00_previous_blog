@@ -444,6 +444,8 @@ SA:
     children: 
       - title: Distance Metrics and Embeddings
         url: /2022/08/28/SA-NOTES-10.html
+      - title: Structure Preserving Embedding
+        url: /2022/09/04/SA-NOTES-11.html
 
 OMSCS-GA:
   - title: Intro to Grad Algorithms
