@@ -100,3 +100,20 @@ $$
 <div align=center>
 <img src="https://i.imgur.com/RDqlDh7.gif" width="50%">
 </div>
+
+## Homework 3: Geodesics, Distance, and Metric Embedding
+
+### Swiss-Roll DataSet
+
+<div align=center>
+<img src="https://i.imgur.com/KiBi29n.png" width="45%">
+</div>
+
+### Maximum Variance Unfolding
+
+<div align=center>
+<img src="https://i.imgur.com/s4WDk8X.png" width="45%">
+<img src="https://i.imgur.com/eyU9fFs.png" width="45%">
+<img src="https://i.imgur.com/EwffIl4.png" width="45%">
+<img src="https://i.imgur.com/1FDabII.png" width="45%">
+</div>
