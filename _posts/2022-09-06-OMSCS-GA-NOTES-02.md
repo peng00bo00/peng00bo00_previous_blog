@@ -77,7 +77,7 @@ $$
 
 ### Improved Approach
 
-通过减少递归计算的次数我们降低整个算法的复杂度。具体地，我们利用复数计算的技巧可以减少一次递归乘法。
+通过减少递归计算的次数可以降低整个算法的复杂度。具体地，我们利用[复数乘法](/2022/09/06/OMSCS-GA-NOTES-02.html#gausss-idea)的技巧来减少一次递归乘法。
 
 <div align=center>
 <img src="https://i.imgur.com/7Jl4b9D.png" width="80%">
@@ -117,7 +117,33 @@ $$
 
 ## Solving Recurrences
 
+分治算法的核心在于构造递归问题。
+
+<div align=center>
+<img src="https://i.imgur.com/UPw8X8i.png" width="80%">
+</div>
+
+在分析算法复杂度时可以利用几何级数来进行考虑：
+
+<div align=center>
+<img src="https://i.imgur.com/uxDGtbz.png" width="80%">
+<img src="https://i.imgur.com/2STHrYi.png" width="80%">
+<img src="https://i.imgur.com/59tnnSD.png" width="80%">
+<img src="https://i.imgur.com/uPej1mc.png" width="80%">
+<img src="https://i.imgur.com/AElHcuT.png" width="80%">
+</div>
+
+对于更一般的情况，可以利用递归次数以及子问题的规模来分析整个算法的复杂度：
+
+<div align=center>
+<img src="https://i.imgur.com/36tW5l5.png" width="80%">
+</div>
+
 ## Complex Numbers
+
+## FFT
+
+## Median
 
 ## Reference
 
