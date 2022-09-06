@@ -139,9 +139,52 @@ $$
 <img src="https://i.imgur.com/36tW5l5.png" width="80%">
 </div>
 
-## Complex Numbers
-
 ## FFT
+
+### Polynomial Multiplication
+
+前面我们介绍过高位数字以及矩阵乘法的加速算法，而对于多项式我们使用它的系数来进行表示。此时两个$n-1$次多项式的乘法是一个$2n-2$次多项式，其系数可以使用两个多项式系数的卷积来计算：
+
+<div align=center>
+<img src="https://i.imgur.com/21gGrnL.png" width="80%">
+</div>
+
+对于更一般的情况，我们定义多项式的乘法为对应系数的卷积。显然可以在$O(n^2)$的时间内来完成计算，但实际上我们可以在$O(n \log (n))$时间内完成卷积。
+
+<div align=center>
+<img src="https://i.imgur.com/Y9HQBHd.png" width="80%">
+</div>
+
+### Convolution Applications
+
+卷积运算在工程中有着大量的应用，比如说信号处理中的各种滤波器就是使用卷积来定义和实现的。
+
+<div align=center>
+<img src="https://i.imgur.com/3TRmA58.png" width="80%">
+</div>
+
+### Polynomial Basics
+
+回到多项式的计算，我们可以使用系数来表达多项式也可以使用它在一系列点上的值来进行表示。在数学上可以证明这两种表达形式是相互等价的，而且可以通过FFT来相互转换。
+
+<div align=center>
+<img src="https://i.imgur.com/1afFnbL.png" width="80%">
+<img src="https://i.imgur.com/9wLnONK.png" width="80%">
+</div>
+
+更进一步，通过采样点来表示的多项式更适合进行卷积运算。我们只需要把对应位置上的数值相乘即可：
+
+<div align=center>
+<img src="https://i.imgur.com/MfabNoG.png" width="80%">
+</div>
+
+### FFT: Opposites
+
+FFT的核心是选择合适的采样点。
+
+<div align=center>
+<img src="https://i.imgur.com/Kv0GnQc.png" width="80%">
+</div>
 
 ## Median
 
