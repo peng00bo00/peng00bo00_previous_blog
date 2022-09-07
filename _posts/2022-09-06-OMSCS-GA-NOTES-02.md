@@ -149,7 +149,7 @@ $$
 <img src="https://i.imgur.com/21gGrnL.png" width="80%">
 </div>
 
-对于更一般的情况，我们定义多项式的乘法为对应系数的卷积。显然可以在$O(n^2)$的时间内来完成计算，但实际上我们可以在$O(n \log (n))$时间内完成卷积。
+对于更一般的情况，我们定义多项式的乘法为对应系数的卷积。显然可以在$O(n^2)$的时间内来完成计算，但实际上我们可以在$O(n \log n)$时间内完成卷积。
 
 <div align=center>
 <img src="https://i.imgur.com/Y9HQBHd.png" width="80%">
