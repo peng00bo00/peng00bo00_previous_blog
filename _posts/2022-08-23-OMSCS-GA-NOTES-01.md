@@ -353,7 +353,7 @@ KnapsackRepeat(w[], v[], B):
 
 ### Substring
 
-这里我们引入substring的概念。记$C[i, j]$表示矩阵$A_i$到$A_j$进行联乘的最小计算代价，根据二叉树我们可以得到递推形式：
+这里我们引入substring的概念，它是原始序列中一段连续的子列。记$C[i, j]$表示矩阵$A_i$到$A_j$进行联乘的最小计算代价，根据二叉树我们可以得到递推形式：
 
 $$
 C[i, j] = \min \{ C[i, l] + C[l+1, j] + m_{i-1} m_l m_j \vert 1 \leq l \leq j-1 \}
@@ -415,7 +415,13 @@ Dijkstra算法的一个局限性在于它不能处理带负边的情况。对于
 
 ### Single Source
 
-首先考虑单源最短路径问题。由于此时图上包含负边，我们不能直接使用Dijkstra算法进行求解。同时为了避免出现无限循环的问题，我们还要求每个节点最多被访问一次。
+首先考虑单源最短路径问题。由于此时图上包含负边，我们不能直接使用Dijkstra算法进行求解。同时为了避免出现无限循环的问题，我们还要求每个节点最多被访问一次。对于包含$m$个节点和$n$条边的图，记$D[i, z]$为使用最多$i$条边从起点出发到达节点$z$的最小代价。此时$D[i, z]$的递推关系为：
+
+$$
+D[i, z] = \min \big\{ D[i-1, y], \min \{ D[i-1, y] + w[y, z] \vert yz \in E \} \big\}
+$$
+
+其中$w[y, z]$为节点$y$到节点$z$的代价，而$\min \{ D[i-1, y] + w[y, z] \vert yz \in E \}$则是添加一条边后起点到节点$z$的最小代价。因此上式意为当我们增加一条可用边时，起点到$z$的最小代价是前一步的代价和添加一条边后路径代价中较小的那个。
 
 <div align=center>
 <img src="https://i.imgur.com/utgmT6Z.png" width="80%">
@@ -423,7 +429,7 @@ Dijkstra算法的一个局限性在于它不能处理带负边的情况。对于
 <img src="https://i.imgur.com/cEXxH1G.png" width="80%">
 </div>
 
-这样我们可以推导出**Bellman-Ford算法**，它的复杂度为$O(mn)$：
+这种利用动态规划来解决带负边的单源最短路径问题的算法称为**Bellman-Ford算法**，它的复杂度为$O(mn)$：
 
 ```
 Bellman-Ford(G, s, w):
@@ -457,14 +463,41 @@ Bellman-Ford(G, s, w):
 
 ### All Pairs
 
-除了单源最短路径问题之外，在很多情况下我们希望计算图上任意两个节点之间的最短路径。对于这样的问题同样可以使用动态规划来进行建模和处理。
+除了单源最短路径问题之外，在很多情况下我们希望计算图上任意两个节点之间的最短路径。对于这样的问题同样可以使用动态规划来进行建模和处理。记三维数组$D[i,s,t]$为最多使用$\{ 1, 2, \dots, i \}$的子集作为中间节点从节点$s$出发到达节点$t$的最小代价，当$s$和$t$直接相连时有$D[0, s, t] = w[s, t]$，否则将代价初始化为无穷大。
 
 <div align=center>
 <img src="https://i.imgur.com/n9rQbHR.png" width="80%">
 <img src="https://i.imgur.com/qIrRCLy.png" width="80%">
+</div>
+
+$D[i,s,t]$的递推关系取决于节点$i$是否位于$s$到$t$的最短路径上。当节点$i$不在最短路径上时有：
+
+$$
+D[i, s, t] = D[i-1, s, t]
+$$
+
+<div align=center>
 <img src="https://i.imgur.com/j4qdxpN.png" width="80%">
+</div>
+
+否则$D[i, s, t]$等于$s$到$i$与$i$到$t$两段路径最小代价之和：
+
+$$
+D[i, s, t] = D[i-1, s, i]+D[i-1, i, t]
+$$
+
+<div align=center>
 <img src="https://i.imgur.com/G5wVlUi.png" width="80%">
 <img src="https://i.imgur.com/vv7ZyT4.png" width="80%">
+</div>
+
+整理后可以得到递推关系：
+
+$$
+D[i, s, t] = \min \big( D[i-1, s, t], D[i-1, s, i]+D[i-1, i, t] \big)
+$$
+
+<div align=center>
 <img src="https://i.imgur.com/eTOb0IX.png" width="80%">
 </div>
 
