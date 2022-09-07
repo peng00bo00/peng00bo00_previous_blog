@@ -501,7 +501,7 @@ $$
 <img src="https://i.imgur.com/eTOb0IX.png" width="80%">
 </div>
 
-整理之后可以得到**Floyd-Warshall算法**的伪代码如下：
+因此计算图上所有节点之间最短路径的**Floyd-Warshall算法**如下：
 
 ```
 Floyd-Warshall(G, w):
