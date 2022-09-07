@@ -524,7 +524,7 @@ Floyd-Warshall(G, w):
 <img src="https://i.imgur.com/K0ZTLpJ.png" width="80%">
 </div>
 
-需要注意的是Floyd-Warshall算法假设图上没有权重为负的环，因此在使用时需要首先对图进行检测。
+Floyd-Warshall算法的计算复杂度为$O(n^3)$，其中$n$为图上节点数。需要注意的是Floyd-Warshall算法假设图上没有权重为负的环，因此在使用时需要首先对图进行检测。
 
 <div align=center>
 <img src="https://i.imgur.com/CZ6c72t.png" width="80%">
