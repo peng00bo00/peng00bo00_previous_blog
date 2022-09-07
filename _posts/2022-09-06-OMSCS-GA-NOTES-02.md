@@ -165,7 +165,7 @@ $$
 
 ### Polynomial Basics
 
-回到多项式的计算，我们可以使用系数来表达多项式也可以使用它在一系列点上的值来进行表示。在数学上可以证明这两种表达形式是相互等价的，而且可以通过FFT来相互转换。
+回到多项式的计算，我们可以使用系数来表达多项式也可以使用它在一系列点上的值来进行表示。在数学上可以证明这两种表达形式是等价的，而且可以通过FFT来相互转换。
 
 <div align=center>
 <img src="https://i.imgur.com/1afFnbL.png" width="80%">
@@ -178,12 +178,80 @@ $$
 <img src="https://i.imgur.com/MfabNoG.png" width="80%">
 </div>
 
-### FFT: Opposites
+### FFT
 
-FFT的核心是选择合适的采样点。
+FFT的核心是选择合适的采样点。我们假设采样点是对称布置的，然后把多项式的系数$a$差分成奇次项$a_\text{odd}$和偶次项$a_\text{even}$。这样我们可以构造两个新的多项式：
+
+$$
+A_\text{even} (y) = a_0 + a_2 y + \dots + a_{n-2} y^{\frac{n-2}{2}}
+$$
+
+$$
+A_\text{odd} (y) = a_1 + a_3 y + \dots + a_{n-1} y^{\frac{n-2}{2}}
+$$
+
+而原始多项式$A(x)$可以表示为两个新多项式的和：
+
+$$
+A(x) = A_\text{even} (x^2) + x A_\text{odd} (x^2)
+$$
 
 <div align=center>
 <img src="https://i.imgur.com/Kv0GnQc.png" width="80%">
+<img src="https://i.imgur.com/L0LlyLs.png" width="80%">
+<img src="https://i.imgur.com/0pZFI0F.png" width="80%">
+</div>
+
+同时，由于采样点是对称布置的我们可以得到对称采样点上的函数关系：
+
+$$
+A(x_i) = A_\text{even} (x_i^2) + x_i A_\text{odd} (x_i^2)
+$$
+
+$$
+A(x_{n+1}) = A(-x_i) = A_\text{even} (x_i^2) - x_i A_\text{odd} (x_i^2)
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/WEAMvEs.png" width="80%">
+</div>
+
+这样可以得到递归算法：
+
+<div align=center>
+<img src="https://i.imgur.com/nhHNV10.png" width="80%">
+</div>
+
+### Complex Numbers
+
+需要注意的是FFT在选择采样点时要考虑复数的情况：
+
+<div align=center>
+<img src="https://i.imgur.com/UJYJY0H.png" width="80%">
+</div>
+
+利用欧拉公式可以把复数表示为极坐标的形式，而且这样的形式更适合乘法运算。
+
+<div align=center>
+<img src="https://i.imgur.com/uaWpYXK.png" width="80%">
+<img src="https://i.imgur.com/uaWpYXK.png" width="80%">
+<img src="https://i.imgur.com/jFnoloH.png" width="80%">
+</div>
+
+这样多项式方程$z^n = 1$的根就可以用复平面上的角度来理解。
+
+<div align=center>
+<img src="https://i.imgur.com/IHhXdxR.png" width="80%">
+<img src="https://i.imgur.com/ST1tvKC.png" width="80%">
+<img src="https://i.imgur.com/qDNusHp.png" width="80%">
+</div>
+
+同时不难发现$z^n = 1$的根还具有对称性和平方性质，因此我们可以把这些根作为FFT的采样点。
+
+<div align=center>
+<img src="https://i.imgur.com/B4POOC1.png" width="80%">
+<img src="https://i.imgur.com/7FnvM2f.png" width="80%">
+<img src="https://i.imgur.com/H7eawI2.png" width="80%">
 </div>
 
 ## Median
