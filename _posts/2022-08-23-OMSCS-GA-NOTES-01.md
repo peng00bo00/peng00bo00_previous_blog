@@ -203,7 +203,7 @@ LCS(X[], Y[]):
 
 ## Knapsack
 
-knapsack是经典的优化问题，我们希望在一定的约束下最大化最大价值：
+knapsack是经典的优化问题，我们希望在一定的重量约束下最大化背包中物品的价值：
 
 <div align=center>
 <img src="https://i.imgur.com/AqMxn1p.png" width="80%">
@@ -225,6 +225,16 @@ knapsack是经典的优化问题，我们希望在一定的约束下最大化最
 </div>
 
 ### Attempt2
+
+求解knapsack的核心在于构造一个二维数组$K[i, b]$，它表示使用物品序列$\{ 1, \dots, i \}$且重量约束为$b$条件下背包中物品的最大价值。显然knapsack问题的解即为数组的最后一个元素$K[n, B]$，而子问题$K[i, b]$的递归形式则依赖于$i$号物品的重量。当$w_i \leq b$时我们可以尝试在背包中加入$i$号物品，否则只能放弃添加它并使用前一个子问题的最大价值$K[i-1, b]$。因此子问题的递归形式为：
+
+$$
+K[i, b] =
+\begin{cases}
+\max (v_i + K[i-1, b-w_i], K[i-1, b]), & \text{if } w_i \leq b \\
+K[i-1, b], &\text{otherwise}
+\end{cases}
+$$
 
 <div align=center>
 <img src="https://i.imgur.com/hvBRfA4.png" width="80%">
@@ -260,12 +270,28 @@ KnapsackNoRepeat(w[], v[], B):
 
 ### Knapsack Repetition
 
+knapsack问题的一个变体是假设每个物品都可以无限地进行添加。在这种情况下我们同样可以使用一个二维数组$K[i, b]$来进行递推，不过递推关系为：
+
+$$
+K[i, b] = \max ( K[i-1, b], v_i+K[i, b-w_i] ), \ \text{if } w_i \leq b
+$$
+
+上式表示我们可以尝试在当前的背包中添加一个物品$i$以记录此时背包中的最大价值，此时的算法复杂度为$O(nB)$。
+
 <div align=center>
-<img src="https://i.imgur.com/TWsPpKo.png" width="80%">
+<img src="https://i.imgur.com/rqmYLCe.png" width="80%">
 <img src="https://i.imgur.com/edTQSrR.png" width="80%">
 </div>
 
 #### Simpler Subproblem
+
+实际上对于允许重复的情况我们可以设计更简洁的算法。记$K[b]$为使用所有物品在重量约束为$b$情况下背包中的最大价值，此时的递推关系为：
+
+$$
+K[b] = \max \{ v_i + K[b-w_i] \vert 1 \leq i \leq n, w_i \leq b \}
+$$
+
+它表示当重量约束为$b$时，我们尝试在背包中添加1个$i$号物品从而记录下当前条件下背包的最大价值。
 
 <div align=center>
 <img src="https://i.imgur.com/zxxW6cI.png" width="80%">
@@ -319,13 +345,21 @@ KnapsackRepeat(w[], v[], B):
 
 ### Graphical View
 
-同时我们也可以使用二叉树来理解计算的过程，而我们的目标则是找到总体代价最小的树。
+同时我们也可以使用二叉树来理解计算的过程，从这个角度来看我们的目标则是找到总体代价最小的树。
 
 <div align=center>
 <img src="https://i.imgur.com/s2l9PYS.png" width="80%">
 </div>
 
 ### Substring
+
+这里我们引入substring的概念。记$C[i, j]$表示矩阵$A_i$到$A_j$进行联乘的最小计算代价，根据二叉树我们可以得到递推形式：
+
+$$
+C[i, j] = \min \{ C[i, l] + C[l+1, j] + m_{i-1} m_l m_j \vert 1 \leq l \leq j-1 \}
+$$
+
+其中$C[i, l]$和$C[l+1, j]$分别表示左子树和右子树的最小计算代价，而$m_{i-1} m_l m_j$则是合并两个子树的代价。
 
 <div align=center>
 <img src="https://i.imgur.com/w40ZPsG.png" width="80%">
@@ -337,7 +371,7 @@ KnapsackRepeat(w[], v[], B):
 
 ### DP Algorithm
 
-因此使用动态规划矩阵相乘计算最小复杂度的核心是从对角线开始逐步向上进行递推，它和上面介绍过的其它动态规划递推方法有显著区别。
+因此使用动态规划矩阵相乘计算最小复杂度的核心是从对角线开始逐步向上进行递推，它和上面介绍过的其它动态规划递推方法有着明显的区别。
 
 ```
 ChainMultiply(m0, m1, ..., mn):
