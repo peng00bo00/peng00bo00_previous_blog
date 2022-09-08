@@ -136,6 +136,10 @@ LIS(a[]):
 
 此时算法的复杂度为$O(n^2)$。
 
+<div align=center>
+<img src="https://i.imgur.com/AhZwakT.png" width="80%">
+</div>
+
 ## Longest Common Subsequence
 
 LCS问题的目标是计算两个序列中最长的公共子列：
@@ -194,6 +198,10 @@ LCS(X[], Y[]):
 ```
 
 此时算法的复杂度为$O(n^2)$。
+
+<div align=center>
+<img src="https://i.imgur.com/ycZbes0.png" width="80%">
+</div>
 
 如果想要获得最长公共子列，还可以从L的右下角开始向上进行追溯：
 
@@ -265,6 +273,7 @@ KnapsackNoRepeat(w[], v[], B):
 此时算法的复杂度为$O(nB)$。这里需要说明的是$O(nB)$依赖于限制$B$的值，而要表示$B$则需要$O(\log B)$的空间。因此这个算法并不是一个非常高效的算法。实际上人们已经证明knapsack问题是NP-complete，我们目前无法找到一个高效的解法。
 
 <div align=center>
+<img src="https://i.imgur.com/wETdVXr.png" width="80%">
 <img src="https://i.imgur.com/CHzHAfM.png" width="80%">
 </div>
 
