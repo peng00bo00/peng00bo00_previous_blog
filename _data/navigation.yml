@@ -452,7 +452,9 @@ SA:
         url: /2022/09/08/SA-NOTES-12.html
       - title: Discrete Laplacian Operators
         url: /2022/09/10/SA-NOTES-13.html
-  - title: Advanced Topics
+  - title: Vector Field
+  - title: Optimal Transport
+  - title: Other Topics
 
 OMSCS-GA:
   - title: Intro to Grad Algorithms
