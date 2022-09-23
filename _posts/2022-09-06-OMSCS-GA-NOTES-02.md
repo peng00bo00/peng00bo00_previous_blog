@@ -86,7 +86,7 @@ $$
 此时的伪代码如下：
 
 ```
-FastMultiply(x, y):
+FastMultiply(x[], y[]):
     xL = first n/2 bits of x
     xR = last n/2 bits of x
     yL = first n/2 bits of y
@@ -113,6 +113,129 @@ $$
 
 <div align=center>
 <img src="https://i.imgur.com/04ipg9c.png" width="80%">
+</div>
+
+## Linear-Time Median
+
+分治算法的另一个经典应用是用来寻找数组的中位数。对于更一般的情况，我们可以使用分支的思想来寻找数组中第k个最小的数值。最直接的实现方法是使用归并排序或是快速排序先对数组进行排序，然后选择第k个值，此时算法的复杂度为$O(n \log{n})$；而实际上通过合理的设计算法可以在$O(n)$时间内实现查询。
+
+<div align=center>
+<img src="https://i.imgur.com/2rnFXNu.png" width="80%">
+</div>
+
+### QuickSort
+
+在介绍线性时间内的查询算法前我们先回顾一下快速排序算法。在快速排序算法中，每一步我们需要选择一个pivot然后将整个数组划分为小于pivot和大于pivot的两部分，接下来分别对两边的数组进行排序。显然快速排序的性能取决于pivot的选择，我们希望pivot可以尽可能接近数组的中位数使得子问题的规模尽可能相等。
+
+<div align=center>
+<img src="https://i.imgur.com/59n6U1E.png" width="80%">
+</div>
+
+### QuickSelect
+
+利用快速排序的思想就可以设计出快速选择算法。具体来说，当我们选择了某个pivot后需要将数组划分为小于pivot、等于pivot以及大于pivot三部分，然后利用这三个数组的大小和k值的关系继续递归求解子问题。
+
+<div align=center>
+<img src="https://i.imgur.com/5vJvtm4.png" width="80%">
+</div>
+
+这样可以得到快速选择算法的伪代码如下：
+
+```
+Select(A[], k):
+    Choose a pivot p
+    Partition A[] to A<p, A=p, A>p
+
+    if k <= len(A<p):
+      return Select(A<p[], k)
+    elif len(A<p) < k <= len(A<p) + len(A=p):
+      return p
+    else:
+      return Selct(A>p[], k - (len(A<p) + len(A=p)))
+```
+
+<div align=center>
+<img src="https://i.imgur.com/ulVpT4s.png" width="80%">
+</div>
+
+### Good Pivot
+
+显然快速选择算法的核心在于如何选取合适的pivot，如果我们希望得到线性时间内的算法则需要保证p恰为数组的某个分位数。
+
+<div align=center>
+<img src="https://i.imgur.com/zKB3oRJ.png" width="80%">
+</div>
+
+在快速选择算法中我们要求pivot位于数组的25%到75%范围中，同时选取pivot的代价不超过$O(n)$。
+
+<div align=center>
+<img src="https://i.imgur.com/mph57qz.png" width="80%">
+</div>
+
+假设我们随机选择数组中的一个元素作为pivot，则它位于25%到75%范围中的概率为1/2。通过对数组进行遍历我们可以在$O(n)$时间内验证pivot是否满足我们的需求，如果不满足则可以再随机选择一个pivot，理论上我们需要2次随机选择就可以得到合适的pivot。由于随机选择以及验证的复杂度不超过$O(n)$，这样设计的快速选择算法已经能够满足线性时间的需求。
+
+<div align=center>
+<img src="https://i.imgur.com/cNfQJLA.png" width="80%">
+</div>
+
+### Recursive Pivot
+
+对于随机选择pviot的策略，其单步算法的平均复杂度为$O(n)$，而我们希望能够在最差的情况下也能有$O(n)$复杂度的pivot选择方法。这样整个算法设计就归结于寻找一个在$O(n)$时间内寻找合适pivot的问题。具体来说，在快速选择算法中会额外抽样出一个原始数组大小1/5的子数组，然后在子数组上寻找中位数作为原始数组的pivot，这样整个算法的复杂度仍然是$O(n)$。
+
+<div align=center>
+<img src="https://i.imgur.com/s2QcL7j.png" width="80%">
+</div>
+
+当然我们仍然需要考虑如何抽样出子数组的问题。假设我们直接选择数组的前1/5作为子数组，此时是无法获得合适的pivot。
+
+<div align=center>
+<img src="https://i.imgur.com/s7S3GzY.png" width="80%">
+</div>
+
+显然我们希望子数组可以在某种程度上代表原来的数组。具体来说我们每5个元素一组将原始数组划分为n/5组，然后在每一组上选择其中的中位数重新构成子数组。由于每一组上只有5个元素，选择中位数的复杂度为$O(1)$。这样构造的子数组就是原始数组的一个好的代表。
+
+<div align=center>
+<img src="https://i.imgur.com/b1hXA5s.png" width="80%">
+</div>
+
+总结一下pivot选择策略就可以得到最终的快速选择算法：
+
+```
+FastSelect(A[], k):
+    Break A[] into n/5 groups G1, G2, ...
+
+    for i in range(n/5):
+      sort(Gi)
+      mi = median(Gi)
+    
+    S = [m1, m2, ...]
+
+    p = FastSelect(S[], n/10)
+
+    Partition A[] to A<p, A=p, A>p
+
+    if k <= len(A<p):
+      return FastSelect(A<p[], k)
+    elif k > len(A<p) + len(A=p):
+      return FastSelect(A>p[], k - (len(A<p) + len(A=p)))
+    else:
+      return p
+```
+
+<div align=center>
+<img src="https://i.imgur.com/uYr3ZgH.png" width="80%">
+</div>
+
+此时的算法复杂度仍然为$O(n)$。
+
+<div align=center>
+<img src="https://i.imgur.com/XabEiAG.png" width="80%">
+</div>
+
+最后需要证明的是这样选择出的pivot是一个好的pivot。
+
+<div align=center>
+<img src="https://i.imgur.com/GlFQ2pi.png" width="80%">
 </div>
 
 ## Solving Recurrences
@@ -253,8 +376,6 @@ $$
 <img src="https://i.imgur.com/7FnvM2f.png" width="80%">
 <img src="https://i.imgur.com/H7eawI2.png" width="80%">
 </div>
-
-## Median
 
 ## Reference
 
