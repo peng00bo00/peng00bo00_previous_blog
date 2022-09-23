@@ -303,7 +303,7 @@ FastSelect(A[], k):
 
 ### FFT
 
-FFT的核心是选择合适的采样点。我们假设采样点是对称布置的，然后把多项式的系数$a$差分成奇次项$a_\text{odd}$和偶次项$a_\text{even}$。这样我们可以构造两个新的多项式：
+FFT的核心是选择合适的采样点。我们假设采样点是对称布置的$x_{i+n}=-x_i$，然后把多项式的系数$a$拆分成奇次项$a_\text{odd}$和偶次项$a_\text{even}$。这样我们可以构造两个新的多项式：
 
 $$
 A_\text{even} (y) = a_0 + a_2 y + \dots + a_{n-2} y^{\frac{n-2}{2}}
@@ -332,7 +332,7 @@ A(x_i) = A_\text{even} (x_i^2) + x_i A_\text{odd} (x_i^2)
 $$
 
 $$
-A(x_{n+1}) = A(-x_i) = A_\text{even} (x_i^2) - x_i A_\text{odd} (x_i^2)
+A(x_{n+i}) = A(-x_i) = A_\text{even} (x_i^2) - x_i A_\text{odd} (x_i^2)
 $$
 
 <div align=center>
@@ -375,6 +375,95 @@ $$
 <img src="https://i.imgur.com/B4POOC1.png" width="80%">
 <img src="https://i.imgur.com/7FnvM2f.png" width="80%">
 <img src="https://i.imgur.com/H7eawI2.png" width="80%">
+</div>
+
+### High-Level
+
+结合复数上根的性质就得到了完整的FFT算法：
+
+<div align=center>
+<img src="https://i.imgur.com/lSJlhT6.png" width="80%">
+</div>
+
+其伪代码如下：
+
+```
+FFT(a[], w):
+  if len(a) == 1:
+    return a[0]
+  
+  a_even = [a0, a2, ...]
+  a_odd  = [a1, a3, ...]
+
+  s = FFT(a_even, w^2)
+  t = FFT(a_odd, w^2)
+
+  for j in range(n/2 - 1):
+    r[j]    = s[j] + t[j] * w[j]
+    r[j+n/2]= s[j] - t[j] * w[j]
+  
+  return r
+```
+
+<div align=center>
+<img src="https://i.imgur.com/ziPwiDZ.png" width="80%">
+<img src="https://i.imgur.com/TPzrvSI.png" width="80%">
+<img src="https://i.imgur.com/FaQTL5C.png" width="80%">
+</div>
+
+而利用FFT实现多项式乘法只需要先将两个多项式转换成采样点的表示形式，然后在对应采样点上相乘即可。注意如果要获得系数形式的多项式最后还需要使用inverse FFT。
+
+<div align=center>
+<img src="https://i.imgur.com/9b2yjsw.png" width="80%">
+</div>
+
+### Linear Algebra View
+
+在介绍inverse FFT之前我们先来看一下矩阵视角下的FFT。实际上FFT的过程可以理解为矩阵乘法：
+
+<div align=center>
+<img src="https://i.imgur.com/DhASPFa.png" width="80%">
+</div>
+
+带入复数的根可以发现系数矩阵还具有一定的结构。
+
+<div align=center>
+<img src="https://i.imgur.com/zcvSJ41.png" width="80%">
+</div>
+
+因此从矩阵的角度来理解inverse FFT只需要计算系数矩阵的逆阵即可。
+
+<div align=center>
+<img src="https://i.imgur.com/oloFhdm.png" width="80%">
+</div>
+
+### Inverse FFT
+
+实际上利用系数矩阵的结构可以很方便的得到它的逆阵。
+
+<div align=center>
+<img src="https://i.imgur.com/CUwXyaR.png" width="80%">
+</div>
+
+系数矩阵的这个性质可以证明如下：
+
+<div align=center>
+<img src="https://i.imgur.com/ZHebGuj.png" width="80%">
+<img src="https://i.imgur.com/bfvo2gR.png" width="80%">
+<img src="https://i.imgur.com/IzXkmlf.png" width="80%">
+<img src="https://i.imgur.com/7OqokeB.png" width="80%">
+</div>
+
+这样就可以利用FFT来实现inverse FFT：
+
+<div align=center>
+<img src="https://i.imgur.com/oHsbHUf.png" width="80%">
+</div>
+
+而多项式乘法的完整过程如下：
+
+<div align=center>
+<img src="https://i.imgur.com/LMrEGBZ.png" width="80%">
 </div>
 
 ## Reference
