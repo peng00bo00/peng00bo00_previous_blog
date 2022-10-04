@@ -56,7 +56,7 @@ Geometry Processing
 
 - **3D Shape Analysis of Lunar Regolith Simulants** \
   Bo Peng, Rotana Hay, and Kemal Celik \
-  73rd International Astronautical Congress 2022 (*submitted*)
+  73rd International Astronautical Congress 2022
 
 - **Filler and Nucleation Effects of CaCO3 Polymorphs Derived from Limestone and Seashell on Hydration and Carbonation of Magnesium oxide (MgO) Cement (RMC)** \
   Rotana Hay, Bo Peng, and Kemal Celik \
