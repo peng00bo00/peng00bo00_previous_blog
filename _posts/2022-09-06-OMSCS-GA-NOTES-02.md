@@ -204,7 +204,7 @@ Select(A[], k):
 FastSelect(A[], k):
     Break A[] into n/5 groups G1, G2, ...
 
-    for i in range(n/5):
+    for i=1:n/5:
       sort(Gi)
       mi = median(Gi)
     
@@ -398,7 +398,7 @@ FFT(a[], w):
   s = FFT(a_even, w^2)
   t = FFT(a_odd, w^2)
 
-  for j in range(n/2 - 1):
+  for j=1:(n/2-1):
     r[j]    = s[j] + t[j] * w[j]
     r[j+n/2]= s[j] - t[j] * w[j]
   
