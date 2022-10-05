@@ -221,6 +221,88 @@ Explore(z):
 
 ## 2-Satisfiability
 
+### SAT Problem
+
+SCC算法的一个应用是求解**布尔可满足性问题(satisfiability, SAT)**。在SAT问题中有n个布尔变量，我们希望能够找到满足语句要求的变量值：
+
+<div align=center>
+<img src="https://i.imgur.com/oi66qd5.png" width="80%">
+</div>
+
+从更严格的角度来说，对于包含n个布尔变量和m个从句的语句我们希望能够找到一个对布尔变量的赋值使得语句的布尔值为True。
+
+<div align=center>
+<img src="https://i.imgur.com/jm9w1CR.png" width="80%">
+</div>
+
+### k-SAT
+
+根据每个从句的规模我们可以定义k-SAT问题，其中每个从句包含最多k个布尔变量。对于k-SAT问题人们已经证明在k大于2的情况下它是NP-complete问题，而对于2-SAT问题则存在多项式复杂度的解法。
+
+<div align=center>
+<img src="https://i.imgur.com/bs0xoCX.png" width="80%">
+</div>
+
+对于2-SAT问题我们可以简化语句，首先满足只包含1个变量的从句然后从整个语句中删除它。
+
+<div align=center>
+<img src="https://i.imgur.com/W8Pq29A.png" width="80%">
+</div>
+
+通过不断地简化我们最终会得到一个新的语句。显然两个语句的可满足性是等价的，因此只需要验证新的语句是否是可满足的即可。
+
+<div align=center>
+<img src="https://i.imgur.com/uR6qiDX.png" width="80%">
+</div>
+
+### Graph of Implications
+
+语句化简后我们可以把它等价地表示为一张图，称为**graph of implications**。具体地，我们把n个变量的布尔取值表示为图上的节点，而m个从句则可以表示为2条对应的边。
+
+<div align=center>
+<img src="https://i.imgur.com/yNMISSg.png" width="80%">
+</div>
+
+如果语句是可满足的，那么graph of implications上不能存在任意变量$x$到$\bar{x}$的路径，否则会产生矛盾。换句话说，如果$x$和$\bar{x}$位于同一个SCC中，则语句是无法满足的。
+
+<div align=center>
+<img src="https://i.imgur.com/OXvX2Gn.png" width="80%">
+</div>
+
+### SCC's
+
+这样我们就可以利用SCC的算法来解决2-SAT问题，如果每一对布尔变量都位于不同的SCC中则说明语句是可以满足的。
+
+<div align=center>
+<img src="https://i.imgur.com/BSbd4nA.png" width="80%">
+</div>
+
+首先我们在图上寻找一个sink SCC，记为$S$。然后满足$S$中的所有条件，从图上删除SCC并不断重复上面的过程。这个算法的缺陷在于没有考虑S的补集$\bar{S}$，当$S$得到满足时$\bar{S}$可能是无法满足的。
+
+<div align=center>
+<img src="https://i.imgur.com/wjwNeSz.png" width="80%">
+</div>
+
+为了解决这样的问题，我们可以考虑在图上寻找一个source SCC，记为$S'$。然后把$S'$设为False，并且从图上删除$S'$。最后寻找$S'$的补集$\bar{S'}$，其必为一个sink SCC，然后将其设为True即可。
+
+<div align=center>
+<img src="https://i.imgur.com/Z5nvgok.png" width="80%">
+</div>
+
+### 2-SAT Algorithm
+
+总结一下，利用SCC算法来求解2-SAT问题的方法如下：
+
+<div align=center>
+<img src="https://i.imgur.com/tWsP35X.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/zlSxQ7q.png" width="80%">
+<img src="https://i.imgur.com/05RJdi8.png" width="80%">
+<img src="https://i.imgur.com/Y2hDAv0.png" width="80%">
+</div>
+
 ## Minimum Spanning Tree
 
 ## Reference
