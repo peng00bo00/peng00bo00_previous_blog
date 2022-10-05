@@ -305,6 +305,72 @@ SCC算法的一个应用是求解**布尔可满足性问题(satisfiability, SAT)
 
 ## Minimum Spanning Tree
 
+### Greedy Approach
+
+**贪心(greedy)**是经典的算法设计思想，在贪心算法中我们把整个问题分解为若干个子问题然后通过最优化每一个子问题来试图优化原始问题。当然并不是所有的问题都可以使用贪心这样的方法来进行优化，比如说[knapsack问题](/2022/08/23/OMSCS-GA-NOTES-01.html#knapsack)就无法通过贪心来进行求解。
+
+<div align=center>
+<img src="https://i.imgur.com/cYqRFpX.png" width="80%">
+</div>
+
+### MST Problem
+
+**最小生成树(minimum spanning tree, MST)**是图上的经典问题，我们希望对于无向图G可以找到一个最小的子图来包含原始图的所有节点。显然这个最小的子图一定是一个树结构，称为最小生成树。
+
+<div align=center>
+<img src="https://i.imgur.com/SgyiwM6.png" width="80%">
+</div>
+
+在介绍计算MST的算法前我们先来回顾一下树这种数据结构的性质。首先树是一个DAG，而且对于包含n个节点的树其边的数量为n-1，同时树上任意两个节点之间有且只有一条路径连接它们。关于树最重要的一条性质是如果一张图的边和节点数满足$\vert E \vert = \vert V \vert - 1$，那么它一定是一棵树。
+
+<div align=center>
+<img src="https://i.imgur.com/Tl0RmUX.png" width="80%">
+</div>
+
+### Greedy Approach for MST
+
+MST可以使用贪心的思想来进行计算。我们可以不断地在添加图上具有最小权重的边，同时保证生成的图是一棵树即可。这种计算MST的算法称为**Kruskal算法(Kruskal's algorithm)**，它的复杂度为$O(m \log{n})$。
+
+<div align=center>
+<img src="https://i.imgur.com/WYYmazs.png" width="80%">
+<img src="https://i.imgur.com/ZJvv0Pc.png" width="80%">
+</div>
+
+Kruskal算法的正确性则可以使用归纳法来进行证明。
+
+<div align=center>
+<img src="https://i.imgur.com/ZaYKVJ3.png" width="80%">
+</div>
+
+### Cuts
+
+我们还可以借助**图割(cut)**的概念来处理MST问题。cut是指把图上的节点分为两个集合$S$和$\bar{S}$，其中连接两个集合的边称为cut edge。
+
+<div align=center>
+<img src="https://i.imgur.com/2lASuxt.png" width="80%">
+</div>
+
+基于cut的概念，Kruskal算法可以理解为不断地寻找当前图上的最小cut edge。
+
+<div align=center>
+<img src="https://i.imgur.com/vndNPfm.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/02FNcZr.png" width="80%">
+<img src="https://i.imgur.com/FEgdwaZ.png" width="80%">
+<img src="https://i.imgur.com/UXHDbG7.png" width="80%">
+<img src="https://i.imgur.com/AlAzKMz.png" width="80%">
+</div>
+
+### Prim's Algorithm
+
+除了Kruskal算法之外，**Prim算法(Prim's algorithm)**同样是计算MST的经典算法。
+
+<div align=center>
+<img src="https://i.imgur.com/3G3NeeJ.png" width="80%">
+</div>
+
 ## Reference
 
 - [Graphs](https://teapowered.dev/assets/ga-notes.pdf#page=32)
