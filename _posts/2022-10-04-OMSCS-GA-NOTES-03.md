@@ -374,3 +374,6 @@ Kruskal算法的正确性则可以使用归纳法来进行证明。
 ## Reference
 
 - [Graphs](https://teapowered.dev/assets/ga-notes.pdf#page=32)
+- [最小生成树 Minimum Spanning Trees](https://www.youtube.com/watch?v=KsobpcI3dN0&list=PLvOO0btloRnsbnIIbX6ywvD8OZUTT0_ID&index=5)
+- [Prim算法 寻找最小生成树 Prim's Algorithm for Minimum Spanning Trees](https://www.youtube.com/watch?v=GLlIaT_PxVE&list=PLvOO0btloRnsbnIIbX6ywvD8OZUTT0_ID&index=6)
+- [Kruskal算法 寻找最小生成树](https://www.youtube.com/watch?v=Z4jm4o2bt28&list=PLvOO0btloRnsbnIIbX6ywvD8OZUTT0_ID&index=7)
