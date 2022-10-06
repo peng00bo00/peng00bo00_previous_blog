@@ -79,4 +79,5 @@ Ford-Fulkerson算法的复杂度为$O(mC)$。
 ## Reference
 
 - [Graphs](https://teapowered.dev/assets/ga-notes.pdf#page=32)
+- [网络流问题基础](https://www.youtube.com/watch?v=6DFWUgV5Osc&list=PLvOO0btloRnsbnIIbX6ywvD8OZUTT0_ID&index=8)
 - [Ford-Fulkerson Algorithm 寻找网络最大流](https://www.youtube.com/watch?v=8sLON0DqLZo)
