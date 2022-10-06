@@ -26,23 +26,23 @@ sidebar:
 
 ```
 DFS(G):
-  cc = 0
+	cc = 0
 
-  for v in V:
-    visited[v] = False
-  
-  for v in V:
-    if not visited[v]:
-      cc += 1
-      Explore(v)
+	for v in V:
+		visited[v] = False
+	
+	for v in V:
+		if not visited[v]:
+			cc += 1
+			Explore(v)
 
 Explore(z):
-  ccnum[z] = cc
-  visited[z] = True
+	ccnum[z] = cc
+	visited[z] = True
 
-  for (z, w) in E:
-    if not visited[w]:
-      Explore(w)
+	for (z, w) in E:
+		if not visited[w]:
+			Explore(w)
 ```
 
 DFS的复杂度为$O(n+m)$。
@@ -56,25 +56,25 @@ DFS是很多更高级图算法的基础。除了计算联通节点之外还可�
 
 ```
 DFS(G):
-  cc = 0
+	cc = 0
 
-  for v in V:
-    visited[v] = False
-    prev[v] = None
-  
-  for v in V:
-    if not visited[v]:
-      cc += 1
-      Explore(v)
+	for v in V:
+		visited[v] = False
+		prev[v] = None
+	
+	for v in V:
+		if not visited[v]:
+			cc += 1
+			Explore(v)
 
 Explore(z):
-  ccnum[z] = cc
-  visited[z] = True
+	ccnum[z] = cc
+	visited[z] = True
 
-  for (z, w) in E:
-    if not visited[w]:
-      Explore(w)
-      prev[w] = z
+  	for (z, w) in E:
+    	if not visited[w]:
+      		Explore(w)
+      		prev[w] = z
 ```
 
 <div align=center>
@@ -85,27 +85,27 @@ Explore(z):
 
 ```
 DFS(G):
-  clock = 1
+	clock = 1
 
-  for v in V:
-    visited[v] = False
-  
-  for v in V:
-    if not visited[v]:
-      Explore(v)
+	for v in V:
+		visited[v] = False
+
+	for v in V:
+    	if not visited[v]:
+      		Explore(v)
 
 Explore(z):
-  pre[z] = clock
-  clock += 1
+	pre[z] = clock
+	clock += 1
 
-  visited[z] = True
+	visited[z] = True
 
-  for (z, w) in E:
-    if not visited[w]:
-      Explore(w)
-  
-  post[z] = clock
-  clock += 1
+	for (z, w) in E:
+		if not visited[w]:
+			Explore(w)
+
+	post[z] = clock
+	clock += 1
 ```
 
 <div align=center>
