@@ -91,15 +91,37 @@ sidebar:
 ```
 Euclid(x, y):
     if y == 0:
-        return x
+		return x
     
     else:
-        return Euclid(y, x mod y)
+		return Euclid(y, x mod y)
 ```
 
 <div align=center>
 <img src="https://i.imgur.com/G7LIc8L.png" width="80%">
 <img src="https://i.imgur.com/jz8iOIA.png" width="80%">
+</div>
+
+这样就可以计算mod的逆，其复杂度为$O(n^3)：
+
+```
+Ext-Euclid(x, y):
+    if y == 0:
+        return (x, 1, 0)
+    
+    else:
+        d, alpha', beta' = Ext-Euclid(y, x mod y)
+
+		return (d, beta', alpha' - x//y * beta')
+```
+
+<div align=center>
+<img src="https://i.imgur.com/hDVaWBu.png" width="80%">
+<img src="https://i.imgur.com/B5jfvC0.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/rLqq2wk.png" width="80%">
 </div>
 
 ## RSA
