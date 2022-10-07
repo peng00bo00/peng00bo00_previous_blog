@@ -31,10 +31,10 @@ $$
 
 ```
 Fib1(n):
-    if n == 0
-        return 0
-    if n == 1
-        return Fib1(n-1) + Fib1(n-2)
+  if n == 0
+    return 0
+  if n == 1
+    return Fib1(n-1) + Fib1(n-2)
 ```
 
 根据主定理我们可以计算这个算法的复杂度：
@@ -61,13 +61,13 @@ $$
 
 ```
 Fib2(n):
-    F[0] = 0
-    F[1] = 1
+  F[0] = 0
+  F[1] = 1
 
-    for i=2:n
-        F[i] = F[i-1] + F[i-2]
+  for i=2:n
+    F[i] = F[i-1] + F[i-2]
     
-    return F[n]
+  return F[n]
 ```
 
 显然此时算法的复杂度为$O(n)$，远小于之前的复杂度。
@@ -119,19 +119,19 @@ LIS问题的目标是在给定序列中寻找递增子列的长度，注意这�
 
 ```
 LIS(a[]):
-    for i=1:n
-        L[i] = 1
+  for i=1:n
+    L[i] = 1
 
-        for j=1:i-1
-            if a[j] < a[i] & L[i] < 1+L[j]
-                L[i] = 1 + L[j]
+    for j=1:i-1
+      if a[j] < a[i] & L[i] < 1+L[j]
+        L[i] = 1 + L[j]
 
-    max = 1
-    for i=2:n
-        if L[i] > L[max]
-            max = i
+  max = 1
+  for i=2:n
+    if L[i] > L[max]
+      max = i
 
-    return max
+  return max
 ```
 
 此时算法的复杂度为$O(n^2)$。
@@ -182,19 +182,19 @@ LCS问题的目标是计算两个序列中最长的公共子列：
 
 ```
 LCS(X[], Y[]):
-    for i=0:n
-        L[i, 0] = 0
-    for j=0:n
-        L[0, j] = 0
-    
-    for i=1:n
-        for j=1:n
-            if X[i] == Y[j]
-                L[i, j] = 1 + L[i-1, j-1]
-            else
-                L[i, j] = max(L[i, j-1], L[i-1, j])
-    
-    return L[n, n]
+  for i=0:n
+    L[i, 0] = 0
+  for j=0:n
+    L[0, j] = 0
+
+  for i=1:n
+    for j=1:n
+      if X[i] == Y[j]
+        L[i, j] = 1 + L[i-1, j-1]
+      else
+        L[i, j] = max(L[i, j-1], L[i-1, j])
+
+  return L[n, n]
 ```
 
 此时算法的复杂度为$O(n^2)$。
@@ -255,19 +255,19 @@ $$
 
 ```
 KnapsackNoRepeat(w[], v[], B):
-    for b=0:B
-        K[0, b] = 0
-    for i=1:n
-        K[i, 0] = 0
-    
-    for i=1:n
-        for b=1:B
-            if w[i] <= b
-                K[i, b] = max(v[i]+K[i-1, b-w[i]], K[i-1, b])
-            else
-                K[i, b] = K[i-1, b]
-    
-    return K[i, b]
+  for b=0:B
+    K[0, b] = 0
+  for i=1:n
+    K[i, 0] = 0
+
+  for i=1:n
+    for b=1:B
+      if w[i] <= b
+        K[i, b] = max(v[i]+K[i-1, b-w[i]], K[i-1, b])
+      else
+        K[i, b] = K[i-1, b]
+
+  return K[i, b]
 ```
 
 此时算法的复杂度为$O(nB)$。这里需要说明的是$O(nB)$依赖于限制$B$的值，而要表示$B$则需要$O(\log B)$的空间。因此这个算法并不是一个非常高效的算法。实际上人们已经证明knapsack问题是NP-complete，我们目前无法找到一个高效的解法。
@@ -310,14 +310,14 @@ $$
 
 ```
 KnapsackRepeat(w[], v[], B):
-    for b=0:B
-        K[b] = 0
+  for b=0:B
+    K[b] = 0
 
-        for i=1:n
-            if w[i] <= b & K[b] < v[i]+K[b-w[i]]
-                K[b] = v[i] + K[b-w[i]]
-    
-    return K[B]
+    for i=1:n
+      if w[i] <= b & K[b] < v[i]+K[b-w[i]]
+        K[b] = v[i] + K[b-w[i]]
+
+  return K[B]
 ```
 
 此时算法的复杂度为$O(nB)$，仍然不是一个高效的解法。
@@ -384,20 +384,20 @@ $$
 
 ```
 ChainMultiply(m0, m1, ..., mn):
-    for i=1:n
-        C[i, i] = 0
-    
-    for s=1:n-1
-        for i=1:n-s
-            j=i+s
-            C[i, j] = inf
+  for i=1:n
+    C[i, i] = 0
 
-            for l=1:j-1
-                cur = m[i-1]*m[l]*m[j] + C[i, l] + C[l+1, j]
-                if cur < C[i, j]
-                    C[i, j] = cur
-    
-    return C[1, n]
+  for s=1:n-1
+    for i=1:n-s
+      j=i+s
+      C[i, j] = inf
+
+      for l=1:j-1
+        cur = m[i-1]*m[l]*m[j] + C[i, l] + C[l+1, j]
+        if cur < C[i, j]
+          C[i, j] = cur
+
+  return C[1, n]
 ```
 
 整个算法的复杂度为$O(n^3)$。
@@ -442,20 +442,20 @@ $$
 
 ```
 Bellman-Ford(G, s, w):
+  for z in V
+    D[0, z] = inf
+
+  D[0, s] = 0
+
+  for i=1:n-1
     for z in V
-        D[0, z] = inf
-    
-    D[0, s] = 0
+      D[i, z] = D[i-1, z]
 
-    for i=1:n-1
-        for z in V
-            D[i, z] = D[i-1, z]
-
-            for yz in E
-                if D[i, z] > D[i-1, y] + w[y, z]:
-                    D[i, z] = D[i-1, y] + w[y, z]
+      for yz in E
+        if D[i, z] > D[i-1, y] + w[y, z]:
+          D[i, z] = D[i-1, y] + w[y, z]
     
-    return D[n-1, :]
+  return D[n-1, :]
 ```
 
 <div align=center>
@@ -514,19 +514,19 @@ $$
 
 ```
 Floyd-Warshall(G, w):
-    for i=1:n
-        for t=1:n
-            if st in E:
-                D[0, s, t] = w[s, t]
-            else:
-                D[0, s, t] = inf
-            
-    for i=1:n
-        for s=1:n
-            for t=1:n
-                D[i, s, t] = min(D[i-1, s, t], D[i-1, s, i]+D[i-1, i, t])
+  for i=1:n
+    for t=1:n
+      if st in E:
+        D[0, s, t] = w[s, t]
+      else:
+        D[0, s, t] = inf
 
-    return D[i, :, :]
+  for i=1:n
+    for s=1:n
+      for t=1:n
+        D[i, s, t] = min(D[i-1, s, t], D[i-1, s, i]+D[i-1, i, t])
+
+  return D[i, :, :]
 ```
 
 <div align=center>
