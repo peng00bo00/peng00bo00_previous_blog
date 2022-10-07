@@ -20,7 +20,7 @@ sidebar:
 
 ## Modular Arithmetic
 
-在介绍随机算法与密码学的关系前我们需要先来引入**模算数(modular arithmetic)**的相关概念。对于整数$x$我们定义取模运算mod来获得余数，如果两个整数$x$和$y$具有相同的余数则称它们**同余(congruence)**：
+在介绍随机算法与密码学的关系前我们需要先来引入**模算数(modular arithmetic)**的相关概念。对于整数$x$我们定义取模运算mod来获得余数，如果两个整数$x$和$y$具有相同的余数则称它们关于$N$**同余(congruence)**：
 
 <div align=center>
 <img src="https://i.imgur.com/iW67pbi.png" width="80%">
@@ -90,11 +90,11 @@ sidebar:
 
 ```
 Euclid(x, y):
-    if y == 0:
-		return x
-    
-    else:
-		return Euclid(y, x mod y)
+  if y == 0:
+    return x
+
+  else:
+    return Euclid(y, x mod y)
 ```
 
 <div align=center>
@@ -127,12 +127,78 @@ Ext-Euclid(x, y):
 
 ### Fermat's Little Theorem
 
-在模算数的基础上就可以介绍密码学中重要的RSA算法了，不过在此之前我们还需要引入**费马小定理(Fermat's little theorem)**。它指出对于任意质数$p$和小于$p$的整数$z$，$z^{p-1}$与1同余：
+在模算数的基础上就可以介绍密码学中重要的RSA算法了，不过在此之前我们还需要引入**费马小定理(Fermat's little theorem)**。它指出对于任意质数$p$和小于$p$的整数$z$，$z^{p-1}$与1关于$p$同余：
 
 <div align=center>
 <img src="https://i.imgur.com/B4n9HY4.png" width="80%">
 <img src="https://i.imgur.com/k2cdrfL.png" width="80%">
 <img src="https://i.imgur.com/BleDVXl.png" width="80%">
+<img src="https://i.imgur.com/QeWnBr4.png" width="80%">
+</div>
+
+### Euler's Theorem
+
+**欧拉定理(Euler's theorem)**是对费马小定理的推广，它指出互质的整数$N$和$z$，$z^{\phi(N)}$与1关于$N$同余，其中$\phi(N)$为小于$N$且与$N$互质的整数数量。
+
+<div align=center>
+<img src="https://i.imgur.com/o5rJuW0.png" width="80%">
+</div>
+
+如果我们进一步令$N$为两个质数$p$和$q$的积，可以证明$\phi(N)=(p-1)(q-1)$。这样有$z^{(p-1)(q-1)}$与1关于$N=pq$同余。
+
+<div align=center>
+<img src="https://i.imgur.com/0uTjBuG.png" width="80%">
+<img src="https://i.imgur.com/ay1HGWH.png" width="80%">
+</div>
+
+### RSA Idea
+
+RSA算法的基本思想是利用欧拉定理来对$z$进行加密。我们取两个质数$p$和$q$并计算它们的积$N=pq$，接下来取关于$(p-1)(q-1)$互逆的一对整数$d$和$e$。进行加密时加密方已知$e$和$N$，这样可以计算$z^d$；而在解密时解密方知道$p$、$q$和$e$，利用$z^{de}$就可以恢复$z$。
+
+<div align=center>
+<img src="https://i.imgur.com/TnrHrn4.png" width="80%">
+</div>
+
+### Cryptography Setting
+
+在密码学中最常见的一类场景是**公开密钥加密(public-key cryptography)**。此时数据发送方通过加密函数`e()`对信息进行加密，而接收方通过解密函数`d()`进行解密，它们之间的直接通信都是加密后的消息`e(m)`。同时接收方会公开**公钥(public key)**，这样任何拥有公钥的人都可以加密，但只有数据接收方能够利用**私钥(private key)**进行解密。
+
+<div align=center>
+<img src="https://i.imgur.com/zFEjFeV.png" width="80%">
+</div>
+
+### RSA Protocols
+
+因此数据接收方的任务在于计算公钥和私钥，然后公开公钥并保留私钥用来解密。为此它需要首先选择两个质数$p$和$q$，然后计算与$(p-1)(q-1)$互质的$e$用来加密，这样就得到了公钥$N=pq$和$e$，最后计算并保存私钥$d$即可。
+
+<div align=center>
+<img src="https://i.imgur.com/vETQhFj.png" width="80%">
+</div>
+
+对于数据发送方来说，它只需要先获取公钥$N=pq$和$e$，然后对消息$m$进行加密$y \equiv m^e \ \text{mod} \ N$，最后发送加密后的消息$y$即可。
+
+<div align=center>
+<img src="https://i.imgur.com/yIhMZXk.png" width="80%">
+</div>
+
+而当接收方需要进行解密时只需要利用私钥计算$y^d \ \text{mod} \ N = m$。
+
+<div align=center>
+<img src="https://i.imgur.com/b2tkQab.png" width="80%">
+</div>
+
+### RSA Pitfalls
+
+使用RSA进行加密时需要注意的是保证原始数据$m$和$N=pq$是互质的，而如果它们存在公约数则容易导致一些问题。假设$m$和$N$存在公约数$p$，对于数据接收方仍然可以正确地进行解密，但是任何截获加密数据$m^e$的人都可以利用gcd来破解$p$进而获得私钥。因此在进行加密时需要注意验证$m$和$N$是否是互质的。
+
+<div align=center>
+<img src="https://i.imgur.com/7QG9xgr.png" width="80%">
+</div>
+
+另一方面我们还希望原始数据$m$既不是特别大也不是特别小的数字，当$m$特别大或者特别小时都容易导致加密失效。
+
+<div align=center>
+<img src="https://i.imgur.com/9cvB5ys.png" width="80%">
 </div>
 
 ## Bloom Filters
