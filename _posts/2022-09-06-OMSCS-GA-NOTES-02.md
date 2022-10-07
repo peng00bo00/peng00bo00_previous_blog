@@ -44,19 +44,19 @@ sidebar:
 
 ```
 EasyMultiply(x, y):
-	xL = first n/2 bits of x
-	xR = last n/2 bits of x
-	yL = first n/2 bits of y
-	yR = last n/2 bits of y
+  xL = first n/2 bits of x
+  xR = last n/2 bits of x
+  yL = first n/2 bits of y
+  yR = last n/2 bits of y
 
-	A = EasyMultiply(xL, yL)
-	B = EasyMultiply(xR, yR)
-	C = EasyMultiply(xL, yR)
-	D = EasyMultiply(xR, yL)
+  A = EasyMultiply(xL, yL)
+  B = EasyMultiply(xR, yR)
+  C = EasyMultiply(xL, yR)
+  D = EasyMultiply(xR, yL)
 
-	z = A << n + (C + D) << (n/2) + B
+  z = A << n + (C + D) << (n/2) + B
 
-	return z
+  return z
 ```
 
 <div align=center>
@@ -87,18 +87,18 @@ $$
 
 ```
 FastMultiply(x[], y[]):
-	xL = first n/2 bits of x
-	xR = last n/2 bits of x
-	yL = first n/2 bits of y
-	yR = last n/2 bits of y
+  xL = first n/2 bits of x
+  xR = last n/2 bits of x
+  yL = first n/2 bits of y
+  yR = last n/2 bits of y
 
-	A = FastMultiply(xL, yL)
-	B = FastMultiply(xR, yR)
-	C = FastMultiply(xL+xR, yL+yR)
+  A = FastMultiply(xL, yL)
+  B = FastMultiply(xR, yR)
+  C = FastMultiply(xL+xR, yL+yR)
 
-	z = A << n + (C - A - B) << (n/2) + B
+  z = A << n + (C - A - B) << (n/2) + B
 
-	return z
+  return z
 ```
 
 <div align=center>
@@ -143,15 +143,15 @@ $$
 
 ```
 Select(A[], k):
-	Choose a pivot p
-	Partition A[] to A<p, A=p, A>p
+  Choose a pivot p
+  Partition A[] to A<p, A=p, A>p
 
-	if k <= len(A<p):
-      	return Select(A<p[], k)
-	elif len(A<p) < k <= len(A<p) + len(A=p):
-      	return p
-	else:
-      	return Selct(A>p[], k - (len(A<p) + len(A=p)))
+  if k <= len(A<p):
+    return Select(A<p[], k)
+  elif len(A<p) < k <= len(A<p) + len(A=p):
+    return p
+  else:
+    return Selct(A>p[], k - (len(A<p) + len(A=p)))
 ```
 
 <div align=center>
@@ -202,24 +202,24 @@ Select(A[], k):
 
 ```
 FastSelect(A[], k):
-	Break A[] into n/5 groups G1, G2, ...
+  Break A[] into n/5 groups G1, G2, ...
 
-	for i=1:n/5:
-		sort(Gi)
-		mi = median(Gi)
+  for i=1:n/5:
+    sort(Gi)
+    mi = median(Gi)
 
-	S = [m1, m2, ...]
+  S = [m1, m2, ...]
 
-	p = FastSelect(S[], n/10)
+  p = FastSelect(S[], n/10)
 
-	Partition A[] to A<p, A=p, A>p
+  Partition A[] to A<p, A=p, A>p
 
-	if k <= len(A<p):
-		return FastSelect(A<p[], k)
-	elif k > len(A<p) + len(A=p):
-		return FastSelect(A>p[], k - (len(A<p) + len(A=p)))
-	else:
-		return p
+  if k <= len(A<p):
+    return FastSelect(A<p[], k)
+  elif k > len(A<p) + len(A=p):
+    return FastSelect(A>p[], k - (len(A<p) + len(A=p)))
+  else:
+    return p
 ```
 
 <div align=center>
@@ -389,20 +389,20 @@ $$
 
 ```
 FFT(a[], w):
-	if len(a) == 1:
-		return a[0]
+  if len(a) == 1:
+    return a[0]
 
-	a_even = [a0, a2, ...]
-	a_odd  = [a1, a3, ...]
+  a_even = [a0, a2, ...]
+  a_odd  = [a1, a3, ...]
 
-	s = FFT(a_even, w^2)
-	t = FFT(a_odd, w^2)
+  s = FFT(a_even, w^2)
+  t = FFT(a_odd, w^2)
 
-	for j=1:(n/2-1):
-		r[j]    = s[j] + t[j] * w[j]
-		r[j+n/2]= s[j] - t[j] * w[j]
+  for j=1:(n/2-1):
+    r[j]    = s[j] + t[j] * w[j]
+    r[j+n/2]= s[j] - t[j] * w[j]
 
-	return r
+  return r
 ```
 
 <div align=center>
