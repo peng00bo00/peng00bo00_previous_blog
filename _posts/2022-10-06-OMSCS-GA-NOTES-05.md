@@ -111,7 +111,6 @@ Ext-Euclid(x, y):
     
     else:
         d, alpha', beta' = Ext-Euclid(y, x mod y)
-
 		return (d, beta', alpha' - x//y * beta')
 ```
 
