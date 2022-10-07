@@ -106,12 +106,12 @@ Euclid(x, y):
 
 ```
 Ext-Euclid(x, y):
-    if y == 0:
-        return (x, 1, 0)
-    
-    else:
-        d, alpha', beta' = Ext-Euclid(y, x mod y)
-		return (d, beta', alpha' - x//y * beta')
+  if y == 0:
+    return (x, 1, 0)
+
+  else:
+    d, alpha', beta' = Ext-Euclid(y, x mod y)
+    return (d, beta', alpha' - x//y * beta')
 ```
 
 <div align=center>
@@ -124,6 +124,16 @@ Ext-Euclid(x, y):
 </div>
 
 ## RSA
+
+### Fermat's Little Theorem
+
+在模算数的基础上就可以介绍密码学中重要的RSA算法了，不过在此之前我们还需要引入**费马小定理(Fermat's little theorem)**。它指出对于任意质数$p$和小于$p$的整数$z$，$z^{p-1}$与1同余：
+
+<div align=center>
+<img src="https://i.imgur.com/B4n9HY4.png" width="80%">
+<img src="https://i.imgur.com/k2cdrfL.png" width="80%">
+<img src="https://i.imgur.com/BleDVXl.png" width="80%">
+</div>
 
 ## Bloom Filters
 
