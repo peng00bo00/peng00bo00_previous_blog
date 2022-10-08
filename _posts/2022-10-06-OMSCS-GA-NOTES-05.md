@@ -201,6 +201,52 @@ RSA算法的基本思想是利用欧拉定理来对$z$进行加密。我们取�
 <img src="https://i.imgur.com/9cvB5ys.png" width="80%">
 </div>
 
+### RSA Recap
+
+总结一下目前为止的内容，整个RSA算法的流程如下：
+
+<div align=center>
+<img src="https://i.imgur.com/IexyKKP.png" width="80%">
+<img src="https://i.imgur.com/JcmiC8Z.png" width="80%">
+</div>
+
+### Random Prime Numbers
+
+整个RSA算法依赖于选取质数$p$和$q$，因此我们需要设计随机质数的生成算法。要生成随机质数我们首先需要生成随机n-bit整数，整个过程比较简单只需要对n-bit随机赋予0或者1即可。然后我们验证这个随机整数是否是一个质数，如果是质数就得到了一个随机质数，否则重新生成一个新的随机整数再进行判断即可。可以证明n-bit随机整数恰为质数的概率约为$\frac{1}{n}$，因此理论上我们只需要重复生成n次随机整数就可以得到一个随机质数。
+
+<div align=center>
+<img src="https://i.imgur.com/lIzdCbC.png" width="80%">
+</div>
+
+要验证一个整数是否是质数则需要**费马素性检验(Fermat primality test)**。根据费马小定理，任意小于质数$r$的整数$z$一定有$z^{r-1} \equiv 1 \ \text{mod} \ r$。因此如果我们能够找到一个小于$r$的整数$z$使得$z^{r-1} \not\equiv 1 \ \text{mod} \ r$，那么$r$一定是一个合数，这样的$z$称为**Fermat witness**。
+
+<div align=center>
+<img src="https://i.imgur.com/IvRm9Ed.png" width="80%">
+</div>
+
+可以证明任意合数都至少存在一个Fermat witness。
+
+<div align=center>
+<img src="https://i.imgur.com/W4A63e7.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/fTluKV6.png" width="80%">
+<img src="https://i.imgur.com/YRTJGdb.png" width="80%">
+</div>
+
+如果我们忽略Carmichael数的存在可以得到质数的检验算法：
+
+<div align=center>
+<img src="https://i.imgur.com/Ag3NzB5.png" width="80%">
+<img src="https://i.imgur.com/DXZTyD2.png" width="80%">
+<img src="https://i.imgur.com/S8jbbyT.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/qS0ILFx.png" width="80%">
+</div>
+
 ## Bloom Filters
 
 ## Reference
