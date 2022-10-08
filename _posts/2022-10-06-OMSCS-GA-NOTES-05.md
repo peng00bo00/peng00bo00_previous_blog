@@ -20,7 +20,7 @@ sidebar:
 
 ## Modular Arithmetic
 
-在介绍随机算法与密码学的关系前我们需要先来引入**模算数(modular arithmetic)**的相关概念。对于整数$x$我们定义取模运算mod来获得余数，如果两个整数$x$和$y$具有相同的余数则称它们关于$N$**同余(congruence)**：
+在介绍随机算法与密码学的关系前我们需要先来引入**模算数(modular arithmetic)**的相关概念。对于整数$x$我们定义取模运算mod来获得它关于$N$的余数，如果两个整数$x$和$y$具有相同的余数则称它们关于$N$**同余(congruence)**：
 
 <div align=center>
 <img src="https://i.imgur.com/iW67pbi.png" width="80%">
@@ -34,7 +34,7 @@ sidebar:
 
 ### Basic Fact
 
-同余的一个基本性质是如果$x$和$y$以及$a$和$b$分别同余等价，则$x+a$和$y+b$同余等价且$xa$和$yb$同余等价。
+同余的一个基本性质是如果$x$和$y$以及$a$和$b$分别关于$N$同余等价，则$x+a$和$y+b$同余等价且$xa$和$yb$同余等价。
 
 <div align=center>
 <img src="https://i.imgur.com/tyHZnld.png" width="80%">
@@ -102,7 +102,7 @@ Euclid(x, y):
 <img src="https://i.imgur.com/jz8iOIA.png" width="80%">
 </div>
 
-这样就可以计算mod的逆，其复杂度为$O(n^3)：
+这样就可以计算mod的逆，其复杂度为$O(n^3)$：
 
 ```
 Ext-Euclid(x, y):
@@ -144,7 +144,7 @@ Ext-Euclid(x, y):
 <img src="https://i.imgur.com/o5rJuW0.png" width="80%">
 </div>
 
-如果我们进一步令$N$为两个质数$p$和$q$的积，可以证明$\phi(N)=(p-1)(q-1)$。这样有$z^{(p-1)(q-1)}$与1关于$N=pq$同余。
+如果我们进一步令$N$为两个质数$p$和$q$的积$N=pq$，可以证明$\phi(N)=(p-1)(q-1)$。这样有$z^{(p-1)(q-1)}$与1关于$N$同余。
 
 <div align=center>
 <img src="https://i.imgur.com/0uTjBuG.png" width="80%">
@@ -175,7 +175,7 @@ RSA算法的基本思想是利用欧拉定理来对$z$进行加密。我们取�
 <img src="https://i.imgur.com/vETQhFj.png" width="80%">
 </div>
 
-对于数据发送方来说，它只需要先获取公钥$N=pq$和$e$，然后对消息$m$进行加密$y \equiv m^e \ \text{mod} \ N$，最后发送加密后的消息$y$即可。
+对于数据发送方来说，它只需要先获取公钥$N$和$e$，然后对消息$m$进行加密$y \equiv m^e \ \text{mod} \ N$，最后发送加密后的消息$y$即可。
 
 <div align=center>
 <img src="https://i.imgur.com/yIhMZXk.png" width="80%">
@@ -189,7 +189,7 @@ RSA算法的基本思想是利用欧拉定理来对$z$进行加密。我们取�
 
 ### RSA Pitfalls
 
-使用RSA进行加密时需要注意的是保证原始数据$m$和$N=pq$是互质的，而如果它们存在公约数则容易导致一些问题。假设$m$和$N$存在公约数$p$，对于数据接收方仍然可以正确地进行解密，但是任何截获加密数据$m^e$的人都可以利用gcd来破解$p$进而获得私钥。因此在进行加密时需要注意验证$m$和$N$是否是互质的。
+使用RSA进行加密时需要注意的是保证原始数据$m$和$N=pq$是互质的，而如果它们存在公约数则容易导致一些问题。假设$m$和$N$存在公约数$p$，对于数据接收方仍然可以正确地进行解密，但是任何截获加密数据$m^e$的人都可以利用`gcd(y, N)`来破解$p$进而获得私钥。因此在进行加密时需要注意验证$m$和$N$是否是互质。
 
 <div align=center>
 <img src="https://i.imgur.com/7QG9xgr.png" width="80%">
