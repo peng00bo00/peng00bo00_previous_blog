@@ -12,7 +12,7 @@ sidebar:
 > 这个系列是Gatech OMSCS 高级算法课程([CS 6515: Intro to Grad Algorithms](https://omscs.gatech.edu/cs-6515-intro-graduate-algorithms))的同步课程笔记。课程内容涉及动态规划、随机算法、分治、图算法、最大流、线性规划以及NP完备等高级算法的设计思想和相关应用，本节主要介绍随机算法。
 <!--more-->
 
-随机算法是算法中的一个分支，在密码学中随机算法有着非常重要的应用。
+随机算法在密码学中有着非常重要的应用。
 
 <div align=center>
 <img src="https://i.imgur.com/kmkXxWQ.png" width="80%">
