@@ -212,7 +212,7 @@ RSA算法的基本思想是利用欧拉定理来对$z$进行加密。我们取�
 
 ### Random Prime Numbers
 
-整个RSA算法依赖于选取质数$p$和$q$，因此我们需要设计随机质数的生成算法。要生成随机质数我们首先需要生成随机n-bit整数，整个过程比较简单只需要对n-bit随机赋予0或者1即可。然后我们验证这个随机整数是否是一个质数，如果是质数就得到了一个随机质数，否则重新生成一个新的随机整数再进行判断即可。可以证明n-bit随机整数恰为质数的概率约为$\frac{1}{n}$，因此理论上我们只需要重复生成n次随机整数就可以得到一个随机质数。
+整个RSA算法依赖于选取质数$p$和$q$，因此我们需要设计随机质数的生成算法。要生成随机质数我们首先需要生成随机n-bit整数，这个过程比较简单只需要对n-bit随机赋予0或者1即可。然后我们验证这个随机整数是否是一个质数，如果它是质数就得到了一个随机质数，否则重新生成一个新的随机整数再进行判断即可。可以证明n-bit随机整数恰为质数的概率约为$\frac{1}{n}$，因此理论上我们只需要重复生成n次随机整数就可以得到一个随机质数。
 
 <div align=center>
 <img src="https://i.imgur.com/lIzdCbC.png" width="80%">
@@ -229,6 +229,8 @@ RSA算法的基本思想是利用欧拉定理来对$z$进行加密。我们取�
 <div align=center>
 <img src="https://i.imgur.com/W4A63e7.png" width="80%">
 </div>
+
+因此合数的因数一定是Fermat witness，称为**trivial Fermat witness**。而实际上Fermat witness不一定都是因数，此时则称其为**non-trivial Fermat witness**。只有trivial Fermat witness的合数称为**Carmichael数(Carmichael number)**，在使用费马素性检验时它们的性质非常接近于质数，因此也被称为**伪质数(pseudo primes)**。不过Carmichael数非常少见，在简单情况下我们可以忽略它们的存在。
 
 <div align=center>
 <img src="https://i.imgur.com/fTluKV6.png" width="80%">
