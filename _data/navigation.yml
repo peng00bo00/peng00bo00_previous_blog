@@ -280,6 +280,8 @@ GAMES104:
     children: 
       - title: Data-Oriented Programming and Job System
         url: /2022/08/31/GAMES104-NOTES-20.html
+      - title: Dynamic Global Illumination and Lumen
+        url: /2022/10/09/GAMES104-NOTES-21.html
 
 PBRT:
   - title: PBRT读书笔记
