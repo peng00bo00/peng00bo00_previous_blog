@@ -118,6 +118,70 @@ Ford-Fulkerson算法的复杂度为$O(mC)$。
 
 ## Image Segmentation
 
+最大流理论在CV中的一个经典应用在于处理图像分割问题。
+
+<div align=center>
+<img src="https://i.imgur.com/oIhUzn0.png" width="80%">
+</div>
+
+我们可以把图像视为一张图，图像中的每一个像素都对应图上的节点，相邻像素通过边进行连接。
+
+<div align=center>
+<img src="https://i.imgur.com/g6eiOxM.png" width="80%">
+</div>
+
+同时图上的每个顶点考虑其分类为前景或是背景的似然，而图的每一条边对应进行分割所需支付的代价。
+
+<div align=center>
+<img src="https://i.imgur.com/tCWoiJq.png" width="80%">
+<img src="https://i.imgur.com/g6iG8Bx.png" width="80%">
+</div>
+
+这样图像分割问题可以定义为图上的一个优化问题，我们希望最大化分类的似然同时减少进行分割必要的代价。
+
+<div align=center>
+<img src="https://i.imgur.com/D0WoPxl.png" width="80%">
+</div>
+
+实际上这个优化问题可以被建模为最小割问题。
+
+<div align=center>
+<img src="https://i.imgur.com/2sP9FVN.png" width="80%">
+<img src="https://i.imgur.com/5SMOl3f.png" width="80%">
+<img src="https://i.imgur.com/NiDAlGH.png" width="80%">
+</div>
+
+这样我们只需求解这个新的最小化问题即可。
+
+<div align=center>
+<img src="https://i.imgur.com/Gr79Nic.png" width="80%">
+</div>
+
+更进一步，我们把原始图上的无向边转换成两条单向边，每条边上的capacity等于相应的分割代价。
+
+<div align=center>
+<img src="https://i.imgur.com/qK3dPUl.png" width="80%">
+</div>
+
+同时，我们为前景和背景再分别设置一个节点表示源点和终点。
+
+<div align=center>
+<img src="https://i.imgur.com/Uhq8Pwm.png" width="80%">
+<img src="https://i.imgur.com/TtaxyAV.png" width="80%">
+</div>
+
+最后我们就可以利用最大流的相关算法来求解图像分割问题，此时图上的最小割(最大流)恰为图像分割的目标函数。
+
+<div align=center>
+<img src="https://i.imgur.com/WXgQHsv.png" width="80%">
+</div>
+
+总结一下，基于最大流的图像分割算法流程如下：
+
+<div align=center>
+<img src="https://i.imgur.com/8wYGchY.png" width="80%">
+</div>
+
 ## Reference
 
 - [Graphs](https://teapowered.dev/assets/ga-notes.pdf#page=32)
