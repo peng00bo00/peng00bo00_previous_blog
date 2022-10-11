@@ -76,8 +76,51 @@ Ford-Fulkerson算法的复杂度为$O(mC)$。
 <img src="https://i.imgur.com/5Z4VVCj.png" width="80%">
 </div>
 
+## Max-Flow = Min-Cut
+
+### Ford-Fulkerson Recap
+
+在介绍最大流与最小割问题的关系前我们先回顾一下Ford-Fulkerson算法。实际上Ford-Fulkerson算法的正确性依赖于如下定理：当residual network上没有可行的路径时说明已经实现了最大流。
+
+<div align=center>
+<img src="https://i.imgur.com/UDGh5SE.png" width="80%">
+<img src="https://i.imgur.com/oGwPVVi.png" width="80%">
+</div>
+
+### Min-Cut Problem
+
+回忆[图割](/2022/10/04/OMSCS-GA-NOTES-03.html#cuts)的概念是把图划分为两部分L和R，连接它们的边称为cut。对于最大流问题我们可以把图根据源点s和终点t进行划分，此时的图割问题称为**st-cut**。完成划分后L和R的capacity定义为连接它们的所有从L到R的边权重之和。
+
+<div align=center>
+<img src="https://i.imgur.com/sC2VTlz.png" width="80%">
+</div>
+
+这样我们就可以定义图上的最小割问题，它的目标是寻找具有最小capacity的st-cut。
+
+<div align=center>
+<img src="https://i.imgur.com/C7IKp7V.png" width="80%">
+</div>
+
+### Max-Flow = Min ST-Cut
+
+最大流问题的一个重要结论是最大流与最小st-cut的等价性，即最大流的流量等于最小st-cut的capacity。
+
+<div align=center>
+<img src="https://i.imgur.com/mUcm7y3.png" width="80%">
+<img src="https://i.imgur.com/CRJo8ds.png" width="80%">
+<img src="https://i.imgur.com/urYaORJ.png" width="80%">
+<img src="https://i.imgur.com/2d6QAPz.png" width="80%">
+<img src="https://i.imgur.com/t0HdVsD.png" width="80%">
+<img src="https://i.imgur.com/7tVF0pA.png" width="80%">
+<img src="https://i.imgur.com/zz2sqyy.png" width="80%">
+<img src="https://i.imgur.com/fzRf4tf.png" width="80%">
+</div>
+
+## Image Segmentation
+
 ## Reference
 
 - [Graphs](https://teapowered.dev/assets/ga-notes.pdf#page=32)
 - [网络流问题基础](https://www.youtube.com/watch?v=6DFWUgV5Osc&list=PLvOO0btloRnsbnIIbX6ywvD8OZUTT0_ID&index=8)
-- [Ford-Fulkerson Algorithm 寻找网络最大流](https://www.youtube.com/watch?v=8sLON0DqLZo)
+- [Ford-Fulkerson Algorithm 寻找网络最大流](https://www.youtube.com/watch?v=8sLON0DqLZo&list=PLvOO0btloRnsbnIIbX6ywvD8OZUTT0_ID&index=9)
+- [最小割 Min-Cut](https://www.youtube.com/watch?v=Ev_lFSIzNh4&list=PLvOO0btloRnsbnIIbX6ywvD8OZUTT0_ID&index=12)
