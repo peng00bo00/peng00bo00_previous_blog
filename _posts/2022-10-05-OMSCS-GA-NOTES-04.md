@@ -182,6 +182,66 @@ Ford-Fulkerson算法的复杂度为$O(mC)$。
 <img src="https://i.imgur.com/8wYGchY.png" width="80%">
 </div>
 
+## Max-Flow Generalization
+
+### Max-Flow with Demands
+
+除了标准最大流之外，最大流问题还有一些变体。我们可以为每条边定义一个非负的量demand，同时希望每条边上的flow在小于等于capacity的基础上还有大于等于demand，此时图上的流称为**feasible flow**。显然我们希望能够最大化feasible flow，但在此之前我们首先需要回答feasible flow是否存在的问题。
+
+<div align=center>
+<img src="https://i.imgur.com/YyYjJxD.png" width="80%">
+</div>
+
+### Reduction
+
+基于**规约(reduction)**的思想，我们可以把寻找feasible flow的问题转换为计算最大流，然后使用相关的算法进行求解。具体来说，我们首先把包含capacity和demand的图G转换为一个只包含capacity的图G'，然后在G'上求解最大流问题，最后把G'上的最大流f'转换为原始图G上的feasible flow。因此寻找feasible flow的核心在于设计G和G'之间的转换函数g和h。
+
+<div align=center>
+<img src="https://i.imgur.com/F6aXhBP.png" width="80%">
+</div>
+
+首先来考虑G到G'的转换函数g。我们需要把原始边上的capacity减去demand，同时在原始的图上添加新的源点s'和终点t'以及新的边。
+
+<div align=center>
+<img src="https://i.imgur.com/eBCI78P.png" width="80%">
+<img src="https://i.imgur.com/qHN1zXt.png" width="80%">
+</div>
+
+除此之外，我们还需要为t和s之间添加一条具有无穷大capacity的边。
+
+<div align=center>
+<img src="https://i.imgur.com/Q7JbibQ.png" width="80%">
+</div>
+
+### Saturating Feasible
+
+可以证明当G'上存在saturating flow时原始图G上具有feasible flow。
+
+<div align=center>
+<img src="https://i.imgur.com/WRW1iYw.png" width="80%">
+<img src="https://i.imgur.com/abBdXd2.png" width="80%">
+<img src="https://i.imgur.com/B2OFSId.png" width="80%">
+<img src="https://i.imgur.com/aYp3GcG.png" width="80%">
+</div>
+
+### Feasible Saturating
+
+当我们得到了一个feasible flow时，同样可以在G'上构造一个saturating flow。
+
+<div align=center>
+<img src="https://i.imgur.com/clTSbSR.png" width="80%">
+<img src="https://i.imgur.com/OFGScJH.png" width="80%">
+<img src="https://i.imgur.com/TTA6Eat.png" width="80%">
+</div>
+
+### Max Feasible Flow
+
+因此原始图G存在feasible flow等价于G'具有saturating flow，因此我们只需要在G'上通过最大流算法寻找saturating flow即可。得到了一个feasible flow之后可以通过在residual network上添加augment path的方式来进行最大化，不过需要注意的是此时构造residual network的方式与Ford-Fulkerson算法有所不同。
+
+<div align=center>
+<img src="https://i.imgur.com/oamskOF.png" width="80%">
+</div>
+
 ## Reference
 
 - [Graphs](https://teapowered.dev/assets/ga-notes.pdf#page=32)
