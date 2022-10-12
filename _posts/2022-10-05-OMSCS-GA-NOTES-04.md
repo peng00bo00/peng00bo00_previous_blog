@@ -236,7 +236,7 @@ Ford-Fulkerson算法的复杂度为$O(mC)$。
 
 ### Max Feasible Flow
 
-因此原始图G存在feasible flow等价于G'具有saturating flow，因此我们只需要在G'上通过最大流算法寻找saturating flow即可。得到了一个feasible flow之后可以通过在residual network上添加augment path的方式来进行最大化，不过需要注意的是此时构造residual network的方式与Ford-Fulkerson算法有所不同。
+因此原始图G存在feasible flow等价于G'具有saturating flow，因此我们只需要在G'上通过最大流算法寻找saturating flow即可。得到了一个feasible flow之后可以通过在residual network上添加augment path的方式来进行最大化，不过需要注意的是此时构造residual network的方式与[Ford-Fulkerson算法](/2022/10/05/OMSCS-GA-NOTES-04.html#ford-fulkerson-algorithm)有所不同。
 
 <div align=center>
 <img src="https://i.imgur.com/oamskOF.png" width="80%">
