@@ -473,3 +473,9 @@ OMSCS-GA:
         url: /2022/10/06/OMSCS-GA-NOTES-05.html
       # - title: Linear Programming
       # - title: NP-Completeness
+
+GAMES301:
+  - title: 曲面参数化
+    children: 
+      - title: 曲面参数化介绍
+        url: /2022/10/13/GAMES301-NOTES-01.html
