@@ -479,3 +479,5 @@ GAMES301:
     children: 
       - title: 曲面参数化介绍
         url: /2022/10/13/GAMES301-NOTES-01.html
+      - title: 面向离散网格的参数化概述
+        url: /2022/10/14/GAMES301-NOTES-02.html
