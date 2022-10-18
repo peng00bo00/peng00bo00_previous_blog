@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-GA课程笔记02-Divide and Conquer
-tags: ["OMSCS", "CS6515-GA"]
+tags: ["CS6515-GA", "OMSCS"]
 key: OMSCS-GA-02
 aside:
   toc: true

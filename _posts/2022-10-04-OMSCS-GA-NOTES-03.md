@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-GA课程笔记03-Graph Algorithms
-tags: ["OMSCS", "CS6515-GA"]
+tags: ["CS6515-GA", "OMSCS"]
 key: OMSCS-GA-03
 aside:
   toc: true

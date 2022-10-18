@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-GA课程笔记04-Max Flow
-tags: ["OMSCS", "CS6515-GA"]
+tags: ["CS6515-GA", "OMSCS"]
 key: OMSCS-GA-04
 aside:
   toc: true

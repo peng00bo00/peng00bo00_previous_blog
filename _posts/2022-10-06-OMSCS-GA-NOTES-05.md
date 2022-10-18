@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-GA课程笔记05-Randomized Algorithms
-tags: ["OMSCS", "CS6515-GA"]
+tags: ["CS6515-GA", "OMSCS"]
 key: OMSCS-GA-05
 aside:
   toc: true

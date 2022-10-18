@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-GA课程笔记01-Dynamic Programming
-tags: ["OMSCS", "CS6515-GA"]
+tags: ["CS6515-GA", "OMSCS"]
 key: OMSCS-GA-01
 aside:
   toc: true
