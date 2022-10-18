@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-RL课程笔记13-Game Theory Revolutions
-tags: ["OMSCS", "CS7642-RL"]
+tags: ["CS7642-RL", "OMSCS"]
 key: OMSCS-RL-13
 aside:
   toc: true

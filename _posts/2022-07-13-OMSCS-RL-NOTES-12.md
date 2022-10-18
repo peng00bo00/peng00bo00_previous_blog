@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-RL课程笔记12-Game Theory Reloaded
-tags: ["OMSCS", "CS7642-RL"]
+tags: ["CS7642-RL", "OMSCS"]
 key: OMSCS-RL-12
 aside:
   toc: true

@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-RL课程笔记06-Messing with Rewards
-tags: ["OMSCS", "CS7642-RL"]
+tags: ["CS7642-RL", "OMSCS"]
 key: OMSCS-RL-06
 aside:
   toc: true

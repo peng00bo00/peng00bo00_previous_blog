@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-RL课程笔记03-TD and Friends
-tags: ["OMSCS", "CS7642-RL"]
+tags: ["CS7642-RL", "OMSCS"]
 key: OMSCS-RL-03
 aside:
   toc: true

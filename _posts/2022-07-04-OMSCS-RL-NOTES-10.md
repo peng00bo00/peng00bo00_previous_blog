@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-RL课程笔记10-Generalizing Generalizing
-tags: ["OMSCS", "CS7642-RL"]
+tags: ["CS7642-RL", "OMSCS"]
 key: OMSCS-RL-10
 aside:
   toc: true

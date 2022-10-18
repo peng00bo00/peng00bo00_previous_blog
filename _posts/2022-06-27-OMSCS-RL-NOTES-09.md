@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-RL课程笔记09-Partially Observable MDPs
-tags: ["OMSCS", "CS7642-RL"]
+tags: ["CS7642-RL", "OMSCS"]
 key: OMSCS-RL-09
 aside:
   toc: true

@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-RL课程笔记01-Introduction
-tags: ["OMSCS", "CS7642-RL"]
+tags: ["CS7642-RL", "OMSCS"]
 key: OMSCS-RL-01
 aside:
   toc: true

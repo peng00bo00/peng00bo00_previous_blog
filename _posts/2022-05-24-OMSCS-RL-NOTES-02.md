@@ -1,7 +1,7 @@
 ---
 layout: article
 title: OMSCS-RL课程笔记02-Reinforcement Learning Basics
-tags: ["OMSCS", "CS7642-RL"]
+tags: ["CS7642-RL", "OMSCS"]
 key: OMSCS-RL-02
 aside:
   toc: true
