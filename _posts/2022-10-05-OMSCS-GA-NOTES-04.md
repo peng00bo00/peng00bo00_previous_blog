@@ -182,6 +182,40 @@ Ford-Fulkerson算法的复杂度为$O(mC)$。
 <img src="https://i.imgur.com/8wYGchY.png" width="80%">
 </div>
 
+## Edmonds-Karp Algorithm
+
+除了Ford-Fulkerson算法之外另一个求解最大流问题的经典方法是Edmonds-Karp算法。Edmonds-Karp算法的特点是其计算复杂度只依赖于网络的规模，而与capacity无关。
+
+<div align=center>
+<img src="https://i.imgur.com/QGuexb7.png" width="80%">
+</div>
+
+Ford-Fulkerson算法的核心步骤在于构造residual network，然后在residual network上寻找起点s到终点t的通路。利用这条通路更新residual network直到网络中不存在任何s到t的路径，此时网络就达到了最大流。
+
+<div align=center>
+<img src="https://i.imgur.com/F0wKJ5w.png" width="80%">
+</div>
+
+Edmonds-Karp算法与Ford-Fulkerson算法非常类似，其主要区别在于寻找s到t的路径时必须要使用**广度优先搜索(breadth first search, BSF)**。
+
+<div align=center>
+<img src="https://i.imgur.com/nJlSQNr.png" width="80%">
+</div>
+
+Edmonds-Karp算法的复杂度为$O(m^2 n)$。
+
+<div align=center>
+<img src="https://i.imgur.com/TbR7Sm9.png" width="80%">
+<img src="https://i.imgur.com/RWp01Oa.png" width="80%">
+<img src="https://i.imgur.com/vdyQpKZ.png" width="80%">
+<img src="https://i.imgur.com/NkYBsMd.png" width="80%">
+<img src="https://i.imgur.com/W7yDaoH.png" width="80%">
+<img src="https://i.imgur.com/fSHC9Wi.png" width="80%">
+<img src="https://i.imgur.com/eV9rhA6.png" width="80%">
+<img src="https://i.imgur.com/oUR9Nl5.png" width="80%">
+<img src="https://i.imgur.com/EMbvqM2.png" width="80%">
+</div>
+
 ## Max-Flow Generalization
 
 ### Max-Flow with Demands
@@ -248,3 +282,4 @@ Ford-Fulkerson算法的复杂度为$O(mC)$。
 - [网络流问题基础](https://www.youtube.com/watch?v=6DFWUgV5Osc&list=PLvOO0btloRnsbnIIbX6ywvD8OZUTT0_ID&index=8)
 - [Ford-Fulkerson Algorithm 寻找网络最大流](https://www.youtube.com/watch?v=8sLON0DqLZo&list=PLvOO0btloRnsbnIIbX6ywvD8OZUTT0_ID&index=9)
 - [最小割 Min-Cut](https://www.youtube.com/watch?v=Ev_lFSIzNh4&list=PLvOO0btloRnsbnIIbX6ywvD8OZUTT0_ID&index=12)
+- [Edmonds–Karp Algorithm 寻找网络最大流](https://www.youtube.com/watch?v=l-5W0ffPsDo&list=PLvOO0btloRnsbnIIbX6ywvD8OZUTT0_ID&index=10&ab_channel=ShusenWang)
