@@ -237,7 +237,7 @@ SCC算法的一个应用是求解**布尔可满足性问题(satisfiability, SAT)
 
 ### k-SAT
 
-根据每个从句的规模我们可以定义k-SAT问题，其中每个从句包含最多k个布尔变量。对于k-SAT问题人们已经证明在k大于2的情况下它是NP-complete问题，而对于2-SAT问题则存在多项式复杂度的解法。
+根据每个从句的规模我们可以定义k-SAT问题，其中每个从句包含最多k个布尔变量。对于k-SAT问题人们已经证明在k大于2的情况下它是[NP-complete](/2022/10/25/OMSCS-GA-NOTES-06.html#3sat)，而对于2-SAT问题则存在多项式复杂度的解法。
 
 <div align=center>
 <img src="https://i.imgur.com/bs0xoCX.png" width="80%">
