@@ -70,7 +70,7 @@ sidebar:
 
 #### Knapsack
 
-而[knapsack问题](/2022/08/23/OMSCS-GA-NOTES-01.html#knapsack)可以利用动态规划进行求解，但实际上人们无法证明knapsack问题是否是一个NP问题，也无法证明它是否是一个P问题。
+而[knapsack问题](/2022/08/23/OMSCS-GA-NOTES-01.html#knapsack)可以利用动态规划进行求解，但目前人们无法证明knapsack问题是否是一个NP问题，也无法证明它是否是一个P问题。
 
 <div align=center>
 <img src="https://i.imgur.com/AN8ou24.png" width="80%">
