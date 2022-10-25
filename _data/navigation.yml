@@ -471,8 +471,9 @@ OMSCS-GA:
         url: /2022/10/05/OMSCS-GA-NOTES-04.html
       - title: Randomized Algorithms
         url: /2022/10/06/OMSCS-GA-NOTES-05.html
+      - title: NP-Completeness
+        url: /2022/10/25/OMSCS-GA-NOTES-06.html
       # - title: Linear Programming
-      # - title: NP-Completeness
 
 GAMES301:
   - title: 曲面参数化
