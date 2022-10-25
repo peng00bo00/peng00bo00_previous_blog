@@ -228,7 +228,7 @@ Edmonds-Karp算法的复杂度为$O(m^2 n)$。
 
 ### Reduction
 
-基于**规约(reduction)**的思想，我们可以把寻找feasible flow的问题转换为计算最大流，然后使用相关的算法进行求解。具体来说，我们首先把包含capacity和demand的图G转换为一个只包含capacity的图G'，然后在G'上求解最大流问题，最后把G'上的最大流f'转换为原始图G上的feasible flow。因此寻找feasible flow的核心在于设计G和G'之间的转换函数g和h。
+基于**归约(reduction)**的思想，我们可以把寻找feasible flow的问题转换为计算最大流，然后使用相关的算法进行求解。具体来说，我们首先把包含capacity和demand的图G转换为一个只包含capacity的图G'，然后在G'上求解最大流问题，最后把G'上的最大流f'转换为原始图G上的feasible flow。因此寻找feasible flow的核心在于设计G和G'之间的转换函数g和h。
 
 <div align=center>
 <img src="https://i.imgur.com/F6aXhBP.png" width="80%">
