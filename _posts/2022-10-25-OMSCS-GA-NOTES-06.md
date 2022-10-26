@@ -249,6 +249,27 @@ $$
 
 ### Clique
 
+图上的**团(clique)**是指图上相互连接的一组节点，而最大团问题则是指寻找图上最大的一个团。
+
+<div align=center>
+<img src="https://i.imgur.com/HMLQDg6.png" width="80%">
+</div>
+
+类似于独立集问题，我们同样先构造一个关于团的搜索问题。此时要求团的大小至少为g，而这个团搜索问题实际上也是一个NP完备问题。
+
+<div align=center>
+<img src="https://i.imgur.com/iuQavzq.png" width="80%">
+</div>
+
+显然团搜索问题是一个NP问题，我们只需要验证团中的每一对顶点是否相连即可。而在第二步则可以将独立集问题归约到团搜索上来进行证明，实际上独立集与团搜索是相互对立的。
+
+<div align=center>
+<img src="https://i.imgur.com/7WR1I4K.png" width="80%">
+<img src="https://i.imgur.com/wweB0xp.png" width="80%">
+<img src="https://i.imgur.com/BLVIaTA.png" width="80%">
+<img src="https://i.imgur.com/0aG2ZhR.png" width="80%">
+</div>
+
 ### Vertex Cover
 
 ## Knapsack
