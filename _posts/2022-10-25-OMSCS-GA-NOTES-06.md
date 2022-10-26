@@ -100,13 +100,13 @@ sidebar:
 <img src="https://i.imgur.com/W7gCrui.png" width="80%">
 </div>
 
-如果P≠NP那么在NP问题中一定存在一些难以求解的问题，称为**NP完备(NP-completeness)**问题。用Venn图来表示的话NP完备问题是NP问题和P问题的差集。NP完备问题是NP问题中最困难的问题，显然如果P≠NP那么NP完备问题一定不是P问题。它的逆否命题则说明如果能够找到一个NP完备问题在多项式时间内的解，那么所有NP完备问题都是P问题。
+如果P≠NP那么在NP问题中一定存在一些难以求解的问题，称为**NP完备(NP-completeness)**问题。用Venn图来表示的话NP完备问题是NP问题和P问题的差集。NP完备问题是NP问题中最困难的问题，显然如果P≠NP那么NP完备问题一定不是P问题。它的逆否命题则说明如果能够找到一个NP完备问题在多项式时间内的解，那么所有NP问题都是P问题，即P=NP。
 
 <div align=center>
 <img src="https://i.imgur.com/esCVci4.png" width="80%">
 </div>
 
-上面提到的SAT问题就是一个典型的NP完备问题。
+如果我们承认P≠NP，那么上面提到的SAT问题就是一个典型的NP完备问题。
 
 <div align=center>
 <img src="https://i.imgur.com/ZF34chs.png" width="80%">
@@ -118,6 +118,26 @@ sidebar:
 
 <div align=center>
 <img src="https://i.imgur.com/iYR0qxW.png" width="80%">
+</div>
+
+假设问题A为图着色问题，问题B为SAT问题。利用归约可以证明图着色问题为NP完备问题。
+
+<div align=center>
+<img src="https://i.imgur.com/sD6Xuta.png" width="80%">
+<img src="https://i.imgur.com/ul4S1vS.png" width="80%">
+</div>
+
+总结一下证明某个问题是NP完备问题需要两步：
+
+- 证明该问题是NP问题
+- 证明所有NP问题可以规约到该问题
+
+由于我们已知SAT问题是NP完备问题，因此对于第二步可以通过归约将SAT归约到所需问题上来实现证明。
+
+<div align=center>
+<img src="https://i.imgur.com/wdFDqAt.png" width="80%">
+<img src="https://i.imgur.com/DUovPSe.png" width="80%">
+<img src="https://i.imgur.com/4uDUir0.png" width="80%">
 </div>
 
 ## 3SAT
