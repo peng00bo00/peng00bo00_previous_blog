@@ -132,7 +132,7 @@ sidebar:
 - 证明该问题是NP问题
 - 证明所有NP问题可以归约到该问题
 
-由于我们已知SAT问题是NP完备问题，因此对于第二步可以通过归约将SAT归约到所需问题上来实现证明。
+由于我们已知SAT问题是NP完备问题，因此对于第二步可以通过归约将SAT归约到所需问题上来进行证明。
 
 <div align=center>
 <img src="https://i.imgur.com/wdFDqAt.png" width="80%">
