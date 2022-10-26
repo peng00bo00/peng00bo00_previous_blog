@@ -130,7 +130,7 @@ sidebar:
 总结一下证明某个问题是NP完备问题需要两步：
 
 - 证明该问题是NP问题
-- 证明所有NP问题可以规约到该问题
+- 证明所有NP问题可以归约到该问题
 
 由于我们已知SAT问题是NP完备问题，因此对于第二步可以通过归约将SAT归约到所需问题上来实现证明。
 
@@ -141,6 +141,62 @@ sidebar:
 </div>
 
 ## 3SAT
+
+这一节我们开始证明3SAT问题是NP完备问题。
+
+<div align=center>
+<img src="https://i.imgur.com/yRgz4FU.png" width="80%">
+<img src="https://i.imgur.com/4mh461I.png" width="80%">
+<img src="https://i.imgur.com/B3kZ8oa.png" width="80%">
+</div>
+
+首先我们需要证明3SAT是NP问题。显然验证3SAT的解只需要$O(m)$的时间复杂度，因此3SAT是NP问题。
+
+<div align=center>
+<img src="https://i.imgur.com/Am3iGQn.png" width="80%">
+</div>
+
+接下来证明SAT可以归约到3SAT上，具体来说我们需要证明任意SAT问题可以转换为求解一个3SAT问题。
+
+<div align=center>
+<img src="https://i.imgur.com/waCrPMC.png" width="80%">
+<img src="https://i.imgur.com/JA1bOeJ.png" width="80%">
+</div>
+
+假设有一个包含4个变量的从句$C$：
+
+$$
+C = ( \bar{x}_2 \vee x_3 \vee \bar{x}_1 \vee \bar{x}_4 )
+$$
+
+我们定义一个新的从句$C'$，它由2个只包含3个变量的从句构成：
+
+$$
+C' = ( \bar{x}_2 \vee x_3 \vee y ) \wedge ( \bar{y} \vee \bar{x}_1 \vee \bar{x}_4 )
+$$
+
+可以证明$C$和$C'$是等价的，这样一个4SAT问题就转换成了3SAT。
+
+<div align=center>
+<img src="https://i.imgur.com/1ztyGfr.png" width="80%">
+<img src="https://i.imgur.com/lGxX2C8.png" width="80%">
+</div>
+
+实际上对于包含k个变量的从句$C$我们都可以把它转换为只包含3个变量的从句$C'$：
+
+<div align=center>
+<img src="https://i.imgur.com/IUVHmN5.png" width="80%">
+<img src="https://i.imgur.com/HdJHynK.png" width="80%">
+<img src="https://i.imgur.com/Iam7DFu.png" width="80%">
+</div>
+
+这样就可以把SAT问题归约到3SAT上，即3SAT是NP完备问题。
+
+<div align=center>
+<img src="https://i.imgur.com/H6Eq1ne.png" width="80%">
+<img src="https://i.imgur.com/uLkrjbb.png" width="80%">
+<img src="https://i.imgur.com/dHSydop.png" width="80%">
+</div>
 
 ## Graph Problems
 
