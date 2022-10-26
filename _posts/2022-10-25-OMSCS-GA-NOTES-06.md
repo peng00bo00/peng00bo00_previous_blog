@@ -200,6 +200,57 @@ $$
 
 ## Graph Problems
 
+很多图上的问题都是NP完备问题。
+
+<div align=center>
+<img src="https://i.imgur.com/zsRyUzK.png" width="80%">
+</div>
+
+### Independent Sets
+
+**独立集(independent set, IS)**是指在图上没有公共边的顶点集合。寻找小的独立集比较容易，但寻找大的独立集要困难很多。
+
+<div align=center>
+<img src="https://i.imgur.com/RkIYGFc.png" width="80%">
+</div>
+
+实际上寻找图上的最大独立集不是NP问题。不过我们可以对它进行一些修正，只要求独立集中顶点的数量大于g，此时的独立集问题是一个NP完备问题。
+
+<div align=center>
+<img src="https://i.imgur.com/5IwJMpY.png" width="80%">
+<img src="https://i.imgur.com/CDoAEmo.png" width="80%">
+</div>
+
+显然此时的独立集问题可以在多项式时间内进行验证，这说明它是一个NP问题。
+
+<div align=center>
+<img src="https://i.imgur.com/fw9J5qb.png" width="80%">
+</div>
+
+接下来证明3SAT问题可以归约到独立集问题上。首先我们把每个从句转换成图上的一个团，然后为任意包含互斥变量的顶点对添加一条边。这样求解3SAT问题就转换为了在图上寻找独立集的问题。
+
+<div align=center>
+<img src="https://i.imgur.com/FBc1mn9.png" width="80%">
+<img src="https://i.imgur.com/zEToDmk.png" width="80%">
+<img src="https://i.imgur.com/zxnJa1j.png" width="80%">
+<img src="https://i.imgur.com/zxnJa1j.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/TzHaLya.png" width="80%">
+<img src="https://i.imgur.com/5R1RMHy.png" width="80%">
+</div>
+
+这样我们就证明了独立集问题是一个NP完备问题。回到最大独立集的问题，利用归约可以证明最大独立集问题至少和独立集问题一样难。因此对于最大独立集问题我们称其为**NP-hard**，表示它至少和任意NP问题一样困难。如果能够找到NP-hard问题的多项式时间解法，那么所有的NP问题都可以在多项式时间内解决。
+
+<div align=center>
+<img src="https://i.imgur.com/Xiancwk.png" width="80%">
+</div>
+
+### Clique
+
+### Vertex Cover
+
 ## Knapsack
 
 ## Halting Problem
