@@ -272,6 +272,29 @@ $$
 
 ### Vertex Cover
 
+**顶点覆盖(vertex cover, VC)**问题是指在图上寻找一组顶点使得与它们相连的边可以覆盖到图上的所有边。
+
+<div align=center>
+<img src="https://i.imgur.com/ZfOMtDC.png" width="80%">
+</div>
+
+我们同样把VC问题修改为满足一定约束的搜索问题，此时要求顶点集合的大小最多为b。
+
+<div align=center>
+<img src="https://i.imgur.com/cZvuCXH.png" width="80%">
+</div>
+
+可以证明此时的VC搜索问题是一个NP完备问题。首先容易证明验证VC搜索问题的一个解只需要多项式时间，然后可以把独立集问题归约到VC搜索上。
+
+<div align=center>
+<img src="https://i.imgur.com/2jxSXEF.png" width="80%">
+<img src="https://i.imgur.com/idWmhE0.png" width="80%">
+<img src="https://i.imgur.com/sSWJV2V.png" width="80%">
+<img src="https://i.imgur.com/mZs8oqN.png" width="80%">
+<img src="https://i.imgur.com/pcrEUH5.png" width="80%">
+<img src="https://i.imgur.com/j9hUESX.png" width="80%">
+</div>
+
 ## Knapsack
 
 ## Halting Problem
