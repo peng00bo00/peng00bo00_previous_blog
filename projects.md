@@ -1,7 +1,7 @@
 ---
 layout: articles
-title: Photos
-key: photos
+title: Projects
+key: projects
 articles:
   data_source: site.photos
   type: grid
