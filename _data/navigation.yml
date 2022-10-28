@@ -26,7 +26,7 @@ header:
   
   - title:      Projects
     url:        /projects.html
-    key:        Projects
+    key:        projects
 
   - titles:
       # @start locale config
