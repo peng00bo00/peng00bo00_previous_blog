@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Ray Tracing in One Weekend Book Series
-key: project
+key: projects
 cover: https://i.imgur.com/X4xeIgf.jpg
 ---
 
