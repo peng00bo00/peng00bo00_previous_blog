@@ -220,11 +220,11 @@ defaults:
       pageview: true
   ## Projects
   - scope:
-      layout: article
       path: "_projects"
     values:
+      layout: article
       nav_key: projects
-    show_date: false
+      show_date: false
 
 
 
