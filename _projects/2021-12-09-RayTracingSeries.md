@@ -5,7 +5,7 @@ key: projects
 cover: https://i.imgur.com/X4xeIgf.jpg
 ---
 
-> My first simple ray tracer! Codes from [_Ray Tracing in One Weekend_](https://raytracing.github.io/books/RayTracingInOneWeekend.html), [_Ray Tracing: The Next Week_](https://raytracing.github.io/books/RayTracingTheNextWeek.html) and [_Ray Tracing: The Rest of Your Life_](https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html)
+> My first simple ray tracer! Codes from [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html), [Ray Tracing: The Next Week](https://raytracing.github.io/books/RayTracingTheNextWeek.html) and [Ray Tracing: The Rest of Your Life](https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html)
 .
 <!--more-->
 
