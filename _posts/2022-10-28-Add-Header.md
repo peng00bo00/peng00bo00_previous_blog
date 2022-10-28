@@ -81,3 +81,7 @@ header:
 ```
 
 这样就把标题项Projects链接到`projects.md`上。
+
+## 添加文章
+
+完成以上操作后push到git上，然后直接在`_projects`文件夹中添加新的文章即可。
