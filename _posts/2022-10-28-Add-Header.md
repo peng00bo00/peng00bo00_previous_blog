@@ -56,11 +56,13 @@ defaults:
 
   ## Projects
   - scope:
-      layout: article
       path: "_projects"
     values:
+      layout: article
       nav_key: projects
-    show_date: false
+      show_date: false
+  
+  ...
 ```
 
 这样就把根目录下的`_projects`文件夹指定为`site.projects`。
