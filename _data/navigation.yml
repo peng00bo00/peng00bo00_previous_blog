@@ -53,6 +53,12 @@ header:
       # @end locale config
     url: /about.html
 
+customization:
+  - title: 建站备忘录
+    children:
+      - title: 添加新的Header及页面
+        url: /2022/10/28/Add-Header.html
+
 DDG:
   - title: DDG课程笔记
     children: 
