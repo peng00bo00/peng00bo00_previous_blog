@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Learning PBRT
-key: gallery
+key: project
 cover: https://i.imgur.com/tGBNHhe.png
 aside:
   toc: true
