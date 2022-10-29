@@ -28,7 +28,7 @@ sidebar:
 <img src="https://i.imgur.com/DUw1b0Q.png" width="80%">
 </div>
 
-因此P=NP是指验证一个问题和求解这个问题具有相同的难度，而P≠NP则是指验证一个问题要比求解这个问题要困难一些。
+因此P=NP是指验证一个问题和求解这个问题具有相同的难度，而P≠NP则是指求解一个问题要比验证这个问题要困难一些。
 
 <div align=center>
 <img src="https://i.imgur.com/yWyTnxY.png" width="80%">
