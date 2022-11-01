@@ -134,6 +134,35 @@ simplex算法会从零点开始不断寻找局部上能够增大目标函数的�
 
 ## Geometry
 
+从几何角度来看，LP问题中每个约束都相当于在n维空间中定义了一个**半空间(half space)**，而这些半空间的交集构成了问题的可行域。
+
+<div align=center>
+<img src="https://i.imgur.com/eFLiNBM.png" width="80%">
+</div>
+
+由于目标函数是凸函数，LP问题仅在可行域为空以及可行域或是目标函数无界这两种情况下没有解。
+
+<div align=center>
+<img src="https://i.imgur.com/86oyCCU.png" width="80%">
+<img src="https://i.imgur.com/4wPYA0f.png" width="80%">
+</div>
+
+因此在求解LP问题之前首先要判断是否存在上述两种无解的情况。对于可行域是否为空的问题，我们只需要考虑LP的约束即可。此时需要引入一个的变量z来构造新的线性约束：
+
+$$
+A \mathbf{x} + z \leq b
+$$
+
+$$
+\mathbf{x} \geq 0
+$$
+
+接着，我们通过最大化z来判断可行域是否为空。如果z是非负的则说明存在可行域，而如果z为非负则可行域为空。
+
+<div align=center>
+<img src="https://i.imgur.com/xSshKtw.png" width="80%">
+</div>
+
 ## Duality
 
 ## Reference
