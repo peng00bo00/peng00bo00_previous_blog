@@ -165,6 +165,34 @@ $$
 
 ## Duality
 
+LP问题的一大特点在于它的**对偶性(duality)**。当已知一个LP问题可以使用相应的算法进行求解来得到最优函数值，而如果已知函数值的可能取值能否验证是否存在相应的解呢？
+
+<div align=center>
+<img src="https://i.imgur.com/gIVpRzB.png" width="80%">
+</div>
+
+### Upper Bound
+
+假设这个给定的函数值存在于可行域中，我们可以为线性约束赋予相应的系数来组合出目标函数。此时组合后不等式约束的右侧即为目标函数的上界。
+
+<div align=center>
+<img src="https://i.imgur.com/md9xmoO.png" width="80%">
+</div>
+
+### Dual LP
+
+那么如何计算组合系数呢？我们可以假设每一个不等式约束的系数为$y_i$，然后它们加起来得到待定系数的不等式。对于不等式左边每一个未知数，我们要求它的系数至少为目标函数对应的系数。同时最小化不等式右端，这样就得到了一个新的最优化问题。不难发现这个新的优化问题与原问题有对偶的系数和形式，因此称为对偶问题。
+
+<div align=center>
+<img src="https://i.imgur.com/LXKDaXp.png" width="80%">
+<img src="https://i.imgur.com/CSzIMCp.png" width="80%">
+</div>
+
+### General Form
+
+## Max-SAT Approximation
+
+
 ## Reference
 
 - [Linear Programming](https://teapowered.dev/assets/ga-notes.pdf#page=69)
