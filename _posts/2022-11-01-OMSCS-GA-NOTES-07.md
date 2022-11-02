@@ -163,6 +163,8 @@ $$
 <img src="https://i.imgur.com/xSshKtw.png" width="80%">
 </div>
 
+对于如何检查是否无界的情况我们留到对偶性中进行讲解。
+
 ## Duality
 
 LP问题的一大特点在于它的**对偶性(duality)**。当已知一个LP问题可以使用相应的算法进行求解来得到最优函数值，而如果已知函数值的可能取值能否验证是否存在相应的解呢？
@@ -210,8 +212,32 @@ LP的**弱对偶(weak duality)**定理指出对偶问题的目标函数是原始
 <img src="https://i.imgur.com/TMLik46.png" width="80%">
 </div>
 
+更进一步，假设x和y分别是原始问题和对偶问题可行域中的点，如果两个优化问题的目标函数在该处有相同的值则说明x和y分别是两个问题的最优解。
+
 <div align=center>
 <img src="https://i.imgur.com/F2vZ6ZP.png" width="80%">
+</div>
+
+### Unbounded LP
+
+弱对偶的另一个推论是如果原始LP是无界的则其对偶问题可行域为空；反之如果对偶问题是无界的则原始问题可行域为空。
+
+<div align=center>
+<img src="https://i.imgur.com/z2mz9kL.png" width="80%">
+</div>
+
+利用这个推论就可以验证原始LP是否有界，我们只需要考虑其对偶问题的可行域即可。这样判断LP是否有解就只需要判断原始问题和其对偶问题可行域是否为空。
+
+<div align=center>
+<img src="https://i.imgur.com/0Axh38B.png" width="80%">
+</div>
+
+### Strong Duality
+
+LP的**强对偶(strong duality)**定理指出原始问题和对偶问题有解以及有最优解是相互等价的。
+
+<div align=center>
+<img src="https://i.imgur.com/IqfmIfU.png" width="80%">
 </div>
 
 ## Max-SAT Approximation
