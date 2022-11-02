@@ -32,7 +32,7 @@ sidebar:
 
 #### Simple Production
 
-LP的另一个常见例子是确定产品的最优配置。假设有两种产品A和B，A产品的利润是1而B产品的利润是1。客户对两种产品的最大需求分别为300和200，而生产两种产品分别需要1小时和3小时，总共的可用生产时间为700小时。我们的目标是确定两种产品的产量来最大化利润。
+LP的另一个常见例子是确定产品的最优配置。假设有两种产品A和B，A产品的利润是1而B产品的利润是6。客户对两种产品的最大需求分别为300和200，而生产两种产品分别需要1小时和3小时，总共的可用生产时间为700小时。我们的目标是确定两种产品的产量来最大化利润。
 
 <div align=center>
 <img src="https://i.imgur.com/XJ4b5bo.png" width="80%">
@@ -105,7 +105,7 @@ LP的另一个常见例子是确定产品的最优配置。假设有两种产品
 <img src="https://i.imgur.com/4BbbebU.png" width="80%">
 </div>
 
-对于n维的情况我们很难直观地表示n维空间，不过此时的几何意义与低维是一样的。
+对于n维的情况我们很难直观地表示n维空间，不过此时的几何意义与低维情况是一样的。
 
 <div align=center>
 <img src="https://i.imgur.com/B8pUplW.png" width="80%">
@@ -147,7 +147,7 @@ simplex算法会从零点开始不断寻找局部上能够增大目标函数的�
 <img src="https://i.imgur.com/4wPYA0f.png" width="80%">
 </div>
 
-因此在求解LP问题之前首先要判断是否存在上述两种无解的情况。对于可行域是否为空的问题，我们只需要考虑LP的约束即可。此时需要引入一个的变量z来构造新的线性约束：
+因此在求解LP问题之前首先要判断是否存在上述两种无解的情况。对于可行域是否为空的问题，我们只需要考虑LP的约束即可。此时需要引入一个新的变量z来构造不等式约束：
 
 $$
 A \mathbf{x} + z \leq b
@@ -157,7 +157,7 @@ $$
 \mathbf{x} \geq 0
 $$
 
-接着，我们通过最大化z来判断可行域是否为空。如果z是非负的则说明存在可行域，而如果z为非负则可行域为空。
+接着，我们通过最大化z来判断可行域是否为空。如果z是非负的则说明存在可行域，而如果z为负数则可行域为空。
 
 <div align=center>
 <img src="https://i.imgur.com/xSshKtw.png" width="80%">
@@ -189,6 +189,30 @@ LP问题的一大特点在于它的**对偶性(duality)**。当已知一个LP问
 </div>
 
 ### General Form
+
+更一般情况下的对偶形式可以表示如下：
+
+<div align=center>
+<img src="https://i.imgur.com/7yXQwhI.png" width="80%">
+</div>
+
+更进一步，对偶问题也可以转换为一个等价的LP问题，而它的对偶等价于原始LP问题：
+
+<div align=center>
+<img src="https://i.imgur.com/kBWUyxe.png" width="80%">
+</div>
+
+### Weak Duality
+
+LP的**弱对偶(weak duality)**定理指出对偶问题的目标函数是原始问题的一个上界。
+
+<div align=center>
+<img src="https://i.imgur.com/TMLik46.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/F2vZ6ZP.png" width="80%">
+</div>
 
 ## Max-SAT Approximation
 
