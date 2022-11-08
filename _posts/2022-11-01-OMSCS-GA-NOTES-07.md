@@ -248,7 +248,7 @@ max-SAT问题是SAT问题的一个变体，在max-SAT问题中即使不能满足
 <img src="https://i.imgur.com/U5YZN7c.png" width="80%">
 </div>
 
-要精确求解max-SAT是是否困难的，不过借助LP我们可以近似求解这个问题。
+要精确求解max-SAT是非常困难的，不过借助LP我们可以近似求解这个问题。
 
 <div align=center>
 <img src="https://i.imgur.com/vSy4Jkz.png" width="80%">
@@ -266,7 +266,7 @@ max-SAT问题是SAT问题的一个变体，在max-SAT问题中即使不能满足
 <img src="https://i.imgur.com/cQxUY4y.png" width="80%">
 </div>
 
-### Ek-SAT
+#### Ek-SAT
 
 利用上面的结论可以证明对于3-SAT问题随机赋值能够满足7/8左右的从句。实际上这已经是3-SAT问题我们所能做到最好的算法了，寻找任何性能更好的算法都是NP-hard。
 
@@ -291,7 +291,7 @@ max-SAT问题是SAT问题的一个变体，在max-SAT问题中即使不能满足
 <img src="https://i.imgur.com/7IuFtx6.png" width="80%">
 </div>
 
-### LP Relaxation
+#### LP Relaxation
 
 尽管精确求解ILP是不现实的，我们可以放松取值为整数的条件把它转换为一个LP来进行近似求解。显然放松后的LP问题的解是原始ILP问题的一个上界。
 
@@ -305,7 +305,7 @@ max-SAT问题是SAT问题的一个变体，在max-SAT问题中即使不能满足
 <img src="https://i.imgur.com/9lo7Tnm.png" width="80%">
 </div>
 
-### AM-GM
+#### AM-GM
 
 <div align=center>
 <img src="https://i.imgur.com/PVcydjD.png" width="80%">
@@ -314,6 +314,8 @@ max-SAT问题是SAT问题的一个变体，在max-SAT问题中即使不能满足
 <img src="https://i.imgur.com/PXDuw8d.png" width="80%">
 <img src="https://i.imgur.com/tNCrQVl.png" width="80%">
 </div>
+
+### Comparison
 
 总结一下，对于NP-hard问题在很多情况下我们都可以先把它归约到ILP上，然后放松为LP来获得近似解。
 
