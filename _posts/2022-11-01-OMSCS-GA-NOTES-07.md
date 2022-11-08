@@ -242,6 +242,96 @@ LP的**强对偶(strong duality)**定理指出原始问题和对偶问题有(最
 
 ## Max-SAT Approximation
 
+max-SAT问题是SAT问题的一个变体，在max-SAT问题中即使不能满足所有的从句也要输出能够满足的最大从句数。实际上max-SAT是NP-hard问题，它要比SAT更加困难。
+
+<div align=center>
+<img src="https://i.imgur.com/U5YZN7c.png" width="80%">
+</div>
+
+要精确求解max-SAT是是否困难的，不过借助LP我们可以近似求解这个问题。
+
+<div align=center>
+<img src="https://i.imgur.com/vSy4Jkz.png" width="80%">
+<img src="https://i.imgur.com/MgwrmgO.png" width="80%">
+</div>
+
+### Simple Scheme
+
+最简单的近似求解方法是随机为每个变量赋值，此时可以证明能够满足的从句数量的期望至少为从句总数的1/2。
+
+<div align=center>
+<img src="https://i.imgur.com/bzpDlYp.png" width="80%">
+<img src="https://i.imgur.com/QmdlohA.png" width="80%">
+<img src="https://i.imgur.com/JP2mhtM.png" width="80%">
+<img src="https://i.imgur.com/cQxUY4y.png" width="80%">
+</div>
+
+### Ek-SAT
+
+利用上面的结论可以证明对于3-SAT问题随机赋值能够满足7/8左右的从句。实际上这已经是3-SAT问题我们所能做到最好的算法了，寻找任何性能更好的算法都是NP-hard。
+
+<div align=center>
+<img src="https://i.imgur.com/hSMnUwC.png" width="80%">
+</div>
+
+### Integer-Programming
+
+**整数规划(integer-programming, ILP)**是LP的一种常见变体，和LP相比ILP要求变量取值必须为整数。需要注意的是尽管LP由多项式时间解法，ILP是NP-hard。
+
+<div align=center>
+<img src="https://i.imgur.com/qbsjCpv.png" width="80%">
+</div>
+
+实际上很多常见的NP完备问题都可以归约到求解ILP上，而max-SAT也可以归约到ILP上。
+
+<div align=center>
+<img src="https://i.imgur.com/3peUBsw.png" width="80%">
+<img src="https://i.imgur.com/tmBbPIk.png" width="80%">
+<img src="https://i.imgur.com/9SyewMm.png" width="80%">
+<img src="https://i.imgur.com/7IuFtx6.png" width="80%">
+</div>
+
+### LP Relaxation
+
+尽管精确求解ILP是不现实的，我们可以放松取值为整数的条件把它转换为一个LP来进行近似求解。显然放松后的LP问题的解是原始ILP问题的一个上界。
+
+<div align=center>
+<img src="https://i.imgur.com/hi06G3v.png" width="80%">
+</div>
+
+再进一步如果我们想要获得每个变量的整数取值只需要对每个变量进行取整即可，可以证明这样得到的近似解不会与ILP真正的解相差太多。
+
+<div align=center>
+<img src="https://i.imgur.com/9lo7Tnm.png" width="80%">
+</div>
+
+### AM-GM
+
+<div align=center>
+<img src="https://i.imgur.com/PVcydjD.png" width="80%">
+<img src="https://i.imgur.com/eQS0Qm6.png" width="80%">
+<img src="https://i.imgur.com/T7hUtCj.png" width="80%">
+<img src="https://i.imgur.com/PXDuw8d.png" width="80%">
+<img src="https://i.imgur.com/tNCrQVl.png" width="80%">
+</div>
+
+总结一下，对于NP-hard问题在很多情况下我们都可以先把它归约到ILP上，然后放松为LP来获得近似解。
+
+<div align=center>
+<img src="https://i.imgur.com/LQO8I1s.png" width="80%">
+</div>
+
+回到max-SAT问题上，当从句中的变量数k比较小时LP方法有更好的性能，而当k比较大时随机赋值方法反而效果更好。同时可以注意到不管采用那种算法，能够满足的从句比例都至少为3/4。
+
+<div align=center>
+<img src="https://i.imgur.com/AomIUAx.png" width="80%">
+</div>
+
+在实际求解max-SAT问题时一般会同时运行这两种算法，然后选择其中效果更好的那个。
+
+<div align=center>
+<img src="https://i.imgur.com/t8cYn0L.png" width="80%">
+</div>
 
 ## Reference
 
