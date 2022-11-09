@@ -297,8 +297,43 @@ $$
 
 ## Knapsack
 
+前面我们利用SAT证明了3SAT以及IS都是NP完备问题，而在这一小节中我们会证明knapsack同样是NP完备问题。
+
+<div align=center>
+<img src="https://i.imgur.com/qUJVnsF.png" width="80%">
+</div>
+
+### Subset-Sum
+
+首先我们需要证明subset-sum是NP完备问题。subset-sum问题是指在正整数集合$S = \{ a_1, ..., a_n \}$中找出和为$t$的一个子集。显然这个问题可以使用动态规划进行求解，它的复杂度为$O(nt)$。不过需要注意的是类似于knapsack问题，subset-sum不是一个P问题。
+
+<div align=center>
+<img src="https://i.imgur.com/GmN1cwP.png" width="80%">
+</div>
+
+接下来我们开始证明subset-sum是NP完备问题。显然我们可以在多项式时间内验证subset-sum的解，因此它是一个NP问题；然后利用归约可以证明3SAT会归约到subset-sum上，这样就证明了subset-sum是NP完备问题。
+
+<div align=center>
+<img src="https://i.imgur.com/XvMxKy0.png" width="80%">
+<img src="https://i.imgur.com/Q532gfL.png" width="80%">
+<img src="https://i.imgur.com/kkc1IIB.png" width="80%">
+<img src="https://i.imgur.com/RadW3E1.png" width="80%">
+<img src="https://i.imgur.com/T0Fovw2.png" width="80%">
+<img src="https://i.imgur.com/bUumj7N.png" width="80%">
+<img src="https://i.imgur.com/JQgV3Do.png" width="80%">
+<img src="https://i.imgur.com/TIz8A2k.png" width="80%">
+<img src="https://i.imgur.com/RIGcn1v.png" width="80%">
+</div>
+
+在subset-sum的基础上可以证明Knapsack是NP完备问题。
+
+<div align=center>
+<img src="https://i.imgur.com/BMctfAn.png" width="80%">
+</div>
+
 ## Halting Problem
 
 ## Reference
 
 - [Computational Complexity](https://teapowered.dev/assets/ga-notes.pdf#page=82)
+- [NP reduction from subset sum to Knapsack](https://www.youtube.com/watch?v=pK8VQd6U7BI)
