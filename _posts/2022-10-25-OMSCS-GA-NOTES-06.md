@@ -350,7 +350,7 @@ NP完备问题是在计算上非常困难的一类问题。如果我们承认P�
 <img src="https://i.imgur.com/Oe5EjuY.png" width="80%">
 </div>
 
-接下来我们利用反证法来证明停机问题是不可判定问题。假设停机问题存在算法`TERMINATOR(P, I)`进行求解，我们可以构造一个新的程序Q以及输入J使得`TERMINATOR`无法给出正确的解。
+接下来我们利用反证法来证明停机问题是不可判定问题：假设停机问题存在算法`TERMINATOR(P, I)`进行求解，我们可以构造一个新的程序Q以及输入J使得`TERMINATOR`无法给出正确的解。
 
 <div align=center>
 <img src="https://i.imgur.com/hgbcP8O.png" width="80%">
