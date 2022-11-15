@@ -333,6 +333,47 @@ $$
 
 ## Halting Problem
 
+### Undecidable
+
+NP完备问题是在计算上非常困难的一类问题。如果我们承认P≠NP，那么对于NP完备问题不存在对于任意输入的多项式时间解法。而**不可判定问题(undecidable problem)**则是更加困难的问题，对于任意输入不可判定问题即使给予无限的时间和空间都不存在求解的算法。图灵在1936年指出**停机问题(halting problem)**就是这样的一个不可判定问题。
+
+<div align=center>
+<img src="https://i.imgur.com/gbPihU3.png" width="80%">
+</div>
+
+### Halting Problem
+
+停机问题是指判断一个程序是否能够在有限时间内终止。对于给定程序P和输入I，停机问题要求在P能够终止的情况下输出True，否则输出False。
+
+<div align=center>
+<img src="https://i.imgur.com/u7JsZOz.png" width="80%">
+<img src="https://i.imgur.com/Oe5EjuY.png" width="80%">
+</div>
+
+接下来我们利用反证法来证明停机问题是不可判定问题。假设停机问题存在算法`TERMINATOR(P, I)`进行求解，我们可以构造一个新的程序Q以及输入J使得`TERMINATOR`无法给出正确的解。
+
+<div align=center>
+<img src="https://i.imgur.com/hgbcP8O.png" width="80%">
+<img src="https://i.imgur.com/tuLU5O4.png" width="80%">
+</div>
+
+显然如此构造的程序`Harmful(J)`在`TERMINATOR(J, J)`为True时会无限循环下去，而在`TERMINATOR(J, J)`为False时终止运行。
+
+<div align=center>
+<img src="https://i.imgur.com/695BpfT.png" width="80%">
+</div>
+
+最后令J为所定义的`Harmful`，此时就产生了一个悖论：
+
+- 如果`Harmful(J)`能够终止，带入`J=Harmful`会得到`Harmful(Harmful)`无法终止。
+- 如果`Harmful(J)`不能终止，带入`J=Harmful`会得到`Harmful(Harmful)`可以终止。
+
+这样我们就利用反证法证明了停机问题不存在任何解法。
+
+<div align=center>
+<img src="https://i.imgur.com/Jxwwr6t.png" width="80%">
+</div>
+
 ## Reference
 
 - [Computational Complexity](https://teapowered.dev/assets/ga-notes.pdf#page=82)
