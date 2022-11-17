@@ -305,7 +305,7 @@ $$
 
 ### Subset-Sum
 
-首先我们需要证明subset-sum是NP完备问题。subset-sum问题是指在正整数集合$S = \{ a_1, ..., a_n \}$中找出和为$t$的一个子集。显然这个问题可以使用动态规划进行求解，它的复杂度为$O(nt)$。不过需要注意的是类似于knapsack问题，subset-sum不是一个P问题。
+首先我们需要证明subset-sum是NP完备问题。subset-sum问题是指在正整数集合$$S = \{ a_1, ..., a_n \}$$中找出和为$t$的一个子集。显然这个问题可以使用动态规划进行求解，它的复杂度为$O(nt)$。不过需要注意的是类似于knapsack问题，subset-sum不是一个P问题。
 
 <div align=center>
 <img src="https://i.imgur.com/GmN1cwP.png" width="80%">
