@@ -42,7 +42,7 @@ softmax函数是在分类问题中非常常用的函数，它可以把给定的�
 
 ### Selecting a Vector from a Set
 
-在很多应用场景中我们需要根据一个查询向量$q$来获取给定向量集合$U=\{ u_1, ..., u_N\}$中最接近的一个向量。最直观的做法是把$q$和$U$中的每一个向量做内积然后选择其中最大的那个作为输出；而利用softmax函数我们也可以对$U$计算概率来实现类似的功能。这种使用softmax函数来计算权重的方法称为**softmax attention**。
+在很多应用场景中我们需要根据一个查询向量$q$来获取给定向量集合$$U=\{ u_1, ..., u_N\}$$中最接近的一个向量。最直观的做法是把$q$和$U$中的每一个向量做内积然后选择其中最大的那个作为输出；而利用softmax函数我们也可以对$U$计算概率来实现类似的功能。这种使用softmax函数来计算权重的方法称为**softmax attention**。
 
 <div align=center>
 <img src="https://i.imgur.com/tmeLaHy.png" width="80%">
