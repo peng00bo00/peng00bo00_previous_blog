@@ -54,13 +54,13 @@ Geometry Processing
 
 ## Publications
 
+- **Filler Effects of CaCO3 Polymorphs Derived from Limestone and Seashell on Hydration and Carbonation of Magnesium oxide (MgO) Cement (RMC)** \
+  Rotana Hay, Bo Peng, and Kemal Celik \
+  Cement and Concrete Research
+
 - **3D Shape Analysis of Lunar Regolith Simulants** \
   Bo Peng, Rotana Hay, and Kemal Celik \
   73rd International Astronautical Congress 2022
-
-- **Filler and Nucleation Effects of CaCO3 Polymorphs Derived from Limestone and Seashell on Hydration and Carbonation of Magnesium oxide (MgO) Cement (RMC)** \
-  Rotana Hay, Bo Peng, and Kemal Celik \
-  Cement and Concrete Research (*under review*)
 
 - **Engineering Practices on Surface Damage Inspection and Performance Evaluation of Concrete Bridges in China** \
   Airong Chen, Xurui Fang, Zichao Pan, Dalei Wang, Yue Pan, and Bo Peng \
