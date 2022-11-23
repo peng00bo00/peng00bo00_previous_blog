@@ -251,6 +251,128 @@ RSA算法的基本思想是利用欧拉定理来对$z$进行加密。我们取�
 
 ## Bloom Filters
 
+在这一小节我们会介绍**哈希函数(hashing)**以及**Bloom滤波器(Bloom filter)**。
+
+<div align=center>
+<img src="https://i.imgur.com/us8ZWmt.png" width="80%">
+</div>
+
+### Ball into Bins
+
+假设我们有$n$个完全相同的小球与$n$个盒子，每次随机将一个小球置入其中一个盒子中，此时第$i$个盒子中的小球数量是一个随机变量$\text{load}(i)$。记盒子中数目最多的小球数为$\max \ \text{load}$，它同样是一个随机变量且最大值为$n$，即所有小球同时落入一个盒子中。不过这种情况的概率很低，为$(\frac{1}{n})^n$。
+
+<div align=center>
+<img src="https://i.imgur.com/7R8DpEU.png" width="80%">
+</div>
+
+要分析$\max \ \text{load}$的分布并不容易。首先，前$\log (n)$个小球都落在第$i$个盒子的概率为$(\frac{1}{n})^{\log n}$。
+
+<div align=center>
+<img src="https://i.imgur.com/Ib7baKz.png" width="80%">
+</div>
+
+在此基础上可以证明第$i$个盒子中小球数量至少为$\log (n)$的概率小于等于${n \choose \log n} (\frac{1}{n})^{\log n}$。
+
+<div align=center>
+<img src="https://i.imgur.com/dmzPr1A.png" width="80%">
+</div>
+
+当$n$比较大时组合数具有上界：
+
+$$
+{n \choose k} \approx \bigg( \frac{n}{k} \bigg)^k \leq \bigg( \frac{n \ e}{k} \bigg)^k
+$$
+
+带入概率上界可以得到：
+
+$$
+P \leq \bigg( \frac{n \ e}{\log n} \bigg)^{\log n} \bigg( \frac{1}{n} \bigg)^{\log n} = 
+\bigg( \frac{e}{\log n} \bigg)^{\log n}
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/V4rOfhr.png" width="80%">
+</div>
+
+由于$\frac{e}{\log n}$随$n$的增加而减小，我们可以进一步使用常数$\frac{1}{4}$进行放缩。进一步假设$n > 2^{11}$可以得到最终的概率上界$\frac{1}{n^2}$。
+
+<div align=center>
+<img src="https://i.imgur.com/FrYFXRh.png" width="80%">
+</div>
+
+利用上面的结论可以推导出$\max \ \text{load}$至少为$\log n$的概率上界为$\frac{1}{n}$，而它的下界有大概率为$\frac{\log n}{\log \log n}$。
+
+<div align=center>
+<img src="https://i.imgur.com/nsyB18H.png" width="80%">
+<img src="https://i.imgur.com/Nny03fK.png" width="80%">
+</div>
+
+除了随机放置小球外，另一种放置小球的方式是每次随机选择两个盒子然后把小球放到$\text{load}$较小的那个盒子中。
+
+<div align=center>
+<img src="https://i.imgur.com/N72Aown.png" width="80%">
+</div>
+
+可以证明按照这种方式进行放置时$\max \ \text{load}$的上界有大概率为$\log \log n$。
+
+<div align=center>
+<img src="https://i.imgur.com/RbqRJsj.png" width="80%">
+</div>
+
+### Chain Hashing
+
+hashing在现实生活中有着非常多的应用，比如说哈希表这种数据结构就会使用hashing来计算插入元素的序号，此时我们需要回答的问题是表中是否存在某个给定的元素$x$。最常见的实现方法是构造一个数组，然后设计一个函数$h(x)$将可能的元素映射到表的编号中。假设$h(x)$是一个随机函数，我们可以把hash table想成小球问题中的盒子，而元素$x$则为小球，这样就可以使用上一节的结论来进行分析。
+
+<div align=center>
+<img src="https://i.imgur.com/33MChih.png" width="80%">
+</div>
+
+对于chain hashing的实现方式，检测$x$是否在表中需要两步：
+
+1. 使用$h(x)$计算链表的编号$h(x) = i$。
+2. 检测$x$是否在链表$H[i]$中。
+
+记$x$的所有可能取值数量为$m$，hash table的大小为$n$。利用上一小节的结论可以得到每个链表的大小有大概率为$\log n$，即查询的复杂度为$O(\log n)$。
+
+<div align=center>
+<img src="https://i.imgur.com/OcGKb4M.png" width="80%">
+</div>
+
+要提升查询的效率可以使用两个hashing函数，添加键时选择元素较少的那个链表来加入。需要注意的是在进行查询时需要同时检查两个链表中的元素。可以证明此时的查询复杂度为$O(\log \log n)$。
+
+<div align=center>
+<img src="https://i.imgur.com/CyyqmyM.png" width="80%">
+</div>
+
+### Bloom Filter
+
+Bloom滤波器是对chain hashing的一种改进，它可以实现$O(1)$的查询效率而且实现起来非常简单。不过Bloom滤波器仅是概率正确的，存在假阳性的可能性。对于精度没有特别严格要求的场景，Bloom滤波器是一个非常强大的工具。
+
+<div align=center>
+<img src="https://i.imgur.com/DumbOT6.png" width="80%">
+</div>
+
+Bloom滤波器包括两个基本操作，插入`insert(x)`以及查询`query(x)`。
+
+<div align=center>
+<img src="https://i.imgur.com/cDnmuIZ.png" width="80%">
+</div>
+
+在实现时Bloom滤波器使用了一个大小为n的二进制数组。首先把数组的每一位都初始化为0，当我们需要插入$x$时将数组的第$h(x)$位设置为1，而在查询时只需要检测$H[h(x)]$是否为1即可。显然此时两种操作都只需要$O(1)$的复杂度，但查询操作可能会出现假阳性的情况。
+
+<div align=center>
+<img src="https://i.imgur.com/67RdQQO.png" width="80%">
+</div>
+
+要提升系统的鲁棒性可以同时使用k个hashing函数，此时要进行插入和查询则需要同时检查数组的k个可能位置。
+
+<div align=center>
+<img src="https://i.imgur.com/yIinet2.png" width="80%">
+<img src="https://i.imgur.com/mN2sbFv.png" width="80%">
+</div>
+
+显然k值对于假阳性的概率有着重要的影响。
+
 ## Reference
 
 - [Cryptography](https://teapowered.dev/assets/ga-notes.pdf#page=60)
