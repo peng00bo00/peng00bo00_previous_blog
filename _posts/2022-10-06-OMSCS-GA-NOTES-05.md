@@ -371,7 +371,17 @@ Bloom滤波器包括两个基本操作，插入`insert(x)`以及查询`query(x)`
 <img src="https://i.imgur.com/mN2sbFv.png" width="80%">
 </div>
 
-显然k值对于假阳性的概率有着重要的影响。
+显然k值对于假阳性的概率有着重要的影响，可以证明出现假阳性的概率约为$(1-e^{-\frac{k}{c}})^k$，这样最优的k值为$c \ln 2$而对应的假阳性概率约为$0.6185^c$。
+
+<div align=center>
+<img src="https://i.imgur.com/AzgdxDr.png" width="80%">
+<img src="https://i.imgur.com/ixUvWVM.png" width="80%">
+<img src="https://i.imgur.com/G3utfMJ.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/tyc58QP.png" width="80%">
+</div>
 
 ## Reference
 
