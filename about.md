@@ -54,7 +54,7 @@ Geometry Processing
 
 ## Publications
 
-- **Filler Effects of CaCO3 Polymorphs Derived from Limestone and Seashell on Hydration and Carbonation of Magnesium oxide (MgO) Cement (RMC)** \
+- **Filler Effects of CaCO3 Polymorphs Derived from Limestone and Seashell on Hydration and Carbonation of Magnesium Oxide (MgO) Cement (RMC)** \
   Rotana Hay, Bo Peng, and Kemal Celik \
   Cement and Concrete Research
 
