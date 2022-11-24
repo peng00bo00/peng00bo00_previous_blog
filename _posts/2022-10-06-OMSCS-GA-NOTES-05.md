@@ -251,8 +251,6 @@ RSA算法的基本思想是利用欧拉定理来对$z$进行加密。我们取�
 
 ## Bloom Filters
 
-在这一小节我们会介绍**哈希函数(hashing)**以及**Bloom滤波器(Bloom filter)**。
-
 <div align=center>
 <img src="https://i.imgur.com/us8ZWmt.png" width="80%">
 </div>
@@ -321,24 +319,24 @@ $$
 
 ### Chain Hashing
 
-hashing在现实生活中有着非常多的应用，比如说哈希表这种数据结构就会使用hashing来计算插入元素的序号，此时我们需要回答的问题是表中是否存在某个给定的元素$x$。最常见的实现方法是构造一个数组，然后设计一个函数$h(x)$将可能的元素映射到表的编号中。假设$h(x)$是一个随机函数，我们可以把hash table想成小球问题中的盒子，而元素$x$则为小球，这样就可以使用上一节的结论来进行分析。
+**hashing**在现实生活中有着非常多的应用，比如说可以使用hashing作为容器来保存数据，此时我们需要回答的问题是容器中是否存在某个给定的元素$x$。最常见的实现方法是构造一个数组，其中每个位置对应一个链表。然后设计一个函数$h(x)$将可能的元素$x$映射到链表的编号。这样的实现方式称为**chain hashing**。假设$h(x)$是一个随机函数，我们可以把链表想象成小球问题中的盒子，而元素$x$则为小球，这样就可以使用上一节的结论来进行分析。
 
 <div align=center>
 <img src="https://i.imgur.com/33MChih.png" width="80%">
 </div>
 
-对于chain hashing的实现方式，检测$x$是否在表中需要两步：
+对于chain hashing这种数据结构，检测$x$是否在容器中需要两步：
 
 1. 使用$h(x)$计算链表的编号$h(x) = i$。
 2. 检测$x$是否在链表$H[i]$中。
 
-记$x$的所有可能取值数量为$m$，hash table的大小为$n$。利用上一小节的结论可以得到每个链表的大小有大概率为$\log n$，即查询的复杂度为$O(\log n)$。
+记$x$的所有可能取值数量为$m$，链表的数目为$n$。利用上一小节的结论可以得到每个链表的大小有大概率为$\log n$，即查询的复杂度为$O(\log n)$。
 
 <div align=center>
 <img src="https://i.imgur.com/OcGKb4M.png" width="80%">
 </div>
 
-要提升查询的效率可以使用两个hashing函数，添加键时选择元素较少的那个链表来加入。需要注意的是在进行查询时需要同时检查两个链表中的元素。可以证明此时的查询复杂度为$O(\log \log n)$。
+要提升查询的效率可以使用两个$h(x)$函数，每次添加元素时选择$\text{load}$较少的那个链表来加入。需要注意的是在进行查询时需要同时检查两个链表中的元素。可以证明此时的查询复杂度为$O(\log \log n)$。
 
 <div align=center>
 <img src="https://i.imgur.com/CyyqmyM.png" width="80%">
@@ -346,7 +344,7 @@ hashing在现实生活中有着非常多的应用，比如说哈希表这种数�
 
 ### Bloom Filter
 
-Bloom滤波器是对chain hashing的一种改进，它可以实现$O(1)$的查询效率而且实现起来非常简单。不过Bloom滤波器仅是概率正确的，存在假阳性的可能性。对于精度没有特别严格要求的场景，Bloom滤波器是一个非常强大的工具。
+**Bloom滤波器(Bloom filter)**是对chain hashing的一种改进，它可以实现$O(1)$的查询效率而且实现起来非常简单。不过Bloom滤波器仅是概率正确的，存在假阳性的可能性。对于精度没有特别严格要求的场景，Bloom滤波器是一个非常强大的工具。
 
 <div align=center>
 <img src="https://i.imgur.com/DumbOT6.png" width="80%">
@@ -364,7 +362,7 @@ Bloom滤波器包括两个基本操作，插入`insert(x)`以及查询`query(x)`
 <img src="https://i.imgur.com/67RdQQO.png" width="80%">
 </div>
 
-要提升系统的鲁棒性可以同时使用k个hashing函数，此时要进行插入和查询则需要同时检查数组的k个可能位置。
+要提升系统的鲁棒性可以同时使用k个hashing函数。此时要进行插入和查询则需要同时检查数组的k个可能位置，当数组的k个位置上都为1时说明$x$在容器中。
 
 <div align=center>
 <img src="https://i.imgur.com/yIinet2.png" width="80%">
