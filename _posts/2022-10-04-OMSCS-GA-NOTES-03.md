@@ -371,6 +371,134 @@ Kruskal算法的正确性则可以使用归纳法来进行证明。
 <img src="https://i.imgur.com/3G3NeeJ.png" width="80%">
 </div>
 
+## Markov Chains and PageRank
+
+**PageRank**是图算法的重要应用，早期Google的搜索引擎就是基于PageRank来实现的。要理解PageRank还需要引入**Markov链(Markov chain)**的概念，很多工程问题都会使用Markov链来进行建模和求解。
+
+<div align=center>
+<img src="https://i.imgur.com/3M5A8dA.png" width="80%">
+</div>
+
+### Markov Chains
+
+Markov链是一种概率模型，它可以表示为一张有向图。此时图上的顶点表示系统可能的状态，图上的边和权重分别表示状态转移的方向和概率。具体来说，节点$i$到$j$的有向边权重表示系统从状态$i$转移到状态$j$的概率：
+
+$$
+P(i, j) = Pr(j \vert i)
+$$
+
+同时它还要满足归一化条件：
+
+$$
+\sum_j P(i, j) = 1, \ \forall i
+$$
+
+$$
+0 \leq P(i, j) \leq 1, \ \forall i, j
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/Yw87Ki4.png" width="80%">
+</div>
+
+实际上Markov链的状态转移概率还可以表示为一个矩阵，称为**状态转移矩阵(transition matrix)**。它的每个元素即为上面定义的状态转移概率，因此每一行都具有归一性。
+
+<div align=center>
+<img src="https://i.imgur.com/q8TKUrP.png" width="80%">
+</div>
+
+#### k-Step Transition
+
+如果我们忽略状态转移矩阵中具体的概率，将全部非零项设置为1，就能得到图的**邻接矩阵(adjacency matrix)**。邻接矩阵的一个重要性质是它的$k$次幂$A^k$中任意元素$A^k(i, j)$表示从$i$出发经过$k$步移动到$j$的路径数量。
+
+<div align=center>
+<img src="https://i.imgur.com/2fVoxDt.png" width="80%">
+</div>
+
+状态转移矩阵也有类似的性质：$P^k$中任意元素$P^k(i, j)$表示从$i$出发经过$k$步移动到$j$的概率。
+
+<div align=center>
+<img src="https://i.imgur.com/r8AuVFS.png" width="80%">
+<img src="https://i.imgur.com/z6kQTic.png" width="80%">
+</div>
+
+#### Stationary Distribution
+
+当步数$k$比较大时$P^k$中每一行都会收敛到同一个行向量上。
+
+<div align=center>
+<img src="https://i.imgur.com/TDWtpOC.png" width="80%">
+</div>
+
+实际上可以证明当步数趋于无穷时，$P^k$中每一行都会收敛到某个向量$\pi$上。这表示无论从图上的哪个节点出发，经过足够多的步数后落到状态$j$的概率都是$\pi(j)$。这个行向量(概率分布)称为Markov链的**平稳分布(stationary distribution)**。
+
+<div align=center>
+<img src="https://i.imgur.com/gY9INtW.png" width="80%">
+</div>
+
+我们关心Markov链何时具有平稳分布，是否只具有唯一的平稳分布，以及多快可以收敛到平稳分布。
+
+<div align=center>
+<img src="https://i.imgur.com/zMDnhDJ.png" width="80%">
+</div>
+
+#### Linear Algebra View
+
+从线性代数的角度来看，从初始状态分布$\mu_0$通过Markov链进行状态转移相当于行向量$\mu_0$与矩阵$P$的乘积：
+
+$$
+\mu_0 P = \mu_1
+$$
+
+对于平稳分布$\pi$则有：
+
+$$
+\pi P = \pi
+$$
+
+即$\pi$是矩阵(线性变换)$P$的一个不动点，或者说$\pi$是矩阵$P$对应特征值1的特征向量。实际上1还是矩阵$P$的最大特征值，即$\pi$是矩阵$P$的**主特征向量(principal eigenvector)**。需要额外说明的是矩阵$P$可能有多个主特征向量，即平稳分布$\pi$可能是不唯一的。
+
+<div align=center>
+<img src="https://i.imgur.com/Yl0R0Ox.png" width="80%">
+</div>
+
+#### Bipartite Markov Chain
+
+当Markov链具有如下所示的二分图结构时，初始状态会决定最终收敛到的平稳分布。要避免这种情况可以为图上的每个节点添加一个自循环边，这相当于为矩阵$P$添加了对角元。我们称此时的Markov链是**非周期(aperiodic)**的。
+
+<div align=center>
+<img src="https://i.imgur.com/hT99qlB.png" width="80%">
+</div>
+
+#### Multiple SCCs
+
+另一种需要避免的情况是图上具有若干个不同的强连通分量，此时当我们移动到某个SCC中时会陷入其中无法离开。因此我们希望图上只有一个强连通分量，这可以为图上的每一对节点赋予有向边来实现，相当于保证任意两个状态都是可以相互转换的。我们称此时的Markov链是**不可约(irreducible)**的。
+
+<div align=center>
+<img src="https://i.imgur.com/euSWV3P.png" width="80%">
+</div>
+
+#### Ergodic MC
+
+当Markov链满足非周期和不可约条件时称其为**遍历(ergodic)**的，此时的Markov链具有唯一的平稳分布$\pi$。对于PageRank算法来说，它相当于在一张由网页组成的巨型图上进行随机游走，当这张图满足相应的条件时无论从何处开始游走最终都会收敛到平稳分布$\pi$上。此时某个页面的重要性即为$\pi$对应位置的概率。
+
+<div align=center>
+<img src="https://i.imgur.com/u4xI2sF.png" width="80%">
+<img src="https://i.imgur.com/dphlVuj.png" width="80%">
+</div>
+
+当然大多数情况下平稳分布$\pi$是没有办法通过解析的手段来求解的。不过对于对称的状态转移矩阵，其平稳分布有非常简单的形式：
+
+$$
+\pi(i) = \frac{1}{N}
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/mUW3CfJ.png" width="80%">
+</div>
+
+### PageRank
+
 ## Reference
 
 - [Graphs](https://teapowered.dev/assets/ga-notes.pdf#page=32)
