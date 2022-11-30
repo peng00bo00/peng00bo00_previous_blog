@@ -472,7 +472,7 @@ $$
 
 #### Multiple SCCs
 
-另一种需要避免的情况是图上具有若干个不同的强连通分量，此时当我们移动到某个SCC中时会陷入其中无法离开。因此我们希望图上只有一个强连通分量，这可以为图上的每一对节点赋予有向边来实现，相当于保证任意两个状态都是可以相互转换的。我们称此时的Markov链是**不可约(irreducible)**的。
+另一种需要避免的情况是图上具有若干个不同的强连通分量，如果我们移动到某个SCC中时会陷入其中无法离开。因此我们希望图上只有一个强连通分量，这可以为图上的每一对节点赋予有向边来实现，相当于保证任意两个状态都是可以相互转换的。我们称此时的Markov链是**不可约(irreducible)**的。
 
 <div align=center>
 <img src="https://i.imgur.com/euSWV3P.png" width="80%">
@@ -498,6 +498,112 @@ $$
 </div>
 
 ### PageRank
+
+在Markov链的基础上我们开始介绍PageRank算法，它的基本思想是为每一个网页赋予一定的重要性。当我们在搜索引擎中进行查询时，我们希望搜索引擎可以对相关的网页进行排序，越重要的网页排在越前面。
+
+<div align=center>
+<img src="https://i.imgur.com/lBk1Nuw.png" width="80%">
+</div>
+
+同时还需要说明的是互联网上的网页可以表示为一张图，每一个页面对应图上的一个顶点，而页面之间跳转的超链接则对应图上的有向边。记$\pi(x)$表示页面$x$的重要性，它可以使用节点的入度或是出度来进行描述。
+
+<div align=center>
+<img src="https://i.imgur.com/TadFqN0.png" width="80%">
+</div>
+
+#### First Idea
+
+对于学术文章来说，我们可以使用文章引用数来描述某篇文章的重要性。从图的角度来看这表示使用节点的入度来作为重要性，一般来说还会结合一些归一化来为入边赋予相应的权重。
+
+<div align=center>
+<img src="https://i.imgur.com/syLAMBv.png" width="80%">
+<img src="https://i.imgur.com/jgH9lZc.png" width="80%">
+</div>
+
+#### Second Idea
+
+类似地，我们可以把节点的出度也作为重要性度量。
+
+<div align=center>
+<img src="https://i.imgur.com/RrBA6cR.png" width="80%">
+</div>
+
+但实际上这种做法假定了每个节点的价值是相同的，而在现实生活中这往往是不成立的。
+
+<div align=center>
+<img src="https://i.imgur.com/xoRN0Ds.png" width="80%">
+</div>
+
+#### Rank Definition
+
+因此更合理的做法是让有价值的节点为与它相邻的节点赋予更多的重要性，这样我们可以得到价值向量$\pi$需要满足的方程：
+
+$$
+\pi(x) = \sum_{y \in \text{In} (x)} \frac{\pi(y)}{\vert \text{Out} (y) \vert}
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/eTTWIJt.png" width="80%">
+</div>
+
+实际上$\pi$的递归定义与Markov链有着深刻的联系。首先不难发现网页之间的跳转等价于图上的随机游走。
+
+<div align=center>
+<img src="https://i.imgur.com/hGNn9pw.png" width="80%">
+</div>
+
+这个随机游走对应一个平稳分布$\pi(x)$。从线性代数的角度来看，平稳分布满足矩阵方程：
+
+$$
+\pi(x) = \sum_{y \in V} \pi(y) P(y, x)
+$$
+
+这表示$\pi$的每一位都是状态转移矩阵$P$的对应列按照$\pi$加权的和。如果进一步假定节点$j$转移到相邻节点上的概率是相同的，我们就可以推导出价值向量的定义：
+
+$$
+\pi(x) = \sum_{y \in V} \pi(y) P(y, x) = \sum_{y \in \text{In} (x)} \frac{\pi(y)}{\vert \text{Out} (y) \vert}
+$$
+
+这表示价值向量$\pi$即为图上随机游走的平稳分布。
+
+<div align=center>
+<img src="https://i.imgur.com/E2u4OPv.png" width="80%">
+<img src="https://i.imgur.com/ipplebX.png" width="80%">
+</div>
+
+#### Random Surfer
+
+在上一小节我们讨论过何时Markov链有唯一的平稳分布。为了保证PageRank的正确性，我们需要为图上每一对顶点添加一对边，这相当于假设用户在浏览网页时会以概率$1-\alpha$进行随机跳转。
+
+<div align=center>
+<img src="https://i.imgur.com/6fdMcLp.png" width="80%">
+<img src="https://i.imgur.com/jSYt9p6.png" width="80%">
+</div>
+
+此时的状态转移矩阵具有如下的形式：
+
+<div align=center>
+<img src="https://i.imgur.com/Diu3Xxp.png" width="80%">
+<img src="https://i.imgur.com/wDuKFbY.png" width="80%">
+</div>
+
+对于某些没有指向其它页面的网页，我们可以通过引入自循环边、删除节点或是将$\alpha$置为0的方式来进行处理。
+
+<div align=center>
+<img src="https://i.imgur.com/bpvxlTZ.png" width="80%">
+</div>
+
+#### Ergodic
+
+显然$\alpha$对于随机游走的行为起着重要的作用。当$\alpha$趋于1时随机游走会接近于在原始图上的行为，而当$\alpha$趋于0时随机游走会接近于在一张全联通图上的行为。除此之外，当$\alpha$比较小时随机游走的收敛速度往往比较快。
+
+<div align=center>
+<img src="https://i.imgur.com/HqJfz6a.png" width="80%">
+</div>
+
+<div align=center>
+<img src="https://i.imgur.com/PrdYEM3.png" width="80%">
+</div>
 
 ## Reference
 
