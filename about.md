@@ -36,7 +36,7 @@ My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https:/
 - **New York University Abu Dhabi** <span style="float:right">2019.09 - Present</span> \
   PhD candidate in Civil and Urban Engineering
 
-- **Georgia Institute of Technology** <span style="float:right">2021.01 - Present</span> \
+- **Georgia Institute of Technology** <span style="float:right">2021.01 - 2022.12</span> \
   Pursing MS in CS at OMSCS program
 
 - **Tongji University** <span style="float:right">2016.09 - 2019.06</span> \
@@ -142,8 +142,8 @@ Geometry Processing
 - [CS 7643: Deep Learning](https://omscs.gatech.edu/cs-7643-deep-learning)
 - [ISYE 6644: Simulation and Modeling for Engineering and Science](https://omscs.gatech.edu/isye-6644-simulation-and-modeling-engineering-and-science)
 - [CS 7642: Reinforcement Learning](https://omscs.gatech.edu/cs-7642-reinforcement-learning)
-<!-- - [CS 7638: Artificial Intelligence for Robotics](https://omscs.gatech.edu/cs-7638-artificial-intelligence-robotics) -->
-<!-- - [CS 6515: Intro to Grad Algorithms](https://omscs.gatech.edu/cs-6515-intro-graduate-algorithms) -->
+- [CS 7638: Artificial Intelligence for Robotics](https://omscs.gatech.edu/cs-7638-artificial-intelligence-robotics)
+- [CS 6515: Intro to Grad Algorithms](https://omscs.gatech.edu/cs-6515-intro-graduate-algorithms)
 
 ### Coursera
 
