@@ -161,25 +161,203 @@ $$
 C(\mathcal{T}) = \mathbf{U}^* \mathcal{C} \mathbf{U}
 $$
 
-上标$^*$表示共轭转置。二次型的系数矩阵$\mathcal{C}$可以分解为：
+上标$^*$表示共轭转置。其中二次型的系数矩阵$\mathcal{C}$可以分解为：
 
 $$
 \mathcal{C} = \mathcal{M}^* \mathcal{M}
 $$
 
+其中$\mathcal{M}$是一个$\vert F \vert \times \vert V \vert$维复矩阵，每个元素表示$v_j$顶点在$T_i$三角形上对网格共形能量的贡献：
+
 $$
 \mathcal{M}_{ij} = 
 \begin{cases}
-\frac{W_{j, T_i}}{\sqrt{A_{T_i}}} & \text{if vertex $v_j$ belongs to triangle $T_i$} \\
+\frac{W_{j, T_i}}{\sqrt{A_{T_i}}}, & \text{if vertex $v_j$ belongs to triangle $T_i$} \\
 0, & \text{otherwise}
 \end{cases}
 $$
 
 ### Least Square Optimization
 
+对于二次型的优化问题我们可以通过求导并令导数为0的方式进行直接求解。但需要注意在LSCM中系数矩阵$\mathcal{C}$、$\mathcal{M}$和顶点uv坐标矩阵$\mathbf{U}$都是复数，使用复数的求导法则会比较麻烦。不过实际上我们只需要对复数矩阵进行简单的变形就可以按照通常的实数矩阵进行处理。首先对复数进行分解：
+
+$$
+\mathcal{M} = \mathbf{A} + i \ \mathbf{B}
+$$
+
+$$
+\mathbf{U} = \mathbf{u} + i \ \mathbf{v}
+$$
+
+其中$\mathbf{A}$和$\mathbf{u}$表示对应矩阵的实数部分，$\mathbf{B}$和$\mathbf{v}$则表示虚数部分。在这种分解下我们可以重新构造二次型目标函数：
+
+$$
+\begin{aligned}
+\mathcal{M} \mathbf{U} 
+&= (\mathbf{A} + i \ \mathbf{B}) (\mathbf{u} + i \ \mathbf{v}) \\
+&= 
+\big( 
+\begin{bmatrix}
+\mathbf{A} & -\mathbf{B}
+\end{bmatrix}
++ i \ 
+\begin{bmatrix}
+\mathbf{B} & \mathbf{A}
+\end{bmatrix}
+\big)
+\begin{bmatrix}
+\mathbf{u} \\ \mathbf{v}
+\end{bmatrix}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+C(\mathcal{T}) &= \mathbf{U}^* \mathcal{M}^* \mathcal{M} \mathbf{U} \\
+&= (\mathcal{M} \mathbf{U})^* \mathcal{M} \mathbf{U} \\
+&= 
+\begin{bmatrix}
+\mathbf{u}^T & \mathbf{v}^T
+\end{bmatrix}
+\bigg(
+\begin{bmatrix}
+\mathbf{A}^T \\ -\mathbf{B}^T
+\end{bmatrix}
+- i \ 
+\begin{bmatrix}
+\mathbf{B}^T \\ \mathbf{A}^T
+\end{bmatrix}
+\bigg)
+\bigg(
+\begin{bmatrix}
+\mathbf{A} & -\mathbf{B}
+\end{bmatrix}
++ i \ 
+\begin{bmatrix}
+\mathbf{B} & \mathbf{A}
+\end{bmatrix}
+\bigg)
+\begin{bmatrix}
+\mathbf{u} \\ \mathbf{v}
+\end{bmatrix}\\
+&= 
+\begin{bmatrix}
+\mathbf{u}^T & \mathbf{v}^T
+\end{bmatrix}
+
+\begin{bmatrix}
+\mathbf{A}^T \mathbf{A} + \mathbf{B}^T \mathbf{B} & -\mathbf{A}^T \mathbf{B} + \mathbf{B}^T \mathbf{A} \\
+-\mathbf{B}^T + \mathbf{A}^T \mathbf{B} \mathbf{A} & \mathbf{B}^T \mathbf{B} + \mathbf{A}^T \mathbf{A}
+\end{bmatrix}
+
+\begin{bmatrix}
+\mathbf{u} \\ \mathbf{v}
+\end{bmatrix}\\
+&= 
+\begin{bmatrix}
+\mathbf{u}^T & \mathbf{v}^T
+\end{bmatrix}
+
+\bigg(
+\begin{bmatrix}
+\mathbf{A}^T & \mathbf{B}^T \\
+-\mathbf{B}^T & \mathbf{A}^T
+\end{bmatrix}
+
+\begin{bmatrix}
+\mathbf{A} & -\mathbf{B} \\
+\mathbf{B} & \mathbf{A}
+\end{bmatrix}
+\bigg)
+
+\begin{bmatrix}
+\mathbf{u} \\ \mathbf{v}
+\end{bmatrix} \\
+&=
+\bigg(
+\begin{bmatrix}
+\mathbf{A} & -\mathbf{B} \\
+\mathbf{B} & \mathbf{A}
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{u} \\ \mathbf{v}
+\end{bmatrix}
+\bigg)^T
+\bigg(
+\begin{bmatrix}
+\mathbf{A} & -\mathbf{B} \\
+\mathbf{B} & \mathbf{A}
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{u} \\ \mathbf{v}
+\end{bmatrix}
+\bigg)
+\end{aligned}
+$$
+
+上面的推导说明我们只需要处理实数矩阵构成的二次型优化即可。对它求导并令导数为0可以得到uv坐标需要满足的线性方程组：
+
+$$
+\begin{bmatrix}
+\mathbf{A} & -\mathbf{B} \\
+\mathbf{B} & \mathbf{A}
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{u} \\ \mathbf{v}
+\end{bmatrix}
+=
+\mathbf{0}
+$$
+
+为了避免出现平凡解，我们需要固定网格在uv平面上至少2个点的坐标。这种做法的几何意义非常直观：由于共形映射无法区分平移、旋转和缩放(共形映射关于相似变换是相互等价的)，我们需要至少2个确定的点才能获得唯一的共形映射。此时可以将原始的复系数矩阵拆分成为自由顶点和固定顶点两部分：
+
+$$
+\mathcal{M} = 
+\begin{bmatrix}
+\mathcal{M}_f & \mathcal{M}_p
+\end{bmatrix}
+$$
+
+由于$\mathcal{M}_p$部分的坐标是确定的，网格的共形能量只与自由顶点有关。把固定顶点的uv坐标带入齐次方程组展开可以得到：
+
+$$
+\begin{bmatrix}
+\mathbf{A}_f & \mathbf{A}_p & -\mathbf{B}_f & -\mathbf{B}_p \\
+\mathbf{B}_f & \mathbf{B}_p & \mathbf{A}_f & \mathbf{A}_p
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{u}_f \\ \mathbf{u}_p \\ \mathbf{v}_f \\ \mathbf{v}_p
+\end{bmatrix}
+=
+\mathbf{0}
+$$
+
+重新整理后可以得到自由顶点uv坐标需要满足的线性方程组：
+
+$$
+\begin{bmatrix}
+\mathbf{A}_f & -\mathbf{B}_f \\
+\mathbf{B}_f & \mathbf{A}_f
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{u}_f \\ \mathbf{v}_f
+\end{bmatrix}
+=
+-
+\begin{bmatrix}
+\mathbf{A}_p & -\mathbf{B}_p \\
+\mathbf{B}_p & \mathbf{A}_p
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{u}_p \\ \mathbf{v}_p
+\end{bmatrix}
+$$
+
+求解这个线性方程组即可获得所需的共形参数化。
+
 ### Implementation
 
-整个LSCM算法可参考下面`LSCM()`函数的实现。整个算法流程包括计算网格三角形面积、计算初始构型、构造稀疏线性方程组、固定网格上两个点、以及最后求解线性方程组得到参数坐标等步骤。其中计算初始构型的`project2Plane()`与作业2完全相同，可以参见之前的[代码片断](/2022/12/10/GAMES301-AES.html#compute-rest-pose)。在实现时的一个trick是利用矩阵变换把选取的固定点交换到顶点uv坐标矩阵的最后几行上
+整个LSCM算法可参考下面`LSCM()`函数的实现。整个算法流程包括计算网格三角形面积、计算初始构型、构造稀疏线性方程组、固定网格上两个点、以及最后求解线性方程组得到参数坐标等步骤。其中计算初始构型的`project2Plane()`函数与作业2完全相同，可以参见之前的[代码片断](/2022/12/10/GAMES301-AES.html#compute-rest-pose)。另一个trick是利用矩阵变换把选取的固定点交换到顶点编号的最后几位上，这样可以更规范地组织代码。
 
 ```matlab
 function uv = LSCM(V, F)
@@ -216,13 +394,12 @@ MB = sparse(repmat((1:nF)', 1, 3), F, B, nF, nV);
 %% swap columns, now the pinned points are the last 2 ones
 MA = MA * T; MB = MB * T;
 
-M = [MA -MB; MB MA];
+%% split free and pinned vertices
+Af = MA(:, 1:nV-2); Ap = MA(:, end-1:end);  %% real part
+Bf = MB(:, 1:nV-2); Bp = MB(:, end-1:end);  %% imag part
 
-Mf1 = M(:, 1:nV-2);  Mf2 = M(:, 1+nV:end-2);
-Mp1 = M(:, nV-1:nV); Mp2 = M(:, end-1:end);
-
-AM = [Mf1 -Mf2; Mf2 Mf1];
-b  =-[Mp1 -Mp2; Mp2 Mp1] * [0; 1; 0; 0];    %% fix two points at (0, 0) and (1, 0)
+AM = [Af -Bf; Bf Af];
+b  =-[Ap -Bp; Bp Ap] * [0; 1; 0; 0];
 
 %% solve linear system
 uv = AM \ b;
@@ -237,7 +414,7 @@ uv = T * uv;
 end
 ```
 
-`pinBoundary()`函数实现了选择网格边界的两个固定点的功能，这里我仅选择了边界的起点和中间点。当然其它的选取方式也是可行的，但需要注意不同的固定点会影响最终的参数化结果。
+`pinBoundary()`函数实现了选择网格边界的两个固定点的功能，这里我简单地选择了边界的起点和中间点。当然其它的选取方式也是可行的，但需要注意不同的选取方式会影响最终的参数化结果。
 
 ```matlab
 function [b1, b2, T] = pinBoundary(V, F)
