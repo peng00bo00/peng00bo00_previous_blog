@@ -55,7 +55,7 @@ $$
 \frac{\partial \mathcal{X}}{\partial u} - i \frac{\partial \mathcal{X}}{\partial v} = 0
 $$
 
-利用反函数导数定理可以得到$\mathcal{X}$的反函数$\mathcal{U} = u + i \ v$需要满足：
+利用反函数导数定理可以得到$\mathcal{X}$的反函数$\mathcal{U}$需要满足：
 
 $$
 \frac{\partial \mathcal{U}}{\partial x} + i \frac{\partial \mathcal{U}}{\partial y} = 0
@@ -94,7 +94,7 @@ y_2-y_3 & y_3-y_1 & y_1-y_2 \\
 x_3-x_2 & x_1-x_3 & x_2-x_1 \\
 \end{bmatrix}
 \begin{bmatrix}
-u_1 \\ u_2 \\ u_2
+u_1 \\ u_2 \\ u_3
 \end{bmatrix}
 $$
 
@@ -167,7 +167,7 @@ $$
 \mathcal{C} = \mathcal{M}^* \mathcal{M}
 $$
 
-其中$\mathcal{M}$是一个$\vert F \vert \times \vert V \vert$维复矩阵，每个元素表示$v_j$顶点在$T_i$三角形上对网格共形能量的贡献：
+式中$\mathcal{M}$是一个$\vert F \vert \times \vert V \vert$维复矩阵，每个元素表示$v_j$顶点在$T_i$三角形上对网格共形能量的贡献：
 
 $$
 \mathcal{M}_{ij} = 
@@ -189,7 +189,7 @@ $$
 \mathbf{U} = \mathbf{u} + i \ \mathbf{v}
 $$
 
-其中$\mathbf{A}$和$\mathbf{u}$表示对应矩阵的实数部分，$\mathbf{B}$和$\mathbf{v}$则表示虚数部分。在这种分解下我们可以重新构造二次型目标函数：
+其中$\mathbf{A}$和$\mathbf{u}$表示对应矩阵的实数部分，$\mathbf{B}$和$\mathbf{v}$则表示虚数部分。在这种分解下我们可以重新构造二次型的目标函数：
 
 $$
 \begin{aligned}
@@ -399,7 +399,7 @@ Af = MA(:, 1:nV-2); Ap = MA(:, end-1:end);  %% real part
 Bf = MB(:, 1:nV-2); Bp = MB(:, end-1:end);  %% imag part
 
 AM = [Af -Bf; Bf Af];
-b  =-[Ap -Bp; Bp Ap] * [0; 1; 0; 0];
+b  =-[Ap -Bp; Bp Ap] * [0; 1; 0; 0];    %% fix the pinned points to (0, 0) and (1, 0)
 
 %% solve linear system
 uv = AM \ b;
