@@ -468,7 +468,7 @@ end
 
 <div align=center>
 <img src="https://i.imgur.com/5CLahGo.png" width="40%">
-<img src="https://i.imgur.com/c5Cg2VA.jpg" width="40%">
+<img src="https://i.imgur.com/jk97x4E.jpg" width="40%">
 </div>
 
 ## Mean Value Coordinates
