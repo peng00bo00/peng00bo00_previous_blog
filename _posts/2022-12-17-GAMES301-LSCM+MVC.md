@@ -170,29 +170,16 @@ $$
 $$
 \mathcal{M}_{ij} = 
 \begin{cases}
-\frac{W_{j, T_i}}{\sqrt{A_{T_i}}} & \text{if vertex j belongs to triangle i} \\
+\frac{W_{j, T_i}}{\sqrt{A_{T_i}}} & \text{if vertex $v_j$ belongs to triangle $T_i$} \\
 0, & \text{otherwise}
 \end{cases}
 $$
 
 ### Least Square Optimization
 
-```matlab
-function As = doubleArea(V, F)
-%% Compute doubled area of triangles
-%% Args:
-%%      V[nV, 3]: vertices in 3D
-%%      F[nF, 3]: face connectivity
-%% Returns:
-%%      As[nF, 1]: doubled area of triangles
+### Implementation
 
-nF = size(F, 1);
-
-Es = reshape(V(F(:, 2:3), :)-V(F(:, [1 1]), :), [nF 2 3]);
-As = vecnorm(cross(Es(:,1,:), Es(:, 2, :), 3), 2, 3);
-
-end
-```
+整个LSCM算法可参考下面`LSCM()`函数的实现。整个算法流程包括计算网格三角形面积、计算初始构型、构造稀疏线性方程组、固定网格上两个点、以及最后求解线性方程组得到参数坐标等步骤。其中计算初始构型的`project2Plane()`与作业2完全相同，可以参见之前的[代码片断](/2022/12/10/GAMES301-AES.html#compute-rest-pose)。在实现时的一个trick是利用矩阵变换把选取的固定点交换到顶点uv坐标矩阵的最后几行上
 
 ```matlab
 function uv = LSCM(V, F)
@@ -235,7 +222,7 @@ Mf1 = M(:, 1:nV-2);  Mf2 = M(:, 1+nV:end-2);
 Mp1 = M(:, nV-1:nV); Mp2 = M(:, end-1:end);
 
 AM = [Mf1 -Mf2; Mf2 Mf1];
-b  =-[Mp1 -Mp2; Mp2 Mp1] * [0; 1; 0; 0];
+b  =-[Mp1 -Mp2; Mp2 Mp1] * [0; 1; 0; 0];    %% fix two points at (0, 0) and (1, 0)
 
 %% solve linear system
 uv = AM \ b;
@@ -249,6 +236,8 @@ uv = T * uv;
 
 end
 ```
+
+`pinBoundary()`函数实现了选择网格边界的两个固定点的功能，这里我仅选择了边界的起点和中间点。当然其它的选取方式也是可行的，但需要注意不同的固定点会影响最终的参数化结果。
 
 ```matlab
 function [b1, b2, T] = pinBoundary(V, F)
@@ -278,6 +267,32 @@ T = sparse(tripI, tripJ, tripV, nV, nV);
 
 end
 ```
+
+最后，`doubleArea()`函数给出了计算网格三角形面积的一个向量化实现。和利用循环进行遍历相比，使用向量化的效率会高很多。
+
+```matlab
+function As = doubleArea(V, F)
+%% Compute doubled area of triangles
+%% Args:
+%%      V[nV, 3]: vertices in 3D
+%%      F[nF, 3]: face connectivity
+%% Returns:
+%%      As[nF, 1]: doubled area of triangles
+
+nF = size(F, 1);
+
+Es = reshape(V(F(:, 2:3), :)-V(F(:, [1 1]), :), [nF 2 3]);
+As = vecnorm(cross(Es(:,1,:), Es(:, 2, :), 3), 2, 3);
+
+end
+```
+
+在`cow.obj`网格上使用LSCM可以得到如下的参数化结果。
+
+<div align=center>
+<img src="https://i.imgur.com/5CLahGo.png" width="40%">
+<img src="https://i.imgur.com/c5Cg2VA.jpg" width="40%">
+</div>
 
 ## Mean Value Coordinates
 
