@@ -98,7 +98,84 @@ u_1 \\ u_2 \\ u_2
 \end{bmatrix}
 $$
 
-其中$u_1, u_2, u_3$分别为顶点上的函数值。
+其中$u_1, u_2, u_3$分别为顶点上的函数值。对于复函数$\mathcal{U}$我们可以整理得到：
+
+$$
+\frac{\partial \mathcal{U}}{\partial x} + i \frac{\partial \mathcal{U}}{\partial y} 
+=
+\frac{i}{2 A_T}
+\begin{bmatrix}
+W_1 & W_2 & W_3
+\end{bmatrix}
+\begin{bmatrix}
+U_1 \\ U_2 \\ U_3
+\end{bmatrix}
+$$
+
+其中
+
+$$
+\begin{cases}
+W_1 = (x_3 - x_2) + i \ (y_3 - y_2) \\
+W_2 = (x_1 - x_3) + i \ (y_1 - y_3) \\
+W_3 = (x_2 - x_1) + i \ (y_2 - y_1) \\
+\end{cases}
+\ \ \ 
+\begin{cases}
+U_1 = u_1 + i \ v_1 \\
+U_2 = u_2 + i \ v_2 \\
+U_3 = u_3 + i \ v_3 \\
+\end{cases}
+$$
+
+这样整个三角形上的共形能量可以表示为：
+
+$$
+\begin{aligned}
+C(T) &= \bigg\vert \frac{\partial \mathcal{U}}{\partial x} + i \frac{\partial \mathcal{U}}{\partial y} \bigg\vert^2 A_T \\
+&= \frac{1}{4 A_T} 
+\bigg\Vert 
+\begin{bmatrix}
+W_1 & W_2 & W_3
+\end{bmatrix}
+\begin{bmatrix}
+U_1 & U_2 & U_3
+\end{bmatrix}^T
+\bigg\Vert^2 \\
+&\propto 
+\frac{1}{A_T} 
+\bigg\Vert 
+\begin{bmatrix}
+W_1 & W_2 & W_3
+\end{bmatrix}
+\begin{bmatrix}
+U_1 & U_2 & U_3
+\end{bmatrix}^T
+\bigg\Vert^2 \\
+\end{aligned}
+$$
+
+对所有三角形求和后就得到了网格上的共形能量，其可以表示为关于顶点复函数的二次型：
+
+$$
+C(\mathcal{T}) = \mathbf{U}^* \mathcal{C} \mathbf{U}
+$$
+
+上标$^*$表示共轭转置。二次型的系数矩阵$\mathcal{C}$可以分解为：
+
+$$
+\mathcal{C} = \mathcal{M}^* \mathcal{M}
+$$
+
+$$
+\mathcal{M}_{ij} = 
+\begin{cases}
+\frac{W_{j, T_i}}{\sqrt{A_{T_i}}} & \text{if vertex j belongs to triangle i} \\
+0, & \text{otherwise}
+\end{cases}
+$$
+
+### Least Square Optimization
 
 ```matlab
 function As = doubleArea(V, F)
