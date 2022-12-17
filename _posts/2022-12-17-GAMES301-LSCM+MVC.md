@@ -37,7 +37,7 @@ $$
 
 ### Conformality in a Triangulation
 
-LSCM使用了复平面来推导共形能量。设三角形$T$在其局部坐标系下的初始构型为$\{ (x_1, y_1), (x_2, y_2), (x_3, y_3) \}$，在复平面上二维向量可以直接转换为复数：
+LSCM使用了复平面来推导共形能量。设三角形$T$在其局部坐标系下的初始构型为$$\{ (x_1, y_1), (x_2, y_2), (x_3, y_3) \}$$，在复平面上二维向量可以直接转换为复数：
 
 $$
 \{ x_i + i \ y_i \vert i = 1,2,3 \}
@@ -81,7 +81,7 @@ $$
 C(T) = \int_T \bigg\vert \frac{\partial \mathcal{U}}{\partial x} + i \frac{\partial \mathcal{U}}{\partial y} \bigg\vert^2 \ dA = \bigg\vert \frac{\partial \mathcal{U}}{\partial x} + i \frac{\partial \mathcal{U}}{\partial y} \bigg\vert^2 A_T
 $$
 
-因此我们只需要计算三角形内部的共形能量即可。对于三角形顶点上定义的标量函数$u(x, y)$，其梯度在三角形内部有解析形式：
+上式说明我们只需要计算三角形面积$A_T$以及内部的共形能量即可。对于三角形顶点上定义的标量函数$u(x, y)$，其梯度在三角形内部有解析形式：
 
 $$
 \begin{bmatrix}
