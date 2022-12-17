@@ -183,6 +183,8 @@ Geometry Processing
 - [GAMES-102: Geometry Modeling and Processing](http://staff.ustc.edu.cn/~lgliu/Courses/GAMES102_2020/default.html)
 - [GAMES-202: Real-Time High Quality Rendering](https://sites.cs.ucsb.edu/~lingqi/teaching/games202.html) ([certificate](https://drive.google.com/file/d/1vTDse2jZ0vbBUEShygA8kdeu2DjF2FeS/view?usp=sharing))
 - [GAMES-103: Intro to Physics-Based Animation](http://games-cn.org/games103/) ([certificate](https://drive.google.com/file/d/1Z0DoKhcsDher6W_PLvPhazSlsAaF5x0r/view?usp=sharing))
+- [GAMES-104: Modern Game Engine-Theory and Practice](https://games104.boomingtech.com/en/)
+- [GAMES-301: Surface Parameterization](http://staff.ustc.edu.cn/~renjiec/GAMES301/index.html)
 
 ### 深蓝学院
 
