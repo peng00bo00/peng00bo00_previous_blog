@@ -146,9 +146,9 @@ sources:
 
 ### 添加 .html
 
-在`_includes\scripts`路径下新建`clipboard.html`和`copy-to-clipboard.html`两个.html文件。
+在`_includes`路径下新建`clipboard.html`和`copy-to-clipboard.html`两个.html文件。
 
-```html
+<!-- ```html
 {%- include snippets/get-sources.html -%}
 {%- assign _sources = __return -%}
 
@@ -164,16 +164,16 @@ sources:
   {%- include scripts/lib/copy-to-clipboard.js -%}
 </script>
 {%- endif -%}
-```
+``` -->
 
 ### 修改 page.html
 
-在`_layouts/page.html`文件中添加执行`copy-to-clipboard.html`的指令：
+在`_layouts/page.html`文件中添加执行`copy-to-clipboard.html`的指令。
 
-```html
+<!-- ```html
 ...
 {%- include copy-to-clipboard.html -%}
-```
+``` -->
 
 ### 添加 .scss
 
