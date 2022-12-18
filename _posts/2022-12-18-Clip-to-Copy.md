@@ -155,19 +155,7 @@ sources:
 <script type="text/javascript" src='{{ _sources.clipboard }}'></script>
 ``` -->
 
-<div class="snippet" markdown="1">
-
-~~~
-{%- include snippets/get-sources.html -%}
-{%- assign _sources = __return -%}
-
-<script type="text/javascript" src='{{ _sources.clipboard }}'></script>
-~~~
-
-{: .language-html}
-</div>
-
-```bash
+<!-- ```bash
 {%- include snippets/assign.html target=site.data.variables.default.clipboard
   source0=site.clipboard source1=page.clipboard -%}
 {%- if __return == true -%}
@@ -176,16 +164,16 @@ sources:
   {%- include scripts/lib/copy-to-clipboard.js -%}
 </script>
 {%- endif -%}
-```
+``` -->
 
 ### 修改 page.html
 
 在`_layouts/page.html`文件中添加执行`copy-to-clipboard.html`的指令：
 
-```bash
+<!-- ```bash
 ...
 {%- include copy-to-clipboard.html -%}
-```
+``` -->
 
 ### 添加 .scss
 
