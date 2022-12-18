@@ -178,7 +178,7 @@ sources:
 <div class="snippet" markdown="1">
 
 ~~~
-```
+```md
 {%- include copy-to-clipboard.html -%}
 ```
 ~~~
