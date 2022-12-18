@@ -175,7 +175,7 @@ sources:
 {%- include copy-to-clipboard.html -%}
 ``` -->
 
-```md
+```
 {%- include copy-to-clipboard.html -%}
 ```
 
