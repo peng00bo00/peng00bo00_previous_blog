@@ -148,12 +148,26 @@ sources:
 
 在`_includes\scripts`路径下新建`clipboard.html`和`copy-to-clipboard.html`两个.html文件。
 
-```bash
+<!-- ```bash
+{%- include snippets/get-sources.html -%}
+{%- assign _sources = __return -%}
+
+<script type="text/javascript" src='{{ _sources.clipboard }}'></script>
+``` -->
+
+<div class="snippet" markdown="1">
+
+~~~
+```
 {%- include snippets/get-sources.html -%}
 {%- assign _sources = __return -%}
 
 <script type="text/javascript" src='{{ _sources.clipboard }}'></script>
 ```
+~~~
+
+{: .language-html}
+</div>
 
 ```bash
 {%- include snippets/assign.html target=site.data.variables.default.clipboard
@@ -413,12 +427,9 @@ clipboard: false
 到此为止我们就完成了全部的配置工作。由于`clipboard`默认为`false`，新建的文档不会自动支持代码块的一键复制功能。对于需要激活一键复制的文档需要在header中将`clipboard`设置为`true`：
 
 ```md
----
 ...
 clipboard: true
 ...
-
----
 ```
 
 然后对于需要使用一键复制功能的代码块，只需要在结尾处添加`{: .snippet}`即可。
