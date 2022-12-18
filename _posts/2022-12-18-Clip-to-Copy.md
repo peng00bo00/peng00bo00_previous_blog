@@ -158,12 +158,10 @@ sources:
 <div class="snippet" markdown="1">
 
 ~~~
-```
 {%- include snippets/get-sources.html -%}
 {%- assign _sources = __return -%}
 
 <script type="text/javascript" src='{{ _sources.clipboard }}'></script>
-```
 ~~~
 
 {: .language-html}
