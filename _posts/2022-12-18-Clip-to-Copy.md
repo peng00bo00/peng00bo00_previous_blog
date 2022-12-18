@@ -148,14 +148,14 @@ sources:
 
 在`_includes\scripts`路径下新建`clipboard.html`和`copy-to-clipboard.html`两个.html文件。
 
-<!-- ```bash
+```html
 {%- include snippets/get-sources.html -%}
 {%- assign _sources = __return -%}
 
 <script type="text/javascript" src='{{ _sources.clipboard }}'></script>
-``` -->
+```
 
-<!-- ```bash
+```html
 {%- include snippets/assign.html target=site.data.variables.default.clipboard
   source0=site.clipboard source1=page.clipboard -%}
 {%- if __return == true -%}
@@ -164,31 +164,16 @@ sources:
   {%- include scripts/lib/copy-to-clipboard.js -%}
 </script>
 {%- endif -%}
-``` -->
+```
 
 ### 修改 page.html
 
 在`_layouts/page.html`文件中添加执行`copy-to-clipboard.html`的指令：
 
-<!-- ```bash
+```html
 ...
 {%- include copy-to-clipboard.html -%}
-``` -->
-
 ```
-{%- include copy-to-clipboard.html -%}
-```
-
-<div class="snippet" markdown="1">
-
-~~~
-```
-{%- include copy-to-clipboard.html -%}
-```
-~~~
-
-{: .language-md}
-</div>
 
 ### 添加 .scss
 
