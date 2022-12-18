@@ -14,7 +14,7 @@ sidebar:
 
 ## LSCM
 
-**LSCM(least squares conformal map)**是经典的共形参数化方法。我们在课程中介绍过共形映射需要满足[Cauchy-Riemann方程](/2022/11/11/GAMES301-NOTES-10.html#plane-to-plane)：
+**LSCM(least squares conformal map)**是经典的自由边界共形参数化算法。我们在课程中介绍过共形映射需要满足[Cauchy-Riemann方程](/2022/11/11/GAMES301-NOTES-10.html#plane-to-plane)：
 
 $$
 \begin{cases}
@@ -464,7 +464,9 @@ As = vecnorm(cross(Es(:,1,:), Es(:, 2, :), 3), 2, 3);
 end
 ```
 
-在`cow.obj`网格上使用LSCM可以得到如下的参数化结果。
+### Results
+
+在`cow.obj`网格上使用LSCM可以得到如下的参数化结果。需要说明的是LSCM可以保证参数化后网格不会出现翻转，但无法保证不会出现自交。在本例中我们可以看到网格在边界上出现了自交的情况。
 
 <div align=center>
 <img src="https://i.imgur.com/5CLahGo.png" width="40%">
@@ -472,6 +474,55 @@ end
 </div>
 
 ## Mean Value Coordinates
+
+### Tutte's Embedding
+
+**Mean value coordinates**是Tutte's embedding的一种变体，这里我们首先回忆一下Tutte's embedding的原理。Tutte's embedding中网格内部顶点$v_i$的坐标可以表示为相邻顶点的线性组合：
+
+$$
+v_i = \sum_{v_j \in N(v_i)} \lambda_j v_j
+$$
+
+其中系数$\lambda_j$需要满足非负和归一化条件：
+
+$$
+\forall \lambda_j \geq 0, \ \sum_{v_j \in N(v_i)} \lambda_j = 1
+$$
+
+Tutte's embedding的一个重要性质在于当边界点位于一个凸多边形上时，求解线性方程组得到的参数化是无翻转且无自交的。
+
+### Mean Value Coordinates
+
+Tutte's embedding的缺陷在于参数化后可能会出现比较严重的几何扭曲，因此Tutte's embedding相关算法的核心在于如何构造合适的系数来减少扭曲。Mean value coordinates使用了夹角半角的正切来构造权重：
+
+$$
+\lambda_i = \frac{w_i}{\sum_j w_j}, \ \
+w_i = \frac{\tan{(\frac{\alpha_{i-1}}{2})} + \tan{(\frac{\alpha_{i}}{2})}}{\Vert v_i - v_0 \Vert}
+$$
+
+<div align=center>
+<img src="https://i.imgur.com/A0SZzJ0.png" width="40%">
+</div>
+
+### Implementation
+
+使用mean value coordinates作为权重的Tutte's embedding算法可参见`MVCTutte()`函数。这里首先使用了LSCM来固定网格参数化边界，然后对内部顶点求解线性方程组来求解uv坐标。在实现时的一个技巧是从三角形内角来考虑权重，比如说在三角形$\triangle v_0 v_i v_{i+1}$上内角$\alpha_i$对应的贡献为：
+
+$$
+\frac{\tan{(\frac{\alpha_{i}}{2})}}{\Vert v_i - v_0 \Vert} v_i
++
+\frac{\tan{(\frac{\alpha_{i}}{2})}}{\Vert v_{i+1} - v_0 \Vert} v_{i+1}
+$$
+
+因此对于三角形的每个内角我们只需要计算它的半角正切以及邻边边长，最后填到对应位置上进行求和即可。除此之外，在计算半角正切时还可以结合三角函数的变换技巧：
+
+$$
+\tan{\frac{\alpha}{2}} = \frac{\sin{\frac{\alpha}{2}}}{\cos{\frac{\alpha}{2}}} 
+= \frac{2\sin{\frac{\alpha}{2}} \cos{\frac{\alpha}{2}}}{2\cos^2{\frac{\alpha}{2}}} 
+= \frac{\sin{\alpha}}{1 + \cos{\alpha}}
+$$
+
+而内角$\alpha$的正弦和余弦可以由邻边方向向量的叉积与内积来计算，这样整个权重计算都可以进行向量化从而提升计算效率。
 
 ```matlab
 function uv = MVCTutte(V, F)
@@ -491,9 +542,9 @@ nB = length(B);
 uv = LSCM(V, F);
 
 %% edges
-E     = reshape(V(F(:, [2, 3, 1]), :) - V(F, :), [size(F), 3]);
-Enorm = vecnorm(E, 2, 3);
-Edir  = E ./ Enorm;
+Es    = reshape(V(F(:, [2, 3, 1]), :) - V(F, :), [size(F), 3]);
+Enorm = vecnorm(Es, 2, 3);
+Edir  = Es ./ Enorm;
 
 %% trigonometry
 coss =-dot(Edir(:, :, :), Edir(:, [3, 1, 2], :), 3);
@@ -522,6 +573,15 @@ uv = A \ b;
 
 end
 ```
+
+### Results
+
+在`cow.obj`网格上使用LSCM确定边界然后使用mean value coordinates计算内部顶点uv坐标的结果如下。从结果来看mean value coordinates的结果与直接使用LSCM差异不大。
+
+<div align=center>
+<img src="https://i.imgur.com/5CLahGo.png" width="40%">
+<img src="https://i.imgur.com/FkQ3IwD.jpg" width="40%">
+</div>
 
 ## Reference
 
