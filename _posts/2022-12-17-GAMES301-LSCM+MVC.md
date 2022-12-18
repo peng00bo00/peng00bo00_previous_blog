@@ -3,6 +3,7 @@ layout: article
 title: LSCM + Mean Value Coordinates 论文笔记
 tags: ["CG", "GAMES301", "Geometry Processing"]
 key: GAMES301-17
+clipboard: true
 aside:
   toc: true
 sidebar:
