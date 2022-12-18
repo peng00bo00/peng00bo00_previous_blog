@@ -170,7 +170,7 @@ sources:
 
 在`_layouts/page.html`文件中添加执行`copy-to-clipboard.html`的指令：
 
-```
+```bash
 ...
 {%- include copy-to-clipboard.html -%}
 ```
