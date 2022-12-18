@@ -175,16 +175,9 @@ sources:
 {%- include copy-to-clipboard.html -%}
 ``` -->
 
-<div class="snippet" markdown="1">
-
-~~~
 ```md
 {%- include copy-to-clipboard.html -%}
 ```
-~~~
-
-{: .language-html}
-</div>
 
 ### 添加 .scss
 
