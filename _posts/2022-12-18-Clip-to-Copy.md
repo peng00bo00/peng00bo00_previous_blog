@@ -425,16 +425,12 @@ clipboard: true
 
 <div class="snippet" markdown="1">
 
-~~~
-<div class="snippet" markdown="1">
-
-```
+```python
 def hello():
     print('Hello world!')
 ```
-{: .language-python}
-</div>
-~~~
+{: .snippet}
+
 {: .language-html}
 </div>
 
