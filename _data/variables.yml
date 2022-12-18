@@ -11,7 +11,7 @@ default:
   mathjax_autoNumber: false
   mermaid: false
   chart: false
-  clipboard: true
+  clipboard: false
   toc:
     selectors: 'h1,h2,h3'
   sources: bootcdn
