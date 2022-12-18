@@ -506,9 +506,11 @@ $$
 
 ### Implementation
 
-使用mean value coordinates作为权重的Tutte's embedding算法可参见`MVCTutte()`函数。这里首先使用了LSCM来固定网格参数化边界，然后对内部顶点求解线性方程组来求解uv坐标。在实现时的一个技巧是从三角形内角来考虑权重，比如说在三角形$\triangle v_0 v_i v_{i+1}$上内角$\alpha_i$对应的贡献为：
+使用mean value coordinates作为权重的Tutte's embedding算法可参见`MVCTutte()`函数。这里首先使用了LSCM来固定网格参数化边界，然后对内部顶点求解线性方程组来求解uv坐标。在实现时的一个技巧是从三角形内角来考虑权重，比如说在三角形$\triangle v_0 v_i v_{i+1}$上内角$\alpha_i$参与的贡献为：
 
 $$
+w_{\alpha_i}
+=
 \frac{\tan{(\frac{\alpha_{i}}{2})}}{\Vert v_i - v_0 \Vert} v_i
 +
 \frac{\tan{(\frac{\alpha_{i}}{2})}}{\Vert v_{i+1} - v_0 \Vert} v_{i+1}
