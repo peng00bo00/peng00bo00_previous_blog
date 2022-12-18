@@ -146,25 +146,16 @@ sources:
 
 ### 添加 .html
 
-在`_includes\scripts`路径下新建`clipboard.html`和`copy-to-clipboard.html`两个html文件。
+在`_includes\scripts`路径下新建`clipboard.html`和`copy-to-clipboard.html`两个.html文件。
 
-<div class="snippet" markdown="1">
-
-{%- include snippets/get-sources.html -%}
-{%- assign _sources = __return -%}
-
-<script type="text/javascript" src='{{ _sources.clipboard }}'></script>
-{: .language-html}
-</div>
-
-```
+```bash
 {%- include snippets/get-sources.html -%}
 {%- assign _sources = __return -%}
 
 <script type="text/javascript" src='{{ _sources.clipboard }}'></script>
 ```
 
-```
+```bash
 {%- include snippets/assign.html target=site.data.variables.default.clipboard
   source0=site.clipboard source1=page.clipboard -%}
 {%- if __return == true -%}
