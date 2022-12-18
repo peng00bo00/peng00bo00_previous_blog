@@ -425,15 +425,24 @@ clipboard: true
 
 <div class="snippet" markdown="1">
 
+~~~
 ```python
 def hello():
     print('Hello world!')
 ```
 {: .snippet}
+~~~
 
 {: .language-html}
 </div>
 
+此时鼠标放在代码块上会在右上角激活一键复制。
+
+```python
+def hello():
+    print('Hello world!')
+```
+{: .snippet}
 
 ## Reference
 
