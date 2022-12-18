@@ -148,6 +148,15 @@ sources:
 
 在`_includes\scripts`路径下新建`clipboard.html`和`copy-to-clipboard.html`两个html文件。
 
+<div class="snippet" markdown="1">
+
+{%- include snippets/get-sources.html -%}
+{%- assign _sources = __return -%}
+
+<script type="text/javascript" src='{{ _sources.clipboard }}'></script>
+{: .language-html}
+</div>
+
 ```
 {%- include snippets/get-sources.html -%}
 {%- assign _sources = __return -%}
@@ -420,6 +429,24 @@ clipboard: true
 
 ---
 ```
+
+然后对于需要使用一键复制功能的代码块，只需要在结尾处添加`{: .snippet}`即可。
+
+<div class="snippet" markdown="1">
+
+~~~
+<div class="snippet" markdown="1">
+
+```
+def hello():
+    print('Hello world!')
+```
+{: .language-python}
+</div>
+~~~
+{: .language-html}
+</div>
+
 
 ## Reference
 
