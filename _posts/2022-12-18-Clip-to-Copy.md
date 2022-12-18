@@ -179,6 +179,17 @@ sources:
 {%- include copy-to-clipboard.html -%}
 ```
 
+<div class="snippet" markdown="1">
+
+~~~
+```
+{%- include copy-to-clipboard.html -%}
+```
+~~~
+
+{: .language-html}
+</div>
+
 ### 添加 .scss
 
 在`_sass/additional`路径下添加`_copy-to-clipboard.scss`文件：
