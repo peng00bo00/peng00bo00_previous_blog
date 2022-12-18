@@ -154,7 +154,6 @@ sources:
 
 <script type="text/javascript" src='{{ _sources.clipboard }}'></script>
 ```
-{: .snippet}
 
 ```
 {%- include snippets/assign.html target=site.data.variables.default.clipboard
@@ -166,7 +165,6 @@ sources:
 </script>
 {%- endif -%}
 ```
-{: .snippet}
 
 ### 修改 page.html
 
@@ -412,7 +410,16 @@ clipboard: false
 
 ## 激活代码块一键复制
 
-到此为止我们就完成了全部的配置工作。由于`clipboard`默认为`false`，新建的文档不会自动支持代码块的一键复制功能。
+到此为止我们就完成了全部的配置工作。由于`clipboard`默认为`false`，新建的文档不会自动支持代码块的一键复制功能。对于需要激活一键复制的文档需要在header中将`clipboard`设置为`true`：
+
+```md
+---
+...
+clipboard: true
+...
+
+---
+```
 
 ## Reference
 
