@@ -58,6 +58,8 @@ customization:
     children:
       - title: 添加新的Header及页面
         url: /2022/10/28/Add-Header.html
+      - title: 一键复制代码
+        url: /2022/12/18/Clip-to-Copy.html
 
 DDG:
   - title: DDG课程笔记
