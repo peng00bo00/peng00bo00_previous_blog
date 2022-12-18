@@ -187,7 +187,7 @@ sources:
 ```
 ~~~
 
-{: .language-html}
+{: .language-md}
 </div>
 
 ### 添加 .scss
