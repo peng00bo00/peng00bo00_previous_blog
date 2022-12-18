@@ -148,7 +148,7 @@ sources:
 
 在`_includes\scripts`路径下新建`clipboard.html`和`copy-to-clipboard.html`两个html文件。
 
-```html
+```
 {%- include snippets/get-sources.html -%}
 {%- assign _sources = __return -%}
 
@@ -156,7 +156,7 @@ sources:
 ```
 {: .snippet}
 
-```html
+```
 {%- include snippets/assign.html target=site.data.variables.default.clipboard
   source0=site.clipboard source1=page.clipboard -%}
 {%- if __return == true -%}
@@ -172,7 +172,7 @@ sources:
 
 在`_layouts/page.html`文件中添加执行`copy-to-clipboard.html`的指令：
 
-```html
+```
 ...
 {%- include copy-to-clipboard.html -%}
 ```
@@ -382,7 +382,7 @@ $copy-button-color: #000;
 ```
 {: .snippet}
 
-其它文件中定义颜色为：
+其它`.scss`文件中定义颜色为：
 
 ```scss
 // copy button color
@@ -390,7 +390,29 @@ $copy-button-color: #fff;
 ```
 {: .snippet}
 
+在`assets/css/main.scss`中添加样式：
+
+```scss
+...
+"additional/copy-to-clipboard"
+...
+```
+
+### 修改 _config.yml
+
+最后在`_config.yml`文件中将`clipboard`默认值设置为`false`
+
+```yml
+...
+## => Clipboard
+##############################
+clipboard: false
+...
+```
+
 ## 激活代码块一键复制
+
+到此为止我们就完成了全部的配置工作。由于`clipboard`默认为`false`，新建的文档不会自动支持代码块的一键复制功能。
 
 ## Reference
 
