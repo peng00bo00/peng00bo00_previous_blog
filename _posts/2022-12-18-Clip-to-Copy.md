@@ -146,7 +146,7 @@ sources:
 
 ### 添加 .html
 
-在`_includes`路径下新建`clipboard.html`和`copy-to-clipboard.html`两个.html文件。
+在`_includes`路径下新建[clipboard.html](https://github.com/zouyu4524/jekyll-TeXt-theme/blob/copy-to-clipboard/_includes/clipboard.html)和[copy-to-clipboard.html](https://github.com/zouyu4524/jekyll-TeXt-theme/blob/copy-to-clipboard/_includes/copy-to-clipboard.html)两个.html文件。
 
 <!-- ```html
 {%- include snippets/get-sources.html -%}
@@ -169,6 +169,8 @@ sources:
 ### 修改 page.html
 
 在`_layouts/page.html`文件中添加执行`copy-to-clipboard.html`的指令。
+
+> {%- include copy-to-clipboard.html -%}
 
 <!-- ```html
 ...
