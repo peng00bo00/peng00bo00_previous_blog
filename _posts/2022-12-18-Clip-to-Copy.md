@@ -168,14 +168,7 @@ sources:
 
 ### 修改 page.html
 
-在`_layouts/page.html`文件中添加执行`copy-to-clipboard.html`的指令。
-
-> {%- include copy-to-clipboard.html -%}
-
-<!-- ```html
-...
-{%- include copy-to-clipboard.html -%}
-``` -->
+在`_layouts/page.html`文件中添加执行`copy-to-clipboard.html`的[指令](https://github.com/zouyu4524/jekyll-TeXt-theme/blob/copy-to-clipboard/_layouts/page.html#L271)。
 
 ### 添加 .scss
 
@@ -410,7 +403,7 @@ clipboard: false
 ...
 ```
 
-## 激活代码块一键复制
+## 激活代码块一键复制功能
 
 到此为止我们就完成了全部的配置工作。由于`clipboard`默认为`false`，新建的文档不会自动支持代码块的一键复制功能。对于需要激活一键复制的文档需要在header中将`clipboard`设置为`true`：
 
