@@ -40,7 +40,7 @@
 
 	function showToolhint(e) {
 		e.currentTarget.setAttribute('class', 'btn tooltipped tooltipped-s');
-		e.currentTarget.setAttribute('aria-label', 'copy to clipboard');
+		e.currentTarget.setAttribute('aria-label', 'Copy to clipboard');
 	}
 
 	function fallbackMessage(action) {
