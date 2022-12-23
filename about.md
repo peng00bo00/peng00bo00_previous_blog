@@ -30,14 +30,14 @@ aside:
 
 **Hi there!**
 
-My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https://nyuad.nyu.edu/en/). During my phd study in civil engineering, I'm also pursing my second degree in computer science at [Georgia Tech's OMSCS program](https://omscs.gatech.edu/). This blog is used to record what I've learned during this journey.
+My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https://nyuad.nyu.edu/en/). During my phd study in civil engineering, I also finished my second master degree in computer science at [Georgia Tech's OMSCS program](https://omscs.gatech.edu/). This blog is used to record what I've learned in this journey.
 
 ## Education
 - **New York University Abu Dhabi** <span style="float:right">2019.09 - Present</span> \
   PhD candidate in Civil and Urban Engineering
 
 - **Georgia Institute of Technology** <span style="float:right">2021.01 - 2022.12</span> \
-  Pursing MS in CS at OMSCS program
+  MS in Computer Science
 
 - **Tongji University** <span style="float:right">2016.09 - 2019.06</span> \
   MEng in Architectural and Civil Engineering 
