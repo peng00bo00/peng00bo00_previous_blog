@@ -358,7 +358,7 @@ $$
 
 ### Implementation
 
-整个LSCM算法可参考下面`LSCM()`函数的实现。整个算法流程包括计算网格三角形面积、计算初始构型、构造稀疏线性方程组、固定网格上两个点、以及最后求解线性方程组得到参数坐标等步骤。其中计算初始构型的`project2Plane()`函数与作业2完全相同，可以参见之前的[代码片断](/2022/12/10/GAMES301-AES.html#compute-rest-pose)。另一个trick是利用矩阵变换把选取的固定点交换到顶点编号的最后几位上，这样可以更规范地组织代码。
+整个LSCM算法可参考下面`LSCM()`函数的实现。整个算法流程包括计算网格三角形面积、计算初始构型、构造稀疏线性方程组、固定网格上两个点、以及最后求解线性方程组得到参数坐标等步骤。其中计算初始构型的`project2Plane()`函数与作业2完全相同，可以参见之前的[代码片断](/2022/12/10/GAMES301-AES.html#compute-rest-pose)。
 
 ```matlab
 function uv = LSCM(V, F)
@@ -390,27 +390,22 @@ MA = sparse(repmat((1:nF)', 1, 3), F, A, nF, nV);
 MB = sparse(repmat((1:nF)', 1, 3), F, B, nF, nV);
 
 %% pin 2 points on the boundary
-[~, ~, T] = pinBoundary(V, F);
-
-%% swap columns, now the pinned points are the last 2 ones
-MA = MA * T; MB = MB * T;
+[b1, b2] = pinBoundary(V, F);
 
 %% split free and pinned vertices
-Af = MA(:, 1:nV-2); Ap = MA(:, end-1:end);  %% real part
-Bf = MB(:, 1:nV-2); Bp = MB(:, end-1:end);  %% imag part
+p = [b1 b2]; f = setdiff(1:nV, p);
+Af = MA(:, f); Ap = MA(:, p);  %% real part
+Bf = MB(:, f); Bp = MB(:, p);  %% imag part
 
 AM = [Af -Bf; Bf Af];
-b  =-[Ap -Bp; Bp Ap] * [0; 1; 0; 0];    %% fix the pinned points to (0, 0) and (1, 0)
+b  =-[Ap -Bp; Bp Ap] * [0; 1; 0; 0];
 
 %% solve linear system
-uv = AM \ b;
-uv = reshape(uv, [nV-2 2]);
+uv = zeros(nV, 2);
+uv(f, :) = reshape(AM \ b, [nV-2 2]);
 
 %% fix pinned points
-uv = [uv; [0 0]; [1 0]];
-
-%% transform back to original vertex index
-uv = T * uv;
+uv(p, :) = [[0 0]; [1 0]];
 
 end
 ```
@@ -419,7 +414,7 @@ end
 `pinBoundary()`函数实现了选择网格边界的两个固定点的功能，这里我简单地选择了边界的起点和中间点。当然其它的选取方式也是可行的，但需要注意不同的选取方式会影响最终的参数化结果。
 
 ```matlab
-function [b1, b2, T] = pinBoundary(V, F)
+function [b1, b2] = pinBoundary(V, F)
 %% A helper function to pin 2 points on the boundary
 %% Args:
 %%      V[nV, 3]: vertices in 3D
@@ -427,22 +422,12 @@ function [b1, b2, T] = pinBoundary(V, F)
 %% Returns:
 %%      b1: pinned boundary vertex
 %%      b2: pinned boundary vertex
-%%      T[nV, nV]: vertex index transform matrix
-
-nV = size(V, 1);
 
 [B, ~] = findBoundary(V, F);
 nB = length(B);
 
 %% select the first and middle boundary points
 b1 = B(1); b2 = B(round(nB/2));
-
-%% sparse index transform matrix
-tripI = 1:nV; tripJ = 1:nV; tripV = ones(1, nV);
-tripJ([b1 end-1]) = tripJ([end-1 b1]);
-tripJ([b2 end])   = tripJ([end b2]);
-
-T = sparse(tripI, tripJ, tripV, nV, nV);
 
 end
 ```
