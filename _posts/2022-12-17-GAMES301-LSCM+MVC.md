@@ -547,7 +547,7 @@ tanHalf = sins ./ (coss + 1);
 %% set up linear system
 tripI = [F F];
 tripJ = [F(:, [2 3 1]) F(:, [3 1 2])];
-tripV = [tanHalf ./ Enorm(:,:) tanHalf ./ Enorm(:, [3 1 2])];
+tripV = [tanHalf./Enorm(:,:) tanHalf./Enorm(:, [3 1 2])];
 
 A = sparse(tripI, tripJ, tripV, nV, nV);
 A = A - diag(sum(A, 2));
