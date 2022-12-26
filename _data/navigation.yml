@@ -466,7 +466,10 @@ SA:
         url: /2022/09/10/SA-NOTES-13.html
       - title: Applications of the Laplacian
         url: /2022/12/25/SA-NOTES-14.html
-  - title: Vector Field
+  - title: Vector Fields
+    children:
+      - title: Vector Fields Introduction
+        url: /2022/12/26/SA-NOTES-15.html
   - title: Optimal Transport
   - title: Other Topics
 
