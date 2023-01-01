@@ -127,6 +127,8 @@ $$
 
 ### Geodesic Distance from the Laplacian
 
-### Parallel Transport from the Connection Laplacian
+<div align=center>
+<img src="https://i.imgur.com/0WvWmbv.jpg" width="90%">
+</div>
 
-### 
+### Parallel Transport from the Connection Laplacian
