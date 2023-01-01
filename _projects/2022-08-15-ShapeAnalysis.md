@@ -127,8 +127,22 @@ $$
 
 ### Geodesic Distance from the Laplacian
 
+#### Heat Kernel & Normalized Gradient
+
 <div align=center>
-<img src="https://i.imgur.com/0WvWmbv.jpg" width="90%">
+<img src="https://i.imgur.com/92t2TcB.png" width="40%">
+</div>
+
+#### Divergences
+
+<div align=center>
+<img src="https://i.imgur.com/U3vhQx3.png" width="40%">
+</div>
+
+#### Geodesic Distances
+
+<div align=center>
+<img src="https://i.imgur.com/JhFYXjq.png" width="40%">
 </div>
 
 ### Parallel Transport from the Connection Laplacian
