@@ -117,3 +117,16 @@ $$
 <img src="https://i.imgur.com/EwffIl4.png" width="45%">
 <img src="https://i.imgur.com/1FDabII.png" width="45%">
 </div>
+
+## Homework 4: Laplacian and Vector Fields
+
+### Helmholtz Decomposition
+
+1. $$\nabla \cdot V = \nabla \cdot \nabla \zeta = \Delta \zeta$$
+2. $$\nabla \times W = V - \nabla \zeta$$
+
+### Geodesic Distance from the Laplacian
+
+### Parallel Transport from the Connection Laplacian
+
+### 
