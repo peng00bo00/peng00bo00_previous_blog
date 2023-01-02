@@ -207,6 +207,8 @@ exclude:
 collections:
   projects:
     output: true
+  leetcode:
+    output: true
 
 defaults:
   - scope:
@@ -227,6 +229,13 @@ defaults:
     values:
       layout: article
       nav_key: projects
+      show_date: false
+  ## LeetCode
+  - scope:
+      path: "_leetcode"
+    values:
+      layout: article
+      nav_key: leetcode
       show_date: false
 
 

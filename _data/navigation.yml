@@ -27,6 +27,10 @@ header:
   - title:      Projects
     url:        /projects.html
     key:        projects
+  
+  - title:      LeetCode
+    url:        /leetcode.html
+    key:        leetcode
 
   - titles:
       # @start locale config
