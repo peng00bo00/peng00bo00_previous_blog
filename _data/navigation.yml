@@ -537,3 +537,9 @@ GAMES301:
         url: /2022/12/17/GAMES301-LSCM+MVC.html
       - title: BFF论文笔记
         url: /2022/12/23/GAMES301-BFF.html
+
+LeetCode:
+  - title: LeetCode Master
+    children:
+      - title: 数组
+        url: /_leetcode/2023/01/02/Array.html
