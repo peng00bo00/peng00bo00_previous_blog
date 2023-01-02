@@ -24,14 +24,14 @@ header:
       # @end locale config
     url: /archive.html
   
+  - title:      LeetCode
+    url:        /leetcode.html
+    key:        leetcode
+  
   - title:      Projects
     url:        /projects.html
     key:        projects
   
-  - title:      LeetCode
-    url:        /leetcode.html
-    key:        leetcode
-
   - titles:
       # @start locale config
       en      : &EN       About
