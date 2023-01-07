@@ -130,31 +130,31 @@ $$
 #### Heat Kernel & Normalized Gradient
 
 <div align=center>
-<img src="https://i.imgur.com/92t2TcB.png" width="40%">
+<img src="https://i.imgur.com/92t2TcB.png" width="50%">
 </div>
 
 #### Divergences
 
 <div align=center>
-<img src="https://i.imgur.com/U3vhQx3.png" width="40%">
+<img src="https://i.imgur.com/U3vhQx3.png" width="50%">
 </div>
 
 #### Geodesic Distances
 
 <div align=center>
-<img src="https://i.imgur.com/JhFYXjq.png" width="40%">
+<img src="https://i.imgur.com/JhFYXjq.png" width="50%">
 </div>
 
 ### Parallel Transport from the Connection Laplacian
 
 <div align=center>
-<img src="https://i.imgur.com/GQYwCBz.png" width="40%">
+<img src="https://i.imgur.com/GQYwCBz.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/k5hiqoa.png" width="40%">
+<img src="https://i.imgur.com/k5hiqoa.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/DCl9ppI.png" width="40%">
+<img src="https://i.imgur.com/DCl9ppI.png" width="50%">
 </div>
