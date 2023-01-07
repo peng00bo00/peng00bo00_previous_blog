@@ -146,3 +146,9 @@ $$
 </div>
 
 ### Parallel Transport from the Connection Laplacian
+
+<div align=center>
+<img src="https://i.imgur.com/GQYwCBz.png" width="30%">
+<img src="https://i.imgur.com/k5hiqoa.png" width="30%">
+<img src="https://i.imgur.com/GQYwCBz.png" width="30%">
+</div>
