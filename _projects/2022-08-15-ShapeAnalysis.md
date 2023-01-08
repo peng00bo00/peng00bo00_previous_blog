@@ -164,5 +164,5 @@ $$
 #### Scalar Field Advection
 
 <div align=center>
-<img src="https://i.imgur.com/Oeczwnz.gif" width="50%">
+<img src="https://i.imgur.com/obuaX0R.gif" width="50%">
 </div>
