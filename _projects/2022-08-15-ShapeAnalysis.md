@@ -158,3 +158,11 @@ $$
 <div align=center>
 <img src="https://i.imgur.com/DCl9ppI.png" width="50%">
 </div>
+
+### Operator Approach to Tangent Vector Fields
+
+#### Scalar Field Advection
+
+<div align=center>
+<img src="https://i.imgur.com/Oeczwnz.gif" width="50%">
+</div>
