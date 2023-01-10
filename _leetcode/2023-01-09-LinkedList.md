@@ -199,3 +199,79 @@ class MyLinkedList:
         self.size -= 1
 ```
 {: .snippet}
+
+## 翻转链表
+
+### 206.反转链表
+
+给你单链表的头节点`head`，请你反转链表，并返回反转后的链表。
+
+**示例1：**
+
+```
+输入：head = [1,2,3,4,5]
+输出：[5,4,3,2,1]
+```
+
+**示例2：**
+
+```
+输入：head = [1,2]
+输出：[2,1]
+```
+
+**示例3：**
+
+```
+输入：head = []
+输出：[]
+```
+
+**提示：**
+
+- 链表中节点的数目范围是`[0, 5000]`。
+- -5000 <= `Node.val` <= 5000。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/reverse-linked-list/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        pre, cur = None, head
+
+        while cur is not None:
+            tmp = cur
+            cur = cur.next
+
+            tmp.next = pre
+            pre = tmp
+        
+        return pre
+```
+{: .snippet}
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head is None or head.next is None:
+            return head
+        
+        newhead = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+
+        return newhead
+```
+{: .snippet}
