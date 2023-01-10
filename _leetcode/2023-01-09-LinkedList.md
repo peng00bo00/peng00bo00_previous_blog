@@ -50,7 +50,7 @@ sidebar:
 
 #### Solution
 
-删除元素是链表的基本操作之一。由于我们不能像数组那样直接通过索引来获取节点，在删除元素时需要通过循环的方式来对整个链表进行遍历。在进行循环时我们首先为链表添加一个虚拟头节点(哨兵节点)`sentinel`，然后从它出发依次检验它的下一个节点是否包含`val`，如果包含则另当前节点指向再下一个节点。最后返回`sentinel`的后继节点即可。
+删除元素是链表的基本操作之一。由于我们不能像数组那样直接通过索引来获取节点，在删除元素时需要通过循环的方式来对整个链表进行遍历。在进行循环时我们首先为链表添加一个**虚拟头节点(哨兵节点)**`sentinel`，它指向链表的头节点`head`。然后从`sentinel`出发依次检验它的下一个节点是否包含`val`，如果包含则另当前节点指向再下一个节点。最后返回`sentinel`的后继节点即可。
 
 [题目链接](https://leetcode.cn/problems/remove-linked-list-elements/)：
 
@@ -93,6 +93,74 @@ class Solution:
             return head
         else:
             return self.removeElements(head.next, val)
+```
+{: .snippet}
+
+### 19. 删除链表的倒数第N个结点
+
+给你一个链表，删除链表的倒数第`n`个结点，并且返回链表的头结点。
+
+**示例1：**
+
+```
+输入：head = [1,2,3,4,5], n = 2
+输出：[1,2,3,5]
+```
+
+**示例2：**
+
+```
+输入：head = [1], n = 1
+输出：[]
+```
+
+**示例3：**
+
+```
+输入：head = [1,2], n = 1
+输出：[1]
+```
+
+**提示：**
+
+- 链表中结点的数目为`sz`。
+- 1 <= `sz` <= 30。
+- 0 <= `Node.val` <= 100。
+- 1 <= `n` <= `sz`。
+
+#### Solution
+
+本题的暴力解法是先对链表进行遍历从而得到它的大小`sz`然后删除第`sz-n`个节点，这种做法需要对链表进行两次遍历。实际上利用双指针只要一次遍历就可以实现相同的效果：我们首先为链表设置一个哨兵节点`sentinel`并且令`fast`和`slow`两个指针都指向它；然后令快指针`fast`前进`n`步使得两个指针之间的间隔恰好为`n`；最后让两个指针同时前进，当`fast`指向链表末尾节点时`slow`会指向倒数`n`个节点的前一个节点，此时只要删除`slow`的下一个节点即可。
+
+使用双指针的算法流程可以参考下图：
+
+<div align=center>
+<img src="https://i.imgur.com/UG0xBSu.png" width="80%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        sentinel = ListNode(next=head)
+        fast, slow = sentinel, sentinel
+
+        for _ in range(n):
+            fast = fast.next
+        
+        while fast.next is not None:
+            fast = fast.next
+            slow = slow.next
+        
+        slow.next = slow.next.next
+        
+        return sentinel.next
 ```
 {: .snippet}
 
@@ -355,3 +423,7 @@ class Solution:
         return second
 ```
 {: .snippet}
+
+## Reference
+
+- [链表理论基础](https://programmercarl.com/%E9%93%BE%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
