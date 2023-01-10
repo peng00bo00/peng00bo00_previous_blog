@@ -130,7 +130,7 @@ class Solution:
 
 #### Solution
 
-本题的暴力解法是先对链表进行遍历从而得到它的大小`sz`然后删除第`sz-n`个节点，这种做法需要对链表进行两次遍历。实际上利用双指针只要一次遍历就可以实现相同的效果：我们首先为链表设置一个哨兵节点`sentinel`并且令`fast`和`slow`两个指针都指向它；然后令快指针`fast`前进`n`步使得两个指针之间的间隔恰好为`n`；最后让两个指针同时前进，当`fast`指向链表末尾节点时`slow`会指向倒数`n`个节点的前一个节点，此时只要删除`slow`的下一个节点即可。
+本题的暴力解法是先对链表进行遍历从而得到它的大小`sz`然后删除第`sz-n`个节点，这种做法需要对链表进行两次遍历。实际上利用双指针只要一次遍历就可以实现相同的效果：我们首先为链表设置一个哨兵节点`sentinel`并且令`fast`和`slow`两个指针都指向它；然后令快指针`fast`先前进`n+1`步；最后让两个指针同时前进，当`fast`指向`None`时`slow`会指向倒数第`n`个节点的前一个节点，此时只要删除`slow`的下一个节点即可。
 
 使用双指针的算法流程可以参考下图：
 
@@ -151,10 +151,10 @@ class Solution:
         sentinel = ListNode(next=head)
         fast, slow = sentinel, sentinel
 
-        for _ in range(n):
+        for _ in range(n+1):
             fast = fast.next
         
-        while fast.next is not None:
+        while fast is not None:
             fast = fast.next
             slow = slow.next
         
