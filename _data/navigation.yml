@@ -477,6 +477,9 @@ SA:
       - title: Vector Fields Discretization
         url: /2022/12/29/SA-NOTES-16.html
   - title: Optimization
+    children:
+      - title: Optimization on Manifolds
+        url: /2023/01/10/SA-NOTES-17.html
   - title: Optimal Transport
   - title: Other Topics
 
