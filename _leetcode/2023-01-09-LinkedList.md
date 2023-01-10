@@ -388,6 +388,12 @@ class Solution:
 
 #### Solution
 
+要实现链表中元素两两交换需要每次获取两个节点`first`和`second`然后修改它们的指向。相应地，在更新当前头指针`cur`时需要向后移动2位。
+
+<div align=center>
+<img src="https://i.imgur.com/qN1kx4b.png" width="80%">
+</div>
+
 [题目链接](https://leetcode.cn/problems/swap-nodes-in-pairs/)：
 
 ```python
@@ -413,6 +419,8 @@ class Solution:
         return sentinel.next
 ```
 {: .snippet}
+
+递归解法在思维上要更简洁一些：我们同样要获取当前链表的前2个节点`first`和`second`；接着令`first`指向交换后的后续链表；然后令`second`指向`first`，这样就完成了前两个节点的交换；最后返回`second`节点作为当前链表的头节点即可。
 
 ```python
 # Definition for singly-linked list.
