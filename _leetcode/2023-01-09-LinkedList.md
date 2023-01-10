@@ -310,7 +310,31 @@ class Solution:
 
 #### Solution
 
-[题目链接](https://leetcode.cn/problems/reverse-linked-list/)：
+[题目链接](https://leetcode.cn/problems/swap-nodes-in-pairs/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        sentinel = ListNode(next=head)
+        cur = sentinel
+
+        while cur.next and cur.next.next:
+            first, second = cur.next, cur.next.next
+
+            first.next = second.next
+            second.next = first
+            cur.next = second
+
+            cur = cur.next.next
+
+        return sentinel.next
+```
+{: .snippet}
 
 ```python
 # Definition for singly-linked list.
@@ -324,10 +348,9 @@ class Solution:
             return head
         
         first, second = head, head.next
-        swappedhead = self.swapPairs(second.next)
 
+        first.next = self.swapPairs(second.next)
         second.next = first
-        first.next = swappedhead
 
         return second
 ```
