@@ -302,6 +302,14 @@ class MyLinkedList:
 
 #### Solution
 
+翻转链表是链表中的经典问题，我们可以通过修改节点指向来实现：记`cur`为指向当前节点的指针而`pre`为指向`cur`前一个节点的指针，我们只需要利用一个临时指针`tmp`来将当前节点的指向修改为`pre`即可。
+
+整个链表翻转过程可参考下图：
+
+<div align=center>
+<img src="https://i.imgur.com/6xzxAaV.gif" width="80%">
+</div>
+
 [题目链接](https://leetcode.cn/problems/reverse-linked-list/)：
 
 ```python
@@ -324,6 +332,8 @@ class Solution:
         return pre
 ```
 {: .snippet}
+
+除了对链表进行遍历外我们还可以使用递归来进行处理：首先对当前头节点`head`的下一个节点`head.next`调用翻转函数，得到翻转的后继链表头节点，记为`newhead`；接着修改后继翻转链表末尾节点的指向，使它指向`head`；然后修改`head`的指向使其指向`None`，这样`head`就称为了翻转后链表的末尾节点；最后返回`newhead`即可。
 
 ```python
 # Definition for singly-linked list.
