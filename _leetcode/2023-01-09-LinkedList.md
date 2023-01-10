@@ -445,3 +445,8 @@ class Solution:
 ## Reference
 
 - [链表理论基础](https://programmercarl.com/%E9%93%BE%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
+- [LeetCode：203.移除链表元素](https://www.bilibili.com/video/BV18B4y1s7R9/?vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：707.设计链表](https://www.bilibili.com/video/BV1FU4y1X7WD/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：206.反转链表 | 双指针法 | 递归法](https://www.bilibili.com/video/BV1nB4y1i7eL/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：24. 两两交换链表中的节点](https://www.bilibili.com/video/BV1YT411g7br/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：19.删除链表倒数第N个节点](https://www.bilibili.com/video/BV1vW4y1U7Gf/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
