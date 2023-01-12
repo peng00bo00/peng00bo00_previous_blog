@@ -444,6 +444,8 @@ class Solution:
 
 ## 链表相交
 
+### 面试题 02.07. 链表相交
+
 给你两个单链表的头节点`headA`和`headB`，请你找出并返回两个单链表相交的起始节点。如果两个链表没有交点，返回`null`。
 
 图示两个链表在节点`c1`开始相交：
@@ -509,7 +511,9 @@ class Solution:
 - 如果`listA`和 `listB`没有交点，`intersectVal`为`0`
 - 如果`listA`和 `listB`有交点，`intersectVal` == `listA[skipA + 1]` == `listB[skipB + 1]`
 
-### Solution
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci/)：
 
 ```python
 # Definition for singly-linked list.
@@ -530,11 +534,57 @@ class Solution:
 ```
 {: .snippet}
 
+## 环形链表
+
+### 142. 环形链表 II
+
+给定一个链表的头节点`head`，返回链表开始入环的第一个节点。如果链表无环，则返回`null`。
+
+如果链表中有某个节点，可以通过连续跟踪`next`指针再次到达，则链表中存在环。为了表示给定链表中的环，评测系统内部使用整数`pos`来表示链表尾连接到链表中的位置（索引从`0`开始）。如果`pos`是`-1`，则在该链表中没有环。注意：`pos`不作为参数进行传递，仅仅是为了标识链表的实际情况。
+
+**不允许修改**链表。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/linked-list-cycle-ii/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        fast, slow = head, head
+
+        while True:
+            if fast.next is None or fast.next.next is None:
+                return None
+
+            fast = fast.next.next
+            slow = slow.next
+
+            if fast == slow:
+                break
+        
+        fast = head
+
+        while fast != slow:
+            fast = fast.next
+            slow = slow.next
+        
+        return fast
+```
+{: .snippet}
+
 ## Reference
 
 - [链表理论基础](https://programmercarl.com/%E9%93%BE%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
 - [LeetCode：203.移除链表元素](https://www.bilibili.com/video/BV18B4y1s7R9/?vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：707.设计链表](https://www.bilibili.com/video/BV1FU4y1X7WD/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
-- [LeetCode：206.反转链表 | 双指针法 | 递归法](https://www.bilibili.com/video/BV1nB4y1i7eL/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：206.反转链表](https://www.bilibili.com/video/BV1nB4y1i7eL/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：24. 两两交换链表中的节点](https://www.bilibili.com/video/BV1YT411g7br/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：19.删除链表倒数第N个节点](https://www.bilibili.com/video/BV1vW4y1U7Gf/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：142.环形链表II](https://www.bilibili.com/video/BV1if4y1d7ob/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
