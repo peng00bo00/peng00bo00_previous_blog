@@ -534,8 +534,6 @@ class Solution:
 ```
 {: .snippet}
 
-## 环形链表
-
 ### 142. 环形链表 II
 
 给定一个链表的头节点`head`，返回链表开始入环的第一个节点。如果链表无环，则返回`null`。
@@ -559,7 +557,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://i.imgur.com/8GdM8bK.png" width="20%">
+<img src="https://i.imgur.com/8GdM8bK.png" width="22%">
 </div>
 
 ```
@@ -571,7 +569,7 @@ class Solution:
 **示例3：**
 
 <div align=center>
-<img src="https://i.imgur.com/iUX1OVd.png" width="10%">
+<img src="https://i.imgur.com/iUX1OVd.png" width="8%">
 </div>
 
 ```
@@ -587,6 +585,24 @@ class Solution:
 - `pos`的值为`-1`或者链表中的一个有效索引。
 
 #### Solution
+
+本题使用双指针时需要让快指针`fast`每次前进2步而慢指针`slow`前进1步，这样当两个指针相遇时快指针`fast`恰好比慢指针`slow`多走了`n`圈，即两个指针重合时`fast`比`slow`多走**环的长度整数倍**。更进一步可以证明此时慢指针`slow`前进的步数为`nb`，而快指针`fast`则前进了`2nb`步。
+
+<div align=center>
+<img src="https://i.imgur.com/barkckZ.png" width="80%">
+</div>
+
+接下来我们把快指针`fast`移动到链表头，再次让两个指针同时前进，每次都只前进1步。
+
+<div align=center>
+<img src="https://i.imgur.com/Ju6T4IM.png" width="80%">
+</div>
+
+当两个指针再次相遇时相遇的位置就是环的入口。
+
+<div align=center>
+<img src="https://i.imgur.com/DkORLmU.png" width="80%">
+</div>
 
 [题目链接](https://leetcode.cn/problems/linked-list-cycle-ii/)：
 
