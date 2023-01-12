@@ -513,6 +513,18 @@ class Solution:
 
 #### Solution
 
+我们假设两个链表的长度分别为`a`和`b`，而公共部分的长度为`c`。这样A和B两个链表在交点前的长度就分别是`a-c`和`b-c`。
+
+<div align=center>
+<img src="https://i.imgur.com/IeaGrxu.png" width="80%">
+</div>
+
+我们用两个指针分别对A和B两个链表进行遍历。当A链表的指针走到终点时把它移动到B链表的表头；类似地，当A链表的指针走到终点时把它移动到A链表的表头。当它们都走过`a+b-c`步时恰好会在两个链表的交点处相遇。
+
+<div align=center>
+<img src="https://i.imgur.com/CiwIhrU.png" width="80%">
+</div>
+
 [题目链接](https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci/)：
 
 ```python
@@ -586,7 +598,7 @@ class Solution:
 
 #### Solution
 
-本题使用双指针时需要让快指针`fast`每次前进2步而慢指针`slow`前进1步，这样当两个指针相遇时快指针`fast`恰好比慢指针`slow`多走了`n`圈，即两个指针重合时`fast`比`slow`多走**环的长度整数倍**。更进一步可以证明此时慢指针`slow`前进的步数为`nb`，而快指针`fast`则前进了`2nb`步。
+本题使用双指针时需要让快指针`fast`每次前进2步而慢指针`slow`前进1步，这样当两个指针相遇时快指针`fast`恰好比慢指针`slow`多走了`n`圈，即两个指针重合时`fast`比`slow`多走**环的长度整数倍**。更进一步可以证明此时慢指针`slow`前进的步数为`nb`，而快指针`fast`则前进了`2nb`步，其中`b`为环的长度。
 
 <div align=center>
 <img src="https://i.imgur.com/barkckZ.png" width="80%">
@@ -598,7 +610,7 @@ class Solution:
 <img src="https://i.imgur.com/Ju6T4IM.png" width="80%">
 </div>
 
-当两个指针再次相遇时相遇的位置就是环的入口。
+当快指针`fast`再次前进了`a`步时，慢指针恰好前进了`a+nb`步，这说明当两个指针再次相遇时的位置就是环的入口。
 
 <div align=center>
 <img src="https://i.imgur.com/DkORLmU.png" width="80%">
