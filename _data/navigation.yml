@@ -481,6 +481,9 @@ SA:
       - title: Optimization on Manifolds
         url: /2023/01/10/SA-NOTES-17.html
   - title: Optimal Transport
+    children:
+      - title: Optimal Transport
+        url: /2023/01/12/SA-NOTES-18.html
   - title: Other Topics
 
 OMSCS-GA:
