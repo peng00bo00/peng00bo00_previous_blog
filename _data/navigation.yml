@@ -485,6 +485,9 @@ SA:
       - title: Optimal Transport
         url: /2023/01/12/SA-NOTES-18.html
   - title: Other Topics
+    children:
+      - title: Clustering and Segmentation
+        url: /2023/01/13/SA-NOTES-19.html
 
 OMSCS-GA:
   - title: Intro to Grad Algorithms
