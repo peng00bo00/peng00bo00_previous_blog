@@ -79,6 +79,69 @@ class Solution(object):
 ```
 {: .snippet}
 
+### 202. 快乐数
+
+编写一个算法来判断一个数`n`是不是快乐数。
+
+**「快乐数」**定义为：
+
+- 对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和。
+- 然后重复这个过程直到这个数变为`1`，也可能是**无限循环**但始终变不到`1`。
+- 如果这个过程**结果**为`1`，那么这个数就是快乐数。
+
+如果`n`是*快乐数*就返回`true`；不是，则返回`false`。
+
+**示例1：**
+
+```
+输入：n = 19
+输出：true
+解释：
+1² + 9² = 82
+8² + 2² = 68
+6² + 8² = 100
+1² + 0² + 0² = 1
+```
+
+**示例2：**
+
+```
+输入：n = 2
+输出：false
+```
+
+**提示：**
+
+- 1 <= `n` <= 2<sup>31</sup> - 1。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/happy-number/)：
+
+```python
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        def nextHappy(x):
+            xx = 0
+            while x > 0:
+                xx += (x % 10)**2
+                x = x // 10
+            
+            return xx
+        
+        record = {}
+        while True:
+            n = nextHappy(n)
+
+            if n == 1:
+                return True
+            
+            record[n] = record.get(n, 0) + 1
+            if record[n] > 1:
+                return False
+```
+{: .snippet}
+
 ## 公共元素
 
 ### 1002. 查找共用字符
@@ -181,7 +244,7 @@ class Solution:
         set1 = {num: 1 for num in nums1}
         set2 = {num: 1 for num in nums2}
 
-        return [num for num in set1 if set2.get(num, 0) > 0]
+        return [num for num in set1 if num in set2]
 ```
 {: .snippet}
 
