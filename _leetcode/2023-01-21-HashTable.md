@@ -147,6 +147,44 @@ class Solution:
 ```
 {: .snippet}
 
+### 349. 两个数组的交集
+
+给定两个数组`nums1`和`nums2`，返回**它们的交集**。输出结果中的每个元素一定是**唯一**的。我们可以**不考虑输出结果的顺序**。
+
+**示例1：**
+
+```
+输入：nums1 = [1,2,2,1], nums2 = [2,2]
+输出：[2]
+```
+
+**示例2：**
+
+```
+输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+输出：[9,4]
+解释：[4,9] 也是可通过的
+```
+
+**提示：**
+
+- 1 <= `nums1.length, nums2.length` <= 1000。
+- 0 <= `nums1[i], nums2[i]` <= 1000。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/intersection-of-two-arrays/)：
+
+```python
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        set1 = {num: 1 for num in nums1}
+        set2 = {num: 1 for num in nums2}
+
+        return [num for num in set1 if set2.get(num, 0) > 0]
+```
+{: .snippet}
+
 ## Reference
 
 - [哈希表理论基础](https://programmercarl.com/%E5%93%88%E5%B8%8C%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
