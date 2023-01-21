@@ -74,15 +74,79 @@ class Solution(object):
 
         a_count = Counter(s)
         b_count = Counter(t)
-        
+
         return a_count == b_count
 ```
 {: .snippet}
 
 ## 公共元素
 
+### 1002. 查找共用字符
 
+给你一个字符串数组`words`，请你找出所有在`words`的每个字符串中都出现的共用字符(**包括重复字符**)，并以数组形式返回。你可以按**任意顺序**返回答案。
+
+**示例1：**
+
+```
+输入：words = ["bella","label","roller"]
+输出：["e","l","l"]
+```
+
+**示例2：**
+
+```
+输入：words = ["cool","lock","cook"]
+输出：["c","o"]
+```
+
+**提示：**
+
+- 1 <= `words.length` <= 100。
+- 1 <= `words[i].length` <= 100。
+- `words[i]`由小写英文字母组成。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/find-common-characters/)：
+
+```python
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        minfreq = [float("inf")] * 26
+        for word in words:
+            freq = [0] * 26
+            for ch in word:
+                freq[ord(ch) - ord("a")] += 1
+            for i in range(26):
+                minfreq[i] = min(minfreq[i], freq[i])
+        
+        ans = list()
+        for i in range(26):
+            ans.extend([chr(i + ord("a"))] * minfreq[i])
+
+        return ans
+```
+{: .snippet}
+
+```python
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        tmp = collections.Counter(words[0])
+        l = []
+        for i in range(1,len(words)):
+            # 使用 & 取交集
+            tmp = tmp & collections.Counter(words[i])
+
+        # 剩下的就是每个单词都出现的字符（键），个数（值）
+        for j in tmp:
+            v = tmp[j]
+            while(v):
+                l.append(j)
+                v -= 1
+        return l
+```
+{: .snippet}
 
 ## Reference
 
-- [哈希表理论基础](https://programmercarl.com/%E9%93%BE%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
+- [哈希表理论基础](https://programmercarl.com/%E5%93%88%E5%B8%8C%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
