@@ -497,3 +497,7 @@ class Solution:
 ## Reference
 
 - [哈希表理论基础](https://programmercarl.com/%E5%93%88%E5%B8%8C%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
+- [Leetcode：242.有效的字母异位词](https://www.bilibili.com/video/BV1YG411p7BA/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [Leetcode：349. 两个数组的交集](https://www.bilibili.com/video/BV1ba411S7wu/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [Leetcode：1.两数之和](https://www.bilibili.com/video/BV1aT41177mK/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：454.四数相加II](https://www.bilibili.com/video/BV1Md4y1Q7Yh/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
