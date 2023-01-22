@@ -362,6 +362,77 @@ class Solution:
 ```
 {: .snippet}
 
+### 383. 赎金信
+
+给你两个字符串：`ransomNote`和`magazine`，判断`ransomNote`能不能由`magazine`里面的字符构成。
+
+如果可以，返回`true`；否则返回`false`。
+
+`magazine`中的每个字符只能在`ransomNote`中使用一次。
+
+**示例1：**
+
+```
+输入：ransomNote = "a", magazine = "b"
+输出：false
+```
+
+**示例2：**
+
+```
+输入：ransomNote = "aa", magazine = "ab"
+输出：false
+```
+
+**示例3：**
+
+```
+输入：ransomNote = "aa", magazine = "aab"
+输出：true
+```
+
+**提示：**
+
+- 1 <= `ransomNote.length, magazine.length` <= 10<sup>5</sup>。
+- `ransomNote`和`magazine`由小写英文字母组成。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/ransom-note/)：
+
+```python
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        chars = {}
+
+        for char in magazine:
+            chars[char] = chars.get(char, 0) + 1
+
+        for char in ransomNote:
+            chars[char] = chars.get(char, 0) - 1
+        
+        for char, count in chars.items():
+            if count < 0:
+                return False
+        
+        return True
+```
+{: .snippet}
+
+```python
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        c1 = collections.Counter(ransomNote)
+        c2 = collections.Counter(magazine)
+        x = c1 - c2
+        
+        if(len(x)==0):
+            return True
+        else:
+            return False
+```
+{: .snippet}
+
 ## Reference
 
 - [哈希表理论基础](https://programmercarl.com/%E5%93%88%E5%B8%8C%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
