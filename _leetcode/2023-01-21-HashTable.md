@@ -79,6 +79,67 @@ class Solution(object):
 ```
 {: .snippet}
 
+### 205. 同构字符串
+
+给定两个字符串`s`和`t`，判断它们是否是同构的。
+
+如果`s`中的字符可以按某种映射关系替换得到`t`，那么这两个字符串是同构的。
+
+每个出现的字符都应当映射到另一个字符，同时不改变字符的顺序。不同字符不能映射到同一个字符上，相同字符只能映射到同一个字符上，字符可以映射到自己本身。
+
+**示例1：**
+
+```
+输入：s = "egg", t = "add"
+输出：true
+```
+
+**示例2：**
+
+```
+输入：s = "foo", t = "bar"
+输出：false
+```
+
+**示例3：**
+
+```
+输入：s = "paper", t = "title"
+输出：true
+```
+
+**提示：**
+
+- 1 <= `s.length` <= 5 * 10⁴。
+- `t.length` == `s.length`
+- `s`和`t`由任意有效的ASCII字符组成。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/isomorphic-strings/)：
+
+```python
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        s2t = {}
+        t2s = {}
+        
+        for schar, tchar in zip(s, t):
+            if schar not in s2t:
+                s2t[schar] = tchar
+
+                if tchar in t2s and t2s[tchar] != schar:
+                    return False
+                else:
+                    t2s[tchar] = schar
+
+            elif s2t[schar] != tchar:
+                return False
+
+        return True
+```
+{: .snippet}
+
 ## 寻找指定元素
 
 ### 202. 快乐数
