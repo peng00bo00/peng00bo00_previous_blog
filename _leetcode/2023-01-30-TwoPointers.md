@@ -242,10 +242,50 @@ class Solution:
 ```
 {: .snippet}
 
+### 142. 环形链表 II
+
+同[142. 环形链表 II](/leetcode/2023-01-09-LinkedList.html#142-环形链表-ii)。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/linked-list-cycle-ii/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        fast, slow = head, head
+
+        while True:
+            if fast.next is None or fast.next.next is None:
+                return None
+
+            fast = fast.next.next
+            slow = slow.next
+
+            if fast == slow:
+                break
+        
+        fast = head
+
+        while fast != slow:
+            fast = fast.next
+            slow = slow.next
+        
+        return fast
+```
+{: .snippet}
+
 ## Reference
 
 - [LeetCode：27. 移除元素](https://www.bilibili.com/video/BV12A4y1Z7LP/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：344. 反转字符串](https://www.bilibili.com/video/BV1fV4y17748/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：151. 翻转字符串里的单词](https://www.bilibili.com/video/BV1uT41177fX/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：206. 反转链表](https://www.bilibili.com/video/BV1nB4y1i7eL/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
-- [LeetCode：19.删除链表倒数第N个节点](https://www.bilibili.com/video/BV1vW4y1U7Gf/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：19. 删除链表倒数第N个节点](https://www.bilibili.com/video/BV1vW4y1U7Gf/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：142. 环形链表II](https://www.bilibili.com/video/BV1if4y1d7ob/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
