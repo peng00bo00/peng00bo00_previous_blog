@@ -17,6 +17,8 @@ sidebar:
 
 #### Solution
 
+[题目链接](https://leetcode.cn/problems/remove-element/)：
+
 ```python
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
