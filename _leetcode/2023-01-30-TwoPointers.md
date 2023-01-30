@@ -37,3 +37,4 @@ class Solution:
 
 ## Reference
 
+- [LeetCode：27. 移除元素](https://www.bilibili.com/video/BV12A4y1Z7LP/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
