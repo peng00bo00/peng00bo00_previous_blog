@@ -154,8 +154,98 @@ class Solution:
 
 ## 链表
 
+### 206. 反转链表
+
+同[206. 反转链表](/leetcode/2023-01-09-LinkedList.html#206反转链表)。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/reverse-linked-list/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        pre, cur = None, head
+
+        while cur is not None:
+            tmp = cur
+            cur = cur.next
+
+            tmp.next = pre
+            pre = tmp
+        
+        return pre
+```
+{: .snippet}
+
+### 19. 删除链表的倒数第N个节点
+
+同[19. 删除链表的倒数第N个节点](/leetcode/2023-01-09-LinkedList.html#19-删除链表的倒数第n个结点)。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        sentinel = ListNode(next=head)
+        fast, slow = sentinel, sentinel
+
+        for _ in range(n+1):
+            fast = fast.next
+        
+        while fast is not None:
+            fast = fast.next
+            slow = slow.next
+        
+        slow.next = slow.next.next
+        
+        return sentinel.next
+```
+{: .snippet}
+
+### 面试题 02.07. 链表相交
+
+同[面试题 02.07. 链表相交](/leetcode/2023-01-09-LinkedList.html#面试题-0207-链表相交)。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        A, B = headA, headB
+
+        while A != B:
+            A = A.next if A else headB
+            B = B.next if B else headA
+        
+        return A
+```
+{: .snippet}
+
 ## Reference
 
 - [LeetCode：27. 移除元素](https://www.bilibili.com/video/BV12A4y1Z7LP/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：344. 反转字符串](https://www.bilibili.com/video/BV1fV4y17748/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：151. 翻转字符串里的单词](https://www.bilibili.com/video/BV1uT41177fX/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：206. 反转链表](https://www.bilibili.com/video/BV1nB4y1i7eL/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：19.删除链表倒数第N个节点](https://www.bilibili.com/video/BV1vW4y1U7Gf/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
