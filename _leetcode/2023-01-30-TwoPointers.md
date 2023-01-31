@@ -341,7 +341,7 @@ class Solution:
 - `a`、`b`、`c`和`d`互不相同
 - `nums[a] + nums[b] + nums[c] + nums[d] == target`
 
-你可以按**任意顺序**返回答案 。
+你可以按**任意顺序**返回答案。
 
 **示例1：**
 
@@ -382,4 +382,4 @@ class Solution:
 - [LeetCode：19.删除链表倒数第N个节点](https://www.bilibili.com/video/BV1vW4y1U7Gf/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：142.环形链表II](https://www.bilibili.com/video/BV1if4y1d7ob/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：15.三数之和](https://www.bilibili.com/video/BV1GW4y127qo/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
-- [LeetCode：18. 四数之和](https://www.bilibili.com/video/BV1DS4y147US/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：18.四数之和](https://www.bilibili.com/video/BV1DS4y147US/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
