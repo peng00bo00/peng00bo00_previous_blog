@@ -342,7 +342,11 @@ class Solution:
 
             left, right = i+1, N-1
             while left < right:
-                if nums[i] + nums[left] + nums[right] == 0:
+                if nums[i] + nums[left] + nums[right] < 0:
+                    left += 1
+                elif nums[i] + nums[left] + nums[right] > 0:
+                    right -= 1
+                else:
                     res.append([nums[i], nums[left], nums[right]])
 
                     while left < right and nums[left] == nums[left+1]:
@@ -350,10 +354,8 @@ class Solution:
                     
                     while right > left and nums[right] == nums[right-1]:
                         right -= 1
-                
-                if nums[i] + nums[left] + nums[right] < 0:
+
                     left += 1
-                else:
                     right -= 1
 
         return res
@@ -397,6 +399,39 @@ class Solution:
 ```python
 class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
+        nums = sorted(nums)
+        res = []
+        N = len(nums)
+
+        for i in range(N-3):            
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
+            
+            for j in range(i+1, N-2):
+                if j > i+1 and nums[j] == nums[j-1]:
+                    continue
+                
+                p = j+1
+                q = N-1
+
+                while p < q:
+                    if nums[i] + nums[j] + nums[p] + nums[q] < target:
+                        p += 1
+                    elif nums[i] + nums[j] + nums[p] + nums[q] > target:
+                        q -= 1
+                    else:
+                        res.append([nums[i], nums[j], nums[p], nums[q]])
+
+                        while p < q and nums[p] == nums[p+1]:
+                            p += 1
+                        
+                        while p < q and nums[q] == nums[q-1]:
+                            q -= 1
+
+                        p += 1
+                        q -= 1
+        
+        return res
 ```
 {: .snippet}
 
