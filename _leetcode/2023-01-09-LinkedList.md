@@ -12,7 +12,7 @@ sidebar:
 **链表(linked list)**是一种通过指针串联在一起的线性结构，其中的每一个元素称为一个**节点(node)**。以单向链表为例，它的每个节点包含一个数据域用来存放数据，同时每个节点还包含一个指针域指向它的下一个节点。
 
 <div align=center>
-<img src="https://i.imgur.com/RKgLwHR.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/RKgLwHR.png" width="80%">
 </div>
 
 ## 删除节点
@@ -135,7 +135,7 @@ class Solution:
 使用双指针的算法流程可以参考下图：
 
 <div align=center>
-<img src="https://i.imgur.com/UG0xBSu.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/UG0xBSu.png" width="80%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)：
@@ -307,7 +307,7 @@ class MyLinkedList:
 整个链表翻转过程可参考下图：
 
 <div align=center>
-<img src="https://i.imgur.com/6xzxAaV.gif" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/6xzxAaV.gif" width="80%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/reverse-linked-list/)：
@@ -391,7 +391,7 @@ class Solution:
 要实现链表中元素两两交换需要每次获取两个节点`first`和`second`然后修改它们的指向。相应地，在更新当前头指针`cur`时需要向后移动2位。
 
 <div align=center>
-<img src="https://i.imgur.com/qN1kx4b.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/qN1kx4b.png" width="80%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/swap-nodes-in-pairs/)：
@@ -451,7 +451,7 @@ class Solution:
 图示两个链表在节点`c1`开始相交：
 
 <div align=center>
-<img src="https://i.imgur.com/GvrrbR0.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/GvrrbR0.png" width="60%">
 </div>
 
 题目数据**保证**整个链式结构中不存在环。
@@ -461,7 +461,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://i.imgur.com/cyYQjd7.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/cyYQjd7.png" width="60%">
 </div>
 
 ```
@@ -475,7 +475,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://i.imgur.com/YbhMkxu.png" width="55%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/YbhMkxu.png" width="55%">
 </div>
 
 ```
@@ -489,7 +489,7 @@ class Solution:
 **示例3：**
 
 <div align=center>
-<img src="https://i.imgur.com/nfcXQEI.png" width="35%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/nfcXQEI.png" width="35%">
 </div>
 
 ```
@@ -516,13 +516,13 @@ class Solution:
 我们假设两个链表的长度分别为`a`和`b`，而公共部分的长度为`c`。这样A和B两个链表在交点前的长度就分别是`a-c`和`b-c`。
 
 <div align=center>
-<img src="https://i.imgur.com/IeaGrxu.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/IeaGrxu.png" width="80%">
 </div>
 
 我们用两个指针分别对A和B两个链表进行遍历。当A链表的指针走到终点时把它移动到B链表的表头；类似地，当A链表的指针走到终点时把它移动到A链表的表头。当它们都走过`a+b-c`步时恰好会在两个链表的交点处相遇。
 
 <div align=center>
-<img src="https://i.imgur.com/CiwIhrU.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/CiwIhrU.png" width="80%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci/)：
@@ -557,7 +557,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://i.imgur.com/R70sKfT.png" width="45%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/R70sKfT.png" width="45%">
 </div>
 
 ```
@@ -569,7 +569,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://i.imgur.com/8GdM8bK.png" width="22%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/8GdM8bK.png" width="22%">
 </div>
 
 ```
@@ -581,7 +581,7 @@ class Solution:
 **示例3：**
 
 <div align=center>
-<img src="https://i.imgur.com/iUX1OVd.png" width="8%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/iUX1OVd.png" width="8%">
 </div>
 
 ```
@@ -601,19 +601,19 @@ class Solution:
 本题使用双指针时需要让快指针`fast`每次前进2步而慢指针`slow`前进1步，这样当两个指针相遇时快指针`fast`恰好比慢指针`slow`多走了`n`圈，即两个指针重合时`fast`比`slow`多走**环的长度整数倍**。更进一步可以证明此时慢指针`slow`前进的步数为`nb`，而快指针`fast`则前进了`2nb`步，其中`b`为环的长度。
 
 <div align=center>
-<img src="https://i.imgur.com/barkckZ.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/barkckZ.png" width="80%">
 </div>
 
 接下来我们把快指针`fast`移动到链表头，再次让两个指针同时前进，每次都只前进1步。
 
 <div align=center>
-<img src="https://i.imgur.com/Ju6T4IM.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Ju6T4IM.png" width="80%">
 </div>
 
 当快指针`fast`再次前进了`a`步时，慢指针恰好前进了`a+nb`步，这说明当两个指针再次相遇时的位置就是环的入口。
 
 <div align=center>
-<img src="https://i.imgur.com/DkORLmU.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/DkORLmU.png" width="80%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/linked-list-cycle-ii/)：

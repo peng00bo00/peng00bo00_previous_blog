@@ -33,7 +33,7 @@ $$
 从Jacobian矩阵来看，Cauchy-Riemann方程说明映射$f$是一个相似变换(旋转+缩放)因此不会改变向量的夹角。对于大多数网格我们可能很难保证映射严格满足Cauchy-Riemann方程，此时可以构造一个共形能量来描述映射$f$违背共形映射的程度，而LSCM的原理就是通过最小化共形能量来建立所需的共形映射。
 
 <div align=center>
-<img src="https://i.imgur.com/EHNaGWb.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/EHNaGWb.png" width="80%">
 </div>
 
 ### Conformality in a Triangulation
@@ -458,8 +458,8 @@ end
 在`cow.obj`网格上使用LSCM可以得到如下的参数化结果。需要说明的是LSCM可以保证参数化后网格不会出现翻转，但无法保证不会出现自交。在本例中我们可以看到网格在边界上出现了自交的情况。
 
 <div align=center>
-<img src="https://i.imgur.com/5CLahGo.png" width="40%">
-<img src="https://i.imgur.com/jk97x4E.jpg" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/5CLahGo.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/jk97x4E.jpg" width="40%">
 </div>
 
 ## Mean Value Coordinates
@@ -490,7 +490,7 @@ w_i = \frac{\tan{(\frac{\alpha_{i-1}}{2})} + \tan{(\frac{\alpha_{i}}{2})}}{\Vert
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/A0SZzJ0.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/A0SZzJ0.png" width="40%">
 </div>
 
 ### Implementation
@@ -571,8 +571,8 @@ end
 在`cow.obj`网格上使用LSCM确定边界然后使用mean value coordinates计算内部顶点uv坐标的结果如下。从结果来看mean value coordinates的结果与直接使用LSCM差异不大。
 
 <div align=center>
-<img src="https://i.imgur.com/5CLahGo.png" width="40%">
-<img src="https://i.imgur.com/FkQ3IwD.jpg" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/5CLahGo.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/FkQ3IwD.jpg" width="40%">
 </div>
 
 ## Reference
