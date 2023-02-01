@@ -15,44 +15,44 @@ sidebar:
 ## Coordinating and Communicating
 
 <div align=center>
-<img src="https://i.imgur.com/X2IsE1r.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/X2IsE1r.png" width="80%">
 </div>
 
 ## DEC-POMDP
 
 <div align=center>
-<img src="https://i.imgur.com/SQRoXoL.png" width="80%">
-<img src="https://i.imgur.com/C6NirNc.png" width="80%">
-<img src="https://i.imgur.com/DeE73Fr.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/SQRoXoL.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/C6NirNc.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/DeE73Fr.png" width="80%">
 </div>
 
 ## Communicating and Coaching
 
 <div align=center>
-<img src="https://i.imgur.com/RPDFyzS.png" width="80%">
-<img src="https://i.imgur.com/gCEl95p.png" width="80%">
-<img src="https://i.imgur.com/12OKiGc.png" width="80%">
-<img src="https://i.imgur.com/scu2V9E.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/RPDFyzS.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/gCEl95p.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/12OKiGc.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/scu2V9E.png" width="80%">
 </div>
 
 ## Policy Shaping
 
 <div align=center>
-<img src="https://i.imgur.com/kvM0pR6.png" width="80%">
-<img src="https://i.imgur.com/LYKC2iF.png" width="80%">
-<img src="https://i.imgur.com/GATILbo.png" width="80%">
-<img src="https://i.imgur.com/rAHnar8.png" width="80%">
-<img src="https://i.imgur.com/jmtBifi.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/kvM0pR6.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/LYKC2iF.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/GATILbo.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/rAHnar8.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/jmtBifi.png" width="80%">
 </div>
 
 ## Trajectories as MDPs
 
 <div align=center>
-<img src="https://i.imgur.com/oEySVKZ.png" width="80%">
-<img src="https://i.imgur.com/cVKLouy.png" width="80%">
-<img src="https://i.imgur.com/1M2Qo6E.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/oEySVKZ.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/cVKLouy.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/1M2Qo6E.png" width="80%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/H4i6Eos.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/H4i6Eos.png" width="80%">
 </div>

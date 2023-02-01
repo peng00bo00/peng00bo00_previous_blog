@@ -37,7 +37,7 @@ Q_t(s_{t-1}, a_{t-1}) = Q_{t-1}(s_{t-1}, a_{t-1}) + \alpha_t \bigg[ r_t + \gamma
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/lxnLPjy.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/lxnLPjy.png" width="80%">
 </div>
 
 ## Bellman Operator
@@ -79,7 +79,7 @@ F_t = B \ F_{t-1} \Rightarrow F_t \rightarrow F^*
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/Y85m69p.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Y85m69p.png" width="80%">
 </div>
 
 容易验证Bellman算子满足压缩映射的定义：
@@ -93,8 +93,8 @@ $$
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/OTjD0FM.png" width="80%">
-<img src="https://i.imgur.com/LYOqJKe.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/OTjD0FM.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/LYOqJKe.png" width="80%">
 </div>
 
 ## Convergence
@@ -102,14 +102,14 @@ $$
 Bellman算子作为一个压缩映射的直接推论是证明价值迭代算法的正确性。实际上存在如下定理保证了使用Bellman算子进行迭代的价值函数一定可以收敛到最优价值函数：
 
 <div align=center>
-<img src="https://i.imgur.com/CVM6Nd9.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/CVM6Nd9.png" width="80%">
 </div>
 
 更进一步，我们可以证明TD learning算法能够收敛到最优价值函数：
 
 <div align=center>
-<img src="https://i.imgur.com/WDgiEOC.png" width="80%">
-<img src="https://i.imgur.com/BQUIYSr.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/WDgiEOC.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/BQUIYSr.png" width="80%">
 </div>
 
 ## Generalized MDP
@@ -117,9 +117,9 @@ Bellman算子作为一个压缩映射的直接推论是证明价值迭代算法�
 除此之外，我们还可以对MDP以及Bellman方程的概念进行推广：
 
 <div align=center>
-<img src="https://i.imgur.com/kWEsF8a.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/kWEsF8a.png" width="80%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/ielFoAZ.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/ielFoAZ.png" width="80%">
 </div>
