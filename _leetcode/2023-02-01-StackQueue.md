@@ -154,6 +154,64 @@ class Solution:
 ```
 {: .snippet}
 
+### 1047. 删除字符串中的所有相邻重复项
+
+给出由小写字母组成的字符串`s`，**重复项删除操作**会选择两个相邻且相同的字母，并删除它们。
+
+在`s`上反复执行重复项删除操作，直到无法继续删除。
+
+在完成所有重复项删除操作后返回最终的字符串。答案保证唯一。
+
+**示例：**
+
+```
+输入："abbaca"
+输出："ca"
+解释：
+例如，在 "abbaca" 中，我们可以删除 "bb" 由于两字母相邻且相同，这是此时唯一可以执行删除操作的重复项。之后我们得到字符串 "aaca"，其中又只有 "aa" 可以执行重复项删除操作，所以最后的字符串为 "ca"。
+```
+
+**提示：**
+
+- 1 <= `s.length` <= 20000。
+- `s`仅由小写英文字母组成。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/remove-all-adjacent-duplicates-in-string/)：
+
+```python
+class Solution:
+    def removeDuplicates(self, s: str) -> str:
+        stack = []
+        for char in s:
+            if not stack or char != stack[-1]:
+                stack.append(char)
+            else:
+                stack.pop()
+            
+        return "".join(stack)
+```
+{: .snippet}
+
+```python
+class Solution:
+    def removeDuplicates(self, s: str) -> str:
+        ss = list(s)
+        slow = 0
+
+        for fast in range(len(ss)):
+            ss[fast], ss[slow] = ss[slow], ss[fast]
+
+            if slow > 0 and ss[slow] == ss[slow-1]:
+                slow -= 1
+            else:
+                slow += 1
+            
+        return "".join(ss[:slow])
+```
+{: .snippet}
+
 ## 队列
 
 ### 225. 用队列实现栈
@@ -275,3 +333,5 @@ class MyStack:
 - [栈与队列理论基础](https://programmercarl.com/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
 - [LeetCode：232.用栈实现队列](https://www.bilibili.com/video/BV1nY4y1w7VC/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：225.用队列实现栈](https://www.bilibili.com/video/BV1Fd4y1K7sm/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：20.有效的括号](https://www.bilibili.com/video/BV1AF411w78g/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：1047.删除字符串中的所有相邻重复项](https://www.bilibili.com/video/BV12a411P7mw/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
