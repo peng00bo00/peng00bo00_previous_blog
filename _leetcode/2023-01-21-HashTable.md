@@ -175,7 +175,7 @@ class Solution:
 
 **提示：**
 
-- 1 <= `n` <= 2<sup>31</sup> - 1。
+- 1 <= `n` <= 2³¹ - 1。
 
 #### Solution
 
@@ -292,7 +292,7 @@ class Solution:
 - `n` == `nums3.length`。
 - `n` == `nums4.length`。
 - 1 <= `n` <= 200。
-- -2<sup>28</sup> <= `nums1[i], nums2[i], nums3[i], nums4[i]` <= 2<sup>28</sup>。
+- -2²⁸ <= `nums1[i], nums2[i], nums3[i], nums4[i]` <= 2²⁸。
 
 #### Solution
 
@@ -454,7 +454,7 @@ class Solution:
 
 **提示：**
 
-- 1 <= `ransomNote.length, magazine.length` <= 10<sup>5</sup>。
+- 1 <= `ransomNote.length, magazine.length` <= 10⁵。
 - `ransomNote`和`magazine`由小写英文字母组成。
 
 #### Solution

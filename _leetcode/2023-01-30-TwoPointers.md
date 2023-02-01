@@ -321,7 +321,7 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
 **提示：**
 
 - 3 <= `nums.length` <= 3000。
-- -10<sup>5</sup> <= `nums[i]` <= 10<sup>5</sup>。
+- -10⁵ <= `nums[i]` <= 10⁵。
 
 #### Solution
 
@@ -389,8 +389,8 @@ class Solution:
 **提示：**
 
 - 1 <= `nums.length` <= 200。
-- -10<sup>9</sup> <= `nums[i]` <= 10<sup>9</sup>。
-- -10<sup>9</sup> <= `target` <= 10<sup>9</sup>。
+- -10⁹ <= `nums[i]` <= 10⁹。
+- -10⁹ <= `target` <= 10⁹。
 
 #### Solution
 
