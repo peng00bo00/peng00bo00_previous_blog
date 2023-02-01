@@ -26,7 +26,7 @@ sidebar:
 我们假定系统满足**马尔科夫性(Markovian property)**，即状态转移仅与当前状态有关而与转移的历史无关；此外我们还默认环境是稳定的，它在和智能体的互动中不会发生改变。这样我们可以把智能体和环境的互动过程用下图来表示：
 
 <div align=center>
-<img src="https://images.deepai.org/django-summernote/2019-03-19/c8c9f96b-cc21-4d33-8b37-cb810f599e6e.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/images.deepai.org/django-summernote/2019-03-19/c8c9f96b-cc21-4d33-8b37-cb810f599e6e.png" width="40%">
 </div>
 
 强化学习的目标是得到一个最优的**策略(policy)**使得智能体能够获得尽可能多的回报。所谓"策略"是指行为关于状态的函数$\Pi(s): S \rightarrow A$，它告诉智能体在给定的状态$s$下该如何确定自身的行为。在所有的策略中能够最大化回报的策略称为**最优策略(optimal policy)**，一般用$\Pi^*$来表示。

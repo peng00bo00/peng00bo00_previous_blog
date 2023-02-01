@@ -34,8 +34,8 @@ $$
 由于计算机不能表示连续的对象，计算机中的数字图像实际上是经过离散后的结果，此时我们也可以把图像理解为一个数组或是矩阵。
 
 <div align=center>
-<img src="https://i.imgur.com/Pxskgo5.png" width="32%">
-<img src="https://i.imgur.com/Pa10JG2.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Pxskgo5.png" width="32%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Pa10JG2.png" width="40%">
 </div>
 
 将图像视为函数之后就可以用函数的方法对图像进行操作，其中最简单的操作是对函数进行加减。比如说我们可以把对图像添加噪声的操作理解为原函数$f(x, y)$与噪声函数noise相加。常见的噪声函数包括：
@@ -45,7 +45,7 @@ $$
 - 高斯噪声(Gaussian noise)：服从正态分布$N(0, \sigma^2)$的噪点。
 
 <div align=center>
-<img src="https://i.imgur.com/xGQc9uM.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/xGQc9uM.png" width="60%">
 </div>
 
 对于高斯噪声，方差$\sigma^2$控制了噪声的强度：方差越大噪声越明显。
@@ -60,19 +60,19 @@ $$
 在这样的假设下我们可以使用滑动平均的方法对图像进行滤波，具体地针对每个像素点取它周围像素的平均值作为滤波的结果。假设我们已知图像$F(x,y)$，对它使用滑动平均进行滤波的过程如下：
 
 <div align=center>
-<img src="https://i.imgur.com/iCybD4n.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/iCybD4n.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/VGJ9mqJ.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/VGJ9mqJ.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/SBpay1T.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/SBpay1T.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/YaSgCw1.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/YaSgCw1.png" width="50%">
 </div>
 
 以上过程写成数学表达式为：
@@ -92,27 +92,27 @@ $$
 使用**方块核(box filter)**进行滤波可以图像模糊的效果如下：
 
 <div align=center>
-<img src="https://i.imgur.com/ubX9JEI.png" width="30%">
-<img src="https://i.imgur.com/GQa2SBz.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/ubX9JEI.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/GQa2SBz.png" width="30%">
 </div>
 
 仔细观察可以发现图像中有很多的方块状伪影。产生这种现象的原因是方块核并不能正确地反映图像模糊的过程：我们可以想象眼前有一个亮点不断离我们远去，随着距离的增加图像应该是中间亮边缘暗的，如下图所示：
 
 <div align=center>
-<img src="https://i.imgur.com/23SLRc2.png" width="20%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/23SLRc2.png" width="20%">
 </div>
 
 因此要正确的实现图像模糊的效果我们需要类似于上图的核。实际中比较常用的是**高斯核(Gaussian kernel)**，它可以看做是高斯函数的离散形式：
 
 <div align=center>
-<img src="https://i.imgur.com/2WtpHvU.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/2WtpHvU.png" width="70%">
 </div>
 
 使用高斯核代替方块核可以得到更加合理的模糊效果：
 
 <div align=center>
-<img src="https://i.imgur.com/ubX9JEI.png" width="30%">
-<img src="https://i.imgur.com/zVfSVk4.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/ubX9JEI.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/zVfSVk4.png" width="30%">
 </div>
 
 ## Linearity and Convolution
@@ -125,19 +125,19 @@ $$
 然后引入**脉冲函数(impulse)**的概念：在离散情况下某个给定位置取1的函数称为脉冲函数。
 
 <div align=center>
-<img src="https://i.imgur.com/BxOVn7u.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/BxOVn7u.png" width="30%">
 </div>
 
 将脉冲函数序列输入到系统$H$中可以得到响应$h(t)$，如果$H$是线性系统我们还可以通过响应$h(t)$来描述系统的性质。
 
 <div align=center>
-<img src="https://i.imgur.com/Lmzpryw.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Lmzpryw.png" width="60%">
 </div>
 
 可以证明相关滤波是线性系统。因此可以将脉冲函数$F(x, y)$输入到任意滤波器$H(u, v)$中，得到响应$G(x, y)$：
 
 <div align=center>
-<img src="https://i.imgur.com/i0hpXOb.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/i0hpXOb.png" width="70%">
 </div>
 
 不难发现响应$G(x, y)$实际上就是对滤波器$H(u, v)$进行了翻转。类似于相关滤波的运算我们可以定义**卷积(convolution)**运算：
@@ -175,15 +175,15 @@ $$
 我们还可以把滤波的过程看做是用给定的**模板(template)**在图像上进行搜索。以一维信号为例，假设我们希望从已知信号中找到一个给定的模板。我们可以把该模板作为滤波器在原始信号上进行滤波，在滤波窗口中原始信号与滤波器越相近响应越强。因此只需在响应信号中寻找最大值即可找到模板在原始信号中的位置：
 
 <div align=center>
-<img src="https://i.imgur.com/NaY5Pdx.png" width="52%">
-<img src="https://i.imgur.com/PXVHfw1.png" width="20%">
-<img src="https://i.imgur.com/k2lrpEQ.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/NaY5Pdx.png" width="52%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/PXVHfw1.png" width="20%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/k2lrpEQ.png" width="50%">
 </div>
 
 在图像上使用模板进行滤波的过程也称为**模板匹配(template matching)**。模板匹配的结果表示图像对应区域与模板的相似程度，匹配的响应越强表示该区域与模板越相似。
 
 <div align=center>
-<img src="https://i.imgur.com/U4y0rHi.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/U4y0rHi.png" width="60%">
 </div>
 
 需要额外说明的是进行模板匹配时需要保证待搜寻的目标与模板的大小、方向以及外观尽可能相似，否则可能会出现无法匹配的情况。
@@ -193,7 +193,7 @@ $$
 人眼可以通过图像的边缘来认识图像的内容，因此边缘是一种重要的图像特征。边缘可以有各种各样的定义，在图像处理中最常见的是把图像灰度值发生剧烈变化的区域定义为边缘，因此可以把图像导数取极值的位置视为图像的边缘。
 
 <div align=center>
-<img src="https://i.imgur.com/v4rZcWL.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/v4rZcWL.png" width="60%">
 </div>
 
 由于图像是二元函数，实际上这里"导数"指的是图像的**梯度(gradient)**：
@@ -230,19 +230,19 @@ $$
 显然我们可以把差分的形式通过滤波进行表示从而得到相应的滤波核。实际应用中更为常用的梯度算子包括Sobel算子、Prewitt算子、Roberts算子等，它们对应的滤波核如下：
 
 <div align=center>
-<img src="https://i.imgur.com/nsaDue1.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/nsaDue1.png" width="60%">
 </div>
 
 需要说明的是这里"滤波"指的是相关滤波，如果使用卷积滤波来计算的话则需要对滤波核进行相应的处理。在实际应用中由于噪声的存在直接计算梯度可能会产生较大的误差，因此往往需要首先对图像进行降噪然后在计算梯度。以一维信号为例，假设我们使用高斯核对信号进行降噪，利用卷积的微分性质可以把高斯滤波和边缘检测合并成一个算子：
 
 <div align=center>
-<img src="https://i.imgur.com/6POXCm5.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/6POXCm5.png" width="70%">
 </div>
 
 因此只需要使用高斯核的一阶导数进行滤波即可。为了获得边缘的位置我们需要在响应信号上再次求导，导数为0的位置即为边缘。再次利用卷积的微分性质将求导运算整合到卷积核中，得到高斯核的二阶导。使用高斯核的二阶导进行滤波，响应信号的过0点即为边缘：
 
 <div align=center>
-<img src="https://i.imgur.com/yCDgJoa.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/yCDgJoa.png" width="70%">
 </div>
 
 ## Edge detection: 2D Operators
@@ -250,7 +250,7 @@ $$
 最后来讨论图像上的边缘检测。类似于一维信号，我们同样可以将高斯核与求梯度进行结合从而加速计算：
 
 <div align=center>
-<img src="https://i.imgur.com/snLlyTQ.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/snLlyTQ.png" width="70%">
 </div>
 
 通常情况下寻找图像中的边缘可以采用如下的流程：
@@ -261,9 +261,9 @@ $$
 4. 将细化后的边缘重新连接得到最终的边缘。
 
 <div align=center>
-<img src="https://i.imgur.com/BoiLtDt.png" width="30%">
-<img src="https://i.imgur.com/4HtBHwl.png" width="30%">
-<img src="https://i.imgur.com/pG4n0sU.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/BoiLtDt.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/4HtBHwl.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/pG4n0sU.png" width="30%">
 </div>
 
 图像边缘检测算法中最常用的是Canny算法同样采用了这样一套流程。在边缘的细化过程中Canny算法通过**非极大值抑制(non-maximum suppression)**来清除杂乱的边缘，而在最后一步则使用了2套阈值来连接细化后的边缘：
@@ -273,17 +273,17 @@ $$
 - 对于弱边缘，如果它附近存在强边缘则进行保留否则进行抑制。
 
 <div align=center>
-<img src="https://i.imgur.com/MZMukk7.png" width="30%">
-<img src="https://i.imgur.com/bzfOUUk.png" width="30%">
-<img src="https://i.imgur.com/M0YhYbD.png" width="30%">
-<img src="https://i.imgur.com/kmqd4Px.png" width="30%">
-<img src="https://i.imgur.com/OjbfqJN.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/MZMukk7.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/bzfOUUk.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/M0YhYbD.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/kmqd4Px.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/OjbfqJN.png" width="30%">
 </div>
 
 此外值得一提的是高斯模糊过程中方差的选取也会对边缘检测的最终效果产生一定的影响：使用较大的$\sigma$会得到图像中较为显著的边缘，反之较小的$\sigma$则会保留图像中细节部分的边缘。因此$\sigma$的取值还需要结合实际需求进行选择。
 
 <div align=center>
-<img src="https://i.imgur.com/UBDvzKp.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/UBDvzKp.png" width="70%">
 </div>
 
 除了一阶梯度算子外我们也可以使用二阶梯度算子(**Laplace算子**)来进行边缘检测，其定义为函数在两个方向上二阶导数的和。我们同样可以将高斯滤波与Laplace算子进行结合，得到**LoG算子(Laplacian of Gaussian)**。类似于一维信号的边缘检测，使用LoG算子进行滤波后图像的过0点即为所需边缘。
@@ -293,6 +293,6 @@ $$
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/mCzoRkl.png" width="36%">
-<img src="https://i.imgur.com/vg6nar8.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/mCzoRkl.png" width="36%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/vg6nar8.png" width="30%">
 </div>

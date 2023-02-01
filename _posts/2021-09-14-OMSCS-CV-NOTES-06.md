@@ -26,7 +26,7 @@ sidebar:
 世界坐标到相机坐标的变换是三维空间点的刚体变换，一共有6个外参数：3个平移+3个旋转。
 
 <div align=center>
-<img src="https://i.imgur.com/q2OohzA.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/q2OohzA.png" width="70%">
 </div>
 
 ### Translation
@@ -38,7 +38,7 @@ $$
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/7dTllok.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/7dTllok.png" width="40%">
 </div>
 
 假设空间中还存在另一个坐标系$B$，它与$A$只相差一个平移。根据矢量加法$P$点在坐标系$B$中的坐标为：
@@ -50,7 +50,7 @@ $$
 其中$^B(O_A)$表示$A$坐标系中的原点$O_A$在$B$坐标系中的坐标。
 
 <div align=center>
-<img src="https://i.imgur.com/MkKRUPH.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/MkKRUPH.png" width="70%">
 </div>
 
 我们利用齐次坐标来重写上式可以得到平移变换的矩阵形式：
@@ -91,7 +91,7 @@ i_B & j_B & k_B
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/kMAzvq3.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/kMAzvq3.png" width="40%">
 </div>
 
 因此我们可以得到刚体旋转的坐标变换公式：
@@ -145,7 +145,7 @@ $$
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/oEcdNCI.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/oEcdNCI.png" width="70%">
 </div>
 
 同样利用齐次坐标可以得到矩阵形式：
@@ -193,7 +193,7 @@ v = f \frac{y}{z}
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/iOtIdbv.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/iOtIdbv.png" width="60%">
 </div>
 
 然而现实中相机的投影并不会这样完美。首先图像上的像素坐标没有物理意义也不代表现实中的长度，同时$u$、$v$两个方向上单位像素的长度也不一定严格相等。因此我们不能够直接使用焦距$f$来表示投影过程，而是需要引入2个方向上的待定参数$\alpha$和$\beta$：
@@ -227,7 +227,7 @@ v = \frac{\beta}{\sin (\theta)} \frac{y}{z} + v_0
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/Jlna2vV.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Jlna2vV.png" width="60%">
 </div>
 
 我们将整个投影过程用齐次坐标来表达就得到了相机的**内参数矩阵(intrinsic matrix)** $K$：
@@ -270,7 +270,7 @@ $$
 我们把相机的外参数矩阵、投影矩阵以及内参数矩阵组合到一起就得到了相机矩阵$M$，它表示世界坐标系到图像坐标系的变换过程：
 
 <div align=center>
-<img src="https://i.imgur.com/UWsPQGv.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/UWsPQGv.png" width="70%">
 </div>
 
 从前面的推导不难发现相机矩阵一共有11个自由度：其中6个来自于外参数矩阵(3个平移+3个旋转)，另外5个来自于内参数矩阵。需要注意的是直接使用相机矩阵得到的坐标是图像平面上的齐次坐标，需要对最后一维进行归一化才能得到所需的像素坐标。
@@ -427,13 +427,13 @@ $$
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/bUIcq1u.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/bUIcq1u.png" width="30%">
 </div>
 
 由于投影过程是非线性的，我们无法像直接法那样显式地计算优化问题的解，一般情况下需要通过牛顿法(Newton method)等非线性优化算法来迭代求解。我们把直接法和非线性优化结合起来就得到了相机标定的**Gold Standard算法**：
 
 <div align=center>
-<img src="https://i.imgur.com/pH201iB.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/pH201iB.png" width="60%">
 </div>
 
 ### Finding Camera Center from M
@@ -464,5 +464,5 @@ $$
 除了直接法和Gold Standard算法外，实际应用中更常见的是使用棋盘格标定板的相机标定方法。使用棋盘格进行标定时，我们只需要拍摄不同角度下棋盘格的照片即可完成相机的标定工作。和前面介绍的方法相比，棋盘格标定操作简单、无需事先知道棋盘格的位姿、而且还能对镜头畸变进行矫正，因此棋盘格标定在大多数计算机视觉库(如OpenCV、MATLAB Computer Vision Toolbox)中都有现成的实现。
 
 <div align=center>
-<img src="https://i.imgur.com/WHgRV33.png" width="90%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/WHgRV33.png" width="90%">
 </div>

@@ -23,7 +23,7 @@ sidebar:
 instance based learning算法中最出名的是**k临近算法(k nearest neighbor), kNN**。简单来说当我们使用数据$x$进行查询时，从数据库中选出k个与$x$最接近的样本，然后利用这些样本来求解分类和回归的问题。对于分类问题可以使用这k个样本进行投票，票数最多的类别即为$x$的类别；而对于回归问题则可以使用k个样本的平均值来作为$x$的预测值。在实际应用中往往还会利用样本到$x$的距离进行加权来进一步提升算法的性能。
 
 <div align=center>
-<img src="https://i.imgur.com/CmEPS0p.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/CmEPS0p.png" width="70%">
 </div>
 
 从k-NN算法的流程不难发现如何计算样本间的距离对于算法的性能起着至关重要的作用。常用的距离函数包括欧式距离、Manhattan距离等，在实际应用中一般还会结合一些domain knowledge来设计合适的距离函数。
@@ -33,7 +33,7 @@ k值的选择同样会对kNN的结果产生重大影响。当k值比较小时模
 在大规模高维的数据库中对数据$x$进行查询会极大地影响k-NN的算法效率。最简单的查询方法是进行线性扫描，即依次计算$x$与每一个样本的距离并保留其中最小的k个。显然线性扫描的方法在大规模数据库中会非常低效，在实际应用中更常用的方式是使用**kd树(kd tree)**的数据结构来存储训练数据。当数据均匀分布时可以证明使用kd树进行搜索的平均复杂度是$O(\log n)$，远小于线性扫描的复杂度$O(n)$。
 
 <div align=center>
-<img src="https://i.imgur.com/5ShPChj.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/5ShPChj.png" width="70%">
 </div>
 
 ## Bias
@@ -47,7 +47,7 @@ k-NN的restriction bias由距离函数控制，理论上讲只要可以构造出
 本节最后介绍了**维数灾难(curse of dimensionality)**的问题。维数灾难是指在机器学习中随着数据集上特征数目的增长，要保持模型具有泛化能力所需要的数据量会成指数增长。举个简单的例子，假设我们可以在直线上采样10个点来表示这条直线；而当维数升到2时，我们需要$10 \times 10 = 100$个数据点来描述平面；更进一步，在$d$维空间中我们需要$10^d$个数据点才能描述整个空间。
 
 <div align=center>
-<img src="https://i.imgur.com/qMGGWX6.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/qMGGWX6.png" width="70%">
 </div>
 
 维数灾难表明数据集的特征并不是越多越好，相反当特征的数量增加时我们需要更多的数据才能保证模型的泛化性能。由于k-NN算法不能对特征加以区分，在高维数据集上直接使用k-NN算法很容易出现过拟合的问题。

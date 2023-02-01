@@ -17,27 +17,27 @@ sidebar:
 **图像识别(image recognition)**是计算机视觉中较为复杂的任务，我们希望计算机可以告诉我们图像中包含了哪些物体，它们的位置都在哪里，图像的场景是什么等问题。
 
 <div align=center>
-<img src="https://i.imgur.com/kG5Hgah.png" width="40%">
-<img src="https://i.imgur.com/kG5Hgah.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/kG5Hgah.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/kG5Hgah.png" width="40%">
 </div>
 
 图像识别的难点很多，比如说现实中的图像往往容易收到光照因素的影响，同样的物体可能会有不同的姿态，图像中可能存在很多杂乱的物体对视线进行干扰等。
 
 <div align=center>
-<img src="https://i.imgur.com/5mJinzS.png" width="90%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/5mJinzS.png" width="90%">
 </div>
 
 同时，现实中的图像或多或少会有一些遮挡的问题；同一类别的物体往往只存在细微的差别，这又提高了图像识别的难度；此外当相机的视角不同时同一个物体会有不同的呈现形式。这些都使得设计鲁棒的图像识别算法变得非常困难。
 
 <div align=center>
-<img src="https://i.imgur.com/5wGYzsT.png" width="90%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/5wGYzsT.png" width="90%">
 </div>
 
 不过近几年随着机器学习尤其是深度学习方法的流行，图像识别这一问题在很大程度上已经得到了解决。基于大数据和深度神经网络的图像识别方法在识别精度和正确率上已经接近或超越了人类水平，并在各个领域中都得到了大量的应用。
 
 <div align=center>
-<img src="https://i.imgur.com/xynzIgY.png" width="50%">
-<img src="https://i.imgur.com/D3UBZqb.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/xynzIgY.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/D3UBZqb.png" width="30%">
 </div>
 
 ## Classification: Generative Models
@@ -45,7 +45,7 @@ sidebar:
 在本课程中我们不会过多地讨论这些机器学习或深度学习方法，而是着重介绍使用机器学习解决图像识别的基本思想。以数字图像分类问题为例，给定一系列带有标签的训练图像，我们希望能从数据中学习到一个模型来识别图像中的数字：
 
 <div align=center>
-<img src="https://i.imgur.com/VuMhtYV.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/VuMhtYV.png" width="60%">
 </div>
 
 那么如何衡量这个模型的好坏呢？我们需要知道这个模型会犯哪些错误，以及当模型犯错时相应的损失是多少。显然我们希望模型在训练数据上的(期望)损失越小越好，这就是**监督学习(supervised learning)**的基本思想。一般来说监督学习方法有两种策略：
@@ -88,8 +88,8 @@ $$
 我们定义数据集的**主成分(principal components)**为数据方差最大的方向。以下图为例，显然第一个主成分对应对角线方向。其余主成分方向与之前定义的主成分相互垂直，表示除去当前主方向后方差最大的方向。
 
 <div align=center>
-<img src="https://i.imgur.com/xCIVT2n.png" width="40%">
-<img src="https://i.imgur.com/bDLYbvS.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/xCIVT2n.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/bDLYbvS.png" width="40%">
 </div>
 
 ### Fitting a Line
@@ -109,7 +109,7 @@ d = a \bar{x} + b \bar{y}
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/aEMwkmk.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/aEMwkmk.png" width="30%">
 </div>
 
 把$d$代回$E(a, b, d)$中，得到：
@@ -154,7 +154,7 @@ E = \sum_i (x^T P_i)^2 = x^T B^T B x
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/0zjSOUQ.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/0zjSOUQ.png" width="40%">
 </div>
 
 令$M = B^T B$，得到约束优化问题：
@@ -199,30 +199,30 @@ $$
 PCA的一个重要应用是对数据进行降维。对于高维的数据，我们可以仅采用少量几个的主方向来描述原始数据。以下图为例，我们可以用橙色点在$v_1$方向上的投影来对它们进行区分：
 
 <div align=center>
-<img src="https://i.imgur.com/TkwvCwZ.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/TkwvCwZ.png" width="40%">
 </div>
 
 PCA在人脸识别上有很经典的应用。我们可以把人脸图像视为一个高维的向量，通过PCA我们可以得到人脸的平均值和特征向量：
 
 <div align=center>
-<img src="https://i.imgur.com/tFRWR5j.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/tFRWR5j.png" width="70%">
 </div>
 
 这样任意一张人脸图像都可以用它在特征向量上的投影来表示：
 
 <div align=center>
-<img src="https://i.imgur.com/6r5ECjd.png" width="70%">
-<img src="https://i.imgur.com/UXKEBVz.png" width="90%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/6r5ECjd.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/UXKEBVz.png" width="90%">
 </div>
 
 换句话说我们可以把人脸视为特征空间中的点，这样就可以利用生成式模型来解决人脸识别的问题：
 
 <div align=center>
-<img src="https://i.imgur.com/fbTf6YM.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/fbTf6YM.png" width="70%">
 </div>
 
 当然需要说明的是PCA也有自身的局限性，在大多数情况下主方向都不一定适合分类问题。
 
 <div align=center>
-<img src="https://i.imgur.com/Zpl3Uv4.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Zpl3Uv4.png" width="40%">
 </div>

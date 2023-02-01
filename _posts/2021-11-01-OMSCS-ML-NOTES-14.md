@@ -23,25 +23,25 @@ sidebar:
 - 如果我们已知外界环境的状态转移$T$以及回报函数$R$，我们可以通过一些算法来计算出最优策略，这样的过程称为**规划(planning)**；
 
 <div align=center>
-<img src="https://i.imgur.com/8TN3RtL.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/8TN3RtL.png" width="40%">
 </div>
 
 - 如果我们只能通过观测得到的状态转移序列$\langle s, a, r, s' \rangle$，我们希望通过这些观测来学习到最优策略，这样的过程称为**强化学习(reinforcement learning)**；
 
 <div align=center>
-<img src="https://i.imgur.com/RWEKrGL.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/RWEKrGL.png" width="40%">
 </div>
 
 - 我们可以利用观测得到的状态转移序列$\langle s, a, r, s' \rangle$来估计真实的外界环境，这样的过程称为**建模(modeling)**；
 
 <div align=center>
-<img src="https://i.imgur.com/5kJR57Y.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/5kJR57Y.png" width="40%">
 </div>
 
 - 此外我们还可以利用已有的模型来获取状态转移序列，这样的过程称为**仿真(simulation)**。
 
 <div align=center>
-<img src="https://i.imgur.com/cjJ32VT.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/cjJ32VT.png" width="40%">
 </div>
 
 ### Three Approaches to RL
@@ -55,7 +55,7 @@ sidebar:
 实际上这三种类型的算法是相互关联的：在大多数情况下直接进行策略搜索会比较困难，但我们可以先计算价值函数然后通过价值函数来获得最优策略；如果获得了外界环境的模型，我们通过求解Bellman方程来计算价值函数并获得最优策略。
 
 <div align=center>
-<img src="https://i.imgur.com/NmhFrT3.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/NmhFrT3.png" width="60%">
 </div>
 
 以上这三种强化学习算法在实际中都有各自的应用，不过在本课程中我们主要关注基于价值函数的强化学习算法。

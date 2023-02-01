@@ -33,26 +33,26 @@ sidebar:
 在图像识别任务中常用的图像特征包括边缘、轮廓、图像梯度等，在构造图像特征时往往会将图像划分成网格然后在每个格子内计算这些特征的直方图作为最终的图像特征。
 
 <div align=center>
-<img src="https://i.imgur.com/yYwRoKH.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/yYwRoKH.png" width="80%">
 </div>
 
 以车辆检测为例，我们需要使用这些图像特征训练一个二元分类器来回答输入图像是否是一辆汽车。
 
 <div align=center>
-<img src="https://i.imgur.com/sh7SbyV.png" width="80%">
-<img src="https://i.imgur.com/yqyBkUo.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/sh7SbyV.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/yqyBkUo.png" width="80%">
 </div>
 
 当模型训练好后，我们就可以在图像上进行滑窗来检测出图像中车汽车的位置。
 
 <div align=center>
-<img src="https://i.imgur.com/8gI2u1z.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/8gI2u1z.png" width="80%">
 </div>
 
 在计算机视觉中常用的分类模型如下：
 
 <div align=center>
-<img src="https://i.imgur.com/z0s2Y9O.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/z0s2Y9O.png" width="80%">
 </div>
 
 ## Boosting and Face Detection
@@ -62,23 +62,23 @@ sidebar:
 Boosting是一种常用的集成学习模型，它的基本思想是将一系列**弱学习器(weak learner)**组合到一起形成一个强大的模型。在训练过程中，boosting会提高当前学习器分类错误的样本权重从而在下一轮训练中更加关注这些错误的样本：
 
 <div align=center>
-<img src="https://i.imgur.com/lmUv2Ry.png" width="40%">
-<img src="https://i.imgur.com/SofYVOc.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/lmUv2Ry.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/SofYVOc.png" width="40%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/xrfsjLp.png" width="40%">
-<img src="https://i.imgur.com/j158nFe.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/xrfsjLp.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/j158nFe.png" width="40%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/JJViXfo.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/JJViXfo.png" width="40%">
 </div>
 
 当训练完成时，最终的模型即为全部弱学习器的线性组合。每个学习器的权重则取决于所使用的boosting算法，如Adaboost中会根据分类器的错误率来调节弱学习器的权重，错误率越低则权重越大。
 
 <div align=center>
-<img src="https://i.imgur.com/UdSjdAl.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/UdSjdAl.png" width="60%">
 </div>
 
 ### Viola-Jones Face Detector
@@ -86,37 +86,37 @@ Boosting是一种常用的集成学习模型，它的基本思想是将一系列
 Boosting在计算机视觉中的经典应用是Viola-Jones人脸检测算法，它的基本思想是使用一系列方块形滤波器构造出人脸的特征并训练出一个二分类模型进行人脸检测。
 
 <div align=center>
-<img src="https://i.imgur.com/uZtQgJ1.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/uZtQgJ1.png" width="80%">
 </div>
 
 在原始论文中检测窗口固定为$24 \times 24$，根据滤波器的位置、尺寸和形状总共有超过180,000种可能的特征(滤波器)。
 
 <div align=center>
-<img src="https://i.imgur.com/6AhjIQq.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/6AhjIQq.png" width="60%">
 </div>
 
 然后使用Adaboost算法来训练人脸分类器，其中每个弱学习器只在几个少量的特征上进行分类，即每个学习器都只选择当前最有效的特征进行学习。
 
 <div align=center>
-<img src="https://i.imgur.com/TFYT6FB.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/TFYT6FB.png" width="60%">
 </div>
 
 同时在实践中还发现图像中大部分位置都不是人脸，因此为了提高效率Viola-Jones人脸检测算法还设计了一个**级联分类器(cascade classifier)**来过滤掉图像中非人脸的部分。它的思想是将一系列分类器串联起来，当输入窗口图像被当前分类器划分为负样本时直接拒绝它，换句话说只有通过所有分类器的窗口才是人脸。
 
 <div align=center>
-<img src="https://i.imgur.com/ZSj1WK3.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/ZSj1WK3.png" width="60%">
 </div>
 
 Viola-Jones人脸检测算法的基本框架如下：
 
 <div align=center>
-<img src="https://i.imgur.com/zEzL6s8.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/zEzL6s8.png" width="80%">
 </div>
 
 Viola-Jones人脸检测算法是第一个大规模应用的人脸检测算法，一些检测结果如下：
 
 <div align=center>
-<img src="https://i.imgur.com/awv2J1G.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/awv2J1G.png" width="80%">
 </div>
 
 ## Support Vector Machines
@@ -126,7 +126,7 @@ Viola-Jones人脸检测算法是第一个大规模应用的人脸检测算法，
 **支持向量机(support vector machines, SVM)**是计算机视觉中另一种非常常用的分类模型。它的基本思想是寻找一条直线(超平面)将正负两类样本进行分隔，同时使得样本到这条直线的**间隔(margin)**尽可能大。
 
 <div align=center>
-<img src="https://i.imgur.com/HOupgMR.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/HOupgMR.png" width="40%">
 </div>
 
 假设超平面方程为$y = w^T x + b$，正负两类样本到超平面的间隔为1。则对于任意样本$x_i$有：
@@ -138,7 +138,7 @@ $$
 其中取等号的样本称为**支持向量(support vector)**。
 
 <div align=center>
-<img src="https://i.imgur.com/mSvIyfF.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/mSvIyfF.png" width="50%">
 </div>
 
 对于任意样本$x_i$，它到超平面的距离为：
@@ -197,11 +197,11 @@ $$
 SVM的一个主要的限制是它要求训练数据必须是线性可分的，当数据不满足这个条件时显然SVM无法得到正确的解。在这种情况下一般会考虑将数据映射到更高维使得原本线性不可分的数据在高维空间中变得可分。
 
 <div align=center>
-<img src="https://i.imgur.com/NCxoYOa.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/NCxoYOa.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/P79ksfL.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/P79ksfL.png" width="70%">
 </div>
 
 显式地将数据映射到高维再训练SVM往往会极大地提高训练成本，实践中更常见的方法是使用**核函数(kernel function)**来进行处理。它的基本思想是在低维空间中利用核函数来表示高维空间中的内积：
@@ -253,17 +253,17 @@ $$
 本节最后我们来介绍一些**词袋模型(bag of words)**。词袋模型是文本处理中的一种常见方法，我们统计文本中的单词出现的频率然后构造出这些单词的直方图。对于内容相似的文本可以假定它们的单词直方图是相似的，因此我们就可以把这种直方图作为特征来训练机器学习模型。而在计算机视觉中我们可以利用相同的思想，把图像特征或是一些特定的区域视为"单词"，然后通过统计图像上这些"单词"的直方图来表示整个图片。
 
 <div align=center>
-<img src="https://i.imgur.com/PlTqpaH.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/PlTqpaH.png" width="80%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/FnUA4EW.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/FnUA4EW.png" width="80%">
 </div>
 
 显然在图像上使用词袋模型的难点在于如何计算图像中"单词"出现的频率，这个可以通过计算图像的相似性来实现：
 
 <div align=center>
-<img src="https://i.imgur.com/w30vDMs.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/w30vDMs.png" width="80%">
 </div>
 
 ## Reference

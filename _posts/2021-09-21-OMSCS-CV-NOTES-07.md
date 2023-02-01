@@ -17,7 +17,7 @@ sidebar:
 在正式介绍多视图几何的相关内容前我们首先来考虑一下平面上的几何变换。平面上的几何变换可以分为**平移变换(translation)**、**刚体(欧式)变换(Euclidean transform)**、**相似变换(similarity transform)**以及**仿射变换(affine transform)**，而它们都可以看做是**投影变换(projective transform)**的特例。
 
 <div align=center>
-<img src="https://i.imgur.com/qV6Uush.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/qV6Uush.png" width="70%">
 </div>
 
 通过齐次坐标可以把这些变换写成通用的形式：
@@ -53,7 +53,7 @@ H =
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/n4j0rTX.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/n4j0rTX.png" width="50%">
 </div>
 
 显然在平移变换前后物体的夹角、长度、面积、朝向等几何量都保持不变。
@@ -70,7 +70,7 @@ H =
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/QpEdkMr.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/QpEdkMr.png" width="50%">
 </div>
 
 显然物体的朝向在变换后会发生改变，但夹角、长度、面积保持不变。
@@ -87,7 +87,7 @@ a \cos{\theta} & -a \sin{\theta} & t_x \\ a \sin{\theta} & a \cos{\theta} & t_y 
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/OGWX6Pz.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/OGWX6Pz.png" width="50%">
 </div>
 
 相似变换后的物体只能保证夹角大小不变，物体的面积和长度则会按照相似比例变化。
@@ -104,7 +104,7 @@ a & b & c \\ d & e & f \\ 0 & 0 & 1
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/4407cCM.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/4407cCM.png" width="50%">
 </div>
 
 仿射变换可以保证平行的直线经过变换后仍然保持平行。
@@ -121,7 +121,7 @@ a & b & c \\ d & e & f \\ g & h & 1
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/kb4S2bs.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/kb4S2bs.png" width="50%">
 </div>
 
 投影变换只能保证直线在变换后仍保持直线，但不能保证平行的直线变换后保持平行。
@@ -129,7 +129,7 @@ $$
 我们把前面介绍的这几种变换的性质进行汇总，可以得到如下的表格：
 
 <div align=center>
-<img src="https://i.imgur.com/mIT1Ue6.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/mIT1Ue6.png" width="60%">
 </div>
 
 ## Homographies and Mosaics
@@ -137,13 +137,13 @@ $$
 图像上的齐次坐标实际上可以从三维空间进行理解。此时多出来的一维$w$表示空间点的深度，因此图像平面上的点实际上表示的是空间中位于平面$z=1$上的点。同时利用齐次坐标的规范化性质，坐标$(x, y, 1)$可以理解为从原点出发经过图像平面上点$(x, y, 1)$的射线。
 
 <div align=center>
-<img src="https://i.imgur.com/Q56tdOx.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Q56tdOx.png" width="30%">
 </div>
 
 利用齐次坐标的几何意义可以实现图像平面到图像平面的变换。假设空间中存在2个具有相同成像中心的图像平面PP1和PP2，我们想要计算两个图像平面的变换关系。对于空间中的点P可以做一条成像中心C到P点的连线与图像平面分别交于P1和P2两点，如下图所示：
 
 <div align=center>
-<img src="https://i.imgur.com/eMIOhuM.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/eMIOhuM.png" width="30%">
 </div>
 
 不难发现实际上我们不需要考虑两个平面的空间关系，只需要知道投影点的坐标变换关系就可以实现PP1和PP2之间的转换。
@@ -153,13 +153,13 @@ $$
 图像平面变换的一个典型应用是获得**全景图(panorama)**。我们可以利用图像平面的变换将不同角度拍摄的图像变换到一个固定的角度，从而获得更大的视野。
 
 <div align=center>
-<img src="https://i.imgur.com/vNAPQjy.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/vNAPQjy.png" width="70%">
 </div>
 
 全景图拼接的本质是把不同的成像平面变换到一个给定的平面上，从而得到空间点在该平面上的投影。因此这样的过程需要保证不同图像的成像中心是同一点，同时视野的角度需要小于180°，否则会产生一些扭曲的问题。
 
 <div align=center>
-<img src="https://i.imgur.com/Wl2B40P.png" width="20%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Wl2B40P.png" width="20%">
 </div>
 
 ### Homography
@@ -223,14 +223,14 @@ $$
 我们可以把图像看做空间中的一个平面，这样利用单应矩阵就可以完成对图像的矫正(rectification)。
 
 <div align=center>
-<img src="https://i.imgur.com/cdZL4iN.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/cdZL4iN.png" width="50%">
 </div>
 
 图像矫正的一个常见应用是把透视投影矫正为正交投影，使原本相交于灭点的平行直线在投影后仍保持平行，这样方便我们在矫正后的图像上进行处理。
 
 <div align=center>
-<img src="https://i.imgur.com/Zbzgzag.png" width="30%">
-<img src="https://i.imgur.com/o5Yvycu.png" width="45%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Zbzgzag.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/o5Yvycu.png" width="45%">
 </div>
 
 ### Image Warping
@@ -238,7 +238,7 @@ $$
 使用单应矩阵进行图像变换时需要注意的是我们实际上是对变换后的图像进行处理。具体来说对于变换后图像$g(x, y)$上的点$(x', y')$，我们需要把原始图像$f(x, y)$上对应点$(x, y)$处的像素拷贝过来。
 
 <div align=center>
-<img src="https://i.imgur.com/JYmu3Q0.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/JYmu3Q0.png" width="70%">
 </div>
 
 在大多数情况下原始图像上对应点的坐标都不是整数，因此我们需要通过插值的方式来计算像素值。实践中往往会利用双线性插值来进行计算：
@@ -250,7 +250,7 @@ f(x, y) &= (1-a)(1-b) \cdot f(i, j) \\ &+ a(1-b) \cdot f(i+1, j) \\ &+ ab \cdot 
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/JKHbo4b.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/JKHbo4b.png" width="30%">
 </div>
 
 ## Projective Geometry
@@ -275,7 +275,7 @@ $$
 如果把齐次坐标看成是经过原点的射线，那么平面直线同样可以理解为经过原点的平面与成像平面的交线。此时直线向量$l$表示该平面的法向量。
 
 <div align=center>
-<img src="https://i.imgur.com/VxsaaFK.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/VxsaaFK.png" width="30%">
 </div>
 
 利用对偶性可以方便地计算平面上的直线方程。假设图像平面上存在两个点$p_1$和$p_2$，经过两个点的直线$l$需要满足：
@@ -295,7 +295,7 @@ l = p_1 \times p_2
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/UkgvEpm.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/UkgvEpm.png" width="30%">
 </div>
 
 类似地，假设图像上存在两条直线$l_1$和$l_2$且它们的交点为$p$。$p$点的坐标同样可以由$l_1$和$l_2$给出
@@ -313,14 +313,14 @@ p = l_1 \times l_2
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/LSNdXw7.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/LSNdXw7.png" width="30%">
 </div>
 
 上面的分析说明在投影空间下直线与点是相互对偶的，利用叉积运算可以方便地求解直线方程和直线交点。
 
 <div align=center>
-<img src="https://i.imgur.com/k7ztm6Z.png" width="30%">
-<img src="https://i.imgur.com/MkPW4OZ.png" width="37%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/k7ztm6Z.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/MkPW4OZ.png" width="37%">
 </div>
 
 ### Ideal Points and Lines
@@ -328,13 +328,13 @@ $$
 当齐次坐标的最后一维为0时，坐标向量$(x, y, 0)$与成像平面平行。我们称此时的点为**理想点(ideal points)**，它位于成像平面上的无穷远处。
 
 <div align=center>
-<img src="https://i.imgur.com/ICZc5Dq.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/ICZc5Dq.png" width="40%">
 </div>
 
 类似地，当直线向量的最后一维为0时，直线向量$l = (a, b, 0)$平行于成像平面且在成像平面上该直线通过原点。这样的直线称为**理想直线(ideal line)**，显然无穷远处的理想点都满足理想直线的方程，也就是位于某些理想直线上。
 
 <div align=center>
-<img src="https://i.imgur.com/zoGZRLl.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/zoGZRLl.png" width="40%">
 </div>
 
 ## Essential Matrix
@@ -342,11 +342,11 @@ $$
 在[Epipolar Geometry](/2021/09/08/OMSCS-CV-NOTES-05.html#epipolar-geometry)一节中我们介绍过双目相机的对极约束。空间点$P$与两个成像中心构成的平面称为**极平面(epipolar plane)**；$P$点在成像平面$\Pi$上的投影$p$对应$\Pi'$平面上的一条直线，称为**极线(epipolar line)**；成像中心$O'$在$\Pi$平面上的投影称为**极点(epipole)**；同时$\Pi$平面上所有的极线都相交于极点。
 
 <div align=center>
-<img src="https://i.imgur.com/p0etcdX.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/p0etcdX.png" width="60%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/BAK9HMw.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/BAK9HMw.png" width="50%">
 </div>
 
 几何意义之外，对极约束在代数上也具有非常优雅的形式。假设空间中存在两个成像中心$O_c$和$O_c'$，且两个相机的相对位姿可以通过平移$T$和旋转$R$来表示。为不失一般性我们假定世界坐标系与$O_c$坐标系重合，此时空间点$X$在$O_c'$坐标系下的坐标为：
@@ -356,7 +356,7 @@ X' = R X + T
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/9cA77SJ.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/9cA77SJ.png" width="50%">
 </div>
 
 在等式两端同时叉乘$T$得到：
@@ -413,7 +413,7 @@ T = (-B, 0, 0)^T
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/c7UEgWU.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/c7UEgWU.png" width="30%">
 </div>
 
 我们把旋转和平移带入到本质矩阵的计算公式，得到退化的本质矩阵：
@@ -498,7 +498,7 @@ l' = F p
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/VprYenA.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/VprYenA.png" width="40%">
 </div>
 
 同时，在两个成像上的投影点可以利用单应矩阵进行变换：

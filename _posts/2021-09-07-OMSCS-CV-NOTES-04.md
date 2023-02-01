@@ -21,13 +21,13 @@ sidebar:
 现实生活中最简单的相机是**针孔相机(pinhole camera)**，它通过小孔成像的原理将空间中的点投影到底片上。
 
 <div align=center>
-<img src="https://i.imgur.com/B5LMp0N.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/B5LMp0N.png" width="70%">
 </div>
 
 针孔相机的一个主要问题在于成像不够清晰，这通常是由于针孔的尺寸取得过大所导致的。当针孔比较大时同一点发出的不同光线会投影到底片的不同位置，来自不同物体的光线在同一位置上相互叠加就会导致成像变得模糊。同时需要说明的是针孔的尺寸并不是越小越好，当针孔过于小时由于光的衍射(diffraction)也可能会导致成像的模糊。
 
 <div align=center>
-<img src="https://i.imgur.com/YYglSfz.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/YYglSfz.png" width="70%">
 </div>
 
 ### Lenses
@@ -39,17 +39,17 @@ $$
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/9nNf5pC.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/9nNf5pC.png" width="50%">
 </div>
 
 当相机和透镜确定时，**光圈(aperture)**的大小控制了**景深(depth of field)**的范围。当光圈比较大时会有较多的光线进入透镜，此时的景深较小；相反的当光圈比较小时只会有少部分的光线进入透镜，此时的景深会增大。
 
 <div align=center>
-<img src="https://i.imgur.com/jR2KTF0.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/jR2KTF0.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/9BSP6EO.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/9BSP6EO.png" width="70%">
 </div>
 
 在成像过程中另一个重要参数是**视野(field of view)** $\phi$，它与焦距$f$以及底片尺寸$d$有关。当底片尺寸确定时焦距越大，视野越小。
@@ -59,68 +59,68 @@ $$
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/NlwWGhp.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/NlwWGhp.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/gKarQoK.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/gKarQoK.png" width="80%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/AaMVHWm.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/AaMVHWm.png" width="80%">
 </div>
 
 直观上理解视野描述了成像区域的大小，视野越大成像的范围就越大。但需要注意的是调整视野和调整成像距离是不完全一致的，这在人像摄影中尤为重要。
 
 <div align=center>
-<img src="https://i.imgur.com/Lzrct7A.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Lzrct7A.png" width="70%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/xvp4j9P.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/xvp4j9P.png" width="70%">
 </div>
 
 此外，焦距还会对透视产生一定的影响。当焦距不断增大时，成像的结果会趋向于平行投影。
 
 <div align=center>
-<img src="https://i.imgur.com/4RD9spN.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/4RD9spN.png" width="70%">
 </div>
 
 焦距的在成像中的另一个应用是**滑动变焦(dolly zoom)**。只需要改变焦距和成像距离而无需移动物体就可以干扰人眼对空间的认知，这在很多影视作品中都有应用。
 
 <div align=center>
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Contra-zoom_aka_dolly_zoom_animation.gif" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/upload.wikimedia.org/wikipedia/commons/c/c7/Contra-zoom_aka_dolly_zoom_animation.gif" width="40%">
 </div>
 
 现实生活中的透镜由于制造工艺等因素会存在一定的缺陷，其中最常见的缺陷是**畸变(distortion)**，此时原本的直线在投影后会变成曲线：
 
 <div align=center>
-<img src="https://i.imgur.com/WUKSPF8.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/WUKSPF8.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/jJvUc0j.png" width="47%">
-<img src="https://i.imgur.com/t0NdfnY.png" width="32%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/jJvUc0j.png" width="47%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/t0NdfnY.png" width="32%">
 </div>
 
 另一种常见的缺陷是**色差(chromatic aberration)**，它是指透镜无法将各种波长的色光都聚焦在同一点上的现象。
 
 <div align=center>
-<img src="https://i.imgur.com/kYJjhQt.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/kYJjhQt.png" width="70%">
 </div>
 
 <div align=center>
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Chromatic_aberration_%28comparison%29.jpg" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/upload.wikimedia.org/wikipedia/commons/6/66/Chromatic_aberration_%28comparison%29.jpg" width="40%">
 </div>
 
 此外还可能会出现**晕影(vignetting)**的现象：由于镜筒的存在倾斜入射的光线比垂直入射的光线要少一些，使得图像的边缘比中心显得更暗。
 
 <div align=center>
-<img src="https://photographylife.com/wp-content/uploads/2013/10/Optical-Vignetting.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/photographylife.com/wp-content/uploads/2013/10/Optical-Vignetting.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/tPn2fhx.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/tPn2fhx.png" width="70%">
 </div>
 
 ## Perspective Imaging
@@ -142,7 +142,7 @@ $$
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/icZd1oR.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/icZd1oR.png" width="50%">
 </div>
 
 需要说明的是这里为了数学上推导的方便把投影平面放到了相机朝向的后方；同时为了保证相机坐标系是右手系还规定z轴的正方向指向相机后方，在其它的资料中的建模方式可能与此不同进而导致坐标变换公式存在一些差异。
@@ -239,11 +239,11 @@ $$
 当$t \to \infty$时投影后的点会趋于$(\frac{fa}{c}, \frac{fb}{c})$，这说明空间中方向为$(a, b, c)$的平行直线经过透视投影后都会相交于投影平面上的一个点，称为**灭点(vanishing point)**。类似地，空间中同一平面上的所有直线经过投影后它们的灭点会位于投影平面的同一直线上。
 
 <div align=center>
-<img src="https://i.imgur.com/crwBf0k.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/crwBf0k.png" width="50%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/SRtZixs.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/SRtZixs.png" width="50%">
 </div>
 
 ### Other Models
@@ -273,7 +273,7 @@ $$
 正交投影表示物距$z$和焦距$f$趋于无穷大情况下相机的投影过程，可以近似望远镜的成像效果。同时空间中平行的直线经过正交投影后仍是平行的，因此正交投影也称为**平行投影(parallel projection)**。
 
 <div align=center>
-<img src="https://i.imgur.com/9fdnnPi.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/9fdnnPi.png" width="50%">
 </div>
 
 另一种常见的投影模型是弱透视投影，此时我们假定空间中的点都位于距离投影中心$z_0$远的平面上。根据透视变换的原理得到投影后点的坐标为：
@@ -305,7 +305,7 @@ sx \\ sy
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/SOD6Xsa.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/SOD6Xsa.png" width="70%">
 </div>
 
 和透视投影相比弱透视投影要简单一些，但投影的结果不如透视投影精确。

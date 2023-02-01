@@ -25,7 +25,7 @@ sidebar:
 **光流(optical flow)**是实现稠密运动检测的基本方法。当图像运动较小时，我们可以通过光流来得到图像上每一点的运动状况。
 
 <div align=center>
-<img src="https://i.imgur.com/lCeJJK0.png" width="90%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/lCeJJK0.png" width="90%">
 </div>
 
 光流法的目标是估计图像上每一点的运动状态，在具体推导光流前我们首先需要做出2个基本假设：
@@ -40,7 +40,7 @@ I(x, y, t) = I(x+u, y+v, t+1) \Leftrightarrow I(x+u, y+v, t+1) - I(x, y, t) = 0
 $$
 
 <div align=center>
-<img src="https://i.imgur.com/pI2SEaf.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/pI2SEaf.png" width="70%">
 </div>
 
 利用泰勒展开，我们可以把$t+1$时刻的图像表示为：
@@ -111,15 +111,15 @@ $$
 这种方法最早由Lukas和Kanade于1981年提出，因此求解这个方程得到的光流也称为LK光流。除此之外，LK光流还提出了通过迭代来处理图像运动过大的问题：当图像运动过大时首先估计一个粗糙的解，然后把运动后的图像按照这个解反变换到运动前的状态再次进行运动估计。如此反复迭代从而得到一个更加准确的运动估计：
 
 <div align=center>
-<img src="https://i.imgur.com/VbJpNdm.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/VbJpNdm.png" width="70%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/e1YmPUb.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/e1YmPUb.png" width="70%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/MX5DC4V.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/MX5DC4V.png" width="70%">
 </div>
 
 ### Hierarchical LK
@@ -127,25 +127,25 @@ $$
 LK光流的一个主要问题在于混淆(aliasing)：在很多情况下计算得到的解只是最近的解但并不是真实的解。
 
 <div align=center>
-<img src="https://i.imgur.com/tDniTqT.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/tDniTqT.png" width="70%">
 </div>
 
 实际工程中一般会通过多尺度的方法来处理这个问题：从高尺度出发首先估计一个粗糙的解，然后逐步缩小尺度并对粗糙解进行更新，直到获得一个精准的解。
 
 <div align=center>
-<img src="https://i.imgur.com/H0ysJHB.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/H0ysJHB.png" width="70%">
 </div>
 
 在介绍多尺度光流前我们首先引入多尺度的概念。在[Aliasing](/2021/08/31/OMSCS-CV-NOTES-03.html#aliasing)一节中我们介绍过利用高斯模糊来处理对图像进行降采样时产生的走样问题。
 
 <div align=center>
-<img src="https://i.imgur.com/VgzTvqp.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/VgzTvqp.png" width="70%">
 </div>
 
 我们对同一张图像不断地使用高斯模糊和降采样进行处理，就能够得到一个图像序列称为**高斯金字塔(Gaussian pyramid)**：
 
 <div align=center>
-<img src="https://i.imgur.com/GxPL03S.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/GxPL03S.png" width="70%">
 </div>
 
 在高斯金字塔中原始图像位于最底层，每向上前进一层图像的常和宽就缩减为原来的1/2。因此高斯金字塔实际上就是同一张图像在不同尺度(分辨率)下的不同表示，层数越高对应的尺度越大图像也就越模糊。
@@ -153,19 +153,19 @@ LK光流的一个主要问题在于混淆(aliasing)：在很多情况下计算�
 另一种常用的图像金字塔是**拉普拉斯金字塔(Laplacian pyramid)**。它的构造过程与高斯金字塔相同，但在存储时保留最顶层的图像高尺度图像以及每一层与相邻层的差，也就是DoG算子的运算结果。由于高斯滤波是一个低通滤波器，图像与它经过滤波后的差对应原始图像的高频成分，因此我们也可以认为拉普拉斯金字塔存储了图像在不同频段上的信息。
 
 <div align=center>
-<img src="https://i.imgur.com/1OblycC.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/1OblycC.png" width="70%">
 </div>
 
 拉普拉斯金字塔的具体构造过程如下：我们把原始图像放在$G_0$层，然后自下而上利用Reduce操作得到一系列长宽减半的图像序列$G_1, G_2, ...$；然后对于这些高层的图像再利用Expand操作恢复分辨率并与下一层图像作差得到拉普拉斯金字塔$L_0, L_1, L_2, ...$
 
 <div align=center>
-<img src="https://i.imgur.com/4QqPIMu.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/4QqPIMu.png" width="70%">
 </div>
 
 不难发现构造拉普拉斯金字塔的核心在于Reduce和Expand操作，这可以利用卷积来实现：
 
 <div align=center>
-<img src="https://i.imgur.com/3CD42QT.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/3CD42QT.png" width="70%">
 </div>
 
 最后我们把多尺度的思想结合的光流中就得到了多尺度LK光流：
@@ -178,7 +178,7 @@ LK光流的一个主要问题在于混淆(aliasing)：在很多情况下计算�
    4. 把$\delta u_i$和$\delta v_i$叠加到当前层的光流向量上$u_i \leftarrow u_i + \delta u_i, v_i \leftarrow v_i + \delta v_i$。
 
 <div align=center>
-<img src="https://i.imgur.com/4OInNkk.png" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/4OInNkk.png" width="80%">
 </div>
 
 ### Motion Models
@@ -186,11 +186,11 @@ LK光流的一个主要问题在于混淆(aliasing)：在很多情况下计算�
 在[Image to Image Projections](/2021/09/21/OMSCS-CV-NOTES-07.html#image-to-image-projections)一节中我们介绍过常用的几何变换包括平移变换(translation)、刚体(欧式)变换(Euclidean transform)、相似变换(similarity transform)、仿射变换(affine transform)以及投影变换(projective transform)等。
 
 <div align=center>
-<img src="https://i.imgur.com/jImNSiW.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/jImNSiW.png" width="70%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/tCNa840.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/tCNa840.png" width="70%">
 </div>
 
 当空间中的物体发生刚体变换时，物体的运动速度满足：

@@ -24,11 +24,11 @@ sidebar:
 为了处理这些问题，一个基本的思路是考虑物体的**动力学模型(dynamic model)**。这样当物体发生运动时利用动力学模型可以对它可能出现的位置进行预测，从而缩小搜索范围并降低观测误差。在这种情况下目标跟踪和逐帧的检测是有一定差别的：目标检测是在每一帧图像上独立地进行检测(红色框)，相邻图像之间没有任何联系；而跟踪则需要根据动力学模型在前一帧的基础上估计物体的当前位置，然后结合当前帧的观测结果进行更新从而确定物体的实际位置(蓝色框)。
 
 <div align=center>
-<img src="https://i.imgur.com/GDDsNlQ.png" width="90%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/GDDsNlQ.png" width="90%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/lW0cqpC.png" width="90%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/lW0cqpC.png" width="90%">
 </div>
 
 因此，目标跟踪的目标是利用动力学模型来缩减搜索空间并结合观测结果来减小误差，进而得到光滑的物体运动轨迹。为了便于讨论我们这里对目标跟踪的场景进行一些限制：
@@ -44,8 +44,8 @@ sidebar:
 当我们已知动力学模型的时候，目标跟踪可以建模成一个概率推断问题。假设系统的真实状态为$X$，观测到的状态为$Y$，在任意时刻$t$我们可以利用前一时刻的状态和动力学模型来计算系统的真实状态$X_t = f(X_{t-1})$。需要说明的是系统状态$X$往往是不可知的，因此它也被称为是隐状态(hidden state)。我们的目标是结合$t$时刻的观测来更新当前时刻的真实状态。从概率分布的角度上讲，这样的过程实际上就是利用先验概率(动力学模型)和似然函数(观测)来估计系统的后验概率(当前时刻真实状态)。
 
 <div align=center>
-<img src="https://i.imgur.com/cTZ5c3q.png" width="30%">
-<img src="https://i.imgur.com/MZFyhof.png" width="61%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/cTZ5c3q.png" width="30%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/MZFyhof.png" width="61%">
 </div>
 
 因此，目标跟踪可以分为2步：
@@ -76,7 +76,7 @@ $$
 此时系统在时间上的演化可以用下图所示的概率图来表示：
 
 <div align=center>
-<img src="https://i.imgur.com/jBWnEiR.png" width="50%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/jBWnEiR.png" width="50%">
 </div>
 
 这样我们就可以通过迭代的方式来对系统状态进行估计。具体而言，预测过程可以表示为已知$P(X_{t-1} \vert y_0, \dots, y_{t-1})$条件下估计$P(X_t \vert y_0, \dots, y_{t-1})$：
@@ -103,11 +103,11 @@ $$
 这样我们就可以结合动力模型和观测模型来对系统状态进行估计：
 
 <div align=center>
-<img src="https://i.imgur.com/WdtLSBh.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/WdtLSBh.png" width="60%">
 </div>
 
 <div align=center>
-<img src="https://i.imgur.com/QJ8Zozi.png" width="62%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/QJ8Zozi.png" width="62%">
 </div>
 
 ### The Kalman Filter
@@ -219,7 +219,7 @@ $$
 迭代使用上面的几个公式即可完成对系统状态的估计。
 
 <div align=center>
-<img src="https://i.imgur.com/ZoFjxBY.png" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/ZoFjxBY.png" width="70%">
 </div>
 
 Kalman滤波非常简洁而且高效，但需要注意的是它的使用前提是线性高斯系统。当系统的动力学模型不是线性方程或者噪声不满足正态分布假定时，使用Kalman滤波则不能得到正确的结果。
@@ -237,7 +237,7 @@ $$
 类似于Kalman滤波的假设，我们可以利用如下所示的概率图对系统进行建模：
 
 <div align=center>
-<img src="https://i.imgur.com/qF4GWO9.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/qF4GWO9.png" width="40%">
 </div>
 
 因此结合Bayes公式和马尔科夫性可以得到：
@@ -261,7 +261,7 @@ $$
 使用上式递推进行状态估计的算法称为Bayes滤波器。实际上Kalman滤波器正是线性高斯系统的Bayes滤波器，但对于非线性非高斯的系统则一般无法显式计算出Bayes滤波器的结果。
 
 <div align=center>
-<img src="https://i.imgur.com/DVZJBpr.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/DVZJBpr.png" width="60%">
 </div>
 
 ### Particle Filters
@@ -269,27 +269,27 @@ $$
 **粒子滤波(particle filter)**是求解非线性非高斯系统的Bayes滤波器的经典方法，它的核心思想是利用大量的粒子(样本)和它们对应的权重(概率)来表示系统的状态分布。假设我们已经有$t-1$时刻系统的状态分布，首先需要从这个先验分布中采样出$N$个粒子，然后将它们输入到动力学模型中得到$N$个预测状态，并且利用观测值$z_t$来更新粒子的(未归一化)权重$P(z_t \vert x_t)$作为$t$时刻的系统状态。上述过程可以用下图来进行表示：
 
 <div align=center>
-<img src="https://i.imgur.com/jDz7UNC.png" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/jDz7UNC.png" width="60%">
 </div>
 
 粒子滤波在机器人定位中有经典的应用，在初始时刻我们可以将粒子均匀分布在地图上：
 
 <div align=center>
-<img src="https://i.imgur.com/R5ZiFmV.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/R5ZiFmV.png" width="40%">
 </div>
 
 每当我们有了新的观测值时，利用粒子滤波来更新机器人当前的状态：
 
 <div align=center>
-<img src="https://i.imgur.com/mtkvb21.png" width="40%">
-<img src="https://i.imgur.com/gYQDNDf.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/mtkvb21.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/gYQDNDf.png" width="40%">
 </div>
 
 随着迭代的进行，机器人的位置会迅速收敛到真实的位置：
 
 <div align=center>
-<img src="https://i.imgur.com/fCHwDnY.png" width="40%">
-<img src="https://i.imgur.com/9wpXNVy.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/fCHwDnY.png" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/9wpXNVy.png" width="40%">
 </div>
 
 在实际使用粒子滤波时还有很多技巧来提高算法的运行效率：
