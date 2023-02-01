@@ -93,6 +93,67 @@ class MyQueue:
 ```
 {: .snippet}
 
+### 20. 有效的括号
+
+给定一个只包括`'('`，`')'`，`'{'`，`'}'`，`'['`，`']'`的字符串`s`，判断字符串是否有效。
+
+有效字符串需满足：
+
+- 左括号必须用相同类型的右括号闭合。
+- 左括号必须以正确的顺序闭合。
+- 每个右括号都有一个对应的相同类型的左括号。
+
+**示例1：**
+
+```
+输入：s = "()"
+输出：true
+```
+
+**示例2：**
+
+```
+输入：s = "()[]{}"
+输出：true
+```
+
+**示例3：**
+
+```
+输入：s = "(]"
+输出：false
+```
+
+**提示：**
+
+- 1 <= `s.length` <= 10⁴。
+- s 仅由括号`'()[]{}'`组成。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/valid-parentheses/)：
+
+```python
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+
+        for char in s:
+            if char == "(":
+                stack.append(")")
+            elif char == "[":
+                stack.append("]")
+            elif char == "{":
+                stack.append("}")
+            elif len(stack) == 0 or char != stack[-1]:
+                return False
+            else:
+                stack.pop()
+        
+        return len(stack) == 0
+```
+{: .snippet}
+
 ## 队列
 
 ### 225. 用队列实现栈
