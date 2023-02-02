@@ -415,6 +415,85 @@ class MyStack:
 ```
 {: .snippet}
 
+## 单调队列
+
+### 239. 滑动窗口最大值
+
+给你一个整数数组`nums`，有一个大小为`k`的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的`k`个数字。滑动窗口每次只向右移动一位。
+
+返回**滑动窗口中的最大值**。
+
+**示例1：**
+
+```
+输入：nums = [1,3,-1,-3,5,3,6,7], k = 3
+输出：[3,3,5,5,6,7]
+解释：
+滑动窗口的位置                最大值
+---------------               -----
+[1  3  -1] -3  5  3  6  7       3
+ 1 [3  -1  -3] 5  3  6  7       3
+ 1  3 [-1  -3  5] 3  6  7       5
+ 1  3  -1 [-3  5  3] 6  7       5
+ 1  3  -1  -3 [5  3  6] 7       6
+ 1  3  -1  -3  5 [3  6  7]      7
+```
+
+**示例2：**
+
+```
+输入：nums = [1], k = 1
+输出：[1]
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 10⁵。
+- -10⁴ <= `nums[i]` <= 10⁴。
+- 1 <= `k` <= `nums.length`。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/sliding-window-maximum/)：
+
+```python
+from collections import deque
+
+class MyQueue:
+    def __init__(self):
+        self.queue = deque()
+    
+    def pop(self, x:int) -> None:
+        if self.queue and x == self.queue[0]:
+            self.queue.popleft()
+    
+    def push(self, x: int) -> None:
+        while self.queue and x > self.queue[-1]:
+            self.queue.pop()
+        
+        self.queue.append(x)
+
+    def front(self) -> int:
+        return self.queue[0]
+
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        queue = MyQueue()
+        res = []
+
+        for i in range(k):
+            queue.push(nums[i])
+        
+        res.append(queue.front())
+
+        for i in range(k, len(nums)):
+            queue.pop(nums[i-k])
+            queue.push(nums[i])
+            res.append(queue.front())
+        
+        return res
+```
+{: .snippet}
 
 ## Reference
 
@@ -423,3 +502,5 @@ class MyStack:
 - [LeetCode：225.用队列实现栈](https://www.bilibili.com/video/BV1Fd4y1K7sm/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：20.有效的括号](https://www.bilibili.com/video/BV1AF411w78g/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：1047.删除字符串中的所有相邻重复项](https://www.bilibili.com/video/BV12a411P7mw/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：150.逆波兰表达式求值](https://www.bilibili.com/video/BV1kd4y1o7on/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：239.滑动窗口最大值](https://www.bilibili.com/video/BV1XS4y1p7qj/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
