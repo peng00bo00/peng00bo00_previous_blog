@@ -415,8 +415,6 @@ class MyStack:
 ```
 {: .snippet}
 
-## 单调队列
-
 ### 239. 滑动窗口最大值
 
 给你一个整数数组`nums`，有一个大小为`k`的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的`k`个数字。滑动窗口每次只向右移动一位。
@@ -495,6 +493,60 @@ class Solution:
 ```
 {: .snippet}
 
+### 347. 前K个高频元素
+
+给你一个整数数组`nums`和一个整数`k`，请你返回其中出现频率前`k`高的元素。你可以按**任意顺序**返回答案。
+
+**示例1：**
+
+```
+输入: nums = [1,1,1,2,2,3], k = 2
+输出: [1,2]
+```
+
+**示例2：**
+
+```
+输入: nums = [1], k = 1
+输出: [1]
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 10⁵。
+- `k`的取值范围是`[1, 数组中不相同的元素的个数]`。
+- 题目数据保证答案唯一，换句话说，数组中前`k`个高频元素的集合是唯一的。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/top-k-frequent-elements/)：
+
+```python
+import heapq
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        count = {}
+        for x in nums:
+            count[x] = count.get(x, 0) + 1
+        
+        heap = []
+
+        for x, freq in count.items():
+            heapq.heappush(heap, (freq, x))
+
+            if len(heap) > k:
+                heapq.heappop(heap)
+        
+        res = [0 for _ in range(k)]
+        for i in range(k-1, -1, -1):
+            res[i] = heapq.heappop(heap)[1]
+
+        return res
+```
+{: .snippet}
+
+
 ## Reference
 
 - [栈与队列理论基础](https://programmercarl.com/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
@@ -504,3 +556,4 @@ class Solution:
 - [LeetCode：1047.删除字符串中的所有相邻重复项](https://www.bilibili.com/video/BV12a411P7mw/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：150.逆波兰表达式求值](https://www.bilibili.com/video/BV1kd4y1o7on/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：239.滑动窗口最大值](https://www.bilibili.com/video/BV1XS4y1p7qj/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：347.前K个高频元素](https://www.bilibili.com/video/BV1Xg41167Lz/?vd_source=7a2542c6c909b3ee1fab551277360826)
