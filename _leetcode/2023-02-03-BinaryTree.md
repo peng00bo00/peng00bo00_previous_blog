@@ -96,6 +96,35 @@ class Solution:
 ```
 {: .snippet}
 
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
+
+        stack = [root]
+        res = []
+
+        while stack:
+            node = stack.pop()
+            res.append(node.val)
+
+            if node.right:
+                stack.append(node.right)
+            
+            if node.left:
+                stack.append(node.left)
+        
+        return res
+```
+{: .snippet}
+
 ### 145.二叉树的后序遍历
 
 给你一棵二叉树的根节点`root`，返回其节点值的**后序**遍历。
@@ -150,6 +179,35 @@ class Solution:
 ```
 {: .snippet}
 
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
+        
+        stack = [root]
+        res = []
+
+        while stack:
+            node = stack.pop()
+            res.append(node.val)
+
+            if node.left:
+                stack.append(node.left)
+
+            if node.right:
+                stack.append(node.right)
+        
+        return res[::-1]
+```
+{: .snippet}
+
 ### 94.二叉树的中序遍历
 
 给定一个二叉树的根节点`root`，返回它的**中序**遍历。
@@ -201,6 +259,35 @@ class Solution:
             return []
         
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
+```
+{: .snippet}
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
+        
+        stack = []
+        res = []
+        node = root
+
+        while node or stack:
+            if node:
+                stack.append(node)
+                node = node.left
+            else:
+                node = stack.pop()
+                res.append(node.val)
+                node = node.right
+        
+        return res
 ```
 {: .snippet}
 
