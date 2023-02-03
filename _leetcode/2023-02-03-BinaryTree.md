@@ -20,7 +20,7 @@ class TreeNode:
 
 ## 遍历
 
-### 144.二叉树的前序遍历
+### 144. 二叉树的前序遍历
 
 给你二叉树的根节点`root`，返回它节点值的**前序**遍历。
 
@@ -125,7 +125,7 @@ class Solution:
 ```
 {: .snippet}
 
-### 145.二叉树的后序遍历
+### 145. 二叉树的后序遍历
 
 给你一棵二叉树的根节点`root`，返回其节点值的**后序**遍历。
 
@@ -208,7 +208,7 @@ class Solution:
 ```
 {: .snippet}
 
-### 94.二叉树的中序遍历
+### 94. 二叉树的中序遍历
 
 给定一个二叉树的根节点`root`，返回它的**中序**遍历。
 
@@ -295,3 +295,6 @@ class Solution:
 
 - [二叉树理论基础](https://programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
 - [关于二叉树，你该了解这些！](https://www.bilibili.com/video/BV1Hy4y1t7ij/?vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：144.二叉树的前序遍历 145.二叉树的后序遍历 94.二叉树的中序遍历](https://www.bilibili.com/video/BV1Wh411S7xt/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [二叉树的非递归遍历](https://www.bilibili.com/video/BV15f4y1W7i2/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [二叉树的非递归遍历-中序](https://www.bilibili.com/video/BV1Zf4y1a77g/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
