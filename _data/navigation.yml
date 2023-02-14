@@ -486,10 +486,12 @@ SA:
     children:
       - title: Optimal Transport
         url: /2023/01/12/SA-NOTES-18.html
-  - title: Other Topics
+  - title: Clustering and Segmentation
     children:
       - title: Clustering and Segmentation
         url: /2023/01/13/SA-NOTES-19.html
+  - title: Surface Correspondence
+    children:
       - title: Correspondence Problems
         url: /2023/02/13/SA-NOTES-20.html
 
