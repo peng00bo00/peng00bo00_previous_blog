@@ -173,12 +173,12 @@ $$
 
 (a). $W(\mathbf{p}, \mathbf{q})$ measures the minimum cost of transporting $\mathbf{p}$ to $\mathbf{q}$.
 
-(b). Let $K_\alpha = e^{1-\frac{C}{\alpha}}$, then
+(b). Let $K_\alpha = e^{-\frac{C}{\alpha}}$, then
 
 $$
 \begin{aligned}
-\alpha \cdot \text{KL} (T \Vert K_\alpha) &= \alpha \cdot \sum_{ij} T_{ij} \ln{\frac{T_{ij}}{(K_\alpha)_{ij}}} = \alpha \cdot \bigg( \sum_{ij} T_{ij} \ln{T_{ij}} - \sum_{ij} T_{ij} \ln{(K_\alpha)_{ij}} \bigg) \\
-&= \alpha \cdot \sum_{ij} T_{ij} \ln{T_{ij}} + \alpha \cdot \sum_{ij} T_{ij} \cdot \bigg( \frac{C_{ij}}{\alpha}-1 \bigg) \\
+\alpha \cdot \text{KL} (T \Vert K_\alpha) &= \alpha \cdot \sum_{ij} T_{ij} \bigg( \ln{\frac{T_{ij}}{(K_\alpha)_{ij}}} -1 \bigg) = \alpha \cdot \bigg( \sum_{ij} T_{ij} \big( \ln{T_{ij}}-1 \big) - \sum_{ij} T_{ij} \ln{(K_\alpha)_{ij}} \bigg) \\
+&= \alpha \cdot \bigg( \sum_{ij} T_{ij} \ln{T_{ij}} - 1 \bigg) + \alpha \cdot \sum_{ij} T_{ij} \cdot \bigg( \frac{C_{ij}}{\alpha} \bigg) \\
 &= \sum_{ij} T_{ij} \cdot C_{ij} + \alpha \cdot \bigg( \sum_{ij} T_{ij} \ln{T_{ij}} - 1 \bigg)
 \end{aligned}
 $$
@@ -201,7 +201,7 @@ which implies:
 
 $$
 T_{ij} = \exp \bigg\{ - \frac{C_{ij} + \lambda_i + \mu_j}{\alpha} - 1 \bigg\} 
-= e^{-\frac{\lambda_i}{\alpha}-1} \cdot e^{1-\frac{C_{ij}}{\alpha}} \cdot e^{-\frac{\mu_j}{\alpha}-1}
+= e^{-\frac{\lambda_i}{\alpha}-\frac{1}{2}} \cdot e^{-\frac{C_{ij}}{\alpha}} \cdot e^{-\frac{\mu_j}{\alpha}-\frac{1}{2}}
 $$
 
 Thus, 
@@ -213,9 +213,22 @@ $$
 where
 
 $$
-\mathbf{v}_i = e^{-\frac{\lambda_i}{\alpha}-1}
+\mathbf{v}_i = e^{-\frac{\lambda_i}{\alpha}-\frac{1}{2}}
 $$
 
 $$
-\mathbf{w}_j = e^{-\frac{\mu_j}{\alpha}-1}
+\mathbf{w}_j = e^{-\frac{\mu_j}{\alpha}-\frac{1}{2}}
 $$
+
+(d) When $\alpha$ is small enough, we have
+
+$$
+C_{ij} = d^2(x_i, x_j) \approx -2 \times \frac{\alpha}{2} \ln \mathcal{H}_{\frac{\alpha}{2}} (x_i, x_j)
+$$
+
+Thus,
+
+$$
+\mathcal{H}_{\frac{\alpha}{2}} (x_i, x_j) \approx e^{-\frac{C_{ij}}{\alpha}} = (K_\alpha)_{ij}
+$$
+
