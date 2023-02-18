@@ -185,10 +185,39 @@ $$
 
 3. 
 
-  The Lagrange could be expressed as:
+The Lagrange could be expressed as:
 
 $$
 \mathcal{L} (T; \lambda, \mu) = \sum_{ij} T_{ij} \cdot C_{ij} + \alpha \cdot \bigg( \sum_{ij} T_{ij} \ln{T_{ij}} - 1 \bigg) + \sum_i \lambda_i \cdot \bigg( \sum_j T_{ij} - p_i \bigg) + \sum_j \mu_j \cdot \bigg( \sum_i T_{ij} - q_j \bigg)
 $$
 
-  where $\lambda_i$ and $\mu_j$ are Lagrange multipliers.
+where $\lambda_i$ and $\mu_j$ are Lagrange multipliers.
+
+Taking derivative of $T_{ij}$, we have:
+
+$$
+\frac{\partial \mathcal{L}}{\partial T_{ij}} = C_{ij} + \alpha ( \ln{T_{ij}} + 1 ) + \lambda_i + \mu_j = 0
+$$
+
+which implies:
+
+$$
+T_{ij} = \exp \bigg\{ - \frac{C_{ij} + \lambda_i + \mu_j}{\alpha} - 1 \bigg\} 
+= e^{-\frac{\lambda_i}{\alpha}-1} \cdot e^{1-\frac{C_{ij}}{\alpha}} \cdot e^{-\frac{\mu_j}{\alpha}-1}
+$$
+
+Thus, 
+
+$$
+T = \text{diag}(\mathbf{v}) \cdot K_\alpha \cdot \text{diag}(\mathbf{w}) 
+$$
+
+where
+
+$$
+\mathbf{v}_i = e^{-\frac{\lambda_i}{\alpha}-1}
+$$
+
+$$
+\mathbf{w}_j = e^{-\frac{\mu_j}{\alpha}-1}
+$$
