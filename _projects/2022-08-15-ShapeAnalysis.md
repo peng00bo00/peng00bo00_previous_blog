@@ -185,10 +185,10 @@ $$
 
 3. 
 
-    The Lagrange could be expressed as:
+  The Lagrange could be expressed as:
 
 $$
 \mathcal{L} (T; \lambda, \mu) = \sum_{ij} T_{ij} \cdot C_{ij} + \alpha \cdot \bigg( \sum_{ij} T_{ij} \ln{T_{ij}} - 1 \bigg) + \sum_i \lambda_i \cdot \bigg( \sum_j T_{ij} - p_i \bigg) + \sum_j \mu_j \cdot \bigg( \sum_i T_{ij} - q_j \bigg)
 $$
 
-    where $\lambda_i$ and $\mu_j$ are Lagrange multipliers.
+  where $\lambda_i$ and $\mu_j$ are Lagrange multipliers.
