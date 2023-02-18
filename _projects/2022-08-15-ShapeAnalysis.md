@@ -171,9 +171,9 @@ $$
 
 ### Optimal Transport
 
-1. $W(\mathbf{p}, \mathbf{q})$ measures the minimum cost of transporting $\mathbf{p}$ to $\mathbf{q}$.
+(a). $W(\mathbf{p}, \mathbf{q})$ measures the minimum cost of transporting $\mathbf{p}$ to $\mathbf{q}$.
 
-2. Let $K_\alpha = e^{1-\frac{C}{\alpha}}$, then
+(b). Let $K_\alpha = e^{1-\frac{C}{\alpha}}$, then
 
 $$
 \begin{aligned}
@@ -183,7 +183,7 @@ $$
 \end{aligned}
 $$
 
-3. The Lagrange could be expressed as:
+(c). The Lagrange could be expressed as:
 
 $$
 \mathcal{L} (T; \lambda, \mu) = \sum_{ij} T_{ij} \cdot C_{ij} + \alpha \cdot \bigg( \sum_{ij} T_{ij} \ln{T_{ij}} - 1 \bigg) + \sum_i \lambda_i \cdot \bigg( \sum_j T_{ij} - p_i \bigg) + \sum_j \mu_j \cdot \bigg( \sum_i T_{ij} - q_j \bigg)
