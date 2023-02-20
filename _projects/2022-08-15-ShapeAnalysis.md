@@ -232,7 +232,77 @@ $$
 \mathcal{H}_{\frac{\alpha}{2}} (x_i, x_j) \approx e^{-\frac{C_{ij}}{\alpha}} = (K_\alpha)_{ij}
 $$
 
-(e) 
+(e) If $k$ is odd, the Lagrange could be expressed as
+
+$$
+\begin{aligned}
+\mathcal{L} (T; \lambda) 
+&= \text{KL} (T \Vert T^{(k-1)}) + \sum_i \lambda_i \cdot \bigg( \sum_j T_{ij} - p_i \bigg) \\
+&= \sum_{ij} T_{ij} \bigg( \ln{T_{ij}} - \ln{T^{(k-1)}_{ij}} -1 \bigg) + \sum_i \lambda_i \cdot \bigg( \sum_j T_{ij} - p_i \bigg) \\
+&= \sum_{ij} T_{ij} \bigg( \ln{T_{ij}} - \ln{T^{(k-1)}_{ij}} \bigg) + \sum_i \lambda_i \cdot \bigg( \sum_j T_{ij} - p_i \bigg) - 1
+\end{aligned}
+$$
+
+Taking derivative of $T_{ij}$, we have
+
+$$
+\frac{\partial \mathcal{L}}{\partial T_{ij}} = \bigg( \ln{T_{ij}} - \ln{T^{(k-1)}_{ij}} \bigg) + 1 + \lambda_i = 0
+$$
+
+Thus,
+
+$$
+T_{ij} = \frac{T^{(k-1)}_{ij}}{e^{1+\lambda_i}}
+$$
+
+This implies that
+
+$$
+T^{(k)} = \text{diag}(\mathbf{\tilde{v}}^{(k)}) \cdot T^{(k-1)}
+$$
+
+where
+
+$$
+\mathbf{\tilde{v}}^{(k)}_i = \frac{1}{e^{1+\lambda_i}}
+$$
+
+Similarly, when $k$ is even, we have
+
+$$
+T_{ij} = \frac{T^{(k-1)}_{ij}}{e^{1+\mu_j}}
+$$
+
+where $\mu_j$ is the Lagrange multiplier. Then,
+
+$$
+T^{(k)} = T^{(k-1)} \cdot \text{diag}(\mathbf{\tilde{w}}^{(k)}) 
+$$
+
+$$
+\mathbf{\tilde{w}}^{(k)}_i = \frac{1}{e^{1+\mu_i}}
+$$
+
+Putting these together, we derive the iteration
+
+$$
+\begin{aligned}
+T^{(k)} &= \text{diag}(\mathbf{v}^{(k)}) \cdot T^{(0)} \cdot \text{diag}(\mathbf{w}^{(k)}) \\
+&= \text{diag}(\mathbf{v}^{(k)}) \cdot \mathcal{H}_{\frac{\alpha}{2}} \cdot \text{diag}(\mathbf{w}^{(k)})
+\end{aligned}
+$$
+
+Now we only need to determine the vectors $\mathbf{v}^{(k)}$ and $\mathbf{w}^{(k)}$. Suppose $k$ is odd, the recurrence of $\mathbf{\tilde{v}}^{(k)}_i$ is
+
+$$
+\mathbf{\tilde{v}}^{(k)}_i = \frac{1}{e^{1+\lambda_i}} = \frac{T^{(k-1)}_{ij}}{T^{(k)}_{ij}} = \frac{\sum_j T^{(k-1)}_{ij}}{\sum_j T^{(k)}_{ij}} = \frac{p_i}{\sum_j T^{(k)}_{ij}}
+$$
+
+Similarly,
+
+$$
+\mathbf{\tilde{w}}^{(k-1)}_i = \frac{1}{e^{1+\mu_i}} = \frac{T^{(k-1)}_{ij}}{T^{(k-2)}_{ij}} = \frac{\sum_j T^{(k-1)}_{ij}}{\sum_j T^{(k-2)}_{ij}} = \frac{\sum_j T^{(k-1)}_{ij}}{p_i}
+$$
 
 (f)
 
@@ -240,5 +310,3 @@ $$
 <img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/zCVLfjc.jpg" width="40%">
 <img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/YhZo8Tc.jpg" width="42%">
 </div>
-
-https://i.imgur.com/YhZo8Tc.jpg
