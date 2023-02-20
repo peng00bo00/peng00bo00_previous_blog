@@ -171,9 +171,9 @@ $$
 
 ### Optimal Transport
 
-(a). $W(\mathbf{p}, \mathbf{q})$ measures the minimum cost of transporting $\mathbf{p}$ to $\mathbf{q}$.
+(a) $W(\mathbf{p}, \mathbf{q})$ measures the minimum cost of transporting $\mathbf{p}$ to $\mathbf{q}$.
 
-(b). Let $K_\alpha = e^{-\frac{C}{\alpha}}$, then
+(b) Let $K_\alpha = e^{-\frac{C}{\alpha}}$, then
 
 $$
 \begin{aligned}
@@ -183,7 +183,7 @@ $$
 \end{aligned}
 $$
 
-(c). The Lagrange could be expressed as:
+(c) The Lagrange could be expressed as:
 
 $$
 \mathcal{L} (T; \lambda, \mu) = \sum_{ij} T_{ij} \cdot C_{ij} + \alpha \cdot \bigg( \sum_{ij} T_{ij} \ln{T_{ij}} - 1 \bigg) + \sum_i \lambda_i \cdot \bigg( \sum_j T_{ij} - p_i \bigg) + \sum_j \mu_j \cdot \bigg( \sum_i T_{ij} - q_j \bigg)
@@ -232,9 +232,13 @@ $$
 \mathcal{H}_{\frac{\alpha}{2}} (x_i, x_j) \approx e^{-\frac{C_{ij}}{\alpha}} = (K_\alpha)_{ij}
 $$
 
+(e) 
+
 (f)
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Z0PzjzF.jpg" width="40%">
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Q08fjmg.jpg" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/zCVLfjc.jpg" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/YhZo8Tc.jpg" width="42%">
 </div>
+
+https://i.imgur.com/YhZo8Tc.jpg
