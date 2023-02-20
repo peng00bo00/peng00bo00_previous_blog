@@ -232,3 +232,9 @@ $$
 \mathcal{H}_{\frac{\alpha}{2}} (x_i, x_j) \approx e^{-\frac{C_{ij}}{\alpha}} = (K_\alpha)_{ij}
 $$
 
+(f)
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Z0PzjzF.jpg" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Q08fjmg.jpg" width="40%">
+</div>
