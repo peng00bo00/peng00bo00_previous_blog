@@ -280,7 +280,7 @@ T^{(k)} = T^{(k-1)} \cdot \text{diag}(\mathbf{\tilde{w}}^{(k)})
 $$
 
 $$
-\mathbf{\tilde{w}}^{(k)}_i = \frac{1}{e^{1+\mu_i}}
+\mathbf{\tilde{w}}^{(k)}_j = \frac{1}{e^{1+\mu_j}}
 $$
 
 Putting these together, we derive the iteration
@@ -292,17 +292,39 @@ T^{(k)} &= \text{diag}(\mathbf{v}^{(k)}) \cdot T^{(0)} \cdot \text{diag}(\mathbf
 \end{aligned}
 $$
 
-Now we only need to determine the vectors $\mathbf{v}^{(k)}$ and $\mathbf{w}^{(k)}$. Suppose $k$ is odd, the recurrence of $\mathbf{\tilde{v}}^{(k)}_i$ is
+Now we only need to determine the vectors $\mathbf{v}^{(k)}$ and $\mathbf{w}^{(k)}$. Suppose $k$ is odd, the constraints of $p_i$ gives
 
 $$
-\mathbf{\tilde{v}}^{(k)}_i = \frac{1}{e^{1+\lambda_i}} = \frac{T^{(k-1)}_{ij}}{T^{(k)}_{ij}} = \frac{\sum_j T^{(k-1)}_{ij}}{\sum_j T^{(k)}_{ij}} = \frac{p_i}{\sum_j T^{(k)}_{ij}}
+p_i = \sum_j T^{(k)}_{ij} = \mathbf{\tilde{v}}^{(k)}_i \cdot \sum_j T^{(k-1)}_{ij} 
 $$
 
-Similarly,
+Thus,
 
 $$
-\mathbf{\tilde{w}}^{(k-1)}_i = \frac{1}{e^{1+\mu_i}} = \frac{T^{(k-1)}_{ij}}{T^{(k-2)}_{ij}} = \frac{\sum_j T^{(k-1)}_{ij}}{\sum_j T^{(k-2)}_{ij}} = \frac{\sum_j T^{(k-1)}_{ij}}{p_i}
+\mathbf{\tilde{v}}^{(k)}_i = \frac{p_i}{\sum_j T^{(k-1)}_{ij}} = \frac{p_i}{\sum_j T^{(k-2)}_{ij} \tilde{\mathbf{w}}^{(k-1)}_j}
 $$
+
+Similarly, when $k$ is even we have
+
+$$
+q_j = \sum_i T^{(k)}_{ij} = \mathbf{\tilde{w}}^{(k)}_j \cdot \sum_i T^{(k-1)}_{ij} 
+$$
+
+$$
+\mathbf{\tilde{w}}^{(k)}_j = \frac{q_j}{\sum_i T^{(k-1)}_{ij}} = \frac{q_j}{\sum_i T^{(k-2)}_{ij} \tilde{\mathbf{v}}^{(k-1)}_i}
+$$
+
+Now we derive the **Sinkhorn iteration** step:
+
+$$
+\mathbf{v} \leftarrow \mathbf{p} \oslash (T \cdot \mathbf{w})
+$$
+
+$$
+\mathbf{w} \leftarrow \mathbf{q} \oslash (\mathbf{v} \cdot T)
+$$
+
+where $\oslash$ is the elementwise division operator.
 
 (f)
 
