@@ -301,6 +301,8 @@ class Solution:
 ```
 {: .snippet}
 
+后序遍历的迭代解法与前序遍历基本一致，只不过需要先不断向下访问右节点然后再自下而上访问左子树。同时需要注意的是最后要把结果反序输出。
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -313,19 +315,20 @@ class Solution:
         if not root:
             return []
         
-        stack = [root]
         res = []
+        stack = []
+        cur = root
 
-        while stack:
+        while stack or cur:
+            while cur:
+                res.append(cur.val)
+                
+                stack.append(cur)
+                cur = cur.right
+            
             node = stack.pop()
-            res.append(node.val)
+            cur = node.left
 
-            if node.left:
-                stack.append(node.left)
-
-            if node.right:
-                stack.append(node.right)
-        
         return res[::-1]
 ```
 {: .snippet}
