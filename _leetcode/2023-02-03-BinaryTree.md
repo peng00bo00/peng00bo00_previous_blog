@@ -31,7 +31,7 @@ class TreeNode:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg" width="22%">
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg">
 </div>
 
 ```
@@ -56,7 +56,7 @@ class TreeNode:
 **示例4：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/https://assets.leetcode.com/uploads/2020/09/15/inorder_5.jpg" width="22%">
+<img src="https://pic1.xuehuaimg.com/proxy/https://assets.leetcode.com/uploads/2020/09/15/inorder_5.jpg">
 </div>
 
 ```
@@ -67,7 +67,7 @@ class TreeNode:
 **示例5：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/09/15/inorder_4.jpg" width="22%">
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/09/15/inorder_4.jpg">
 </div>
 
 ```
@@ -110,8 +110,8 @@ while stack or cur:
         stack.append(cur)
         cur 向下遍历
     
-    tmp = stack.pop()
-    使用 tmp 来更新 cur
+    node = stack.pop()
+    使用 node 来更新 cur
 ```
 
 前序遍历的特点是从当前节点沿左节点自上而下访问沿途节点，然后再自下而上访问沿途节点的右子树。
@@ -159,7 +159,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg" width="22%">
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg">
 </div>
 
 ```
@@ -252,7 +252,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/https://assets.leetcode.com/uploads/2020/08/28/pre1.jpg" width="22%">
+<img src="https://pic1.xuehuaimg.com/proxy/https://assets.leetcode.com/uploads/2020/08/28/pre1.jpg">
 </div>
 
 ```
@@ -340,7 +340,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/tree1.jpg" width="25%">
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/tree1.jpg">
 </div>
 
 ```
@@ -420,7 +420,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg" width="80%">
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg">
 </div>
 
 ```
@@ -431,7 +431,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/14/invert2-tree.jpg" width="70%">
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/14/invert2-tree.jpg">
 </div>
 
 ```
@@ -509,7 +509,7 @@ class Solution:
 ```
 {: .snippet}
 
-## 对称
+## 比较
 
 ### 101. 对称二叉树
 
@@ -518,7 +518,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/symtree1.jpg" width="40%">
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/symtree1.jpg">
 </div>
 
 ```
@@ -529,7 +529,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/symtree2.jpg" width="35%">
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/symtree2.jpg">
 </div>
 
 ```
@@ -590,7 +590,7 @@ class Solution:
 我们同样可以使用迭代来处理这样的问题，整个比较过程可以如下：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/6a9723fd0f9426d8d01fc02a286bf4d8e5fdbdf20360a17068c25e330cf562fd/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f3130312e2545352541462542392545372541372542302545342542412538432545352538462538392545362541302539312e676966" width="60%">
+<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/6a9723fd0f9426d8d01fc02a286bf4d8e5fdbdf20360a17068c25e330cf562fd/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f3130312e2545352541462542392545372541372542302545342542412538432545352538462538392545362541302539312e676966">
 </div>
 
 ```python
@@ -604,13 +604,6 @@ class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
         if not root:
             return True
-
-        if not root.left and not root.right:
-            return True
-        elif root.left and not root.right:
-            return False
-        elif not root.left and root.right:
-            return False
         
         from collections import deque
 
@@ -680,6 +673,156 @@ class Solution:
                     queue.append(node.right)
         
         return True
+```
+{: .snippet}
+
+### 100. 相同的树
+
+给你两棵二叉树的根节点`p`和`q`，编写一个函数来检验这两棵树是否相同。
+
+如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/20/ex1.jpg">
+</div>
+
+```
+输入：p = [1,2,3], q = [1,2,3]
+输出：true
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/20/ex2.jpg">
+</div>
+
+```
+输入：p = [1,2], q = [1,null,2]
+输出：false
+```
+
+**示例3：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/20/ex3.jpg">
+</div>
+
+```
+输入：p = [1,2,1], q = [1,1,2]
+输出：false
+```
+
+**提示：**
+
+- 两棵树上的节点数目都在范围`[0, 100]`内。
+- -10⁴ <= `Node.val` <= 10⁴。
+
+#### Solution
+
+本题解法与[对称二叉树](/leetcode/2023-02-03-BinaryTree.html#101-对称二叉树)基本一致，只需分别判断两棵树的相应节点即可。
+
+[题目链接](https://leetcode.cn/problems/same-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if not p and not q:
+            return True
+        elif p and not q:
+            return False
+        elif not p and q:
+            return False
+        elif p.val != q.val:
+            return False
+        
+        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+```
+{: .snippet}
+
+### 572. 另一棵树的子树
+
+给你两棵二叉树`root`和`subRoot`。检验`root`中是否包含和`subRoot`具有相同结构和节点值的子树。如果存在，返回`true`；否则，返回`false`。
+
+二叉树`tree`的一棵子树包括`tree`的某个节点和这个节点的所有后代节点。`tree`也可以看做它自身的一棵子树。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/04/28/subtree1-tree.jpg">
+</div>
+
+```
+输入：root = [3,4,5,1,2], subRoot = [4,1,2]
+输出：true
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/04/28/subtree2-tree.jpg">
+</div>
+
+```
+输入：root = [3,4,5,1,2,null,null,null,null,0], subRoot = [4,1,2]
+输出：false
+```
+
+**提示：**
+
+- `root`树上的节点数量范围是`[1, 2000]`。
+- `subRoot`树上的节点数量范围是`[1, 1000]`。
+- -10⁴ <= `root.val` <= 10⁴。
+- -10⁴ <= `subRoot.val` <= 10⁴。
+
+#### Solution
+
+本题解法可参考[另一棵树的子树](/leetcode/2023-02-03-BinaryTree.html#572-另一棵树的子树)。我们首先定义一个比较函数`compare(T1, T2)`用来比较两棵树是否相同，然后利用广度优先对`root`进行遍历：如果找到相同的树则返回`True`，否则继续向下直到`root`中所有节点都进行过比较并最终返回`False`。
+
+[题目链接](https://leetcode.cn/problems/subtree-of-another-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        def compare(T1: Optional[TreeNode], T2: Optional[TreeNode]): -> bool
+            if not T1 and not T2:
+                return True
+            elif T1 and not T2:
+                return False
+            elif not T1 and T2:
+                return False
+            elif T1.val != T2.val:
+                return False
+
+            return compare(T1.left, T2.left) and compare(T1.right, T2.right)
+        
+        from collections import deque
+
+        queue = deque([root])
+
+        while queue:
+            node = queue.popleft()
+            if compare(node, subRoot):
+                return True
+            elif node:
+                queue.append(node.left)
+                queue.append(node.right)
+        
+        return False
 ```
 {: .snippet}
 
