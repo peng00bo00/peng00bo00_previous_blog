@@ -785,7 +785,7 @@ class Solution:
 
 #### Solution
 
-本题解法可参考[另一棵树的子树](/leetcode/2023-02-03-BinaryTree.html#572-另一棵树的子树)。我们首先定义一个比较函数`compare(T1, T2)`用来比较两棵树是否相同，然后分别测试`root`与`subRoot`是否相同、`root.left`或者`root.right`是否包含`subRoot`即可。
+本题解法可参考[相同的树](/leetcode/2023-02-03-BinaryTree.html#100-相同的树)。我们首先定义一个比较函数`compare(T1, T2)`用来判断两棵树是否相同，然后分别测试`root`与`subRoot`是否相同、`root.left`或者`root.right`是否包含`subRoot`即可。
 
 [题目链接](https://leetcode.cn/problems/subtree-of-another-tree/)：
 
@@ -859,6 +859,175 @@ class Solution:
 {: .snippet}
 
 ## 深度
+
+### 104. 二叉树的最大深度
+
+给定一个二叉树，找出其最大深度。
+
+二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。
+
+**说明: **叶子节点是指没有子节点的节点。
+
+**示例：**
+给定二叉树`[3,9,20,null,null,15,7]`，
+
+```
+    3
+   / \
+  9  20
+    /  \
+   15   7
+```
+
+返回它的最大深度`3`。
+
+#### Solution
+
+二叉树最大深度的基本解法是使用递归：我们先分别计算左子树和右子树的最大深度`d1`和`d2`，然后当前节点的最大深度等于`max(d1, d2)+1`。
+
+[题目链接](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        
+        d1 = self.maxDepth(root.left)
+        d2 = self.maxDepth(root.right)
+
+        return max(d1, d2)+1
+```
+{: .snippet}
+
+而最大深度的迭代解法则类似于[层序遍历](/leetcode/2023-02-03-BinaryTree.html#102-二叉树的层序遍历)。我们使用一个变量`depth`来记录当前的深度，每深入一层就令`depth`加一。当队列为空时`depth`即为最大深度。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        
+        from collections import deque
+
+        queue = deque([root])
+        depth = 0
+
+        while queue:
+            N = len(queue)
+            depth += 1
+
+            for i in range(N):
+                node = queue.popleft()
+
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+        
+        return depth
+```
+{: .snippet}
+
+### 559. N叉树的最大深度
+
+给定一个N叉树，找到其最大深度。
+
+最大深度是指从根节点到最远叶子节点的最长路径上的节点总数。
+
+N叉树输入按层序遍历序列化表示，每组子节点由空值分隔（请参见示例）。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2018/10/12/narytreeexample.png" width=50%>
+</div>
+
+```
+输入：root = [1,null,3,2,4,null,5,6]
+输出：3
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2019/11/08/sample_4_964.png" width=55%>
+</div>
+
+```
+输入：root = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
+输出：5
+```
+#### Solution
+
+本题解法与[二叉树最大深度](/leetcode/2023-02-03-BinaryTree.html#104-二叉树的最大深度)基本一致。
+
+[题目链接](https://leetcode.cn/problems/maximum-depth-of-n-ary-tree/)：
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+class Solution:
+    def maxDepth(self, root: 'Node') -> int:
+        if not root:
+            return 0
+        elif len(root.children) == 0:
+            return 1
+        
+        return 1 + max([self.maxDepth(child) for child in root.children])
+```
+{: .snippet}
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+class Solution:
+    def maxDepth(self, root: 'Node') -> int:
+        if not root:
+            return 0
+        
+        from collections import deque
+
+        queue = deque([root])
+        depth = 0
+
+        while queue:
+            N = len(queue)
+            depth += 1
+
+            for i in range(N):
+                node = queue.popleft()
+                
+                for child in node.children:
+                    queue.append(child)
+        
+        return depth
+```
+{: .snippet}
 
 ## Reference
 
