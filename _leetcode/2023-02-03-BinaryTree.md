@@ -396,18 +396,18 @@ class Solution:
 
         while queue:
             N = len(queue)
-            layer = []
+            level = []
 
             for i in range(N):
                 node = queue.popleft()
-                layer.append(node.val)
+                level.append(node.val)
 
                 if node.left:
                     queue.append(node.left)
                 if node.right:
                     queue.append(node.right)
 
-            res.append(layer)
+            res.append(level)
 
         return res
 ```
