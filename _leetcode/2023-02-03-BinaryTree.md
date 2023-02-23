@@ -952,7 +952,7 @@ N叉树输入按层序遍历序列化表示，每组子节点由空值分隔（�
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2018/10/12/narytreeexample.png" width=50%>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2018/10/12/narytreeexample.png" width="50%">
 </div>
 
 ```
@@ -963,7 +963,7 @@ N叉树输入按层序遍历序列化表示，每组子节点由空值分隔（�
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2019/11/08/sample_4_964.png" width=55%>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2019/11/08/sample_4_964.png" width="55%">
 </div>
 
 ```
@@ -1069,7 +1069,7 @@ class Solution:
 - 如果两棵子树都不存在，则当前节点的深度为1。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/93b85ef3d6e7a070f3281f4cf8949ec7affb07261311f989848ce2e7167ef5b6/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303231303230333135353830303530332e706e67" width=60%>
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/6G1rJ9c.png" width="60%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/minimum-depth-of-binary-tree/)：
