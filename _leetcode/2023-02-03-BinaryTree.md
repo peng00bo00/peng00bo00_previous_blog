@@ -102,7 +102,7 @@ class Solution:
 ```
 {: .snippet}
 
-除了递归解法之外，我们还可以使用循环来进行遍历。和递归相比，通过循环进行的遍历可以减少函数调用的开销，因此在程序运行时有着更好的性能。二叉树遍历的迭代解法思路是利用栈来模拟程序的递归调用，其模板如下：
+除了递归解法之外，我们还可以使用迭代来进行遍历。和递归相比，通过迭代进行的遍历可以减少函数调用的开销，因此在程序运行时有着更好的性能。二叉树遍历的迭代解法思路是利用栈来模拟程序的递归调用，其模板如下：
 
 ```
 while stack or cur:
@@ -214,7 +214,7 @@ class Solution:
 <img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/9u57wmH.png" width="80%">
 </div>
 
-因此在循环解法中只需要调整向`res`添加节点值的顺序即可，此时我们只在出栈时才将节点值添加到`res`中。
+因此在迭代解法中只需要调整向`res`添加节点值的顺序即可，此时我们只在出栈时才将节点值添加到`res`中。
 
 ```python
 # Definition for a binary tree node.
@@ -509,7 +509,179 @@ class Solution:
 ```
 {: .snippet}
 
-## 比较
+## 对称
+
+### 101. 对称二叉树
+
+给你一个二叉树的根节点`root`，检查它是否轴对称。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/symtree1.jpg" width="40%">
+</div>
+
+```
+输入：root = [1,2,2,3,4,4,3]
+输出：true
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/symtree2.jpg" width="35%">
+</div>
+
+```
+输入：root = [1,2,2,null,3,null,3]
+输出：false
+```
+
+**提示：**
+
+- 树中节点数目在范围`[0, 1000]`内。
+- -100 <= `Node.val` <= 100。
+
+#### Solution
+
+判断一棵树是否对称时我们需要考虑它的`left`和`right`两棵子树是否对称：
+
+- 如果`left`和`right`均为空则**对称**；
+- 如果`left`和`right`中一个为空另一个非空则**非对称**；
+- 如果`left`和`right`均非空但`val`不相等则**非对称**；
+- 如果`left`和`right`均非空且`val`相等则需要继续判断。
+
+因此判断树是否对称具有天然的递归结构：当`left`和`right`非空且`val`相等时则需要进一步考虑树的内外两侧是否分别对称，只有当两侧都是对称时`left`和`right`才是对称的。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/c6b7e44d2d4a15a2ab7bf066addab1380aab6e9ce15491a4aaca04388abebc7b/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303231303230333134343632343431342e706e67" width="60%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/symmetric-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        if not root:
+            return True
+
+        def compare(T1: Optional[TreeNode], T2: Optional[TreeNode]) -> bool:
+            if not T1 and not T2:
+                return True
+            elif T1 and not T2:
+                return False
+            elif not T1 and T2:
+                return False
+            elif T1.val != T2.val:
+                return False
+            
+            return compare(T1.left, T2.right) and compare(T1.right, T2.left)
+        
+        return compare(root.left, root.right)
+```
+{: .snippet}
+
+我们同样可以使用迭代来处理这样的问题，整个比较过程可以如下：
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/6a9723fd0f9426d8d01fc02a286bf4d8e5fdbdf20360a17068c25e330cf562fd/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f3130312e2545352541462542392545372541372542302545342542412538432545352538462538392545362541302539312e676966" width="60%">
+</div>
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        if not root:
+            return True
+
+        if not root.left and not root.right:
+            return True
+        elif root.left and not root.right:
+            return False
+        elif not root.left and root.right:
+            return False
+        
+        from collections import deque
+
+        queue = deque([root.left, root.right])
+
+        while queue:
+            node1 = queue.popleft()
+            node2 = queue.popleft()
+
+            if not node1 and not node2:
+                continue
+            elif node1 and not node2:
+                return False
+            elif not node1 and node2:
+                return False
+            elif node1.val != node2.val:
+                return False
+            
+            queue.append(node1.left)
+            queue.append(node2.right)
+
+            queue.append(node1.right)
+            queue.append(node2.left)
+
+        return True
+```
+{: .snippet}
+
+除此之外也可以使用层次遍历来进行处理，此时只需要考虑每一层是否对称即可。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        if not root:
+            return True
+        
+        from collections import deque
+
+        queue = deque([root.left, root.right])
+
+        while queue:
+            N = len(queue)
+            for i in range(N//2):
+                node1 = queue[i]
+                node2 = queue[N-1-i]
+                
+                if not node1 and not node2:
+                    continue
+                elif node1 and not node2:
+                    return False
+                elif not node1 and node2:
+                    return False
+                elif node1.val != node2.val:
+                    return False
+
+            for i in range(N):
+                node = queue.popleft()
+                
+                if node:
+                    queue.append(node.left)
+                    queue.append(node.right)
+        
+        return True
+```
+{: .snippet}
 
 ## 深度
 
