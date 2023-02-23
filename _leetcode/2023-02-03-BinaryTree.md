@@ -1029,6 +1029,115 @@ class Solution:
 ```
 {: .snippet}
 
+### 111. 二叉树的最小深度
+
+给定一个二叉树，找出其最小深度。
+
+最小深度是从根节点到最近叶子节点的最短路径上的节点数量。
+
+**说明：**叶子节点是指没有子节点的节点。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/10/12/ex_depth.jpg">
+</div>
+
+```
+输入：root = [3,9,20,null,null,15,7]
+输出：2
+```
+
+**示例2：**
+
+```
+输入：root = [2,null,3,null,4,null,5,null,6]
+输出：5
+```
+
+**提示：**
+
+- 树中节点数的范围在`[0, 10⁵]`内。
+- -1000 <= `Node.val` <= 1000。
+
+#### Solution
+
+本题解法与[二叉树最大深度](/leetcode/2023-02-03-BinaryTree.html#104-二叉树的最大深度)类似，但需要注意的是节点的最小深度并不是左右子树深度的最小值加1，而是需要考虑两棵子树是否存在：
+
+- 如果左右两棵子树都存在，则当前节点的最小深度是两棵子树深度的最小值加1。
+- 如果只有一棵子树存在，则当前节点的最小深度是存在子树的深度加1。
+- 如果两棵子树都不存在，则当前节点的深度为1。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/93b85ef3d6e7a070f3281f4cf8949ec7affb07261311f989848ce2e7167ef5b6/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303231303230333135353830303530332e706e67" width=60%>
+</div>
+
+[题目链接](https://leetcode.cn/problems/minimum-depth-of-binary-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def minDepth(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        
+        if root.left and root.right:
+            d1 = self.minDepth(root.left)
+            d2 = self.minDepth(root.right)
+
+            return 1 + min(d1, d2)
+        elif root.left:
+            return 1 + self.minDepth(root.left)
+        elif root.right:
+            return 1 + self.minDepth(root.right)
+        else:
+            return 1
+```
+{: .snippet}
+
+基于层序遍历的迭代解法思路更加清晰：我们只需要在遍历节点时额外检查当前节点是否为叶节点，如果是叶节点就直接返回深度。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def minDepth(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        
+        from collections import deque
+
+        queue = deque([root])
+        depth = 0
+
+        while queue:
+            N = len(queue)
+            depth += 1
+
+            for i in range(N):
+                node = queue.popleft()
+
+                if not node.left and not node.right:
+                    return depth
+                
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+
+        return depth
+```
+{: .snippet}
+
 ## Reference
 
 - [二叉树理论基础](https://programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
