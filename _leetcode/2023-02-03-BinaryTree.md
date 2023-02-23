@@ -785,7 +785,7 @@ class Solution:
 
 #### Solution
 
-本题解法可参考[另一棵树的子树](/leetcode/2023-02-03-BinaryTree.html#572-另一棵树的子树)。我们首先定义一个比较函数`compare(T1, T2)`用来比较两棵树是否相同，然后利用广度优先对`root`进行遍历：如果找到相同的树则返回`True`，否则继续向下直到`root`中所有节点都进行过比较并最终返回`False`。
+本题解法可参考[另一棵树的子树](/leetcode/2023-02-03-BinaryTree.html#572-另一棵树的子树)。我们首先定义一个比较函数`compare(T1, T2)`用来比较两棵树是否相同，然后分别测试`root`与`subRoot`是否相同、`root.left`或者`root.right`是否包含`subRoot`即可。
 
 [题目链接](https://leetcode.cn/problems/subtree-of-another-tree/)：
 
@@ -798,7 +798,39 @@ class Solution:
 #         self.right = right
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
-        def compare(T1: Optional[TreeNode], T2: Optional[TreeNode]): -> bool
+        def compare(T1: Optional[TreeNode], T2: Optional[TreeNode]) -> bool:
+            if not T1 and not T2:
+                return True
+            elif T1 and not T2:
+                return False
+            elif not T1 and T2:
+                return False
+            elif T1.val != T2.val:
+                return False
+
+            return compare(T1.left, T2.left) and compare(T1.right, T2.right)
+        
+        if not root and not subRoot:
+            return True
+        elif not root and subRoot:
+            return False
+        
+        return compare(root, subRoot) or self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
+```
+{: .snippet}
+
+本题的迭代解法则需要使用广度优先或者深度优先对`root`进行遍历：如果找到相同的树则返回`True`，否则继续向下直到`root`中所有节点都进行过比较并最终返回`False`。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        def compare(T1: Optional[TreeNode], T2: Optional[TreeNode]) -> bool:
             if not T1 and not T2:
                 return True
             elif T1 and not T2:
