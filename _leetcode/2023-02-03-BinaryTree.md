@@ -1392,7 +1392,7 @@ class Solution:
 本题的基本解法是深度优先搜索：我们自上而下对`root`进行遍历，每当遇到叶节点就构造一条路径添加到结果中。因此我们构造一个辅助函数`traverse()`，它需要3个输入参数：
 
 - `node`表示当前节点；
-- `path`记录了从`root`到`node`父节点的路径；
+- `path`记录了从`root`到`node`节点的路径；
 - `res`用来保存所有的路径结果。
 
 不难发现，整个遍历过程类似于[前序遍历](/leetcode/2023-02-03-BinaryTree.html#144-二叉树的前序遍历)。
@@ -1409,20 +1409,19 @@ class Solution:
 class Solution:
     def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
         def traverse(node: Optional[TreeNode], path: str, res: List[str]) -> List[str]:
-            path += str(node.val)
 
             if not node.left and not node.right:
                 res.append(path)
                 return res
             
             if node.left:
-                res = traverse(node.left, path+"->", res)
+                res = traverse(node.left, path+"->"+str(node.left.val), res)
             if node.right:
-                res = traverse(node.right, path+"->", res)
+                res = traverse(node.right, path+"->"+str(node.right.val), res)
             
             return res
         
-        return traverse(root, "", [])
+        return traverse(root, str(root.val), [])
 ```
 {: .snippet}
 
