@@ -509,7 +509,7 @@ class Solution:
 ```
 {: .snippet}
 
-## 比较
+## 属性
 
 ### 101. 对称二叉树
 
@@ -858,8 +858,6 @@ class Solution:
 ```
 {: .snippet}
 
-## 深度
-
 ### 104. 二叉树的最大深度
 
 给定一个二叉树，找出其最大深度。
@@ -1135,6 +1133,148 @@ class Solution:
                     queue.append(node.right)
 
         return depth
+```
+{: .snippet}
+
+### 222. 完全二叉树的节点个数
+
+给你一棵**完全二叉树**的根节点`root`，求出该树的节点个数。
+
+**完全二叉树**的定义如下：在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。若最底层为第`h`层，则该层包含`1~ 2ʰ`个节点。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/14/complete.jpg">
+</div>
+
+```
+输入：root = [1,2,3,4,5,6]
+输出：6
+```
+
+**示例2：**
+
+```
+输入：root = []
+输出：0
+```
+
+**示例3：**
+
+```
+输入：root = [1]
+输出：1
+```
+
+**提示：**
+
+- 树中节点的数目范围是[0, 5 * 10⁴]。
+- 0 <= `Node.val` <= 5*10⁴。
+- 题目数据保证输入的树是**完全二叉树**。
+
+#### Solution
+
+首先按照一般的二叉树来进行求解，我们可以通过深度优先或是广度优先来对树进行遍历。深度优先的时间复杂度为`O(n)`，而空间复杂度为`O(log n)`。
+
+[题目链接](https://leetcode.cn/problems/count-complete-tree-nodes/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def countNodes(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        
+        cnt = 1
+
+        if root.left:
+            cnt += self.countNodes(root.left)
+        if root.right:
+            cnt += self.countNodes(root.right)
+
+        return cnt
+```
+{: .snippet}
+
+广度优先的时间复杂度为`O(n)`，而空间复杂度为`O(n)`。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def countNodes(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        
+        from collections import deque
+
+        queue = deque([root])
+        cnt = 0
+
+        while queue:
+            N = len(queue)
+            cnt += N
+
+            for i in range(N):
+                node = queue.popleft()
+
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+        
+        return cnt
+```
+{: .snippet}
+
+本题的最优解法需要使用到**完全二叉树**的性质。根据定义，完全二叉树要么每一层都被填满，要么只有最下层没被填满。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/5d85c9f8df419ce8db22f668ff22f7a3ae55660b8e9bead3b98e2d8cdd69ac9c/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303230313132343039323534333636322e706e67" width="70%">
+</div>
+
+当二叉树每一层都填满时称为**满二叉树**，此时树中节点数量为`2ʰ-1`。在这种情况下我们只需要遍历树的深度就能够得到节点的总数量。而如果完全二叉树不是满二叉树，则只能分别统计两棵子树中节点的数量，然后树中节点总数等于两棵子树节点数量之和加1。这样可以得到递归代码如下，其时间复杂度为`O(log n × log n)`，而空间复杂度为`O(log n)`。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def countNodes(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        
+        left = root.left
+        right= root.right
+
+        leftDepth = 0
+        rightDepth= 0
+
+        while left:
+            leftDepth += 1
+            left = left.left
+        
+        while right:
+            rightDepth += 1
+            right = right.right
+        
+        if leftDepth == rightDepth:
+            return (2 << leftDepth) - 1
+        
+        return self.countNodes(root.left) + self.countNodes(root.right) + 1
 ```
 {: .snippet}
 
