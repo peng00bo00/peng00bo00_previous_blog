@@ -1169,7 +1169,7 @@ class Solution:
 
 **提示：**
 
-- 树中节点的数目范围是[0, 5 * 10⁴]。
+- 树中节点的数目范围是`[0, 5 * 10⁴]`。
 - 0 <= `Node.val` <= 5*10⁴。
 - 题目数据保证输入的树是**完全二叉树**。
 
@@ -1275,6 +1275,84 @@ class Solution:
             return (2 << leftDepth) - 1
         
         return self.countNodes(root.left) + self.countNodes(root.right) + 1
+```
+{: .snippet}
+
+### 110. 平衡二叉树
+
+给定一个二叉树，判断它是否是高度平衡的二叉树。
+
+本题中，一棵高度平衡二叉树定义为：
+
+- 一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过`1`。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/10/06/balance_1.jpg">
+</div>
+
+```
+输入：root = [3,9,20,null,null,15,7]
+输出：true
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/10/06/balance_2.jpg">
+</div>
+
+```
+输入：root = [1,2,2,3,3,null,null,4,4]
+输出：false
+```
+
+**示例3：**
+
+```
+输入：root = []
+输出：true
+```
+
+**提示：**
+
+- 树中的节点数在范围`[0, 5000]`内。
+- -10⁴ <= `Node.val` <= 10⁴。
+
+#### Solution
+
+本题需要递归计算左右两棵子树的高度，因此我们需要定义一个辅助函数`getHeight(node)`：
+
+- 首先计算左右两棵子树的高度，分别记录到`leftHeight`和`rightHeight`中；
+- 当左子树或右子树不是高度平衡二叉树时返回`-1`，表示当前树不可能是高度平衡二叉树；
+- 继续比较左右两棵子树的高度之差，如果大于`1`则返回`-1`表示表示当前树不是高度平衡二叉树；
+- 最后返回当前树的高度`1 + max(leftHeight, rightHeight)`。
+
+[题目链接](https://leetcode.cn/problems/balanced-binary-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        def getHeight(node: Optional[TreeNode]) -> int:
+            if not node:
+                return 0
+            
+            if (leftHeight := getHeight(node.left)) == -1:
+                return -1
+            if (rightHeight := getHeight(node.right)) == -1:
+                return -1
+            if abs(leftHeight - rightHeight) > 1:
+                return -1
+            return 1 + max(leftHeight, rightHeight)
+        
+        return getHeight(root) != -1
 ```
 {: .snippet}
 
