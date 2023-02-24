@@ -1426,6 +1426,46 @@ class Solution:
 ```
 {: .snippet}
 
+本题的另一种理解方式是**回溯**：当我们访问完叶节点后需要通过回溯的方式来回到上一层的父节点，然后再进入下一个路径。这样的过程可以使用栈来实现。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/pic.leetcode-cn.com/1662887575-zcfIKH-image.png"  width="70%">
+</div>
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
+        stack = [root]
+        path_st = [str(root.val)]
+        res = []
+
+        while stack:
+            node = stack.pop()
+            path = path_st.pop()
+
+            if (not node.left) and (not node.right):
+                res.append(path)
+
+                continue
+            
+            if node.right:
+                stack.append(node.right)
+                path_st.append(path + "->" + str(node.right.val))
+            
+            if node.left:
+                stack.append(node.left)
+                path_st.append(path + "->" + str(node.left.val))
+
+        return res
+```
+{: .snippet}
+
 ## Reference
 
 - [二叉树理论基础](https://programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
