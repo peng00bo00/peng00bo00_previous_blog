@@ -1329,6 +1329,8 @@ class Solution:
 - 继续比较左右两棵子树的高度之差，如果大于`1`则返回`-1`表示表示当前树不是高度平衡二叉树；
 - 最后返回当前树的高度`1 + max(leftHeight, rightHeight)`。
 
+这样判断`root`是不是高度平衡二叉树只需要看`getHeight(root)`是否等于`-1`即可。
+
 [题目链接](https://leetcode.cn/problems/balanced-binary-tree/)：
 
 ```python
@@ -1353,6 +1355,74 @@ class Solution:
             return 1 + max(leftHeight, rightHeight)
         
         return getHeight(root) != -1
+```
+{: .snippet}
+
+### 257. 二叉树的所有路径
+
+给你一个二叉树的根节点`root`，按**任意顺序**，返回所有从根节点到叶子节点的路径。
+
+**叶子节点**是指没有子节点的节点。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/12/paths-tree.jpg">
+</div>
+
+```
+输入：root = [1,2,3,null,5]
+输出：["1->2->5","1->3"]
+```
+
+**示例2：**
+
+```
+输入：root = [1]
+输出：["1"]
+```
+
+**提示：**
+
+- 树中的节点数在范围`[0, 100]`内。
+- -100 <= `Node.val` <= 100。
+
+#### Solution
+
+本题的基本解法是深度优先搜索：我们自上而下对`root`进行遍历，每当遇到叶节点就构造一条路径添加到结果中。因此我们构造一个辅助函数`traverse()`，它需要3个输入参数：
+
+- `node`表示当前节点；
+- `path`记录了从`root`到`node`父节点的路径；
+- `res`用来保存所有的路径结果。
+
+不难发现，整个遍历过程类似于[前序遍历](/leetcode/2023-02-03-BinaryTree.html#144-二叉树的前序遍历)。
+
+[题目链接](https://leetcode.cn/problems/binary-tree-paths/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
+        def traverse(node: Optional[TreeNode], path: str, res: List[str]) -> List[str]:
+            path += str(node.val)
+
+            if not node.left and not node.right:
+                res.append(path)
+                return res
+            
+            if node.left:
+                res = traverse(node.left, path+"->", res)
+            if node.right:
+                res = traverse(node.right, path+"->", res)
+            
+            return res
+        
+        return traverse(root, "", [])
 ```
 {: .snippet}
 
