@@ -1538,7 +1538,7 @@ def isLeaf(root: Optional[TreeNode]) -> bool:
 ```
 {: .snippet}
 
-本题同样可以使用迭代来进行处理，代码可参考如下：
+本题同样可以使用迭代来进行处理。此时只需要不断检查当前节点的左节点是否是左叶子节点即可，代码可参考如下：
 
 ```python
 # Definition for a binary tree node.
@@ -1570,6 +1570,106 @@ def isLeaf(root: Optional[TreeNode]) -> bool:
         return False
     
     return (not root.left) and (not root.right)
+```
+{: .snippet}
+
+### 513. 找树左下角的值
+
+给定一个二叉树的 **根节点** `root`，请找出该二叉树的 **最底层** **最左边** 节点的值。
+
+假设二叉树中至少有一个节点。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/14/tree1.jpg">
+</div>
+
+```
+输入: root = [2,1,3]
+输出: 1
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/14/tree2.jpg">
+</div>
+
+```
+输入: [1,2,3,4,null,5,6,null,null,7]
+输出: 7
+```
+
+**提示：**
+
+- 树中的节点数在范围`[1, 10⁴]`内。
+- -2³² <= `Node.val` <= 2³²-1。
+
+#### Solution
+
+本题的基本解法是使用[层序遍历](/leetcode/2023-02-03-BinaryTree.html#102-二叉树的层序遍历)。根据题意，我们只需要用每一层最左边节点的值来更新`res`即可。完成遍历后`res`的值即为二叉树最底层最左边节点的值。
+
+[题目链接](https://leetcode.cn/problems/find-bottom-left-tree-value/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
+        from collections import deque
+
+        queue = deque([root])
+        res = 0
+
+        while queue:
+            N = len(queue)
+            res = queue[0].val
+
+            for i in range(N):
+                node = queue.popleft()
+
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+        
+        return res
+```
+{: .snippet}
+
+本题的另一种解法是使用深度优先搜索。我们需要分别遍历左节点和右节点，然后返回两棵子树最底层最左边节点的值以及对应的深度。这样当前树最底层最左边的值即为两棵子树中拥有最大深度树的返回节点值，相应代码可以参考如下。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
+        def traversal(node: Optional[TreeNode], depth: int):
+            if not node:
+                return 0, 0
+            elif (not node.left) and (not node.right):
+                return node.val, depth
+            
+            leftVal, leftDepth = traversal(node.left, depth+1)
+            rightVal, rightDepth = traversal(node.right, depth+1)
+
+            if leftDepth >= rightDepth:
+                return leftVal, leftDepth
+            else:
+                return rightVal, rightDepth
+        
+        res, _ = traversal(root, 0)
+
+        return res
 ```
 {: .snippet}
 
