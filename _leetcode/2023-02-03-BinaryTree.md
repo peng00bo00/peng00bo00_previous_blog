@@ -1977,6 +1977,77 @@ class Solution:
 ```
 {: .snippet}
 
+### 105. 从前序与中序遍历序列构造二叉树
+
+给定两个整数数组`preorder`和`inorder`，其中`preorder`是二叉树的**先序遍历**，`inorder`是同一棵树的**中序遍历**，请构造二叉树并返回其根节点。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/tree.jpg">
+</div>
+
+```
+输入: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+输出: [3,9,20,null,null,15,7]
+```
+
+**示例2：**
+
+```
+输入: preorder = [-1], inorder = [-1]
+输出: [-1]
+```
+
+**提示：**
+
+- 1 <= `preorder.length` <= 3000。
+- `inorder.length` == `preorder.length`。
+- -3000 <= `preorder[i]`, `inorder[i]` <= 3000。
+- `preorder`和`inorder`均**无重复**元素。
+- `inorder`中每一个值都在`preorder`中。
+- `preorder`**保证**为二叉树的前序遍历序列。
+- `inorder`**保证**为二叉树的中序遍历序列。
+
+#### Solution
+
+本题解法与[从中序与后序遍历序列构造二叉树](/leetcode/2023-02-03-BinaryTree.html#106-从中序与后序遍历序列构造二叉树)基本一致，唯一需要注意的是`preorder`的第一个元素对应了`root`节点。需要额外说明的是如果给定前序和后序遍历是**无法**确定唯一的二叉树的，这是因为没有中序遍历无法确定`root`左右部分，也就是无法完成分割。
+
+[题目链接](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        if not preorder:
+            return None
+        
+        ## the first one in preorder is the root
+        val = preorder[0]
+        root= TreeNode(val)
+
+        ## split idx
+        idx = inorder.index(val)
+
+        inorderLeft = inorder[:idx] 
+        inorderRight= inorder[idx+1:]
+
+        preorderLeft = preorder[1:len(inorderLeft)+1]
+        preorderRight= preorder[1+len(inorderLeft):]
+
+        ## recursively build root.left and root.right
+        root.left = self.buildTree(preorderLeft, inorderLeft)
+        root.right= self.buildTree(preorderRight, inorderRight)
+
+        return root
+```
+{: .snippet}
+
 ## Reference
 
 - [二叉树理论基础](https://programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
