@@ -1900,6 +1900,83 @@ class Solution:
 ```
 {: .snippet}
 
+## 修改与构造
+
+### 106. 从中序与后序遍历序列构造二叉树
+
+给定两个整数数组`inorder`和`postorder`，其中`inorder`是二叉树的中序遍历，`postorder`是同一棵树的后序遍历，请你构造并返回这棵**二叉树**。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/tree.jpg">
+</div>
+
+```
+输入：inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]
+输出：[3,9,20,null,null,15,7]
+```
+
+**示例2：**
+
+```
+输入：inorder = [-1], postorder = [-1]
+输出：[-1]
+```
+
+**提示：**
+
+- 1 <= `inorder.length` <= 3000。
+- `postorder.length` == `inorder.length`。
+- -3000 <= `inorder[i]`, `postorder[i]` <= 3000。
+- `inorder`和`postorder`都由**不同**的值组成。
+- `postorder`中每一个值都在`inorder`中。
+- `inorder`**保证**是树的中序遍历。
+- `postorder`**保证**是树的后序遍历。
+
+#### Solution
+
+本题需要结合[中序遍历](/leetcode/2023-02-03-BinaryTree.html#94-二叉树的中序遍历)和[后序遍历](/leetcode/2023-02-03-BinaryTree.html#145-二叉树的后序遍历)的顺序进行求解。回忆中序遍历的顺序为**左-中-右**，而后序遍历为**左-右-中**，因此`postorder`的末尾一定是当前的`root`。接下来利用`root`把`inorder`拆成`inorderLeft`和`inorderRight`两部分，分别对应`root.left`和`root.right`的中序遍历。类似地，我们还需要再把`postorder`同样拆成`postorderLeft`和`postorderRight`对应后序遍历的左右子树。由于`inorderLeft`和`postorderLeft`一定具有相同的长度，我们可以直接对`postorder`进行拆分。加下来只需要分别递归构造`root.left`和`root.right`即可。整个算法过程可以参考下图。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/gG6Z7vv.png">
+</div>
+
+[题目链接](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
+        if not postorder:
+            return None
+        
+        ## the last one in postorder is the root
+        val = postorder[-1]
+        root= TreeNode(val)
+
+        ## split idx
+        idx = inorder.index(val)
+
+        inorderLeft = inorder[:idx]
+        inorderRight= inorder[idx+1:]
+
+        postorderLeft = postorder[:len(inorderLeft)]
+        postorderRight= postorder[len(inorderLeft):-1]
+
+        ## recursively build root.left and root.right
+        root.left = self.buildTree(inorderLeft, postorderLeft)
+        root.right= self.buildTree(inorderRight, postorderRight)
+
+        return root
+```
+{: .snippet}
+
 ## Reference
 
 - [二叉树理论基础](https://programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
