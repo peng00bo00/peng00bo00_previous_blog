@@ -1738,17 +1738,10 @@ class Solution:
         if not root:
             return False
         
-        if isLeaf(root):
+        if (not root.left) and (not root.right):
             return root.val == targetSum
         else:
             return self.hasPathSum(root.left, targetSum-root.val) or self.hasPathSum(root.right, targetSum-root.val)
-        
-
-def isLeaf(node: Optional[TreeNode]) -> bool:
-    if not node:
-        return False
-    
-    return (not node.left) and (not node.right)
 ```
 {: .snippet}
 
@@ -1784,6 +1777,126 @@ class Solution:
                 val_st.append(val+node.left.val)
 
         return False
+```
+{: .snippet}
+
+### 113. 路径总和II
+
+给你二叉树的根节点`root`和一个整数目标和`targetSum`，找出所有**从根节点到叶子节点**路径总和等于给定目标和的路径。
+
+**叶子节点**是指没有子节点的节点。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/18/pathsumii1.jpg">
+</div>
+
+```
+输入：root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
+输出：[[5,4,11,2],[5,8,4,5]]
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/18/pathsum2.jpg">
+</div>
+
+```
+输入：root = [1,2,3], targetSum = 5
+输出：[]
+```
+
+**示例3：**
+
+```
+输入：root = [1,2], targetSum = 0
+输出：[]
+```
+
+**提示：**
+
+- 树中的节点数在范围`[0, 5000]`内。
+- -1000 <= `Node.val` <= 1000。
+- -1000 <= `targetSum` <= 1000。
+
+#### Solution
+
+本题解法与[路径总和](/leetcode/2023-02-03-BinaryTree.html#112-路径总和)基本一致，不过需要注意的是在进行递归时要保存中间结果。
+
+[题目链接](https://leetcode.cn/problems/path-sum-ii/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+        def traversal(root, target, path, res) -> List[List[int]]:
+            if not root:
+                return res
+            
+            if (not root.left) and (not root.right):
+                if root.val == target:
+                    res.append(path)
+                return res
+            
+            if root.left:
+                res = traversal(root.left, target-root.val, path+[root.left.val], res)
+            if root.right:
+                res = traversal(root.right, target-root.val, path+[root.right.val], res)
+            
+            return res
+        
+        if not root:
+            return []
+        
+        return traversal(root, targetSum, [root.val], [])
+```
+{: .snippet}
+
+本题的回溯解法相对比较简单，代码可参考如下。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+        if not root:
+            return []
+        
+        stack   = [root]
+        val_st  = [root.val]
+        path_st = [[root.val]]
+        res = []
+
+        while stack:
+            node = stack.pop()
+            val  = val_st.pop()
+            path = path_st.pop()
+
+            if (not node.left) and (not node.right) and val == targetSum:
+                res.append(path)
+            
+            if node.right:
+                stack.append(node.right)
+                val_st.append(val + node.right.val)
+                path_st.append(path + [node.right.val])
+            
+            if node.left:
+                stack.append(node.left)
+                val_st.append(val + node.left.val)
+                path_st.append(path + [node.left.val])
+        
+        return res
 ```
 {: .snippet}
 
