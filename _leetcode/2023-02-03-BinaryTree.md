@@ -413,102 +413,6 @@ class Solution:
 ```
 {: .snippet}
 
-### 226. 翻转二叉树
-
-给你一棵二叉树的根节点`root`，翻转这棵二叉树，并返回其根节点。
-
-**示例1：**
-
-<div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg">
-</div>
-
-```
-输入：root = [4,2,7,1,3,6,9]
-输出：[4,7,2,9,6,3,1]
-```
-
-**示例2：**
-
-<div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/14/invert2-tree.jpg">
-</div>
-
-```
-输入：root = [2,1,3]
-输出：[2,3,1]
-```
-
-**示例3：**
-
-```
-输入：root = []
-输出：[]
-```
-
-**提示：**
-
-- 树中节点数目在范围`[0, 100]`内。
-- -100 <= `Node.val` <= 100。
-
-#### Solution
-
-翻转二叉树是二叉树的经典问题，利用问题自身的递归结构我们可以很容易地得到递归版本的代码。
-
-<div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/13127773de2a6e9e2cb7de066f108c74901df17a16abda07042f639d920317ff/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f2545372542462542422545382542442541432545342542412538432545352538462538392545362541302539312e676966" width="60%">
-</div>
-
-[题目链接](https://leetcode.cn/problems/invert-binary-tree/)：
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        if not root:
-            return root
-
-        root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
-        
-        return root
-```
-{: .snippet}
-
-当然我们也可以基于迭代来实现翻转，此时只需要利用栈或队列来保存中间节点即可。
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        if not root:
-            return root
-
-        stack = [root]
-
-        while stack:
-            node = stack.pop()
-            node.left, node.right = node.right, node.left
-
-            if node.left:
-                stack.append(node.left)
-            
-            if node.right:
-                stack.append(node.right)
-        
-        return root
-```
-{: .snippet}
-
 ## 属性
 
 ### 101. 对称二叉树
@@ -1902,6 +1806,102 @@ class Solution:
 
 ## 修改与构造
 
+### 226. 翻转二叉树
+
+给你一棵二叉树的根节点`root`，翻转这棵二叉树，并返回其根节点。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg">
+</div>
+
+```
+输入：root = [4,2,7,1,3,6,9]
+输出：[4,7,2,9,6,3,1]
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/14/invert2-tree.jpg">
+</div>
+
+```
+输入：root = [2,1,3]
+输出：[2,3,1]
+```
+
+**示例3：**
+
+```
+输入：root = []
+输出：[]
+```
+
+**提示：**
+
+- 树中节点数目在范围`[0, 100]`内。
+- -100 <= `Node.val` <= 100。
+
+#### Solution
+
+翻转二叉树是二叉树的经典问题，利用问题自身的递归结构我们可以很容易地得到递归版本的代码。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/13127773de2a6e9e2cb7de066f108c74901df17a16abda07042f639d920317ff/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f2545372542462542422545382542442541432545342542412538432545352538462538392545362541302539312e676966" width="60%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/invert-binary-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if not root:
+            return root
+
+        root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
+        
+        return root
+```
+{: .snippet}
+
+当然我们也可以基于迭代来实现翻转，此时只需要利用栈或队列来保存中间节点即可。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if not root:
+            return root
+
+        stack = [root]
+
+        while stack:
+            node = stack.pop()
+            node.left, node.right = node.right, node.left
+
+            if node.left:
+                stack.append(node.left)
+            
+            if node.right:
+                stack.append(node.right)
+        
+        return root
+```
+{: .snippet}
+
 ### 106. 从中序与后序遍历序列构造二叉树
 
 给定两个整数数组`inorder`和`postorder`，其中`inorder`是二叉树的中序遍历，`postorder`是同一棵树的后序遍历，请你构造并返回这棵**二叉树**。
@@ -2043,6 +2043,90 @@ class Solution:
         ## recursively build root.left and root.right
         root.left = self.buildTree(preorderLeft, inorderLeft)
         root.right= self.buildTree(preorderRight, inorderRight)
+
+        return root
+```
+{: .snippet}
+
+### 654. 最大二叉树
+
+给定一个不重复的整数数组`nums`。**最大二叉树**可以用下面的算法从`nums`递归地构建:
+
+- 创建一个根节点，其值为`nums`中的最大值。
+- 递归地在最大值**左边**的**子数组前缀上**构建左子树。
+- 递归地在最大值**右边**的**子数组后缀上**构建右子树。
+
+返回`nums`构建的**最大二叉树**。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/24/tree1.jpg">
+</div>
+
+```
+输入：nums = [3,2,1,6,0,5]
+输出：[6,3,5,null,2,0,null,null,1]
+解释：递归调用如下所示：
+- [3,2,1,6,0,5] 中的最大值是 6 ，左边部分是 [3,2,1] ，右边部分是 [0,5] 。
+    - [3,2,1] 中的最大值是 3 ，左边部分是 [] ，右边部分是 [2,1] 。
+        - 空数组，无子节点。
+        - [2,1] 中的最大值是 2 ，左边部分是 [] ，右边部分是 [1] 。
+            - 空数组，无子节点。
+            - 只有一个元素，所以子节点是一个值为 1 的节点。
+    - [0,5] 中的最大值是 5 ，左边部分是 [0] ，右边部分是 [] 。
+        - 只有一个元素，所以子节点是一个值为 0 的节点。
+        - 空数组，无子节点。
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/24/tree2.jpg">
+</div>
+
+```
+输入：nums = [3,2,1]
+输出：[3,null,2,null,1]
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 1000。
+- 0 <= `nums[i]` <= 1000。
+- `nums`中的所有整数**互不相同**。
+
+#### Solution
+
+本题只需要按照题干给出的递归算法进行实现即可。
+
+[题目链接](https://leetcode.cn/problems/maximum-binary-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+        if not nums:
+            return None
+        
+        val = nums[0]
+        idx = 0
+
+        for i, num in enumerate(nums):
+            if num > val:
+                val = num
+                idx = i
+        
+        root = TreeNode(val)
+
+        ## recursively build root.left and root.right
+        root.left = self.constructMaximumBinaryTree(nums[:idx])
+        root.right= self.constructMaximumBinaryTree(nums[idx+1:])
 
         return root
 ```
