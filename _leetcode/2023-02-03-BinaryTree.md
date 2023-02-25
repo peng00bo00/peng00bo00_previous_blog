@@ -1465,6 +1465,114 @@ class Solution:
 ```
 {: .snippet}
 
+### 404. 左叶子之和
+
+给定二叉树的根节点`root`，返回所有左叶子之和。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/04/08/leftsum-tree.jpg">
+</div>
+
+```
+输入: root = [3,9,20,null,null,15,7] 
+输出: 24 
+解释: 在这个二叉树中，有两个左叶子，分别是 9 和 15，所以返回 24
+```
+
+**示例2：**
+
+```
+输入: root = [1]
+输出: 0
+```
+
+**提示：**
+
+- 树中的节点数在范围`[0, 1000]`内。
+- -1000 <= `Node.val` <= 1000。
+
+#### Solution
+
+本题的难点在于**左叶子**的定义，这里需要先明确它：
+
+- 一个节点为**左叶子**节点，当且仅当它是某个节点的左子节点，并且它是一个叶子结点。
+
+因此我们无法直接判断当前节点是否是一个左叶子节点，而必须借助它的父节点才能判断。明确定义后我们可以得到递归结构：
+
+- 计算`root`左子树和右子树的左叶子之和，把它们加起来记录到`total`中；
+- 如果`root.left`是左叶子节点，`total`还要再加上`root.left.val`；
+- 返回`total`作为当前树的左叶子之和。
+
+不难发现上面的结构类似于[后序遍历](/leetcode/2023-02-03-BinaryTree.html#145-二叉树的后序遍历)。
+
+[题目链接](https://leetcode.cn/problems/sum-of-left-leaves/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        
+        leftSum = self.sumOfLeftLeaves(root.left)
+        rightSum= self.sumOfLeftLeaves(root.right)
+
+        total = leftSum + rightSum
+        if isLeaf(root.left):
+            total += root.left.val
+
+        return total
+
+def isLeaf(root: Optional[TreeNode]) -> bool:
+    if not root:
+        return False
+    
+    return (not root.left) and (not root.right)
+```
+{: .snippet}
+
+本题同样可以使用迭代来进行处理，代码可参考如下：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
+        stack = [root]
+        res = 0
+
+        while stack:
+            node = stack.pop()
+
+            if isLeaf(node.left):
+                res += node.left.val
+            
+            if node.left:
+                stack.append(node.left)
+            if node.right:
+                stack.append(node.right)
+        
+        return res
+
+def isLeaf(root: Optional[TreeNode]) -> bool:
+    if not root:
+        return False
+    
+    return (not root.left) and (not root.right)
+```
+{: .snippet}
+
 ## Reference
 
 - [二叉树理论基础](https://programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
