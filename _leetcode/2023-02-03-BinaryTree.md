@@ -1673,6 +1673,120 @@ class Solution:
 ```
 {: .snippet}
 
+### 112. 路径总和
+
+给你二叉树的根节点`root`和一个表示目标和的整数`targetSum`。判断该树中是否存在**根节点到叶子节点**的路径，这条路径上所有节点值相加等于目标和`targetSum`。如果存在，返回`true`；否则，返回`false`。
+
+**叶子节点**是指没有子节点的节点。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/18/pathsum1.jpg">
+</div>
+
+```
+输入：root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22
+输出：true
+解释：等于目标和的根节点到叶节点路径如上图所示。
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/18/pathsum2.jpg">
+</div>
+
+```
+输入：root = [1,2,3], targetSum = 5
+输出：false
+解释：树中存在两条根节点到叶子节点的路径：
+(1 --> 2): 和为 3
+(1 --> 3): 和为 4
+不存在 sum = 5 的根节点到叶子节点的路径。
+```
+
+**示例3：**
+
+```
+输入：root = [], targetSum = 0
+输出：false
+解释：由于树是空的，所以不存在根节点到叶子节点的路径。
+```
+
+**提示：**
+
+- 树中的节点数在范围`[0, 5000]`内。
+- -1000 <= `Node.val` <= 1000。
+- -1000 <= `targetSum` <= 1000。
+
+#### Solution
+
+本题可以使用深度优先搜索来求解。我们只需要分别递归遍历左子树和右子树，只要其中存在满足要求的路径即可。
+
+[题目链接](https://leetcode.cn/problems/path-sum/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+        if not root:
+            return False
+        
+        if isLeaf(root):
+            return root.val == targetSum
+        else:
+            return self.hasPathSum(root.left, targetSum-root.val) or self.hasPathSum(root.right, targetSum-root.val)
+        
+
+def isLeaf(node: Optional[TreeNode]) -> bool:
+    if not node:
+        return False
+    
+    return (not node.left) and (not node.right)
+```
+{: .snippet}
+
+本题的另一种求解思路是使用回溯。这里我们需要两个栈来分别存储当前遍历到的节点以及路径上节点值之和，这样就可以利用出栈来模拟回溯的过程。具体代码可参考如下。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+        if not root:
+            return False
+        
+        stack = [root]
+        val_st= [root.val]
+
+        while stack:
+            node = stack.pop()
+            val  = val_st.pop()
+
+            if (not node.left) and (not node.right) and val == targetSum:
+                return True
+            
+            if node.right:
+                stack.append(node.right)
+                val_st.append(val+node.right.val)
+            if node.left:
+                stack.append(node.left)
+                val_st.append(val+node.left.val)
+
+        return False
+```
+{: .snippet}
+
 ## Reference
 
 - [二叉树理论基础](https://programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
