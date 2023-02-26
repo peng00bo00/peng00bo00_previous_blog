@@ -53,6 +53,19 @@ myQueue.empty(); // return false
 
 #### Solution
 
+使用两个栈来实现队列时我们需要定义一个**输入栈**`stack_in`和一个**输出栈**`stack_out`。这样队列的操作就可以按照如下方法实现：
+
+- `push`：直接向输入栈`stack_in`添加元素；
+- `pop`：如果输出栈`stack_out`非空则直接`pop`，否则把输入栈`stack_in`中的元素依次弹出到输出栈`stack_out`中再从输出栈`pop`；
+- `peek`：调用定义好的`pop`函数弹出元素，然后再把它加入到输出栈`stack_out`中；
+- `empty`：检查输入栈`stack_in`和输出栈`stack_out`是否均为空。
+
+队列操作过程可以参考下图。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/https://pic.leetcode-cn.com/1614908055-DRhjRN-232.gif">
+</div>
+
 [题目链接](https://leetcode.cn/problems/implement-queue-using-stacks/)：
 
 ```python
@@ -344,6 +357,19 @@ myStack.empty(); // 返回 False
 
 #### Solution
 
+本题与[用栈实现队列](/leetcode/2023-02-01-StackQueue.html#232-用栈实现队列)不同的是把**输入队列**`queue_in`输出到**输出队列**`queue_out`中并不能实现队列中元素的逆序。因此本题中输出队列`queue_out`更多地是作为输入队列`queue_in`的备份，大多数操作只需要利用`queue_in`即可实现：
+
+- `push`：直接向输入队列`queue_in`添加元素；
+- `pop`：把输入队列`queue_in`中的元素依次输入到输出队列`queue_out`中直到只剩最后一个，然后交换两个队列的指针并最后从输出队列`queue_out`弹出剩余元素；
+- `top`：返回输入队列`queue_in`中最后一个元素；
+- `empty`：检查输入队列`queue_in`是否为空。
+
+整个操作过程可以参考下图。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/dmUTn3Z.gif">
+</div>
+
 [题目链接](https://leetcode.cn/problems/implement-stack-using-queues/)：
 
 ```python
@@ -381,6 +407,8 @@ class MyStack:
 # param_4 = obj.empty()
 ```
 {: .snippet}
+
+如果使用双向队列`deque`则栈的实现会更加简单，代码可参考如下：
 
 ```python
 from collections import deque
