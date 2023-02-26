@@ -508,6 +508,41 @@ class MyStack:
 
 #### Solution
 
+本题需要使用到一种特殊的数据结构-**单调队列**。单调队列适合解决各种滑动窗口的最大最小值问题，它的特点是队列是单调的而且只包含了窗口中有可能成为最大或最小的元素。以递减的单调队列为例，它需要实现以下两个功能：
+
+- `pop(x)`将`x`移除队列，如果`x`等于单调队列的**出口**的元素则弹出它，否则不用任何操作；
+- `push(x)`将`x`添加到队列，如果`x`大于队列**入口**的元素则先将入口元素弹出，直到`x`小于等于入口元素。
+
+这样的操作可以保证队列出口的元素始终是窗口中的最大元素。单调队列的实现可参考如下：
+
+```python
+from collections import deque
+
+class MyQueue:
+    def __init__(self):
+        self.queue = deque()
+    
+    def pop(self, x:int) -> None:
+        if self.queue and x == self.queue[0]:
+            self.queue.popleft()
+    
+    def push(self, x: int) -> None:
+        while self.queue and x > self.queue[-1]:
+            self.queue.pop()
+        
+        self.queue.append(x)
+
+    def front(self) -> int:
+        return self.queue[0]
+```
+{: .snippet}
+
+利用单调队列，我们只需要在窗口滑动时将对应元素删除或添加到队列中即可。算法流程可参考如下。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/7Kl6edd.gif">
+</div>
+
 [题目链接](https://leetcode.cn/problems/sliding-window-maximum/)：
 
 ```python
