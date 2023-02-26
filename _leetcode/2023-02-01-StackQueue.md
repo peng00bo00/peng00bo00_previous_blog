@@ -144,6 +144,20 @@ class MyQueue:
 
 #### Solution
 
+括号匹配是栈的经典应用。对于`s`中的每个字符`char`，如果`char`是一个左括号则把对应的右括号压入栈`stack`中，否则需要检查`stack`：
+
+- 如果发现栈为空则说明`char`是多余的反括号，直接返回`False`；
+- 如果`char`与栈顶元素不相同说明括号匹配失败，直接返回`False`；
+- 如果`char`与栈顶元素相同说明括号匹配成功，弹出`stack`中的元素继续进行匹配。
+
+完成对`s`的遍历后再检查`stack`是否为空即可。如果`stack`非空说明还有括号需要匹配，返回`False`；否则返回`True`。
+
+整个匹配过程可以参考如下。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/2noJagb.gif">
+</div>
+
 [题目链接](https://leetcode.cn/problems/valid-parentheses/)：
 
 ```python
@@ -357,7 +371,7 @@ myStack.empty(); // 返回 False
 
 #### Solution
 
-本题与[用栈实现队列](/leetcode/2023-02-01-StackQueue.html#232-用栈实现队列)不同的是把**输入队列**`queue_in`输出到**输出队列**`queue_out`中并不能实现队列中元素的逆序。因此本题中输出队列`queue_out`更多地是作为输入队列`queue_in`的备份，大多数操作只需要利用`queue_in`即可实现：
+本题与[用栈实现队列](/leetcode/2023-02-01-StackQueue.html#232-用栈实现队列)的主要区别在于把**输入队列**`queue_in`中的元素依次输出到**输出队列**`queue_out`中并不能实现队列中元素的逆序。因此本题中输出队列`queue_out`更多地是作为输入队列`queue_in`的备份，大多数操作只需要利用`queue_in`即可实现：
 
 - `push`：直接向输入队列`queue_in`添加元素；
 - `pop`：把输入队列`queue_in`中的元素依次输入到输出队列`queue_out`中直到只剩最后一个，然后交换两个队列的指针并最后从输出队列`queue_out`弹出剩余元素；
