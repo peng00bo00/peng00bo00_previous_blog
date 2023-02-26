@@ -610,6 +610,8 @@ class Solution:
 
 #### Solution
 
+本题需要使用**优先队列**或是**堆**来进行处理。值得注意的是在求解时需要维护一个大小为`k`的**最小堆**，而不是最大堆。这样在进行遍历时会不断把当前的最小元素弹出，最后保留的元素即为最大的前`k`个元素。
+
 [题目链接](https://leetcode.cn/problems/top-k-frequent-elements/)：
 
 ```python
