@@ -205,6 +205,12 @@ class Solution:
 
 #### Solution
 
+栈可以用来解决各种匹配问题。在本题中我们需要匹配字符串中相邻且相同的字符，因此我们在对字符串进行遍历时要比较当前字符与栈顶的字符，如果它们相同则从栈中弹出。最后栈中剩余的字符即为所求。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/nWd9fY7.gif">
+</div>
+
 [题目链接](https://leetcode.cn/problems/remove-all-adjacent-duplicates-in-string/)：
 
 ```python
@@ -220,6 +226,8 @@ class Solution:
         return "".join(stack)
 ```
 {: .snippet}
+
+本题的另一种解法是使用双指针。这里我们令慢指针`slow`指向当前字符串的末尾，同时利用快指针`fast`来进行遍历。每次遍历时交换两个指针中的字符，如果此时`slow`指向的字符与前一个字符相同则回退一位，否则前进一位。完成遍历后的字符串即为所求。
 
 ```python
 class Solution:
@@ -303,6 +311,12 @@ class Solution:
 - 适合用栈操作运算：遇到数字则入栈；遇到算符则取出栈顶两个数字进行计算，并将结果压入栈中。
 
 #### Solution
+
+逆波兰表达式求值同样是栈的经典问题。这里我们把`tokens`中的元素分为两类，一类是数字而另一类则是运算符。对`tokens`进行遍历时如果当前元素是数字则压入栈，否则取出栈顶的两个元素按照运算符进行计算，并把计算结果压入栈中。完成遍历后栈中的数字即为所求。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/pic.leetcode.cn/1675574533-UUzsvw-s2.png">
+</div>
 
 [题目链接](https://leetcode.cn/problems/evaluate-reverse-polish-notation/)：
 
