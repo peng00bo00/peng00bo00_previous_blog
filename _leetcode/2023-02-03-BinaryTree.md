@@ -120,7 +120,9 @@ while stack or cur:
 <img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/VAD6jmh.png" width="80%">
 </div>
 
-因此利用循环模板可以得到如下代码：
+因此利用循环模板可以得到如下代码。
+
+[题目链接](https://leetcode.cn/problems/binary-tree-preorder-traversal/)：
 
 ```python
 # Definition for a binary tree node.
@@ -216,6 +218,8 @@ class Solution:
 
 因此在迭代解法中只需要调整向`res`添加节点值的顺序即可，此时我们只在出栈时才将节点值添加到`res`中。
 
+[题目链接](https://leetcode.cn/problems/binary-tree-inorder-traversal/)：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -302,6 +306,8 @@ class Solution:
 {: .snippet}
 
 后序遍历的迭代解法与前序遍历基本一致，只不过需要先不断向下访问右节点然后再自下而上访问左子树。同时需要注意的是最后要把结果反序输出。
+
+[题目链接](https://leetcode.cn/problems/binary-tree-postorder-traversal/)：
 
 ```python
 # Definition for a binary tree node.
@@ -497,6 +503,8 @@ class Solution:
 <img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/6a9723fd0f9426d8d01fc02a286bf4d8e5fdbdf20360a17068c25e330cf562fd/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f3130312e2545352541462542392545372541372542302545342542412538432545352538462538392545362541302539312e676966">
 </div>
 
+[题目链接](https://leetcode.cn/problems/symmetric-tree/)：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -537,6 +545,8 @@ class Solution:
 {: .snippet}
 
 除此之外也可以使用层次遍历来进行处理，此时只需要考虑每一层是否对称即可。
+
+[题目链接](https://leetcode.cn/problems/symmetric-tree/)：
 
 ```python
 # Definition for a binary tree node.
@@ -725,6 +735,8 @@ class Solution:
 
 本题的迭代解法则需要使用广度优先或者深度优先对`root`进行遍历：如果找到相同的树则返回`True`，否则继续向下直到`root`中所有节点都进行过比较并最终返回`False`。
 
+[题目链接](https://leetcode.cn/problems/subtree-of-another-tree/)：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -809,6 +821,8 @@ class Solution:
 {: .snippet}
 
 而最大深度的迭代解法则类似于[层序遍历](/leetcode/2023-02-03-BinaryTree.html#102-二叉树的层序遍历)。我们使用一个变量`depth`来记录当前的深度，每深入一层就令`depth`加一。当队列为空时`depth`即为最大深度。
+
+[题目链接](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)：
 
 ```python
 # Definition for a binary tree node.
@@ -1004,6 +1018,8 @@ class Solution:
 
 基于层序遍历的迭代解法思路更加清晰：我们只需要在遍历节点时额外检查当前节点是否为叶节点，如果是叶节点就直接返回深度。
 
+[题目链接](https://leetcode.cn/problems/minimum-depth-of-binary-tree/)：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -1108,6 +1124,8 @@ class Solution:
 
 广度优先的时间复杂度为`O(n)`，而空间复杂度为`O(n)`。
 
+[题目链接](https://leetcode.cn/problems/count-complete-tree-nodes/)：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -1148,6 +1166,8 @@ class Solution:
 </div>
 
 当二叉树每一层都填满时称为**满二叉树**，此时树中节点数量为`2ʰ-1`。在这种情况下我们只需要遍历树的深度就能够得到节点的总数量。而如果完全二叉树不是满二叉树，则只能分别统计两棵子树中节点的数量，然后树中节点总数等于两棵子树节点数量之和加1。这样可以得到递归代码如下，其时间复杂度为`O(log n × log n)`，而空间复杂度为`O(log n)`。
+
+[题目链接](https://leetcode.cn/problems/count-complete-tree-nodes/)：
 
 ```python
 # Definition for a binary tree node.
@@ -1335,6 +1355,8 @@ class Solution:
 <img src="https://pic1.xuehuaimg.com/proxy/pic.leetcode-cn.com/1662887575-zcfIKH-image.png"  width="70%">
 </div>
 
+[题目链接](https://leetcode.cn/problems/binary-tree-paths/)：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -1444,6 +1466,8 @@ def isLeaf(root: Optional[TreeNode]) -> bool:
 
 本题同样可以使用迭代来进行处理。此时只需要不断检查当前节点的左节点是否是左叶子节点即可，代码可参考如下：
 
+[题目链接](https://leetcode.cn/problems/sum-of-left-leaves/)：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -1548,6 +1572,8 @@ class Solution:
 
 本题的另一种解法是使用深度优先搜索。我们需要分别遍历左节点和右节点，然后返回两棵子树最底层最左边节点的值以及对应的深度。这样当前树最底层最左边的值即为两棵子树中拥有最大深度树的返回节点值，相应代码可以参考如下。
 
+[题目链接](https://leetcode.cn/problems/find-bottom-left-tree-value/)：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -1650,6 +1676,8 @@ class Solution:
 {: .snippet}
 
 本题的另一种求解思路是使用回溯。这里我们需要两个栈来分别存储当前遍历到的节点以及路径上节点值之和，这样就可以利用出栈来模拟回溯的过程。具体代码可参考如下。
+
+[题目链接](https://leetcode.cn/problems/path-sum/)：
 
 ```python
 # Definition for a binary tree node.
@@ -1764,6 +1792,8 @@ class Solution:
 {: .snippet}
 
 本题的回溯解法相对比较简单，代码可参考如下。
+
+[题目链接](https://leetcode.cn/problems/path-sum-ii/)：
 
 ```python
 # Definition for a binary tree node.
@@ -2208,6 +2238,8 @@ class Solution:
 <img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/4UTn2Mj.gif" width="80%">
 </div>
 
+[题目链接](https://leetcode.cn/problems/merge-two-binary-trees/)：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -2246,6 +2278,100 @@ class Solution:
                 node1.right = node2.right
 
         return root1
+```
+{: .snippet}
+
+## 二叉搜索树
+
+### 700. 二叉搜索树中的搜索
+
+给定二叉搜索树(BST)的根节点`root`和一个整数值`val`。
+
+你需要在BST中找到节点值等于`val`的节点。返回以该节点为根的子树。如果节点不存在，则返回`null`。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/12/tree1.jpg">
+</div>
+
+```
+输入：root = [4,2,7,1,3], val = 2
+输出：[2,1,3]
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/12/tree2.jpg">
+</div>
+
+```
+输入：root = [4,2,7,1,3], val = 5
+输出：[]
+```
+
+**提示：**
+
+- 数中节点数在`[1, 5000]`范围内。
+- 1 <= `Node.val` <= 10⁷。
+- `root`是二叉搜索树。
+- 1 <= `val` <= 10⁷。
+
+#### Solution
+
+二叉搜索树的递归遍历比较容易：
+
+- 当`root.val == val`时返回`root`；
+- 当`root.val < val`时向下对右节点继续遍历；
+- 当`root.val > val`时向下对左节点继续遍历。
+
+[题目链接](https://leetcode.cn/problems/search-in-a-binary-search-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        if not root:
+            return None
+        elif root.val == val:
+            return root
+        elif root.val < val:
+            return self.searchBST(root.right, val)
+        else:
+            return self.searchBST(root.left, val)
+```
+{: .snippet}
+
+而二叉搜索树的迭代遍历也比二叉树的迭代要容易一些。此时我们不再需要借助栈来进行回溯，直接向下遍历即可。
+
+[题目链接](https://leetcode.cn/problems/search-in-a-binary-search-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        node = root
+
+        while node:
+            if node.val == val:
+                return node
+            elif node.val < val:
+                node = node.right
+            else:
+                node = node.left
+        
+        return None
 ```
 {: .snippet}
 
