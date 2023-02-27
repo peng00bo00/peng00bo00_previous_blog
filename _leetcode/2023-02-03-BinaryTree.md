@@ -2132,6 +2132,123 @@ class Solution:
 ```
 {: .snippet}
 
+### 617. 合并二叉树
+
+给你两棵二叉树：`root1`和`root2`。
+
+想象一下，当你将其中一棵覆盖到另一棵之上时，两棵树上的一些节点将会重叠（而另一些不会）。你需要将这两棵树合并成一棵新二叉树。合并的规则是：如果两个节点重叠，那么将这两个节点的值相加作为合并后节点的新值；否则，不为`null`的节点将直接作为新二叉树的节点。
+
+返回合并后的二叉树。
+
+**注意**: 合并过程必须从两个树的根节点开始。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/05/merge.jpg">
+</div>
+
+```
+输入：root1 = [1,3,2,5], root2 = [2,1,3,null,4,null,7]
+输出：[3,4,5,5,4,null,7]
+```
+
+**示例2：**
+
+```
+输入：root1 = [1], root2 = [1,2]
+输出：[2,2]
+```
+
+**提示：**
+
+- 两棵树中的节点数目在范围`[0, 2000]`内。
+- -10⁴ <= `Node.val` <= 10⁴。
+
+#### Solution
+
+本题的递归解法非常直观，我们只需要融合根节点`root1`和`root2`然后递归地融合左右节点即可。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/OrMVBCh.gif">
+</div>
+
+[题目链接](https://leetcode.cn/problems/merge-two-binary-trees/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def mergeTrees(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> Optional[TreeNode]:
+        if not root1:
+            return root2
+        elif not root2:
+            return root1
+        
+        root = TreeNode(root1.val+root2.val)
+        root.left = self.mergeTrees(root1.left, root2.left)
+        root.right= self.mergeTrees(root1.right, root2.right)
+
+        return root
+```
+{: .snippet}
+
+本题的迭代解法要相对麻烦一些。我们的整体思路是基于[层序遍历](/leetcode/2023-02-03-BinaryTree.html#102-二叉树的层序遍历)，每次向队列中添加两棵树的对应节点并进行更新：
+
+- 如果两个节点都有左节点，则将两个左节点添加到队列中；
+- 如果两个节点都有右节点，则将两个右节点添加到队列中。
+
+这样可以保证队列中的前两个节点都是有效的节点，也因此当前节点的`val`等于两个节点`val`之和。接下来考虑两个节点中只有一个节点有左节点或右节点的情况，此时只要把该节点的左节点或右节点直接连接到当前节点上即可。整个算法流程可以参考如下。
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/4UTn2Mj.gif" width="80%">
+</div>
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def mergeTrees(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> Optional[TreeNode]:
+        if not root1:
+            return root2
+        elif not root2:
+            return root1
+
+        from collections import deque
+        
+        queue = deque([root1, root2])
+
+        while queue:
+            node1 = queue.popleft()
+            node2 = queue.popleft()
+
+            if node1.left and node2.left:
+                queue.append(node1.left)
+                queue.append(node2.left)
+            
+            if node1.right and node2.right:
+                queue.append(node1.right)
+                queue.append(node2.right)
+            
+            node1.val += node2.val
+
+            if not node1.left and node2.left: 
+                node1.left = node2.left
+            if not node1.right and node2.right: 
+                node1.right = node2.right
+
+        return root1
+```
+{: .snippet}
+
 ## Reference
 
 - [二叉树理论基础](https://programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
