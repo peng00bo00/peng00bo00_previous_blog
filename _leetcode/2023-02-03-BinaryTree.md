@@ -110,8 +110,8 @@ while stack or cur:
         stack.append(cur)
         cur 向下遍历
     
-    node = stack.pop()
-    使用 node 来更新 cur
+    cur = stack.pop()
+    使用 cur.left 或 cur.right 来更新 cur
 ```
 
 前序遍历的特点是从当前节点沿左节点自上而下访问沿途节点，然后再自下而上访问沿途节点的右子树。
@@ -133,9 +133,6 @@ while stack or cur:
 #         self.right = right
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        if not root:
-            return []
-        
         res = []
         stack = []
         cur = root
@@ -143,12 +140,11 @@ class Solution:
         while stack or cur:
             while cur:
                 res.append(cur.val)
-
                 stack.append(cur)
                 cur = cur.left
 
-            node = stack.pop()
-            cur = node.right 
+            cur = stack.pop()
+            cur = cur.right 
         
         return res
 ```
@@ -229,9 +225,6 @@ class Solution:
 #         self.right = right
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        if not root:
-            return []
-        
         res = []
         stack = []
         cur = root
@@ -241,9 +234,9 @@ class Solution:
                 stack.append(cur)
                 cur = cur.left
             
-            node = stack.pop()
-            res.append(node.val)
-            cur = node.right
+            cur = stack.pop()
+            res.append(cur.val)
+            cur = cur.right
 
         return res
 ```
@@ -317,10 +310,7 @@ class Solution:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        if not root:
-            return []
-        
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:        
         res = []
         stack = []
         cur = root
@@ -332,8 +322,8 @@ class Solution:
                 stack.append(cur)
                 cur = cur.right
             
-            node = stack.pop()
-            cur = node.left
+            cur = stack.pop()
+            cur = cur.left
 
         return res[::-1]
 ```
@@ -2415,7 +2405,7 @@ class Solution:
 
 #### Solution
 
-
+本题的技巧在于对二叉搜索树使用[中序遍历](/leetcode/2023-02-03-BinaryTree.html#94-二叉树的中序遍历)进行展开可以得到一个单调递增的序列。因此我们可以按照递归或是迭代的方式来展开`root`，然后再验证得到的序列是否满足单调递增条件，如果满足则`root`是一个有效的二叉搜索树。对应代码可参考如下。
 
 [题目链接](https://leetcode.cn/problems/validate-binary-search-tree/)：
 
@@ -2445,8 +2435,6 @@ class Solution:
 ```
 {: .snippet}
 
-[题目链接](https://leetcode.cn/problems/validate-binary-search-tree/)：
-
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -2465,15 +2453,251 @@ class Solution:
                 stack.append(cur)
                 cur = cur.left
             
-            node = stack.pop()
-            vals.append(node.val)
-            cur = node.right
+            cur = stack.pop()
+            vals.append(cur.val)
+            cur = cur.right
         
         for i in range(len(vals)-1):
             if vals[i] >= vals[i+1]:
                 return False
 
         return True
+```
+{: .snippet}
+
+上面的代码还可以进一步简化。实际上我们并不需要完全将`root`展开，只需要记录当前节点的前一个节点`pre`并且比较它们是否单调递增即可。
+
+[题目链接](https://leetcode.cn/problems/validate-binary-search-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        pre = None
+
+        def traversal(root: Optional[TreeNode]) -> bool:
+            nonlocal pre
+
+            if not root:
+                return True
+            
+            validLeft = traversal(root.left)
+            
+            if pre and pre.val >= root.val:
+                return False
+            
+            ## update pre
+            pre = root
+
+            validRight = traversal(root.right)
+            
+            return validLeft and validRight
+        
+        return traversal(root)
+```
+{: .snippet}
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        stack = []
+        cur = root
+        pre = None
+
+        while stack or cur:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            
+            cur = stack.pop()
+            
+            if pre and pre.val >= cur.val:
+                return False
+            
+            ## update pre and cur
+            pre = cur
+            cur = cur.right
+        
+        return True
+```
+{: .snippet}
+
+### 530. 二叉搜索树的最小绝对差
+
+给你一个二叉搜索树的根节点`root`，返回**树中任意两不同节点值之间的最小差值**。
+
+差值是一个正数，其数值等于两值之差的绝对值。
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/05/bst1.jpg">
+</div>
+
+```
+输入：root = [4,2,6,1,3]
+输出：1
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/05/bst2.jpg">
+</div>
+
+```
+输入：root = [1,0,48,null,null,12,49]
+输出：1
+```
+
+**提示：**
+
+- 树中节点数目范围在`[2, 10⁴]`范围内。
+- 0 <= `Node.val` <= 10⁵。
+
+#### Solution
+
+本题解法与[验证二叉搜索树](/leetcode/2023-02-03-BinaryTree.html#98-验证二叉搜索树)类似，都是利用[中序遍历](/leetcode/2023-02-03-BinaryTree.html#94-二叉树的中序遍历)对二叉搜索树进行展开。展开后序列相邻元素的最小绝对值之差即为所求。
+
+[题目链接](https://leetcode.cn/problems/minimum-absolute-difference-in-bst/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
+
+        def traversal(root: Optional[TreeNode]) -> List[int]:
+            if not root:
+                return []
+            
+            return traversal(root.left) + [root.val] + traversal(root.right)
+        
+        vals = traversal(root)
+        minDiff = vals[1] - vals[0]
+
+        for i in range(len(vals)-1):
+            minDiff = min(minDiff, vals[i+1] - vals[i])
+        
+        return minDiff
+```
+{: .snippet}
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
+        stack = []
+        vals  = []
+        cur   = root
+
+        while stack or cur:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            
+            cur = stack.pop()
+            vals.append(cur.val)
+            cur = cur.right
+        
+        minDiff = vals[1] - vals[0]
+
+        for i in range(len(vals)-1):
+            minDiff = min(minDiff, vals[i+1] - vals[i])
+        
+        return minDiff
+```
+{: .snippet}
+
+我们同样可以简化二叉搜索树的展开过程。这里使用`pre`来记录当前节点的前一个节点，`minDiff`来记录当前遍历过程中的相邻节点最小绝对值之差。这样只需要在遍历过程中不断对它们进行更新即可，递归和迭代版本的代码可以参考如下。
+
+[题目链接](https://leetcode.cn/problems/minimum-absolute-difference-in-bst/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
+        pre = None
+        minDiff = float("inf")
+
+        def traversal(root: Optional[TreeNode]) -> None:
+            nonlocal minDiff, pre
+
+            if not root:
+                return
+            
+            traversal(root.left)
+
+            ## update minDiff
+            if pre:
+                minDiff = min(minDiff, root.val-pre.val)
+            
+            ## update pre
+            pre = root
+
+            traversal(root.right)
+        
+        traversal(root)
+        
+        return minDiff
+```
+{: .snippet}
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
+        stack = []
+        pre   = None
+        cur   = root
+        minDiff = float("inf")
+
+        while stack or cur:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            
+            cur = stack.pop()
+            
+            ## update minDiff
+            if pre:
+                minDiff = min(minDiff, cur.val-pre.val)
+
+            ## update pre and minDiff
+            pre = cur
+            cur = cur.right
+        
+        return minDiff
 ```
 {: .snippet}
 
