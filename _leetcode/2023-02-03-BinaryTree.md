@@ -2701,6 +2701,143 @@ class Solution:
 ```
 {: .snippet}
 
+### 501. 二叉搜索树中的众数
+
+给你一个含重复值的二叉搜索树(BST)的根节点`root`，找出并返回BST中的所有**众数**(即，出现频率最高的元素)。
+
+如果树中有不止一个众数，可以按**任意顺序**返回。
+
+假定BST满足如下定义：
+
+- 结点左子树中所含节点的值**小于等于**当前节点的值
+- 结点右子树中所含节点的值**大于等于**当前节点的值
+- 左子树和右子树都是二叉搜索树
+
+**示例1：**
+
+<div align=center>
+<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/11/mode-tree.jpg">
+</div>
+
+```
+输入：root = [1,null,2,2]
+输出：[2]
+```
+
+**示例2：**
+
+```
+输入：root = [0]
+输出：[0]
+```
+
+**提示：**
+
+- 树中节点数目范围在`[1, 10⁴]`范围内。
+- -10⁵ <= `Node.val` <= 10⁵。
+
+#### Solution
+
+本题的技巧同样是二叉搜索树[中序遍历](/leetcode/2023-02-03-BinaryTree.html#94-二叉树的中序遍历)可以展开为单调序列。由于序列是单调不减的，我们只需要一次遍历就可以得到众数。具体来说我们使用`count`来记录当前节点出现的次数，`maxCount`来记录最大出现次数。如果`count == maxCount`则把当前值加入到`res`中，而如果`count > maxCount`则清空`res`并使其只包含当前节点值。递归和迭代版本的代码可参考如下。
+
+[题目链接](https://leetcode.cn/problems/find-mode-in-binary-search-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findMode(self, root: Optional[TreeNode]) -> List[int]:
+        pre = None
+        res = []
+
+        count = 0
+        maxCount = 0
+
+        def traversal(root: Optional[TreeNode]) -> None:
+            nonlocal pre, res, count, maxCount
+
+            if not root:
+                return
+
+            traversal(root.left)
+
+            ## update count
+            if not pre:
+                count = 1
+            elif pre.val == root.val:
+                count+= 1
+            else:
+                count = 1
+            
+            ## update maxCount and res
+            if count == maxCount:
+                res.append(root.val)
+            elif count > maxCount:
+                maxCount = count
+                res = [root.val]
+            
+            ## update pre
+            pre = root
+            
+            traversal(root.right)
+        
+        traversal(root)
+
+        return res
+```
+{: .snippet}
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findMode(self, root: Optional[TreeNode]) -> List[int]:
+        stack = []
+        pre   = None
+        cur   = root
+
+        res = []
+        count = 0
+        maxCount = 0
+
+        while stack or cur:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            
+            cur = stack.pop()
+
+            ## update count
+            if not pre:
+                count = 1
+            elif pre.val == cur.val:
+                count += 1
+            else:
+                count = 1
+
+            ## update maxCount and res
+            if count == maxCount:
+                res.append(cur.val)
+            elif count > maxCount:
+                maxCount = count
+                res = [cur.val]
+
+            ## update pre and cur
+            pre = cur
+            cur = cur.right
+
+        return res
+```
+{: .snippet}
+
 ## Reference
 
 - [二叉树理论基础](https://programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
