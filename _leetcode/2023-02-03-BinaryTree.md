@@ -2957,6 +2957,8 @@ class Solution:
 
 #### Solution
 
+由于二叉搜索树是有序的，本题在代码层面要比[二叉搜索树的最近公共祖先](/leetcode/2023-02-03-BinaryTree.html#236-二叉树的最近公共祖先)简单一些。如果当前节点`root`是`p`和`q`的公共祖先，那么它一定位于区间`[p, q]`上。因此我们只需要从根节点开始进行遍历，当`root`位于区间`[p, q]`时直接返回即可。
+
 [题目链接](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/)：
 
 ```python
@@ -2969,6 +2971,39 @@ class Solution:
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if root.val < p.val and root.val < q.val:
+            return self.lowestCommonAncestor(root.right, p, q)
+        
+        if root.val > p.val and root.val > q.val:
+            return self.lowestCommonAncestor(root.left, p, q)
+        
+        return root
+```
+{: .snippet}
+
+迭代版本的代码可参考如下。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        vmin = min(p.val, q.val)
+        vmax = max(p.val, q.val)
+        node = root
+
+        while True:
+            if node.val < vmin:
+                node = node.right
+            elif node.val > vmax:
+                node = node.left
+            else:
+                return node
 ```
 {: .snippet}
 
