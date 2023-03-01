@@ -3173,6 +3173,22 @@ class Solution:
 
 #### Solution
 
+删除二叉搜索树中的节点比较复杂，这里我们首先明确函数的返回值为删除节点后该位置上的节点。根据当前节点值`root.val`我们可以分情况讨论：
+
+- 如果`root`为空说明`key`不在二叉树中，返回`None`；
+- 如果`key < root.val`说明`key`可能位于左子树上，继续向`root.left`递归；
+- 如果`key > root.val`说明`key`可能位于右子树上，继续向`root.right`递归；
+- 此时`root.val == key`说明`root`即为待删除节点，根据`root`是否是叶节点继续分情况讨论：
+    - 如果`root.left`为空且`root.right`非空，返回`root.right`作为新节点；
+    - 如果`root.right`为空且`root.left`非空，返回`root.left`作为新节点；
+    - 否则`root`不是叶节点，我们需要找到右子树的最左下节点`node`并把`root.left`连接到`node`上，最后用`root.right`来更新`root`。
+
+整个删除节点的过程可以参考下图。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/6OyQVgL.gif">
+</div>
+
 [题目链接](https://leetcode.cn/problems/delete-node-in-a-bst/)：
 
 ```python
@@ -3184,6 +3200,27 @@ class Solution:
 #         self.right = right
 class Solution:
     def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
+        if not root:
+            return None
+        elif key < root.val:
+            root.left = self.deleteNode(root.left, key)
+        elif key > root.val:
+            root.right = self.deleteNode(root.right, key)
+        else:
+            if not root.left:
+                root = root.right
+            elif not root.right:
+                root = root.left
+            else:
+                node = root.right
+                ## leftmost node on the right child
+                while node.left:
+                    node = node.left
+                
+                node.left = root.left
+                root = root.right
+        
+        return root
 ```
 {: .snippet}
 
