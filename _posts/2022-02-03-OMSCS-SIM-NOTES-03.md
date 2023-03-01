@@ -119,14 +119,14 @@ $$
 依据这些关系我们可以生成一个用户序列如下，通过模拟结果可以计算出用户的平均等待时间为$\frac{\sum_{i=1}^6 W^Q_i}{6} = 7.33$。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/qVNk37G.png" width="60%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/qVNk37G.png" width="60%">
 </div>
 
 接下来我们考虑系统中在单位时间的平均用户数，我们记$L(t)$为$t$时刻系统中用户的数目，它包含正在服务以及在队列中等候的用户数。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Uwyq3tO.png" width="35%">
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/CyYMnX8.png" width="58%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/Uwyq3tO.png" width="35%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/CyYMnX8.png" width="58%">
 </div>
 
 因此单位时间的平均用户数为：
@@ -144,7 +144,7 @@ $$
 如果使用后入先出(LIFO)的策略，对于同样的样本我们可以得到仿真结果如下：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/9fKfeZL.png" width="60%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/9fKfeZL.png" width="60%">
 </div>
 
 计算得到此时用户的平均等待时间为5.33，单位时间系统中的平均用户数为2，因此后入先出的队列比先入先出的队列更加高效。
@@ -166,13 +166,13 @@ $$
 假设第$i$天进货的花费为$K+c Z_i$，每件商品在库存中的保管费用为$h$，商店的需求为$D_i$，如果当天库存量小于需求单位商品还会导致$p$的损失。在这些条件下我们可以建立商店的利润模型：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/SoZOQEl.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/SoZOQEl.png" width="80%">
 </div>
 
 通过模拟我们可以得到商店每天的利润：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/JGLLHvR.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/JGLLHvR.png" width="80%">
 </div>
 
 ## Simulating Random Variables
@@ -180,14 +180,14 @@ $$
 本节课最后讨论了模拟随机变量的方法。对于离散型随机变量我们可以通过对[0, 1]区间上的均匀分布进行采样，然后利用逆变换采样来生成离散变量。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/IIAf0Pm.png" width="80%">
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/kraSXdf.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/IIAf0Pm.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/kraSXdf.png" width="80%">
 </div>
 
 而对于连续型随机变量，只需要解出CDF的反函数再进行逆变换采样即可。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/sunRzaj.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/sunRzaj.png" width="80%">
 </div>
 
 ## Reference

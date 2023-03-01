@@ -29,13 +29,13 @@ sidebar:
 我们通过一个简单的例子来进行介绍。假设博弈过程可以通过如下图所示的树来表示，其中节点表示状态边表示玩家可选的行为。由$A$玩家先行从状态1中选择向左或是向右，然后$B$选择下一个动作，再回到$A$进行选择。当状态到达叶节点时游戏结束，叶节点对应的数字为玩家$A$的收益(由于是零和博弈，玩家$B$的收益为它的相反数)。玩家$A$的目标是最大化收益，相应地玩家$B$的目标是最小化收益。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/zCx3SnZ.png" width="40%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/zCx3SnZ.png" width="40%">
 </div>
 
 根据玩家$A$和玩家$B$所有可能的行为，我们可以利用一个矩阵来表示整个博弈过程的所有可能结果，如下图所示：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/LdhuXXd.png" width="30%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/LdhuXXd.png" width="30%">
 </div>
 
 矩阵的每一行表示玩家$A$采取的行为(策略)，每一列表示玩家$B$采取的行为(策略)；矩阵中的每个元素表示玩家$A$和玩家$B$的行为所导致的最终收益。对于玩家$A$来说，无论他做出什么样的选择玩家$B$都会试图最小化收益，因此$A$的最优策略是选择第2行；类似地，对玩家$B$而言，玩家$A$会试图最大化每一列的数字，因此玩家$B$的最优策略是选择第2列。
@@ -47,13 +47,13 @@ sidebar:
 接下来我们放松一下系统的限制，假设系统存在随机性。以下图为例，当系统状态到达方块的位置时我们可能会依据概率得到不同的收益：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/grhs70u.png" width="40%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/grhs70u.png" width="40%">
 </div>
 
 在这种情况下我们只需要用收益的期望来代替原本的收益即可，这样就可以得到这个博弈过程的矩阵表示：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/AkP40b6.png" width="20%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/AkP40b6.png" width="20%">
 </div>
 
 ### Relaxation: Hidden Information
@@ -61,13 +61,13 @@ sidebar:
 我们进一步放松对系统的限制，假设现在玩家不再具有全部的信息。这里我们还是用一个例子进行说明：假设玩家$A$在开局会得到红色或是黑色的牌且这张牌只有他自己可见。如果$A$开始获得的是红色的牌则$A$可以选择`hold`或是`resign`，如果是`hold`收益由$B$的行为来决定，而如果$A$选择`resign`则会获得-20的收益。类似地，如果$A$开始获得的是黑色的牌则他必须选择`hold`，最终的收益仍然由$B$的行为来决定。整个博弈过程可以利用下图所示的树来表示：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/ebYkGCF.png" width="40%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/ebYkGCF.png" width="40%">
 </div>
 
 我们同样利用收益的期望来计算不同策略的收益，从而得到收益矩阵如下所示：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/FfXI2eN.png" width="30%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/FfXI2eN.png" width="30%">
 </div>
 
 此时从$A$的角度上看他无论选择`hold`还是`resign`都会得到-5的收益，但从$B$的角度上看他会选择`see`从而得到5的收益。此时$A$和$B$按照最优策略行动会得到不同的解，这说明由于隐藏信息的存在会导致minimax $\neq$ maximin。
@@ -97,7 +97,7 @@ $$
 接下来我们把这两种情况下$A$的收益函数画在一张图上，得到它们的交点$P=0.4$。这个点表示当$P$取0.4时，无论$B$采取什么样的策略(pure strategy或者mixed strategy)$A$获得的期望收益都是相同的。但需要注意的是这一点并不意味着最优概率或是最优收益。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/qsrX1jm.png" width="40%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/qsrX1jm.png" width="40%">
 </div>
 
 ### Prisoner’s Dilemma
@@ -113,7 +113,7 @@ $$
 整个博弈过程的收益可以用如下所示的矩阵来表示：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/GaABC13.png" width="40%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/GaABC13.png" width="40%">
 </div>
 
 对于每一名囚犯来说他的最优策略都是选择招供，这是因为此时无论另一名囚犯如何选择他的刑期都是最短的。这种策略保证无论其它人如何选择自身的收益都是最大，因此这样的策略也被称为**支配策略(dominant strategy)**。但在这种情况下两个人都会获得6年的刑期，而如果两个人都选择合作的话每个人只有1年的刑期。换句话说每名囚犯的最优策略并不会导致总体的最优，要想达到总体最优每名囚犯的策略都依赖于另一名囚犯的策略。
@@ -157,7 +157,7 @@ $$
 上式说明当$\gamma$接近于0时应该选择告密，而当$\gamma$接近于1时应该选择合作。实际上此时这名囚犯的效用可以建模为下图表示的MDP：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/3cluhov.png" width="40%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/3cluhov.png" width="40%">
 </div>
 
 因此我们可以通过求解这个MDP来获得最优策略。
@@ -177,7 +177,7 @@ $$
 接下来我们考虑另一种策略：在一开始选择合作，如果另一名囚犯选择告密的话就将行为改为告密。然后对他进行报复，每次选择和另一名囚犯相反的行为直到自身的状态回到合作。这种策略称为**Pavlov’s strategy**，可以用下图所示的MDP来表示：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/7yHcsua.png" width="40%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/7yHcsua.png" width="40%">
 </div>
 
 Pavlov’s strategy同样达成了Nash均衡。它的另一个特点是如果两名囚犯都采取Pavlov’s strategy，那么无论他们的初始状态如何，最终都会选择相互合作。
