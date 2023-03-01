@@ -31,7 +31,7 @@ class TreeNode:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg">
 </div>
 
 ```
@@ -56,7 +56,7 @@ class TreeNode:
 **示例4：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/https://assets.leetcode.com/uploads/2020/09/15/inorder_5.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/09/15/inorder_5.jpg">
 </div>
 
 ```
@@ -67,7 +67,7 @@ class TreeNode:
 **示例5：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/09/15/inorder_4.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/09/15/inorder_4.jpg">
 </div>
 
 ```
@@ -117,7 +117,7 @@ while stack or cur:
 前序遍历的特点是从当前节点沿左节点自上而下访问沿途节点，然后再自下而上访问沿途节点的右子树。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/VAD6jmh.png" width="80%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/VAD6jmh.png" width="80%">
 </div>
 
 因此利用循环模板可以得到如下代码。
@@ -157,7 +157,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg">
 </div>
 
 ```
@@ -209,7 +209,7 @@ class Solution:
 中序遍历的节点访问顺序是沿左节点，自下而上访问沿途节点及其右子树。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/9u57wmH.png" width="80%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/9u57wmH.png" width="80%">
 </div>
 
 因此在迭代解法中只需要调整向`res`添加节点值的顺序即可，此时我们只在出栈时才将节点值添加到`res`中。
@@ -249,7 +249,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/https://assets.leetcode.com/uploads/2020/08/28/pre1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/08/28/pre1.jpg">
 </div>
 
 ```
@@ -336,7 +336,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/tree1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/02/19/tree1.jpg">
 </div>
 
 ```
@@ -368,7 +368,7 @@ class Solution:
 二叉树的另一种遍历方式是层序遍历。顾名思义，层序遍历会按照节点所在的层级从左到右依次进行遍历，它的本质是**广度优先搜索(breadth-first search, BFS)**。因此我们可以使用一个队列来存储位于同一层级的节点，然后依次进行访问。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/919d39fe06ad2477c184566959d71de2394c53628d4d7a2cc858087a3a1d113b/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f3130322545342542412538432545352538462538392545362541302539312545372539412538342545352542312538322545352542412538462545392538312538442545352538452538362e676966" width="60%">
+<img src="https://images.weserv.nl/?url=camo.githubusercontent.com/919d39fe06ad2477c184566959d71de2394c53628d4d7a2cc858087a3a1d113b/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f3130322545342542412538432545352538462538392545362541302539312545372539412538342545352542312538322545352542412538462545392538312538442545352538452538362e676966" width="60%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/binary-tree-level-order-traversal/)：
@@ -418,7 +418,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/symtree1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/02/19/symtree1.jpg">
 </div>
 
 ```
@@ -429,7 +429,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/symtree2.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/02/19/symtree2.jpg">
 </div>
 
 ```
@@ -454,7 +454,7 @@ class Solution:
 因此判断树是否对称具有天然的递归结构：当`left`和`right`非空且`val`相等时则需要进一步考虑树的内外两侧是否分别对称，只有当两侧都是对称时`left`和`right`才是对称的。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/c6b7e44d2d4a15a2ab7bf066addab1380aab6e9ce15491a4aaca04388abebc7b/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303231303230333134343632343431342e706e67" width="60%">
+<img src="https://images.weserv.nl/?url=camo.githubusercontent.com/c6b7e44d2d4a15a2ab7bf066addab1380aab6e9ce15491a4aaca04388abebc7b/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303231303230333134343632343431342e706e67" width="60%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/symmetric-tree/)：
@@ -490,7 +490,7 @@ class Solution:
 我们同样可以使用迭代来处理这样的问题，整个比较过程可以如下：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/6a9723fd0f9426d8d01fc02a286bf4d8e5fdbdf20360a17068c25e330cf562fd/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f3130312e2545352541462542392545372541372542302545342542412538432545352538462538392545362541302539312e676966">
+<img src="https://images.weserv.nl/?url=camo.githubusercontent.com/6a9723fd0f9426d8d01fc02a286bf4d8e5fdbdf20360a17068c25e330cf562fd/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f3130312e2545352541462542392545372541372542302545342542412538432545352538462538392545362541302539312e676966">
 </div>
 
 [题目链接](https://leetcode.cn/problems/symmetric-tree/)：
@@ -589,7 +589,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/20/ex1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/12/20/ex1.jpg">
 </div>
 
 ```
@@ -600,7 +600,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/20/ex2.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/12/20/ex2.jpg">
 </div>
 
 ```
@@ -611,7 +611,7 @@ class Solution:
 **示例3：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/20/ex3.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/12/20/ex3.jpg">
 </div>
 
 ```
@@ -661,7 +661,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/04/28/subtree1-tree.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/04/28/subtree1-tree.jpg">
 </div>
 
 ```
@@ -672,7 +672,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/04/28/subtree2-tree.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/04/28/subtree2-tree.jpg">
 </div>
 
 ```
@@ -858,7 +858,7 @@ N叉树输入按层序遍历序列化表示，每组子节点由空值分隔（�
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2018/10/12/narytreeexample.png" width="50%">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2018/10/12/narytreeexample.png" width="50%">
 </div>
 
 ```
@@ -869,7 +869,7 @@ N叉树输入按层序遍历序列化表示，每组子节点由空值分隔（�
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2019/11/08/sample_4_964.png" width="55%">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2019/11/08/sample_4_964.png" width="55%">
 </div>
 
 ```
@@ -946,7 +946,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/10/12/ex_depth.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/10/12/ex_depth.jpg">
 </div>
 
 ```
@@ -975,7 +975,7 @@ class Solution:
 - 如果两棵子树都不存在，则当前节点的深度为1。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/6G1rJ9c.png" width="60%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/6G1rJ9c.png" width="60%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/minimum-depth-of-binary-tree/)：
@@ -1055,7 +1055,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/14/complete.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/01/14/complete.jpg">
 </div>
 
 ```
@@ -1152,7 +1152,7 @@ class Solution:
 本题的最优解法需要使用到**完全二叉树**的性质。根据定义，完全二叉树要么每一层都被填满，要么只有最下层没被填满。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/5d85c9f8df419ce8db22f668ff22f7a3ae55660b8e9bead3b98e2d8cdd69ac9c/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303230313132343039323534333636322e706e67" width="70%">
+<img src="https://images.weserv.nl/?url=camo.githubusercontent.com/5d85c9f8df419ce8db22f668ff22f7a3ae55660b8e9bead3b98e2d8cdd69ac9c/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303230313132343039323534333636322e706e67" width="70%">
 </div>
 
 当二叉树每一层都填满时称为**满二叉树**，此时树中节点数量为`2ʰ-1`。在这种情况下我们只需要遍历树的深度就能够得到节点的总数量。而如果完全二叉树不是满二叉树，则只能分别统计两棵子树中节点的数量，然后树中节点总数等于两棵子树节点数量之和加1。这样可以得到递归代码如下，其时间复杂度为`O(log n × log n)`，而空间复杂度为`O(log n)`。
@@ -1203,7 +1203,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/10/06/balance_1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/10/06/balance_1.jpg">
 </div>
 
 ```
@@ -1214,7 +1214,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/10/06/balance_2.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/10/06/balance_2.jpg">
 </div>
 
 ```
@@ -1281,7 +1281,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/12/paths-tree.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/03/12/paths-tree.jpg">
 </div>
 
 ```
@@ -1342,7 +1342,7 @@ class Solution:
 本题的另一种理解方式是**回溯**：当我们访问完叶节点后需要通过回溯的方式来回到上一层的父节点，然后再进入下一个路径。这样的过程可以使用栈来实现。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/pic.leetcode-cn.com/1662887575-zcfIKH-image.png"  width="70%">
+<img src="https://images.weserv.nl/?url=pic.leetcode-cn.com/1662887575-zcfIKH-image.png"  width="70%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/binary-tree-paths/)：
@@ -1388,7 +1388,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/04/08/leftsum-tree.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/04/08/leftsum-tree.jpg">
 </div>
 
 ```
@@ -1500,7 +1500,7 @@ def isLeaf(root: Optional[TreeNode]) -> bool:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/14/tree1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/12/14/tree1.jpg">
 </div>
 
 ```
@@ -1511,7 +1511,7 @@ def isLeaf(root: Optional[TreeNode]) -> bool:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/14/tree2.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/12/14/tree2.jpg">
 </div>
 
 ```
@@ -1602,7 +1602,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/18/pathsum1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/01/18/pathsum1.jpg">
 </div>
 
 ```
@@ -1614,7 +1614,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/18/pathsum2.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/01/18/pathsum2.jpg">
 </div>
 
 ```
@@ -1711,7 +1711,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/18/pathsumii1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/01/18/pathsumii1.jpg">
 </div>
 
 ```
@@ -1722,7 +1722,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/18/pathsum2.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/01/18/pathsum2.jpg">
 </div>
 
 ```
@@ -1833,7 +1833,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg">
 </div>
 
 ```
@@ -1844,7 +1844,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/14/invert2-tree.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/03/14/invert2-tree.jpg">
 </div>
 
 ```
@@ -1869,7 +1869,7 @@ class Solution:
 翻转二叉树是二叉树的经典问题，利用问题自身的递归结构我们可以很容易地得到递归版本的代码。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/camo.githubusercontent.com/13127773de2a6e9e2cb7de066f108c74901df17a16abda07042f639d920317ff/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f2545372542462542422545382542442541432545342542412538432545352538462538392545362541302539312e676966" width="60%">
+<img src="https://images.weserv.nl/?url=camo.githubusercontent.com/13127773de2a6e9e2cb7de066f108c74901df17a16abda07042f639d920317ff/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f2545372542462542422545382542442541432545342542412538432545352538462538392545362541302539312e676966" width="60%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/invert-binary-tree/)：
@@ -1929,7 +1929,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/tree.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/02/19/tree.jpg">
 </div>
 
 ```
@@ -1959,7 +1959,7 @@ class Solution:
 本题需要结合[中序遍历](/leetcode/2023-02-03-BinaryTree.html#94-二叉树的中序遍历)和[后序遍历](/leetcode/2023-02-03-BinaryTree.html#145-二叉树的后序遍历)的顺序进行求解。回忆中序遍历的顺序为**左-中-右**，而后序遍历为**左-右-中**，因此`postorder`的末尾一定是当前的`root`。接下来利用`root`把`inorder`拆成`inorderLeft`和`inorderRight`两部分，分别对应`root.left`和`root.right`的中序遍历。类似地，我们还需要再把`postorder`同样拆成`postorderLeft`和`postorderRight`对应后序遍历的左右子树。由于`inorderLeft`和`postorderLeft`一定具有相同的长度，我们可以直接对`postorder`进行拆分。加下来只需要分别递归构造`root.left`和`root.right`即可。整个算法过程可以参考下图。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/gG6Z7vv.png">
+<img src="https://images.weserv.nl/?url=i.imgur.com/gG6Z7vv.png">
 </div>
 
 [题目链接](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)：
@@ -2004,7 +2004,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/19/tree.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/02/19/tree.jpg">
 </div>
 
 ```
@@ -2081,7 +2081,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/24/tree1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/12/24/tree1.jpg">
 </div>
 
 ```
@@ -2102,7 +2102,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/24/tree2.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/12/24/tree2.jpg">
 </div>
 
 ```
@@ -2165,7 +2165,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/05/merge.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/02/05/merge.jpg">
 </div>
 
 ```
@@ -2190,7 +2190,7 @@ class Solution:
 本题的递归解法非常直观，我们只需要融合根节点`root1`和`root2`然后递归地融合左右节点即可。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/OrMVBCh.gif">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/OrMVBCh.gif">
 </div>
 
 [题目链接](https://leetcode.cn/problems/merge-two-binary-trees/)：
@@ -2225,7 +2225,7 @@ class Solution:
 这样可以保证队列中的前两个节点都是有效的节点，也因此当前节点的`val`等于两个节点`val`之和。接下来考虑两个节点中只有一个节点有左节点或右节点的情况，此时只要把该节点的左节点或右节点直接连接到当前节点上即可。整个算法流程可以参考如下。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/4UTn2Mj.gif" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/4UTn2Mj.gif" width="80%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/merge-two-binary-trees/)：
@@ -2282,7 +2282,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/12/tree1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/01/12/tree1.jpg">
 </div>
 
 ```
@@ -2293,7 +2293,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/01/12/tree2.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/01/12/tree2.jpg">
 </div>
 
 ```
@@ -2378,7 +2378,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/01/tree1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/12/01/tree1.jpg">
 </div>
 
 ```
@@ -2389,7 +2389,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2020/12/01/tree2.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/12/01/tree2.jpg">
 </div>
 
 ```
@@ -2542,7 +2542,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/05/bst1.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/02/05/bst1.jpg">
 </div>
 
 ```
@@ -2553,7 +2553,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/02/05/bst2.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/02/05/bst2.jpg">
 </div>
 
 ```
@@ -2716,7 +2716,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2021/03/11/mode-tree.jpg">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/03/11/mode-tree.jpg">
 </div>
 
 ```
@@ -2849,7 +2849,7 @@ class Solution:
 **示例1：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2018/12/14/binarytree.png">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2018/12/14/binarytree.png">
 </div>
 
 ```
@@ -2861,7 +2861,7 @@ class Solution:
 **示例2：**
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/assets.leetcode.com/uploads/2018/12/14/binarytree.png">
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2018/12/14/binarytree.png">
 </div>
 
 ```
