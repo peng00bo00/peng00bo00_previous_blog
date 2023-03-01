@@ -2887,6 +2887,17 @@ class Solution:
 
 #### Solution
 
+本题的解法在于自下而上对二叉树进行遍历，这相当于[后序遍历](/leetcode/2023-02-03-BinaryTree.html#145-二叉树的后序遍历)的过程。如果当前节点`root`为空或是等于`p`和`q`则直接返回`root`，然后再对左子树以及右子树进行递归遍历并将结果分别记录到`left`和`right`中：
+
+- 如果`left`和`right`均非空则说明当前节点`root`是最近公共祖先，返回`root`；
+- 如果`left`和`right`只有一个非空则返回非空的节点。
+
+整个递归过程可参考下图。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/IUQ9Lem.png" width="70%">
+</div>
+
 [题目链接](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/)：
 
 ```python
