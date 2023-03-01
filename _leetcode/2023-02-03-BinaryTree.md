@@ -3055,6 +3055,18 @@ class Solution:
 
 #### Solution
 
+本题的技巧在于把新节点作为叶节点插入到树本来的叶节点上，这样就只需要向下遍历二叉树即可。插入节点的条件如下：
+
+- 如果当前节点的左节点`root.left`为空且`root.val > val`，则把`TreeNode(val)`插入到左节点中；
+- 如果当前节点的右节点`root.right`为空且`root.val < val`，则把`TreeNode(val)`插入到右节点中；
+- 否则根据`root.val`与`val`的大小关系继续向下遍历。
+
+递归算法流程可以参考如下。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/Bw4vpGs.gif">
+</div>
+
 [题目链接](https://leetcode.cn/problems/insert-into-a-binary-search-tree/)：
 
 ```python
@@ -3066,6 +3078,54 @@ class Solution:
 #         self.right = right
 class Solution:
     def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        if not root:
+            return TreeNode(val)
+        
+        if root.val > val and not root.left:
+            root.left = TreeNode(val)
+        elif root.val < val and not root.right:
+            root.right= TreeNode(val)
+        
+        if root.val < val:
+            self.insertIntoBST(root.right, val)
+        else:
+            self.insertIntoBST(root.left, val)
+        
+        return root
+```
+{: .snippet}
+
+迭代解法的思路与递归基本一致，代码可参考如下。
+
+[题目链接](https://leetcode.cn/problems/insert-into-a-binary-search-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        if not root:
+            return TreeNode(val)
+
+        node = root
+
+        while node:
+            if node.val > val and not node.left:
+                node.left = TreeNode(val)
+                break
+            elif node.val < val and not node.right:
+                node.right= TreeNode(val)
+                break
+            elif node.val < val:
+                node = node.right
+            elif node.val > val:
+                node = node.left
+        
+        return root
 ```
 {: .snippet}
 
