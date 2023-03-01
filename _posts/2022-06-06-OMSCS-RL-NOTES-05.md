@@ -17,7 +17,7 @@ sidebar:
 **价值迭代(value iteration, VI)**是我们介绍的第一个强化学习算法。可以证明使用策略迭代算法总是可以在多项式时间内寻找到最优策略：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/7fTdf8k.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/7fTdf8k.png" width="80%">
 </div>
 
 ## Linear Programming
@@ -52,7 +52,7 @@ $$
 **策略迭代(policy iteration, PI)**也是一种常用的求解MDP的算法。与VI不同的是，在每次迭代中PI会先更新当前的策略，然后利用新的策略再更新价值函数：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/fS82dvd.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/fS82dvd.png" width="80%">
 </div>
 
 ## Domination
@@ -60,17 +60,17 @@ $$
 为了比较学习到的策略，我们需要引入一些相关的数学概念：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/2zF4T7r.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/2zF4T7r.png" width="80%">
 </div>
 
 在此基础上则可以证明PI的收敛性：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/qquIaHn.png" width="80%">
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/2o3l9nB.png" width="80%">
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/ksTfYAC.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/qquIaHn.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/2o3l9nB.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/ksTfYAC.png" width="80%">
 </div>
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/apBnU7K.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/apBnU7K.png" width="80%">
 </div>

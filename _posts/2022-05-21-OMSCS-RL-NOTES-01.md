@@ -27,7 +27,7 @@ sidebar:
 5. **策略(policy)**表示智能体进行决策的函数，它将状态$s$映射为一个动作$a$即$a = \pi(s)$，其中具有最大长期奖励的策略称为**最优策略(optimal policy)**，记为$\pi^*$；
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/24gZNVb.png" width="60%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/24gZNVb.png" width="60%">
 </div>
 
 实际上状态、模型、动作以及奖励定义了整个待求解的问题，而强化学习的目标是求解出这个MDP的最优策略。

@@ -15,7 +15,7 @@ sidebar:
 奖励函数是强化学习中非常重要的组成部分。实际上奖励函数不仅会影响到算法的收敛速度，而且也会影响最终学习到的策略。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/D1oxTyr.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/D1oxTyr.png" width="80%">
 </div>
 
 ## Changing the Reward Function
@@ -23,7 +23,7 @@ sidebar:
 首先考虑修改奖励函数是否会影响到最终学习到的策略。如果不希望改变学习到的策略，我们对每一步获得的奖励乘以一个正数或者加减一个常数，实际上还有一些非线性的变形方法可以保证学习到的策略不会发生改变。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/tfm0KMJ.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/tfm0KMJ.png" width="80%">
 </div>
 
 ### Multiplying by a Scalar
@@ -70,7 +70,7 @@ $$
 在很多强化学习问题中智能体获得的奖励是非常稀疏的，直接进行学习可能很难学习到合理的策略。此时可以利用重构奖励函数的方法来鼓励智能体进行学习，这种方法就称为**reward shaping**。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/c6DvCMU.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/c6DvCMU.png" width="80%">
 </div>
 
 ### Potential-Based Shaping
@@ -78,7 +78,7 @@ $$
 **potential-based shaping**的思想是把奖励函数视为关于状态的势函数：当智能体位于某些状态时会获得一定的奖励，而当它离开这些状态则会失去相应的奖励。换句话说我们可以把奖励函数定义为势函数的差值，进而避免智能体学习到次优策略：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/nVUO9RI.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/nVUO9RI.png" width="80%">
 </div>
 
 更严格的表述如下：我们定义关于状态的势函数$\psi(s)$，此时可以重新定义奖励函数为：
@@ -131,9 +131,9 @@ $$
 此时的Q-learning算法同样能够收敛都最优价值函数$Q^*$。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/hIvLgZo.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/hIvLgZo.png" width="80%">
 </div>
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/6sBe1In.png" width="80%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/6sBe1In.png" width="80%">
 </div>
