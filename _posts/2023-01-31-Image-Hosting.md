@@ -34,3 +34,21 @@ https://pic1.xuehuaimg.com/proxy/i.imgur.com/agozP0s.gif
 <div align=center>
 <img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/agozP0s.gif" width="60%">
 </div>
+
+其它常用缓存服务：
+
+```
+https://images.weserv.nl/?url=
+```
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/agozP0s.gif" width="60%">
+</div>
+
+```
+https://search.pstatic.net/common?src=
+```
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/agozP0s.gif" width="60%">
+</div>
