@@ -490,7 +490,7 @@ class Solution:
 我们同样可以使用迭代来处理这样的问题，整个比较过程可以如下：
 
 <div align=center>
-<img src="https://images.weserv.nl/?url=camo.githubusercontent.com/6a9723fd0f9426d8d01fc02a286bf4d8e5fdbdf20360a17068c25e330cf562fd/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f3130312e2545352541462542392545372541372542302545342542412538432545352538462538392545362541302539312e676966">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/UO7P6jh.gif">
 </div>
 
 [题目链接](https://leetcode.cn/problems/symmetric-tree/)：
