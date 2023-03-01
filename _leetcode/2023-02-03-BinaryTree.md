@@ -368,7 +368,7 @@ class Solution:
 二叉树的另一种遍历方式是层序遍历。顾名思义，层序遍历会按照节点所在的层级从左到右依次进行遍历，它的本质是**广度优先搜索(breadth-first search, BFS)**。因此我们可以使用一个队列来存储位于同一层级的节点，然后依次进行访问。
 
 <div align=center>
-<img src="https://images.weserv.nl/?url=camo.githubusercontent.com/919d39fe06ad2477c184566959d71de2394c53628d4d7a2cc858087a3a1d113b/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f3130322545342542412538432545352538462538392545362541302539312545372539412538342545352542312538322545352542412538462545392538312538442545352538452538362e676966" width="60%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/UM13bu7.gif" width="60%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/binary-tree-level-order-traversal/)：
@@ -1869,7 +1869,7 @@ class Solution:
 翻转二叉树是二叉树的经典问题，利用问题自身的递归结构我们可以很容易地得到递归版本的代码。
 
 <div align=center>
-<img src="https://images.weserv.nl/?url=camo.githubusercontent.com/13127773de2a6e9e2cb7de066f108c74901df17a16abda07042f639d920317ff/68747470733a2f2f636f64652d7468696e6b696e672e63646e2e626365626f732e636f6d2f676966732f2545372542462542422545382542442541432545342542412538432545352538462538392545362541302539312e676966" width="60%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/RHTOTSo.gif" width="60%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/invert-binary-tree/)：
