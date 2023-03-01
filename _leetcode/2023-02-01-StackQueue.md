@@ -63,7 +63,7 @@ myQueue.empty(); // return false
 队列操作过程可以参考下图。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/https://pic.leetcode-cn.com/1614908055-DRhjRN-232.gif">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/tBtJPlP.gif">
 </div>
 
 [题目链接](https://leetcode.cn/problems/implement-queue-using-stacks/)：
@@ -155,7 +155,7 @@ class MyQueue:
 整个匹配过程可以参考如下。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/2noJagb.gif">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/2noJagb.gif">
 </div>
 
 [题目链接](https://leetcode.cn/problems/valid-parentheses/)：
@@ -208,7 +208,7 @@ class Solution:
 栈可以用来解决各种匹配问题。在本题中我们需要匹配字符串中相邻且相同的字符，因此我们在对字符串进行遍历时要比较当前字符与栈顶的字符，如果它们相同则从栈中弹出。最后栈中剩余的字符即为所求。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/nWd9fY7.gif">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/nWd9fY7.gif">
 </div>
 
 [题目链接](https://leetcode.cn/problems/remove-all-adjacent-duplicates-in-string/)：
@@ -315,7 +315,7 @@ class Solution:
 逆波兰表达式求值同样是栈的经典问题。这里我们把`tokens`中的元素分为两类，一类是数字而另一类则是运算符。对`tokens`进行遍历时如果当前元素是数字则压入栈，否则取出栈顶的两个元素按照运算符进行计算，并把计算结果压入栈中。完成遍历后栈中的数字即为所求。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/pic.leetcode.cn/1675574533-UUzsvw-s2.png">
+<img src="https://images.weserv.nl/?url=pic.leetcode.cn/1675574533-UUzsvw-s2.png">
 </div>
 
 [题目链接](https://leetcode.cn/problems/evaluate-reverse-polish-notation/)：
@@ -395,7 +395,7 @@ myStack.empty(); // 返回 False
 整个操作过程可以参考下图。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/dmUTn3Z.gif">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/dmUTn3Z.gif">
 </div>
 
 [题目链接](https://leetcode.cn/problems/implement-stack-using-queues/)：
@@ -540,7 +540,7 @@ class MyQueue:
 利用单调队列，我们只需要在窗口滑动时将对应元素删除或添加到队列中即可。算法流程可参考如下。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/7Kl6edd.gif">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/7Kl6edd.gif">
 </div>
 
 [题目链接](https://leetcode.cn/problems/sliding-window-maximum/)：
