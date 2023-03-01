@@ -27,7 +27,7 @@ $$
 其中$m_0$和$b_0$是直线的参数。如果把直线方程看做是参数的函数，那么也可以在参数平面来表示直线，即图像平面的一条直线对应参数平面上的一个点。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Ztofz6W.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/Ztofz6W.png" width="70%">
 </div>
 
 这说明图像平面和参数平面存在对偶关系，图像平面上的点也可以用参数平面上的直线来表示：
@@ -37,19 +37,19 @@ y = m_0 x + b_0 \Leftrightarrow b_0 = -x m_0 + y
 $$
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Ezgr9ES.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/Ezgr9ES.png" width="70%">
 </div>
 
 对于图像平面上的两个点$(x_0, y_0)$和$(x_1, y_1)$，我们可以分别在参数平面上画出对应的两条直线，它们的交点即代表图像平面上通过$(x_0, y_0)$和$(x_1, y_1)$的直线。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/wPdqN4a.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/wPdqN4a.png" width="70%">
 </div>
 
 因此我们可以利用参数平面来寻找图像上的直线元素。对于图像上的一系列点我们可以在参数平面上画出它们对应的直线，这些直线的交点即为图像平面上通过这一系列点的直线，交点的坐标为直线方程的参数。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/rMW5rYq.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/rMW5rYq.png" width="70%">
 </div>
 
 在此基础上可以得到霍夫线变换的基本流程如下：
@@ -68,13 +68,13 @@ $$
 此时只需要在参数平面上考虑$\theta$的所有可能取值并利用$(x, y)$反算出剩下的参数$d$。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/buEoPYd.png" width="30%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/buEoPYd.png" width="30%">
 </div>
 
 使用极坐标作为参数平面的霍夫线变换算法流程如下：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/7CQ1AiD.png" width="90%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/7CQ1AiD.png" width="90%">
 </div>
 
 因此霍夫线变换将直线检测的问题转化为参数平面的计数问题，所需的空间复杂度为参数平面网格的大小$O(k^2)$，时间复杂度为边缘点的数量$O(n)$。
@@ -82,11 +82,11 @@ $$
 在标准流程外我们还可以利用图像梯度的方向显式指定参数$\theta$，或是赋予不同参数不同的权重来提升算法的效果。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Kv5MMyH.png" width="90%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/Kv5MMyH.png" width="90%">
 </div>
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/guV5rpq.png" width="90%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/guV5rpq.png" width="90%">
 </div>
 
 ## Hough Circle Transform
@@ -100,19 +100,19 @@ $$
 根据对偶性$(x_i, y_i)$在参数平面上对应以$(x_i, y_i)$为圆心半径为$r$的圆，因此我们只需要在参数平面上画出相应的圆并寻找到它们的交点就能得到图像平面上的圆心$(a, b)$。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/AwAkWEk.png" width="90%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/AwAkWEk.png" width="90%">
 </div>
 
 在实际应用中由于往往事先不知道圆的半径大小，我们还需要对半径$r$进行遍历。此时霍夫圆变换会根据每个可能半径$r$在相应的参数平面上画圆：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/gFUNweT.png" width="90%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/gFUNweT.png" width="90%">
 </div>
 
 显然把半径$r$直接加入到参数空间中会极大地降低算法的性能，更常用的方法是结合图像的梯度来筛选可能出现的圆。对于图像上给定点$(x_i, y_i)$，圆心只可能出现在该点的梯度方向上。因此在堆半径$r$进行遍历时可以显式计算出圆心$(a, b)$的位置，无需在参数平面上画圆。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/PQ9UXlA.png" width="90%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/PQ9UXlA.png" width="90%">
 </div>
 
 在实践中使用霍夫变换需要特别关注参数空间的离散化，过于粗糙或是精细的参数网格都会对检测结果产生影响。同时霍夫变换的时间复杂度随参数量按指数递增，因此也需要对几何形状的参数化方式加以注意。
@@ -124,7 +124,7 @@ $$
 对于这一类几何形状我们首先在图形的边界点上分别计算边界点的梯度方向$\theta_i$和它到图形中心的位移向量$r_i = c - p_i$，这样可以建立以梯度方向为key位移向量为value的表格来表示图形，这个表格称为**Hough table**。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/eR9FYCu.png" width="40%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/eR9FYCu.png" width="40%">
 </div>
 
 在图像上利用Hough table进行计数就实现了广义霍夫变换。假设Hough table在图像上不会发生尺度和朝向的变化，此时广义霍夫变换与霍夫线变换的流程基本一致：

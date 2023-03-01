@@ -59,7 +59,7 @@ I(X; Y) &= I(Y; X) \\
 $$
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/upload.wikimedia.org/wikipedia/commons/d/d4/Entropy-mutual-information-relative-entropy-relation-diagram.svg" width="40%">
+<img src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/d/d4/Entropy-mutual-information-relative-entropy-relation-diagram.svg" width="40%">
 </div>
 
 ## Kullback–Leibler Divergence

@@ -25,7 +25,7 @@ $$
 $F(u)$表示$f(x)$在对应频率$u$上的权重，它的实部和虚部分别表示频率为$u$的余弦和正弦信号成分。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Fif1pte.png" width="90%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/Fif1pte.png" width="90%">
 </div>
 
 与之对应的，通过**逆傅里叶变换(inverse Fourier transform)**可以将频域函数$F(u)$变换为时域函数$f(x)$：
@@ -59,26 +59,26 @@ $$
 在数字图像的频域分析中通常只关注频域图像$F(k_x, k_y)$的幅度而忽略相位，将$F(k_x, k_y)$的幅度进行可视化就得到了数字图像的**频谱(frequency spectrum)**。图像的频谱在某个位置的响应越强表示图像在该方向变化越剧烈：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Z5Wg0Rh.png" width="25%">
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/HbGBH7u.png" width="25%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/Z5Wg0Rh.png" width="25%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/HbGBH7u.png" width="25%">
 </div>
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/2YogQt5.png" width="25%">
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/BHKDIb2.png" width="25%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/2YogQt5.png" width="25%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/BHKDIb2.png" width="25%">
 </div>
 
 同时由于傅里叶变换具有可加性，两幅图像相加后它们的频谱也会相加：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/AeQ2ND1.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/AeQ2ND1.png" width="70%">
 </div>
 
 此外对频谱进行操作也会反映到图像上。删去频谱的高频成分相当于对图像进行模糊，而删去低频成分则相当于提取图像的边缘。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/811Fa2o.png" width="40%">
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/FLtAPqa.png" width="40%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/811Fa2o.png" width="40%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/FLtAPqa.png" width="40%">
 </div>
 
 ## Convolution in Frequency Domain
@@ -100,7 +100,7 @@ $$
 通过卷积定理我们还可以从频域的角度来认识卷积滤波。以高斯滤波为例，从频域上看使用高斯核进行滤波相当于保留了图像的低频成分同时抑制了高频成分。由于滤波去掉了高频信息(细节)，图像自然会变得模糊。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/4SbCZaU.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/4SbCZaU.png" width="70%">
 </div>
 
 除了卷积定理外，傅里叶变换的其他常用性质包括：
@@ -112,7 +112,7 @@ $$
 同时一些常用函数的傅里叶变换如下：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/JnEx6sX.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/JnEx6sX.png" width="70%">
 </div>
 
 ## 	Aliasing
@@ -120,11 +120,11 @@ $$
 本节最后从频域角度来理解信号和图像的混淆问题。由于计算机不能直接表示连续的信号，我们需要通过采样来对连续信号进行离散。当采样的频率低于信号自身的频率时采样的结果就不能完全反映原始信号的信息，更严重的问题是我们无法区分采样的信号是来自于信号原始信号还是更高频的信号，这样的现象称为**混淆(aliasing)**。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/5Ru2Jth.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/5Ru2Jth.png" width="70%">
 </div>
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Bpty2ef.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/Bpty2ef.png" width="70%">
 </div>
 
 为了更好的理解混淆的现象，首先需要引入**脉冲序列(impulse train)**的相关概念：
@@ -134,7 +134,7 @@ $$
 $$
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/lfbQB0T.png" width="50%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/lfbQB0T.png" width="50%">
 </div>
 
 显然脉冲序列$\text{comb}_M (x)$是一个周期为$M$的函数，因此我们可以用**傅里叶级数(Fourier series)**将其展开：
@@ -166,37 +166,37 @@ $$
 上式说明周期为$M$的脉冲序列经过傅里叶变换后得到周期为$\frac{1}{M}$的脉冲序列。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/3xHfTeg.png" width="80%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/3xHfTeg.png" width="80%">
 </div>
 
 采样的过程可以表示为原始信号与脉冲序列的乘积，在时域上得到一系列幅值变化的脉冲信号。根据卷积定理，采样后的信号从频域上看相当于对原始信号的频谱进行了平移，平移的间隔与采样间隔成反比。在脉冲序列频率足够高的情况下平移后的频谱间不会相互影响，此时不会出现混淆的问题。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/WjfMniG.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/WjfMniG.png" width="70%">
 </div>
 
 但是当原始信号存在较多的高频成分或是脉冲序列的频率不够高时，采样后的频谱会相互叠加到一起进而出现混淆的情况。此时频谱中的高频成分会混入到低频成分中，使得我们丢失了信号中的各种细节。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/RKSVMwU.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/RKSVMwU.png" width="70%">
 </div>
 
 因此我们可以通过增加采样频率的方式来避免信号出现混淆。实际中更见用的处理方法是在采样前首先利用一个低通滤波器过滤掉原始信号中的高频成分，然后再对处理过的信号进行采样。这样做虽然会损失掉原始信号中的一些高频信息，但可以保证采样后不会出现混淆的问题。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/dSRgULN.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/dSRgULN.png" width="70%">
 </div>
 
 混淆的现象在图像处理中并不少见。以图像的缩放为例，如果在每次缩放时只是删去一半的行和列就很容易出现混淆。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/FICsGsU.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/FICsGsU.png" width="70%">
 </div>
 
 处理的方法也很简单，只要在每次缩放前先对图像进行高斯滤波即可。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/ZNRtnzd.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/ZNRtnzd.png" width="70%">
 </div>
 
 ## Reference

@@ -17,7 +17,7 @@ sidebar:
 在机器学习中我们使用数据点的特征来表示实际的样本。显然不同的特征对于机器学习任务的重要性是不同的，因此我们希望能够从这些特征中挑选出特征，这样既可以提升机器学习的效率还能够避免维数灾难等问题。挑选合适特征的过程称为**特征选择(feature selection)**，一般包括两种类型：其一是对所有可能的特征组合进行搜索，称为filtering；而另一种则是由学习器来调整当前的特征集合，称为wrapping。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/l6dZdQD.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/l6dZdQD.png" width="70%">
 </div>
 
 ### Filtering
@@ -56,7 +56,7 @@ relevance实际上描述了特征带来的信息。对于特定的学习器，�
 **主成分分析(principal component analysis, PCA)**是线性特征变换的基本方法。在特征空间中我们把数据分布方差较大的方向称为**主成分(principal component)**，而PCA的思想就是把数据投影到不同的主方向上从而在主方向构成的空间中重新表达当前的数据集。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/qFBND88.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/qFBND88.png" width="70%">
 </div>
 
 PCA的主要流程如下：

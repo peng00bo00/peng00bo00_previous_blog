@@ -25,7 +25,7 @@ sidebar:
 3. 重复第2步直到数据集上的簇数量满足要求。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/upload.wikimedia.org/wikipedia/commons/4/43/Simple_linkage-5S.svg" width="50%">
+<img src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/4/43/Simple_linkage-5S.svg" width="50%">
 </div>
 
 SLC有很多有趣的性质：首先SLC是一个确定性的算法，当输入数据集确定时SLC的输出是确定的；其次，如果我们把数据看做是一张图同时把数据之间的距离看做是连接节点的边，SLC算法实际上等价于在图上构造一棵最小生成树。SLC的主要缺陷在于它的复杂度，对于包含$n$个样本的数据集它的时间复杂度为$O(n^3)$：我们需要$O(n)$次循环，同时每个循环需要计算$O(n^2)$次距离。
@@ -33,7 +33,7 @@ SLC有很多有趣的性质：首先SLC是一个确定性的算法，当输入�
 SLC的另一个缺陷在于它忽视了数据之间的结构。以下图为例，假设我们需要将(a)图所示的数据点划分为2类，一个直观的聚类结果是(b)图：左边的圆是一类而右边的把手部分是一类；但使用SLC算法则会得到(c)图：这是由于圆边上的距离都要小于圆的边到内部点的距离，因此在聚类时圆边上的点都会划分为一类并与右边把手相连，而剩下的圆内部点则会划分为另一类。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/G9jl8aY.png" width="90%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/G9jl8aY.png" width="90%">
 </div>
 
 ## k-Means
@@ -48,7 +48,7 @@ SLC的另一个缺陷在于它忽视了数据之间的结构。以下图为例�
 通过合理选择初始聚类中心以及距离度量函数，使用k-Means算法可以下图所示的聚类结果。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Yv0E87i.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/Yv0E87i.png" width="70%">
 </div>
 
 显然初始聚类中心的选取对于k-Means算法的结果有着重要的影响。一个好的初值可以加速算法的收敛过程，而不好的初值则可能会使算法收敛到局部最优。因此k-Means算法在实际应用中往往会搭配随机重启并选择聚类结果最好的作为最终的输出，或是在运行算法前对数据的分布进行分析并手动指定初始聚类中心。
@@ -81,7 +81,7 @@ $$
 k-Means算法的缺陷在于它会倾向于构造出"圆形"的簇。以下图为例，k-Means算法会把数据集划分为上下两部分而不是内外两部分。这是由于我们使用了欧式空间中的距离作为度量而忽视了数据分布的结构。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/zRgtwbk.png" width="50%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/zRgtwbk.png" width="50%">
 </div>
 
 ## Soft Clustering
@@ -89,7 +89,7 @@ k-Means算法的缺陷在于它会倾向于构造出"圆形"的簇。以下图�
 前面介绍的两种聚类算法是将每个样本划分到唯一确定的簇中，但在有些情况下这样的做法是不合适的。假设我们已经有两个簇，此时再两个簇的中间再添加一个新的数据如下图所示。显然将该点划分到任何一个簇都是不合适的，因为它到两个簇的距离相等。更合理的做法是把这个点同时分配到两个簇中，此时它对两个簇的贡献分别是0.5。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/kRFSIET.png" width="50%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/kRFSIET.png" width="50%">
 </div>
 
 从上面的例子可以发现soft clustering的基本思想是把概率引入到聚类算法中，每个数据点都包含一个概率分布对应$k$个不同的簇。更进一步，我们可以假定数据集是从$k$个正态分布中采样得到的，每个正态分布对应一个概率来表示从这个分布中进行抽样。我们的目标是从数据中学习到这$k$个正态分布的参数以及它们对应的先验概率。

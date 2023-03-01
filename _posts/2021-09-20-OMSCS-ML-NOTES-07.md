@@ -81,7 +81,7 @@ $VC(H) = d$表示存在大小为$d$的样本集能被假设空间$H$打散，但
 以平面上的二分类问题为例，对于线性分类器当我们有3个样本时无论样本如何布置都可以实现对分，但对于4个样本的情况则会出现无法对分的情况。因此二分问题中线性分类器的VC维为3，同时可以证明$n$维情况下的VC维为$n+1$。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/LaiOIaX.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/LaiOIaX.png" width="70%">
 </div>
 
 使用VC维来代替假设空间的模可以得到更准确的样本复杂度：

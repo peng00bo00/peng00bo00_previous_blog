@@ -21,7 +21,7 @@ y = f(\sum_{i=1}^n \omega_i x_i + b)
 $$
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/9uKWZnV.png" width="90%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/9uKWZnV.png" width="90%">
 </div>
 
 ## Perceptron
@@ -39,13 +39,13 @@ f(x) =
 $$
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/raw.githubusercontent.com/siebenrock/activation-functions/master/plots/binary_step.png" width="40%">
+<img src="https://images.weserv.nl/?url=raw.githubusercontent.com/siebenrock/activation-functions/master/plots/binary_step.png" width="40%">
 </div>
 
 感知机可以用来解决二分类问题，而且通过调整神经元的权重单层感知机可以表示所有的基本逻辑运算符包括AND、OR、NOT等。实际上此时感知机的决策边界为二维平面上的直线，只要数据**线性可分(linearly separable)**就一定可以用感知机来描述。相应地，如果数据不是线性可分则不能使用感知机进行描述。一个经典的例子是异或运算XOR：单层感知机无法表示异或运算，需要使用多层感知机才能处理线性不可分的问题。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/6XI7z9z.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/6XI7z9z.png" width="70%">
 </div>
 
 ## Sigmoid
@@ -57,7 +57,7 @@ $$
 $$
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/raw.githubusercontent.com/siebenrock/activation-functions/master/plots/sigmoid.png" width="40%">
+<img src="https://images.weserv.nl/?url=raw.githubusercontent.com/siebenrock/activation-functions/master/plots/sigmoid.png" width="40%">
 </div>
 
 显然sigmoid函数更加光滑，而且由于函数自身的归一化性质我们也可以把函数的输出视为概率进而应用到分类问题中。神经网络中其他常用的激活函数可参见[Activation Functions](https://github.com/siebenrock/activation-functions)。
@@ -67,7 +67,7 @@ $$
 我们把神经元按照一定的拓扑关系连接起来就形成了神经网络。一般而言网络可分为输入层、隐层和输出层，其中隐层和输出层对应网络的主要计算过程。同时由于网络的每一层都是可导的，我们可以从后向前计算输出对输入的导数，这就为神经网络的训练提供了理论保证。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/1.cms.s81c.com/sites/default/files/2021-01-06/ICLH_Diagram_Batch_01_03-DeepNeuralNetwork-WHITEBG.png" width="80%">
+<img src="https://images.weserv.nl/?url=1.cms.s81c.com/sites/default/files/2021-01-06/ICLH_Diagram_Batch_01_03-DeepNeuralNetwork-WHITEBG.png" width="80%">
 </div>
 
 ## Training

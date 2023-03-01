@@ -128,7 +128,7 @@ P(A, B, C, D, E) = P(A) P(B) P(C \vert A, B) P(D \vert B, C) P(E \vert C, D)
 $$
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/SVug9j1.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/SVug9j1.png" width="70%">
 </div>
 
 有了联合概率后利用**边缘化(marginalization)**将无关的变量约掉并计算给定已知条件下的概率分布，也就是在贝叶斯网络上进行推断。
@@ -140,7 +140,7 @@ $$
 本节最后介绍了**朴素贝叶斯(naive bayes)**分类器的相关知识。对于分类问题我们假定样本的各个属性在给定样本类别条件下是相互独立的，也就是说样本属性满足如下图所示的贝叶斯网络：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/UF3kMQO.png" width="40%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/UF3kMQO.png" width="40%">
 </div>
 
 此时样本的联合概率为：

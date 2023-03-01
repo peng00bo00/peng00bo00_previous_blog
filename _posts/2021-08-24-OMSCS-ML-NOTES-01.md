@@ -17,7 +17,7 @@ sidebar:
 **决策树(Decision Tree)**是应用最为广泛的机器学习方法之一，通常用于离散变量的分类问题。日常生活中的很多分类问题都可以通过一系列的判断来解决，此时我们的决策过程就可以利用决策树来表示。比如说我们通过天气的状况来判断是否要出去，此时的决策过程就对应着一个决策树：
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/Lk80vLQ.png" width="50%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/Lk80vLQ.png" width="50%">
 </div>
 
 除此之外决策树可以看做是一系列的if-then规则：从根节点出发的每一条路径都对应着一个决策规则，而叶节点对应规则的结论。对于分类问题我们从根节点出发每次选择一个属性进行判断，然后不断向下移动直到返回所需的结果。
@@ -75,7 +75,7 @@ I(X; Y) = I(Y; X) &= H(Y) - H(Y|X) \\
 $$
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/upload.wikimedia.org/wikipedia/commons/d/d4/Entropy-mutual-information-relative-entropy-relation-diagram.svg" width="40%">
+<img src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/d/d4/Entropy-mutual-information-relative-entropy-relation-diagram.svg" width="40%">
 </div>
 
 互信息度量了随机变量$X$和$Y$的相关性，互信息越大表示$X$和$Y$的相关性越强，且互信息为0等价于$X$和$Y$相互独立。因此ID3算法使用信息增益进行特征选择实质上是每次选择与类别信息最相关的一个特征对数据进行划分。

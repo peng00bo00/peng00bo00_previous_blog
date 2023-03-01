@@ -17,7 +17,7 @@ sidebar:
 **支持向量机(support vector machine, SVM)**是经典的二分类模型。从几何的角度上讲，二分类问题可以理解为在空间中寻找一个**超平面(hyperplane)**来将数据划分为两部分。在数据集是线性可分的情况下存在无数个可行的超平面将数据集正确划分，如下图中的$H_2$和$H_3$所示。显然我们希望从这些超平面中选择一个"最好"的使得模型对于噪声和扰动都具有足够的鲁棒性。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/upload.wikimedia.org/wikipedia/commons/b/b5/Svm_separating_hyperplanes_%28SVG%29.svg" width="40%">
+<img src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/b/b5/Svm_separating_hyperplanes_%28SVG%29.svg" width="40%">
 </div>
 
 ### Maximal Margin Hyperplanes
@@ -157,7 +157,7 @@ $$
 对于线性不可分的情况使用SVM是不能得到分类超平面的。对于这样的问题常用的处理方式是构造一个到高维的映射$\phi(x)$然后在更高维的空间中使用SVM。以下图为例，在二维平面上不存在分类超平面但在三维空间中则可以很容易地对样本进行划分。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/uEvAnYQ.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/uEvAnYQ.png" width="70%">
 </div>
 
 同样地，利用映射$\phi(x)$可以得到高维空间中的约束优化问题：
@@ -215,7 +215,7 @@ $$
 显然对于比较容易的样本$f(x)$的输出应该靠近[-1, +1]区间的两侧；而比较困难的样本$f(x)$的输出则会靠近原点。因此可以认为正负样本到原点的距离描述了模型对分类结果的把握，距离越大表示模型对结果越有信心。在boosting算法的训练过程中基分类器会更关注那些位于原点附近的困难样本，这使得加权后这些样本的类别会不断向区间端点移动。从这个角度看boosing相当于最大化正负样本之间的间隔，与SVM算法有异曲同工之妙。
 
 <div align=center>
-<img src="https://pic1.xuehuaimg.com/proxy/i.imgur.com/WtFdQwn.png" width="90%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/WtFdQwn.png" width="90%">
 </div>
 
 
