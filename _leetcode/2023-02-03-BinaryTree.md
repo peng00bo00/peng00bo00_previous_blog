@@ -3725,6 +3725,96 @@ class Solution:
 ```
 {: .snippet}
 
+### 116. 填充每个节点的下一个右侧节点指针
+
+给定一个**完美二叉树**，其所有叶子节点都在同一层，每个父节点都有两个子节点。二叉树定义如下：
+
+```
+struct Node {
+    int val;
+    Node *left;
+    Node *right;
+    Node *next;
+}
+```
+
+填充它的每个`next`指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将`next`指针设置为`NULL`。
+
+初始状态下，所有`next`指针都被设置为`NULL`。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2019/02/14/116_sample.png">
+</div>
+
+```
+输入：root = [1,2,3,4,5,6,7]
+输出：[1,#,2,3,#,4,5,6,7,#]
+解释：给定二叉树如图 A 所示，你的函数应该填充它的每个 next 指针，以指向其下一个右侧节点，如图 B 所示。序列化的输出按层序遍历排列，同一层节点由 next 指针连接，'#' 标志着每一层的结束。
+```
+
+**示例2：**
+
+```
+输入：root = []
+输出：[]
+```
+
+**提示：**
+
+- 树中节点的数量在`[0, 2¹² - 1]`范围内。
+- -1000 <= node.val <= 1000。
+
+#### Solution
+
+本题的基本解法是利用[层序遍历](/leetcode/2023-02-03-BinaryTree.html#102-二叉树的层序遍历)对每一层上的节点进行展开，然后令`next`指针指向同一层的下一个节点。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/uOcRErE.png" width="80%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/)：
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = next
+"""
+
+class Solution:
+    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        if not root:
+            return None
+
+        from collections import deque
+
+        queue = deque([root])
+
+        while queue:
+            N = len(queue)
+
+            for i in range(N):
+                node = queue.popleft()
+                
+                if i == N-1:
+                    node.next = None
+                else:
+                    node.next = queue[0]
+
+                if node.left:
+                    queue.append(node.left)
+                    queue.append(node.right)
+        
+        return root
+```
+{: .snippet}
+
 ## Reference
 
 - [二叉树理论基础](https://programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
