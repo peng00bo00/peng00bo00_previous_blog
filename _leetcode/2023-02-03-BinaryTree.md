@@ -3642,6 +3642,89 @@ class Solution:
 ```
 {: .snippet}
 
+### 1382. 将二叉搜索树变平衡
+
+给你一棵二叉搜索树，请你返回一棵**平衡后**的二叉搜索树，新生成的树应该与原来的树有着相同的节点值。如果有多种构造方法，请你返回任意一种。
+
+如果一棵二叉搜索树中，每个节点的两棵子树高度差不超过`1`，我们就称这棵二叉搜索树是**平衡的**。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/08/10/balance1-tree.jpg">
+</div>
+
+```
+输入：root = [1,null,2,null,3,null,4,null,null]
+输出：[2,1,3,null,null,null,4]
+解释：这不是唯一的正确答案，[3,1,4,null,2,null,null] 也是一个可行的构造方案。
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/08/10/balanced2-tree.jpg">
+</div>
+
+```
+输入: root = [2,1,3]
+输出: [2,1,3]
+```
+
+**提示：**
+
+- 树节点的数目在`[1, 10⁴]`范围内。
+- 1 <= `Node.val` <= 10⁵。
+
+#### Solution
+
+本题解法可参考[验证二叉搜索树](/leetcode/2023-02-03-BinaryTree.html#98-验证二叉搜索树)和[将有序数组转换为二叉搜索树](/leetcode/2023-02-03-BinaryTree.html#108-将有序数组转换为二叉搜索树)，我们先利用[中序遍历](/leetcode/2023-02-03-BinaryTree.html#94-二叉树的中序遍历)将二叉搜索树转换为有序数组`nums`，再从`nums`来构造平衡的二叉搜索树即可。
+
+[题目链接](https://leetcode.cn/problems/balance-a-binary-search-tree/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def balanceBST(self, root: TreeNode) -> TreeNode:
+        def traversal(root: TreeNode) -> List[int]:
+            stack = []
+            res   = []
+            cur   = root
+
+            while stack or cur:
+                while cur:
+                    stack.append(cur)
+                    cur = cur.left
+                
+                cur = stack.pop()
+                res.append(cur.val)
+                cur = cur.right
+            
+            return res
+        
+        def buildTree(nums: List[int]) -> TreeNode:
+            if not nums:
+                return None
+            
+            mid = len(nums) // 2
+            root= TreeNode(nums[mid])
+
+            root.left = buildTree(nums[:mid])
+            root.right= buildTree(nums[mid+1:])
+
+            return root
+
+        nums = traversal(root)
+
+        return buildTree(nums)
+```
+{: .snippet}
+
 ## Reference
 
 - [二叉树理论基础](https://programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
