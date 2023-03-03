@@ -1885,21 +1885,18 @@ class Solution:
         sumPath = 0
 
         def traversal(root: Optional[TreeNode], path: int) -> None:
-            if not root:
-                return
-            
             nonlocal sumPath
 
             if (not root.left) and (not root.right):
-                sumPath += (path*10+root.val)
+                sumPath += path
                 return
             
             if root.left:
-                traversal(root.left, path*10+root.val)
+                traversal(root.left, path*10+root.left.val)
             if root.right:
-                traversal(root.right, path*10+root.val)
+                traversal(root.right, path*10+root.right.val)
         
-        traversal(root, 0)
+        traversal(root, root.val)
         
         return sumPath
 ```
