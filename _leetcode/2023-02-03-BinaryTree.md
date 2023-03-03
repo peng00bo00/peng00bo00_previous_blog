@@ -3771,7 +3771,7 @@ struct Node {
 本题的基本解法是利用[层序遍历](/leetcode/2023-02-03-BinaryTree.html#102-二叉树的层序遍历)对每一层上的节点进行展开，然后令`next`指针指向同一层的下一个节点。
 
 <div align=center>
-<img src="https://images.weserv.nl/?url=i.imgur.com/uOcRErE.png" width="80%">
+<img src="https://images.weserv.nl/?url=pic.leetcode-cn.com/c657e60fe795868e754741d7019055879d3fd9a5152c965391312f00779d6121-2.jpg">
 </div>
 
 [题目链接](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/)：
@@ -3810,6 +3810,61 @@ class Solution:
                 if node.left:
                     queue.append(node.left)
                     queue.append(node.right)
+        
+        return root
+```
+{: .snippet}
+
+本题的另一种解法是把每一层的节点看做是一个链表。对于同一层的节点，如果它们来自相同的父节点则可以通过父节点将它们连接起来。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=pic.leetcode-cn.com/b7317ab6466b08ae5c47abafd266f919b09a67d733a5a4d471c76da19737fb44-3.jpg">
+</div>
+
+如果它们来自不同的父节点，则可以通过前一个节点父节点的`next`指针来串联起来。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=pic.leetcode-cn.com/fff80ea5177cb58e6860d920d98d2df9a2d7bb1745015aff048dc4a2d1c6ad50-4.jpg">
+</div>
+
+这样我们只需要从第一层开始将下一层的节点连接起来即可。这种算法的空间复杂度为`O(1)`，其流程可以参考如下。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/54tbhID.gif" width="70%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/)：
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = next
+"""
+
+class Solution:
+    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        if not root:
+            return None
+
+        leftmost = root
+        
+        while leftmost.left:
+            head = leftmost
+
+            while head:
+                head.left.next = head.right
+                
+                if head.next:
+                    head.right.next = head.next.left
+                
+                head = head.next
+            
+            leftmost = leftmost.left
         
         return root
 ```
