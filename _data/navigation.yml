@@ -574,5 +574,5 @@ LeetCode:
         url: /leetcode/2023-02-01-StackQueue.html
       - title: 二叉树
         url: /leetcode/2023-02-03-BinaryTree.html
-      - title: 二叉树
+      - title: 回溯
         url: /leetcode/2023-03-04-Backtrack.html
