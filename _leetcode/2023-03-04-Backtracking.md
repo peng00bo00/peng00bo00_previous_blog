@@ -284,7 +284,7 @@ class Solution:
 本题的暴力解法类似于[组合](/leetcode/2023-03-04-Backtracking.html#77-组合)，在处理时需要先建立数字到字母的映射`keyboard`然后对所有可能的字母组合进行暴力搜索。
 
 <div align=center>
-<img src="https://images.weserv.nl/?url=i.imgur.com/gee7c8t.png" width="80%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/gee7c8t.png" width="90%">
 </div>
 
 [题目链接](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)：
@@ -613,7 +613,7 @@ class Solution:
 本题解法类似于[分割回文串](/leetcode/2023-03-04-Backtracking.html#131-分割回文串)，但需要注意IP地址有自身的要求。因此我们可以利用IP地址的要求来进行剪枝：当路径`path`中存在4个整数时提前终止搜索，同时只把满足要求的数字所构成的IP地址添加到`path`中。整个算法流程可以参考如下。
 
 <div align=center>
-<img src="https://images.weserv.nl/?url=i.imgur.com/Z29ZrR1.png" width="90%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/Z29ZrR1.png">
 </div>
 
 [题目链接](https://leetcode.cn/problems/restore-ip-addresses/)：
