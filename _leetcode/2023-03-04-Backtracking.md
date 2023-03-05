@@ -324,6 +324,194 @@ class Solution:
 ```
 {: .snippet}
 
+### 39. 组合总和
+
+给你一个**无重复元素**的整数数组`candidates`和一个目标整数`target`，找出`candidates`中可以使数字和为目标数`target`的所有**不同组合**，并以列表形式返回。你可以按**任意顺序**返回这些组合。
+
+`candidates`中的**同一个**数字可以**无限制重复被选取**。如果至少一个数字的被选数量不同，则两种组合是不同的。
+
+对于给定的输入，保证和为`target`的不同组合数少于`150`个。
+
+**示例1：**
+
+```
+输入：candidates = [2,3,6,7], target = 7
+输出：[[2,2,3],[7]]
+解释：
+2 和 3 可以形成一组候选，2 + 2 + 3 = 7 。注意 2 可以使用多次。
+7 也是一个候选， 7 = 7 。
+仅有这两种组合。
+```
+
+**示例2：**
+
+```
+输入: candidates = [2,3,5], target = 8
+输出: [[2,2,2,2],[2,3,3],[3,5]]
+```
+
+**示例3：**
+
+```
+输入: candidates = [2], target = 1
+输出: []
+```
+
+**提示：**
+
+- 1 <= `candidates.length` <= 30。
+- 2 <= `candidates[i]` <= 40。
+- `candidates`的所有元素**互不相同**。
+- 1 <= `target` <= 40。
+
+#### Solution
+
+本题解法类似于[组合总和 III](/leetcode/2023-03-04-Backtracking.html#216-组合总和-iii)，我们需要使用`startIdx`来记录当前搜索的起始数字索引，再使用`s`来记录搜索路径上的数字之和。和[组合总和 III](/leetcode/2023-03-04-Backtracking.html#216-组合总和-iii)不同的是本题中允许数字的重复使用，因此在进行回溯时不会修改当前的子集大小而是利用`s`和`target`的大小关系来控制递归是否终止。整个算法过程可以参考如下。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/JQ1lTUf.png" width="90%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/combination-sum/)：
+
+```python
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        res = []
+        path= []
+
+        def backtracking(startIdx: int, s: int) -> None:
+            if s > target:
+                return
+            elif s == target:
+                res.append(path[:])
+                return
+            
+            for i in range(startIdx, len(candidates)):
+                num = candidates[i]
+
+                path.append(num)
+                backtracking(i, s+num)
+                path.pop()
+        
+        backtracking(0, 0)
+
+        return res
+```
+{: .snippet}
+
+而在进行剪枝优化时则需要先对`candidates`数组进行排序。然后在每一层的循环中如果发现`s+num > target`则表明之后的每一次循环`s+num`都会大于`target`，因此我们可以提前终止循环。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/S1aCkUV.png" width="90%">
+</div>
+
+```python
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        res = []
+        path= []
+        
+        candidates = sorted(candidates)
+
+        def backtracking(startIdx: int, s: int) -> None:
+
+            if s == target:
+                res.append(path[:])
+                return
+            
+            for i in range(startIdx, len(candidates)):
+                num = candidates[i]
+
+                if s+num > target:
+                    return
+
+                path.append(num)
+                backtracking(i, s+num)
+                path.pop()
+        
+        backtracking(0, 0)
+
+        return res
+```
+{: .snippet}
+
+### 40. 组合总和 II
+
+给定一个候选人编号的集合`candidates`和一个目标数`target`，找出`candidates`中所有可以使数字和为`target`的组合。
+
+`candidates`中的每个数字在每个组合中只能使用**一次**。
+
+**注意：**解集不能包含重复的组合。 
+
+**示例1：**
+
+```
+输入: candidates = [10,1,2,7,6,1,5], target = 8,
+输出:
+[
+[1,1,6],
+[1,2,5],
+[1,7],
+[2,6]
+]
+```
+
+**示例2：**
+
+```
+输入: candidates = [2,5,2,1,2], target = 5,
+输出:
+[
+[1,2,2],
+[5]
+]
+```
+
+**提示：**
+
+- 1 <= `candidates.length` <= 100。
+- 1 <= `candidates[i]` <= 50。
+- 1 <= `target` <= 30。
+
+#### Solution
+
+本题和[组合总和](/leetcode/2023-03-04-Backtracking.html#39-组合总和)的区别在于`candidates`中的每个数字只能使用一次，而且`candidates`中可能会出现重复的数字。因此本题的关键在于如何对`candidates`进行去重，即保证使用过的元素不会被重复选取。这里可以首先对`candidates`进行**排序**，然后在进行循环时保证每个起始数字只会进行一次递归搜索。
+
+[题目链接](https://leetcode.cn/problems/combination-sum/)：
+
+```python
+class Solution:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        res = []
+        path= []
+        candidates = sorted(candidates)
+
+        def backtracking(startIdx: int, s: int) -> None:
+            if s == target:
+                res.append(path[:])
+                return
+            
+            for i in range(startIdx, len(candidates)):
+                num = candidates[i]
+
+                if s+num > target:
+                    return
+                
+                ## skip used num
+                if i > startIdx and num == candidates[i-1]:
+                    continue
+
+                path.append(num)
+                backtracking(i+1, s+num)
+                path.pop()
+        
+        backtracking(0, 0)
+
+        return res
+```
+{: .snippet}
+
 ## Reference
 
 - [回溯算法理论基础](https://www.bilibili.com/video/BV1cy4y167mM/?vd_source=7a2542c6c909b3ee1fab551277360826)
@@ -331,3 +519,4 @@ class Solution:
 - [LeetCode：77.组合(剪枝)](https://www.bilibili.com/video/BV1wi4y157er/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：216.组合总和III](https://www.bilibili.com/video/BV1wg411873x/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：17.电话号码的字母组合](https://www.bilibili.com/video/BV1yV4y1V7Ug/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：39.组合总和](https://www.bilibili.com/video/BV1KT4y1M7HJ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
