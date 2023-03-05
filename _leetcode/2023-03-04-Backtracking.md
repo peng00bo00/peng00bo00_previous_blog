@@ -512,6 +512,208 @@ class Solution:
 ```
 {: .snippet}
 
+## 分割
+
+### 131. 分割回文串
+
+给你一个字符串`s`，请你将`s`分割成一些子串，使每个子串都是**回文串**。返回`s`所有可能的分割方案。
+
+**回文串**是正着读和反着读都一样的字符串。
+
+**示例1：**
+
+```
+输入：s = "aab"
+输出：[["a","a","b"],["aa","b"]]
+```
+
+**示例2：**
+
+```
+输入：s = "a"
+输出：[["a"]]
+```
+
+**提示：**
+
+- 1 <= `s.length` <= 16。
+- `s`仅由小写英文字母组成。
+
+#### Solution
+
+分割问题与[组合](/leetcode/2023-03-04-Backtracking.html#组合)问题是非常类似的。在分割问题中，分割位置的选取等价于组合问题中子集的选取。整个算法流程可以参考下图。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/tbiP98F.png" width="90%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/palindrome-partitioning/)：
+
+```python
+class Solution:
+    def partition(self, s: str) -> List[List[str]]:
+        res = []
+        path= []
+
+        def backtracking(startIdx: int) -> None:
+            if startIdx == len(s):
+                res.append(path[:])
+                return
+            
+            for i in range(startIdx, len(s)):
+                ss = s[startIdx:i+1]
+                
+                if ss == ss[::-1]:
+                    path.append(ss)
+                    backtracking(i+1)
+                    path.pop()
+        
+        backtracking(0)
+
+        return res
+```
+{: .snippet}
+
+### 93. 复原IP地址
+
+**有效IP地址**正好由四个整数(每个整数位于`0`到`255`之间组成，且不能含有前导`0`)，整数之间用`'.'`分隔。
+
+- 例如：`"0.1.2.201"`和`"192.168.1.1"` **有效**IP地址，但是`"0.011.255.245"`、`"192.168.1.312"`和`"192.168@1.1"`是**无效**IP地址。
+
+给定一个只包含数字的字符串`s`，用以表示一个IP地址，返回所有可能的有效`IP`地址，这些地址可以通过在`s`中插入'.'来形成。你**不能**重新排序或删除`s`中的任何数字。你可以按**任何**顺序返回答案。
+
+**示例1：**
+
+```
+输入：s = "25525511135"
+输出：["255.255.11.135","255.255.111.35"]
+```
+
+**示例2：**
+
+```
+输入：s = "0000"
+输出：["0.0.0.0"]
+```
+
+**示例3：**
+
+```
+输入：s = "101023"
+输出：["1.0.10.23","1.0.102.3","10.1.0.23","10.10.2.3","101.0.2.3"]
+```
+
+**提示：**
+
+- 1 <= `s.length` <= 20。
+- `s`仅由数字组成。
+
+#### Solution
+
+本题解法类似于[分割回文串](/leetcode/2023-03-04-Backtracking.html#131-分割回文串)，但需要注意IP地址有自身的要求。因此我们可以利用IP地址的要求来进行剪枝：当路径`path`中存在4个整数时提前终止搜索，同时只把满足要求的数字所构成的IP地址添加到`path`中。整个算法流程可以参考如下。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/Z29ZrR1.png" width="90%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/restore-ip-addresses/)：
+
+```python
+class Solution:
+    def restoreIpAddresses(self, s: str) -> List[str]:
+        res = []
+        path= []
+
+        def check(num: str) -> bool:
+            if len(num) > 1 and num[0] == "0":
+                return False
+            elif int(num) > 255:
+                return False
+
+            return True 
+
+        def backtracking(startIdx: int) -> None:
+            if len(path) == 4:
+                if startIdx == len(s):
+                    res.append(".".join(path))
+                return
+            
+            for i in range(startIdx, min(len(s), startIdx+3)):
+                num = s[startIdx: i+1]
+                
+                if check(num):
+                    path.append(num)
+                    backtracking(i+1)
+                    path.pop()
+        
+        backtracking(0)
+
+        return res
+```
+{: .snippet}
+
+## 子集
+
+### 78. 子集
+
+给你一个整数数组`nums`，数组中的元素**互不相同**。返回该数组所有可能的子集(幂集)。
+
+解集**不能**包含重复的子集。你可以按**任意顺序**返回解集。
+
+**示例1：**
+
+```
+输入：nums = [1,2,3]
+输出：[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+```
+
+**示例2：**
+
+```
+输入：nums = [0]
+输出：[[],[0]]
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 10。
+- -10 <= `nums[i]` <= 10。
+- `nums`中的所有元素**互不相同**。
+
+#### Solution
+
+子集问题与[组合](/leetcode/2023-03-04-Backtracking.html#组合)以及[分割](/leetcode/2023-03-04-Backtracking.html#分割)问题之间的区别在于我们需要收集搜索树的所有节点，而不只是叶节点。因此在每次调用回溯函数时都需要把当前的搜索路径`path`添加到`res`中，整个算法流程可以参考下图。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/NjZaybT.png" width="90%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/subsets/)：
+
+```python
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        path= []
+
+        def backtracking(startIdx: int) -> None:
+            ## collect current path
+            res.append(path[:])
+            
+            if startIdx == len(nums):
+                return
+
+            for i in range(startIdx, len(nums)):
+                path.append(nums[i])
+                backtracking(i+1)
+                path.pop()
+        
+        backtracking(0)
+        
+        return res
+```
+{: .snippet}
+
 ## Reference
 
 - [回溯算法理论基础](https://www.bilibili.com/video/BV1cy4y167mM/?vd_source=7a2542c6c909b3ee1fab551277360826)
@@ -521,3 +723,6 @@ class Solution:
 - [LeetCode：17.电话号码的字母组合](https://www.bilibili.com/video/BV1yV4y1V7Ug/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：39.组合总和](https://www.bilibili.com/video/BV1KT4y1M7HJ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：40.组合总和II](https://www.bilibili.com/video/BV12V4y1V73A/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：131.分割回文串](https://www.bilibili.com/video/BV1c54y1e7k6/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：93.复原IP地址](https://www.bilibili.com/video/BV1XP4y1U73i/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：78.子集](https://www.bilibili.com/video/BV1U84y1q7Ci/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
