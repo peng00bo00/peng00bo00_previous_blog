@@ -104,7 +104,7 @@ class Solution:
 ```
 {: .snippet}
 
-更进一步，我们可以利用当前路径`path`的长度来控制每一层循环次数。
+更进一步，我们可以利用当前路径`path`的长度来控制每一层循环次数。假设当前搜索过程的路径为`path`而起始数字为`startIdx`，那么本层for循环中可能的最大数字为`n - (k - len(path)) + 1`，当`i`超过这个数字时集合中的剩余元素就小于`k`也就无法形成有效的`path`。利用这一性质我们可以实现对搜索树的剪枝，从而提升算法效率。剪枝过程可以参考下图。
 
 <div align=center>
 <img src="https://images.weserv.nl/?url=i.imgur.com/KGgRln1.png" width="90%">
@@ -120,12 +120,12 @@ class Solution:
         res  = []
         path = []
 
-        def backtracking(n: int, k: int, idx: int) -> None:
+        def backtracking(n: int, k: int, startIdx: int) -> None:
             if len(path) == k:
                 res.append(path[:])
                 return
             
-            for i in range(idx, n-(k-len(path))+2):
+            for i in range(startIdx, n-(k-len(path))+2):
                 path.append(i)
                 backtracking(n, k, i+1)
                 path.pop()
@@ -209,6 +209,8 @@ class Solution:
 ```
 {: .snippet}
 
+本题的剪枝过程类似于[组合](/leetcode/2023-03-04-Backtracking.html#77-组合)，即每次for循环时数字的最大值为`10 - (k - len(path))`。除此之外我们还可以记录下当前`path`中数字的和`s = sum(path)`，当`s > n`时提前结束搜索。
+
 <div align=center>
 <img src="https://images.weserv.nl/?url=i.imgur.com/kM7Sby1.png">
 </div>
@@ -224,8 +226,10 @@ class Solution:
         def backtracking(n: int, k: int, startIdx: int, s: int) -> None:
             if s > n:
                 return
-            elif len(path) == k and s == n:
-                res.append(path[:])
+            
+            if len(path) == k:
+                if s == n:
+                    res.append(path[:])
                 return
             
             for i in range(startIdx, 10 - (k - len(path)) + 1):
