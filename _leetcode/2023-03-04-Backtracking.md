@@ -243,9 +243,91 @@ class Solution:
 ```
 {: .snippet}
 
+### 17. 电话号码的字母组合
+
+给定一个仅包含数字`2-9`的字符串，返回所有它能表示的字母组合。答案可以按**任意顺序**返回。
+
+给出数字到字母的映射如下(与电话按键相同)。注意`1`不对应任何字母。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/11/09/200px-telephone-keypad2svg.png">
+</div>
+
+**示例1：**
+
+```
+输入：digits = "23"
+输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
+```
+
+**示例2：**
+
+```
+输入：digits = ""
+输出：[]
+```
+
+**示例3：**
+
+```
+输入：digits = "2"
+输出：["a","b","c"]
+```
+
+**提示：**
+
+- 0 <= `digits.length` <= 4。
+- `digits[i]`是范围`['2', '9']`的一个数字。
+
+#### Solution
+
+本题的暴力解法类似于[组合](/leetcode/2023-03-04-Backtracking.html#77-组合)，在处理时需要先建立数字到字母的映射`keyboard`然后对所有可能的字母组合进行暴力搜索。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/gee7c8t.png" width="80%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)：
+
+```python
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        keyboard = {
+            "2": "abc",
+            "3": "def",
+            "4": "ghi",
+            "5": "jkl",
+            "6": "mno",
+            "7": "pqrs",
+            "8": "tuv",
+            "9": "wxyz"
+        }
+
+        res = []
+        path= []
+
+        def backtracking(idx: int) -> None:
+            if idx == len(digits):
+                if path:
+                    res.append("".join(path[:]))
+                return
+            
+            number = digits[idx]
+            for letter in keyboard[number]:
+                path.append(letter)
+                backtracking(idx+1)
+                path.pop()
+        
+        backtracking(0)
+
+        return res
+```
+{: .snippet}
+
 ## Reference
 
 - [回溯算法理论基础](https://www.bilibili.com/video/BV1cy4y167mM/?vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：77.组合](https://www.bilibili.com/video/BV1ti4y1L7cv/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：77.组合(剪枝)](https://www.bilibili.com/video/BV1wi4y157er/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：216.组合总和III](https://www.bilibili.com/video/BV1wg411873x/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：17.电话号码的字母组合](https://www.bilibili.com/video/BV1yV4y1V7Ug/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
