@@ -85,20 +85,20 @@ def backtracking():
 ```python
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        res  = []
-        path = []
+        res = []
+        path= []
 
-        def backtracking(n: int, k: int, startIdx: int) -> None:
+        def backtracking(startIdx: int) -> None:
             if len(path) == k:
                 res.append(path[:])
                 return
             
-            for i in range(startIdx, n+1):
+            for i in range(startIdx, n-(k-len(path))+2):
                 path.append(i)
-                backtracking(n, k, i+1)
+                backtracking(i+1)
                 path.pop()
         
-        backtracking(n, k, 1)
+        backtracking(1)
 
         return res
 ```
@@ -120,17 +120,17 @@ class Solution:
         res  = []
         path = []
 
-        def backtracking(n: int, k: int, startIdx: int) -> None:
+        def backtracking(startIdx: int) -> None:
             if len(path) == k:
                 res.append(path[:])
                 return
             
             for i in range(startIdx, n-(k-len(path))+2):
                 path.append(i)
-                backtracking(n, k, i+1)
+                backtracking(i+1)
                 path.pop()
         
-        backtracking(n, k, 1)
+        backtracking(1)
 
         return res
 ```
@@ -193,17 +193,17 @@ class Solution:
         res = []
         path= []
 
-        def backtracking(n, k, startIdx):
+        def backtracking(startIdx: int) -> None:
             if len(path) == k and sum(path) == n:
                 res.append(path[:])
                 return
             
             for i in range(startIdx, 10):
                 path.append(i)
-                backtracking(n, k, i+1)
+                backtracking(i+1)
                 path.pop()
         
-        backtracking(n, k, 1)
+        backtracking(1)
 
         return res
 ```
@@ -223,7 +223,7 @@ class Solution:
         res = []
         path= []
 
-        def backtracking(n: int, k: int, startIdx: int, s: int) -> None:
+        def backtracking(startIdx: int, s: int) -> None:
             if s > n:
                 return
             
@@ -234,10 +234,10 @@ class Solution:
             
             for i in range(startIdx, 10 - (k - len(path)) + 1):
                 path.append(i)
-                backtracking(n, k, i+1, s+i)
+                backtracking(i+1, s+i)
                 path.pop()
         
-        backtracking(n, k, 1, 0)
+        backtracking(1, 0)
 
         return res
 ```
