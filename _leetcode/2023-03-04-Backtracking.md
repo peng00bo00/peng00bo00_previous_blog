@@ -816,7 +816,7 @@ class Solution:
 
 #### Solution
 
-排列与组合的区别在于每一个排列都包含原始序列`nums`中的全部元素，只是顺序有所不同。因此在回溯函数中每条路径`path`的长度都是一样的，而且每次for循环中备选元素集合的大小会不断减少。
+排列与组合的区别在于每一个排列都包含原始序列`nums`中的全部元素，只是顺序有所不同。因此在回溯函数中每条路径`path`的长度都是一样的，而且每次for循环中备选元素集合的大小会不断减少。本题可以把备选元素的集合作为参数传入回溯函数中，在for循环中去除当前元素来得到下一次调用的备选集合。整体算法流程可参考如下。
 
 <div align=center>
 <img src="https://images.weserv.nl/?url=i.imgur.com/W8tUciG.png">
@@ -874,6 +874,12 @@ class Solution:
 
 #### Solution
 
+本题需要在[全排列](/leetcode/2023-03-04-Backtracking.html#46-全排列)的基础上引入去重。具体来说我们需要对`nums`进行排序，然后在for循环中越过重复的元素。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/eQOzqhi.png">
+</div>
+
 [题目链接](https://leetcode.cn/problems/permutations-ii/)：
 
 ```python
@@ -891,6 +897,7 @@ class Solution:
                 return
 
             for i, num in enumerate(nums):
+                ## skip used num
                 if i > 0 and nums[i] == nums[i-1]:
                     continue
                 
