@@ -306,16 +306,16 @@ class Solution:
         res = []
         path= []
 
-        def backtracking(idx: int) -> None:
-            if idx == len(digits):
+        def backtracking(startIdx: int) -> None:
+            if startIdx == len(digits):
                 if path:
                     res.append("".join(path[:]))
                 return
             
-            number = digits[idx]
+            number = digits[startIdx]
             for letter in keyboard[number]:
                 path.append(letter)
-                backtracking(idx+1)
+                backtracking(startIdx+1)
                 path.pop()
         
         backtracking(0)
@@ -475,7 +475,7 @@ class Solution:
 
 #### Solution
 
-本题和[组合总和](/leetcode/2023-03-04-Backtracking.html#39-组合总和)的区别在于`candidates`中的每个数字只能使用一次，而且`candidates`中可能会出现重复的数字。因此本题的关键在于如何对`candidates`进行去重，即保证使用过的元素不会被重复选取。这里可以首先对`candidates`进行**排序**，然后在进行循环时保证每个起始数字只会进行一次递归搜索。
+本题和[组合总和](/leetcode/2023-03-04-Backtracking.html#39-组合总和)的区别在于`candidates`中的每个数字只能使用一次，而且`candidates`中可能会出现重复的数字。因此本题的关键在于如何对`candidates`进行去重，即保证使用过的元素不会被重复选取。这里可以首先对`candidates`进行**排序**，然后越过for循环中保证每个`startIdx`之后重复的数字。
 
 [题目链接](https://leetcode.cn/problems/combination-sum/)：
 
@@ -781,6 +781,77 @@ class Solution:
 ```
 {: .snippet}
 
+## 其它
+
+### 491. 递增子序列
+
+给你一个整数数组`nums`，找出并返回所有该数组中不同的递增子序列，递增子序列中**至少有两个元素**。你可以按**任意顺序**返回答案。
+
+数组中可能含有重复元素，如出现两个整数相等，也可以视作递增序列的一种特殊情况。
+
+**示例1：**
+
+```
+输入：nums = [4,6,7,7]
+输出：[[4,6],[4,6,7],[4,6,7,7],[4,7],[4,7,7],[6,7],[6,7,7],[7,7]]
+```
+
+**示例2：**
+
+```
+输入：nums = [4,4,3,2,1]
+输出：[[4,4]]
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 15。
+- -100 <= `nums[i]` <= 100。
+
+#### Solution
+
+本题解法类似于[子集 II](/leetcode/2023-03-04-Backtracking.html#90-子集-ii)，但二者的主要区别在于本题中序列元素的顺序不能随意更改，换句话说我们不能对`nums`进行排序来实现去重。因此本题的去重策略是使用一个集合`used`来存储当前循环中已经遍历过的元素，如果`nums[i]`在`used`中则跳过它并继续遍历。同时为了保证子序列是递增的，我们还需要检查`nums[i]`是否小于`path[-1]`，如果`nums[i] < path[-1]`同样需要跳过当前元素。整体算法流程可以参考如下。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/eDbFycf.png">
+</div>
+
+[题目链接](https://leetcode.cn/problems/non-decreasing-subsequences/)：
+
+```python
+class Solution:
+    def findSubsequences(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        path= []
+
+        def backtracking(startIdx: int) -> None:
+            if len(path) > 1:
+                res.append(path[:])
+            
+            if startIdx == len(nums):
+                return
+            
+            used = set()
+            for i in range(startIdx, len(nums)):
+                ## skip used num
+                if nums[i] in used:
+                    continue
+                
+                ## skip decreasing path
+                if path and path[-1] > nums[i]:
+                    continue
+                
+                used.add(nums[i])
+                path.append(nums[i])
+                backtracking(i+1)
+                path.pop()
+        
+        backtracking(0)
+
+        return res
+```
+{: .snippet}
+
 ## Reference
 
 - [回溯算法理论基础](https://www.bilibili.com/video/BV1cy4y167mM/?vd_source=7a2542c6c909b3ee1fab551277360826)
@@ -794,3 +865,4 @@ class Solution:
 - [LeetCode：93.复原IP地址](https://www.bilibili.com/video/BV1XP4y1U73i/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：78.子集](https://www.bilibili.com/video/BV1U84y1q7Ci/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：90.子集II](https://www.bilibili.com/video/BV1vm4y1F71J/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：491.递增子序列](https://www.bilibili.com/video/BV1EG4y1h78v/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
