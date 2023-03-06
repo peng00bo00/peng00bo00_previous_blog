@@ -415,7 +415,6 @@ class Solution:
         candidates = sorted(candidates)
 
         def backtracking(startIdx: int, s: int) -> None:
-
             if s == target:
                 res.append(path[:])
                 return
@@ -714,6 +713,74 @@ class Solution:
 ```
 {: .snippet}
 
+### 90. 子集 II
+
+给你一个整数数组`nums`，其中可能包含重复元素，请你返回该数组所有可能的子集(幂集)。
+
+解集**不能**包含重复的子集。返回的解集中，子集可以按**任意顺序**排列。
+
+**示例1：**
+
+```
+输入：nums = [1,2,2]
+输出：[[],[1],[1,2],[1,2,2],[2],[2,2]]
+```
+
+**示例2：**
+
+```
+输入：nums = [0]
+输出：[[],[0]]
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 10。
+- -10 <= `nums[i]` <= 10。
+
+#### Solution
+
+本题的解法可以参考[子集](/leetcode/2023-03-04-Backtracking.html#78-子集)和[组合总和 II](/leetcode/2023-03-04-Backtracking.html#40-组合总和-ii)，我们需要在子集问题的基础上加入去重逻辑来保证不会出现重复的路径。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/LWo8AEl.png" width="90%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/subsets-ii/)：
+
+```python
+class Solution:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        path= []
+
+        ## sort nums
+        nums = sorted(nums)
+
+        def backtracking(startIdx: int) -> None:.
+            ## collect current path
+            res.append(path[:])
+
+            if startIdx == len(nums):
+                return
+
+            for i in range(startIdx, len(nums)):
+                num = nums[i]
+
+                ## skip used num
+                if i > startIdx and num == nums[i-1]:
+                    continue
+                
+                path.append(num)
+                backtracking(i+1)
+                path.pop()
+
+        backtracking(0)
+        
+        return res
+```
+{: .snippet}
+
 ## Reference
 
 - [回溯算法理论基础](https://www.bilibili.com/video/BV1cy4y167mM/?vd_source=7a2542c6c909b3ee1fab551277360826)
@@ -726,3 +793,4 @@ class Solution:
 - [LeetCode：131.分割回文串](https://www.bilibili.com/video/BV1c54y1e7k6/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：93.复原IP地址](https://www.bilibili.com/video/BV1XP4y1U73i/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：78.子集](https://www.bilibili.com/video/BV1U84y1q7Ci/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：90.子集II](https://www.bilibili.com/video/BV1vm4y1F71J/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
