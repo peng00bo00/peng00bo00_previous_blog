@@ -996,3 +996,5 @@ class Solution:
 - [LeetCode：78.子集](https://www.bilibili.com/video/BV1U84y1q7Ci/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：90.子集II](https://www.bilibili.com/video/BV1vm4y1F71J/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：491.递增子序列](https://www.bilibili.com/video/BV1EG4y1h78v/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：46.全排列](https://www.bilibili.com/video/BV19v4y1S79W/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：47.全排列 II](https://www.bilibili.com/video/BV1R84y1i7Tm/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
