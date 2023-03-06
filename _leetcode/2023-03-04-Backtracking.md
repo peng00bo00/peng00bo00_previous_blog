@@ -781,6 +781,129 @@ class Solution:
 ```
 {: .snippet}
 
+## 排列
+
+### 46. 全排列
+
+给定一个不含重复数字的数组`nums`，返回其**所有可能的全排列**。你可以**按任意顺序**返回答案。
+
+**示例1：**
+
+```
+输入：nums = [1,2,3]
+输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+```
+
+**示例2：**
+
+```
+输入：nums = [0,1]
+输出：[[0,1],[1,0]]
+```
+
+**示例3：**
+
+```
+输入：nums = [1]
+输出：[[1]]
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 6。
+- -10 <= `nums[i]` <= 10。
+- `nums`中的所有整数**互不相同**。
+
+#### Solution
+
+排列与组合的区别在于每一个排列都包含原始序列`nums`中的全部元素，只是顺序有所不同。因此在回溯函数中每条路径`path`的长度都是一样的，而且每次for循环中备选元素集合的大小会不断减少。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/W8tUciG.png">
+</div>
+
+[题目链接](https://leetcode.cn/problems/permutations/)：
+
+```python
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        path= []
+
+        def backtracking(nums: List[int]) -> None:
+            if not nums:
+                res.append(path[:])
+                return
+            
+            for i, num in enumerate(nums):                
+                path.append(num)
+                backtracking(nums[:i] + nums[i+1:])
+                path.pop()
+        
+        backtracking(nums)
+        
+        return res
+```
+{: .snippet}
+
+### 47. 全排列 II
+
+给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。
+
+**示例1：**
+
+```
+输入：nums = [1,1,2]
+输出：
+[[1,1,2],
+ [1,2,1],
+ [2,1,1]]
+```
+
+**示例2：**
+
+```
+输入：nums = [1,2,3]
+输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 8。
+- -10 <= `nums[i]` <= 10。
+
+#### Solution
+
+[题目链接](https://leetcode.cn/problems/permutations-ii/)：
+
+```python
+class Solution:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        path= []
+
+        N = len(nums)
+        nums = sorted(nums)
+
+        def backtracking(nums: List[int]) -> None:
+            if len(path) == N:
+                res.append(path[:])
+                return
+
+            for i, num in enumerate(nums):
+                if i > 0 and nums[i] == nums[i-1]:
+                    continue
+                
+                path.append(num)
+                backtracking(nums[:i] + nums[i+1:])
+                path.pop()
+        
+        backtracking(nums)
+
+        return res
+```
+{: .snippet}
+
 ## 其它
 
 ### 491. 递增子序列
