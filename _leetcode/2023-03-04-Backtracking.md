@@ -982,6 +982,82 @@ class Solution:
 ```
 {: .snippet}
 
+### 332. 重新安排行程
+
+给你一份航线列表`tickets`，其中`tickets[i] = [fromi, toi]`表示飞机出发和降落的机场地点。请你对该行程进行重新规划排序。
+
+所有这些机票都属于一个从`JFK(肯尼迪国际机场)`出发的先生，所以该行程必须从`JFK`开始。如果存在多种有效的行程，请你按字典排序返回最小的行程组合。
+
+- 例如，行程`["JFK", "LGA"]`与`["JFK", "LGB"]`相比就更小，排序更靠前。
+
+假定所有机票至少存在一种合理的行程。且所有的机票必须都用一次**且**只能用一次。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/03/14/itinerary1-graph.jpg">
+</div>
+
+```
+输入：tickets = [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]
+输出：["JFK","MUC","LHR","SFO","SJC"]
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/03/14/itinerary2-graph.jpg">
+</div>
+
+```
+输入：tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
+输出：["JFK","ATL","JFK","SFO","ATL","SFO"]
+解释：另一种有效的行程是 ["JFK","SFO","ATL","JFK","ATL","SFO"] ，但是它字典排序更大更靠后。
+```
+
+#### Solution
+
+本题的解释比较复杂，可以直接参考[代码随想录](https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0332.%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B.md)中的解答。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/EbQmt6V.png" width="70%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/reconstruct-itinerary/)：
+
+```python
+class Solution:
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        path= ["JFK"]
+
+        tickets_dict = defaultdict(list)
+        for start, end in tickets:
+            tickets_dict[start].append(end)
+        
+        ## sort the arrival airports
+        for start in tickets_dict:
+            tickets_dict[start].sort()
+
+        def backtracking(start: str) -> bool:
+            if len(path) == len(tickets)+1:
+                return True
+            
+            for _ in tickets_dict[start]:
+                end = tickets_dict[start].pop(0)
+                path.append(end)
+
+                if backtracking(end):
+                    return True
+
+                path.pop()
+                tickets_dict[start].append(end)
+
+        backtracking("JFK")
+
+        return path
+```
+{: .snippet}
+
 ## Reference
 
 - [回溯算法理论基础](https://www.bilibili.com/video/BV1cy4y167mM/?vd_source=7a2542c6c909b3ee1fab551277360826)
