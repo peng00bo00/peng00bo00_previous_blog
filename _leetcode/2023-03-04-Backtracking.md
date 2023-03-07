@@ -911,6 +911,98 @@ class Solution:
 ```
 {: .snippet}
 
+## 棋盘问题
+
+### 51. N皇后
+
+按照国际象棋的规则，皇后可以攻击与之处在同一行或同一列或同一斜线上的棋子。
+
+**n皇后问题**研究的是如何将`n`个皇后放置在`n×n`的棋盘上，并且使皇后彼此之间不能相互攻击。
+
+给你一个整数`n`，返回所有不同的**n皇后问题**的解决方案。
+
+每一种解法包含一个不同的**n皇后问题**的棋子放置方案，该方案中`'Q'`和`'.'`分别代表了皇后和空位。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/11/13/queens.jpg">
+</div>
+
+```
+输入：n = 4
+输出：[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+解释：如上图所示，4 皇后问题存在两个不同的解法。
+```
+
+**示例2：**
+
+```
+输入：n = 1
+输出：[["Q"]]
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 8。
+- -10 <= `nums[i]` <= 10。
+
+#### Solution
+
+N皇后是回溯的经典问题，它的解法是暴力搜索所有可能的棋子放置方式然后收集其中满足要求的解。因此我们需要额外定义一个`check()`函数检验棋盘上的棋子摆放是否满足要求，然后仅在它返回`True`时才继续向下进行搜索。整个算法流程可以参考如下。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/oKzf66e.png" width="80%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/n-queens/)：
+
+```python
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        res = []
+        path= []
+
+        ## attempt to place another queen
+        def check(i: int) -> bool:
+            for row, col in enumerate(path):
+                if i == col or abs(i-col) == len(path)-row:
+                    return False
+            
+            return True
+        
+        ## column index to chessboard
+        def generateBoard(path: List[int]) -> List[str]:
+            sol = []
+            for i in path:
+                row = ""
+                for col in range(n):
+                    if col == i:
+                        row += "Q"
+                    else:
+                        row += "."
+                
+                sol.append(row)
+
+            return sol
+
+        def backtracking() -> None:
+            if len(path) == n:
+                res.append(generateBoard(path))
+                return
+            
+            for i in range(n):
+                if not path or check(i):
+                    path.append(i)
+                    backtracking()
+                    path.pop()
+        
+        backtracking()
+
+        return res
+```
+{: .snippet}
+
 ## 其它
 
 ### 491. 递增子序列
@@ -1017,7 +1109,7 @@ class Solution:
 
 #### Solution
 
-本题的解释比较复杂，可以直接参考[代码随想录](https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0332.%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B.md)中的解答。
+本题中我们需要对所有可能的行程进行遍历，当找到一个符合要求的行程后直接退出即可。因此本题的技巧在于要对所有具有相同起点的机票进行排序，这样可以保证搜索过程中的路径`path`满足字典序；而另一个技巧在于设置终止条件，当`path`中的机场数恰为机票数加1时说明已经找到了满足要求的行程，此时直接退出即可。
 
 <div align=center>
 <img src="https://images.weserv.nl/?url=i.imgur.com/EbQmt6V.png" width="70%">
@@ -1051,6 +1143,8 @@ class Solution:
 
                 path.pop()
                 tickets_dict[start].append(end)
+            
+            return False
 
         backtracking("JFK")
 
@@ -1073,4 +1167,5 @@ class Solution:
 - [LeetCode：90.子集II](https://www.bilibili.com/video/BV1vm4y1F71J/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：491.递增子序列](https://www.bilibili.com/video/BV1EG4y1h78v/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：46.全排列](https://www.bilibili.com/video/BV19v4y1S79W/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
-- [LeetCode：47.全排列 II](https://www.bilibili.com/video/BV1R84y1i7Tm/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：47.全排列II](https://www.bilibili.com/video/BV1R84y1i7Tm/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：51.N皇后](https://www.bilibili.com/video/BV1Rd4y1c7Bq/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
