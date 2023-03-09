@@ -1003,6 +1003,174 @@ class Solution:
 ```
 {: .snippet}
 
+### 52. N皇后 II
+
+**n皇后问题** 研究的是如何将`n`个皇后放置在`n × n`的棋盘上，并且使皇后彼此之间不能相互攻击。
+
+给你一个整数`n`，返回**n皇后问题**不同的解决方案的数量。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/11/13/queens.jpg">
+</div>
+
+```
+输入：n = 4
+输出：2
+解释：如上图所示，4 皇后问题存在两个不同的解法。
+```
+
+**示例2：**
+
+```
+输入：n = 1
+输出：1
+```
+
+**提示：**
+
+- 1 <= `n` <= 9。
+
+#### Solution
+
+本题解法与[N皇后](/leetcode/2023-03-04-Backtracking.html#51-n皇后)基本一致，只需在完成搜索令`res += 1`即可。
+
+[题目链接](https://leetcode.cn/problems/n-queens/)：
+
+```python
+class Solution:
+    def totalNQueens(self, n: int) -> int:
+        res = 0
+        path= []
+
+        def check(num: int) -> bool:
+            for row, col in enumerate(path):
+                if col == num or abs(col-num) == len(path) - row:
+                    return False
+            
+            return True
+        
+        def backtracking() -> None:
+            nonlocal res
+
+            if len(path) == n:
+                res += 1
+                return
+            
+            for i in range(n):
+                ## attempt to place a queen
+                if not path or check(i):
+                    path.append(i)
+                    backtracking()
+                    path.pop()
+        
+        backtracking()
+
+        return res
+```
+{: .snippet}
+
+### 37. 解数独
+
+编写一个程序，通过填充空格来解决数独问题。
+
+数独的解法需**遵循如下规则**：
+
+1. 数字`1-9`在每一行只能出现一次。
+2. 数字`1-9`在每一列只能出现一次。
+3. 数字`1-9`在每一个以粗实线分隔的`3x3`宫内只能出现一次。（请参考示例图）
+
+数独部分空格内已填入了数字，空白格用`'.'`表示。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/12/250px-sudoku-by-l2g-20050714svg.png">
+</div>
+
+```
+输入：board = [["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]
+输出：[["5","3","4","6","7","8","9","1","2"],["6","7","2","1","9","5","3","4","8"],["1","9","8","3","4","2","5","6","7"],["8","5","9","7","6","1","4","2","3"],["4","2","6","8","5","3","7","9","1"],["7","1","3","9","2","4","8","5","6"],["9","6","1","5","3","7","2","8","4"],["2","8","7","4","1","9","6","3","5"],["3","4","5","2","8","6","1","7","9"]]
+解释：输入的数独如上图所示，唯一有效的解决方案如下所示：
+```
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/12/250px-sudoku-by-l2g-20050714_solutionsvg.png">
+</div>
+
+**提示：**
+
+- `board.length` == 9。
+- `board[i].length` == 9。
+- `board[i][j]`是一位数字或者`'.'`。
+- 题目数据**保证**输入数独仅有一个解。
+
+#### Solution
+
+数独问题可以说是回溯中最复杂的问题。在解数独中我们需要遍历整个棋盘上的所有位置，然后尝试去填充`[1, 9]`范围中的数字。如果能够找到满足要求的解直接返回，否则继续进行尝试。本题的一个技巧在于将回溯函数`backtracking()`的返回值设计为`bool`变量，如果棋盘完成了填充则返回`True`，而如果在任意空白处尝试了全部数字都无法满足要求则返回`False`。算法的整体流程可以参考如下。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/svJDIza.png">
+</div>
+
+[题目链接](https://leetcode.cn/problems/sudoku-solver/)：
+
+```python
+class Solution:
+    def solveSudoku(self, board: List[List[str]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+
+        N = len(board)
+        
+        def check(i: int, j: int, num: str) -> bool:
+            ## check row
+            for col in range(9):
+                if board[i][col] == num:
+                    return False
+            
+            ## check column
+            for row in range(9):
+                if board[row][j] == num:
+                    return False
+            
+            ## check block
+            blockRow = (i // 3) * 3
+            blockCol = (j // 3) * 3
+
+            for x in range(blockRow, blockRow+3):
+                for y in range(blockCol, blockCol+3):
+                    if board[x][y] == num:
+                        return False
+
+            return True
+
+        def backtracking() -> bool:
+            for i in range(N):
+                for j in range(N):
+                    if board[i][j] != ".":
+                        continue
+                    
+                    for num in range(1, 10):
+                        num = str(num)
+                        if check(i, j, num):
+                            board[i][j] = num
+
+                            if backtracking():
+                                return True
+                        
+                            board[i][j] = "."
+                    
+                    return False
+            
+            return True
+        
+        backtracking()
+```
+{: .snippet}
+
 ## 其它
 
 ### 491. 递增子序列
@@ -1169,3 +1337,4 @@ class Solution:
 - [LeetCode：46.全排列](https://www.bilibili.com/video/BV19v4y1S79W/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：47.全排列II](https://www.bilibili.com/video/BV1R84y1i7Tm/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：51.N皇后](https://www.bilibili.com/video/BV1Rd4y1c7Bq/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：37.解数独](https://www.bilibili.com/video/BV1TW4y1471V/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
