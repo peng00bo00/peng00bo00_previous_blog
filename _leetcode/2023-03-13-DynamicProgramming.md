@@ -60,7 +60,7 @@ F(n) = F(n - 1) + F(n - 2)，其中 n > 1
 
 #### Solution
 
-求斐波那契数是DP的经典问题。我们建立一个数组`dp`用来表示数列，其中`dp[i]`即为`F(i)`。此外，题目中已经给出了初始化条件和递推关系：
+求斐波那契数是DP的经典问题。我们建立一个数组`dp[]`用来表示数列，其中`dp[i]`即为`F(i)`。此外，题目中已经给出了初始化条件和递推关系：
 
 - `dp[0] = 0`，`dp[1] = 1`
 - `dp[i] = dp[i-2] + dp[i-1]`
@@ -140,7 +140,7 @@ class Solution:
 
 #### Solution
 
-爬楼梯同样是DP的经典问题。我们建立一个数组`dp`，其中`dp[i]`为爬到第`i-1`阶楼梯的最短方式。本题的初始化条件和递推关系为：
+爬楼梯同样是DP的经典问题。我们建立一个数组`dp[]`，其中`dp[i]`为爬到第`i-1`阶楼梯的最短方式。本题的初始化条件和递推关系为：
 
 - `dp[0] = 1`，`dp[1] = 2`
 - `dp[i] = dp[i-2] + dp[i-1]`
@@ -168,7 +168,7 @@ class Solution:
 ```
 {: .snippet}
 
-类似于斐波那契数，我们同样可以使用`O(1)`的空间复杂度来进行递推。
+类似于[斐波那契数](/leetcode/2023-03-13-DynamicProgramming.html#509-斐波那契数)，我们同样可以使用`O(1)`的空间复杂度来进行递推。
 
 [题目链接](https://leetcode.cn/problems/climbing-stairs/)：
 
@@ -180,13 +180,10 @@ class Solution:
         elif n == 2:
             return 2
         
-        prepre, pre = 1, 2
+        pre, cur = 1, 2
 
         for i in range(n-2):
-            cur = prepre + pre
-
-            prepre = pre
-            pre = cur
+            pre, cur = cur, pre+cur
         
         return cur
 ```
