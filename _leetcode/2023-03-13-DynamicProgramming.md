@@ -538,6 +538,61 @@ class Solution:
 ```
 {: .snippet}
 
+### 96. 不同的二叉搜索树
+
+给你一个整数`n`，求恰由`n`个节点组成且节点值从`1`到`n`互不相同的**二叉搜索树**有多少种？返回满足题意的二叉搜索树的种数。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/01/18/uniquebstn3.jpg">
+</div>
+
+```
+输入：n = 3
+输出：5
+```
+
+**示例2：**
+
+```
+输入：n = 1
+输出：1
+```
+
+**提示：**
+
+- 1 <= `n` <= 19
+
+#### Solution
+
+本题的难点在于动态规划的递推关系。我们建立一个数组`dp[]`，其中`dp[i]`表示`[1, i]`所能构成的最多二叉搜索树的数目。假设某一个二叉搜索树的根节点为`1 <= j <= i`，则其左子树的可能数量为`dp[j-1]`，而右子树的数量则为`dp[i-j]`。这样以`j`为根节点的二叉搜索树的数目为`dp[j-1] * dp[i-j]`，我们对`j`进行遍历可以得到递推关系：
+
+- `dp[i] += dp[j-1] * dp[i-j]`
+
+接下来考虑初始条件。显然由`1`只能构成一棵二叉搜索树，而空节点也只能对应一棵二叉搜索树，即：
+
+- `dp[0] = 1`，`dp[1] = 1`
+
+这样只需要对`i`进行递推，同时对`j`进行遍历即可。
+
+[题目链接](https://leetcode.cn/problems/unique-binary-search-trees/)：
+
+```python
+class Solution:
+    def numTrees(self, n: int) -> int:
+        dp = [0 for _ in range(n+1)]
+        dp[0] = 1
+        dp[1] = 1
+
+        for i in range(2, n+1):
+            for j in range(1, i+1):
+                dp[i] += dp[j-1] * dp[i-j]
+        
+        return dp[-1]
+```
+{: .snippet}
+
 ## 背包问题
 
 ## 打家劫舍
@@ -555,3 +610,4 @@ class Solution:
 - [LeetCode：62.不同路径](https://www.bilibili.com/video/BV1ve4y1x7Eu/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：63.不同路径 II](https://www.bilibili.com/video/BV1Ld4y1k7c6/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：343.整数拆分](https://www.bilibili.com/video/BV1Mg411q7YJ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：96.不同的二叉搜索树](https://www.bilibili.com/video/BV1eK411o7QA/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
