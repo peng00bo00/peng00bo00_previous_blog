@@ -189,6 +189,89 @@ class Solution:
 ```
 {: .snippet}
 
+### 746. 使用最小花费爬楼梯
+
+给你一个整数数组`cost`，其中`cost[i]`是从楼梯第`i`个台阶向上爬需要支付的费用。一旦你支付此费用，即可选择向上爬一个或者两个台阶。
+
+你可以选择从下标为`0`或下标为`1`的台阶开始爬楼梯。
+
+请你计算并返回达到楼梯顶部的最低花费。
+
+**示例1：**
+
+```
+输入：cost = [10,15,20]
+输出：15
+解释：你将从下标为 1 的台阶开始。
+- 支付 15 ，向上爬两个台阶，到达楼梯顶部。
+总花费为 15 。
+```
+
+**示例2：**
+
+```
+输入：cost = [1,100,1,1,1,100,1,1,100,1]
+输出：6
+解释：你将从下标为 0 的台阶开始。
+- 支付 1 ，向上爬两个台阶，到达下标为 2 的台阶。
+- 支付 1 ，向上爬两个台阶，到达下标为 4 的台阶。
+- 支付 1 ，向上爬两个台阶，到达下标为 6 的台阶。
+- 支付 1 ，向上爬一个台阶，到达下标为 7 的台阶。
+- 支付 1 ，向上爬两个台阶，到达下标为 9 的台阶。
+- 支付 1 ，向上爬一个台阶，到达楼梯顶部。
+总花费为 6 。
+```
+
+**提示：**
+
+- 2 <= `cost.length` <= 1000
+- 0 <= `cost[i]` <= 999
+
+#### Solution
+
+本题类似于[爬楼梯](/leetcode/2023-03-13-DynamicProgramming.html#70-爬楼梯)，但要稍微复杂一些。我们建立一个数组`dp[]`，其中`dp[i]`为爬到第`i`阶楼梯的最小代价。由于我们可以选择下标为`0`或下标为`1`的台阶开始爬楼梯，因此数组`dp[]`需要初始化如下：
+
+- `dp[0] = 0`，`dp[1] = 0`
+
+接下来考虑递推关系，我们可以从第`i-2`阶或是第`i-1`阶向上爬。根据题意，最小代价而二者中较小的那个：
+
+- `dp[i] = min(dp[i-2] + cost[i-2], dp[i-1] + cost[i-1])`
+
+得到递推关系后直接进行递推即可。
+
+[题目链接](https://leetcode.cn/problems/min-cost-climbing-stairs/)：
+
+```python
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        N = len(cost)
+
+        dp = [0 for i in range(N+1)]
+
+        for i in range(2, N+1):
+            dp[i] = min(dp[i-2] + cost[i-2], dp[i-1] + cost[i-1])
+        
+        return dp[-1]
+```
+{: .snippet}
+
+本题同样可以使用`O(1)`的空间复杂度来进行求解。
+
+[题目链接](https://leetcode.cn/problems/min-cost-climbing-stairs/)：
+
+```python
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        N = len(cost)
+        pre = cur = 0
+
+        for i in range(2, N+1):
+            pre, cur = cur, min(pre+cost[i-2], cur+cost[i-1])
+        
+        return cur
+```
+{: .snippet}
+
 ## 背包问题
 
 ## 打家劫舍
@@ -201,3 +284,5 @@ class Solution:
 
 - [动态规划理论基础](https://www.bilibili.com/video/BV13Q4y197Wg/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：509.斐波那契数](https://www.bilibili.com/video/BV1f5411K7mo/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：70.爬楼梯](https://www.bilibili.com/video/BV17h411h7UH/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：746.使用最小花费爬楼梯](https://www.bilibili.com/video/BV16G411c7yZ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
