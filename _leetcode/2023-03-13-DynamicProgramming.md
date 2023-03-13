@@ -9,7 +9,7 @@ sidebar:
   nav: LeetCode
 ---
 
-**动态规划(dynamic programming, DP)**是利用子问题之间的关系来递推出整个问题的解。一般来说DP问题可以分解为一下五步来求解：
+**动态规划(dynamic programming, DP)**是利用子问题之间的关系来递推出整个问题的解。一般来说DP问题可以分解为以下五步来求解：
 
 1. 确定`dp`数组(dp table)以及下标的含义
 2. 确定递推公式
@@ -272,6 +272,79 @@ class Solution:
 ```
 {: .snippet}
 
+### 62. 不同路径
+
+一个机器人位于一个`m x n`网格的左上角(起始点在下图中标记为“Start”)。
+
+机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角(在下图中标记为“Finish”)。
+
+问总共有多少条不同的路径？
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2018/10/22/robot_maze.png">
+</div>
+
+**示例1：**
+
+```
+输入：m = 3, n = 7
+输出：28
+```
+
+**示例2：**
+
+```
+输入：m = 3, n = 2
+输出：3
+解释：
+从左上角开始，总共有 3 条路径可以到达右下角。
+1. 向右 -> 向下 -> 向下
+2. 向下 -> 向下 -> 向右
+3. 向下 -> 向右 -> 向下
+```
+
+**示例1：**
+
+```
+输入：m = 7, n = 3
+输出：28
+```
+
+**示例2：**
+
+```
+输入：m = 3, n = 3
+输出：6
+```
+
+**提示：**
+
+- 1 <= `m`, `n` <= 100
+- 题目数据保证答案小于等于`2 * 10⁹`
+
+#### Solution
+
+本题中我们需要使用一个二维数组`dp[][]`，其中每一个元素`dp[i][j]`表示从`[0][0]`到`[i][j]`位置有多少种路径。根据题意我们只能从左边`[i-1][j]`或者上边`[i][j-1]`前往`[i][j]`，因此动态规划的递推关系为：
+
+- `dp[i][j] = dp[i-1][j] + dp[i][j-1]`
+
+接下来考虑初始条件。对于数组`dp[][]`的第一行和第一列，我们只能一直向右或是一直向下前进，即只有一条路径。因此我们可以把数组`dp[][]`的所有元素都初始化为`1`，然后从`dp[1][1]`开始向右和向下进行递推。
+
+[题目链接](https://leetcode.cn/problems/unique-paths/)：
+
+```python
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        dp = [[1 for _ in range(n)] for _ in range(m)]
+
+        for i in range(1, m):
+            for j in range(1, n):
+                dp[i][j] = dp[i-1][j] + dp[i][j-1]
+
+        return dp[-1][-1]
+```
+{: .snippet}
+
 ## 背包问题
 
 ## 打家劫舍
@@ -286,3 +359,4 @@ class Solution:
 - [LeetCode：509.斐波那契数](https://www.bilibili.com/video/BV1f5411K7mo/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：70.爬楼梯](https://www.bilibili.com/video/BV17h411h7UH/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：746.使用最小花费爬楼梯](https://www.bilibili.com/video/BV16G411c7yZ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：62.不同路径](https://www.bilibili.com/video/BV1ve4y1x7Eu/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
