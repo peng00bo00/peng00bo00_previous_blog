@@ -479,6 +479,65 @@ class Solution:
 ```
 {: .snippet}
 
+### 343. 整数拆分
+
+给定一个正整数`n`，将其拆分为`k`个**正整数**的和(`k` >= 2)，并使这些整数的乘积最大化。
+
+返回你可以获得的**最大乘积**。
+
+**示例1：**
+
+```
+输入: n = 2
+输出: 1
+解释: 2 = 1 + 1, 1 × 1 = 1。
+```
+
+**示例2：**
+
+```
+输入: n = 10
+输出: 36
+解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36。
+```
+
+**提示：**
+
+- 2 <= `n` <= 58
+
+#### Solution
+
+本题的难点在于动态规划的递推关系。我们建立一个数组`dp[]`，其中`dp[i]`表示整数`i`可以拆分成的最大乘积。显然有初始条件：
+
+- `dp[2]` = 1
+
+接下来考虑递推关系。假设正整数`i`拆分出的第一个数为`j`，则`dp[i]`有以下两种可能：
+
+1. 将`i`拆分为`j`和`i-j`，此时乘积为`j*(i-j)`
+2. 继续对`i-j`进行拆分，这部分乘积的最大值为`dp[i-j]`，因此拆分后所有部分的乘积为`j*dp[i-j]`
+
+因此我们需要对这两种情况的乘积取最大值，得到递推关系：
+
+- `dp[i] = max([dp[i], j*(i-j), j*dp[i-j]])`
+
+这样只需要在递推时对`j`进行遍历然后一直取`dp[i]`的最大值即可。
+
+[题目链接](https://leetcode.cn/problems/integer-break/)：
+
+```python
+class Solution:
+    def integerBreak(self, n: int) -> int:
+        dp = [0 for _ in range(n+1)]
+        dp[2] = 1
+
+        for i in range(2, n+1):
+            for j in range(1, i):
+                dp[i] = max(dp[i], j*(i-j), j*dp[i-j])
+
+        return dp[-1]
+```
+{: .snippet}
+
 ## 背包问题
 
 ## 打家劫舍
@@ -495,3 +554,4 @@ class Solution:
 - [LeetCode：746.使用最小花费爬楼梯](https://www.bilibili.com/video/BV16G411c7yZ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：62.不同路径](https://www.bilibili.com/video/BV1ve4y1x7Eu/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：63.不同路径 II](https://www.bilibili.com/video/BV1Ld4y1k7c6/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：343.整数拆分](https://www.bilibili.com/video/BV1Mg411q7YJ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
