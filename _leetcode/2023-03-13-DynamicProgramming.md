@@ -303,14 +303,14 @@ class Solution:
 3. 向下 -> 向右 -> 向下
 ```
 
-**示例1：**
+**示例3：**
 
 ```
 输入：m = 7, n = 3
 输出：28
 ```
 
-**示例2：**
+**示例4：**
 
 ```
 输入：m = 3, n = 3
@@ -345,6 +345,140 @@ class Solution:
 ```
 {: .snippet}
 
+当然本题的空间复杂度也可以进行优化，实际上我们只需要维护`dp[][]`的一行或者一列即可。
+
+[题目链接](https://leetcode.cn/problems/unique-paths/)：
+
+```python
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        dp = [1 for i in range(n)]
+
+        for i in range(1, m):
+            for j in range(1, n):
+                dp[j] += dp[j-1]
+
+        return dp[-1]
+```
+{: .snippet}
+
+### 63. 不同路径 II
+
+一个机器人位于一个`m x n`网格的左上角(起始点在下图中标记为“Start”)。
+
+机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角(在下图中标记为“Finish”)。
+
+现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？
+
+网格中的障碍物和空位置分别用`1`和`0`来表示。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/11/04/robot1.jpg">
+</div>
+
+```
+输入：obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
+输出：2
+解释：3x3 网格的正中间有一个障碍物。
+从左上角到右下角一共有 2 条不同的路径：
+1. 向右 -> 向右 -> 向下 -> 向下
+2. 向下 -> 向下 -> 向右 -> 向右
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/11/04/robot2.jpg">
+</div>
+
+```
+输入：obstacleGrid = [[0,1],[0,0]]
+输出：1
+```
+
+**提示：**
+
+- `m` == `obstacleGrid.length`
+- `n` == `obstacleGrid[i].length`
+- 1 <= `m, n` <= 100
+- `obstacleGrid[i][j]`为`0`或`1`
+
+#### Solution
+
+本题类似于[不同路径](/leetcode/2023-03-13-DynamicProgramming.html#62-不同路径)，不过由于障碍的存在我们在初始化和递推时需要一些额外的注意。在初始化时我们不能直接将`dp[][]`的第一行和第一列初始化为`1`，而是要通过从左到右从上到下的顺序进行初始化。如果在某个位置遇到了障碍后面的位置会被挡住，因此我们需要结束初始化。完成初始化后需要按照递推公式进行递推：
+
+- `dp[i][j] = dp[i-1][j] + dp[i][j-1]`
+
+需要注意的是我们同样需要越过有障碍的位置，让有障碍的位置满足`dp[i][j] == 0`。
+
+[题目链接](https://leetcode.cn/problems/unique-paths-ii/)：
+
+```python
+class Solution:
+    def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
+        if obstacleGrid[0][0]:
+            return 0
+        
+        m = len(obstacleGrid)
+        n = len(obstacleGrid[0])
+
+        dp = [[0 for _ in range(n)] for _ in range(m)]
+        dp[0][0] = 1
+
+        for i in range(m):
+            if obstacleGrid[i][0]:
+                break
+            dp[i][0] = 1
+        
+        for j in range(n):
+            if obstacleGrid[0][j]:
+                break
+            dp[0][j] = 1
+
+        for i in range(1, m):
+            for j in range(1, n):
+                if obstacleGrid[i][j] == 0:
+                    dp[i][j] = dp[i-1][j] + dp[i][j-1]
+        
+        return dp[-1][-1]
+```
+{: .snippet}
+
+使用一维数组来进行递推的解法可参考如下。
+
+[题目链接](https://leetcode.cn/problems/unique-paths-ii/)：
+
+```python
+class Solution:
+    def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
+        if obstacleGrid[0][0]:
+            return 0
+        
+        m = len(obstacleGrid)
+        n = len(obstacleGrid[0])
+
+        dp = [0 for _ in range(n)]
+        dp[0] = 1
+
+        ## initialize first row
+        for j in range(n):
+            if obstacleGrid[0][j]:
+                break
+            dp[j] = 1
+
+        for i in range(1, m):
+            for j in range(n):
+                if obstacleGrid[i][j]:
+                    dp[j] = 0
+                elif j > 0:
+                    dp[j] += dp[j-1]
+        
+        return dp[-1]
+```
+{: .snippet}
+
 ## 背包问题
 
 ## 打家劫舍
@@ -360,3 +494,4 @@ class Solution:
 - [LeetCode：70.爬楼梯](https://www.bilibili.com/video/BV17h411h7UH/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：746.使用最小花费爬楼梯](https://www.bilibili.com/video/BV16G411c7yZ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：62.不同路径](https://www.bilibili.com/video/BV1ve4y1x7Eu/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：63.不同路径 II](https://www.bilibili.com/video/BV1Ld4y1k7c6/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
