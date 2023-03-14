@@ -935,6 +935,98 @@ class Solution:
 ```
 {: .snippet}
 
+### 474. 一和零
+
+给你一个二进制字符串数组`strs`和两个整数`m`和`n`。
+
+请你找出并返回`strs`的最大子集的长度，该子集中**最多**有`m`个`0`和`n`个`1`。
+
+如果`x`的所有元素也是`y`的元素，集合`x`是集合`y`的**子集**。
+
+**示例1：**
+
+```
+输入：strs = ["10", "0001", "111001", "1", "0"], m = 5, n = 3
+输出：4
+解释：最多有 5 个 0 和 3 个 1 的最大子集是 {"10","0001","1","0"} ，因此答案是 4 。
+其他满足题意但较小的子集包括 {"0001","1"} 和 {"10","1","0"} 。{"111001"} 不满足题意，因为它含 4 个 1 ，大于 n 的值 3 。
+```
+
+**示例2：**
+
+```
+输入：strs = ["10", "0", "1"], m = 1, n = 1
+输出：2
+解释：最大的子集是 {"0", "1"} ，所以答案是 2 。
+```
+
+**提示：**
+
+- 1 <= `strs.length` <= 600
+- 1 <= `strs[i].length` <= 100
+- `strs[i]`仅由`'0'`和`'1'`组成
+- 1 <= `m`, `n` <= 100
+
+#### Solution
+
+本题中我们需要建立一个三维`dp[][][]`数组来进行递推。`dp[i+1][j][k]`表示使用前`i`个字符串能够得到的最多包含`j`个`0`和`k`个`1`的子集数量，显然这样的`dp[][][]`数组可以把每个元素都初始化为`0`。接下来考虑递推关系，对于第`i`个字符串有两种可能性：
+
+1. 第`i`个字符串不在满足要求的子集中，此时`dp[i+1][j][k] = dp[i][j][k]`
+2. 第`i`个字符串在满足要求的子集中，此时`dp[i+1][j][k] = dp[i][j-zeros][k-ones]+1`，其中`zeros`和`ones`分别为第`i`个字符串中的`0`和`1`数量
+
+这样我们就需要对以上两种情况取最大值，得到递推关系：
+
+- `dp[i+1][j][k] = max(dp[i][j][k], dp[i][j-zeros][k-ones]+1)`
+
+然后通过三重循环进行递推即可。
+
+[题目链接](https://leetcode.cn/problems/ones-and-zeroes/)：
+
+```python
+class Solution:
+    def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+        N = len(strs)
+
+        dp = [[[0 for k in range(n+1)] for j in range(m+1)]for i in range(N+1)]
+
+        for i in range(1, N+1):
+            zeros= strs[i-1].count("0")
+            ones = strs[i-1].count("1")
+
+            for j in range(m+1):
+                for k in range(n+1):
+                    dp[i][j][k] = dp[i-1][j][k]
+
+                    if j >= zeros and k >= ones:
+                        dp[i][j][k] = max(dp[i][j][k], dp[i-1][j-zeros][k-ones]+1)
+        
+        return dp[-1][-1][-1]
+```
+{: .snippet}
+
+本题的二维数组递推代码可参考如下。
+
+[题目链接](https://leetcode.cn/problems/ones-and-zeroes/)：
+
+```python
+class Solution:
+    def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+        N = len(strs)
+
+        dp = [[0 for k in range(n+1)] for j in range(m+1)]
+
+        for i in range(N):
+            zeros= strs[i].count("0")
+            ones = strs[i].count("1")
+
+            for j in range(m, zeros-1, -1):
+                for k in range(n, ones-1, -1):
+                    dp[j][k] = max(dp[j][k], dp[j-zeros][k-ones]+1)
+        
+        return dp[-1][-1]
+```
+{: .snippet}
+
 ## 打家劫舍
 
 ## 股票问题
@@ -956,3 +1048,4 @@ class Solution:
 - [LeetCode：416.分割等和子集](https://www.bilibili.com/video/BV1rt4y1N7jE/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：1049.最后一块石头的重量II](https://www.bilibili.com/video/BV14M411C7oV/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：494.目标和](https://www.bilibili.com/video/BV1o8411j73x/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：474.一和零](https://www.bilibili.com/video/BV1rW4y1x7ZQ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
