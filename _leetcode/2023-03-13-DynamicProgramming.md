@@ -649,7 +649,7 @@ for i in range(1, N):
 
 当然上述递推过程可以优化为只使用一维`dp[]`数组，实际上我们只需要维护原来二维数组的一行即可。此时的递推公式为：
 
-- `dp[j] = max(dp[j], dp[j-w[i]]+v[i])`
+- `dp[j] = max(dp[j], dp[j - w[i]]+v[i])`
 
 不过需要注意的是一维的情况必须要**倒序遍历容量`j`**，这样才能保证物品只会被添加一次。
 
@@ -711,7 +711,7 @@ class Solution:
         for i in range(1, N):
             for j in range(1, target+1):
                 if j >= nums[i]:
-                    dp[i][j] = max(dp[i-1][j], dp[i-1][j-nums[i]]+nums[i])
+                    dp[i][j] = max(dp[i-1][j], dp[i-1][j - nums[i]]+nums[i])
                 else:
                     dp[i][j] = dp[i-1][j]
         
@@ -738,7 +738,7 @@ class Solution:
         dp = [0 for j in range(target+1)]
 
         for i in range(N):
-            for j in range(target, nums[i] - 1, -1):
+            for j in range(target, nums[i]-1, -1):
                 dp[j] = max(dp[j], dp[j - nums[i]] + nums[i])
         
         return dp[-1] == target
@@ -801,7 +801,7 @@ class Solution:
         for i in range(1, N):
             for j in range(1, target+1):
                 if j >= stones[i]:
-                    dp[i][j] = max(dp[i-1][j], dp[i-1][j-stones[i]]+stones[i])
+                    dp[i][j] = max(dp[i-1][j], dp[i-1][j - stones[i]]+stones[i])
                 else:
                     dp[i][j] = dp[i-1][j]
         
@@ -823,9 +823,115 @@ class Solution:
 
         for i in range(N):
             for j in range(target, stones[i]-1,-1):
-                dp[j] = max(dp[j], dp[j-stones[i]]+stones[i])
+                dp[j] = max(dp[j], dp[j - stones[i]] + stones[i])
         
         return sum(stones) - 2*dp[-1]
+```
+{: .snippet}
+
+### 494. 目标和
+
+给你一个整数数组`nums`和一个整数`target`。
+
+向数组中的每个整数前添加`'+'`或`'-'`，然后串联起所有整数，可以构造一个**表达式**：
+
+- 例如，`nums = [2, 1]`，可以在`2`之前添加`'+'`，在`1`之前添加`'-'`，然后串联起来得到表达式`"+2-1"`。
+
+返回可以通过上述方法构造的、运算结果等于`target`的不同**表达式**的数目。
+
+**示例1：**
+
+```
+输入：nums = [1,1,1,1,1], target = 3
+输出：5
+解释：一共有 5 种方法让最终目标和为 3 。
+-1 + 1 + 1 + 1 + 1 = 3
++1 - 1 + 1 + 1 + 1 = 3
++1 + 1 - 1 + 1 + 1 = 3
++1 + 1 + 1 - 1 + 1 = 3
++1 + 1 + 1 + 1 - 1 = 3
+```
+
+**示例2：**
+
+```
+输入：nums = [1], target = 1
+输出：1
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 20
+- 0 <= `nums[i]` <= 1000
+- 0 <= `sum(nums[i])` <= 1000
+- -1000 <= `target` <= 1000
+
+#### Solution
+
+本题中我们需要把`nums`中的元素分为两组，其中正数部分的和为`pos`而负数部分的和为`neg`，且它们满足：
+
+- `pos + neg = sum(nums)`
+- `pos - neg = target`
+
+这样我们就可以求出`pos = (target + sum(nums)) // 2`。此时本题就转换为在`nums`中选择一个子集使其和为`pos`，而我们的目标则是找到这样的子集的数目。
+
+实际上这样的问题可以看成是01背包问题的一种变体。我们建立一个二维数组`dp[][]`，它有`N+1`行`pos+1`列。其中元素`dp[i+1][j]`表示数组中前`i`个元素和为`j`的子集数目，这样可以得到递推关系：
+
+- `dp[i+1][j] = dp[i][j] + dp[i][j - nums[i]]`
+
+在进行初始化时我们需要令`dp[0][0] = 1`，它表示没有任何元素选中时空集的和恰为`0`，因此只存在这一种子集满足要求。接下来就只需要完成递推并返回`dp[-1][-1]`即可。
+
+[题目链接](https://leetcode.cn/problems/target-sum/)：
+
+```python
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        sumNums = sum(nums)
+
+        if abs(target) > sumNums or (sumNums + target) % 2:
+            return 0
+        
+        pos = (sumNums + target) // 2
+
+        N = len(nums)
+        dp = [[0 for j in range(pos+1)] for i in range(N+1)]
+        dp[0][0] = 1
+
+        for i in range(1, N+1):
+            num = nums[i-1]
+            for j in range(pos+1):
+                dp[i][j] = dp[i-1][j]
+
+                if j >= num:
+                    dp[i][j] += dp[i-1][j-num]
+
+        return dp[-1][-1]
+```
+{: .snippet}
+
+本题的一维数组递推代码可参考如下。
+
+[题目链接](https://leetcode.cn/problems/target-sum/)：
+
+```python
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        sumNums = sum(nums)
+
+        if abs(target) > sumNums or (sumNums + target) % 2:
+            return 0
+        
+        pos = (sumNums + target) // 2
+
+        N = len(nums)
+        dp = [0 for j in range(pos+1)]
+        dp[0] = 1
+
+        for i in range(N):
+            for j in range(pos, nums[i] - 1, -1):
+                dp[j] += dp[j - nums[i]]
+
+        return dp[-1]
 ```
 {: .snippet}
 
@@ -849,3 +955,4 @@ class Solution:
 - [01背包理论基础(滚动数组)](https://www.bilibili.com/video/BV1BU4y177kY/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：416.分割等和子集](https://www.bilibili.com/video/BV1rt4y1N7jE/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：1049.最后一块石头的重量II](https://www.bilibili.com/video/BV14M411C7oV/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：494.目标和](https://www.bilibili.com/video/BV1o8411j73x/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
