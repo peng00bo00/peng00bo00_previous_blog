@@ -649,7 +649,7 @@ for i in range(1, N):
 
 当然上述递推过程可以优化为只使用一维`dp[]`数组，实际上我们只需要维护原来二维数组的一行即可。此时的递推公式为：
 
-- `dp[j] = max(dp[j], dp[j - w[i]]+v[i])`
+- `dp[j] = max(dp[j], dp[j - w[i]] + v[i])`
 
 不过需要注意的是一维的情况必须要**倒序遍历容量`j`**，这样才能保证物品只会被添加一次。
 
@@ -1027,6 +1027,96 @@ class Solution:
 ```
 {: .snippet}
 
+### 完全背包
+
+完全背包问题与[01背包问题](/leetcode/2023-03-13-DynamicProgramming.html#01背包)是类似的，唯一的区别在于完全背包问题中我们可以无限次地向背包中添加任意物品，只要背包的重量满足要求即可。这一区别需要我们修改递推关系如下：
+
+- `dp[i][j] = max(dp[i-1][j], dp[i][j - w[i]] + v[i])`
+
+注意上式中我们在取最大值时使用了**同一行**的递推结果`dp[i][j - w[i]]`。更常见的形式是只使用一维`dp[]`数组来进行递推：
+
+- `dp[j] = max(dp[j], dp[j - w[i]] + v[i])`
+
+而在进行递推时也无需逆序，按照从左到右的顺序进行递推即可。
+
+```python
+for i in range(N):
+    for j in range(w[i], W+1):
+        dp[j] = max(dp[j], dp[j-w[i]] + v[i])
+```
+
+### 518. 零钱兑换 II
+
+给你一个整数数组`coins`表示不同面额的硬币，另给一个整数`amount`表示总金额。
+
+请你计算并返回可以凑成总金额的硬币组合数。如果任何硬币组合都无法凑出总金额，返回`0`。
+
+假设每一种面额的硬币有无限个。
+
+题目数据保证结果符合32位带符号整数。
+
+**示例1：**
+
+```
+输入：amount = 5, coins = [1, 2, 5]
+输出：4
+解释：有四种方式可以凑成总金额：
+5=5
+5=2+2+1
+5=2+1+1+1
+5=1+1+1+1+1
+```
+
+**示例2：**
+
+```
+输入：amount = 3, coins = [2]
+输出：0
+解释：只用面额 2 的硬币不能凑成总金额 3 。
+```
+
+**示例3：**
+
+```
+输入：amount = 10, coins = [10] 
+输出：1
+```
+
+**提示：**
+
+- 1 <= `coins.length` <= 300
+- 1 <= `coins[i]` <= 5000
+- `coins`中的所有值**互不相同**
+- 0 <= `amount` <= 5000
+
+#### Solution
+
+本题是完全背包问题的一个变体，当题干中出现**无限个**这样的字眼时就可以考虑使用完全背包的框架来处理。本题中的`dp[j]`表示使用当前的硬币集合凑成`j`金额的所有可能组合数，递推公式类似于[目标和](/leetcode/2023-03-13-DynamicProgramming.html#494-目标和)：
+
+- `dp[j] += dp[j - coins[i]]`
+
+它表示凑出`j`金额包括只使用前`i-1`个硬币，以及一定使用第`i`个硬币两种情况的所有组合方式之和。
+
+还需要注意的是初始化，我们需要把`dp[]`数组的第一个元素初始化为`dp[0] = 1`，它表示目标金额为`0`且不能使用任何硬币时我们只有`1`种组合方式。最后按照完全背包的框架进行递推即可。
+
+[题目链接](https://leetcode.cn/problems/coin-change-ii/)：
+
+```python
+class Solution:
+    def change(self, amount: int, coins: List[int]) -> int:
+        N  = len(coins)
+
+        dp = [0 for j in range(amount+1)]
+        dp[0] = 1
+
+        for i in range(N):
+            for j in range(coins[i], amount+1):
+                dp[j] += dp[j - coins[i]]
+
+        return dp[-1]
+```
+{: .snippet}
+
 ## 打家劫舍
 
 ## 股票问题
@@ -1049,3 +1139,5 @@ class Solution:
 - [LeetCode：1049.最后一块石头的重量II](https://www.bilibili.com/video/BV14M411C7oV/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：494.目标和](https://www.bilibili.com/video/BV1o8411j73x/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：474.一和零](https://www.bilibili.com/video/BV1rW4y1x7ZQ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [完全背包理论基础](https://www.bilibili.com/video/BV1uK411o7c9/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：518.零钱兑换II](https://www.bilibili.com/video/BV1KM411k75j/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
