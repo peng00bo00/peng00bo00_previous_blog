@@ -597,7 +597,7 @@ class Solution:
 
 ### 01背包
 
-**01背包问题(01 knapsack problem)**是背包问题中最基础的问题，它可以表述为一共有`N`件物品其中每个物品的重量和价值分别为`w[i]`和`v[i]`。每件物品**只能用一次**，我们的目标是在保证物品的总重量不超过背包上限的情况下计算包内物品的最大价值。
+**01背包问题(01 knapsack problem)**是背包问题中最基础的问题，它可以表述为一共有`N`件物品其中每个物品的重量和价值分别为`w[i]`和`v[i]`。每件物品**只能用一次**，我们的目标是在保证物品的总重量不超过背包上限`W`的情况下计算包内物品的最大价值。
 
 <div align=center>
 <img src="https://images.weserv.nl/?url=i.imgur.com/Lr5L3HI.png" width="50%">
@@ -618,19 +618,126 @@ class Solution:
 
 - `dp[i][j] = max(dp[i-1][j], dp[i-1][j-w[i]] + v[i])`
 
-然后考虑`dp[][]`数组的初始化。显然当背包容量为`0`时无法放入任何物品，即最大价值为`0`。因此我们需要将`dp[][]`数组的第一列初始化为`0`，当然也可以把全部元素都初始化为`0`。
+然后考虑`dp[][]`数组的初始化。显然当背包容量为`0`时无法放入任何物品，即最大价值为`0`。因此我们需要将`dp[][]`数组的第一列初始化为`0`，当然也可以直接把所有元素都初始化为`0`。
 
 <div align=center>
 <img src="https://images.weserv.nl/?url=i.imgur.com/1ONEPyC.png" width="70%">
 </div>
 
+而第一行要根据`0`号物品的重量来考虑，当`j >= w[0]`时令`dp[0][j] = v[0]`。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/HcT1DTY.png" width="70%">
+</div>
+
 最后从左上角向右向下进行递推即可，`dp[][]`数组的最后一个元素即为所求。
+
+```python
+for i in range(1, N):
+    for j in range(1, W+1):
+        if j >= w[i]:
+            dp[i][j] = max(dp[i-1][j], dp[i-1][j-w[i]] + v[i])
+        else:
+            dp[i][j] = dp[i-1][j]
+```
 
 当然上述递推过程可以优化为只使用一维`dp[]`数组，实际上我们只需要维护原来二维数组的一行即可。此时的递推公式为：
 
 - `dp[j] = max(dp[j], dp[j-w[i]]+v[i])`
 
 不过需要注意的是一维的情况必须要**先遍历物品`i`再倒序遍历容量`j`**，这样才能保证物品只会被添加一次。
+
+```python
+for i in range(N):
+    for j in range(W, w[i] - 1, -1):
+        dp[j] = max(dp[j], dp[j - w[i]] + v[i])
+```
+
+### 416. 分割等和子集
+
+给你一个**只包含正整数**的**非空**数组`nums`。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。
+
+**示例1：**
+
+```
+输入：nums = [1,5,11,5]
+输出：true
+解释：数组可以分割成 [1, 5, 5] 和 [11] 。
+```
+
+**示例2：**
+
+```
+输入：nums = [1,2,3,5]
+输出：false
+解释：数组不能分割成两个元素和相等的子集。
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 200
+- 1 <= `nums[i]` <= 100
+
+#### Solution
+
+本题可以转换为在`nums`中寻找一个子集，使其和为`nums`总和的一半`target = sum(nums) // 2`。我们可以把这样的问题抽象为一个01背包问题，它的背包容量为`target`且每个物品的价值和重量都是`nums[i]`。如果背包恰好装满、最大价值恰好为`target`则说明可以把`nums`分割为等和的子集。
+
+[题目链接](https://leetcode.cn/problems/partition-equal-subset-sum/)：
+
+```python
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        N = len(nums)
+        if N < 2:
+            return False
+
+        if sum(nums) % 2 :
+            return False
+        
+        target = sum(nums) // 2
+
+        dp = [[0 for j in range(target+1)] for i in range(N)]
+
+        for j in range(target+1):
+            if j >= nums[0]:
+                dp[0][j] = nums[0]
+
+        for i in range(1, N):
+            for j in range(1, target+1):
+                if j >= nums[i]:
+                    dp[i][j] = max(dp[i-1][j], dp[i-1][j-nums[i]]+nums[i])
+                else:
+                    dp[i][j] = dp[i-1][j]
+        
+        return dp[-1][-1] == target
+```
+{: .snippet}
+
+本题的一维数组递推代码可参考如下。
+
+[题目链接](https://leetcode.cn/problems/partition-equal-subset-sum/)：
+
+```python
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        N = len(nums)
+        if N < 2:
+            return False
+
+        if sum(nums) % 2 :
+            return False
+        
+        target = sum(nums) // 2
+
+        dp = [0] * (target + 1)
+
+        for i in range(N):
+            for j in range(target, nums[i] - 1, -1):
+                dp[j] = max(dp[j], dp[j - nums[i]] + nums[i])
+        
+        return dp[-1] == target
+```
+{: .snippet}
 
 ## 打家劫舍
 
@@ -650,3 +757,4 @@ class Solution:
 - [LeetCode：96.不同的二叉搜索树](https://www.bilibili.com/video/BV1eK411o7QA/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [01背包理论基础](https://www.bilibili.com/video/BV1cg411g7Y6/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [01背包理论基础(滚动数组)](https://www.bilibili.com/video/BV1BU4y177kY/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：416.分割等和子集](https://www.bilibili.com/video/BV1rt4y1N7jE/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
