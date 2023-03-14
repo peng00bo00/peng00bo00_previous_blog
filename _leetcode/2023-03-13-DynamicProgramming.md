@@ -15,7 +15,7 @@ sidebar:
 2. 确定递推公式
 3. `dp`数组如何初始化
 4. 确定遍历顺序
-5. 举例推导dp数组
+5. 举例推导`dp`数组
 
 ## 基础题目
 
@@ -595,6 +595,43 @@ class Solution:
 
 ## 背包问题
 
+### 01背包
+
+**01背包问题(01 knapsack problem)**是背包问题中最基础的问题，它可以表述为一共有`N`件物品其中每个物品的重量和价值分别为`w[i]`和`v[i]`。每件物品**只能用一次**，我们的目标是在保证物品的总重量不超过背包上限的情况下计算包内物品的最大价值。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/Lr5L3HI.png" width="50%">
+</div>
+
+使用动态规划求解01背包问题时我们需要建立一个二维数组`dp[][]`，它的行数等于物品数、列数等于背包的容量、每个元素`dp[i][j]`表示背包容量为`j`且选择了`[0:i]`号物品情况下背包中物品的最大价值。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/zeQnAmr.png" width="70%">
+</div>
+
+接下来考虑递推关系。`dp[i][j]`对于物品`i`存在两种情况：
+
+1. 物品`i`不在背包中，此时放不放物品`i`都不会影响包内的最大价值，即`dp[i][j] = dp[i-1][j]`
+2. 物品`i`在背包中，此时包内的价值等于选择了`[0:i-1]`号物品且包内容量为`j-w[i]`情况下的最大价值加上物品`i`的价值，即`dp[i][j] = dp[i-1][j-w[i]] + v[i]`
+
+以上两种情况取最大值，进而得到递推公式：
+
+- `dp[i][j] = max(dp[i-1][j], dp[i-1][j-w[i]] + v[i])`
+
+然后考虑`dp[][]`数组的初始化。显然当背包容量为`0`时无法放入任何物品，即最大价值为`0`。因此我们需要将`dp[][]`数组的第一列初始化为`0`，当然也可以把全部元素都初始化为`0`。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/1ONEPyC.png" width="70%">
+</div>
+
+最后从左上角向右向下进行递推即可，`dp[][]`数组的最后一个元素即为所求。
+
+当然上述递推过程可以优化为只使用一维`dp[]`数组，实际上我们只需要维护原来二维数组的一行即可。此时的递推公式为：
+
+- `dp[j] = max(dp[j], dp[j-w[i]]+v[i])`
+
+不过需要注意的是一维的情况必须要**先遍历物品`i`再倒序遍历容量`j`**，这样才能保证物品只会被添加一次。
+
 ## 打家劫舍
 
 ## 股票问题
@@ -611,3 +648,5 @@ class Solution:
 - [LeetCode：63.不同路径 II](https://www.bilibili.com/video/BV1Ld4y1k7c6/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：343.整数拆分](https://www.bilibili.com/video/BV1Mg411q7YJ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：96.不同的二叉搜索树](https://www.bilibili.com/video/BV1eK411o7QA/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [01背包理论基础](https://www.bilibili.com/video/BV1cg411g7Y6/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [01背包理论基础(滚动数组)](https://www.bilibili.com/video/BV1BU4y177kY/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
