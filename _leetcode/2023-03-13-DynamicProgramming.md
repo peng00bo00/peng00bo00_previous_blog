@@ -1335,7 +1335,22 @@ class Solution:
 
 #### Solution
 
+本题可以看做是使用`wordDict`的一个子集通过**排列**来得到`s`，因此我们可以参考的[组合总和 IV](/leetcode/2023-03-13-DynamicProgramming.html#377-组合总和-iv)思路来进行处理。首先明确`dp[]`数组的意义，`dp[j]`表示使用`wordDict`的一个子集能否排列出`s`的前`j`个字符。同时由于本题是**排列**问题，我们需要先对字符串`s`进行遍历，然后再对单词`word`进行遍历。
 
+接下来考虑递推关系，当我们要使用一个新的单词`word`时会有两种情况：
+
+1. 不使用`word`作为末尾字符，此时`dp[j] = dp[j]`
+2. 使用`word`作为末尾字符，此时`dp[j] = dp[j - len(word)] and word == s[j - len(word):j]`
+
+两种情况中只要有一种可以构成排列即可，因此有：
+
+- `dp[j] = dp[j] or (dp[j - len(word)] and word == s[j - len(word):j])`
+
+`dp[]`数组的初始化与[组合总和 IV](/leetcode/2023-03-13-DynamicProgramming.html#377-组合总和-iv)类似，我们把整个数组都初始化为`False`然后令`dp[0] = True`，它表示空字符串`""`可以不用任何单词来构成。完成准备工作后进行递推即可。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/6K9QJQY.png" width="70%">
+</div>
 
 [题目链接](https://leetcode.cn/problems/perfect-squares/)：
 
