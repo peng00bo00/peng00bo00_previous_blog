@@ -1373,6 +1373,71 @@ class Solution:
 
 ## 打家劫舍
 
+### 198. 打家劫舍
+
+你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，**如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警**。
+
+给定一个代表每个房屋存放金额的非负整数数组，计算你**不触动警报装置的情况下**，一夜之内能够偷窃到的最高金额。
+
+**示例1：**
+
+```
+输入：[1,2,3,1]
+输出：4
+解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。
+     偷窃到的最高金额 = 1 + 3 = 4 。
+```
+
+**示例2：**
+
+```
+输入：[2,7,9,3,1]
+输出：12
+解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。
+     偷窃到的最高金额 = 2 + 9 + 1 = 12 。
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 100
+- 0 <= `nums[i]` <= 400
+
+#### Solution
+
+本题的实质是在`nums`中选择一个子集并最大化子集的和，同时要求子集中的元素互不相邻。在使用动态规划进行求解时我们首先要明确`dp[]`数组的意义，`dp[i]`表示打劫前`i`个房间所能得到的最高金额。那么`dp[i]`在进行递推时需要考虑以下两种情况：
+
+1. 跳过当前房屋，此时`dp[i] = dp[i-1]`
+2. 打劫当前房屋，在这种情况下无法打劫前一间房屋，此时`dp[i] = dp[i-2] + nums[i]`
+
+显然最大化金额需要对这两种情况取最大值，从而得到递推关系：
+
+- `dp[i] = max(dp[i-1], dp[i-2] + nums[i])`
+
+接下来考虑初始化，显然`dp[]`数组可以先都初始化为`0`。其第一个元素表示打劫第一间房屋，因此有`dp[0] = nums[0]`；而第二个元素表示前两间房屋所能构成的最大金额，即`dp[1] = max(nums[0], nums[1])`。完成准备工作后进行递推即可。
+
+[题目链接](https://leetcode.cn/problems/house-robber/)：
+
+```python
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        N = len(nums)
+        
+        if N == 1:
+            return nums[0]
+        elif N == 2:
+            return max(nums)
+
+        dp = [0 for i in range(N)]
+        dp[0] = nums[0]
+        dp[1] = max(nums[0], nums[1])
+
+        for i in range(2, N):
+            dp[i] = max(dp[i-1], dp[i-2] + nums[i])
+        
+        return dp[-1]
+```
+{: .snippet}
+
 ## 股票问题
 
 ## 子序列问题
@@ -1399,3 +1464,4 @@ class Solution:
 - [LeetCode：322.零钱兑换](https://www.bilibili.com/video/BV14K411R7yv/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：279.完全平方数](https://www.bilibili.com/video/BV12P411T7Br/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：139.单词拆分](https://www.bilibili.com/video/BV1pd4y147Rh/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：198.打家劫舍](https://www.bilibili.com/video/BV1Te411N7SX/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
