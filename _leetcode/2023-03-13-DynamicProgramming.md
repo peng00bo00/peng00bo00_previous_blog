@@ -1181,6 +1181,120 @@ class Solution:
 ```
 {: .snippet}
 
+### 322. 零钱兑换
+
+给你一个整数数组`coins`，表示不同面额的硬币；以及一个整数`amount`，表示总金额。
+
+计算并返回可以凑成总金额所需的**最少的硬币个数**。如果没有任何一种硬币组合能组成总金额，返回`-1`。
+
+你可以认为每种硬币的数量是无限的。
+
+**示例1：**
+
+```
+输入：coins = [1, 2, 5], amount = 11
+输出：3 
+解释：11 = 5 + 5 + 1
+```
+
+**示例2：**
+
+```
+输入：coins = [2], amount = 3
+输出：-1
+```
+
+**示例3：**
+
+```
+输入：coins = [1], amount = 0
+输出：0
+```
+
+**提示：**
+
+- 1 <= `coins.length` <= 12
+- 1 <= `coins[i]` <= 2³¹ - 1
+- 0 <= `amount` <= 10⁴
+
+#### Solution
+
+本题是[零钱兑换 II](/leetcode/2023-03-13-DynamicProgramming.html#518-零钱兑换-ii)的变体，我们的目标是计算和为`amount`的最小子集。由于是要计算出最小子集的大小，我们需要在递推时取最小值：
+
+- `dp[j] = min(dp[j], dp[j - coins[i]])`
+
+同时在初始化时将`dp[]`数组初始化为无穷大`float("inf")`。除此之外还需要注意的是`amount = 0`时不需要使用任何硬币，即`dp[0] = 0`。完成准备工作后直接进行递推即可。
+
+[题目链接](https://leetcode.cn/problems/coin-change/)：
+
+```python
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        if amount == 0:
+            return 0
+        
+        dp = [float("inf") for j in range(amount+1)]
+        dp[0] = 0
+
+        for coin in coins:
+            for j in range(coin, amount+1):
+                dp[j] = min(dp[j], dp[j-coin]+1)
+        
+        if dp[-1] == float("inf"):
+            return -1
+        
+        return dp[-1]
+```
+{: .snippet}
+
+### 279. 完全平方数
+
+给你一个整数`n`，返回**和为`n`**的完全平方数的最少数量。
+
+**完全平方数**是一个整数，其值等于另一个整数的平方；换句话说，其值等于一个整数自乘的积。例如，1、4、9和16都是完全平方数，而3和11不是。
+
+**示例1：**
+
+```
+输入：n = 12
+输出：3 
+解释：12 = 4 + 4 + 4
+```
+
+**示例2：**
+
+```
+输入：n = 13
+输出：2
+解释：13 = 4 + 9
+```
+
+**提示：**
+
+- 1 <= `n` <= 10⁴
+
+#### Solution
+
+本题类似于[零钱兑换](/leetcode/2023-03-13-DynamicProgramming.html#322-零钱兑换)，不过在进行递推时我们需要先确定完全平方数的范围。这里我们使用一个列表`nums[]`来记录所有平方小于等于`n`的正整数作为背包中的元素，然后按照[零钱兑换](/leetcode/2023-03-13-DynamicProgramming.html#322-零钱兑换)的思路进行递推即可。
+
+[题目链接](https://leetcode.cn/problems/perfect-squares/)：
+
+```python
+class Solution:
+    def numSquares(self, n: int) -> int:
+        nums = [i*i for i in range(1, n+1) if i*i <= n]
+
+        dp = [float("inf") for j in range(n+1)]
+        dp[0] = 0
+
+        for num in nums:
+            for j in range(num, n+1):
+                dp[j] = min(dp[j], dp[j-num]+1)
+        
+        return dp[-1]
+```
+{: .snippet}
+
 ## 打家劫舍
 
 ## 股票问题
@@ -1206,3 +1320,5 @@ class Solution:
 - [完全背包理论基础](https://www.bilibili.com/video/BV1uK411o7c9/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：518.零钱兑换II](https://www.bilibili.com/video/BV1KM411k75j/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：377.组合总和IV](https://www.bilibili.com/video/BV1V14y1n7B6/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：322.零钱兑换](https://www.bilibili.com/video/BV14K411R7yv/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：279.完全平方数](https://www.bilibili.com/video/BV12P411T7Br/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
