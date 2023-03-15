@@ -1117,6 +1117,70 @@ class Solution:
 ```
 {: .snippet}
 
+### 377. 组合总和 IV
+
+给你一个由**不同**整数组成的数组`nums`，和一个目标整数`target`。请你从`nums`中找出并返回总和为`target`的元素组合的个数。
+
+**示例1：**
+
+```
+输入：nums = [1,2,3], target = 4
+输出：7
+解释：
+所有可能的组合为：
+(1, 1, 1, 1)
+(1, 1, 2)
+(1, 2, 1)
+(1, 3)
+(2, 1, 1)
+(2, 2)
+(3, 1)
+请注意，顺序不同的序列被视作不同的组合。
+```
+
+**示例2：**
+
+```
+输入：nums = [9], target = 3
+输出：0
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 200
+- 1 <= `nums[i]` <= 1000
+- `nums`中的所有元素**互不相同**
+- 1 <= `target` <= 1000
+
+#### Solution
+
+本题类似于[零钱兑换 II](/leetcode/2023-03-13-DynamicProgramming.html#518-零钱兑换-ii)但这里需要考虑不同数字的顺序，因此本题实际上需要计算的是满足和为`target`子集的**排列**。
+
+计算排列与组合的唯一区别在于递推时遍历的顺序：
+
+- 计算组合需要先对背包中的**物品(零钱、数字)**进行遍历，然后再对背包的**容量(金额、数字总和)**进行遍历
+- 计算组合需要先对背包的**容量(金额、数字总和)**进行遍历，然后再对背包中的**物品(零钱、数字)**进行遍历
+
+[题目链接](https://leetcode.cn/problems/combination-sum-iv/)：
+
+```python
+class Solution:
+    def combinationSum4(self, nums: List[int], target: int) -> int:
+        if target < min(nums):
+            return 0
+        
+        dp = [0 for j in range(target+1)]
+        dp[0] = 1
+
+        for i in range(target+1):
+            for num in nums:
+                if i >= num:
+                    dp[i] += dp[i - num]
+        
+        return dp[-1]
+```
+{: .snippet}
+
 ## 打家劫舍
 
 ## 股票问题
@@ -1141,3 +1205,4 @@ class Solution:
 - [LeetCode：474.一和零](https://www.bilibili.com/video/BV1rW4y1x7ZQ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [完全背包理论基础](https://www.bilibili.com/video/BV1uK411o7c9/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：518.零钱兑换II](https://www.bilibili.com/video/BV1KM411k75j/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：377.组合总和IV](https://www.bilibili.com/video/BV1V14y1n7B6/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
