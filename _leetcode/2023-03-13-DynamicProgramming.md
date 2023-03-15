@@ -1518,6 +1518,86 @@ class Solution:
 ```
 {: .snippet}
 
+### 337. 打家劫舍 III
+
+小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为`root`。
+
+除了`root`之外，每栋房子有且只有一个"父"房子与之相连。一番侦察之后，聪明的小偷意识到"这个地方的所有房屋的排列类似于一棵二叉树"。 如果**两个直接相连的房子在同一天晚上被打劫**，房屋将自动报警。
+
+给定二叉树的`root`。返回**在不触动警报的情况下**，小偷能够盗取的最高金额。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/03/10/rob1-tree.jpg">
+</div>
+
+```
+输入: root = [3,2,3,null,3,null,1]
+输出: 7 
+解释: 小偷一晚能够盗取的最高金额 3 + 3 + 1 = 7
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/03/10/rob2-tree.jpg">
+</div>
+
+```
+输入: root = [3,4,5,1,3,null,1]
+输出: 9
+解释: 小偷一晚能够盗取的最高金额 4 + 5 = 9
+```
+
+**提示：**
+
+- 树的节点数在`[1, 10⁴]`范围内
+- 0 <= `Node.val` <= 10⁴
+
+#### Solution
+
+本题是打家劫舍系列最复杂的问题，需要我们把动态规划推广到二叉树上。这里我们首先定义每个节点都对应一个`dp[]`数组，`dp[0]`表示跳过当前节点所能盗取的最大金额，`dp[1]`则是打劫当前节点所能得到的最大金额。记左右子树的`dp[]`数组分别为`left`和`right`，当前节点`root`上`dp[]`数组存在如下递推关系：
+
+- 选择跳过当前节点`root`时，最大金额为`left`和`right`两棵子树所能盗取的最大金额之和，即`dp[0] = max(left) + max(right)`
+- 选择使用当前节点`root`时，最大金额为当前节点上的金额`root.val`与不使用左右子节点情况下的最大金额之和，即`dp[1] = root.val + left[0] + right[0]`
+
+因此我们可以使用二叉树的[后序遍历](/leetcode/2023-02-03-BinaryTree.html#145-二叉树的后序遍历)来递推出整棵树的最大金额，然后返回`dp[]`数组中的较大值即可。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/urc43gP.png" width="60%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/house-robber-iii/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def rob(self, root: Optional[TreeNode]) -> int:
+        def traversal(root):
+            if not root:
+                return (0, 0)
+            
+            left = traversal(root.left)
+            right= traversal(root.right)
+
+            ## skip root
+            val1 = max(left) + max(right)
+            ## use root
+            val2 = root.val + left[0] + right[0]
+
+            return (val1, val2)
+        
+        dp = traversal(root)
+        return max(dp)
+```
+{: .snippet}
+
 ## 股票问题
 
 ## 子序列问题
@@ -1546,3 +1626,4 @@ class Solution:
 - [LeetCode：139.单词拆分](https://www.bilibili.com/video/BV1pd4y147Rh/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：198.打家劫舍](https://www.bilibili.com/video/BV1Te411N7SX/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：213.打家劫舍II](https://www.bilibili.com/video/BV1oM411B7xq/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [ LeetCode：337.打家劫舍III](https://www.bilibili.com/video/BV1H24y1Q7sY/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
