@@ -1888,6 +1888,69 @@ class Solution:
 ```
 {: .snippet}
 
+### 188. 买卖股票的最佳时机 IV
+
+给定一个整数数组`prices`，它的第`i`个元素`prices[i]`是一支给定的股票在第`i`天的价格。
+
+设计一个算法来计算你所能获取的最大利润。你最多可以完成`k`笔交易。
+
+**注意：**你不能同时参与多笔交易(你必须在再次购买前出售掉之前的股票)。
+
+```
+输入：k = 2, prices = [2,4,1]
+输出：2
+解释：在第 1 天 (股票价格 = 2) 的时候买入，在第 2 天 (股票价格 = 4) 的时候卖出，这笔交易所能获得利润 = 4-2 = 2 。
+```
+
+**示例2：**
+
+```
+输入：k = 2, prices = [3,2,6,5,0,3]
+输出：7
+解释：在第 2 天 (股票价格 = 2) 的时候买入，在第 3 天 (股票价格 = 6) 的时候卖出, 这笔交易所能获得利润 = 6-2 = 4 。
+     随后，在第 5 天 (股票价格 = 0) 的时候买入，在第 6 天 (股票价格 = 3) 的时候卖出, 这笔交易所能获得利润 = 3-0 = 3 。
+```
+
+**提示：**
+
+- 0 <= `k` <= 100
+- 1 <= `prices.length` <= 1000
+- 0 <= `prices[i]` <= 1000
+
+#### Solution
+
+本题是对[买卖股票的最佳时机 III](/leetcode/2023-03-13-DynamicProgramming.html#123-买卖股票的最佳时机-iii)的推广。不难发现当交易次数小于等于`k`时，`dp[][]`数组的列数为`2*k+1`，其第一列表示未进行任何交易可以获得的最大利润，而后一次表示第一次买入股票、第一次卖出(过)股票、第二次买入股票、第二次卖出(过)股票...后的最大利润。因此我们可以归纳出递推公式：
+
+- `dp[i][0] = dp[i-1][0]`
+- `dp[i][j] = max(dp[i-1][j], dp[i-1][j-1] - prices[i])`，`j`列对应买入股票
+- `dp[i][j] = max(dp[i-1][j], dp[i-1][j-1] + prices[i])`，`j`列对应卖出股票
+
+类似地，`dp[][]`数组需要初始化为：
+
+- `dp[0][0] = 0`
+- `dp[0][j] = -prices[0]`，`j`列对应买入股票
+- `dp[0][j] = 0`，`j`列对应卖出股票
+
+完成所有准备工作后进行递推即可。
+
+[题目链接](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)：
+
+```python
+class Solution:
+    def maxProfit(self, k: int, prices: List[int]) -> int:
+        N = len(prices)
+        dp = [[0 for _ in range(2*k+1)] for i in range(N)]
+        dp[0] = [-prices[0] if (i % 2) else 0 for i in range(2*k+1)]
+
+        for i in range(1, N):
+            dp[i][0] = dp[i-1][0]
+            for j in range(1, 2*k+1):
+                dp[i][j] = max(dp[i-1][j], dp[i-1][j-1] + (-1)**j * prices[i])
+        
+        return dp[-1][-1]
+```
+{: .snippet}
+
 ## 子序列问题
 
 ## Reference
@@ -1918,3 +1981,4 @@ class Solution:
 - [LeetCode：121.买卖股票的最佳时机](https://www.bilibili.com/video/BV1Xe4y1u77q/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：122.买卖股票的最佳时机II](https://www.bilibili.com/video/BV1D24y1Q7Ls/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：123.买卖股票最佳时机III](https://www.bilibili.com/video/BV1WG411K7AR/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：124.买卖股票最佳时机IV](https://www.bilibili.com/video/BV16M411U7XJ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
