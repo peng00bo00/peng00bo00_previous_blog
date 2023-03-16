@@ -1951,6 +1951,75 @@ class Solution:
 ```
 {: .snippet}
 
+### 309. 最佳买卖股票时机含冷冻期
+
+给定一个整数数组`prices`，其中第`prices[i]`表示第`i`天的股票价格。​
+
+设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易(多次买卖一支股票):
+
+- 卖出股票后，你无法在第二天买入股票(即冷冻期为1天)。
+
+**注意：**你不能同时参与多笔交易(你必须在再次购买前出售掉之前的股票)。
+
+```
+输入: prices = [1,2,3,0,2]
+输出: 3 
+解释: 对应的交易状态为: [买入, 卖出, 冷冻期, 买入, 卖出]
+```
+
+**示例2：**
+
+```
+输入: prices = [1]
+输出: 0
+```
+
+**提示：**
+
+- 1 <= `prices.length` <= 5000
+- 1 <= `prices[i]` <= 1000
+
+#### Solution
+
+本题中需要考虑三种状态：持有股票、不持有股票但位于冷冻期中以及不持有股票且不位于冷冻期中。因此我们建立一个二维数组`dp[][]`，它的三列分别表示这三种状态下的最大收益：
+
+- 如果第`i`天持有股票，需要考虑第`i-1`天持有股票或是不持有股票且不位于冷冻期两种情况：
+  - 如果第`i-1`天持有股票，则两天的收益相同`dp[i][0] = dp[i-1][0]`
+  - 如果第`i-1`天不持有股票且不位于冷冻期，则第`i`天需要买入股票`dp[i][0] = dp[i-1][2] - prices[i]`
+
+- 如果第`i`天不持有股票但位于冷冻期中，则第`i-1`天需要持有股票且第`i`天一定卖出了股票`dp[i][1] = dp[i-1][0] + prices[i]`
+
+- 如果第`i`天不持有股票且不位于冷冻期中，则需要考虑第`i-1`天不持有股票但位于冷冻期中或是不持有股票且不位于冷冻期两种情况：
+  - 如果第`i-1`天不持有股票但位于冷冻期中，则两天收益相同`dp[i][1] = dp[i-1][1]`
+  - 如果第`i-1`天不持有股票且不位于冷冻期中，则两天收益相同`dp[i][1] = dp[i-1][2]`
+
+这样可以得到递推公式：
+
+- `dp[i][0] = max(dp[i-1][0], dp[i-1][2] - prices[i])`
+- `dp[i][1] = dp[i-1][0] + prices[i]`
+- `dp[i][2] = max(dp[i-1][1], dp[i-1][2])`
+
+而对于初始化，我们只需要把第一天持有股票状态初始化为`-prices[0]`即可。
+
+[题目链接](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)：
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        N = len(prices)
+
+        dp = [[0 for _ in range(3)] for i in range(N)]
+        dp[0] = [-prices[0], 0, 0]
+
+        for i in range(1, N):
+            dp[i][0] = max(dp[i-1][0], dp[i-1][2] - prices[i])
+            dp[i][1] = dp[i-1][0] + prices[i]
+            dp[i][2] = max(dp[i-1][1], dp[i-1][2])
+
+        return max(dp[-1])
+```
+{: .snippet}
+
 ## 子序列问题
 
 ## Reference
@@ -1982,3 +2051,4 @@ class Solution:
 - [LeetCode：122.买卖股票的最佳时机II](https://www.bilibili.com/video/BV1D24y1Q7Ls/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：123.买卖股票最佳时机III](https://www.bilibili.com/video/BV1WG411K7AR/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：124.买卖股票最佳时机IV](https://www.bilibili.com/video/BV16M411U7XJ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：309.买卖股票的最佳时机含冷冻期](https://www.bilibili.com/video/BV1rP4y1D7ku/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
