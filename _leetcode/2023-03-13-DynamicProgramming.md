@@ -2269,6 +2269,70 @@ class Solution:
 ```
 {: .snippet}
 
+### 1143. 最长公共子序列
+
+给定两个字符串`text1`和`text2`，返回这两个字符串的最长**公共子序列**的长度。如果不存在**公共子序列**，返回`0`。
+
+一个字符串的`子序列`是指这样一个新的字符串：它是由原字符串在不改变字符的相对顺序的情况下删除某些字符(也可以不删除任何字符)后组成的新字符串。
+
+- 例如，`"ace"`是`"abcde"`的子序列，但`"aec"`不是`"abcde"`的子序列。
+
+两个字符串的**公共子序列**是这两个字符串所共同拥有的子序列。
+
+**示例1：**
+
+```
+输入：text1 = "abcde", text2 = "ace" 
+输出：3  
+解释：最长公共子序列是 "ace" ，它的长度为 3 。
+```
+
+**示例2：**
+
+```
+输入：text1 = "abc", text2 = "abc"
+输出：3
+解释：最长公共子序列是 "abc" ，它的长度为 3 。
+```
+
+**示例3：**
+
+```
+输入：text1 = "abc", text2 = "def"
+输出：0
+解释：两个字符串没有公共子序列，返回 0 。
+```
+
+#### Solution
+
+本题类似于[最长重复子数组](/leetcode/2023-03-13-DynamicProgramming.html#718-最长重复子数组)，不过子序列不要求数字是连续的，因此我们需要相应地修改递推关系。这里我们建立一个二维数组`dp[][]`来进行递推，`dp[i+1][j+1]`表示使用`nums1[:i]`和`nums2[:j]`两个子数组所能构成的**最长公共子序列**。此时有如下递推关系：
+
+- `text1[i] == text2[j]`时，只需要把公共元素添加到已有的最长公共子序列中，即`dp[i+1][j+1] = dp[i][j] + 1`
+- `text1[i] != text2[j]`时，最长公共子序列不变，此时`dp[i+1][j+1] = max(dp[i][j-1], dp[i-1][j])`
+
+更新递推公式后直接进行递推并返回`dp[-1][-1]`即可。
+
+[题目链接](https://leetcode.cn/problems/longest-common-subsequence/)：
+
+```python
+class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        N1 = len(text1)
+        N2 = len(text2)
+
+        dp = [[0 for j in range(N2+1)] for i in range(N1+1)]
+
+        for i in range(1, N1+1):
+            for j in range(1, N2+1):
+                if text1[i-1] == text2[j-1]:
+                    dp[i][j] = dp[i-1][j-1] + 1
+                else:
+                    dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+        
+        return dp[-1][-1]
+```
+{: .snippet}
+
 ## Reference
 
 - [动态规划理论基础](https://www.bilibili.com/video/BV13Q4y197Wg/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
@@ -2303,3 +2367,4 @@ class Solution:
 - [LeetCode：300.最长递增子序列](https://www.bilibili.com/video/BV1ng411J7xP/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：674.最长连续递增序列](https://www.bilibili.com/video/BV1bD4y1778v/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：718.最长重复子数组](https://www.bilibili.com/video/BV178411H7hV/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：1143.最长公共子序列](https://www.bilibili.com/video/BV1ye4y1L7CQ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
