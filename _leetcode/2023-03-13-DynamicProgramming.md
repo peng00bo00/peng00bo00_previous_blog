@@ -2215,6 +2215,60 @@ class Solution:
 ```
 {: .snippet}
 
+### 718. 最长重复子数组
+
+给两个整数数组`nums1`和`nums2`，返回两个数组中**公共的 、长度最长的子数组的长度**。
+
+**示例1：**
+
+```
+输入：nums1 = [1,2,3,2,1], nums2 = [3,2,1,4,7]
+输出：3
+解释：长度最长的公共子数组是 [3,2,1] 。
+```
+
+**示例2：**
+
+```
+输入：nums1 = [0,0,0,0,0], nums2 = [0,0,0,0,0]
+输出：5
+```
+
+**提示：**
+
+- 1 <= `nums1.length`, `nums2.length` <= 1000
+- 0 <= `nums1[i]`, `nums2[i]` <= 100
+
+#### Solution
+
+对于两个数组的情况我们需要使用一个二维数组`dp[][]`来进行递推，`dp[i+1][j+1]`表示以`nums1[i]`和`nums2[j]`结尾的最长公共子串长度。当`nums1[i] == nums2[j]`时，最长公共子串长度等于以`nums1[i-1]`和`nums2[j-1]`结尾的最长公共子串长度加1。这样可以得到递推关系：
+
+- `dp[i+1][j+1] = dp[i][j] + 1`，`nums1[i] == nums2[j]`
+
+接下来考虑初始化。为了方便起见我们把`dp[][]`数组初始化为`len(nums1)+1`行`len(nums2)+1`列的数组，其中每个元素为`0`。这样`dp[][]`数组的第一行和第一列表示没有使用`nums1`或`nums2`数组元素情况下构成的最长公共子串为空，其长度为`0`。完成准备工作后直接进行递推即可。
+
+[题目链接](https://leetcode.cn/problems/maximum-length-of-repeated-subarray/)：
+
+```python
+class Solution:
+    def findLength(self, nums1: List[int], nums2: List[int]) -> int:
+        N1 = len(nums1)
+        N2 = len(nums2)
+
+        dp = [[0 for j in range(N2+1)] for i in range(N1+1)]
+        res = 0
+
+        for i in range(1, N1+1):
+            for j in range(1, N2+1):
+                if nums1[i-1] == nums2[j-1]:
+                    dp[i][j] = dp[i-1][j-1] + 1
+
+                res = max(res, dp[i][j])
+        
+        return res
+```
+{: .snippet}
+
 ## Reference
 
 - [动态规划理论基础](https://www.bilibili.com/video/BV13Q4y197Wg/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
@@ -2248,3 +2302,4 @@ class Solution:
 - [LeetCode：714.买卖股票的最佳时机含手续费](https://www.bilibili.com/video/BV1z44y1Z7UR/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：300.最长递增子序列](https://www.bilibili.com/video/BV1ng411J7xP/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：674.最长连续递增序列](https://www.bilibili.com/video/BV1bD4y1778v/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：718.最长重复子数组](https://www.bilibili.com/video/BV178411H7hV/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
