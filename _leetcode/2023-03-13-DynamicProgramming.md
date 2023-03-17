@@ -2117,7 +2117,7 @@ class Solution:
 
 **提示：**
 
-- 11 <= `nums.length` <= 2500
+- 1 <= `nums.length` <= 2500
 - -10⁴ <= `nums[i]` <= 10⁴
 
 #### Solution
@@ -2145,6 +2145,70 @@ class Solution:
                 if nums[i] > nums[j]:
                     dp[i] = max(dp[i], dp[j]+1)
 
+            res = max(res, dp[i])
+
+        return res
+```
+{: .snippet}
+
+### 674. 最长连续递增序列
+
+给定一个未经排序的整数数组，找到最长且**连续递增的子序列**，并返回该序列的长度。
+
+**连续递增的子序列**可以由两个下标`l`和`r`(`l < r`)确定，如果对于每个`l <= i < r`，都有`nums[i] < nums[i + 1]`，那么子序列`[nums[l], nums[l + 1], ..., nums[r - 1], nums[r]]`就是连续递增子序列。
+
+**示例1：**
+
+```
+输入：nums = [1,3,5,4,7]
+输出：3
+解释：最长连续递增序列是 [1,3,5], 长度为3。
+尽管 [1,3,5,7] 也是升序的子序列, 但它不是连续的，因为 5 和 7 在原数组里被 4 隔开。
+```
+
+**示例2：**
+
+```
+输入：nums = [2,2,2,2,2]
+输出：1
+解释：最长连续递增序列是 [2], 长度为1。
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 10⁴
+- -10⁹ <= `nums[i]` <= 10⁹
+
+#### Solution
+
+本题类似于[最长递增子序列](/leetcode/2023-03-13-DynamicProgramming.html#300-最长递增子序列)。不过由于题目要求连续递增的子序列，我们需要修改一下递推关系。对于`nums[i]`有两种情况：
+
+1. 如果`nums[i] > nums[i-1]`，则`nums[i]`可以加入以`nums[i-1]`结尾的连续递增子序列，此时`dp[i] = dp[i-1] + 1`
+2. 如果`nums[i] <= nums[i-1]`，则`nums[i]`必须重头开启一个新的连续递增子序列，此时`dp[i] = 1`
+
+这样就得到递推公式：
+
+- `dp[i] = dp[i-1] + 1`，`nums[i-1] < nums[i]`
+
+最后进行递推即可。
+
+[题目链接](https://leetcode.cn/problems/longest-continuous-increasing-subsequence/)：
+
+```python
+class Solution:
+    def findLengthOfLCIS(self, nums: List[int]) -> int:
+        N = len(nums)
+
+        if N == 1:
+            return 1
+        
+        dp = [1 for i in range(N)]
+        res = 0
+
+        for i in range(1, N):
+            if nums[i-1] < nums[i]:
+                dp[i] = dp[i-1] + 1
+            
             res = max(res, dp[i])
 
         return res
@@ -2183,3 +2247,4 @@ class Solution:
 - [LeetCode：309.买卖股票的最佳时机含冷冻期](https://www.bilibili.com/video/BV1rP4y1D7ku/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：714.买卖股票的最佳时机含手续费](https://www.bilibili.com/video/BV1z44y1Z7UR/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：300.最长递增子序列](https://www.bilibili.com/video/BV1ng411J7xP/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：674.最长连续递增序列](https://www.bilibili.com/video/BV1bD4y1778v/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
