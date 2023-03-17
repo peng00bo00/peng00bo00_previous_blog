@@ -2408,6 +2408,58 @@ class Solution:
 ```
 {: .snippet}
 
+### 53. 最大子数组和
+
+给你一个整数数组`nums`，请你找出一个具有最大和的连续子数组(子数组最少包含一个元素)，返回其最大和。
+
+**子数组**是数组中的一个连续部分。
+
+**示例1：**
+
+```
+输入：nums = [-2,1,-3,4,-1,2,1,-5,4]
+输出：6
+解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。
+```
+
+**示例2：**
+
+```
+输入：nums = [1]
+输出：1
+```
+
+**示例3：**
+
+```
+输入：nums = [5,4,-1,7,8]
+输出：23
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 10⁵
+- -10⁴ <= `nums[i]` <= 10⁴
+
+#### Solution
+
+同[最大子数组和](/leetcode/2023-03-10-Greedy.html#53-最大子数组和)。
+
+[题目链接](https://leetcode.cn/problems/maximum-subarray/)：
+
+```python
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        N = len(nums)
+        dp = [nums[0] for _ in range(N)]
+        
+        for i in range(1, N):
+            dp[i] = max(dp[i-1]+nums[i], nums[i])
+        
+        return max(dp)
+```
+{: .snippet}
+
 ## Reference
 
 - [动态规划理论基础](https://www.bilibili.com/video/BV13Q4y197Wg/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
@@ -2444,3 +2496,4 @@ class Solution:
 - [LeetCode：718.最长重复子数组](https://www.bilibili.com/video/BV178411H7hV/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：1143.最长公共子序列](https://www.bilibili.com/video/BV1ye4y1L7CQ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：1035.不相交的线](https://www.bilibili.com/video/BV1h84y1x7MP/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：53.最大子序和](https://www.bilibili.com/video/BV19V4y1F7b5/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
