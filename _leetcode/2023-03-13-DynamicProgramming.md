@@ -2087,6 +2087,70 @@ class Solution:
 
 ## 子序列问题
 
+### 300. 最长递增子序列
+
+给你一个整数数组`nums`，找到其中最长严格递增子序列的长度。
+
+**子序列**是由数组派生而来的序列，删除(或不删除)数组中的元素而不改变其余元素的顺序。例如，`[3,6,2,7]`是数组`[0,3,1,6,2,2,7]`的子序列。
+
+**示例1：**
+
+```
+输入：nums = [10,9,2,5,3,7,101,18]
+输出：4
+解释：最长递增子序列是 [2,3,7,101]，因此长度为 4 。
+```
+
+**示例2：**
+
+```
+输入：nums = [0,1,0,3,2,3]
+输出：4
+```
+
+**示例3：**
+
+```
+输入：nums = [7,7,7,7,7,7,7]
+输出：1
+```
+
+**提示：**
+
+- 11 <= `nums.length` <= 2500
+- -10⁴ <= `nums[i]` <= 10⁴
+
+#### Solution
+
+本题中我们定义一个一维数组`dp[]`，`dp[i]`表示以`nums[i]`结尾的最大递增子序列长度。接下来考虑递推关系，任何在`nums[i]`前面的末尾小于`nums[i]`的子序列都可以作为当前子序列的前驱，因此我们需要对这些子序列长度取最大值：
+
+- `dp[i] = max(dp[i], dp[j]+1)`，`0 <= j < i`且`nums[i] > nums[j]`
+
+然后考虑初始化。显然`nums`中的任意元素自身都可以作为一个递增子序列，因此我们需要把`dp[]`数组中的元素都初始化为`1`。完成准备工作后进行递推并返回`dp[]`数组中的最大值即可。
+
+[题目链接](https://leetcode.cn/problems/longest-increasing-subsequence/)：
+
+```python
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        N = len(nums)
+        if N == 1:
+            return 1
+
+        dp = [1 for i in range(N)]
+        res = 0
+
+        for i in range(1, N):
+            for j in range(i):
+                if nums[i] > nums[j]:
+                    dp[i] = max(dp[i], dp[j]+1)
+
+            res = max(res, dp[i])
+
+        return res
+```
+{: .snippet}
+
 ## Reference
 
 - [动态规划理论基础](https://www.bilibili.com/video/BV13Q4y197Wg/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
@@ -2118,3 +2182,4 @@ class Solution:
 - [LeetCode：124.买卖股票最佳时机IV](https://www.bilibili.com/video/BV16M411U7XJ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：309.买卖股票的最佳时机含冷冻期](https://www.bilibili.com/video/BV1rP4y1D7ku/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：714.买卖股票的最佳时机含手续费](https://www.bilibili.com/video/BV1z44y1Z7UR/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：300.最长递增子序列](https://www.bilibili.com/video/BV1ng411J7xP/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
