@@ -2599,6 +2599,79 @@ class Solution:
 ```
 {: .snippet}
 
+### 583. 两个字符串的删除操作
+
+给定两个单词`word1`和`word2`，返回使得`word1`和`word2`**相同**所需的**最小步数**。
+
+**每步**可以删除任意一个字符串中的一个字符。
+
+**示例1：**
+
+```
+输入: word1 = "sea", word2 = "eat"
+输出: 2
+解释: 第一步将 "sea" 变为 "ea" ，第二步将 "eat "变为 "ea"
+```
+
+**示例2：**
+
+```
+输入：word1 = "leetcode", word2 = "etco"
+输出：4
+```
+
+**提示：**
+
+- 1 <= `word1.length`, `word2.length` <= 500
+- `word1`和`word2`只包含小写英文字母
+
+#### Solution
+
+本题中我们使用一个二维数组`dp[][]`进行递推，`dp[i+1][j+1]`表示保证`word1[:i]`和`word2[:j]`相同所需删除操作的最小次数。根据`word1[i]`与`word2[j]`的关系有两种可能情况：
+
+1. `word1[i] == word2[j]`时由于末尾已经相等我们只需要考虑前面的字符串即可，因此`dp[i+1][j+1] = dp[i][j]`
+2. `word1[i] != word2[j]`时有三种可能情况：
+   1. 删除`word1[i]`，此时的最小删除操作为`dp[i+1][j+1] = dp[i][j+1] + 1`
+   2. 删除`word2[j]`，此时的最小删除操作为`dp[i+1][j+1] = dp[i+1][j] + 1`
+   3. 同时删除`word1[i]`和`word2[j]`，此时的最小删除操作为`dp[i+1][j+1] = dp[i][j] + 2`
+
+总结一下可以得到递推公式：
+
+- `dp[i+1][j+1] = dp[i][j]`，`word1[i] == word2[j]`
+- `dp[i+1][j+1] = min(dp[i][j+1] + 1, dp[i+1][j] + 1, dp[i][j] + 2)`，`word1[i] != word2[j]`
+
+接下来考虑初始化。对于`dp[][]`数组的第一行和第一列我们需要分别将其初始化为对应的行号和列号，表示当其中一个字符串为空时需要把另一个字符串的全部元素都删除才能满足要求。完成准备工作后直接进行递推并返回`dp[][]`的最后一个元素即可，整个递推过程可以参考下图。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/OxYAXdY.png" width="60%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/delete-operation-for-two-strings/)：
+
+```python
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        N1 = len(word1)
+        N2 = len(word2)
+
+        dp = [[0 for j in range(N2+1)] for i in range(N1+1)]
+        for i in range(N1+1):
+            dp[i][0] = i
+        
+        for j in range(N2+1):
+            dp[0][j] = j
+        
+        for i in range(1, N1+1):
+            for j in range(1, N2+1):
+                if word1[i-1] == word2[j-1]:
+                    dp[i][j] = dp[i-1][j-1]
+                else:
+                    dp[i][j] = min(dp[i-1][j]+1, dp[i][j-1]+1, dp[i-1][j-1]+2)
+
+        return dp[-1][-1]
+```
+{: .snippet}
+
 ## Reference
 
 - [动态规划理论基础](https://www.bilibili.com/video/BV13Q4y197Wg/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
@@ -2638,3 +2711,4 @@ class Solution:
 - [LeetCode：53.最大子序和](https://www.bilibili.com/video/BV19V4y1F7b5/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：392.判断子序列](https://www.bilibili.com/video/BV1tv4y1B7ym/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：115.不同的子序列](https://www.bilibili.com/video/BV1fG4y1m75Q/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：583.两个字符串的删除操作](https://www.bilibili.com/video/BV1we4y157wB/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
