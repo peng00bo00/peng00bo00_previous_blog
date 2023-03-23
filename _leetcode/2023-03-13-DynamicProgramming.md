@@ -2460,6 +2460,69 @@ class Solution:
 ```
 {: .snippet}
 
+### 392. 判断子序列
+
+给定字符串`s`和`t`，判断`s`是否为`t`的子序列。
+
+字符串的一个子序列是原始字符串删除一些(也可以不删除)字符而不改变剩余字符相对位置形成的新字符串。(例如，`"ace"`是`"abcde"`的一个子序列，而`"aec"`不是)。
+
+**示例1：**
+
+```
+输入：s = "abc", t = "ahbgdc"
+输出：true
+```
+
+**示例2：**
+
+```
+输入：s = "axc", t = "ahbgdc"
+输出：false
+```
+
+**提示：**
+
+- 0 <= `s.length` <= 100
+- 0 <= `t.length` <= 10⁴
+- 两个字符串都只由小写字符组成
+
+#### Solution
+
+本题类似于[最长公共子序列](/leetcode/2023-03-13-DynamicProgramming.html#1143-最长公共子序列)。实际上我们只需要判断`s`和`t`的最长公共子序列的长度是否等于`s`的长度即可，不过在递推时我们需要稍微修改一下递推公式。假设`dp[i+1][j+1]`表示`s[:i]`和`t[:j]`所能构成的相同子序列长度，根据`s[i]`和`t[j]`的关系有两种可能情况：
+
+1. `s[i] == t[j]`时我们可以把相同的字符添加到子序列末尾，这样子序列的长度需要加1，即`dp[i+1][j+1] = dp[i][j] + 1`
+2. `s[i] != t[j]`时我们无法修改相同子序列，此时子序列长度与前一个相同，即`dp[i+1][j+1] = dp[i+1][j]`
+
+整个递推过程可以参考下图。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/mzw426s.png" width="70%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/is-subsequence/)：
+
+```python
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        N1 = len(s)
+        N2 = len(t)
+
+        dp = [[0 for j in range(N2+1)] for i in range(N1+1)]
+
+        for i in range(1, N1+1):
+            for j in range(1, N2+1):
+                if s[i-1] == t[j-1]:
+                    dp[i][j] = dp[i-1][j-1] + 1
+                else:
+                    dp[i][j] = dp[i][j-1]
+        
+        if dp[-1][-1] == N1:
+            return True
+        
+        return False
+```
+{: .snippet}
+
 ## Reference
 
 - [动态规划理论基础](https://www.bilibili.com/video/BV13Q4y197Wg/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
@@ -2497,3 +2560,4 @@ class Solution:
 - [LeetCode：1143.最长公共子序列](https://www.bilibili.com/video/BV1ye4y1L7CQ/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：1035.不相交的线](https://www.bilibili.com/video/BV1h84y1x7MP/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：53.最大子序和](https://www.bilibili.com/video/BV19V4y1F7b5/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：392.判断子序列](https://www.bilibili.com/video/BV1tv4y1B7ym/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
