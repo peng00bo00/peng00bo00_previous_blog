@@ -2523,6 +2523,82 @@ class Solution:
 ```
 {: .snippet}
 
+### 115. 不同的子序列
+
+给定一个字符串`s`和一个字符串`t`，计算在`s`的子序列中`t`出现的个数。
+
+字符串的一个**子序列**是指，通过删除一些(也可以不删除)字符且不干扰剩余字符相对位置所组成的新字符串。(例如，`"ACE"`是`"ABCDE"`的一个子序列，而`"AEC"`不是)
+
+**示例1：**
+
+```
+输入：s = "rabbbit", t = "rabbit"
+输出：3
+解释：
+如下图所示, 有 3 种可以从 s 中得到 "rabbit" 的方案。
+rabbbit
+rabbbit
+rabbbit
+```
+
+**示例2：**
+
+```
+输入：s = "babgbag", t = "bag"
+输出：5
+解释：
+如下图所示, 有 5 种可以从 s 中得到 "bag" 的方案。 
+babgbag
+babgbag
+babgbag
+babgbag
+babgbag
+```
+
+**提示：**
+
+- 0 <= `s.length`, `t.length` <= 1000
+- `s`和`t`由英文字母组成
+
+#### Solution
+
+本题中我们使用一个二维数组`dp[][]`进行递推，`dp[i+1][j+1]`表示使用`s[:i]`和`t[:j]`构造的子序列个数。根据`s[i]`与`t[j]`的关系有两种可能情况：
+
+1. `s[i] == t[j]`时，子序列有两种构成形式：
+   1. 使用末尾`s[i]`和`t[j]`去匹配，此时问题规模缩小为`s[:i-1]`和`t[:j-1]`构造的子序列个数，这种形式的子序列一共有`dp[i][j]`个
+   2. 不使用末尾`s[i]`去匹配，这种形式的子序列一共有`dp[i][j+1]`个
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/GkjX13X.png" width="80%">
+</div>
+
+2. `s[i] != t[j]`时无法使用字符`s[i]`，因此需要使用字符串`s[:i-1]`进行匹配，这样子序列有`dp[i][j+1]`个
+
+接下来考虑初始化问题。本题中需要把`dp[][]`数组的第一列初始化为1，它表示`t`为空字符串时可以与任意的`s`字符串构造出一个子序列。完成准备工作后直接进行递推并返回`dp[][]`数组的末尾元素即可。
+
+[题目链接](https://leetcode.cn/problems/distinct-subsequences/)：
+
+```python
+class Solution:
+    def numDistinct(self, s: str, t: str) -> int:
+        N1 = len(s)
+        N2 = len(t)
+
+        dp = [[0 for j in range(N2+1)] for i in range(N1+1)]
+        for i in range(N1+1):
+            dp[i][0] = 1
+
+        for i in range(1, N1+1):
+            for j in range(1, N2+1):
+                if s[i-1] == t[j-1]:
+                    dp[i][j] = dp[i-1][j-1] + dp[i-1][j]
+                else:
+                    dp[i][j] = dp[i-1][j]
+        
+        return dp[-1][-1]
+```
+{: .snippet}
+
 ## Reference
 
 - [动态规划理论基础](https://www.bilibili.com/video/BV13Q4y197Wg/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
@@ -2561,3 +2637,4 @@ class Solution:
 - [LeetCode：1035.不相交的线](https://www.bilibili.com/video/BV1h84y1x7MP/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：53.最大子序和](https://www.bilibili.com/video/BV19V4y1F7b5/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：392.判断子序列](https://www.bilibili.com/video/BV1tv4y1B7ym/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：115.不同的子序列](https://www.bilibili.com/video/BV1fG4y1m75Q/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
