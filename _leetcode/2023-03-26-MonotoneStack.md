@@ -82,8 +82,73 @@ class Solution:
 ```
 {: .snippet}
 
+### 496. 下一个更大元素 I
+
+`nums1`中数字`x`的**下一个更大元素**是指`x`在`nums2`中对应位置**右侧**的**第一个**比`x`大的元素。
+
+给你两个**没有重复元素**的数组`nums1`和`nums2`，下标从`0`开始计数，其中`nums1`是`nums2`的子集。
+
+对于每个`0 <= i < nums1.length`，找出满足`nums1[i] == nums2[j]`的下标`j`，并且在`nums2`确定`nums2[j]`的**下一个更大元素**。如果不存在下一个更大元素，那么本次查询的答案是`-1`。
+
+返回一个长度为`nums1.length`的数组`ans`作为答案，满足`ans[i]`是如上所述的**下一个更大元素**。
+
+**示例1：**
+
+```
+输入：nums1 = [4,1,2], nums2 = [1,3,4,2].
+输出：[-1,3,-1]
+解释：nums1 中每个值的下一个更大元素如下所述：
+- 4 ，用加粗斜体标识，nums2 = [1,3,4,2]。不存在下一个更大元素，所以答案是 -1 。
+- 1 ，用加粗斜体标识，nums2 = [1,3,4,2]。下一个更大元素是 3 。
+- 2 ，用加粗斜体标识，nums2 = [1,3,4,2]。不存在下一个更大元素，所以答案是 -1 。
+```
+
+**示例2：**
+
+```
+输入：nums1 = [2,4], nums2 = [1,2,3,4].
+输出：[3,-1]
+解释：nums1 中每个值的下一个更大元素如下所述：
+- 2 ，用加粗斜体标识，nums2 = [1,2,3,4]。下一个更大元素是 3 。
+- 4 ，用加粗斜体标识，nums2 = [1,2,3,4]。不存在下一个更大元素，所以答案是 -1 。
+```
+
+**提示：**
+
+- 1 <= `nums1.length` <= `nums2.length` <= 1000
+- 0 <= `nums1[i]`, `nums2[i]` <= 10⁴
+- `nums1`和`nums2`中所有整数**互不相同**
+- `nums1`中的所有整数同样出现在`nums2`中
+
+#### Solution
+
+由于`nums1`和`nums2`中所有整数互不相同且`nums1`是`nums2`的子集，本题可以理解为寻找`nums2`中每个元素右边第一个大于它的值。这里使用`stack`作为单调递增栈，`ans`作为字典(哈希表)记录`nums2`中元素的下一个更大元素。使用单调栈时需要注意从右向左对`nums2`进行遍历，如果当前元素`num`大于栈顶元素`stack[-1]`则令其出栈。这样在`num`入栈前如果存在`stack[-1]`则其就是`num`对应的下一个更大元素，令`ans[num] = stack[-1]`；否则说明`num`右侧元素都小于它，令`ans[num] = -1`。完成对`nums2`的遍历后从`ans`中提取`nums1`中元素对应的下一个更大元素即可。
+
+[题目链接](https://leetcode.cn/problems/next-greater-element-i/)：
+
+```python
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        N = len(nums2)
+
+        stack = []
+        ans = {}
+
+        for i in range(N-1, -1, -1):
+            num = nums2[i]
+            while stack and num > stack[-1]:
+                stack.pop()
+            
+            ans[num] = stack[-1] if stack else -1
+            stack.append(num)
+        
+        return [ans[num] for num in nums1]
+```
+{: .snippet}
+
 ## 单调递减栈
 
 ## Reference
 
 - [LeetCode：739.每日温度](https://www.bilibili.com/video/BV1my4y1Z7jj/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：496.下一个更大元素 I](https://www.bilibili.com/video/BV1jA411m7dX/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
