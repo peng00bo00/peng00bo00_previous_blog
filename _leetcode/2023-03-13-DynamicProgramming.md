@@ -3041,6 +3041,90 @@ class Solution:
 ```
 {: .snippet}
 
+### 673. 最长递增子序列的个数
+
+给定一个未排序的整数数组`nums`，返回最长递增子序列的个数。
+
+**注意**这个数列必须是**严格**递增的。
+
+**示例1：**
+
+```
+输入: [1,3,5,4,7]
+输出: 2
+解释: 有两个最长递增子序列，分别是 [1, 3, 4, 7] 和[1, 3, 5, 7]。
+```
+
+**示例2：**
+
+```
+输入: [2,2,2,2,2]
+输出: 5
+解释: 最长递增子序列的长度是1，并且存在5个子序列的长度为1，因此输出5。
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 2000
+- -10⁶ <= `nums[i]` <= 10⁶
+
+#### Solution
+
+本题是[最长递增子序列](/leetcode/2023-03-13-DynamicProgramming.html#300-最长递增子序列)的进阶版本，我们需要在寻找最长递增子序列长度的基础上记录这样子序列的个数。因此我们需要使用到两个数组`dp[]`和`count[]`，其中`dp[i]`表示以`nums[i]`结尾的递增子序列长度而`count[i]`则表示这样子序列的个数。除此之外，我们还需要一个变量`maxLen`来记录这些递增子序列中最大的序列长度。
+
+`dp[]`数组的递推公式与[最长递增子序列](/leetcode/2023-03-13-DynamicProgramming.html#300-最长递增子序列)中一致：对于`nums[i]`前面的数字`nums[j]`，如果`nums[i] > nums[j]`则令`dp[i] = dp[j] + 1`表示把`nums[i]`接在以`nums[j]`结尾的递增子序列上会使子序列长度加1。而`count[]`数组的递推关系与之类似：
+
+- `dp[j] + 1 > dp[i]`说明找到了更长的递增子序列，此时需要更新`count[i] = count[j]`
+- `dp[j] + 1 == dp[i]`说明找到长度相同的其它最大递增子序列，此时需要进行累加`count[i] += count[j]`
+
+这样可以得到`count[]`数组的递推公式：
+
+- `count[i] = count[j]`，`nums[i] > nums[j]`且`dp[j] + 1 > dp[i]`
+- `count[i]+= count[j]`，`nums[i] > nums[j]`且`dp[j] + 1 == dp[i]`
+
+接下来考虑初始化，显然我们可以把`dp[]`和`count[]`两个数组都初始化为`1`，这表示任意数字`nums[i]`自己都可以组成一个只包含自身的递增序列。
+
+完成递推后我们只需要统计`dp[]`数组中等于最大长度`maxLen`的部分，并把相应的序列数`count[]`累加即可。整个算法流程可以参考如下。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/XWiBTJp.png" width="80%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/number-of-longest-increasing-subsequence/)：
+
+```python
+class Solution:
+    def findNumberOfLIS(self, nums: List[int]) -> int:
+        N = len(nums)
+
+        if N <= 1:
+            return N
+        
+        dp = [1 for i in range(N)]
+        count = [1 for i in range(N)]
+        maxLen = 0
+
+        for i in range(N):
+            for j in range(i):
+                if nums[i] > nums[j]:
+                    if dp[j] + 1 > dp[i]:
+                        dp[i] = dp[j] + 1
+                        count[i] = count[j]
+                    elif dp[j] + 1 == dp[i]:
+                        count[i] += count[j]
+                
+                if dp[i] > maxLen:
+                    maxLen = dp[i]
+        
+        res = 0
+        for i in range(N):
+            if dp[i] == maxLen:
+                res += count[i]
+
+        return res
+```
+{: .snippet}
+
 ## Reference
 
 - [动态规划理论基础](https://www.bilibili.com/video/BV13Q4y197Wg/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
