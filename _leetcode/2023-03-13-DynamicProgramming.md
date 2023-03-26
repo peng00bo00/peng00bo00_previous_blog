@@ -2490,8 +2490,8 @@ class Solution:
 
 本题类似于[最长公共子序列](/leetcode/2023-03-13-DynamicProgramming.html#1143-最长公共子序列)。实际上我们只需要判断`s`和`t`的最长公共子序列的长度是否等于`s`的长度即可，不过在递推时我们需要稍微修改一下递推公式。假设`dp[i+1][j+1]`表示`s[:i]`和`t[:j]`所能构成的相同子序列长度，根据`s[i]`和`t[j]`的关系有两种可能情况：
 
-1. `s[i] == t[j]`时我们可以把相同的字符添加到子序列末尾，这样子序列的长度需要加1，即`dp[i+1][j+1] = dp[i][j] + 1`
-2. `s[i] != t[j]`时我们无法修改相同子序列，此时子序列长度与前一个相同，即`dp[i+1][j+1] = dp[i+1][j]`
+- `s[i] == t[j]`时我们可以把相同的字符添加到子序列末尾，这样子序列的长度需要加1，即`dp[i+1][j+1] = dp[i][j] + 1`
+- `s[i] != t[j]`时我们无法修改相同子序列，此时子序列长度与前一个相同，即`dp[i+1][j+1] = dp[i+1][j]`
 
 整个递推过程可以参考下图。
 
@@ -2564,7 +2564,7 @@ babgbag
 
 本题中我们使用一个二维数组`dp[][]`进行递推，`dp[i+1][j+1]`表示使用`s[:i]`和`t[:j]`构造的子序列个数。根据`s[i]`与`t[j]`的关系有两种可能情况：
 
-1. `s[i] == t[j]`时，子序列有两种构成形式：
+- `s[i] == t[j]`时，子序列有两种构成形式：
    1. 使用末尾`s[i]`和`t[j]`去匹配，此时问题规模缩小为`s[:i-1]`和`t[:j-1]`构造的子序列个数，这种形式的子序列一共有`dp[i][j]`个
    2. 不使用末尾`s[i]`去匹配，这种形式的子序列一共有`dp[i][j+1]`个
 
@@ -2572,7 +2572,7 @@ babgbag
 <img src="https://images.weserv.nl/?url=i.imgur.com/GkjX13X.png" width="80%">
 </div>
 
-2. `s[i] != t[j]`时无法使用字符`s[i]`，因此需要使用字符串`s[:i-1]`进行匹配，这样子序列有`dp[i][j+1]`个
+- `s[i] != t[j]`时无法使用字符`s[i]`，因此需要使用字符串`s[:i-1]`进行匹配，这样子序列有`dp[i][j+1]`个
 
 接下来考虑初始化问题。本题中需要把`dp[][]`数组的第一列初始化为1，它表示`t`为空字符串时可以与任意的`s`字符串构造出一个子序列。完成准备工作后直接进行递推并返回`dp[][]`数组的末尾元素即可。
 
@@ -2629,8 +2629,8 @@ class Solution:
 
 本题中我们使用一个二维数组`dp[][]`进行递推，`dp[i+1][j+1]`表示保证`word1[:i]`和`word2[:j]`相同所需删除操作的最小次数。根据`word1[i]`与`word2[j]`的关系有两种可能情况：
 
-1. `word1[i] == word2[j]`时由于末尾已经相等我们只需要考虑前面的字符串即可，因此`dp[i+1][j+1] = dp[i][j]`
-2. `word1[i] != word2[j]`时有三种可能情况：
+- `word1[i] == word2[j]`时由于末尾已经相等我们只需要考虑前面的字符串即可，因此`dp[i+1][j+1] = dp[i][j]`
+- `word1[i] != word2[j]`时有三种可能情况：
    1. 删除`word1[i]`，此时的最小删除操作为`dp[i+1][j+1] = dp[i][j+1] + 1`
    2. 删除`word2[j]`，此时的最小删除操作为`dp[i+1][j+1] = dp[i+1][j] + 1`
    3. 同时删除`word1[i]`和`word2[j]`，此时的最小删除操作为`dp[i+1][j+1] = dp[i][j] + 2`
@@ -2668,6 +2668,93 @@ class Solution:
                 else:
                     dp[i][j] = min(dp[i-1][j]+1, dp[i][j-1]+1, dp[i-1][j-1]+2)
 
+        return dp[-1][-1]
+```
+{: .snippet}
+
+### 72. 编辑距离
+
+给你两个单词`word1`和`word2`，请返回将`word1`转换成`word2`所使用的**最少操作数**。
+
+你可以对一个单词进行如下三种操作：
+
+- 插入一个字符
+- 删除一个字符
+- 替换一个字符
+
+**示例1：**
+
+```
+输入：word1 = "horse", word2 = "ros"
+输出：3
+解释：
+horse -> rorse (将 'h' 替换为 'r')
+rorse -> rose (删除 'r')
+rose -> ros (删除 'e')
+```
+
+**示例2：**
+
+```
+输入：word1 = "intention", word2 = "execution"
+输出：5
+解释：
+intention -> inention (删除 't')
+inention -> enention (将 'i' 替换为 'e')
+enention -> exention (将 'n' 替换为 'x')
+exention -> exection (将 'n' 替换为 'c')
+exection -> execution (插入 'u')
+```
+
+**提示：**
+
+- 1 <= `word1.length`, `word2.length` <= 500
+- `word1`和`word2`只包含小写英文字母
+
+#### Solution
+
+编辑距离是动态规划中的经典问题。本题的整体思路类似于[两个字符串的删除操作](/leetcode/2023-03-13-DynamicProgramming.html#583-两个字符串的删除操作)，我们首先建立一个二维数组`dp[][]`进行递推，其中`dp[i+1][j+1]`表示将`word1[:i]`转换为`word2[:j]`所需的最小操作数。根据字符`word1[i]`和`word[j]`的关系有两种情况：
+
+- `word1[i] == word2[j]`时无需再进行任何修改操作，因此`dp[i+1][j+1] = dp[i][j]`
+- `word1[i] != word2[j]`时有三种可能情况：
+   1. 删除`word1[i]`，此时的最小操作数为`dp[i+1][j+1] = dp[i][j+1] + 1`
+   2. 在`word1[i]`后添加一个字符，这相当于删除`word2[j]`，此时的最小操作数为`dp[i+1][j+1] = dp[i+1][j] + 1`
+   3. 替换`word1[i]`为`word2[j]`，此时的最小删除操作为`dp[i+1][j+1] = dp[i][j] + 1`
+
+总结一下可以得到递推公式：
+
+- `dp[i+1][j+1] = dp[i][j]`，`word1[i] == word2[j]`
+- `dp[i+1][j+1] = min(dp[i][j+1], dp[i+1][j], dp[i][j]) + 1`，`word1[i] != word2[j]`
+
+而初始化则与[两个字符串的删除操作](/leetcode/2023-03-13-DynamicProgramming.html#583-两个字符串的删除操作)完全相同。整个递推算法流程可参考如下。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/s6Mq8d4.png" width="60%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/edit-distance/)：
+
+```python
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        N1 = len(word1)
+        N2 = len(word2)
+
+        dp = [[0 for j in range(N2+1)] for i in range(N1+1)]
+
+        for i in range(N1+1):
+            dp[i][0] = i
+        
+        for j in range(N2+1):
+            dp[0][j] = j
+
+        for i in range(1, N1+1):
+            for j in range(1, N2+1):
+                if word1[i-1] == word2[j-1]:
+                    dp[i][j] = dp[i-1][j-1]
+                else:
+                    dp[i][j] = min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]) + 1
+        
         return dp[-1][-1]
 ```
 {: .snippet}
@@ -2712,3 +2799,4 @@ class Solution:
 - [LeetCode：392.判断子序列](https://www.bilibili.com/video/BV1tv4y1B7ym/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：115.不同的子序列](https://www.bilibili.com/video/BV1fG4y1m75Q/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：583.两个字符串的删除操作](https://www.bilibili.com/video/BV1we4y157wB/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：72.编辑距离](https://www.bilibili.com/video/BV1qv4y1q78f/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
