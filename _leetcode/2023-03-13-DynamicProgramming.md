@@ -2759,6 +2759,87 @@ class Solution:
 ```
 {: .snippet}
 
+### 647. 回文子串
+
+给你一个字符串`s`，请你统计并返回这个字符串中**回文子串**的数目。
+
+**回文字符串**是正着读和倒过来读一样的字符串。
+
+**子字符串**是字符串中的由连续字符组成的一个序列。
+
+具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被视作不同的子串。
+
+**示例1：**
+
+```
+输入：s = "abc"
+输出：3
+解释：三个回文子串: "a", "b", "c"
+```
+
+**示例2：**
+
+```
+输入：s = "aaa"
+输出：6
+解释：6个回文子串: "a", "a", "a", "aa", "aa", "aaa"
+```
+
+**提示：**
+
+- 1 <= `s.length` <= 1000
+- `s`由小写英文字母组成
+
+#### Solution
+
+本题中我们首先要考虑回文字符串的结构。显然任何回文字符串最左边和最右边的字符都是相等的，而且去掉它们后得到的字符串同样是一个回文字符串。因此我们可以从一个已知的回文字符串出发，通过向两边添加字符的方式来递推出新的回文字符串。
+
+这样我们可以建立一个二维数组`dp[][]`，`dp[i][j]`表示以`s[i]`开始`s[j]`结尾的字符串是否是一个回文字符串。根据`s[i]`和`s[j]`的关系有两种情况：
+
+- `s[i] != s[j]`时无法组成回文字符串，跳过
+- `s[i] == s[j]`时需要进一步考虑`i`和`j`的关系：
+   1. `i == j`时字符串只包含一个字符，此时一定是一个回文字符串，`dp[i][j] = 1`
+   2. `i+1 == j`时字符串包含两个字符，此时一定是一个回文字符串，`dp[i][j] = 1`
+   3. `i+1 < j`时字符串包含至少三个字符，此时需要进一步判断里侧字符串是否是一个回文字符串，`dp[i][j] = dp[i+1][j-1]`
+
+总结一下可以得到递推公式：
+
+- `dp[i][j] = 0`，`s[i] != s[j]`
+- `dp[i][j] = 1`，`s[i] == s[j]`且`j - i <= 1`
+- `dp[i][j] = dp[i+1][j-1]`，`s[i] == s[j]`且`j - i > 1`
+
+接下来考虑初始化。本题中我们只需要把`dp[][]`数组初始化为`0`即可，它表示开始时我们不知道`s`中是否存在回文字符串。
+
+本题的另一个难点在于遍历顺序。根据递推关系我们知道`dp[i][j]`会依赖于`dp[i+1][j-1]`，因此我们不能像通常情况那样从左到右从上到下进行递推，而是需要从左下向右上进行递推。这样就需要对行号`i`进行逆序遍历，而对列号`j`进行顺序遍历，如下图所示。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/7TGQF2x.png" width="50%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/palindromic-substrings/)：
+
+```python
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        N = len(s)
+        res = 0
+
+        dp = [[0 for j in range(N)] for i in range(N)]
+
+        for i in range(N-1, -1, -1):
+            for j in range(i, N):
+                if s[i] == s[j]:
+                    if j - i <= 1:
+                        dp[i][j] = 1
+                        res += 1
+                    elif dp[i+1][j-1]:
+                        dp[i][j] = 1
+                        res += 1
+        
+        return res
+```
+{: .snippet}
+
 ## Reference
 
 - [动态规划理论基础](https://www.bilibili.com/video/BV13Q4y197Wg/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
@@ -2800,3 +2881,4 @@ class Solution:
 - [LeetCode：115.不同的子序列](https://www.bilibili.com/video/BV1fG4y1m75Q/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：583.两个字符串的删除操作](https://www.bilibili.com/video/BV1we4y157wB/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：72.编辑距离](https://www.bilibili.com/video/BV1qv4y1q78f/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：647.回文子串](https://www.bilibili.com/video/BV17G4y1y7z9/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
