@@ -2796,11 +2796,11 @@ class Solution:
 
 这样我们可以建立一个二维数组`dp[][]`，`dp[i][j]`表示以`s[i]`开始`s[j]`结尾的字符串是否是一个回文字符串。根据`s[i]`和`s[j]`的关系有两种情况：
 
-- `s[i] != s[j]`时无法组成回文字符串，跳过
-- `s[i] == s[j]`时需要进一步考虑`i`和`j`的关系：
+- `s[i] == s[j]`时需要考虑`i`和`j`的关系：
    1. `i == j`时字符串只包含一个字符，此时一定是一个回文字符串，`dp[i][j] = 1`
    2. `i+1 == j`时字符串包含两个字符，此时一定是一个回文字符串，`dp[i][j] = 1`
    3. `i+1 < j`时字符串包含至少三个字符，此时需要进一步判断里侧字符串是否是一个回文字符串，`dp[i][j] = dp[i+1][j-1]`
+- `s[i] != s[j]`时无法组成回文字符串，跳过
 
 总结一下可以得到递推公式：
 
@@ -2837,6 +2837,133 @@ class Solution:
                         res += 1
         
         return res
+```
+{: .snippet}
+
+### 5. 最长回文子串
+
+给你一个字符串`s`，找到`s`中最长的回文子串。
+
+如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。
+
+**示例1：**
+
+```
+输入：s = "babad"
+输出："bab"
+解释："aba" 同样是符合题意的答案。
+```
+
+**示例2：**
+
+```
+输入：s = "cbbd"
+输出："bb"
+```
+
+**提示：**
+
+- 1 <= `s.length` <= 1000
+- `s`仅由数字和英文字母组成
+
+#### Solution
+
+本题的整体思路类似于[回文子串](/leetcode/2023-03-13-DynamicProgramming.html#647-回文子串)，我们只需要在遍历中记录下最长回文子串的长度及起点终点位置即可。
+
+[题目链接](https://leetcode.cn/problems/longest-palindromic-substring/)：
+
+```python
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        N = len(s)
+
+        dp = [[0 for j in range(N)] for i in range(N)]
+        res = 0
+        ii = jj = 0
+
+        for i in range(N-1, -1, -1):
+            for j in range(i, N):
+                if s[i] == s[j]:
+                    if j - i <= 1:
+                        dp[i][j] = 1
+                    else:
+                        dp[i][j] = dp[i+1][j-1]
+                
+                    if dp[i][j] and j-i+1 > res:
+                        res = j-i+1
+                        ii = i
+                        jj = j
+
+        return s[ii:jj+1]
+```
+{: .snippet}
+
+### 516. 最长回文子序列
+
+给你一个字符串`s`，找出其中最长的回文子序列，并返回该序列的长度。
+
+子序列定义为：不改变剩余字符顺序的情况下，删除某些字符或者不删除任何字符形成的一个序列。
+
+**示例1：**
+
+```
+输入：s = "bbbab"
+输出：4
+解释：一个可能的最长回文子序列为 "bbbb" 。
+```
+
+**示例2：**
+
+```
+输入：s = "cbbd"
+输出：2
+解释：一个可能的最长回文子序列为 "bb" 。
+```
+
+**提示：**
+
+- 1 <= `s.length` <= 1000
+- `s`仅由小写英文字母组成
+
+#### Solution
+
+本题的整体思路类似于[回文子串](/leetcode/2023-03-13-DynamicProgramming.html#647-回文子串)，不过我们需要修改一下`dp[][]`数组的定义：`dp[i][j]`表示以`s[i]`开始`s[j]`结尾的字符串中最长回文子序列的长度。根据`s[i]`和`s[j]`的关系有两种情况：
+
+- `s[i] == s[j]`时子序列长度为`s[i+1]`开始`s[j-1]`结尾的字符串中最长回文子序列的长度加2，即`dp[i][j] = dp[i+1][j-1] + 2`
+- `s[i] != s[j]`时无法构成新的回文子序列，需要考虑已知的回文子序列长度，即`dp[i][j] = max(dp[i+1][j], dp[i][j-1])`
+
+总结一下可以得到递推公式：
+
+- `dp[i][j] = dp[i+1][j-1] + 2`，`s[i] == s[j]`
+- `dp[i][j] = max(dp[i+1][j], dp[i][j-1])`，`s[i] != s[j]`
+
+接下来考虑初始化。本题中我们可以把`dp[][]`数组都初始化为`0`并且把对角线元素都初始化为`1`，这表示每个单独的字符都可以组成一个回文子序列。
+
+而在遍历时则需要注意对`j`从`i+1`开始遍历。整个递推过程可以参考如下。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/OHvxOsk.png" width="60%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/longest-palindromic-subsequence/)：
+
+```python
+class Solution:
+    def longestPalindromeSubseq(self, s: str) -> int:
+        N = len(s)
+
+        dp = [[0 for j in range(N)] for i in range(N)]
+        for i in range(N):
+            dp[i][i] = 1
+
+        for i in range(N-1, -1, -1):
+            for j in range(i+1, N):
+                if s[i] == s[j]:
+                    dp[i][j] = dp[i+1][j-1] + 2
+                else:
+                    dp[i][j] = max(dp[i+1][j], dp[i][j-1])
+
+        return dp[0][-1]
 ```
 {: .snippet}
 
