@@ -2967,6 +2967,80 @@ class Solution:
 ```
 {: .snippet}
 
+### 132. 分割回文串 II
+
+给你一个字符串`s`，请你将`s`分割成一些子串，使每个子串都是回文。
+
+返回符合要求的**最少分割次数**。
+
+**示例1：**
+
+```
+输入：s = "aab"
+输出：1
+解释：只需一次分割就可将 s 分割成 ["aa","b"] 这样两个回文子串。
+```
+
+**示例2：**
+
+```
+输入：s = "a"
+输出：0
+```
+
+**示例3：**
+
+```
+输入：s = "ab"
+输出：1
+```
+
+**提示：**
+
+- 1 <= `s.length` <= 2000
+- `s`仅由小写英文字母组成
+
+#### Solution
+
+本题需要使用一个一维数组`dp[]`进行递推，`dp[i]`表示将字符串`s[:i+1]`分割为回文子串的最小分割次数。根据字符串`s[:i+1]`的形式有两种可能情况：
+
+- `s[:i+1]`本身是回文字符串则无需进行分割，`dp[i] = 0`
+- `s[:i+1]`不是回文字符串则至少需要额外进行一次分割。此时需要对`s[i]`前面的字符进行遍历，如果`s[j]`后面的字符串`s[j:i+1]`是回文字符串则是一个可行的分割方案，此时的分割次数为`dp[j-1]+1`。这表示我们利用`s[j]`将字符串分割为两部分，前一部分需要`dp[j-1]`次分割来获得回文字符串，而后一部分本身就是一个回文字符串。
+
+为了方便查询`s`的各个子串是否是回文字符串，我们可以使用[回文子串](/leetcode/2023-03-13-DynamicProgramming.html#647-回文子串)中介绍的方法，把子串是否是回文字符串的结果记录在一个`check[][]`数组中。整个算法流程可以参考如下。
+
+[题目链接](https://leetcode.cn/problems/palindrome-partitioning-ii/)：
+
+```python
+class Solution:
+    def minCut(self, s: str) -> int:
+        N = len(s)
+
+        ## check if substring is palindromic
+        check = [[0 for j in range(N)] for i in range(N)]
+
+        for i in range(N-1, -1, -1):
+            for j in range(i, N):
+                if s[i] == s[j]:
+                    if j-i <= 1:
+                        check[i][j] = 1
+                    elif check[i+1][j-1]:
+                        check[i][j] = 1
+
+        dp = [float("inf") for i in range(N)]
+
+        for i in range(N):
+            if check[0][i]:
+                dp[i] = 0
+            else:
+                for j in range(i):
+                    if check[j+1][i]:
+                        dp[i] = min(dp[i], dp[j]+1)
+        
+        return dp[-1]
+```
+{: .snippet}
+
 ## Reference
 
 - [动态规划理论基础](https://www.bilibili.com/video/BV13Q4y197Wg/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
@@ -3009,3 +3083,4 @@ class Solution:
 - [LeetCode：583.两个字符串的删除操作](https://www.bilibili.com/video/BV1we4y157wB/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：72.编辑距离](https://www.bilibili.com/video/BV1qv4y1q78f/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：647.回文子串](https://www.bilibili.com/video/BV17G4y1y7z9/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：516.最长回文子序列](https://www.bilibili.com/video/BV1d8411K7W6/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
