@@ -580,3 +580,5 @@ LeetCode:
         url: /leetcode/2023-03-10-Greedy.html
       - title: 动态规划
         url: /leetcode/2023-03-13-DynamicProgramming.html
+      - title: 单调栈
+        url: /leetcode/2023-03-26-MonotoneStack.html
