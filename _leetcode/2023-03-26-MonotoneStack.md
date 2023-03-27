@@ -148,9 +148,86 @@ class Solution:
 ```
 {: .snippet}
 
+当然本题也可以使用[每日温度](/leetcode/2023-03-26-MonotoneStack.html#739-每日温度)中的单调递增栈模板来进行处理，代码可参考如下。
+
+[题目链接](https://leetcode.cn/problems/next-greater-element-i/)：
+
+```python
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        N = len(nums2)
+
+        stack = []
+        ans = {}
+
+        for i in range(N):
+            while stack and nums2[i] > nums2[stack[-1]]:
+                idx = stack.pop()
+                ans[nums2[idx]] = nums2[i]
+            
+            stack.append(i)
+        
+        return [ans.get(num, -1) for num in nums1]
+```
+{: .snippet}
+
+### 503. 下一个更大元素 II
+
+给定一个循环数组`nums`(`nums[nums.length - 1]`的下一个元素是`nums[0]`)，返回`nums`中每个元素的**下一个更大元素**。
+
+数字`x`的**下一个更大的元素**是按数组遍历顺序，这个数字之后的第一个比它更大的数，这意味着你应该循环地搜索它的下一个更大的数。如果不存在，则输出`-1`。
+
+**示例1：**
+
+```
+输入: nums = [1,2,1]
+输出: [2,-1,2]
+解释: 第一个 1 的下一个更大的数是 2；
+数字 2 找不到下一个更大的数； 
+第二个 1 的下一个最大的数需要循环搜索，结果也是 2。
+```
+
+**示例2：**
+
+```
+输入: nums = [1,2,3,4,3]
+输出: [2,3,4,-1,4]
+```
+
+**提示：**
+
+- 1 <= `nums.length` <= 10⁴
+- -10⁹ <= nums[i] <= 10⁹
+
+#### Solution
+
+本题和[每日温度](/leetcode/2023-03-26-MonotoneStack.html#739-每日温度)以及[下一个更大元素 I](/leetcode/2023-03-26-MonotoneStack.html#496-下一个更大元素-i)的主要区别在于需要处理循环数组。而循环数组的处理方法非常简单，我们只需要对原始数组`nums`进行两次遍历即可。为了避免对数组进行复制，这里使用对编号`i`进行循环，而在索引元素时需要注意对`i`取余数`nums[i % N]`。
+
+[题目链接](https://leetcode.cn/problems/next-greater-element-ii/)：
+
+```python
+class Solution:
+    def nextGreaterElements(self, nums: List[int]) -> List[int]:
+        N = len(nums)
+
+        res = [-1 for i in range(N)]
+        stack = []
+
+        for i in range(N*2):
+            while stack and nums[i % N] > nums[stack[-1] % N]:
+                idx = stack.pop()
+                res[idx % N] = nums[i % N]
+            
+            stack.append(i)
+        
+        return res
+```
+{: .snippet}
+
 ## 单调递减栈
 
 ## Reference
 
 - [LeetCode：739.每日温度](https://www.bilibili.com/video/BV1my4y1Z7jj/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：496.下一个更大元素 I](https://www.bilibili.com/video/BV1jA411m7dX/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：503.下一个更大元素II](https://www.bilibili.com/video/BV15y4y1o7Dw/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
