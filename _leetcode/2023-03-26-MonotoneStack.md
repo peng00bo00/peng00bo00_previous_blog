@@ -224,6 +224,74 @@ class Solution:
 ```
 {: .snippet}
 
+### 42. 接雨水
+
+给定`n`个非负整数表示每个宽度为`1`的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rainwatertrap.png">
+</div>
+
+```
+输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]
+输出：6
+解释：上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。 
+```
+
+**示例2：**
+
+```
+输入：height = [4,2,0,3,2,5]
+输出：9
+```
+
+**提示：**
+
+- `n` == `height.length`
+- 1 <= `n` <= 2*10⁴
+- 0 <= `height[i]` <= 10⁵
+
+#### Solution
+
+本题是单调栈中较为复杂的问题。我们可以从每一行出发，对于每一行上的槽`mid`分别找到它左边和右边第一个比它高的柱子记为`left`和`right`。这个槽的长度为`w = right - left - 1`，而高度为`h = min(height[left], height[right]) - height[mid]`，这样能够接收的雨水量为`h * w`。我们把每一行上每个槽的雨水量加起来就得到了最大雨水量。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/Wx6DB0g.png" width="70%">
+</div>
+
+因此本题的难点在于如何得到每个位置上左边和右边第一个比它高的柱子。对于右边第一个比它高的柱子，我们只需要按照[每日温度](/leetcode/2023-03-26-MonotoneStack.html#739-每日温度)中的模板使用单调递增栈就可以得到；而左边第一个比它高的柱子实际上就是在栈中当前柱子的下一个元素。因此当我们从栈中`pop()`出`mid`后只需要检查此时栈是否为空，如果非空则栈口的第一个元素就是左边第一个比它高的柱子`left`，而当前需要入栈的编号`i`即为`right`。然后按照上面的算法计算出`h`和`w`并对所有位置上的`h * w`进行累加即可。
+
+[题目链接](https://leetcode.cn/problems/trapping-rain-water/)：
+
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        N = len(height)
+
+        stack = []
+        res = 0
+
+        for i in range(N):
+            while stack and height[i] > height[stack[-1]]:
+                mid = stack.pop()
+
+                if stack:
+                    left = stack[-1]
+                    right= i
+
+                    h = min(height[left], height[right]) - height[mid]
+                    w = right - left - 1
+
+                    res += h * w
+            
+            stack.append(i)
+
+        return res
+```
+{: .snippet}
+
 ## 单调递减栈
 
 ## Reference
@@ -231,3 +299,4 @@ class Solution:
 - [LeetCode：739.每日温度](https://www.bilibili.com/video/BV1my4y1Z7jj/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：496.下一个更大元素 I](https://www.bilibili.com/video/BV1jA411m7dX/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：503.下一个更大元素II](https://www.bilibili.com/video/BV15y4y1o7Dw/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：42.接雨水](https://www.bilibili.com/video/BV1uD4y1u75P/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
