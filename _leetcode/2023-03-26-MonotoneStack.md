@@ -294,9 +294,84 @@ class Solution:
 
 ## 单调递减栈
 
+### 84. 柱状图中最大的矩形
+
+给定`n`个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为`1`。
+
+求在该柱状图中，能够勾勒出来的矩形的最大面积。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/01/04/histogram.jpg">
+</div>
+
+```
+输入：heights = [2,1,5,6,2,3]
+输出：10
+解释：最大的矩形为图中红色区域，面积为 10
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/01/04/histogram-1.jpg">
+</div>
+
+```
+输入： heights = [2,4]
+输出： 4
+```
+
+**提示：**
+
+- 1 <= `height.length` <= 10⁵
+- 0 <= `height[i]` <= 10⁴
+
+#### Solution
+
+本题类似于[接雨水](/leetcode/2023-03-26-MonotoneStack.html#42-接雨水)。当我们让`heights`中的元素`mid`出栈时需要寻找到它左边和右边**第一个小于**`heights[mid]`的位置，分别记为`left`和`right`。因此本题中需要使用到**单调递减栈**，当元素`heights[i]`需要入栈时`i`即为`mid`右边第一个小于它的柱子编号`right`，而栈中`mid`后面的下一个元素即为左边第一个小于它的柱子编号`left`。这样包含`mid`最大矩形的高和宽分别为`h = heights[mid]`与`w = right - left - 1`，最大矩形面积为`h * w`，我们只需要对所有可能的最大矩形面积取最大值即可。
+
+除此之外我们还需要在遍历前对`heights`数组的首尾添加一个`0`，这样可以保证`heights`单调递增或递减时仍然能够找到`left`和`right`。整个算法可以参考如下。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/YkniR1O.png" width="70%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/largest-rectangle-in-histogram/)：
+
+```python
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        heights = [0] + heights + [0]
+        N = len(heights)
+
+        stack = []
+        res = 0
+
+        for i in range(N):
+            while stack and heights[i] < heights[stack[-1]]:
+                mid = stack.pop()
+
+                if stack:
+                    left = stack[-1]
+                    right= i
+
+                    h = heights[mid]
+                    w = right - left - 1
+
+                    res = max(res, h*w)
+            
+            stack.append(i)
+
+        return res
+```
+{: .snippet}
+
 ## Reference
 
 - [LeetCode：739.每日温度](https://www.bilibili.com/video/BV1my4y1Z7jj/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：496.下一个更大元素 I](https://www.bilibili.com/video/BV1jA411m7dX/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：503.下一个更大元素II](https://www.bilibili.com/video/BV15y4y1o7Dw/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
 - [LeetCode：42.接雨水](https://www.bilibili.com/video/BV1uD4y1u75P/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
+- [LeetCode：84.柱状图中最大的矩形](https://www.bilibili.com/video/BV1Ns4y1o7uB/?spm_id_from=333.788&vd_source=7a2542c6c909b3ee1fab551277360826)
