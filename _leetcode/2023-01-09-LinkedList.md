@@ -863,7 +863,7 @@ class Solution:
 **提示：**
 
 - 链表中节点数目在范围`[1, 10⁵]`内
-- 0 <= Node.val <= 9
+- 0 <= `Node.val` <= 9
 
 #### Solution
 
@@ -920,7 +920,11 @@ class Solution:
 #         self.next = next
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        fast = slow = pre = head
+        if not head.next:
+            return True
+
+        fast = slow = head
+        pre = None
 
         while fast and fast.next:
             fast = fast.next.next
@@ -959,6 +963,144 @@ class Solution:
             head2 = head2.next
         
         return res
+```
+{: .snippet}
+
+### 143. 重排链表
+
+给定一个单链表`L`的头节点`head`，单链表`L`表示为：
+
+```
+L₀ → L₁ → … → Lₙ₋₁ → Lₙ
+```
+
+请将其重新排列后变为：
+
+```
+L₀ → Lₙ → L₁ → Lₙ₋₁ → L₂ → Lₙ₋₂ → …
+```
+
+不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+
+**示例1：**
+
+```
+输入：head = [1,2,3,4]
+输出：[1,4,2,3]
+```
+
+**示例2：**
+
+```
+输入：head = [1,2,3,4,5]
+输出：[1,5,2,4,3]
+```
+
+**提示：**
+
+- 链表的长度范围为`[1, 5 * 10⁴]`
+- 1 <= `node.val` <= 1000
+
+#### Solution
+
+本题的整体思路类似于[回文链表](/leetcode/2023-01-09-LinkedList.html#234-回文链表)。如果允许使用额外的存储空间则可以利用一个双向队列来记录链表中的所有节点，然后重新组装即可。
+
+[题目链接](https://leetcode.cn/problems/reorder-list/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reorderList(self, head: Optional[ListNode]) -> None:
+        """
+        Do not return anything, modify head in-place instead.
+        """
+
+        from collections import deque
+        queue = deque([])
+        node = head
+
+        while node:
+            queue.append(node)
+            node = node.next
+        
+        node = queue.popleft()
+
+        while queue:
+            node.next = queue.pop()
+            node = node.next
+
+            if queue:
+                node.next = queue.popleft()
+                node = node.next
+        
+        node.next = None
+```
+{: .snippet}
+
+如果要求只能用`O(1)`的存储空间则需要使用类似于[回文链表](/leetcode/2023-01-09-LinkedList.html#234-回文链表)的处理方法将链表的后半部分翻转再重新组装。整个算法包括以下3个步骤：
+
+1. 找到前半部分链表的尾节点
+2. 反转后半部分链表
+3. 重新组装两个链表
+
+[题目链接](https://leetcode.cn/problems/reorder-list/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reorderList(self, head: Optional[ListNode]) -> None:
+        """
+        Do not return anything, modify head in-place instead.
+        """
+        if not head.next:
+            return
+
+        fast = slow = head
+        pre = None
+
+        while fast and fast.next:
+            fast = fast.next.next
+            pre  = slow
+            slow = slow.next
+        
+        def reverse(head: Optional[ListNode]) -> Optional[ListNode]:
+            if not head or not head.next:
+                return head
+            
+            pre = None
+            cur = head
+
+            while cur:
+                tmp = cur
+                cur = cur.next
+
+                tmp.next = pre
+                pre = tmp
+
+            return pre
+        
+        pre.next = None
+        right = reverse(slow)
+        left = head
+
+        while left:
+            node1 = left
+            node2 = right
+
+            left = left.next
+            right= right.next
+
+            node1.next = node2
+            if left:
+                node2.next = left
 ```
 {: .snippet}
 
