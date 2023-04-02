@@ -44,9 +44,9 @@ sidebar:
 
 **提示：**
 
-- 列表中的节点数目在范围`[0, 10⁴]`内。
-- 1 <= `Node.val` <= 50。
-- 0 <= `val` <= 50。
+- 列表中的节点数目在范围`[0, 10⁴]`内
+- 1 <= `Node.val` <= 50
+- 0 <= `val` <= 50
 
 #### Solution
 
@@ -123,10 +123,10 @@ class Solution:
 
 **提示：**
 
-- 链表中结点的数目为`sz`。
-- 1 <= `sz` <= 30。
-- 0 <= `Node.val` <= 100。
-- 1 <= `n` <= `sz`。
+- 链表中结点的数目为`sz`
+- 1 <= `sz` <= 30
+- 0 <= `Node.val` <= 100
+- 1 <= `n` <= `sz`
 
 #### Solution
 
@@ -164,6 +164,89 @@ class Solution:
 ```
 {: .snippet}
 
+### 237. 删除链表中的节点
+
+有一个单链表的`head`，我们想删除它其中的一个节点`node`。
+
+给你一个需要删除的节点`node`。你将**无法访问**第一个节点`head`。
+
+链表的所有值都是**唯一的**，并且保证给定的节点`node`不是链表中的最后一个节点。
+
+删除给定的节点。注意，删除节点并不是指从内存中删除它。这里的意思是：
+
+- 给定节点的值不应该存在于链表中。
+- 链表中的节点数应该减少 1。
+- `node`前面的所有值顺序相同。
+- `node`后面的所有值顺序相同。
+
+**自定义测试：**
+
+- 对于输入，你应该提供整个链表`head`和要给出的节点`node`。`node`不应该是链表的最后一个节点，而应该是链表中的一个实际节点。
+- 我们将构建链表，并将节点传递给你的函数。
+- 输出将是调用你函数后的整个链表。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/09/01/node1.jpg">
+</div>
+
+```
+输入：head = [4,5,1,9], node = 5
+输出：[4,1,9]
+解释：指定链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -> 1 -> 9
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/09/01/node2.jpg">
+</div>
+
+```
+输入：head = [4,5,1,9], node = 1
+输出：[4,5,9]
+解释：指定链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -> 5 -> 9
+```
+
+**提示：**
+
+- 链表中节点的数目范围是`[2, 1000]`
+- -1000 <= `Node.val` <= 1000
+- 链表中每个节点的值都是**唯一**的
+- 需要删除的节点`node`是**链表中的节点**，且**不是末尾节点**
+
+#### Solution
+
+本题的解法非常简单。我们只需要将`node.next`的值赋给`node`，然后再令`node`指向`node.next.next`即可。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/mw3r37R.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/WqWSwHI.png" width="70%">
+<img src="https://images.weserv.nl/?url=i.imgur.com/8BSpSWr.png" width="70%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/delete-node-in-a-linked-list/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def deleteNode(self, node):
+        """
+        :type node: ListNode
+        :rtype: void Do not return anything, modify node in-place instead.
+        """
+
+        node.val = node.next.val
+        node.next = node.next.next
+```
+{: .snippet}
+
 ## 设计链表
 
 ### 707. 设计链表
@@ -192,9 +275,9 @@ linkedList.get(1);            //返回3
 
 **提示：**
 
-- 0 <= `index`, `val` <= 1000。
-- 请不要使用内置的 LinkedList 库。
-- `get`, `addAtHead`, `addAtTail`, `addAtIndex`和`deleteAtIndex`的操作次数不超过`2000`。
+- 0 <= `index`, `val` <= 1000
+- 请不要使用内置的 LinkedList 库
+- `get`, `addAtHead`, `addAtTail`, `addAtIndex`和`deleteAtIndex`的操作次数不超过`2000`
 
 #### Solution
 
@@ -297,8 +380,8 @@ class MyLinkedList:
 
 **提示：**
 
-- 链表中节点的数目范围是`[0, 5000]`。
-- -5000 <= `Node.val` <= 5000。
+- 链表中节点的数目范围是`[0, 5000]`
+- -5000 <= `Node.val` <= 5000
 
 #### Solution
 
@@ -358,7 +441,7 @@ class Solution:
 
 ### 24. 两两交换链表中的节点
 
-给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）。
+给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题(即，只能进行节点交换)。
 
 **示例1：**
 
@@ -502,12 +585,12 @@ class Solution:
 
 **提示：**
 
-- `listA`中节点数目为`m`。
-- `listB`中节点数目为`n`。
-- 0 <= `m`, `n` <= 3 * 10⁴。
-- 1 <= `Node.val` <= 10⁵。
-- 0 <= `skipA` <= `m`。
-- 0 <= `skipB` <= `n`。
+- `listA`中节点数目为`m`
+- `listB`中节点数目为`n`
+- 0 <= `m`, `n` <= 3 * 10⁴
+- 1 <= `Node.val` <= 10⁵
+- 0 <= `skipA` <= `m`
+- 0 <= `skipB` <= `n`
 - 如果`listA`和 `listB`没有交点，`intersectVal`为`0`
 - 如果`listA`和 `listB`有交点，`intersectVal` == `listA[skipA + 1]` == `listB[skipB + 1]`
 
@@ -592,9 +675,9 @@ class Solution:
 
 **提示：**
 
-- 链表中节点的数目范围在范围`[0, 10⁴]`内。
-- -10⁵ <= `Node.val` <= 10⁵。
-- `pos`的值为`-1`或者链表中的一个有效索引。
+- 链表中节点的数目范围在范围`[0, 10⁴]`内
+- -10⁵ <= `Node.val` <= 10⁵
+- `pos`的值为`-1`或者链表中的一个有效索引
 
 #### Solution
 
