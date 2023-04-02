@@ -247,6 +247,108 @@ class Solution:
 ```
 {: .snippet}
 
+## 合并链表
+
+### 21. 合并两个有序链表
+
+将两个升序链表合并为一个新的**升序**链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg">
+</div>
+
+```
+输入：l1 = [1,2,4], l2 = [1,3,4]
+输出：[1,1,2,3,4,4]
+```
+
+**示例2：**
+
+```
+输入：l1 = [], l2 = []
+输出：[]
+```
+
+**示例3：**
+
+```
+输入：l1 = [], l2 = [0]
+输出：[0]
+```
+
+**提示：**
+
+- 两个链表的节点数目范围是`[0, 50]`
+- -100 <= `Node.val` <= 100
+- `l1`和`l2`均按**非递减顺序**排列
+
+#### Solution
+
+本题的递归解法比较简单。我们只需要选择`list1`和`list2`中较小的那个头结点，然后将该节点连接到递归合并其它节点后的头结点即可。
+
+[题目链接](https://leetcode.cn/problems/merge-two-sorted-lists/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        if not list1:
+            return list2
+        else:
+            return list1
+        
+        if list1.val < list2.val:
+            list1.next = self.mergeTwoLists(list1.next, list2)
+            return list1
+        else:
+            list2.next = self.mergeTwoLists(list1, list2.next)
+            return list2
+```
+{: .snippet}
+
+本题的迭代解法与递归类似可参考如下。
+
+[题目链接](https://leetcode.cn/problems/merge-two-sorted-lists/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        virtual = ListNode()
+
+        head1 = list1
+        head2 = list2
+        node  = virtual
+
+        while head1 and head2:
+            if head1.val < head2.val:
+                node.next = head1
+                head1 = head1.next
+            else:
+                node.next = head2
+                head2 = head2.next
+            
+            node = node.next
+        
+        if head1:
+            node.next = head1
+        else:
+            node.next = head2
+
+        return virtual.next
+```
+{: .snippet}
+
 ## 设计链表
 
 ### 707. 设计链表
