@@ -834,6 +834,134 @@ class Solution:
 ```
 {: .snippet}
 
+### 234. 回文链表
+
+给你一个单链表的头节点`head`，请你判断该链表是否为回文链表。如果是，返回`true`；否则，返回`false`。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/03/03/pal1linked-list.jpg">
+</div>
+
+```
+输入：head = [1,2,2,1]
+输出：true
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/03/03/pal2linked-list.jpg">
+</div>
+
+```
+输入：head = [1,2]
+输出：false
+```
+
+**提示：**
+
+- 链表中节点数目在范围`[1, 10⁵]`内
+- 0 <= Node.val <= 9
+
+#### Solution
+
+本题的直接解法是将链表的所有值记录到一个列表`vals`中，然后判断`vals`是否是回文。这种解法的时间复杂度和空间复杂度都是`O(n)`。
+
+[题目链接](https://leetcode.cn/problems/palindrome-linked-list/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        vals = []
+        node = head
+
+        while node:
+            vals.append(node.val)
+            node = node.next
+        
+        i = 0
+        j = len(vals) - 1
+
+        while i < j:
+            if vals[i] != vals[j]:
+                return False
+            
+            i += 1
+            j -= 1
+        
+        return True
+```
+{: .snippet}
+
+如果要求只能用`O(1)`的空间复杂度来处理则需要使用到双指针。具体来说算法包括以下3个步骤：
+
+1. 找到前半部分链表的尾节点
+2. 反转后半部分链表
+3. 判断链表是否回文
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/UcgnaT5.png" width="80%">
+</div>
+
+[题目链接](https://leetcode.cn/problems/palindrome-linked-list/)：
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        fast = slow = pre = head
+
+        while fast and fast.next:
+            fast = fast.next.next
+            pre = slow
+            slow = slow.next
+        
+        mid = slow
+        pre.next = None
+
+        def reverse(head: Optional[ListNode])-> Optional[ListNode]:
+            if not head or not head.next:
+                return head
+            
+            pre = None
+            cur = head
+
+            while cur:
+                tmp = cur
+                cur = cur.next
+
+                tmp.next = pre
+                pre = tmp
+            
+            return pre
+        
+        head1 = head
+        head2 = reverse(mid)
+
+        res = True
+        while head1 and head2:
+            if head1.val != head2.val:
+                res = False
+                break
+            
+            head1 = head1.next
+            head2 = head2.next
+        
+        return res
+```
+{: .snippet}
+
 ## Reference
 
 - [链表理论基础](https://programmercarl.com/%E9%93%BE%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
