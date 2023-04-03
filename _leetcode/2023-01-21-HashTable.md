@@ -416,10 +416,12 @@ class Solution:
 
 **提示：**
 
-- 1 <= `nums1.length, nums2.length` <= 1000。
-- 0 <= `nums1[i], nums2[i]` <= 1000。
+- 1 <= `nums1.length, nums2.length` <= 1000
+- 0 <= `nums1[i], nums2[i]` <= 1000
 
 #### Solution
+
+本题只需要将两个数组转换为集合并计算它们的交集即可。
 
 [题目链接](https://leetcode.cn/problems/intersection-of-two-arrays/)：
 
@@ -430,6 +432,16 @@ class Solution:
         set2 = {num: 1 for num in nums2}
 
         return [num for num in set1 if num in set2]
+```
+{: .snippet}
+
+```python
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        set1 = set(nums1)
+        set2 = set(nums2)
+
+        return list(set1 & set2)
 ```
 {: .snippet}
 
