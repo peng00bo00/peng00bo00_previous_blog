@@ -236,12 +236,14 @@ class Solution:
 
 **提示：**
 
-- 2 <= `nums.length` <= 10⁴。
-- -10⁹ <= `nums[i]` <= 10⁹。
-- -10⁹ <= `target` <= 10⁹。
-- **只会存在一个有效答案**。
+- 2 <= `nums.length` <= 10⁴
+- -10⁹ <= `nums[i]` <= 10⁹
+- -10⁹ <= `target` <= 10⁹
+- **只会存在一个有效答案**
 
 #### Solution
+
+两数之和是哈希表的经典问题。本题中我们需要使用一个哈希表`records`对`nums`进行遍历，`records`的键值分别为`nums[idx]`和`idx`。这样在遍历时如果发现`target-nums[idx]`在`records`中则说明找到了和为`target`的一对数字，返回`[idx, records[target-nums[idx]]]`即可；否则继续遍历直至结束并返回`[]`。
 
 [题目链接](https://leetcode.cn/problems/two-sum/)：
 
