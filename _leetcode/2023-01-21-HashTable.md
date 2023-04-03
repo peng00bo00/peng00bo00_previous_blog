@@ -33,10 +33,12 @@ sidebar:
 
 **提示：**
 
-- 1 <= `s.length, t.length` <= 5 * 10⁴。
-- `s`和`t`仅包含小写字母。
+- 1 <= `s.length, t.length` <= 5 * 10⁴
+- `s`和`t`仅包含小写字母
 
 #### Solution
+
+本题的解法在于使用哈希表来统计`s`和`t`中字符出现的个数。如果两个哈希表完全相等则返回`True`，否则返回`False`。
 
 [题目链接](https://leetcode.cn/problems/valid-anagram/)：
 
@@ -55,17 +57,11 @@ class Solution:
         for char in t:
             t_dict[char] = t_dict.get(char, 0) + 1
         
-        for char in s_dict.keys():
-            if s_dict[char] != t_dict.get(char, 0):
-                return False
-        
-        for char in t_dict.keys():
-            if t_dict[char] != s_dict.get(char, 0):
-                return False
-
-        return True
+        return s_dict == t_dict
 ```
 {: .snippet}
+
+当然本题也可以使用[Counter](https://docs.python.org/3/library/collections.html#collections.Counter)类来进行处理。很多记数问题直接使用`Counter`类会更容易一些。
 
 ```python
 class Solution(object):
