@@ -61,7 +61,7 @@ class Solution:
 ```
 {: .snippet}
 
-当然本题也可以使用[Counter](https://docs.python.org/3/library/collections.html#collections.Counter)类来进行处理。很多记数问题直接使用`Counter`类会更容易一些。
+当然本题也可以使用python内置的[Counter](https://docs.python.org/3/library/collections.html#collections.Counter)类来进行处理。很多记数问题直接使用`Counter`类会更容易一些。
 
 ```python
 class Solution(object):
@@ -288,12 +288,12 @@ class Solution:
 
 **提示：**
 
-- `n` == `nums1.length`。
-- `n` == `nums2.length`。
-- `n` == `nums3.length`。
-- `n` == `nums4.length`。
-- 1 <= `n` <= 200。
-- -2²⁸ <= `nums1[i], nums2[i], nums3[i], nums4[i]` <= 2²⁸。
+- `n` == `nums1.length`
+- `n` == `nums2.length`
+- `n` == `nums3.length`
+- `n` == `nums4.length`
+- 1 <= `n` <= 200
+- -2²⁸ <= `nums1[i], nums2[i], nums3[i], nums4[i]` <= 2²⁸
 
 #### Solution
 
@@ -342,49 +342,56 @@ class Solution:
 
 **提示：**
 
-- 1 <= `words.length` <= 100。
-- 1 <= `words[i].length` <= 100。
-- `words[i]`由小写英文字母组成。
+- 1 <= `words.length` <= 100
+- 1 <= `words[i].length` <= 100
+- `words[i]`由小写英文字母组成
 
 #### Solution
+
+本题的解法在于使用哈希表来统计`words`中每个单词里每个字母出现的频率，然后对每个字母的频率取最小值来得到公共字符。得到字符后将它们按频率输出到`res`中即可。
 
 [题目链接](https://leetcode.cn/problems/find-common-characters/)：
 
 ```python
 class Solution:
     def commonChars(self, words: List[str]) -> List[str]:
-        minfreq = [float("inf")] * 26
-        for word in words:
-            freq = [0] * 26
-            for ch in word:
-                freq[ord(ch) - ord("a")] += 1
-            for i in range(26):
-                minfreq[i] = min(minfreq[i], freq[i])
-        
-        ans = list()
-        for i in range(26):
-            ans.extend([chr(i + ord("a"))] * minfreq[i])
+        minFreq = [float("inf") for i in range(26)]
 
-        return ans
+        for word in words:
+            freq = [0 for i in range(26)]
+
+            for char in word:
+                freq[ord(char) - ord('a')] += 1
+            
+            for i in range(26):
+                minFreq[i] = min(minFreq[i], freq[i])
+        
+        res = []
+        for i in range(26):
+            for _ in range(minFreq[i]):
+                res.append(chr(ord('a')+i))
+
+        return res
 ```
 {: .snippet}
+
+本题同样可以使用python内置的[Counter](https://docs.python.org/3/library/collections.html#collections.Counter)类来进行处理。使用字符串`word`来初始化时会统计`word`中字符出现的个数，然后需要使用`Counter`类的**交集**运算符`&`对每个单词进行遍历从而得到公共字符。最后按照公共字符的频率进行输出即可。
 
 ```python
 class Solution:
     def commonChars(self, words: List[str]) -> List[str]:
-        tmp = collections.Counter(words[0])
-        l = []
-        for i in range(1,len(words)):
-            # 使用 & 取交集
-            tmp = tmp & collections.Counter(words[i])
+        from collections import Counter
 
-        # 剩下的就是每个单词都出现的字符（键），个数（值）
-        for j in tmp:
-            v = tmp[j]
-            while(v):
-                l.append(j)
-                v -= 1
-        return l
+        freq = Counter(words[0])
+        for word in words:
+            freq = freq & Counter(word)
+        
+        res = []
+        for k, v in freq.items():
+            for _ in range(v):
+                res.append(k)
+
+        return res
 ```
 {: .snippet}
 
