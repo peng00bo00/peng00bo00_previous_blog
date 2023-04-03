@@ -481,6 +481,8 @@ class Solution:
 
 #### Solution
 
+本题只需要分别统计`ransomNote`和`magazine`中字符出现的频率，然后判断`ransomNote`中的频率是否都大于等于`magazine`中字符的频率即可。
+
 [题目链接](https://leetcode.cn/problems/ransom-note/)：
 
 ```python
@@ -502,17 +504,19 @@ class Solution:
 ```
 {: .snippet}
 
+除此之外本题同样可以使用python内置的[Counter](https://docs.python.org/3/library/collections.html#collections.Counter)类来进行处理。这里需要使用到`Counter`类的**差集**运算符`-`，它会对两个`Counter`对象具有相同键的值作差并只保留正数部分。因此我们只需要判断`rCount - mCount`的长度是否为`0`即可。
+
+[题目链接](https://leetcode.cn/problems/ransom-note/)：
+
 ```python
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        c1 = collections.Counter(ransomNote)
-        c2 = collections.Counter(magazine)
-        x = c1 - c2
+        from collections import Counter
+
+        rCount = Counter(ransomNote)
+        mCount = Counter(magazine)
         
-        if(len(x)==0):
-            return True
-        else:
-            return False
+        return len(rCount - mCount) == 0
 ```
 {: .snippet}
 
