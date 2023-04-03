@@ -170,33 +170,37 @@ class Solution:
 
 **提示：**
 
-- 1 <= `n` <= 2³¹ - 1。
+- 1 <= `n` <= 2³¹ - 1
 
 #### Solution
+
+本题的难点在于如何考虑无限循环的问题。为了方便判断我们需要使用一个[集合](https://docs.python.org/3.9/library/stdtypes.html#set-types-set-frozenset)`nums`来存储已经收集到的结果，如果数字`n`出现在`nums`中则说明发生了循环直接返回`False`；否则按照题目公式生成下一个数字直到它等于`1`并返回`True`。
 
 [题目链接](https://leetcode.cn/problems/happy-number/)：
 
 ```python
 class Solution:
     def isHappy(self, n: int) -> bool:
-        def nextHappy(x):
-            xx = 0
-            while x > 0:
-                xx += (x % 10)**2
-                x = x // 10
-            
-            return xx
+
+        def nextHappy(n: int) -> int:
+            res = 0
+
+            while n:
+                res += (n % 10) * (n % 10)
+                n = n // 10
+
+            return res
         
-        record = {}
-        while True:
+        nums = set()
+
+        while n != 1:
+            if n in nums:
+                return False
+            
+            nums.add(n)
             n = nextHappy(n)
 
-            if n == 1:
-                return True
-            
-            record[n] = record.get(n, 0) + 1
-            if record[n] > 1:
-                return False
+        return True
 ```
 {: .snippet}
 
