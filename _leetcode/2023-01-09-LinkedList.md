@@ -378,77 +378,245 @@ linkedList.get(1);            //返回3
 **提示：**
 
 - 0 <= `index`, `val` <= 1000
-- 请不要使用内置的 LinkedList 库
+- 请不要使用内置的LinkedList库
 - `get`, `addAtHead`, `addAtTail`, `addAtIndex`和`deleteAtIndex`的操作次数不超过`2000`
 
 #### Solution
 
+本题综合考量了对链表的各种基本操作。在实现各个方法时首先要定义链表节点类`Node`如下：
+
+```python
+class Node:
+    def __init__(self, val, next=None):
+        self.val = val
+        self.next= next
+```
+
+然后在初始化中定义两个属性`self.virtual`和`self.size`分别作为虚拟头节点以及链表大小的记数：
+
+```python
+class MyLinkedList:
+    def __init__(self):
+        self.virtual = Node(0)
+        self.size = 0
+```
+
+接下来开始实现所需的各个方法，首先是`get()`用来获取编号为`index`的节点值。当`index`是有效的编号时我们用指针`node`指向头结点`self.virtual.next`，然后令其前进`index`步就指向了编号为`index`的节点，最后返回`node.val`即可。
+
+```python
+    def get(self, index: int) -> int:
+        if index >= self.size:
+            return -1
+        
+        node = self.virtual.next
+
+        for i in range(index):
+            node = node.next
+        
+        return node.val
+```
+
+然后是`addAtHead()`方法。我们只需要在虚拟头节点`self.virtual`后添加一个新节点，并把原来的头结点`self.virtual.next`连接到新节点上即可，当然最后还要令记数`self.size += 1`。
+
+```python
+    def addAtHead(self, val: int) -> None:
+        node = Node(val, next=self.virtual.next)
+        self.virtual.next = node
+
+        self.size += 1
+```
+
+`addAtTail()`方法与`addAtHead()`类似。我们首先需要通过遍历来找到尾结点，然后把新节点连到尾结点并令记数`self.size += 1`即可。
+
+```python
+    def addAtTail(self, val: int) -> None:
+        node = self.virtual
+
+        for i in range(self.size):
+            node = node.next
+        
+        node.next = Node(val)
+
+        self.size += 1
+```
+
+`addAtIndex()`要相对复杂一些。我们首先需要判断`index`的合法性：如果`index`不合法则直接返回，否则需要通过遍历找到编号为`index`的节点位置。这里使用指针`pre`指向虚拟头节点`self.virtual`，然后令其移动`index`步。此时`pre`指向了编号为`index`的节点的前一个节点，然后添加新节点并把`pre.next`连接到新节点上即可。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/fcUoVO0.png" width="70%">
+</div>
+
+```python
+    def addAtIndex(self, index: int, val: int) -> None:
+        if index > self.size:
+            return
+        
+        pre = self.virtual
+
+        for i in range(index):
+            pre = pre.next
+        
+        node = Node(val, pre.next)
+        pre.next = node
+
+        self.size += 1
+```
+
+最后来考虑`deleteAtIndex()`，它与`addAtIndex()`基本一致。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/9oQYybE.png" width="70%">
+</div>
+
+```python
+    def deleteAtIndex(self, index: int) -> None:
+        if index >= self.size:
+            return
+        
+        pre = self.virtual
+
+        for i in range(index):
+            pre = pre.next
+        
+        pre.next = pre.next.next
+        
+        self.size -= 1
+```
+
 [题目链接](https://leetcode.cn/problems/design-linked-list/)：
 
 ```python
-class Node(object):
-    def __init__(self, val=0, next=None):
+class Node:
+    def __init__(self, val, next=None):
         self.val = val
-        self.next = next
+        self.next= next
 
 class MyLinkedList:
-
     def __init__(self):
-        self.head = Node(-1)
+        self.virtual = Node(0)
         self.size = 0
 
     def get(self, index: int) -> int:
-        if index < 0 or index >= self.size:
+        if index >= self.size:
             return -1
         
-        dummy = self.head.next
+        node = self.virtual.next
 
-        for _ in range(index):
-            dummy = dummy.next
-
-        return dummy.val
+        for i in range(index):
+            node = node.next
+        
+        return node.val
 
     def addAtHead(self, val: int) -> None:
-        node = Node(val, self.head.next)
-        self.head.next = node
+        node = Node(val, next=self.virtual.next)
+        self.virtual.next = node
+
         self.size += 1
 
     def addAtTail(self, val: int) -> None:
-        dummy = self.head
-        for _ in range(self.size):
-            dummy = dummy.next
+        node = self.virtual
+
+        for i in range(self.size):
+            node = node.next
         
-        dummy.next = Node(val)
+        node.next = Node(val)
 
         self.size += 1
 
     def addAtIndex(self, index: int, val: int) -> None:
-        if index < 0:
-            return self.addAtHead(val)
-        elif index == self.size:
-            return self.addAtTail(val)
-        elif index > self.size:
+        if index > self.size:
             return
         
-        dummy = self.head
-        for _ in range(index):
-            dummy = dummy.next
+        pre = self.virtual
+
+        for i in range(index):
+            pre = pre.next
         
-        node = Node(val, dummy.next)
-        dummy.next = node
+        node = Node(val, pre.next)
+        pre.next = node
 
         self.size += 1
 
     def deleteAtIndex(self, index: int) -> None:
-        if index < 0 or index >= self.size:
+        if index >= self.size:
             return
         
-        dummy = self.head
-        for _ in range(index):
-            dummy = dummy.next
-        
-        dummy.next = dummy.next.next
+        pre = self.virtual
 
+        for i in range(index):
+            pre = pre.next
+        
+        pre.next = pre.next.next
+        
+        self.size -= 1
+```
+{: .snippet}
+
+除了上面介绍过的实现方法外，添加节点的相关函数中我们可以先实现`addAtIndex()`方法然后在它的基础上来实现`addAtHead()`和`addAtTail()`。这样的形式可以更好地复用已有代码，适合大型项目的开发。
+
+```python
+    def addAtHead(self, val: int) -> None:
+        return self.addAtIndex(0, val)
+
+    def addAtTail(self, val: int) -> None:
+        return self.addAtIndex(self.size, val)
+```
+
+[题目链接](https://leetcode.cn/problems/design-linked-list/)：
+
+```python
+class Node:
+    def __init__(self, val, next=None):
+        self.val = val
+        self.next= next
+
+class MyLinkedList:
+    def __init__(self):
+        self.virtual = Node(0)
+        self.size = 0
+
+    def get(self, index: int) -> int:
+        if index >= self.size:
+            return -1
+        
+        node = self.virtual.next
+
+        for i in range(index):
+            node = node.next
+        
+        return node.val
+
+    def addAtHead(self, val: int) -> None:
+        return self.addAtIndex(0, val)
+
+    def addAtTail(self, val: int) -> None:
+        return self.addAtIndex(self.size, val)
+
+    def addAtIndex(self, index: int, val: int) -> None:
+        if index > self.size:
+            return
+        
+        pre = self.virtual
+
+        for i in range(index):
+            pre = pre.next
+        
+        node = Node(val, pre.next)
+        pre.next = node
+
+        self.size += 1
+
+    def deleteAtIndex(self, index: int) -> None:
+        if index >= self.size:
+            return
+        
+        pre = self.virtual
+
+        for i in range(index):
+            pre = pre.next
+        
+        pre.next = pre.next.next
+        
         self.size -= 1
 ```
 {: .snippet}
