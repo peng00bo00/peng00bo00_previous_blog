@@ -297,6 +297,8 @@ class Solution:
 
 #### Solution
 
+本题中我们可以把四个数组分为`nums1`和`nums2`以及`nums3`和`nums4`两组。首先对`nums1`和`nums2`进行遍历，使用一个哈希表`ret`记录所有可能的数字之和`nums1[i]+nums2[j]`及其出现的次数。然后对`nums3`和`nums4`进行遍历，如果`-(nums3[k]+nums4[l])`出现在`ret`中则说明出现了满足和为0的元组，令`count += ret[-(nums3[k]+nums4[l])]`，最后返回`res`即可。
+
 [题目链接](https://leetcode.cn/problems/4sum-ii/)：
 
 ```python
