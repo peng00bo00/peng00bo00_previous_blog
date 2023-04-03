@@ -106,31 +106,30 @@ class Solution(object):
 
 **提示：**
 
-- 1 <= `s.length` <= 5 * 10⁴。
+- 1 <= `s.length` <= 5 * 10⁴
 - `t.length` == `s.length`
-- `s`和`t`由任意有效的ASCII字符组成。
+- `s`和`t`由任意有效的ASCII字符组成
 
 #### Solution
+
+本题的解法在于使用两个哈希表`s2t`和`t2s`分别表示`s`到`t`和`t`到`s`之间的映射。如果这两个映射都是一一映射(双射)则返回`True`，否则返回`False`。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=i.imgur.com/3sf3khi.png" width="80%">
+</div>
 
 [题目链接](https://leetcode.cn/problems/isomorphic-strings/)：
 
 ```python
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        s2t = {}
-        t2s = {}
-        
-        for schar, tchar in zip(s, t):
-            if schar not in s2t:
-                s2t[schar] = tchar
-
-                if tchar in t2s and t2s[tchar] != schar:
-                    return False
-                else:
-                    t2s[tchar] = schar
-
-            elif s2t[schar] != tchar:
+        s2t, t2s = {}, {}
+        for ss, tt in zip(s, t):
+            if (ss in s2t and s2t[ss] != tt) or \
+               (tt in t2s and t2s[tt] != ss):
                 return False
+            
+            s2t[ss], t2s[tt] = tt, ss
 
         return True
 ```
