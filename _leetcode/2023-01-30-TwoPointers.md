@@ -73,9 +73,9 @@ class Solution:
     def replaceSpace(self, s: str) -> str:
         N = len(s)
 
-        for i, char in enumerate(s[::-1]):
-            if char == " ":
-                s = s[:N-(i+1)] + "%20" + s[N-i:]
+        for i in range(N-1, -1, -1):
+            if s[i] == " ":
+                s = s[:i] + "%20" + s[i+1:]
         
         return s
 ```
@@ -92,63 +92,60 @@ class Solution:
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
-        def removeSpace(s_list: List[str]) -> List[str]:
-            left, right = 0, len(s_list)-1
+        def removeExtraSpace(s: List[str]) -> List[str]:
+            left, right = 0, len(s)-1
 
-            while s_list[left] == " ":
+            while s[left] == " ":
                 left += 1
             
-            while s_list[right] == " ":
+            while s[right] == " ":
                 right -= 1
             
-            ret = []
+            res = []
 
             while left <= right:
-                if s_list[left] != " ":
-                    ret.append(s_list[left])
+                if s[left] != " ":
+                    res.append(s[left])
                     left += 1
                 else:
-                    while s_list[left] == " ":
+                    while s[left] == " ":
                         left += 1
 
-                    ret.append(" ")
+                    res.append(" ")
 
-            return ret
+            return res
         
-        def reverse(s_list: List[str]) -> List[str]:
-            left, right = 0, len(s_list)-1
-
+        def reverse(s: List[str], left: int, right: int) -> List[str]:
             while left < right:
-                s_list[left], s_list[right] = s_list[right], s_list[left]
+                s[left], s[right] = s[right], s[left]
 
                 left += 1
                 right-= 1
+            
+            return s
+        
+        ss = list(s)
+        
+        ## remove extra space
+        ss = removeExtraSpace(ss)
 
-            return s_list
+        ## reverse whole list
+        ss = reverse(ss, 0, len(ss)-1)
 
-        s_list = list(s)
-
-        ## remove extra spaces
-        s_list = removeSpace(s_list)
-
-        ## reverse the whole string
-        s_list = reverse(s_list)
+        ## add an additional " " in the end
+        ss.append(" ")
 
         ## reverse each word
-        fast, slow = 0, 0
-        s_list.append(" ")
+        left = right = 0
+        for right in range(len(ss)):
+            if ss[right] == " ":
+                ss = reverse(ss, left, right)
+                left = right + 1
+        
+        ## remove the additional " " in the beginning
+        ss = ss[1:]
 
-        for fast in range(len(s_list)):
-            if s_list[fast] != " ":
-                continue
-            
-            s_list[slow: fast] = reverse(s_list[slow: fast])
-
-            slow = fast+1
-
-        s_list.pop()
-
-        return "".join(s_list)
+        return "".join(ss)
 ```
 {: .snippet}
 
