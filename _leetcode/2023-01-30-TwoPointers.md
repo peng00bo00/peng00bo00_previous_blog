@@ -322,39 +322,63 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
 
 #### Solution
 
+三数之和是经典的双指针问题，我们的目标是找到`nums`中不重复的三元组`(nums[i], nums[j], nums[k])`使得它们的和为`0`。由于题目要求是不重复的三元组，我们可以先对`nums`进行排序从而方便去重操作。
+
+本题的基本思路是使用`k`指针对排序后的`nums`进行遍历，然后对`nums[k]`之后的数组使用双指针`i`和`j`进行搜素。根据`nums[k]`的值我们有三种可能的情况：
+
+1. 如果`nums[k] > 0`则说明它后面的元素也都大于`0`，此时无法构造出和为`0`的三元组因此可以直接结束循环
+2. 如果`nums[k] == nums[k-1]`则说明遇到了重复的元素，此时向右一定`k`指针继续循环
+3. 在其它的情况下需要使用`i`和`j`两个指针对`nums[k]`之后的数组进行搜索
+
+对于需要使用双指针进行搜索的情况，我们令两个指针分别指向后面数组的头和尾，`i = k+1`以及`j = N-1`。此时三个指针分别指向了`nums`数组的不同元素，我们固定`k`指针来分情况讨论：
+
+1. 如果`nums[i] + nums[j] + nums[k] > 0`则需要向左移动`j`指针使得三元组的和变小
+2. 如果`nums[i] + nums[j] + nums[k] < 0`则需要向右移动`i`指针使得三元组的和变大
+3. 如果`nums[i] + nums[j] + nums[k] == 0`则说明找到了满足要求的一个三元组，将它添加到`res`中并向右向左移动`i`和`j`指针
+
+对于`nums[i] + nums[j] + nums[k] == 0`的情况我们还需要考虑去重。如果发现`nums[i] == nums[i+1]`则需要一直向右移动`i`指针直到它们不相等；类似地，如果发现`nums[j] == nums[j-1]`则需要一直向左移动`j`指针直到它们不相等。
+
+整个算法的时间复杂度为`O(N²)`，代码可参考如下。
+
 [题目链接](https://leetcode.cn/problems/3sum/)：
 
 ```python
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        nums, res = sorted(nums), []
+        nums = sorted(nums)
+        res  = []
+
         N = len(nums)
 
-        for i in range(N-2):
-            if nums[i] > 0:
+        for k in range(N-2):
+            if nums[k] > 0:
                 break
             
-            if i > 0 and nums[i] == nums[i-1]:
+            if k > 0 and nums[k] == nums[k-1]:
                 continue
+            
+            i = k+1
+            j = N-1
 
-            left, right = i+1, N-1
-            while left < right:
-                if nums[i] + nums[left] + nums[right] < 0:
-                    left += 1
-                elif nums[i] + nums[left] + nums[right] > 0:
-                    right -= 1
-                else:
-                    res.append([nums[i], nums[left], nums[right]])
+            while i < j:
+                s = nums[i] + nums[j]
+                if s == -nums[k]:
+                    res.append([nums[k], nums[i], nums[j]])
 
-                    while left < right and nums[left] == nums[left+1]:
-                        left += 1
+                    while i < j and nums[i] == nums[i+1]:
+                        i += 1
+
+                    while j > i and nums[j] == nums[j-1]:
+                        j -= 1
                     
-                    while right > left and nums[right] == nums[right-1]:
-                        right -= 1
-
-                    left += 1
-                    right -= 1
-
+                    i += 1
+                    j -= 1
+                
+                elif s < -nums[k]:
+                    i += 1
+                else:
+                    j -= 1
+        
         return res
 ```
 {: .snippet}
