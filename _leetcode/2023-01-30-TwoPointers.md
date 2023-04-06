@@ -415,6 +415,8 @@ class Solution:
 
 #### Solution
 
+本题的解法与[三数之和](/leetcode/2023-01-30-TwoPointers.html#15-三数之和)几乎一致，我们需要对`nums`进行排序然后固定`a`和`b`两个指针并且使用`c`和`d`两个指针对后面的数组进行搜索。
+
 [题目链接](https://leetcode.cn/problems/4sum/)：
 
 ```python
@@ -422,36 +424,39 @@ class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
         nums = sorted(nums)
         res = []
+
         N = len(nums)
 
-        for i in range(N-3):            
-            if i > 0 and nums[i] == nums[i-1]:
+        for a in range(N-3):
+            if a > 0 and nums[a] == nums[a-1]:
                 continue
             
-            for j in range(i+1, N-2):
-                if j > i+1 and nums[j] == nums[j-1]:
+            for b in range(a+1, N-2):
+                if b > a+1 and nums[b] == nums[b-1]:
                     continue
                 
-                p = j+1
-                q = N-1
+                c = b+1
+                d = N-1
 
-                while p < q:
-                    if nums[i] + nums[j] + nums[p] + nums[q] < target:
-                        p += 1
-                    elif nums[i] + nums[j] + nums[p] + nums[q] > target:
-                        q -= 1
-                    else:
-                        res.append([nums[i], nums[j], nums[p], nums[q]])
+                while c < d:
+                    s = nums[a] + nums[b] + nums[c] + nums[d]
+                    if s == target:
+                        res.append([nums[a], nums[b], nums[c], nums[d]])
 
-                        while p < q and nums[p] == nums[p+1]:
-                            p += 1
+                        while c < d and nums[c] == nums[c+1]:
+                            c += 1
                         
-                        while p < q and nums[q] == nums[q-1]:
-                            q -= 1
+                        while d > c and nums[d] == nums[d-1]:
+                            d -= 1
+                        
+                        c += 1
+                        d -= 1
 
-                        p += 1
-                        q -= 1
-        
+                    elif s > target:
+                        d -= 1
+                    else:
+                        c += 1
+
         return res
 ```
 {: .snippet}
