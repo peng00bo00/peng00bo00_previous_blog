@@ -468,16 +468,15 @@ class Solution:
 #         self.right = right
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-
-        def check(T1: Optional[TreeNode], T2: Optional[TreeNode]) -> bool:
+        def compare(T1: Optional[TreeNode], T2: Optional[TreeNode]) -> bool:
             if (not T1) and (not T2):
                 return True
             elif (not T1) or (not T2) or (T1.val != T2.val):
                 return False
             
-            return check(T1.left, T2.right) and check(T1.right, T2.left)
+            return compare(T1.left, T2.right) and compare(T1.right, T2.left)
         
-        return check(root.left, root.right)
+        return compare(root.left, root.right)
 ```
 {: .snippet}
 
@@ -686,13 +685,9 @@ class Solution:
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         def compare(T1: Optional[TreeNode], T2: Optional[TreeNode]) -> bool:
-            if not T1 and not T2:
+            if (not T1) and (not T2):
                 return True
-            elif T1 and not T2:
-                return False
-            elif not T1 and T2:
-                return False
-            elif T1.val != T2.val:
+            elif (not T1) or (not T2) or T1.val != T2.val:
                 return False
 
             return compare(T1.left, T2.left) and compare(T1.right, T2.right)
@@ -720,13 +715,9 @@ class Solution:
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         def compare(T1: Optional[TreeNode], T2: Optional[TreeNode]) -> bool:
-            if not T1 and not T2:
+            if (not T1) and (not T2):
                 return True
-            elif T1 and not T2:
-                return False
-            elif not T1 and T2:
-                return False
-            elif T1.val != T2.val:
+            elif (not T1) or (not T2) or T1.val != T2.val:
                 return False
 
             return compare(T1.left, T2.left) and compare(T1.right, T2.right)
@@ -737,6 +728,7 @@ class Solution:
 
         while queue:
             node = queue.popleft()
+
             if compare(node, subRoot):
                 return True
             elif node:
