@@ -1834,6 +1834,45 @@ class Solution:
 ```
 {: .snippet}
 
+本题还可以使用回溯模板来进行处理。
+
+[题目链接](https://leetcode.cn/problems/path-sum-ii/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+        if not root:
+            return []
+
+        res = []
+        path= [root]
+
+        def backtracking(root: Optional[TreeNode], targetSum: int) -> None:
+            nonlocal res, path
+
+            if (not root.left) and (not root.right):
+                if root.val == targetSum:
+                    res.append([node.val for node in path])
+                return
+            
+            for child in [root.left, root.right]:
+                if child:
+                    path.append(child)
+                    backtracking(child, targetSum-root.val)
+                    path.pop()
+        
+        backtracking(root, targetSum)
+
+        return res
+```
+{: .snippet}
+
 ### 129. 求根节点到叶节点数字之和
 
 给你一个二叉树的根节点`root`，树中每个节点都存放有一个`0`到`9`之间的数字。
