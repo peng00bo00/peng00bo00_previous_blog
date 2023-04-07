@@ -2014,7 +2014,6 @@ class Solution:
         backtracking(root, root.val)
 
         return res
-
 ```
 {: .snippet}
 
