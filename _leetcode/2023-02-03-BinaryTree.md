@@ -480,7 +480,7 @@ class Solution:
 ```
 {: .snippet}
 
-我们同样可以使用层序遍历的思想来处理这样的问题，此时队列中按照由外向内的顺序存储了每一层的一对节点。进行遍历时每次从队列取一对节点进行比较，并且按照由外向内的顺序把它们的子节点加入到队列中。整个比较过程可以参考如下：
+我们同样可以使用广度优先搜索的思想来处理这样的问题，此时队列中按照由外向内的顺序存储了每一层的一对节点。进行遍历时每次从队列取一对节点进行比较，并且按照由外向内的顺序把它们的子节点加入到队列中。整个比较过程可以参考如下：
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/UO7P6jh.gif">
@@ -520,7 +520,7 @@ class Solution:
 ```
 {: .snippet}
 
-除此之外也可以使用层次遍历来进行处理，此时只需要考虑每一层是否对称即可。
+除此之外也可以使用[层序遍历](/leetcode/2023-02-03-BinaryTree.html#102-二叉树的层序遍历)来进行处理，此时只需要考虑每一层是否对称即可。
 
 [题目链接](https://leetcode.cn/problems/symmetric-tree/)：
 
@@ -1351,6 +1351,41 @@ class Solution:
             if node.left:
                 stack.append(node.left)
                 path_st.append(path + "->" + str(node.left.val))
+
+        return res
+```
+{: .snippet}
+
+本题还可以使用回溯模板来进行处理。
+
+[题目链接](https://leetcode.cn/problems/binary-tree-paths/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
+        res = []
+        path= [root]
+
+        def backtracking(root: Optional[TreeNode]) -> None:
+            nonlocal res, path
+
+            if (not root.left) and (not root.right):
+                res.append("->".join([str(node.val) for node in path]))
+                return
+            
+            for child in [root.left, root.right]:
+                if child:
+                    path.append(child)
+                    backtracking(child)
+                    path.pop()
+            
+        backtracking(root)
 
         return res
 ```
