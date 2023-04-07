@@ -468,26 +468,20 @@ class Solution:
 #         self.right = right
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        if not root:
-            return True
 
-        def compare(T1: Optional[TreeNode], T2: Optional[TreeNode]) -> bool:
-            if not T1 and not T2:
+        def check(T1: Optional[TreeNode], T2: Optional[TreeNode]) -> bool:
+            if (not T1) and (not T2):
                 return True
-            elif T1 and not T2:
-                return False
-            elif not T1 and T2:
-                return False
-            elif T1.val != T2.val:
+            elif (not T1) or (not T2) or (T1.val != T2.val):
                 return False
             
-            return compare(T1.left, T2.right) and compare(T1.right, T2.left)
+            return check(T1.left, T2.right) and check(T1.right, T2.left)
         
-        return compare(root.left, root.right)
+        return check(root.left, root.right)
 ```
 {: .snippet}
 
-我们同样可以使用迭代来处理这样的问题，整个比较过程可以如下：
+我们同样可以使用层序遍历的思想来处理这样的问题，此时队列中按照由外向内的顺序存储了每一层的一对节点。进行遍历时每次从队列取一对节点进行比较，并且按照由外向内的顺序把它们的子节点加入到队列中。整个比较过程可以参考如下：
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/UO7P6jh.gif">
@@ -504,24 +498,17 @@ class Solution:
 #         self.right = right
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        if not root:
-            return True
-        
         from collections import deque
-
+        
         queue = deque([root.left, root.right])
 
         while queue:
             node1 = queue.popleft()
             node2 = queue.popleft()
 
-            if not node1 and not node2:
+            if (not node1) and (not node2):
                 continue
-            elif node1 and not node2:
-                return False
-            elif not node1 and node2:
-                return False
-            elif node1.val != node2.val:
+            elif (not node1) or (not node2) or (node1.val != node2.val):
                 return False
             
             queue.append(node1.left)
@@ -529,7 +516,7 @@ class Solution:
 
             queue.append(node1.right)
             queue.append(node2.left)
-
+        
         return True
 ```
 {: .snippet}
