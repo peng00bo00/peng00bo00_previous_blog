@@ -1985,6 +1985,39 @@ class Solution:
 ```
 {: .snippet}
 
+本题还可以使用回溯模板来进行处理。
+
+[题目链接](https://leetcode.cn/problems/sum-root-to-leaf-numbers/)：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sumNumbers(self, root: Optional[TreeNode]) -> int:
+        res = 0
+
+        def backtracking(root: Optional[TreeNode], val: int) -> None:
+            nonlocal res
+
+            if (not root.left) and (not root.right):
+                res += val
+                return
+            
+            for child in [root.left, root.right]:
+                if child:
+                    backtracking(child, val*10+child.val)
+        
+        backtracking(root, root.val)
+
+        return res
+
+```
+{: .snippet}
+
 ## 修改与构造
 
 ### 226. 翻转二叉树
