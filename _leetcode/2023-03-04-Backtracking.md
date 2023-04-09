@@ -93,7 +93,7 @@ class Solution:
                 res.append(path[:])
                 return
             
-            for i in range(startIdx, n-(k-len(path))+2):
+            for i in range(startIdx, n+1):
                 path.append(i)
                 backtracking(i+1)
                 path.pop()
