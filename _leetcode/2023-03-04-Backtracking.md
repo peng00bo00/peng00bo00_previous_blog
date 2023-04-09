@@ -972,27 +972,23 @@ class Solution:
             return True
         
         ## column index to chessboard
-        def generateBoard(path: List[int]) -> List[str]:
-            sol = []
-            for i in path:
-                row = ""
-                for col in range(n):
-                    if col == i:
-                        row += "Q"
-                    else:
-                        row += "."
-                
-                sol.append(row)
+        def generateBoard() -> List[str]:
+            board = []
 
-            return sol
+            for idx in path:
+                row = ["." for _ in range(n)]
+                row[idx] = "Q"
+                board.append("".join(row))
+
+            return board
 
         def backtracking() -> None:
             if len(path) == n:
-                res.append(generateBoard(path))
+                res.append(generateBoard())
                 return
             
             for i in range(n):
-                if not path or check(i):
+                if check(i):
                     path.append(i)
                     backtracking()
                     path.pop()
