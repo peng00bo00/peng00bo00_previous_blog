@@ -1214,9 +1214,6 @@ class Solution:
             if len(path) > 1:
                 res.append(path[:])
             
-            if startIdx == len(nums):
-                return
-            
             used = set()
             for i in range(startIdx, len(nums)):
                 ## skip used num
