@@ -681,7 +681,7 @@ class Solution:
 
 #### Solution
 
-子集问题与[组合](/leetcode/2023-03-04-Backtracking.html#组合)以及[分割](/leetcode/2023-03-04-Backtracking.html#分割)问题之间的区别在于我们需要收集搜索树的所有节点，而不只是叶节点。因此在每次调用回溯函数时都需要把当前的搜索路径`path`添加到`res`中，整个算法流程可以参考下图。
+子集问题与[组合](/leetcode/2023-03-04-Backtracking.html#组合)以及[分割](/leetcode/2023-03-04-Backtracking.html#分割)问题之间的区别在于我们需要**收集搜索树的所有节点**，而不只是叶节点。因此在每次调用回溯函数时都需要把当前的搜索路径`path`添加到`res`中，整个算法流程可以参考下图。
 
 <div align=center>
 <img src="https://images.weserv.nl/?url=i.imgur.com/NjZaybT.png" width="90%">
