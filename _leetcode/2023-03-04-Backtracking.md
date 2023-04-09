@@ -1032,7 +1032,7 @@ class Solution:
 
 本题解法与[N皇后](/leetcode/2023-03-04-Backtracking.html#51-n皇后)基本一致，只需在完成搜索令`res += 1`即可。
 
-[题目链接](https://leetcode.cn/problems/n-queens/)：
+[题目链接](https://leetcode.cn/problems/n-queens-ii/)：
 
 ```python
 class Solution:
@@ -1048,7 +1048,7 @@ class Solution:
             return True
         
         def backtracking() -> None:
-            nonlocal res
+            nonlocal res, path
 
             if len(path) == n:
                 res += 1
@@ -1056,7 +1056,7 @@ class Solution:
             
             for i in range(n):
                 ## attempt to place a queen
-                if not path or check(i):
+                if check(i):
                     path.append(i)
                     backtracking()
                     path.pop()
