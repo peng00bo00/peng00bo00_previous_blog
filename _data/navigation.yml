@@ -584,3 +584,9 @@ LeetCode:
         url: /leetcode/2023-03-26-MonotoneStack.html
       - title: 图论
         url: /leetcode/2023-03-29-Graph.html
+
+GAMES302:
+  - title: 等几何分析
+    children: 
+      - title: CAE与等几何分析简介
+        url: /2023/04/10/GAMES302-NOTES-01.html
