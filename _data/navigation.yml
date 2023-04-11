@@ -590,3 +590,9 @@ GAMES302:
     children: 
       - title: CAE与等几何分析简介
         url: /2023/04/10/GAMES302-NOTES-01.html
+
+GAMES106:
+  - title: 现代图形绘制流水线原理与实践
+    children: 
+      - title: 现代图形绘制流水线导论
+        url: /2023/04/11/GAMES106-NOTES-01.html
