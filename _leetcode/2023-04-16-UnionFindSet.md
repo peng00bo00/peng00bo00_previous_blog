@@ -9,10 +9,11 @@ sidebar:
   nav: LeetCode
 ---
 
-**并查集(union-find set)**是一种用于管理元素所属集合的数据结构，实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。
+**并查集(union-find set)**是一种用于管理元素所属集合的数据结构。它的实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。
 
 <div align=center>
-<img src="https://images.weserv.nl/?url=oi-wiki.org/ds/images/disjoint-set.svg" width="30%">
+<img src="https://images.weserv.nl/?url=he-s3.s3.amazonaws.com/media/uploads/4c11a99.jpg" width="60%">
+<img src="https://images.weserv.nl/?url=he-s3.s3.amazonaws.com/media/uploads/7439d01.jpg" width="60%">
 </div>
 
 并查集需要实现**合并(union)**和**查询(find)**两个操作：
@@ -91,8 +92,8 @@ class UnionFindSet:
 </div>
 
 ```
-输入: edges = [[1,2], [1,3], [2,3]]
-输出: [2,3]
+输入：edges = [[1,2], [1,3], [2,3]]
+输出：[2,3]
 ```
 
 **示例2：**
@@ -102,8 +103,8 @@ class UnionFindSet:
 </div>
 
 ```
-输入: edges = [[1,2], [2,3], [3,4], [1,4], [1,5]]
-输出: [1,4]
+输入：edges = [[1,2], [2,3], [3,4], [1,4], [1,5]]
+输出：[1,4]
 ```
 
 **提示：**
@@ -146,14 +147,115 @@ class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
         n = len(edges)
 
-        UF = UnionFindSet(n)
+        UF = UnionFindSet(n+1)
 
         for u, v in edges:
-            if UF.find(u-1) == UF.find(v-1):
+            if UF.find(u) == UF.find(v):
                 return [u, v]
             else:
-                UF.union(u-1, v-1)
+                UF.union(u, v)
         
         return []
+```
+{: .snippet}
+
+### 685. 冗余连接 II
+
+在本问题中，有根树指满足以下条件的**有向**图。该树只有一个根节点，所有其他节点都是该根节点的后继。该树除了根节点之外的每一个节点都有且只有一个父节点，而根节点没有父节点。
+
+输入一个有向图，该图由一个有着`n`个节点(节点值不重复，从`1`到`n`)的树及一条附加的有向边构成。附加的边包含在`1`到`n`中的两个不同顶点间，这条附加的边不属于树中已存在的边。
+
+结果图是一个以边组成的二维数组`edges`。每个元素是一对`[uᵢ, vᵢ]`，用以表示**有向**图中连接顶点`uᵢ`和顶点`vᵢ`的边，其中`uᵢ`是`vᵢ`的一个父节点。
+
+返回一条能删除的边，使得剩下的图是有`n`个节点的有根树。若有多个答案，返回最后出现在给定二维数组的答案。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/12/20/graph1.jpg">
+</div>
+
+```
+输入：edges = [[1,2],[1,3],[2,3]]
+输出：[2,3]
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/12/20/graph2.jpg">
+</div>
+
+```
+输入：edges = [[1,2],[2,3],[3,4],[4,1],[1,5]]
+输出：[4,1]
+```
+
+**提示：**
+
+- `n` == `edges.length`
+- 3 <= `n` <= 1000
+- `edges[i].length` == 2
+- 1 <= `uᵢ`, `vᵢ` <= `n`
+
+#### Solution
+
+本题的整体思路类似于[冗余连接](/leetcode/2023-04-16-UnionFindSet.html#684-冗余连接)，我们需要对`edges`进行遍历并尝试构造出树结构。由于整个图上只有一条额外的边，这条边有三种可能性：
+
+1. 这条边破坏了树结构，使得某个节点`v`有两个父节点(如示例1中的`[2, 3]`)
+2. 这条边导致图上出现了环(如示例2中的`[4, 1]`)
+3. 这条边既破坏了树结构又产生了环
+
+[题目链接](https://leetcode.cn/problems/redundant-connection-ii/)：
+
+```python
+class UnionFindSet:
+    def __init__(self, n: int):
+        self.pa    = [i for i in range(n)]
+        self.count = n
+    
+    def find(self, x: int) -> int:
+        if self.pa[x] != x:
+            self.pa[x] = self.find(self.pa[x])
+        return self.pa[x]
+    
+    def union(self, x: int, y: int) -> None:
+        root_x = self.find(x)
+        root_y = self.find(y)
+
+        if root_x != root_y:
+            self.pa[root_y] = root_x
+            self.count -= 1
+
+class Solution:
+    def findRedundantDirectedConnection(self, edges: List[List[int]]) -> List[int]:
+        n = len(edges)
+
+        UF     = UnionFindSet(n+1)
+        parent = [i for i in range(n+1)]
+
+        conflict = -1
+        cycle    = -1
+
+        for i, (u, v) in enumerate(edges):
+            if parent[v] == v:
+                parent[v] = u
+
+                if UF.find(u) == UF.find(v):
+                    cycle = i
+                else:
+                    UF.union(u, v)
+            
+            else:
+                conflict = i
+        
+        if conflict < 0:
+            return edges[cycle]
+        else:
+            if cycle < 0:
+                return edges[conflict]
+            else:
+                u, v = edges[conflict]
+                return [parent[v], v]
 ```
 {: .snippet}
