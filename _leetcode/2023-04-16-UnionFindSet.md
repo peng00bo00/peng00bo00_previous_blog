@@ -202,9 +202,20 @@ class Solution:
 
 本题的整体思路类似于[冗余连接](/leetcode/2023-04-16-UnionFindSet.html#684-冗余连接)，我们需要对`edges`进行遍历并尝试构造出树结构。由于整个图上只有一条额外的边，这条边有三种可能性：
 
-1. 这条边破坏了树结构，使得某个节点`v`有两个父节点(如示例1中的`[2, 3]`)
+1. 这条边破坏了树结构，使得某个节点`v`有两个父节点(如示例1中的节点`3`)
 2. 这条边导致图上出现了环(如示例2中的`[4, 1]`)
 3. 这条边既破坏了树结构又产生了环
+
+对于树结构，我们设置一个数组`parent`用来记录每个节点当前的父节点。我们把`parent`初始化为节点自身的编号，表示此时没有添加任何边，然后在对边进行遍历时检查`parent[v]`是否与`v`相等。如果发现`parent[v] != v`说明`v`节点已经存在一个父节点了，此时使用变量`conflict`来记录这条边的编号；而如果发现`parent[v] == v`则说明`v`节点还没有任何父节点，令`parent[v] = u`同时利用并查集检查`u`和`v`两个节点是否联通，如果联通则还需要利用变量`cycle`记录下这条边的编号，最后合并`u`和`v`这两个节点。
+
+完成遍历后我们需要结合`conflict`和`cycle`两个变量进行讨论：
+
+- 如果`conflict < 0`说明图上只存在环，此时可以直接返回`edges[cycle]`
+- 如果`conflict >=0`说明图上有节点存在两个父节点，需要进一步讨论：
+  - 如果`cycle < 0`说明图上没有环，直接返回`edges[conflict]`
+  - 如果`cycle >=0`说明图上存在环，我们需要先提取具有两个父节点的子节点`u, v = edges[conflict]`然后返回`v`节点当前的边`[parent[v], v]`
+
+整个算法流程可以参考如下。
 
 [题目链接](https://leetcode.cn/problems/redundant-connection-ii/)：
 
@@ -243,8 +254,8 @@ class Solution:
 
                 if UF.find(u) == UF.find(v):
                     cycle = i
-                else:
-                    UF.union(u, v)
+                
+                UF.union(u, v)
             
             else:
                 conflict = i
