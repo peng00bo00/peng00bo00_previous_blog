@@ -73,3 +73,87 @@ class UnionFindSet:
         
         return self.pa[x]
 ```
+
+## 冗余连接
+
+### 684. 冗余连接
+
+树可以看成是一个连通且**无环**的**无向**图。
+
+给定往一棵`n`个节点(节点值`1`～`n`)的树中添加一条边后的图。添加的边的两个顶点包含在`1`到`n`中间，且这条附加的边不属于树中已存在的边。图的信息记录于长度为`n`的二维数组`edges`，`edges[i] = [ai, bi]`表示图中在`ai`和`bi`之间存在一条边。
+
+请找出一条可以删去的边，删除后可使得剩余部分是一个有着`n`个节点的树。如果有多个答案，则返回数组`edges`中最后出现的边。
+
+**示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=pic.leetcode-cn.com/1626676174-hOEVUL-image.png">
+</div>
+
+```
+输入: edges = [[1,2], [1,3], [2,3]]
+输出: [2,3]
+```
+
+**示例2：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=pic.leetcode-cn.com/1626676179-kGxcmu-image.png">
+</div>
+
+```
+输入: edges = [[1,2], [2,3], [3,4], [1,4], [1,5]]
+输出: [1,4]
+```
+
+**提示：**
+
+- `n` == `edges.length`
+- 3 <= `n` <= 1000
+- `edges[i].length` == 2
+- 1 <= `ai` < `bi` <= `edges.length`
+- `ai` != `bi`
+- `edges`中无重复元素
+- 给定的图是连通的
+
+#### Solution
+
+本题的解法在于对`edges`进行遍历，如果边的两个端点`u`和`v`位于不同集合则将它们合并，否则说明它们已经连接到一起了直接返回即可。
+
+[题目链接](https://leetcode.cn/problems/redundant-connection/)：
+
+```python
+class UnionFindSet:
+    def __init__(self, n: int):
+        self.pa    = [i for i in range(n)]
+        self.count = n
+    
+    def union(self, x, y) -> None:
+        root_x = self.find(x)
+        root_y = self.find(y)
+
+        if root_x != root_y:
+            self.pa[root_y] = root_x
+            self.count -= 1
+    
+    def find(self, x: int) -> int:
+        if self.pa[x] != x:
+            self.pa[x] = self.find(self.pa[x])
+        
+        return self.pa[x]
+
+class Solution:
+    def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+        n = len(edges)
+
+        UF = UnionFindSet(n)
+
+        for u, v in edges:
+            if UF.find(u-1) == UF.find(v-1):
+                return [u, v]
+            else:
+                UF.union(u-1, v-1)
+        
+        return []
+```
+{: .snippet}
