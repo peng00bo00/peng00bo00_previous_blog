@@ -584,6 +584,8 @@ LeetCode:
         url: /leetcode/2023-03-26-MonotoneStack.html
       - title: 图论
         url: /leetcode/2023-03-29-Graph.html
+      - title: 并查集
+        url: /leetcode/2023-04-16-UnionFindSet.html
 
 GAMES302:
   - title: 等几何分析
