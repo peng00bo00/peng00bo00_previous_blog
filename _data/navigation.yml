@@ -598,3 +598,5 @@ GAMES106:
     children: 
       - title: 现代图形绘制流水线导论
         url: /2023/04/11/GAMES106-NOTES-01.html
+      - title: 绘制流水线原理I
+        url: /2023/04/19/GAMES106-NOTES-02.html
