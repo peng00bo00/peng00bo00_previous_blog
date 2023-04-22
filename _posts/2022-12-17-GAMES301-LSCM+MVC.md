@@ -30,7 +30,7 @@ b & a
 \end{bmatrix}
 $$
 
-从Jacobian矩阵来看，Cauchy-Riemann方程说明映射$f$是一个相似变换(旋转+缩放)因此不会改变向量的夹角。对于大多数网格我们可能很难保证映射严格满足Cauchy-Riemann方程，此时可以构造一个共形能量来描述映射$f$违背共形映射的程度，而LSCM的原理就是通过最小化共形能量来建立所需的共形映射。
+从Jacobian矩阵来看，Cauchy-Riemann方程说明映射$$f$$是一个相似变换(旋转+缩放)因此不会改变向量的夹角。对于大多数网格我们可能很难保证映射严格满足Cauchy-Riemann方程，此时可以构造一个共形能量来描述映射$f$违背共形映射的程度，而LSCM的原理就是通过最小化共形能量来建立所需的共形映射。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/EHNaGWb.png" width="80%">
@@ -50,25 +50,25 @@ $$
 \{ u_i + i \ v_i \vert i = 1,2,3 \}
 $$
 
-使用复数形式的好处在于我们可以把坐标转换为标量函数进行推导。假设映射$\mathcal{X}: \mathbb{C} \mapsto \mathbb{C}$将参数平面嵌入到三角形局部坐标系中，当$\mathcal{X}$为共形映射时需要满足复数形式的Cauchy-Riemann方程：
+使用复数形式的好处在于我们可以把坐标转换为标量函数进行推导。假设映射$$\mathcal{X}: \mathbb{C} \mapsto \mathbb{C}$$将参数平面嵌入到三角形局部坐标系中，当$$\mathcal{X}$$为共形映射时需要满足复数形式的Cauchy-Riemann方程：
 
 $$
 \frac{\partial \mathcal{X}}{\partial u} - i \frac{\partial \mathcal{X}}{\partial v} = 0
 $$
 
-利用反函数导数定理可以得到$\mathcal{X}$的反函数$\mathcal{U}$需要满足：
+利用反函数导数定理可以得到$$\mathcal{X}$$的反函数$$\mathcal{U}$$需要满足：
 
 $$
 \frac{\partial \mathcal{U}}{\partial x} + i \frac{\partial \mathcal{U}}{\partial y} = 0
 $$
 
-接下来我们定义共形能量$C$为等式左端的平方在整个三角形上的积分：
+接下来我们定义共形能量$$C$$为等式左端的平方在整个三角形上的积分：
 
 $$
 C(T) = \int_T \bigg\vert \frac{\partial \mathcal{U}}{\partial x} + i \frac{\partial \mathcal{U}}{\partial y} \bigg\vert^2 \ dA
 $$
 
-显然当$\mathcal{U}$为共形映射时$C(T)$为0，否则三角形上会产生共形能量。对网格上每个三角形进行求和就得到了网格的共形能量：
+显然当$$\mathcal{U}$$为共形映射时$$C(T)$$为0，否则三角形上会产生共形能量。对网格上每个三角形进行求和就得到了网格的共形能量：
 
 $$
 C(\mathcal{T}) = \sum_i C(T_i)
@@ -82,7 +82,7 @@ $$
 C(T) = \int_T \bigg\vert \frac{\partial \mathcal{U}}{\partial x} + i \frac{\partial \mathcal{U}}{\partial y} \bigg\vert^2 \ dA = \bigg\vert \frac{\partial \mathcal{U}}{\partial x} + i \frac{\partial \mathcal{U}}{\partial y} \bigg\vert^2 A_T
 $$
 
-上式说明我们只需要计算三角形面积$A_T$以及内部的共形能量即可。对于三角形顶点上定义的标量函数$u(x, y)$，其梯度在三角形内部有解析形式：
+上式说明我们只需要计算三角形面积$$A_T$$以及内部的共形能量即可。对于三角形顶点上定义的标量函数$$u(x, y)$$，其梯度在三角形内部有解析形式：
 
 $$
 \begin{bmatrix}
@@ -99,7 +99,7 @@ u_1 \\ u_2 \\ u_3
 \end{bmatrix}
 $$
 
-其中$u_1, u_2, u_3$分别为顶点上的函数值。对于复函数$\mathcal{U}$我们可以整理得到：
+其中$$u_1, u_2, u_3$$分别为顶点上的函数值。对于复函数$$\mathcal{U}$$我们可以整理得到：
 
 $$
 \frac{\partial \mathcal{U}}{\partial x} + i \frac{\partial \mathcal{U}}{\partial y} 
@@ -168,7 +168,7 @@ $$
 \mathcal{C} = \mathcal{M}^* \mathcal{M}
 $$
 
-式中$\mathcal{M}$是一个$\vert F \vert \times \vert V \vert$维复矩阵，每个元素表示$v_j$顶点在$T_i$三角形上对网格共形能量的贡献：
+式中$$\mathcal{M}$$是一个$$\vert F \vert \times \vert V \vert$$维复矩阵，每个元素表示$$v_j$$顶点在$$T_i$$三角形上对网格共形能量的贡献：
 
 $$
 \mathcal{M}_{ij} = 
@@ -180,7 +180,7 @@ $$
 
 ### Least Square Optimization
 
-对于二次型的优化问题我们可以通过求导并令导数为0的方式进行直接求解。但需要注意在LSCM中系数矩阵$\mathcal{C}$、$\mathcal{M}$和顶点uv坐标矩阵$\mathbf{U}$都是复数，使用复数的求导法则会比较麻烦。不过实际上我们只需要对复数矩阵进行简单的变形就可以按照通常的实数矩阵进行处理。首先对复数进行分解：
+对于二次型的优化问题我们可以通过求导并令导数为0的方式进行直接求解。但需要注意在LSCM中系数矩阵$$\mathcal{C}$$、$$\mathcal{M}$$和顶点uv坐标矩阵$$\mathbf{U}$$都是复数，使用复数的求导法则会比较麻烦。不过实际上我们只需要对复数矩阵进行简单的变形就可以按照通常的实数矩阵进行处理。首先对复数进行分解：
 
 $$
 \mathcal{M} = \mathbf{A} + i \ \mathbf{B}
@@ -190,7 +190,7 @@ $$
 \mathbf{U} = \mathbf{u} + i \ \mathbf{v}
 $$
 
-其中$\mathbf{A}$和$\mathbf{u}$表示对应矩阵的实数部分，$\mathbf{B}$和$\mathbf{v}$则表示虚数部分。在这种分解下我们可以重新构造二次型的目标函数：
+其中$$\mathbf{A}$$和$$\mathbf{u}$$表示对应矩阵的实数部分，$$\mathbf{B}$$和$$\mathbf{v}$$则表示虚数部分。在这种分解下我们可以重新构造二次型的目标函数：
 
 $$
 \begin{aligned}
@@ -319,7 +319,7 @@ $$
 \end{bmatrix}
 $$
 
-由于$\mathcal{M}_p$部分的坐标是已知的，网格的共形能量只与自由顶点有关。把固定顶点的uv坐标带入齐次方程组并展开可以得到：
+由于$$\mathcal{M}_p$$部分的坐标是已知的，网格的共形能量只与自由顶点有关。把固定顶点的uv坐标带入齐次方程组并展开可以得到：
 
 $$
 \begin{bmatrix}
@@ -466,13 +466,13 @@ end
 
 ### Tutte's Embedding
 
-**Mean value coordinates**是Tutte's embedding的一种变体，这里我们首先回忆一下Tutte's embedding的原理。Tutte's embedding中网格内部顶点$v_i$的坐标可以表示为相邻顶点的线性组合：
+**Mean value coordinates**是Tutte's embedding的一种变体，这里我们首先回忆一下Tutte's embedding的原理。Tutte's embedding中网格内部顶点$$v_i$$的坐标可以表示为相邻顶点的线性组合：
 
 $$
 v_i = \sum_{v_j \in N(v_i)} \lambda_j v_j
 $$
 
-其中系数$\lambda_j$需要满足非负和归一化条件：
+其中系数$$\lambda_j$$需要满足非负和归一化条件：
 
 $$
 \forall \lambda_j \geq 0, \ \sum_{v_j \in N(v_i)} \lambda_j = 1
@@ -495,7 +495,7 @@ $$
 
 ### Implementation
 
-使用mean value coordinates作为权重的Tutte's embedding算法可参见`MVCTutte()`函数。这里首先使用了LSCM来固定网格参数化边界，然后对内部顶点求解线性方程组来求解uv坐标。在实现时的一个技巧是从三角形内角来考虑权重，比如说在三角形$\triangle v_0 v_i v_{i+1}$上内角$\alpha_i$参与的贡献为：
+使用mean value coordinates作为权重的Tutte's embedding算法可参见`MVCTutte()`函数。这里首先使用了LSCM来固定网格参数化边界，然后对内部顶点求解线性方程组来求解uv坐标。在实现时的一个技巧是从三角形内角来考虑权重，比如说在三角形$$\triangle v_0 v_i v_{i+1}$$上内角$$\alpha_i$$参与的贡献为：
 
 $$
 w_{\alpha_i}
@@ -513,7 +513,7 @@ $$
 = \frac{\sin{\alpha}}{1 + \cos{\alpha}}
 $$
 
-而内角$\alpha$的正弦和余弦可以由邻边方向向量的叉积与内积来计算，这样整个权重计算都可以进行向量化从而提升计算效率。
+而内角$$\alpha$$的正弦和余弦可以由邻边方向向量的叉积与内积来计算，这样整个权重计算都可以进行向量化从而提升计算效率。
 
 ```matlab
 function uv = MVCTutte(V, F)
