@@ -14,7 +14,7 @@ aside:
 
 ### Discrete Curvature of a Plane Curve
 
-#### Gradient $\nabla_{\mathbf{x}_i} s$
+#### Gradient $$\nabla_{\mathbf{x}_i} s$$
 
 $$
 \nabla_{\mathbf{x}_i} s =\frac{\mathbf{x}_i - \mathbf{x}_{i-1}}{\Vert \mathbf{x}_i - \mathbf{x}_{i-1} \Vert_2} + \frac{\mathbf{x}_i - \mathbf{x}_{i+1}}{\Vert \mathbf{x}_i - \mathbf{x}_{i+1} \Vert_2}
@@ -171,9 +171,9 @@ $$
 
 ### Optimal Transport
 
-(a) $W(\mathbf{p}, \mathbf{q})$ measures the minimum cost of transporting $\mathbf{p}$ to $\mathbf{q}$.
+(a) $$W(\mathbf{p}, \mathbf{q})$$ measures the minimum cost of transporting $$\mathbf{p}$$ to $$\mathbf{q}$$.
 
-(b) Let $K_\alpha = e^{-\frac{C}{\alpha}}$, then
+(b) Let $$K_\alpha = e^{-\frac{C}{\alpha}}$$, then
 
 $$
 \begin{aligned}
@@ -189,9 +189,9 @@ $$
 \mathcal{L} (T; \lambda, \mu) = \sum_{ij} T_{ij} \cdot C_{ij} + \alpha \cdot \bigg( \sum_{ij} T_{ij} \ln{T_{ij}} - 1 \bigg) + \sum_i \lambda_i \cdot \bigg( \sum_j T_{ij} - p_i \bigg) + \sum_j \mu_j \cdot \bigg( \sum_i T_{ij} - q_j \bigg)
 $$
 
-where $\lambda_i$ and $\mu_j$ are Lagrange multipliers.
+where $$\lambda_i$$ and $$\mu_j$$ are Lagrange multipliers.
 
-Taking derivative of $T_{ij}$, we have:
+Taking derivative of $$T_{ij}$$, we have:
 
 $$
 \frac{\partial \mathcal{L}}{\partial T_{ij}} = C_{ij} + \alpha ( \ln{T_{ij}} + 1 ) + \lambda_i + \mu_j = 0
@@ -220,7 +220,7 @@ $$
 \mathbf{w}_j = e^{-\frac{\mu_j}{\alpha}-\frac{1}{2}}
 $$
 
-(d) When $\alpha$ is small enough, we have
+(d) When $$\alpha$$ is small enough, we have
 
 $$
 C_{ij} = d^2(x_i, x_j) \approx -2 \times \frac{\alpha}{2} \ln \mathcal{H}_{\frac{\alpha}{2}} (x_i, x_j)
@@ -232,7 +232,7 @@ $$
 \mathcal{H}_{\frac{\alpha}{2}} (x_i, x_j) \approx e^{-\frac{C_{ij}}{\alpha}} = (K_\alpha)_{ij}
 $$
 
-(e) If $k$ is odd, the Lagrange could be expressed as
+(e) If $$k$$ is odd, the Lagrange could be expressed as
 
 $$
 \begin{aligned}
@@ -243,7 +243,7 @@ $$
 \end{aligned}
 $$
 
-Taking derivative of $T_{ij}$, we have
+Taking derivative of $$T_{ij}$$, we have
 
 $$
 \frac{\partial \mathcal{L}}{\partial T_{ij}} = \bigg( \ln{T_{ij}} - \ln{T^{(k-1)}_{ij}} \bigg) + 1 + \lambda_i = 0
@@ -267,13 +267,13 @@ $$
 \mathbf{\tilde{v}}^{(k)}_i = \frac{1}{e^{1+\lambda_i}}
 $$
 
-Similarly, when $k$ is even, we have
+Similarly, when $$k$$ is even, we have
 
 $$
 T_{ij} = \frac{T^{(k-1)}_{ij}}{e^{1+\mu_j}}
 $$
 
-where $\mu_j$ is the Lagrange multiplier. Then,
+where $$\mu_j$$ is the Lagrange multiplier. Then,
 
 $$
 T^{(k)} = T^{(k-1)} \cdot \text{diag}(\mathbf{\tilde{w}}^{(k)}) 
@@ -292,7 +292,7 @@ T^{(k)} &= \text{diag}(\mathbf{v}^{(k)}) \cdot T^{(0)} \cdot \text{diag}(\mathbf
 \end{aligned}
 $$
 
-Now we only need to determine the vectors $\mathbf{v}^{(k)}$ and $\mathbf{w}^{(k)}$. Suppose $k$ is odd, the constraints of $p_i$ gives
+Now we only need to determine the vectors $$\mathbf{v}^{(k)}$$ and $$\mathbf{w}^{(k)}$$. Suppose $$k$$ is odd, the constraints of $$p_i$$ gives
 
 $$
 p_i = \sum_j T^{(k)}_{ij} = \mathbf{\tilde{v}}^{(k)}_i \cdot \sum_j T^{(k-1)}_{ij} 
@@ -304,7 +304,7 @@ $$
 \mathbf{\tilde{v}}^{(k)}_i = \frac{p_i}{\sum_j T^{(k-1)}_{ij}} = \frac{p_i}{\sum_j T^{(k-2)}_{ij} \tilde{\mathbf{w}}^{(k-1)}_j}
 $$
 
-Similarly, when $k$ is even we have
+Similarly, when $$k$$ is even we have
 
 $$
 q_j = \sum_i T^{(k)}_{ij} = \mathbf{\tilde{w}}^{(k)}_j \cdot \sum_i T^{(k-1)}_{ij} 
@@ -324,7 +324,7 @@ $$
 \mathbf{w} \leftarrow \mathbf{q} \oslash (\mathbf{v} \cdot T)
 $$
 
-where $\oslash$ is the elementwise division operator.
+where $$\oslash$$ is the elementwise division operator.
 
 (f)
 
