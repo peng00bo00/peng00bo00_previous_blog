@@ -30,7 +30,7 @@ b & a
 \end{bmatrix}
 $$
 
-从Jacobian矩阵来看，Cauchy-Riemann方程说明映射$$f$$是一个相似变换(旋转+缩放)因此不会改变向量的夹角。对于大多数网格我们可能很难保证映射严格满足Cauchy-Riemann方程，此时可以构造一个共形能量来描述映射$f$违背共形映射的程度，而LSCM的原理就是通过最小化共形能量来建立所需的共形映射。
+从Jacobian矩阵来看，Cauchy-Riemann方程说明映射$$f$$是一个相似变换(旋转+缩放)因此不会改变向量的夹角。对于大多数网格我们可能很难保证映射严格满足Cauchy-Riemann方程，此时可以构造一个共形能量来描述映射$$f$$违背共形映射的程度，而LSCM的原理就是通过最小化共形能量来建立所需的共形映射。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/EHNaGWb.png" width="80%">
@@ -38,7 +38,7 @@ $$
 
 ### Conformality in a Triangulation
 
-LSCM使用了复平面来推导共形能量。设三角形$T$在其局部坐标系下的初始构型为$$\{ (x_1, y_1), (x_2, y_2), (x_3, y_3) \}$$，在复平面上二维向量可以直接转换为复数：
+LSCM使用了复平面来推导共形能量。设三角形$$T$$在其局部坐标系下的初始构型为$$\{ (x_1, y_1), (x_2, y_2), (x_3, y_3) \}$$，在复平面上二维向量可以直接转换为复数：
 
 $$
 \{ x_i + i \ y_i \vert i = 1,2,3 \}
@@ -162,7 +162,7 @@ $$
 C(\mathcal{T}) = \mathbf{U}^* \mathcal{C} \mathbf{U}
 $$
 
-上标$^*$表示共轭转置。其中二次型的系数矩阵$\mathcal{C}$可以分解为：
+上标$$^*$$表示共轭转置。其中二次型的系数矩阵$$\mathcal{C}$$可以分解为：
 
 $$
 \mathcal{C} = \mathcal{M}^* \mathcal{M}
