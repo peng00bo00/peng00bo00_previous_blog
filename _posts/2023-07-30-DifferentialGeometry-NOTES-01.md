@@ -108,9 +108,9 @@ $$
 \boldsymbol{a} \cdot \boldsymbol{b} = 0 \Leftrightarrow \boldsymbol{a} \perp \boldsymbol{b}
 $$
 
-#### 叉积
+#### 叉乘
 
-当向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$平行时规定它们的**叉积**为零向量；而当它们不平行时，规定叉积$$\boldsymbol{a} \times \boldsymbol{b}$$为与向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$都垂直的一个向量，其长度为$$\boldsymbol{a}$$和$$\boldsymbol{b}$$所张成的平行四边形面积：
+当向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$平行时规定它们的**叉乘**为零向量；而当它们不平行时，规定叉乘$$\boldsymbol{a} \times \boldsymbol{b}$$为与向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$都垂直的一个向量，其长度为$$\boldsymbol{a}$$和$$\boldsymbol{b}$$所张成的平行四边形面积：
 
 $$
 \vert \boldsymbol{a} \times \boldsymbol{b} \vert = \vert \boldsymbol{a} \vert \cdot \vert \boldsymbol{b} \vert \cdot \sin{\angle(\boldsymbol{a}, \boldsymbol{b})}
@@ -130,12 +130,58 @@ $$
 (\lambda \boldsymbol{a}) \times \boldsymbol{b} = \lambda (\boldsymbol{a} \times \boldsymbol{b})
 $$
 
-根据定义，向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$相互平行的充要条件为它们的叉积为零向量：
+根据定义，向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$相互平行的充要条件为它们的叉乘为零向量：
 
 $$
 \boldsymbol{a} \times \boldsymbol{b} = \boldsymbol{0} \Leftrightarrow \boldsymbol{a} \parallel \boldsymbol{b}
 $$
 
 ### 正交标架
+
+取$$\mathbb{E}^3$$空间中不共面的四个点，把其中一点记为$$O$$，其它三点分别记为$$A$$，$$B$$，$$C$$，于是得到一个由一点$$O$$和3个不共面向量$$\overrightarrow{OA}$$，$$\overrightarrow{OB}$$，$$\overrightarrow{OC}$$构成的图形$$\{O; \overrightarrow{OA}, \overrightarrow{OB}, \overrightarrow{OC} \}$$。这样的一个图形称为空间中的一个**标架**，点$$O$$称为该标架的**原点**。在给定标架$$\{O; \overrightarrow{OA}, \overrightarrow{OB}, \overrightarrow{OC} \}$$后，由原点指向空间中任意一点$$p$$的向量可以根据平行四边形法则唯一地表示为三个有序实数$$(x, y, z)$$：
+
+$$
+\overrightarrow{Op} = x \ \overrightarrow{OA} + y \ \overrightarrow{OB} + z \ \overrightarrow{OC}
+$$
+
+数组$$(x, y, z)$$称为点$$p$$关于标架$$\{O; \overrightarrow{OA}, \overrightarrow{OB}, \overrightarrow{OC} \}$$的坐标。
+
+设$$\{O; \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$是$$\mathbb{E}^3$$中的一个标架，且$$\boldsymbol{i}$$，$$\boldsymbol{j}$$，$$\boldsymbol{k}$$为彼此垂直并构成右手系的三个向量，则有
+
+$$
+\boldsymbol{i} \cdot \boldsymbol{i} = \boldsymbol{j} \cdot \boldsymbol{j} = \boldsymbol{k} \cdot \boldsymbol{k} = 1
+$$
+
+$$
+\boldsymbol{i} \cdot \boldsymbol{j} = \boldsymbol{i} \cdot \boldsymbol{k} = \boldsymbol{j} \cdot \boldsymbol{k} = 0
+$$
+
+$$
+\boldsymbol{i} \times \boldsymbol{j} = \boldsymbol{k}, \
+\boldsymbol{j} \times \boldsymbol{k} = \boldsymbol{i}, \
+\boldsymbol{k} \times \boldsymbol{i} = \boldsymbol{j}
+$$
+
+这样的标架称为**右手正交标架**，简称**正交标架**，而由正交标架给出的坐标系则称为笛卡尔直角坐标系。在笛卡尔直角坐标系下，设向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$的分量分别为$$(x_1, y_1, z_1)$$和$$(x_2, y_2, z_2)$$，则它们的内积和叉积可以表示为分量运算：
+
+$$
+\boldsymbol{a} \cdot \boldsymbol{b} = x_1 x_2 + y_1 y_2 + z_1 z_2
+$$
+
+$$
+\boldsymbol{a} \times \boldsymbol{b} = 
+\begin{vmatrix}
+\boldsymbol{i} & \boldsymbol{j} & \boldsymbol{k} \\
+x_1 & y_1 & z_1 \\
+x_2 & y_2 & z_2 \\
+\end{vmatrix}
+$$
+
+设点$$A$$和$$B$$的坐标分别为$$(x_1, y_1, z_1)$$和$$(x_2, y_2, z_2)$$，则线段$$AB$$的长度可以表示为：
+
+$$
+\vert AB \vert = \sqrt{\overrightarrow{AB} \cdot \overrightarrow{AB}}
+= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}
+$$
 
 ## 向量函数
