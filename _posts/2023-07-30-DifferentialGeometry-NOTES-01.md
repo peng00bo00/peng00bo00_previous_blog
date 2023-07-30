@@ -9,7 +9,7 @@ sidebar:
   nav: DifferentialGeometry
 ---
 
-> 这个系列以北京大学陈维桓教授《微分几何(第二版)》为教材记录一下微分几何的学习过程，主要涉及古典微分几何中曲线曲面理论的相关知识。系统学习微分几何对于理解计算机图形学中的各种几何处理算法是十分有益的。
+> 这个系列是北京大学陈维桓教授《微分几何(第二版)》的学习笔记，主要涉及古典微分几何中曲线曲面理论的相关知识。系统学习微分几何对于理解计算机图形学中的各种几何处理算法是十分有益的。
 <!--more-->
 
 ## 三维欧式空间中的标架
@@ -197,7 +197,7 @@ $$
 \end{cases}
 $$
 
-其中系数$$a_{mn}$$为新标架下第$$m$$个基向量在固定标架第$$n$$个基向量下的投影。利用基向量$$\boldsymbol{e}_i$$的正交性可以得到：
+其中系数$$a_n$$为向量$$\overrightarrow{Op}$$在固定标架下的第$$n$$个坐标，而$$a_{mn}$$为新标架下第$$m$$个基向量在固定标架第$$n$$个基向量下的投影。利用基向量$$\boldsymbol{e}_i$$的正交性可以得到：
 
 $$
 \boldsymbol{e}_i \cdot \boldsymbol{e}_j = \sum_{k=1}^3 a_{ik} a_{jk} = \delta_{ij} = 
@@ -290,12 +290,71 @@ $$
 \begin{cases}
 \begin{aligned}
 x &= a_1 + a_{11} \ \tilde{x} + a_{21} \ \tilde{y} + a_{31} \ \tilde{z} \\
-y &= a_2 + a_{12} \ \tilde{x} + a_{22} \ \tilde{y} + a_{32} \ \tilde{z}\\
-z &= a_3 + a_{13} \ \tilde{x} + a_{23} \ \tilde{y} + a_{33} \ \tilde{z}\\
+y &= a_2 + a_{12} \ \tilde{x} + a_{22} \ \tilde{y} + a_{32} \ \tilde{z} \\
+z &= a_3 + a_{13} \ \tilde{x} + a_{23} \ \tilde{y} + a_{33} \ \tilde{z} \\
 \end{aligned}
 \end{cases}
 $$
 
 #### 刚体运动
+
+正交标架的另一个重要应用是用来描述$$\mathbb{E}^3$$中的刚体运动。假设刚体上的正交标架为$$\{p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$，在初始时刻它与固定标架$$\{O; \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$重合。刚体经过运动$$\sigma$$后到达了新的位置，此时刚体上的点$$q$$在刚体运动$$\sigma$$的作用下变成了像点
+
+$$
+\tilde{q} = \sigma(q)
+$$
+
+由于$$q$$点的相对位置在变换前后是一致的，我们有
+
+$$
+\overrightarrow{Oq} 
+= (x, y, z) \cdot 
+\begin{pmatrix}
+\boldsymbol{i} \\ \boldsymbol{j} \\ \boldsymbol{k}
+\end{pmatrix}
+$$
+
+$$
+\overrightarrow{p\tilde{q}} 
+= (x, y, z) \cdot 
+\begin{pmatrix}
+\boldsymbol{e}_1 \\ \boldsymbol{e}_2 \\ \boldsymbol{e}_3 \\
+\end{pmatrix}
+$$
+
+因此
+
+$$
+\begin{aligned}
+\overrightarrow{O \tilde{q}} &= \overrightarrow{Op} + \overrightarrow{p\tilde{q}} \\
+&= (\boldsymbol{a} + (x, y, z) \cdot A)
+\begin{pmatrix}
+\boldsymbol{i} \\ \boldsymbol{j} \\ \boldsymbol{k}
+\end{pmatrix}
+\end{aligned}
+$$
+
+这表示$$\tilde{q} = \sigma(q)$$关于$$\{O; \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$的坐标为
+
+$$
+(\tilde{x}, \tilde{y}, \tilde{z}) = \boldsymbol{a} + (x, y, z) \cdot A
+$$
+
+其展开形式为
+
+$$
+\begin{cases}
+\begin{aligned}
+\tilde{x} &= a_1 + a_{11} \ x + a_{21} \ y + a_{31} \ z \\
+\tilde{y} &= a_2 + a_{12} \ x + a_{22} \ y + a_{32} \ z \\
+\tilde{z} &= a_3 + a_{13} \ x + a_{23} \ y + a_{33} \ z \\
+\end{aligned}
+\end{cases}
+$$
+
+上式说明刚体运动可以看作是一种坐标变换。总结一下可以得到如下定理：
+
+**定理 1.1**
+{:.info}
 
 ## 向量函数
