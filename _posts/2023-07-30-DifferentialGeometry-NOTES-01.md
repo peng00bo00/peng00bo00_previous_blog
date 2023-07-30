@@ -22,7 +22,13 @@ $$
 \overrightarrow{AB} = \overrightarrow{CD}
 $$
 
-而所有相等的有向线段构成的集合称为一个**向量**。
+而所有相等的有向线段构成的集合称为一个**向量**，通常使用斜黑体字母来表示如$$\boldsymbol{a}$$。
+
+向量加法只需要将它们首尾相接：记$$\overrightarrow{AB}$$和$$\overrightarrow{BC}$$两个向量分别为$$\boldsymbol{a}$$和$$\boldsymbol{b}$$，则连接$$A$$和$$C$$的有向线段$$\overrightarrow{AC}$$就代表向量$$\boldsymbol{a}+\boldsymbol{b}$$。除此之外，我们把起点和终点相同的有向线段集合称为零向量，记作$$\boldsymbol{0}$$。显然任何向量与零向量之和等于其自身：
+
+$$
+\boldsymbol{a}+\boldsymbol{0} = \boldsymbol{a}
+$$
 
 ### 正交标架
 
