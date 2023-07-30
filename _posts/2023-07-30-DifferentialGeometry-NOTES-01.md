@@ -110,6 +110,32 @@ $$
 
 #### 叉积
 
+当向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$平行时规定它们的**叉积**为零向量；而当它们不平行时，规定叉积$$\boldsymbol{a} \times \boldsymbol{b}$$为与向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$都垂直的一个向量，其长度为$$\boldsymbol{a}$$和$$\boldsymbol{b}$$所张成的平行四边形面积：
+
+$$
+\vert \boldsymbol{a} \times \boldsymbol{b} \vert = \vert \boldsymbol{a} \vert \cdot \vert \boldsymbol{b} \vert \cdot \sin{\angle(\boldsymbol{a}, \boldsymbol{b})}
+$$
+
+且它和$$\boldsymbol{a}$$与$$\boldsymbol{b}$$构成右手系。容易验证叉乘运算满足如下性质：
+
+$$
+\boldsymbol{a} \times \boldsymbol{b} = -\boldsymbol{b} \times \boldsymbol{a}
+$$
+
+$$
+\boldsymbol{c} \times (\boldsymbol{a} + \boldsymbol{b}) = \boldsymbol{c} \times \boldsymbol{a} + \boldsymbol{c} \times \boldsymbol{b}
+$$
+
+$$
+(\lambda \boldsymbol{a}) \times \boldsymbol{b} = \lambda (\boldsymbol{a} \times \boldsymbol{b})
+$$
+
+根据定义，向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$相互平行的充要条件为它们的叉积为零向量：
+
+$$
+\boldsymbol{a} \times \boldsymbol{b} = \boldsymbol{0} \Leftrightarrow \boldsymbol{a} \parallel \boldsymbol{b}
+$$
+
 ### 正交标架
 
 ## 向量函数
