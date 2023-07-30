@@ -9,7 +9,7 @@ sidebar:
   nav: DifferentialGeometry
 ---
 
-> 这个系列以北京大学陈维桓教授《微分几何(第二版)》为教材记录一下微分几何的学习过程，主要涉及古典微分几何中曲线曲面理论的相关知识。系统地学习微分几何对于理解和设计几何处理算法是十分有益的。
+> 这个系列以北京大学陈维桓教授《微分几何(第二版)》为教材记录一下微分几何的学习过程，主要涉及古典微分几何中曲线曲面理论的相关知识。系统学习微分几何对于理解计算机图形学中的各种几何处理算法是十分有益的。
 <!--more-->
 
 ## 三维欧式空间中的标架
@@ -183,5 +183,68 @@ $$
 \vert AB \vert = \sqrt{\overrightarrow{AB} \cdot \overrightarrow{AB}}
 = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}
 $$
+
+对于空间中已知的固定标架$$\{O; \overrightarrow{OA}, \overrightarrow{OB}, \overrightarrow{OC} \}$$，空间中任意正交标架$$\{p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$可以利用下式来进行确定：
+
+$$
+\begin{cases}
+\begin{aligned}
+\overrightarrow{Op} &= a_1 \ \boldsymbol{i} + a_2 \ \boldsymbol{j} + a_3 \ \boldsymbol{k} \\
+\boldsymbol{e}_1 &= a_{11} \ \boldsymbol{i} + a_{12} \ \boldsymbol{j} + a_{13} \ \boldsymbol{k} \\
+\boldsymbol{e}_2 &= a_{21} \ \boldsymbol{i} + a_{22} \ \boldsymbol{j} + a_{23} \ \boldsymbol{k} \\
+\boldsymbol{e}_3 &= a_{31} \ \boldsymbol{i} + a_{32} \ \boldsymbol{j} + a_{33} \ \boldsymbol{k} \\
+\end{aligned}
+\end{cases}
+$$
+
+其中系数$$a_{mn}$$为新标架下第$$m$$个基向量在固定标架第$$n$$个基向量下的投影。利用基向量$$\boldsymbol{e}_i$$的正交性可以得到：
+
+$$
+\boldsymbol{e}_i \cdot \boldsymbol{e}_j = \sum_{k=1}^3 a_{ik} a_{jk} = \delta_{ij} = 
+\begin{cases}
+1, & i = j \\
+0, & i \neq j \\
+\end{cases}
+$$
+
+再根据$$\{ \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$构成右手系，可以得到
+
+$$
+\boldsymbol{e}_1 \times \boldsymbol{e}_2 = \boldsymbol{e}_3
+$$
+
+这样我们可以计算$$\{ \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$的**混合积**为
+
+$$
+\begin{aligned}
+(\boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3) &= (\boldsymbol{e}_1 \times \boldsymbol{e}_2) \cdot \boldsymbol{e}_3 = \boldsymbol{e}_3 \cdot \boldsymbol{e}_3 \\
+&=
+\begin{vmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33} \\
+\end{vmatrix}
+= 1
+\end{aligned}
+$$
+
+令
+
+$$
+\boldsymbol{a} = (a_1, a_2, a_3)
+$$
+
+$$
+A = 
+\begin{bmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33} \\
+\end{bmatrix}
+$$
+
+则矩阵$$A$$为行列式等于1的正交矩阵，即$$A \in \text{SO(3)}$$。前面的推导说明$$\mathbb{E}^3$$中的任意标架$$\{p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$都对应一个向量和正交阵$$(a, A)$$，因此$$\mathbb{E}^3$$中的全体标架集合等同于$$\mathbb{E}^3 \times \text{SO(3)}$$，这是一个具有**6个自由度**的空间。
+
+#### 坐标变换
 
 ## 向量函数
