@@ -14,4 +14,16 @@ sidebar:
 
 ## 三维欧式空间中的标架
 
+### 向量运算
+
+古典微分几何主要研究三维欧式空间$$\mathbb{E}^3$$，其中的每一个元素称为**点**。空间中任意两个点$$A, B \in \mathbb{E}^3$$可以构造一条有向线段，记以$$A$$为起点$$B$$为终点的有向线段为$$\overrightarrow{AB}$$。设$$\overrightarrow{AB}$$和$$\overrightarrow{CD}$$为两条有向线段，如果$$ABCD$$构成一个平行四边形则称这两条线段是相等的，记为
+
+$$
+\overrightarrow{AB} = \overrightarrow{CD}
+$$
+
+而所有相等的有向线段构成的集合称为一个**向量**。
+
+### 正交标架
+
 ## 向量函数
