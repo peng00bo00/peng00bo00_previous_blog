@@ -184,7 +184,7 @@ $$
 = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}
 $$
 
-对于空间中已知的固定标架$$\{O; \overrightarrow{OA}, \overrightarrow{OB}, \overrightarrow{OC} \}$$，空间中任意正交标架$$\{p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$可以利用下式来进行确定：
+对于空间中已知的固定标架$$\{O; \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$，空间中任意正交标架$$\{p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$可以利用下式来进行确定：
 
 $$
 \begin{cases}
@@ -243,8 +243,59 @@ a_{31} & a_{32} & a_{33} \\
 \end{bmatrix}
 $$
 
-则矩阵$$A$$为行列式等于1的正交矩阵，即$$A \in \text{SO(3)}$$。前面的推导说明$$\mathbb{E}^3$$中的任意标架$$\{p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$都对应一个向量和正交阵$$(a, A)$$，因此$$\mathbb{E}^3$$中的全体标架集合等同于$$\mathbb{E}^3 \times \text{SO(3)}$$，这是一个具有**6个自由度**的空间。
+则矩阵$$A$$为行列式等于1的正交矩阵，即$$A \in \text{SO(3)}$$。前面的推导说明$$\mathbb{E}^3$$中的任意标架$$\{p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$都对应一个向量和正交阵$$(\boldsymbol{a}, A)$$，因此$$\mathbb{E}^3$$中的全体标架集合等同于$$\mathbb{E}^3 \times \text{SO(3)}$$，这是一个具有**6个自由度**的空间。
 
 #### 坐标变换
+
+对于空间中已知的两个正交标架$$\{O; \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$和$$\{p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$，记点$$q$$在两个标架下的坐标分别为$$(x, y, z)$$和$$(\tilde{x}, \tilde{y}, \tilde{z})$$，则有
+
+$$
+\overrightarrow{Oq} = x \ \boldsymbol{i} + y \ \boldsymbol{j} + z \ \boldsymbol{k} = 
+(x, y, z) \cdot
+\begin{pmatrix}
+\boldsymbol{i} \\ \boldsymbol{j} \\ \boldsymbol{k}
+\end{pmatrix}
+$$
+
+另一方面，
+
+$$
+\begin{aligned}
+\overrightarrow{Oq} &= \overrightarrow{Op} + \overrightarrow{pq} \\
+&= (a_1, a_2, a_3) \cdot 
+\begin{pmatrix}
+\boldsymbol{i} \\ \boldsymbol{j} \\ \boldsymbol{k}
+\end{pmatrix}
++
+(\tilde{x}, \tilde{y}, \tilde{z}) \cdot
+\begin{pmatrix}
+\boldsymbol{e}_1 \\ \boldsymbol{e}_2 \\ \boldsymbol{e}_3 \\
+\end{pmatrix} \\
+&= (\boldsymbol{a} + (\tilde{x}, \tilde{y}, \tilde{z}) \cdot A)
+\begin{pmatrix}
+\boldsymbol{i} \\ \boldsymbol{j} \\ \boldsymbol{k}
+\end{pmatrix}
+\end{aligned}
+$$
+
+这说明两个正交标架下的坐标变换满足关系式
+
+$$
+(x, y, z) = \boldsymbol{a} + (\tilde{x}, \tilde{y}, \tilde{z}) \cdot A
+$$
+
+其展开形式为
+
+$$
+\begin{cases}
+\begin{aligned}
+x &= a_1 + a_{11} \ \tilde{x} + a_{21} \ \tilde{y} + a_{31} \ \tilde{z} \\
+y &= a_2 + a_{12} \ \tilde{x} + a_{22} \ \tilde{y} + a_{32} \ \tilde{z}\\
+z &= a_3 + a_{13} \ \tilde{x} + a_{23} \ \tilde{y} + a_{33} \ \tilde{z}\\
+\end{aligned}
+\end{cases}
+$$
+
+#### 刚体运动
 
 ## 向量函数
