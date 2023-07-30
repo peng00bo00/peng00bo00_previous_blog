@@ -608,3 +608,9 @@ GAMES106:
         url: /2023/04/19/GAMES106-NOTES-02.html
       - title: 绘制流水线原理II
         url: /2023/04/29/GAMES106-NOTES-03.html
+
+DifferentialGeometry:
+  - title: 微分几何笔记
+    children: 
+        - title: 预备知识
+          url: /2023/07/30/DifferentialGeometry-NOTES-01.html
