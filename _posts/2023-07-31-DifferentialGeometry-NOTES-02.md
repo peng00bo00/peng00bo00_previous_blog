@@ -20,6 +20,18 @@ $$
 p: [a, b] \rightarrow \mathbb{E}^3
 $$
 
-称为**参数曲线**。
+称为**参数曲线**。给定$$\mathbb{E}^3$$中的正交标架$$\{O; \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$，则曲线$$C$$上的点$$p(t)$$等同于向量$$\overrightarrow{Op(t)}$$。令$$\boldsymbol{r}(t) = \overrightarrow{Op(t)}$$，则$$\boldsymbol{r}(t)$$可以表示为向量函数
+
+$$
+\boldsymbol{r}(t) = x(t) \ \boldsymbol{i} + y(t) \ \boldsymbol{j} + z(t) \ \boldsymbol{k}, \ \ t \in [a, b]
+$$
+
+记为
+
+$$
+\boldsymbol{r}(t) = (x(t), y(t), z(t)), \ \ t \in [a, b]
+$$
+
+其中$$t$$是曲线的参数，上式称为曲线$$C$$的**参数方程**。
 
 ## 曲线的弧长
