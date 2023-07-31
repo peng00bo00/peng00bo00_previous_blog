@@ -529,7 +529,8 @@ $$
 $$
 \begin{aligned}
 \boldsymbol{b}(t) \times \boldsymbol{b}'(t) &= \boldsymbol{b}(t) \times (\boldsymbol{a}''(t) \times \boldsymbol{a}(t)) \\
-&= (\boldsymbol{a}(t), \boldsymbol{a}'(t), \boldsymbol{a}''(t)) \equiv 0
+&= (\boldsymbol{b}(t) \cdot \boldsymbol{a}(t)) \boldsymbol{a}''(t) - (\boldsymbol{b}(t) \cdot \boldsymbol{a}''(t)) \boldsymbol{a}(t) \\
+&= (\boldsymbol{a}(t), \boldsymbol{a}'(t), \boldsymbol{a}''(t)) \boldsymbol{a}(t) \equiv 0
 \end{aligned}
 $$
 
