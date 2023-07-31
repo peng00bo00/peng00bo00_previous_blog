@@ -490,4 +490,53 @@ $$
 
 故$$\boldsymbol{b}(t)$$是常向量，向量函数$$\boldsymbol{a}(t)$$的方向不变。
 
-(3)
+(3) 设有单位常向量$$\boldsymbol{b}$$使得$$\boldsymbol{a}(t) \cdot \boldsymbol{b} \equiv 0$$，对该式进行求导可以得到
+
+$$
+\boldsymbol{a}'(t) \cdot \boldsymbol{b} \equiv 0
+$$
+
+$$
+\boldsymbol{a}''(t) \cdot \boldsymbol{b} \equiv 0
+$$
+
+这说明$$\boldsymbol{a}(t)$$，$$\boldsymbol{a}'(t)$$，$$\boldsymbol{a}''(t)$$都垂直于$$\boldsymbol{b}$$，即都位于$$\boldsymbol{b}$$的正交补空间内。因此向量$$\boldsymbol{a}(t)$$，$$\boldsymbol{a}'(t)$$，$$\boldsymbol{a}''(t)$$共面，其混合积满足
+
+$$
+(\boldsymbol{a}(t), \boldsymbol{a}'(t), \boldsymbol{a}''(t)) \equiv 0
+$$
+
+反过来，假定上面的式子成立，则有
+
+$$
+(\boldsymbol{a}(t) \times \boldsymbol{a}'(t)) \cdot \boldsymbol{a}''(t) \equiv 0
+$$
+
+由于$$\boldsymbol{a}'(t) \times \boldsymbol{a}(t) \neq \boldsymbol{0}$$，我们令
+
+$$
+\boldsymbol{b}(t) = \boldsymbol{a}'(t) \times \boldsymbol{a}(t)
+$$
+
+则
+
+$$
+\boldsymbol{b}'(t) = \boldsymbol{a}''(t) \times \boldsymbol{a}(t)
+$$
+
+进而
+
+$$
+\begin{aligned}
+\boldsymbol{b}(t) \times \boldsymbol{b}'(t) &= \boldsymbol{b}(t) \times (\boldsymbol{a}''(t) \times \boldsymbol{a}(t)) \\
+&= (\boldsymbol{a}(t), \boldsymbol{a}'(t), \boldsymbol{a}''(t)) \equiv 0
+\end{aligned}
+$$
+
+根据(2)，$$\boldsymbol{b}(t)$$有固定的方向。令$$\boldsymbol{b}_0(t) = \frac{\boldsymbol{b}(t)}{\vert \boldsymbol{b}(t) \vert}$$，则$$\boldsymbol{b}_0(t)$$即为单位常向量且满足
+
+$$
+\boldsymbol{a}(t) \cdot \boldsymbol{b}_0(t) = \frac{\boldsymbol{a}(t) \cdot \boldsymbol{b}(t)}{\vert \boldsymbol{b}(t) \vert} \equiv \boldsymbol{0}
+$$
+
+即$$\boldsymbol{a}(t)$$与固定方向$$\boldsymbol{b}_0(t)$$垂直。
