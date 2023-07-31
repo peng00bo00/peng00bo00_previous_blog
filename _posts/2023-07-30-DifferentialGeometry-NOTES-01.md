@@ -393,9 +393,9 @@ $$
 
 因此向量函数的求导和积分归结于它的分量函数的求导和积分，向量函数的可微性和可积性归结于它它的分量函数的可微性和可积性。
 
-{**定理 1.2** 假定$$\boldsymbol{a}(t)$$，$$\boldsymbol{b}(t)$$，$$\boldsymbol{c}(t)$$是三个可微的向量函数，则它们的内积、向量积和混合积的导数有下面的公式：
-(1) $$(\boldsymbol{a}(t) \cdot \boldsymbol{b}(t))' = \boldsymbol{a}'(t) \cdot \boldsymbol{b}(t) + \boldsymbol{a}(t) \cdot \boldsymbol{b}'(t)$$
-(2) $$(\boldsymbol{a}(t) \times \boldsymbol{b}(t))' = \boldsymbol{a}'(t) \times \boldsymbol{b}(t) + \boldsymbol{a}(t) \times \boldsymbol{b}'(t)$$
+{**定理 1.2** 假定$$\boldsymbol{a}(t)$$，$$\boldsymbol{b}(t)$$，$$\boldsymbol{c}(t)$$是三个可微的向量函数，则它们的内积、向量积和混合积的导数有下面的公式：  
+(1) $$(\boldsymbol{a}(t) \cdot \boldsymbol{b}(t))' = \boldsymbol{a}'(t) \cdot \boldsymbol{b}(t) + \boldsymbol{a}(t) \cdot \boldsymbol{b}'(t)$$  
+(2) $$(\boldsymbol{a}(t) \times \boldsymbol{b}(t))' = \boldsymbol{a}'(t) \times \boldsymbol{b}(t) + \boldsymbol{a}(t) \times \boldsymbol{b}'(t)$$  
 (3) $$(\boldsymbol{a}(t), \boldsymbol{b}(t), \boldsymbol{c}(t))' = (\boldsymbol{a}'(t), \boldsymbol{b}(t), \boldsymbol{c}(t)) + (\boldsymbol{a}(t), \boldsymbol{b}'(t), \boldsymbol{c}(t)) + (\boldsymbol{a}(t), \boldsymbol{b}(t), \boldsymbol{c}'(t))$$
 }
 {:.info}
