@@ -403,6 +403,6 @@ $$
 (1) 向量函数$$\boldsymbol{a}(t)$$的长度是常数当且仅当$$\boldsymbol{a}'(t) \cdot \boldsymbol{a}(t) \equiv 0$$  
 (2) 向量函数$$\boldsymbol{a}(t)$$的方向不变当且仅当$$\boldsymbol{a}'(t) \times \boldsymbol{a}(t) \equiv \boldsymbol{0}$$  
 (3) 如果向量函数$$\boldsymbol{a}(t)$$与某个固定方向垂直，那么  
-$$(\boldsymbol{a}(t), \boldsymbol{a}'(t), \boldsymbol{a}''(t)) \equiv 0$$  
+<center>$$(\boldsymbol{a}(t), \boldsymbol{a}'(t), \boldsymbol{a}''(t)) \equiv 0$$</center>  
 反过来，如果上式成立且处处有$$\boldsymbol{a}'(t) \times \boldsymbol{a}(t) \neq \boldsymbol{0}$$，那么向量函数$$\boldsymbol{a}(t)$$必与某个固定方向垂直
 {:.info}
