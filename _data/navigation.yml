@@ -614,3 +614,5 @@ DifferentialGeometry:
     children: 
         - title: 预备知识
           url: /2023/07/30/DifferentialGeometry-NOTES-01.html
+        - title: 曲线论
+          url: /2023/07/31/DifferentialGeometry-NOTES-02.html
