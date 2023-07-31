@@ -406,7 +406,7 @@ $$
 反过来，如果上式成立且处处有$$\boldsymbol{a}'(t) \times \boldsymbol{a}(t) \neq \boldsymbol{0}$$，那么向量函数$$\boldsymbol{a}(t)$$必与某个固定方向垂直
 {:.info}
 
-定理 1.3的证明记录如下：
+定理 1.3的证明如下：
 
 (1) 
 
@@ -418,8 +418,76 @@ $$
 \end{aligned}
 $$
 
-因此$$\vert \boldsymbol{a}(t) \vert^2$$为常数当且仅当$$\boldsymbol{a}'(t) \cdot \boldsymbol{a}(t) \equiv 0$$
+因此$$\vert \boldsymbol{a}(t) \vert^2$$为常数当且仅当$$\boldsymbol{a}'(t) \cdot \boldsymbol{a}(t) \equiv 0$$。
 
-(2)
+(2) 如果向量函数$$\boldsymbol{a}(t)$$的方向不变，则存在一个单位向量$$\boldsymbol{b}$$使得向量函数$$\boldsymbol{a}(t)$$能够写成
+
+$$
+\boldsymbol{a}(t) = f(t) \cdot \boldsymbol{b}
+$$
+
+其中$$f(t) = \boldsymbol{a}(t) \cdot \boldsymbol{b}$$是处处非零的连续可微函数，因此
+
+$$
+\begin{aligned}
+\boldsymbol{a}'(t) &= f'(t) \cdot \boldsymbol{b} \\ \\
+\boldsymbol{a}'(t) \times \boldsymbol{a}(t) &= (f'(t) \cdot \boldsymbol{b}) \times (f(t) \cdot \boldsymbol{b}) \\
+&\equiv \boldsymbol{0}
+\end{aligned}
+$$
+
+反过来，如果$$\boldsymbol{a}'(t) \times \boldsymbol{a}(t) \equiv \boldsymbol{0}$$，令$$\boldsymbol{b}(t) = \frac{\boldsymbol{a}(t)}{\vert \boldsymbol{a}(t) \vert}$$，$$\vert \boldsymbol{b}(t) \vert = 1$$。我们需要证明$$\boldsymbol{b}(t)$$是常向量函数。
+
+由于$$\boldsymbol{b}(t)$$的长度为1，根据(1)可知
+
+$$
+\boldsymbol{b}'(t) \cdot \boldsymbol{b}(t) \equiv 0
+$$
+
+即
+
+$$
+\boldsymbol{b}'(t) \cdot \boldsymbol{a}(t) \equiv 0
+$$
+
+由$$\boldsymbol{b}(t)$$的定义可知
+
+$$
+\boldsymbol{a}(t) = f(t) \cdot \boldsymbol{b} (t)
+$$
+
+其中$$f(t) = \vert \boldsymbol{a}(t) \vert$$处处不为零，因此
+
+$$
+\boldsymbol{a}'(t) = f'(t) \cdot \boldsymbol{b}(t) + f(t) \cdot \boldsymbol{b}'(t)
+$$
+
+$$
+\boldsymbol{a}'(t) \times \boldsymbol{a}(t) = f(t) \boldsymbol{b}'(t) \times \boldsymbol{a}(t) = \boldsymbol{0}
+$$
+
+因此有$$\boldsymbol{b}'(t) \times \boldsymbol{a}(t) = \boldsymbol{0}$$，即$$\boldsymbol{b}'(t)$$与$$\boldsymbol{a}(t)$$共线
+
+$$
+\boldsymbol{b}'(t) = \lambda(t) \cdot \boldsymbol{a}(t)
+$$
+
+由于$$\boldsymbol{b}'(t) \cdot \boldsymbol{a}(t) \equiv 0$$，有
+
+$$
+\begin{aligned}
+\boldsymbol{b}'(t) \cdot \boldsymbol{a}(t) &= \lambda(t) \boldsymbol{a}(t) \cdot \boldsymbol{a} (t) \\
+&= \lambda(t) f^2(t) \\
+&\equiv 0
+\end{aligned}
+$$
+
+因此$$\lambda(t) \equiv 0$$，即
+
+$$
+\boldsymbol{b}'(t) \equiv \boldsymbol{0}
+$$
+
+故$$\boldsymbol{b}(t)$$是常向量，向量函数$$\boldsymbol{a}(t)$$的方向不变。
 
 (3)
