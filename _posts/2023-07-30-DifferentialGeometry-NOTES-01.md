@@ -405,3 +405,21 @@ $$
 (3) 如果向量函数$$\boldsymbol{a}(t)$$与某个固定方向垂直，那么$$(\boldsymbol{a}(t), \boldsymbol{a}'(t), \boldsymbol{a}''(t)) \equiv 0$$  
 反过来，如果上式成立且处处有$$\boldsymbol{a}'(t) \times \boldsymbol{a}(t) \neq \boldsymbol{0}$$，那么向量函数$$\boldsymbol{a}(t)$$必与某个固定方向垂直
 {:.info}
+
+定理 1.3的证明记录如下：
+
+(1) 
+
+$$
+\begin{aligned}
+\frac{d}{dt} \vert \boldsymbol{a}(t) \vert^2 &= \frac{d (\boldsymbol{a}(t) \cdot \boldsymbol{a}(t))}{dt} \\
+&= \boldsymbol{a}'(t) \cdot \boldsymbol{a}(t) + \boldsymbol{a}(t) \cdot \boldsymbol{a}'(t) \\
+&= 2 \boldsymbol{a}'(t) \cdot \boldsymbol{a}(t)
+\end{aligned}
+$$
+
+因此$$\vert \boldsymbol{a}(t) \vert^2$$为常数当且仅当$$\boldsymbol{a}'(t) \cdot \boldsymbol{a}(t) \equiv 0$$
+
+(2)
+
+(3)
