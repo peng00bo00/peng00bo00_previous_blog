@@ -110,7 +110,7 @@ $$
 
 #### 叉乘
 
-当向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$平行时规定它们的**叉乘**为零向量；而当它们不平行时，规定叉乘$$\boldsymbol{a} \times \boldsymbol{b}$$为与向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$都垂直的一个向量，其长度为$$\boldsymbol{a}$$和$$\boldsymbol{b}$$所张成的平行四边形面积：
+当向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$平行时规定它们的**叉乘(向量积)**为零向量；而当它们不平行时，规定叉乘$$\boldsymbol{a} \times \boldsymbol{b}$$为与向量$$\boldsymbol{a}$$和$$\boldsymbol{b}$$都垂直的一个向量，其长度为$$\boldsymbol{a}$$和$$\boldsymbol{b}$$所张成的平行四边形面积：
 
 $$
 \vert \boldsymbol{a} \times \boldsymbol{b} \vert = \vert \boldsymbol{a} \vert \cdot \vert \boldsymbol{b} \vert \cdot \sin{\angle(\boldsymbol{a}, \boldsymbol{b})}
@@ -236,11 +236,11 @@ $$
 
 $$
 A = 
-\begin{bmatrix}
+\begin{pmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\
-\end{bmatrix}
+\end{pmatrix}
 $$
 
 则矩阵$$A$$为行列式等于1的正交矩阵，即$$A \in \text{SO(3)}$$。前面的推导说明$$\mathbb{E}^3$$中的任意标架$$\{p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$都对应一个向量和正交阵$$(\boldsymbol{a}, A)$$，因此$$\mathbb{E}^3$$中的全体标架集合等同于$$\mathbb{E}^3 \times \text{SO(3)}$$，这是一个具有**6个自由度**的空间。
@@ -277,6 +277,10 @@ $$
 \end{pmatrix}
 \end{aligned}
 $$
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/8gx0wG4.png" width="60%">
+</div>
 
 这说明两个正交标架下的坐标变换满足关系式
 
@@ -334,6 +338,10 @@ $$
 \end{aligned}
 $$
 
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/hxiJDvV.png" width="60%">
+</div>
+
 这表示$$\tilde{q} = \sigma(q)$$关于$$\{O; \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$的坐标为
 
 $$
@@ -357,4 +365,35 @@ $$
 **定理 1.1** $$\mathbb{E}^3$$中的刚体运动把一个正交标架映射为另一个正交标架；反过来，$$\mathbb{E}^3$$中的任意两个正交标架，必有一个$$\mathbb{E}^3$$中的刚体运动把其中一个正交标架映射为另一个正交标架。
 {:.info}
 
+实际上刚体运动可以看作是$$\mathbb{E}^3$$到其自身的一种变换，它的特点是可以保持任意两点之间的距离保持不变，这样的变换称为**等距变换**。可以证明刚体运动是保持右手系不变的等距变换，而等距变换或者是一个刚体运动，或者是刚体运动关于某个平面反射的合成。
+
 ## 向量函数
+
+由三维欧式空间中全体向量组成的空间称为三维欧式向量空间。当给定了正交标架$$\{O; \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$后，该空间等价于由有序的三个实数构成的空间$$\mathbb{R}^3$$。在此基础上我们定义**向量函数**为其定义域到$$\mathbb{R}^3$$的映射，即三个有序实函数。
+
+设有定义在区间$$[a, b]$$上的向量函数
+
+$$
+\boldsymbol{r} (t) = (x(t), y(t), z(t)), \ \ t \in [a, b]
+$$
+
+如果其三个分量$$x(t)$$，$$y(t)$$，$$z(t)$$都是关于$$t$$的连续函数，则称向量函数$$\boldsymbol{r} (t)$$是连续的；如果$$x(t)$$，$$y(t)$$，$$z(t)$$都是关于$$t$$的连续可微函数，则称向量函数$$\boldsymbol{r} (t)$$是连续可微的。向量函数$$\boldsymbol{r} (t)$$的导数和积分定义与数值函数的导数和积分的定义是相同的，即
+
+$$
+\begin{aligned}
+\frac{d \boldsymbol{r}}{d t} \bigg|_{t = t_0} &= \lim_{\Delta t \to 0} \frac{\boldsymbol{r}(t_0 + \Delta t) - \boldsymbol{r}(t_0)}{\Delta t} \\
+&= \lim_{\Delta t \to 0} \bigg( \frac{x(t_0 + \Delta t) - x(t_0)}{\Delta t}, \frac{y(t_0 + \Delta t) - y(t_0)}{\Delta t}, \frac{z(t_0 + \Delta t) - z(t_0)}{\Delta t} \bigg) \\
+&= (x'(t_0), y'(t_0), z'(t_0))
+\end{aligned}
+$$
+
+$$
+\int_a^b \boldsymbol{r}(t) \ dt = \bigg( \int_a^b x(t) \ dt, \int_a^b y(t) \ dt, \int_a^b z(t) \ dt \bigg)
+$$
+
+因此向量函数的求导和积分归结于它的分量函数的求导和积分，向量函数的可微性和可积性归结于它它的分量函数的可微性和可积性。
+
+**定理 1.2** 假定$$\boldsymbol{a}(t)$$，$$\boldsymbol{b}(t)$$，$$\boldsymbol{c}(t)$$是三个可微的向量函数，则它们的内积、向量积和混合积的导数有下面的公式：
+1. $$(\boldsymbol{a}(t) \cdot \boldsymbol{b}(t))' = \boldsymbol{a}'(t) \cdot \boldsymbol{b}(t) + \boldsymbol{a}(t) \cdot \boldsymbol{b}'(t)$$
+2. 
+{:.info}
