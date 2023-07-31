@@ -279,7 +279,7 @@ $$
 $$
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/8gx0wG4.png" width="70%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/8gx0wG4.png" width="80%">
 </div>
 
 这说明两个正交标架下的坐标变换满足关系式
@@ -339,7 +339,7 @@ $$
 $$
 
 <div align=center>
-<img src="https://search.pstatic.net/common?src=https://i.imgur.com/hxiJDvV.png" width="70%">
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/hxiJDvV.png" width="80%">
 </div>
 
 这表示$$\tilde{q} = \sigma(q)$$关于$$\{O; \boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k} \}$$的坐标为
