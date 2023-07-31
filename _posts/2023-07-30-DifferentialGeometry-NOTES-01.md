@@ -534,6 +534,12 @@ $$
 \end{aligned}
 $$
 
+注意这里使用了[向量三重积公式](https://en.wikipedia.org/wiki/Triple_product#Vector_triple_product)
+
+$$
+\boldsymbol{a} \times (\boldsymbol{b} \times \boldsymbol{c}) = (\boldsymbol{a} \cdot \boldsymbol{c}) \boldsymbol{b} -  (\boldsymbol{a} \cdot \boldsymbol{b}) \boldsymbol{c}
+$$
+
 根据(2)，$$\boldsymbol{b}(t)$$有固定的方向。令$$\boldsymbol{b}_0(t) = \frac{\boldsymbol{b}(t)}{\vert \boldsymbol{b}(t) \vert}$$，则$$\boldsymbol{b}_0(t)$$即为单位常向量且满足
 
 $$
