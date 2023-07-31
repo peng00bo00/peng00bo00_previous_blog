@@ -231,16 +231,16 @@ $$
 令
 
 $$
-\boldsymbol{a} = (a_1, a_2, a_3)
-$$
-
-$$
-A = 
+\begin{aligned}
+\boldsymbol{a} &= (a_1, a_2, a_3)
+\\ \\
+A &= 
 \begin{pmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\
 \end{pmatrix}
+\end{aligned}
 $$
 
 则矩阵$$A$$为行列式等于1的正交矩阵，即$$A \in \text{SO(3)}$$。前面的推导说明$$\mathbb{E}^3$$中的任意标架$$\{p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$都对应一个向量和正交阵$$(\boldsymbol{a}, A)$$，因此$$\mathbb{E}^3$$中的全体标架集合等同于$$\mathbb{E}^3 \times \text{SO(3)}$$，这是一个具有**6个自由度**的空间。
@@ -311,19 +311,19 @@ $$
 由于$$q$$点的相对位置在变换前后是一致的，我们有
 
 $$
+\begin{aligned}
 \overrightarrow{Oq} 
-= (x, y, z) \cdot 
+&= (x, y, z) \cdot 
 \begin{pmatrix}
 \boldsymbol{i} \\ \boldsymbol{j} \\ \boldsymbol{k}
 \end{pmatrix}
-$$
-
-$$
+\\ \\
 \overrightarrow{p\tilde{q}} 
-= (x, y, z) \cdot 
+&= (x, y, z) \cdot 
 \begin{pmatrix}
 \boldsymbol{e}_1 \\ \boldsymbol{e}_2 \\ \boldsymbol{e}_3 \\
 \end{pmatrix}
+\end{aligned}
 $$
 
 因此
@@ -384,11 +384,9 @@ $$
 \frac{d \boldsymbol{r}}{d t} \bigg|_{t = t_0} &= \lim_{\Delta t \to 0} \frac{\boldsymbol{r}(t_0 + \Delta t) - \boldsymbol{r}(t_0)}{\Delta t} \\
 &= \lim_{\Delta t \to 0} \bigg( \frac{x(t_0 + \Delta t) - x(t_0)}{\Delta t}, \frac{y(t_0 + \Delta t) - y(t_0)}{\Delta t}, \frac{z(t_0 + \Delta t) - z(t_0)}{\Delta t} \bigg) \\
 &= (x'(t_0), y'(t_0), z'(t_0))
+\\ \\
+\int_a^b \boldsymbol{r}(t) \ dt &= \bigg( \int_a^b x(t) \ dt, \int_a^b y(t) \ dt, \int_a^b z(t) \ dt \bigg)
 \end{aligned}
-$$
-
-$$
-\int_a^b \boldsymbol{r}(t) \ dt = \bigg( \int_a^b x(t) \ dt, \int_a^b y(t) \ dt, \int_a^b z(t) \ dt \bigg)
 $$
 
 因此向量函数的求导和积分归结于它的分量函数的求导和积分，向量函数的可微性和可积性归结于它它的分量函数的可微性和可积性。
@@ -404,7 +402,7 @@ $$
 **定理 1.3** 设$$\boldsymbol{a}(t)$$是一个处处非零的连续可微向量函数，则  
 (1) 向量函数$$\boldsymbol{a}(t)$$的长度是常数当且仅当$$\boldsymbol{a}'(t) \cdot \boldsymbol{a}(t) \equiv 0$$  
 (2) 向量函数$$\boldsymbol{a}(t)$$的方向不变当且仅当$$\boldsymbol{a}'(t) \times \boldsymbol{a}(t) \equiv \boldsymbol{0}$$  
-(3) 如果向量函数$$\boldsymbol{a}(t)$$与某个固定方向垂直，那么
-$$(\boldsymbol{a}(t), \boldsymbol{a}'(t), \boldsymbol{a}''(t)) \equiv 0$$
+(3) 如果向量函数$$\boldsymbol{a}(t)$$与某个固定方向垂直，那么  
+$$(\boldsymbol{a}(t), \boldsymbol{a}'(t), \boldsymbol{a}''(t)) \equiv 0$$  
 反过来，如果上式成立且处处有$$\boldsymbol{a}'(t) \times \boldsymbol{a}(t) \neq \boldsymbol{0}$$，那么向量函数$$\boldsymbol{a}(t)$$必与某个固定方向垂直
 {:.info}
