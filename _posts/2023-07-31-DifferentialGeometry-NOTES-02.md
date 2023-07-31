@@ -84,4 +84,42 @@ $$
 \boldsymbol{r}'(u) = \frac{d}{d u} \boldsymbol{r}(t(u)) = \boldsymbol{r}'(t(u)) \cdot t'(u)
 $$
 
+如果容许的参数变换还要求$$t'(u) \gt 0$$，则这种容许的参数变换保持曲线的定向不变。
+
 ## 曲线的弧长
+
+设$$\mathbb{E}^3$$中的一条正则曲线$$C$$的参数方程为$$\boldsymbol{r} = \boldsymbol{r}(t)$$，$$t \in [a, b]$$，我们定义
+
+$$
+s = \int_a^b \vert \boldsymbol{r}'(t) \vert \ dt
+$$
+
+则$$s$$是该曲线的一个不变量，即它与$$\mathbb{E}^3$$中笛卡尔直角坐标系的选取无关，也与该曲线的保持定向的容许参数变换无关。这里简单证明一下$$s$$对于保持定向的参数变换不变：
+
+设参数变换为
+
+$$
+t = t(u), \ \ t'(u) \gt 0, \ \ u \in [\alpha, \beta]
+$$
+
+并且
+
+$$
+t(\alpha) = a, \ \ t(\beta) = b
+$$
+
+因此
+
+$$
+\bigg\vert \frac{d \boldsymbol{r}(t(u))}{du} \bigg\vert = \bigg\vert \frac{d\boldsymbol{r}}{dt}(t(u)) \bigg\vert \cdot \frac{d t}{d u}
+$$
+
+根据积分变量替换公式有
+
+$$
+\int_a^b \bigg\vert \frac{d \boldsymbol{r}(t)}{dt} \bigg\vert \ dt 
+= \int_\alpha^\beta \bigg\vert \frac{d\boldsymbol{r}}{dt}(t(u)) \bigg\vert \cdot \frac{dt}{du} \ du 
+= \int_\alpha^\beta \bigg\vert \frac{d \boldsymbol{r}(t(u))}{du} \bigg\vert \ du
+$$
+
+因此$$s$$与参数变换无关。
