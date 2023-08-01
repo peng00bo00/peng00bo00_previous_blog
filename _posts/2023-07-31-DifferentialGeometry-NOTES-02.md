@@ -123,3 +123,21 @@ $$
 $$
 
 因此$$s$$与参数变换无关。
+
+不变量$$s$$的几何意义是该曲线的长度。可以证明对于对于区间$$[a, b]$$的任意一个分割$$a = t_0 \lt t_1 \lt ... \lt t_n = b$$，下面的极限成立：
+
+$$
+\lim_{\lambda \to 0} \sum_{i=1}^n \vert \boldsymbol{r}(t_i) - \boldsymbol{r}(t_{i-1}) \vert = \int_a^b \vert \boldsymbol{r}'(t) \vert \ dt
+$$
+
+$$
+\lambda = \max \{ \vert \Delta t_i \vert ; \ i = 1, ..., n \}
+$$
+
+不难发现等式的左端$$\sum_{i=1}^n \vert \boldsymbol{r}(t_i) - \boldsymbol{r}(t_{i-1}) \vert$$是顶点依次$$\boldsymbol{r}(t_0)$$，$$\boldsymbol{r}(t_1)$$，...，$$\boldsymbol{r}(t_n)$$为的折线长度之和，因此$$\int_a^b \vert \boldsymbol{r}'(t) \vert \ dt$$表示将曲线进行不断细分所得到的折线段长度的极限，也就是曲线的长度，称为**弧长**。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/5CSudyd.png" width="80%">
+</div>
+
+### 弧长参数
