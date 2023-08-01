@@ -134,7 +134,7 @@ $$
 \lambda = \max \{ \vert \Delta t_i \vert ; \ i = 1, ..., n \}
 $$
 
-不难发现等式的左端$$\sum_{i=1}^n \vert \boldsymbol{r}(t_i) - \boldsymbol{r}(t_{i-1}) \vert$$是顶点依次$$\boldsymbol{r}(t_0)$$，$$\boldsymbol{r}(t_1)$$，...，$$\boldsymbol{r}(t_n)$$为的折线长度之和，因此$$\int_a^b \vert \boldsymbol{r}'(t) \vert \ dt$$表示将曲线进行不断细分所得到的折线段长度的极限，也就是曲线的长度，称为**弧长**。
+不难发现等式的左端$$\sum_{i=1}^n \vert \boldsymbol{r}(t_i) - \boldsymbol{r}(t_{i-1}) \vert$$是顶点依次$$\boldsymbol{r}(t_0)$$，$$\boldsymbol{r}(t_1)$$，...，$$\boldsymbol{r}(t_n)$$为的折线长度，因此$$\int_a^b \vert \boldsymbol{r}'(t) \vert \ dt$$表示将曲线进行不断细分所得到的折线段长度的极限，也就是曲线的长度，称为**弧长**。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/5CSudyd.png" width="80%">
