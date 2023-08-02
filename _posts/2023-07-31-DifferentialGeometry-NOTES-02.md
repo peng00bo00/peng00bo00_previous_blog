@@ -181,7 +181,7 @@ $$
 $$
 {:.info}
 
-定理2.2证明如下：把曲线$$C$$上所有的单位切向量$$\boldsymbol{\alpha}(s)$$平行移动，使它们的起点都放在原点$$O$$出，则这些切向量的端点便描出单位球面上的一条曲线，于是切向量$$\boldsymbol{\alpha}(s + \Delta s)$$和$$\boldsymbol{\alpha}(s)$$之间的夹角$$\Delta \theta$$是在单位球面上从$$\boldsymbol{\alpha}(s + \Delta s)$$到$$\boldsymbol{\alpha}(s)$$的大圆弧的弧长，而$$\boldsymbol{\alpha}(s + \Delta s) - \boldsymbol{\alpha}(s)$$正好是该角所对的弦长，所有
+[定理2.2](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)证明如下：把曲线$$C$$上所有的单位切向量$$\boldsymbol{\alpha}(s)$$平行移动，使它们的起点都放在原点$$O$$出，则这些切向量的端点便描出单位球面上的一条曲线，于是切向量$$\boldsymbol{\alpha}(s + \Delta s)$$和$$\boldsymbol{\alpha}(s)$$之间的夹角$$\Delta \theta$$是在单位球面上从$$\boldsymbol{\alpha}(s + \Delta s)$$到$$\boldsymbol{\alpha}(s)$$的大圆弧的弧长，而$$\boldsymbol{\alpha}(s + \Delta s) - \boldsymbol{\alpha}(s)$$正好是该角所对的弦长，所有
 
 $$
 \begin{aligned}
@@ -194,3 +194,6 @@ $$
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/GhhlaS3.png" width="80%">
 </div>
+
+**定义2.1** 设曲线$$C$$的方程是$$\boldsymbol{r}(s)$$，其中$$s$$是曲线的弧长参数。令$$\kappa(s) = \big\vert \frac{d \boldsymbol{\alpha}}{ds} \big\vert = \vert \boldsymbol{r}''(s) \vert$$，则称$$\kappa(s)$$为曲线$$\boldsymbol{r}(s)$$在$$s$$处的**曲率**，并且称$$\frac{d \boldsymbol{\alpha}}{ds}$$为该曲线的**曲率向量**。
+{:.success}
