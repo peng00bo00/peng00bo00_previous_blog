@@ -167,4 +167,6 @@ $$
 **定理 2.1** 设$$\boldsymbol{r} = \boldsymbol{r}(t) \ (a \leq t \leq b)$$是$$\mathbb{E}^3$$中的一条正则参数曲线，则$$t$$是它的弧长参数的充要条件是$$\vert \boldsymbol{r}'(t) \vert \equiv 1$$。
 {:.info}
 
+这里简单证明如下：当$$t$$为弧长参数$$s$$时有$$ds = dt$$，所以必有$$\vert \boldsymbol{r}'(t) \vert \equiv 1$$，反之亦然。
+
 **定理2.1**的几何意义是曲线以弧长为参数的充要条件是它的切向量场为单位向量场。
