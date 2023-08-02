@@ -215,10 +215,31 @@ $$
 
 称其为曲线的**次法向量**。这样，在正则曲线上曲率$$\kappa(s)$$不为零的点有一个完全确定的右手单位正交标架$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}(s), \boldsymbol{\beta}(s), \boldsymbol{\gamma}(s) \}$$，它与表示曲线的笛卡尔直角坐标系的选取无关，也不受曲线作保持定向的容许参数变换的影响，称为曲线在该点的**Frenet标架**。
 
-在曲率$$\kappa(s)$$不为零的点，Frenet标架$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}(s), \boldsymbol{\beta}(s), \boldsymbol{\gamma}(s) \}$$的三根轴分别称为曲线的**切线**，**主法线**和**次法线**，三个做表面分别称为曲线的**法平面**(以$$\boldsymbol{\alpha}$$为法向量的平面)，**从切平面**(以$$\boldsymbol{\beta}$$为法向量的平面)和**密切平面**(以$$\boldsymbol{\gamma}$$为法向量的平面)，它们的方程分别为：
+在曲率$$\kappa(s)$$不为零的点，Frenet标架$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}(s), \boldsymbol{\beta}(s), \boldsymbol{\gamma}(s) \}$$的三根轴分别称为曲线的**切线**，**主法线**和**次法线**，三个坐标面分别称为曲线的**法平面**(以$$\boldsymbol{\alpha}$$为法向量的平面)，**从切平面**(以$$\boldsymbol{\beta}$$为法向量的平面)和**密切平面**(以$$\boldsymbol{\gamma}$$为法向量的平面)，它们的方程分别为：
 
-(1) 法平面：$$(\boldsymbol{X} - \boldsymbol{r}(s)) \cdot \boldsymbol{\alpha}(s) = 0$$  
+(1) 法平面：  $$(\boldsymbol{X} - \boldsymbol{r}(s)) \cdot \boldsymbol{\alpha}(s) = 0$$  
 (2) 从切平面：$$(\boldsymbol{X} - \boldsymbol{r}(s)) \cdot \boldsymbol{\beta}(s) = 0$$  
 (3) 密切平面：$$(\boldsymbol{X} - \boldsymbol{r}(s)) \cdot \boldsymbol{\gamma}(s) = 0$$
 
 其中$$\boldsymbol{X}$$是相应平面上动点的向径。
+
+对于弧长参数表达的曲线$$\boldsymbol{r}(s)$$，其曲率和Frenet标架可以直接根据定义计算：
+
+$$
+\boldsymbol{\alpha}(s) = \boldsymbol{r}'(s)
+$$
+
+$$
+\kappa(s) = \vert \boldsymbol{\alpha}'(s) \vert = \vert \boldsymbol{r}''(s) \vert
+$$
+
+如果$$\kappa(s) \neq 0$$，则有
+
+$$
+\boldsymbol{\beta} (s) = \frac{\boldsymbol{r}''(s)}{\vert \boldsymbol{r}''(s) \vert}
+$$
+
+$$
+\boldsymbol{\gamma} (s) = \boldsymbol{\alpha} (s) \times \boldsymbol{\beta} (s) = \frac{\boldsymbol{r}'(s) \times \boldsymbol{r}''(s)}{\vert \boldsymbol{r}''(s) \vert}
+$$
+
