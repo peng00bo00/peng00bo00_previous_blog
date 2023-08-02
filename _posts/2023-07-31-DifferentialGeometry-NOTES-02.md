@@ -177,7 +177,7 @@ $$
 
 **定理 2.2** 设$$\boldsymbol{\alpha}(s)$$是曲线$$\boldsymbol{r}(s)$$的单位切向量场，$$s$$是弧长参数，用$$\Delta \theta$$表示切向量$$\boldsymbol{\alpha}(s + \Delta s)$$和$$\boldsymbol{\alpha}(s)$$之间的夹角，则
 $$
-\limits_{\Delta s \to 0} \bigg \vert \frac{\Delta \theta}{\Delta s} \bigg \vert = \big\vert \frac{d \boldsymbol{\alpha}}{ds} \big\vert
+\lim_{\Delta s \to 0} \bigg \vert \frac{\Delta \theta}{\Delta s} \bigg \vert = \big\vert \frac{d \boldsymbol{\alpha}}{ds} \big\vert
 $$
 {:.info}
 
@@ -197,3 +197,8 @@ $$
 
 **定义2.1** 设曲线$$C$$的方程是$$\boldsymbol{r}(s)$$，其中$$s$$是曲线的弧长参数。令$$\kappa(s) = \big\vert \frac{d \boldsymbol{\alpha}}{ds} \big\vert = \vert \boldsymbol{r}''(s) \vert$$，则称$$\kappa(s)$$为曲线$$\boldsymbol{r}(s)$$在$$s$$处的**曲率**，并且称$$\frac{d \boldsymbol{\alpha}}{ds}$$为该曲线的**曲率向量**。
 {:.success}
+
+**定理2.3** 曲线$$C$$是一条直线当且仅当它的曲率$$\kappa(s) \equiv 0$$。
+{:.info}
+
+因为$$\vert \boldsymbol{\alpha}(s) \vert = 1$$，根据[定理1.3](/2023/07/30/DifferentialGeometry-NOTES-01.html#向量函数)可知$$\boldsymbol{\alpha}'(s) \cdot \boldsymbol{\alpha}(s) = 0$$，即$$\boldsymbol{\alpha}(s) \perp \boldsymbol{\alpha}'(s)$$，所以$$\boldsymbol{\alpha}'(s)$$是曲线$$C$$的一个法向量。如果$$\kappa(s) \neq 0$$，则向量$$\boldsymbol{\alpha}'(s)$$有完全确定的方向，将这个方向的单位向量记为$$\boldsymbol{\beta}(s)$$，称其为曲线$$C$$的主法向量。
