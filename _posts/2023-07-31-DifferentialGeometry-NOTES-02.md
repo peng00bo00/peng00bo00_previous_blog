@@ -217,7 +217,7 @@ $$
 
 在曲率$$\kappa(s)$$不为零的点，Frenet标架$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}(s), \boldsymbol{\beta}(s), \boldsymbol{\gamma}(s) \}$$的三根轴分别称为曲线的**切线**，**主法线**和**次法线**，三个坐标面分别称为曲线的**法平面**(以$$\boldsymbol{\alpha}$$为法向量的平面)，**从切平面**(以$$\boldsymbol{\beta}$$为法向量的平面)和**密切平面**(以$$\boldsymbol{\gamma}$$为法向量的平面)，它们的方程分别为：
 
-(1) 法平面：  $$(\boldsymbol{X} - \boldsymbol{r}(s)) \cdot \boldsymbol{\alpha}(s) = 0$$  
+(1) 法平面：$$(\boldsymbol{X} - \boldsymbol{r}(s)) \cdot \boldsymbol{\alpha}(s) = 0$$  
 (2) 从切平面：$$(\boldsymbol{X} - \boldsymbol{r}(s)) \cdot \boldsymbol{\beta}(s) = 0$$  
 (3) 密切平面：$$(\boldsymbol{X} - \boldsymbol{r}(s)) \cdot \boldsymbol{\gamma}(s) = 0$$
 
@@ -243,3 +243,42 @@ $$
 \boldsymbol{\gamma} (s) = \boldsymbol{\alpha} (s) \times \boldsymbol{\beta} (s) = \frac{\boldsymbol{r}'(s) \times \boldsymbol{r}''(s)}{\vert \boldsymbol{r}''(s) \vert}
 $$
 
+对于一般的参数$$t$$则可以按照下式进行计算：
+
+$$
+\boldsymbol{\alpha} (t) = \frac{\boldsymbol{r}' (t)}{\vert \boldsymbol{r}' (t) \vert}, \
+\boldsymbol{r}' (t) = \vert \boldsymbol{r}' (t) \vert \cdot \boldsymbol{\alpha} (t)
+$$
+
+$$
+\begin{aligned}
+\boldsymbol{r}'' (t) &= \frac{d \vert \boldsymbol{r}' (t) \vert}{dt} \cdot \boldsymbol{\alpha} (t) + \vert \boldsymbol{r}' (t) \vert \cdot \frac{d \boldsymbol{\alpha} (t)}{ds} \cdot \frac{ds}{dt} \\
+&= \frac{d \vert \boldsymbol{r}' (t) \vert}{dt} \cdot \boldsymbol{\alpha} (t) + \vert \boldsymbol{r}' (t) \vert^2 \cdot \kappa (t) \cdot \boldsymbol{\beta}(t)
+\end{aligned}
+$$
+
+所以
+
+$$
+\begin{aligned}
+\boldsymbol{r}'(t) \times \boldsymbol{r}''(t) &= \vert \boldsymbol{r}'(t) \vert^3 \cdot \kappa(t) \big( \boldsymbol{\alpha}(t) \times \boldsymbol{\beta}(t) \big) \\
+&= \vert \boldsymbol{r}'(t) \vert^3 \cdot \kappa(t) \ \boldsymbol{\gamma}(t)
+\end{aligned}
+$$
+
+整理后可以得到
+
+$$
+\kappa(t) = \frac{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert}{\vert \boldsymbol{r}'(t) \vert^3}
+$$
+
+$$
+\boldsymbol{\gamma} (t) = \frac{\boldsymbol{r}'(t) \times \boldsymbol{r}''(t)}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert}
+$$
+
+$$
+\begin{aligned}
+\boldsymbol{\beta} (t) &= \boldsymbol{\gamma}(t) \times \boldsymbol{\alpha} (t) \\
+&= \frac{\vert \boldsymbol{r}'(t) \vert}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \boldsymbol{r}''(t) - \frac{\boldsymbol{r}'(t) \cdot \boldsymbol{r}''(t)}{\vert \boldsymbol{r}'(t) \vert \cdot \vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \boldsymbol{r}'(t)
+\end{aligned}
+$$
