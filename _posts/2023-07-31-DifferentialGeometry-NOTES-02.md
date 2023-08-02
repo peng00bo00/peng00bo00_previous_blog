@@ -181,7 +181,7 @@ $$
 $$
 {:.info}
 
-[定理2.2](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)证明如下：把曲线$$C$$上所有的单位切向量$$\boldsymbol{\alpha}(s)$$平行移动，使它们的起点都放在原点$$O$$出，则这些切向量的端点便描出单位球面上的一条曲线，于是切向量$$\boldsymbol{\alpha}(s + \Delta s)$$和$$\boldsymbol{\alpha}(s)$$之间的夹角$$\Delta \theta$$是在单位球面上从$$\boldsymbol{\alpha}(s + \Delta s)$$到$$\boldsymbol{\alpha}(s)$$的大圆弧的弧长，而$$\boldsymbol{\alpha}(s + \Delta s) - \boldsymbol{\alpha}(s)$$正好是该角所对的弦长，所有
+[定理2.2](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)证明如下：把曲线$$C$$上所有的单位切向量$$\boldsymbol{\alpha}(s)$$平行移动，使它们的起点都放在原点$$O$$出，则这些切向量的端点便描出单位球面上的一条曲线，于是切向量$$\boldsymbol{\alpha}(s + \Delta s)$$和$$\boldsymbol{\alpha}(s)$$之间的夹角$$\Delta \theta$$是在单位球面上从$$\boldsymbol{\alpha}(s + \Delta s)$$到$$\boldsymbol{\alpha}(s)$$的大圆弧的弧长，而$$\boldsymbol{\alpha}(s + \Delta s) - \boldsymbol{\alpha}(s)$$正好是该角所对的弦长，所以
 
 $$
 \begin{aligned}
@@ -201,4 +201,16 @@ $$
 **定理2.3** 曲线$$C$$是一条直线当且仅当它的曲率$$\kappa(s) \equiv 0$$。
 {:.info}
 
-因为$$\vert \boldsymbol{\alpha}(s) \vert = 1$$，根据[定理1.3](/2023/07/30/DifferentialGeometry-NOTES-01.html#向量函数)可知$$\boldsymbol{\alpha}'(s) \cdot \boldsymbol{\alpha}(s) = 0$$，即$$\boldsymbol{\alpha}(s) \perp \boldsymbol{\alpha}'(s)$$，所以$$\boldsymbol{\alpha}'(s)$$是曲线$$C$$的一个法向量。如果$$\kappa(s) \neq 0$$，则向量$$\boldsymbol{\alpha}'(s)$$有完全确定的方向，将这个方向的单位向量记为$$\boldsymbol{\beta}(s)$$，称其为曲线$$C$$的主法向量。
+因为$$\vert \boldsymbol{\alpha}(s) \vert = 1$$，根据[定理1.3](/2023/07/30/DifferentialGeometry-NOTES-01.html#向量函数)可知$$\boldsymbol{\alpha}'(s) \cdot \boldsymbol{\alpha}(s) = 0$$，即$$\boldsymbol{\alpha}(s) \perp \boldsymbol{\alpha}'(s)$$，所以$$\boldsymbol{\alpha}'(s)$$是曲线$$C$$的一个法向量。如果$$\kappa(s) \neq 0$$，则向量$$\boldsymbol{\alpha}'(s)$$有完全确定的方向，将这个方向的单位向量记为$$\boldsymbol{\beta}(s)$$，称其为曲线$$C$$的**主法向量**。于是，曲率向量$$\boldsymbol{\alpha}'(s)$$可以表示为
+
+$$
+\boldsymbol{\alpha}'(s) = \kappa(s) \ \boldsymbol{\beta}(s)
+$$
+
+曲线的单位切向量$$\boldsymbol{\alpha}(s)$$和主法向量$$\boldsymbol{\beta}(s)$$唯一地确定了曲线的第二个法向量
+
+$$
+\boldsymbol{\gamma} (s) = \boldsymbol{\alpha}(s) \times \boldsymbol{\beta} (s)
+$$
+
+称其为曲线的**次法向量**。
