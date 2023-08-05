@@ -458,7 +458,8 @@ $$
 即
 
 $$
--\tau(t) \boldsymbol{\beta}(t) \cdot \frac{ds}{dt} = \frac{\boldsymbol{r}'(t) \times \boldsymbol{r}''(t)}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}'''(t) \vert} + \frac{d}{dt} \bigg( \frac{1}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \bigg) \cdot \big( \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \big)
+-\tau(t) \boldsymbol{\beta}(t) \cdot \frac{ds}{dt} 
+= \frac{\boldsymbol{r}'(t) \times \boldsymbol{r}'''(t)}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} + \frac{d}{dt} \bigg( \frac{1}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \bigg) \cdot \big( \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \big)
 $$
 
 再对两边同时点乘$$\boldsymbol{\beta} (t)$$的计算式
