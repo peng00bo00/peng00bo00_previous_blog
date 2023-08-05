@@ -439,7 +439,7 @@ $$
 
 其中的系数矩阵为一个反对称矩阵，这不是Frenet标架的导数所特有的。实际上，沿曲线定义的任意一个单位正交标架场的导数公式的系数矩阵都是反对称的。
 
-本节最后我们来推导挠率$$\tau(s)$$的计算公式。首先回忆次法向量$$\gamma(s)$$的计算公式
+本节最后我们来推导挠率$$\tau(t)$$的计算公式。首先回忆次法向量$$\gamma(s)$$的计算公式
 
 $$
 \boldsymbol{\gamma} (t) = \frac{\boldsymbol{r}'(t) \times \boldsymbol{r}''(t)}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert}
@@ -449,8 +449,9 @@ $$
 
 $$
 \begin{aligned}
-\boldsymbol{\gamma}' (t) &= \frac{d \boldsymbol{\gamma} (t)}{ds} \cdot \frac{ds}{dt} = -\tau(t) \boldsymbol{\beta}(t) \cdot \frac{ds}{dt} \\
-&= \frac{\boldsymbol{r}'(t) \times \boldsymbol{r}''(t)}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}'''(t) \vert} + \frac{d}{dt} \bigg( \frac{1}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \bigg) \cdot \big( \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \big)
+\boldsymbol{\gamma}' (t) 
+&= \frac{d \boldsymbol{\gamma} (t)}{ds} \cdot \frac{ds}{dt} = -\tau(t) \boldsymbol{\beta}(t) \cdot \frac{ds}{dt} \\
+&= \frac{\boldsymbol{r}'(t) \times \boldsymbol{r}'''(t)}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} + \frac{d}{dt} \bigg( \frac{1}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \bigg) \cdot \big( \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \big)
 \end{aligned}
 $$
 
