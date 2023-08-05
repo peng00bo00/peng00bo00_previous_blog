@@ -346,11 +346,98 @@ $$
 \vert \tau(s) \vert = \vert \boldsymbol{\gamma}'(s) \vert
 $$
 
-**定义2.2** 设$$\boldsymbol{\alpha}$$和$$\boldsymbol{\beta}$$分别是曲线$$C$$的主法向量和次法向量，其中$$s$$是弧长参数，则$$\tau(s) = -\boldsymbol{\gamma}'(s) \cdot \boldsymbol{\beta} (s)$$称为曲线$$C$$的**挠率**。
+**定义2.2** 设$$\boldsymbol{\beta}$$和$$\boldsymbol{\gamma}$$分别是曲线$$C$$的主法向量和次法向量，其中$$s$$是弧长参数，则$$\tau(s) = -\boldsymbol{\gamma}'(s) \cdot \boldsymbol{\beta} (s)$$称为曲线$$C$$的**挠率**。
 {:.success}
 
 **定理2.4** 设曲线$$C$$不是直线，则它是平面曲线当且仅当它的挠率为零。
 {:.info}
+
+**证明** 前面已经证明过平面曲线的次法向量$$\boldsymbol{\gamma}$$是常向量，因此其挠率必为零；接下来证明挠率为零的曲线是平面曲线。设曲线$$C$$的参数方程为$$\boldsymbol{r} = \boldsymbol{r}(s)$$，$$s$$是弧长参数，并且$$\kappa(s) \neq 0$$，$$\tau(s) \equiv 0$$。此时曲线有确定的Frenet标架$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}(s), \boldsymbol{\beta}(s), \boldsymbol{\gamma}(s) \}$$，并且
+
+$$
+\boldsymbol{\gamma}'(s) = -\tau(s) \cdot \boldsymbol{\beta} (s) \equiv 0
+$$
+
+因此$$\boldsymbol{\gamma}(s) = \boldsymbol{\gamma}_0$$为常向量。由于
+
+$$
+0 = \boldsymbol{r}'(s) \cdot \boldsymbol{\gamma}(s) = \boldsymbol{r}'(s) \cdot \boldsymbol{\gamma}_0 = \frac{d}{ds} \big( \boldsymbol{r}(s) \cdot \boldsymbol{\gamma}_0 \big)
+$$
+
+所以
+
+$$
+\boldsymbol{r}(s) \cdot \boldsymbol{\gamma}_0 = \boldsymbol{r}(s_0) \cdot \boldsymbol{\gamma}_0
+$$
+
+$$
+\big( \boldsymbol{r}(s) - \boldsymbol{r}(s_0) \big) \cdot \boldsymbol{\gamma}_0 = 0
+$$
+
+这说明曲线落在经过点$$\boldsymbol{r}(s_0)$$、以常向量$$\boldsymbol{\gamma}_0$$为法向量的平面内。证毕。
+
+根据曲率、挠率和Frenet标架的定义，我们可以总结出如下公式：
+
+$$
+\begin{aligned}
+\boldsymbol{r}'(s) &= \boldsymbol{\alpha}(s) \\
+\boldsymbol{\alpha}'(s) &= \kappa(s) \boldsymbol{\beta}(s) \\
+\boldsymbol{\gamma}'(s) &= -\tau(s) \boldsymbol{\beta}(s)
+\end{aligned}
+$$
+
+其中$$\boldsymbol{r}'(s)$$，$$\boldsymbol{\alpha}'(s)$$，$$\boldsymbol{\gamma}'(s)$$分别给出了Frenet标架的原点$$\boldsymbol{r}(s)$$和两个标架向量$$\boldsymbol{\alpha}(s)$$，$$\boldsymbol{\gamma}(s)$$的运动公式，要获得整个标架的运动公式只需要求出$$\boldsymbol{\beta}'(s)$$就行了。由于$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}(s), \boldsymbol{\beta}(s), \boldsymbol{\gamma}(s) \}$$是$$\mathbb{E}^3$$空间中的一个标架，所以$$\boldsymbol{\beta}'(s)$$一定可以表示为$$\boldsymbol{\alpha}(s)$$，$$\boldsymbol{\beta}(s)$$，$$\boldsymbol{\gamma}(s)$$的线性组合，不妨设
+
+$$
+\boldsymbol{\beta}'(s) = a \boldsymbol{\alpha}(s) + b \boldsymbol{\beta}(s) + c \boldsymbol{\gamma}(s)
+$$
+
+将上式分别与$$\boldsymbol{\alpha}(s)$$，$$\boldsymbol{\beta}(s)$$，$$\boldsymbol{\gamma}(s)$$进行点乘可以得到系数
+
+$$
+\begin{aligned}
+a &= \boldsymbol{\beta}'(s) \cdot \boldsymbol{\alpha}(s) = -\boldsymbol{\beta}(s) \cdot \boldsymbol{\alpha}'(s) =-\kappa(s) \\
+b &= \boldsymbol{\beta}'(s) \cdot \boldsymbol{\beta}(s)  = 0 \\
+c &= \boldsymbol{\beta}'(s) \cdot \boldsymbol{\gamma}(s) = -\boldsymbol{\beta}(s) \cdot \boldsymbol{\gamma}'(s) = \tau(s) \\
+\end{aligned}
+$$
+
+所以有
+
+$$
+\boldsymbol{\beta}'(s) = -\kappa(s) \boldsymbol{\alpha}(s) + \tau(s) \boldsymbol{\gamma}(s)
+$$
+
+总结一下可以得到Frenet标架$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}(s), \boldsymbol{\beta}(s), \boldsymbol{\gamma}(s) \}$$沿曲线$$C$$的运动公式
+
+$$
+\begin{cases}
+\boldsymbol{r}'(s) &= \boldsymbol{\alpha}(s) \\
+\boldsymbol{\alpha}'(s) &= \kappa(s) \boldsymbol{\beta}(s) \\
+\boldsymbol{\beta}'(s) &= -\kappa(s) \boldsymbol{\alpha}(s) + \tau(s) \boldsymbol{\gamma}(s) \\
+\boldsymbol{\gamma}'(s) &= -\tau(s) \boldsymbol{\beta}(s)
+\end{cases}
+$$
+
+上述公式称为**Frenet公式**，是曲线论中最重要、最基本的公式。Frenet公式的后三个方程还可以写成矩阵的形式
+
+$$
+\begin{pmatrix}
+\boldsymbol{\alpha}'(s) \\ \boldsymbol{\beta}'(s) \\ \boldsymbol{\gamma}'(s)
+\end{pmatrix}
+=
+\begin{pmatrix}
+0          & \kappa(s) & 0 \\
+-\kappa(s) & 0         & \tau(s) \\
+0          & -\tau(s)  & 0
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{\alpha}(s) \\ \boldsymbol{\beta}(s) \\ \boldsymbol{\gamma}(s)
+\end{pmatrix}
+$$
+
+其中的系数矩阵为一个反对称矩阵，这不是Frenet标架的导数所特有的。实际上，沿曲线定义的任意一个单位正交标架场的导数公式的系数矩阵都是反对称的。
 
 ### 曲线论基本定理
 
