@@ -309,5 +309,48 @@ $$
 
 [上一节](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)介绍了曲线在一点切线和主法线张成的平面称为曲线的密切平面，它的法向是曲线的次法向量$$\boldsymbol{\gamma}$$。如果曲线本身落在一个平面内，则该平面就是曲线的密切平面，于是它的次法向量$$\boldsymbol{\gamma}$$是常向量；如果曲线不是平面曲线，则$$\boldsymbol{\gamma}$$必定不是常向量。根据**定理2.2**，单位切向量$$\boldsymbol{\alpha}$$关于弧长参数$$s$$的导数的长度$$\vert \boldsymbol{\alpha}'(s) \vert$$反映了曲线切线方向转动的快慢；同理，次法向量$$\boldsymbol{\gamma}$$关于弧长参数$$s$$的导数的长度$$\vert \boldsymbol{\gamma}'(s) \vert$$反映了曲线的密切平面方向转动的快慢，因而它刻画了曲线偏离平面曲线程度，反映了曲线扭曲的程度，即曲线的"挠率"。
 
+因为$$\boldsymbol{\gamma} (s)$$是单位向量场，故$$\boldsymbol{\gamma}' (s) \perp \boldsymbol{\gamma} (s)$$。此外根据Frenet标架的定义有
+
+$$
+\boldsymbol{\gamma} = \boldsymbol{\alpha} \times \boldsymbol{\beta}
+$$
+
+$$
+\boldsymbol{\alpha}'(s) \parallel \boldsymbol{\beta}(s)
+$$
+
+所以
+
+$$
+\begin{aligned}
+\boldsymbol{\gamma}'(s) &= \boldsymbol{\alpha}' (s) \times \boldsymbol{\beta} (s) + \boldsymbol{\alpha} (s) \times \boldsymbol{\beta}' (s) \\
+&= \boldsymbol{\alpha} (s) \times \boldsymbol{\beta}' (s)
+\end{aligned}
+$$
+
+这说明$$\boldsymbol{\gamma}'(s) \perp \boldsymbol{\alpha} (s)$$。于是$$\boldsymbol{\gamma}'(s)$$必定是与$$\boldsymbol{\beta} (s)$$是共线的，不妨设
+
+$$
+\boldsymbol{\gamma}'(s) = -\tau \boldsymbol{\beta} (s)
+$$
+
+因此
+
+$$
+\tau(s) = -\boldsymbol{\gamma}'(s) \cdot \boldsymbol{\beta} (s)
+$$
+
+并且
+
+$$
+\vert \tau(s) \vert = \vert \boldsymbol{\gamma}'(s) \vert
+$$
+
+**定义2.2** 设$$\boldsymbol{\alpha}$$和$$\boldsymbol{\beta}$$分别是曲线$$C$$的主法向量和次法向量，其中$$s$$是弧长参数，则$$\tau(s) = -\boldsymbol{\gamma}'(s) \cdot \boldsymbol{\beta} (s)$$称为曲线$$C$$的**挠率**。
+{:.success}
+
+**定理2.4** 设曲线$$C$$不是直线，则它是平面曲线当且仅当它的挠率为零。
+{:.info}
+
 ### 曲线论基本定理
 
