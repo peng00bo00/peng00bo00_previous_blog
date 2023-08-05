@@ -439,5 +439,49 @@ $$
 
 其中的系数矩阵为一个反对称矩阵，这不是Frenet标架的导数所特有的。实际上，沿曲线定义的任意一个单位正交标架场的导数公式的系数矩阵都是反对称的。
 
+本节最后我们来推导挠率$$\tau(s)$$的计算公式。首先回忆次法向量$$\gamma(s)$$的计算公式
+
+$$
+\boldsymbol{\gamma} (t) = \frac{\boldsymbol{r}'(t) \times \boldsymbol{r}''(t)}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert}
+$$
+
+等式左右两边对$$t$$进行求导可以得到
+
+$$
+\begin{aligned}
+\boldsymbol{\gamma}' (t) &= \frac{d \boldsymbol{\gamma} (t)}{ds} \cdot \frac{ds}{dt} = -\tau(t) \boldsymbol{\beta}(t) \cdot \frac{ds}{dt} \\
+&= \frac{\boldsymbol{r}'(t) \times \boldsymbol{r}''(t)}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}'''(t) \vert} + \frac{d}{dt} \bigg( \frac{1}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \bigg) \cdot \big( \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \big)
+\end{aligned}
+$$
+
+即
+
+$$
+-\tau(t) \boldsymbol{\beta}(t) \cdot \frac{ds}{dt} = \frac{\boldsymbol{r}'(t) \times \boldsymbol{r}''(t)}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}'''(t) \vert} + \frac{d}{dt} \bigg( \frac{1}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \bigg) \cdot \big( \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \big)
+$$
+
+再对两边同时点乘$$\boldsymbol{\beta} (t)$$的计算式
+
+$$
+\boldsymbol{\beta} (t) = \frac{\vert \boldsymbol{r}'(t) \vert}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \boldsymbol{r}''(t) - \frac{\boldsymbol{r}'(t) \cdot \boldsymbol{r}''(t)}{\vert \boldsymbol{r}'(t) \vert \cdot \vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \boldsymbol{r}'(t)
+$$
+
+最终得到
+
+$$
+\tau(t) = \frac{\big( \boldsymbol{r}'(t), \boldsymbol{r}''(t), \boldsymbol{r}'''(t) \big)}{ \vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert^2}
+$$
+
+如果$$t$$是弧长参数$$s$$，上式还可以简化为
+
+$$
+\tau(s) = \frac{\big( \boldsymbol{r}'(s), \boldsymbol{r}''(s), \boldsymbol{r}'''(s) \big)}{ \vert \boldsymbol{r}''(s) \vert^2}
+$$
+
+结合[定理2.4](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)，我们可以直接得到如下推论
+
+**定理2.5** 曲线$$\boldsymbol{r} = \boldsymbol{r}(t)$$是一条平面曲线的充分必要条件是$$\big( \boldsymbol{r}'(s), \boldsymbol{r}''(s), \boldsymbol{r}'''(s) \big) \equiv 0$$。
+{:.info}
+
 ### 曲线论基本定理
 
