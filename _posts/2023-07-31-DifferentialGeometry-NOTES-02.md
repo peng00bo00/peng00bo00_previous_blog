@@ -201,6 +201,8 @@ $$
 **定理2.3** 曲线$$C$$是一条直线当且仅当它的曲率$$\kappa(s) \equiv 0$$。
 {:.info}
 
+**定理2.3**可证明如下：直线$$C$$的参数方程为$$\boldsymbol{r}(s) = \boldsymbol{r}_0 + \boldsymbol{\alpha}_0 s$$，其中$$\boldsymbol{\alpha}$$是该直线的方向向量。因此有$$\boldsymbol{r}'(s) = \boldsymbol{\alpha}$$，$$\boldsymbol{r}''(s) = \boldsymbol{0}$$，故$$\kappa(s) = \vert \boldsymbol{0} \vert \equiv 0$$。上述推导是可逆的，即$$\kappa(s) \equiv 0$$蕴含着$$\boldsymbol{r}(s) = \boldsymbol{r}_0 + \boldsymbol{\alpha}_0 s$$。
+
 因为$$\vert \boldsymbol{\alpha}(s) \vert = 1$$，根据[定理1.3](/2023/07/30/DifferentialGeometry-NOTES-01.html#向量函数)可知$$\boldsymbol{\alpha}'(s) \cdot \boldsymbol{\alpha}(s) = 0$$，即$$\boldsymbol{\alpha}(s) \perp \boldsymbol{\alpha}'(s)$$，所以$$\boldsymbol{\alpha}'(s)$$是曲线$$C$$的一个法向量。如果$$\kappa(s) \neq 0$$，则向量$$\boldsymbol{\alpha}'(s)$$有完全确定的方向，将这个方向的单位向量记为$$\boldsymbol{\beta}(s)$$，称其为曲线$$C$$的**主法向量**。于是，曲率向量$$\boldsymbol{\alpha}'(s)$$可以表示为
 
 $$
