@@ -304,3 +304,8 @@ $$
 &= \frac{\vert \boldsymbol{r}'(t) \vert}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \boldsymbol{r}''(t) - \frac{\boldsymbol{r}'(t) \cdot \boldsymbol{r}''(t)}{\vert \boldsymbol{r}'(t) \vert \cdot \vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \boldsymbol{r}'(t)
 \end{aligned}
 $$
+
+### 曲线的挠率和Frenet公式
+
+### 曲线论基本定理
+
