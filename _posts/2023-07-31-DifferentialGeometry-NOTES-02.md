@@ -171,7 +171,7 @@ $$
 
 [定理2.1](/2023/07/31/DifferentialGeometry-NOTES-02.html#弧长参数)的几何意义是曲线以弧长为参数的充要条件是它的切向量场为单位向量场。
 
-### 曲线的曲率和Frenet标架
+## 曲线的曲率和Frenet标架
 
 设曲线$$C$$的方程是$$\boldsymbol{r}(s)$$，其中$$s$$是曲线的弧长参数。令$$\boldsymbol{\alpha}(s) = \boldsymbol{r}'(s)$$，则$$\boldsymbol{\alpha}(s)$$是曲线$$C$$在$$s$$处的方向向量，其方向变化的快慢反映了曲线的弯曲程度，我们可以使用$$\big\vert \frac{d \boldsymbol{\alpha}}{ds} \big\vert$$来衡量。
 
@@ -305,7 +305,7 @@ $$
 \end{aligned}
 $$
 
-### 曲线的挠率和Frenet公式
+## 曲线的挠率和Frenet公式
 
 [上一节](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)介绍了曲线在一点切线和主法线张成的平面称为曲线的密切平面，它的法向是曲线的次法向量$$\boldsymbol{\gamma}$$。如果曲线本身落在一个平面内，则该平面就是曲线的密切平面，于是它的次法向量$$\boldsymbol{\gamma}$$是常向量；如果曲线不是平面曲线，则$$\boldsymbol{\gamma}$$必定不是常向量。根据**定理2.2**，单位切向量$$\boldsymbol{\alpha}$$关于弧长参数$$s$$的导数的长度$$\vert \boldsymbol{\alpha}'(s) \vert$$反映了曲线切线方向转动的快慢；同理，次法向量$$\boldsymbol{\gamma}$$关于弧长参数$$s$$的导数的长度$$\vert \boldsymbol{\gamma}'(s) \vert$$反映了曲线的密切平面方向转动的快慢，因而它刻画了曲线偏离平面曲线程度，反映了曲线扭曲的程度，即曲线的"挠率"。
 
