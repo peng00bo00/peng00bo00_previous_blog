@@ -203,6 +203,26 @@ $$
 
 **定理2.3**可证明如下：直线$$C$$的参数方程为$$\boldsymbol{r}(s) = \boldsymbol{r}_0 + \boldsymbol{\alpha}_0 s$$，其中$$\boldsymbol{\alpha}$$是该直线的方向向量。因此有$$\boldsymbol{r}'(s) = \boldsymbol{\alpha}$$，$$\boldsymbol{r}''(s) = \boldsymbol{0}$$，故$$\kappa(s) = \vert \boldsymbol{0} \vert \equiv 0$$。上述推导是可逆的，即$$\kappa(s) \equiv 0$$蕴含着$$\boldsymbol{r}(s) = \boldsymbol{r}_0 + \boldsymbol{\alpha}_0 s$$。
 
+把曲线$$C$$的切向量$$\boldsymbol{\alpha}(s)$$平行移动到原点$$O$$，其端点描绘出的曲线称为曲线$$C$$的**切线像**，它的参数方程为
+
+$$
+\boldsymbol{r} = \boldsymbol{\alpha}(s)
+$$
+
+一般来说$$s$$不再是切线像的弧长，而切线像的弧长为
+
+$$
+d \tilde{s} = \bigg\vert \frac{d\boldsymbol{\alpha}}{ds} \bigg\vert \ ds = \kappa(s) \ ds
+$$
+
+所以
+
+$$
+\kappa(s) = \frac{d \tilde{s}}{ds}
+$$
+
+这就是说，曲线的曲率$$\kappa(s)$$是曲线切线像的弧长元素与曲线弧长元素之比。
+
 因为$$\vert \boldsymbol{\alpha}(s) \vert = 1$$，根据[定理1.3](/2023/07/30/DifferentialGeometry-NOTES-01.html#向量函数)可知$$\boldsymbol{\alpha}'(s) \cdot \boldsymbol{\alpha}(s) = 0$$，即$$\boldsymbol{\alpha}(s) \perp \boldsymbol{\alpha}'(s)$$，所以$$\boldsymbol{\alpha}'(s)$$是曲线$$C$$的一个法向量。如果$$\kappa(s) \neq 0$$，则向量$$\boldsymbol{\alpha}'(s)$$有完全确定的方向，将这个方向的单位向量记为$$\boldsymbol{\beta}(s)$$，称其为曲线$$C$$的**主法向量**。于是，曲率向量$$\boldsymbol{\alpha}'(s)$$可以表示为
 
 $$
