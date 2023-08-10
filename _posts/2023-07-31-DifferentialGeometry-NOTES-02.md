@@ -502,3 +502,6 @@ $$\tau_1(t) = \tau_2(\lambda(t))$$
 {:.info}
 
 除此之外我们还知道在曲率$$\kappa(s)$$处处不为零的正则曲线上有内在的、确定的[Frenet标架场](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)，所以$$\mathbb{E}^3$$中的曲线便变成在$$\mathbb{E}^3$$中的正交标架空间中的一条曲线。而[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)正好是这个标架场的运动方程，其系数恰好是曲线的曲率和挠率，它们完全确定了曲线在空间中的形状。我们的问题是：给定了曲率和挠率作为弧长参数$$s$$的函数$$\kappa(s)$$，$$\tau(s)$$后，在空间$$\mathbb{E}^3$$中是否存在正则参数曲线以给定的函数$$\kappa(s)$$，$$\tau(s)$$为它的曲率和挠率？我们在$$\mathbb{E}^3$$上由全体正交标架构成的六维空间中考虑，于是[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)成为现成的已知常微分方程组，它的解是依赖参数$$s$$的一族正交标架，其标架原点在$$\mathbb{E}^3$$中描出的轨迹正是我们所需的曲线，而这族正交标架本身则是曲线的Frenet标架场。
+
+**定理2.8** 设$$\kappa(s)$$，$$\tau(s)$$是在区间$$[a, b]$$上两个任意给定的连续可微函数，并且$$\kappa(s) \lt 0$$，则在空间$$\mathbb{E}^3$$中存在正则参数曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$，$$a \leq s \leq b$$，以$$s$$为弧长参数，以给定的函数$$\kappa(s)$$，$$\tau(s)$$为它的曲率和挠率，且这样的曲线在$$\mathbb{E}^3$$中时完全确定的，其差异至多为曲线在空间中的位置不同。
+{:.info}
