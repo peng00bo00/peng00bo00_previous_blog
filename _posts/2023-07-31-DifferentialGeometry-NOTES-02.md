@@ -494,7 +494,11 @@ $$
 
 对于一般的参数曲线，上述定理还可以推导出如下结论。
 
-**定理2.7** 设$$\boldsymbol{r} = \boldsymbol{r}_1(t)$$和$$\boldsymbol{r} = \boldsymbol{r}_2(u)$$是$$\mathbb{E}^3$$中两条正则参数曲线，它们的曲率处处不为零。如果存在三次以上的连续可微函数$$u = \lambda(t)$$，$$\lambda'(t) \neq 0$$，使得这两条曲线的弧长函数、曲率函数和挠率函数之间有关系式 
-$$s_1(t) = s_2(\lambda(t))$$，$$\kappa_1(t) = \kappa_2(\lambda(t))$$，$$\tau_1(t) = \tau_2(\lambda(t))$$ 
+**定理2.7** 设$$\boldsymbol{r} = \boldsymbol{r}_1(t)$$和$$\boldsymbol{r} = \boldsymbol{r}_2(u)$$是$$\mathbb{E}^3$$中两条正则参数曲线，它们的曲率处处不为零。如果存在三次以上的连续可微函数$$u = \lambda(t)$$，$$\lambda'(t) \neq 0$$，使得这两条曲线的弧长函数、曲率函数和挠率函数之间有关系式  
+$$s_1(t) = s_2(\lambda(t))$$，
+$$\kappa_1(t) = \kappa_2(\lambda(t))$$，
+$$\tau_1(t) = \tau_2(\lambda(t))$$  
 则有$$\mathbb{E}^3$$中的一个刚体运动$$\sigma$$，它把曲线$$\boldsymbol{r} = \boldsymbol{r}_1(t)$$变成曲线$$\boldsymbol{r} = \boldsymbol{r}_2(u)$$，即曲线$$\boldsymbol{r} = \boldsymbol{r}_2(\lambda(t))$$是曲线$$\boldsymbol{r} = \boldsymbol{r}_1(t)$$在刚体运动$$\sigma$$下的像。
 {:.info}
+
+除此之外我们还知道在曲率$$\kappa(s)$$处处不为零的正则曲线上有内在的、确定的[Frenet标架场](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)，所以$$\mathbb{E}^3$$中的曲线便变成在$$\mathbb{E}^3$$中的正交标架空间中的一条曲线。而[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)正好是这个标架场的运动方程，其系数恰好是曲线的曲率和挠率，它们完全确定了曲线在空间中的形状。
