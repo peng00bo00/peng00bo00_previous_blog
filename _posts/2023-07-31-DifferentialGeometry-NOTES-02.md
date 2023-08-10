@@ -517,7 +517,7 @@ $$
 \end{cases}
 $$
 
-其中$\{ \boldsymbol{r}(s); \boldsymbol{e}_1(s), \boldsymbol{e}_2(s), \boldsymbol{e}_3(s) \}$为曲线的Frenet标架，系数$$a_{ij}(s)$$需要满足
+其中$$\{ \boldsymbol{r}(s); \boldsymbol{e}_1(s), \boldsymbol{e}_2(s), \boldsymbol{e}_3(s) \}$$为曲线的Frenet标架，系数$$a_{ij}(s)$$需要满足
 
 $$
 \begin{pmatrix}
@@ -550,3 +550,12 @@ $$
 $$
 
 可以证明求解满足初始条件的常微分方程组得到的向量函数即为所需曲线。
+
+显然在一般情况下求解常微分方程组是比较困难的，对于一些常见曲线我们总结了其内在方程有如下特征：
+
+|         |  $\kappa(s)$   | $\tau(s)$  |
+|  :----:   |  :----:  | :----:  |
+| 直线  | $\kappa(s) \equiv 0$ | - |
+| 圆  | $\kappa(s) \gt 0$为常数 | $\tau(s) \equiv 0$ |
+| 平面曲线  | - | $\tau(s) \equiv 0$ |
+| 圆柱螺线  | $\kappa(s) \gt 0$为常数 | $\kappa(s) \neq 0$为常数 |
