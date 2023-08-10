@@ -540,7 +540,7 @@ $$
 \boldsymbol{e}_i(s_0) = \boldsymbol{e}_i^0
 $$
 
-它是一个为右手单位正交标架，即满足条件
+基向量$$\{ \boldsymbol{e}^0_1(s), \boldsymbol{e}^0_2(s), \boldsymbol{e}^0_3(s) \}$$是一个为右手单位正交标架，即满足条件
 
 $$
 \begin{cases}
