@@ -485,5 +485,16 @@ $$
 **定理2.5** 曲线$$\boldsymbol{r} = \boldsymbol{r}(t)$$是一条平面曲线的充分必要条件是$$\big( \boldsymbol{r}'(s), \boldsymbol{r}''(s), \boldsymbol{r}'''(s) \big) \equiv 0$$。
 {:.info}
 
-### 曲线论基本定理
+## 曲线论基本定理
 
+前面的讨论指出正则参数曲线的[弧长参数](/2023/07/31/DifferentialGeometry-NOTES-02.html#弧长参数)、[曲率](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)和[挠率](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)都是与曲线的保持定向的容许参数变换无关的，也与欧式空间$$\mathbb{E}^3$$中的笛卡尔直角坐标系的选取无关。当曲线在空间中经受一个刚体运动时，曲线的弧长、曲率和挠率是不变的；反过来说，如果空间$$\mathbb{E}^3$$中有两条曲线且它们的曲率和挠率表示成弧长参数的函数是分别相同的，则这两条曲线的形状是相同的。这个论断可以叙述成下面的基本定理。
+
+**定理2.6** 设$$\boldsymbol{r} = \boldsymbol{r}_1(s)$$和$$\boldsymbol{r} = \boldsymbol{r}_2(s)$$是$$\mathbb{E}^3$$中两条以弧长$$s$$为参数的正则参数曲线。如果它们的曲率处处不为零，并且它们的曲率和挠率分别相等，即$$\boldsymbol{\kappa}_1 (s) =\boldsymbol{\kappa}_2 (s)$$，$$\boldsymbol{\tau}_1 (s) =\boldsymbol{\tau}_2 (s)$$，则有$$\mathbb{E}^3$$中的一个刚体运动$$\sigma$$，它把曲线$$\boldsymbol{r} = \boldsymbol{r}_1(s)$$变成曲线$$\boldsymbol{r} = \boldsymbol{r}_2(s)$$。
+{:.info}
+
+对于一般的参数曲线，上述定理还可以推导出如下结论。
+
+**定理2.7** 设$$\boldsymbol{r} = \boldsymbol{r}_1(t)$$和$$\boldsymbol{r} = \boldsymbol{r}_2(u)$$是$$\mathbb{E}^3$$中两条正则参数曲线，它们的曲率处处不为零。如果存在三次以上的连续可微函数$$u = \lambda(t)$$，$$\lambda'(t) \neq 0$$，使得这两条曲线的弧长函数、曲率函数和挠率函数之间有关系式 
+$$s_1(t) = s_2(\lambda(t))$$，$$\kappa_1(t) = \kappa_2(\lambda(t))$$，$$\tau_1(t) = \tau_2(\lambda(t))$$ 
+则有$$\mathbb{E}^3$$中的一个刚体运动$$\sigma$$，它把曲线$$\boldsymbol{r} = \boldsymbol{r}_1(t)$$变成曲线$$\boldsymbol{r} = \boldsymbol{r}_2(u)$$，即曲线$$\boldsymbol{r} = \boldsymbol{r}_2(\lambda(t))$$是曲线$$\boldsymbol{r} = \boldsymbol{r}_1(t)$$在刚体运动$$\sigma$$下的像。
+{:.info}
