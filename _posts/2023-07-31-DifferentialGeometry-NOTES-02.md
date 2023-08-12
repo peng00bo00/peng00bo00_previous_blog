@@ -691,9 +691,11 @@ $$
 **定理2.9**的直接推论是两条相交的正则曲线在交点$$s=0$$处有2阶以上的切触的充要条件是
 
 $$
-\boldsymbol{r}_1 (0) = \boldsymbol{r}_2 (0), \ \
-\boldsymbol{r}_1^{(1)} (0) = \boldsymbol{r}_2^{(1)} (0), \ \
-\boldsymbol{r}_1^{(2)} (0) = \boldsymbol{r}_2^{(2)} (0), \ \
+\begin{aligned}
+\boldsymbol{r}_1 (0) &= \boldsymbol{r}_2 (0) \\
+\boldsymbol{r}_1^{(1)} (0) &= \boldsymbol{r}_2^{(1)} (0) \\
+\boldsymbol{r}_1^{(2)} (0) &= \boldsymbol{r}_2^{(2)} (0) \\
+\end{aligned}
 $$
 
 前两式说明这两条曲线相切，第三式意味着
