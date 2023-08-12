@@ -585,3 +585,27 @@ $$
 \boldsymbol{r}''' (0) &= -\kappa^2(0) \boldsymbol{\alpha} (0) + \kappa'(0) \boldsymbol{\beta} (0) + \kappa(0) \tau (0) \boldsymbol{\gamma} (0) \\
 \end{aligned}
 $$
+
+带入Taylor展开式可以得到
+
+$$
+\begin{aligned}
+\boldsymbol{r} (s) &= \boldsymbol{r} (0) \\
+&+ \bigg( s - \frac{\kappa_0^2}{6} s^3 \bigg) \boldsymbol{\alpha} (0) \\
+&+ \bigg( \frac{\kappa_0}{2} s^2 + \frac{\kappa_0'}{6} s^3 \bigg) \boldsymbol{\beta}(0) \\
+&+ \bigg( \frac{\kappa_0 \tau_0}{6} s^3 \bigg) \boldsymbol{\gamma}(0) \\
+&+ \boldsymbol{o} (s^3)
+\end{aligned}
+$$
+
+其中$$\kappa_0 = \kappa(0)$$，$$\kappa_0' = \kappa'(0)$$，$$\tau_0 = \tau(0)$$。如果把曲线在$$s=0$$处的Frenet标架$$\{ \boldsymbol{r}(0); \boldsymbol{\alpha}(0), \boldsymbol{\beta}(0), \boldsymbol{\gamma}(0) \}$$取作空间$$\mathbb{E}^3$$的笛卡尔直角坐标系的标架，则曲线在$$s=0$$处的参数方程成为
+
+$$
+\begin{cases}
+x = s - \frac{\kappa_0^2}{6} s^3 + \boldsymbol{o} (s^3) \\
+y = \frac{\kappa_0}{2} s^2 + \frac{\kappa_0'}{6} s^3 + \boldsymbol{o} (s^3) \\
+z = \frac{\kappa_0 \tau_0}{6} s^3 + \boldsymbol{o} (s^3)\\
+\end{cases}
+$$
+
+上式称为曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$在$$s=0$$处的**标准展开式**。
