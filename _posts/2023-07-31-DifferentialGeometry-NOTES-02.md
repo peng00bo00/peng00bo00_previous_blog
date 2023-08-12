@@ -732,4 +732,30 @@ $$
 **定义2.3** 如果在互不重合的曲线$$C_1$$和$$C_2$$之间存在一个对应，设定它们在每一对对应点有公共的主法线，则称这两条曲线为**Bertrand曲线偶**，其中一条曲线称为另一条曲线的**侣线**，或**共轭曲线**。
 {:.success}
 
+每一条平面曲线都有侣线，构成Bertrand曲线偶。实际上我们可以显式地构造出这样的曲线偶：设$$\boldsymbol{r} = \boldsymbol{r}(s)$$是平面上的一条曲线，以$$s$$为它的弧长参数。于是$$\boldsymbol{r}'(s)$$是曲线的单位切向量场，因此
+
+$$
+\boldsymbol{r}''(s) = \kappa(s) \ \boldsymbol{n} (s)
+$$
+
+这里$$\boldsymbol{n}$$是沿曲线定义的法向量场。命
+
+$$
+\boldsymbol{r}_1(s) = \boldsymbol{r}(s) + \lambda \boldsymbol{n} (s) 
+$$
+
+其中$$\lambda$$是任意给定的一个非零实数，则
+
+$$
+\boldsymbol{r}_1'(s) = \boldsymbol{r}'(s) + \lambda \boldsymbol{n}' (s) 
+$$
+
+因此
+
+$$
+\boldsymbol{r}_1'(s) \cdot \boldsymbol{n} (s) = \boldsymbol{r}'(s) \cdot \boldsymbol{n} (s) + \lambda \boldsymbol{n}' (s) \cdot \boldsymbol{n} (s) = 0
+$$
+
+所有$$\boldsymbol{n} (s)$$也是曲线$$\boldsymbol{r}_1 (s)$$的法向量场。由此可见，曲线$$\boldsymbol{r}(s)$$和$$\boldsymbol{r}_1 (s)$$在对应点有相同的法向(也是主法线)。因此，寻求Bertrand曲线偶应该在空间挠曲线(即挠率不为零的曲线)中去找。
+
 ## 平面曲线
