@@ -767,6 +767,33 @@ $$
 \boldsymbol{r}_2 (s) = \boldsymbol{r}_1 (s) + \lambda (s) \boldsymbol{\beta}_1 (s)
 $$
 
-并且$$\boldsymbol{\beta}_1 (s) = \plusmn \boldsymbol{\beta}_1 (s)$$。
+并且$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta}_1 (s)$$。利用[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)对上式求导得到
+
+$$
+\begin{aligned}
+\boldsymbol{\alpha}_2 (s) \frac{d \tilde{s}}{d s} &= \boldsymbol{\alpha}_1 (s) + \lambda'(s) \boldsymbol{\beta}_1 (s) + \lambda(s) \big( -\kappa_1(s) \boldsymbol{\alpha}_1(s) + \tau_1(s)\boldsymbol{\gamma}_1(s) \big) \\
+&= \big( 1-\lambda \kappa_1(s) \big) \boldsymbol{\alpha}_1 (s) + \lambda'(s) \boldsymbol{\beta}_1 (s) + \lambda(s) \tau_1 (s) \boldsymbol{\gamma}_1 (s)
+\end{aligned}
+$$
+
+因为$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta}_1 (s)$$，所以
+
+$$
+\boldsymbol{\alpha}_2 (s) \cdot \boldsymbol{\beta}_2 (s) \frac{d \tilde{s}}{d s} = \pm \lambda'(s) \boldsymbol{\beta}_1 \cdot \boldsymbol{\beta}_1 = 0
+$$
+
+即$$\lambda'(s) = 0$$，$$\lambda(s)$$为常数。故
+
+$$
+\vert \boldsymbol{r}_2(s) - \boldsymbol{r}_1 (s) \vert = \vert \lambda(s) \boldsymbol{\beta}_1 (s) \vert = \vert \lambda \vert
+$$
+
+对$$\boldsymbol{\alpha}_1 (s) \cdot \boldsymbol{\alpha}_2 (s)$$求导得到
+
+$$
+\frac{d}{ds} \big( \boldsymbol{\alpha}_1 (s) \cdot \boldsymbol{\alpha}_2 (s) \big) = \kappa_1 (s) \boldsymbol{\beta}_1 (s) \cdot \boldsymbol{\alpha}_2 (s) + \kappa_2(s) \boldsymbol{\alpha}_1(s) \cdot \boldsymbol{\beta}_2 (s) \frac{d \tilde{s}}{d s} = 0
+$$
+
+故曲线$$C_1$$和$$C_2$$在对应点的切线成定角。
 
 ## 平面曲线
