@@ -713,4 +713,14 @@ $$
 
 ### 曲率圆
 
-对于曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$上$$\kappa(s_0) \lt 0$$的点$$s = s_0$$，还可以在该点的密切平面上构造一条特殊的平面曲线，即在$$\boldsymbol{r}(s_0)$$处的密切平面上作以$$\boldsymbol{r}(s_0) + \boldsymbol{\beta}(s_0) / \kappa(s_0)$$为中心、以$$1/\kappa(s_0)$$为半径的圆周，这个圆周与原曲线在$$s = s_0$$处相切，有相同的有向密切平面，并且曲率都是$$\kappa(s_0)$$，因此它与原曲线在点$$s = s_0$$处有2阶以上的切触。通常称这个圆周为曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$在点$$s = s_0$$处的**曲率圆**，其圆心$$\boldsymbol{r}(s_0) + \boldsymbol{\beta}(s_0) / \kappa(s_0)$$称为曲线在$$s = s_0$$处的**曲率中心**，其半径$$1/\kappa(s_0)$$称为曲线在$$s = s_0$$处的**曲率半径**。曲率圆形象地反映了曲线在一点处的弯曲程度。
+对于曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$上$$\kappa(s_0) \gt 0$$的点$$s = s_0$$，还可以在该点的密切平面上构造一条特殊的平面曲线，即在$$\boldsymbol{r}(s_0)$$处的密切平面上作以$$\boldsymbol{r}(s_0) + \boldsymbol{\beta}(s_0) / \kappa(s_0)$$为中心、以$$1/\kappa(s_0)$$为半径的圆周，这个圆周与原曲线在$$s = s_0$$处相切，有相同的有向密切平面，并且曲率都是$$\kappa(s_0)$$，因此它与原曲线在点$$s = s_0$$处有2阶以上的切触。通常称这个圆周为曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$在点$$s = s_0$$处的**曲率圆**，其圆心$$\boldsymbol{r}(s_0) + \boldsymbol{\beta}(s_0) / \kappa(s_0)$$称为曲线在$$s = s_0$$处的**曲率中心**，其半径$$1/\kappa(s_0)$$称为曲线在$$s = s_0$$处的**曲率半径**。曲率圆形象地反映了曲线在一点处的弯曲程度。
+
+若一条曲线$$C$$和一个曲面$$\Sigma$$相交，同样能够用切触来刻画曲线和曲面的接近程度。类似于曲率圆，我们可以定义曲线的密切球面。
+
+**定理2.10** 设曲线$$C: \boldsymbol{r} = \boldsymbol{r}(s)$$是曲率和挠率都不为零的正则参数曲线，$$s$$是弧长参数，则在$$s$$处与曲线$$C$$有三阶以上切触的球面$$\Sigma$$的球心是$$\boldsymbol{r}(s) + \frac{1}{\kappa(s)} \boldsymbol{\beta} (s) + \frac{1}{\tau (s)} \bigg( \frac{1}{\kappa(s)} \bigg)' \boldsymbol{\gamma}(s)$$，半径是$$\sqrt{\bigg( \frac{1}{\kappa(s)} \bigg)^2 + \bigg( \frac{1}{\tau(s)} \bigg( \frac{1}{\kappa(s)} \bigg)' \bigg)^2}$$  
+该球面称为曲线$$C$$在$$s$$处的**密切球面**，其球心所在直线
+$$
+\boldsymbol{r} = \boldsymbol{r}(s) + \frac{1}{\kappa(s)} \boldsymbol{\beta} (s) + \lambda \boldsymbol{\gamma}(s)
+$$
+是通过曲线$$C$$的曲率中心、垂直于密切平面的直线，称为曲线$$C$$在$$s$$处的**曲率轴**。
+{:.info}
