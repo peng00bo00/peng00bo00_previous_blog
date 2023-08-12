@@ -710,3 +710,7 @@ $$
 \kappa_1 (0) = \kappa_2 (0)， \ \
 \boldsymbol{\beta}_1 (0) = \boldsymbol{\beta}_2 (0)
 $$
+
+### 曲率圆
+
+对于曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$上$$\kappa(s_0) \lt 0$$的点$$s = s_0$$，还可以在该点的密切平面上构造一条特殊的平面曲线，即在$$\boldsymbol{r}(s_0)$$处的密切平面上作以$$\boldsymbol{r}(s_0) + \boldsymbol{\beta}(s_0) / \kappa(s_0)$$为中心、以$$1/\kappa(s_0)$$为半径的圆周，这个圆周与原曲线在$$s = s_0$$处相切，有相同的有向密切平面，并且曲率都是$$\kappa(s_0)$$，因此它与原曲线在点$$s = s_0$$处有2阶以上的切触。通常称这个圆周为曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$在点$$s = s_0$$处的**曲率圆**，其圆心$$\boldsymbol{r}(s_0) + \boldsymbol{\beta}(s_0) / \kappa(s_0)$$称为曲线在$$s = s_0$$处的**曲率中心**，其半径$$1/\kappa(s_0)$$称为曲线在$$s = s_0$$处的**曲率半径**。曲率圆形象地反映了曲线在一点处的弯曲程度。
