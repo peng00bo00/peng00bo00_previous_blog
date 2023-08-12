@@ -686,5 +686,25 @@ $$
 \lim_{\Delta s} \frac{\vert \boldsymbol{r}_1 (s) - \boldsymbol{r}_2 (s) \vert}{s^{n+1}} = \frac{1}{(n+1)!} \vert \boldsymbol{r}_1^{(n+1)} (0) - \boldsymbol{r}_2^{(n+1)} (0) \vert \neq 0
 $$
 
-反之亦然。
+反之亦然。由此可见，一条正则曲线与由它的Taylor展开式的前$$n+1$$项之和给出的曲线在该点处至少有$$n$$阶切触。正则曲线与它的切线至少有1阶切触，与它在一点处的近似曲线在该点至少有2阶切触。
 
+**定理2.9**的直接推论是两条相交的正则曲线在交点$$s=0$$处有2阶以上的切触的充要条件是
+
+$$
+\boldsymbol{r}_1 (0) = \boldsymbol{r}_2 (0), \ \
+\boldsymbol{r}_1^{(1)} (0) = \boldsymbol{r}_2^{(1)} (0), \ \
+\boldsymbol{r}_1^{(2)} (0) = \boldsymbol{r}_2^{(2)} (0), \ \
+$$
+
+前两式说明这两条曲线相切，第三式意味着
+
+$$
+\kappa_1 (0) \boldsymbol{\beta}_1 (0) = \kappa_2 (0) \boldsymbol{\beta}_2 (0)
+$$
+
+即具有相同的密切平面和曲率
+
+$$
+\kappa_1 (0) = \kappa_2 (0)， \ \
+\boldsymbol{\beta}_1 (0) = \boldsymbol{\beta}_2 (0)
+$$
