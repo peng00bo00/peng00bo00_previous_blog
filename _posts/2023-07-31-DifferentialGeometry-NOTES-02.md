@@ -767,7 +767,7 @@ $$
 \boldsymbol{r}_2 (s) = \boldsymbol{r}_1 (s) + \lambda (s) \boldsymbol{\beta}_1 (s)
 $$
 
-并且$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta}_1 (s)$$。利用[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)对上式求导得到
+并且$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta}_2 (s)$$。利用[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)对上式求导得到
 
 $$
 \begin{aligned}
@@ -776,7 +776,7 @@ $$
 \end{aligned}
 $$
 
-因为$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta}_1 (s)$$，所以
+因为$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta}_2 (s)$$，所以
 
 $$
 \boldsymbol{\alpha}_2 (s) \cdot \boldsymbol{\beta}_2 (s) \frac{d \tilde{s}}{d s} = \pm \lambda'(s) \boldsymbol{\beta}_1 \cdot \boldsymbol{\beta}_1 = 0
