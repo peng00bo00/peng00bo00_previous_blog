@@ -666,7 +666,25 @@ $$
 
 则称曲线$$C_1$$和$$C_2$$在交点$$p_0$$处有$$n$$阶**切触**。
 
-**定理2.9** 设曲线$$\boldsymbol{r}_1 (s)$$和$$\boldsymbol{r}_2 (s)$$都以$$s$$为它们的弧长参数，且$$\boldsymbol{r}_1 (0) = \boldsymbol{r}_2 (0)$$，则它们在$$s=0$$处有$$n$$阶切触的充分必要条件是  
-$$\boldsymbol{r}_1^{(i)} (0) = \boldsymbol{r}_1^{(i)} (0), \forall 1 \leq i \leq n ;\ \ \boldsymbol{r}_1^{(n+1)} (0) \neq \boldsymbol{r}_1^{(n+1)} (0)$$ 
+**定理2.9** 设曲线$$\boldsymbol{r}_1 (s)$$和$$\boldsymbol{r}_2 (s)$$都以$$s$$为它们的弧长参数，且$$\boldsymbol{r}_1 (0) = \boldsymbol{r}_2 (0)$$，则它们在$$s=0$$处有$$n$$阶切触的充分必要条件是
+$$\boldsymbol{r}_1^{(i)} (0) = \boldsymbol{r}_2^{(i)} (0), \ \forall 1 \leq i \leq n ;\ \ \boldsymbol{r}_1^{(n+1)} (0) \neq \boldsymbol{r}_2^{(n+1)} (0)$$ 
 {:.info}
+
+**证明** 由Taylor展开式可以得到
+
+$$
+\boldsymbol{r}_1 (s) - \boldsymbol{r}_2 (s) = \frac{s^{n+1}}{(n+1)!} \big( \boldsymbol{r}_1^{(n+1)} (0) - \boldsymbol{r}_2^{(n+1)} (0) \big) + \boldsymbol{o}(s^{n+1})
+$$
+
+因此
+
+$$
+\lim_{\Delta s} \frac{\vert \boldsymbol{r}_1 (s) - \boldsymbol{r}_2 (s) \vert}{s^n} = 0
+$$
+
+$$
+\lim_{\Delta s} \frac{\vert \boldsymbol{r}_1 (s) - \boldsymbol{r}_2 (s) \vert}{s^{n+1}} = \frac{1}{(n+1)!} \vert \boldsymbol{r}_1^{(n+1)} (0) - \boldsymbol{r}_2^{(n+1)} (0) \vert \neq 0
+$$
+
+反之亦然。
 
