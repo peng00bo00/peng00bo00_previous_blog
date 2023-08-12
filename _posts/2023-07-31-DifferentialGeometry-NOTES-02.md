@@ -756,6 +756,17 @@ $$
 \boldsymbol{r}_1'(s) \cdot \boldsymbol{n} (s) = \boldsymbol{r}'(s) \cdot \boldsymbol{n} (s) + \lambda \boldsymbol{n}' (s) \cdot \boldsymbol{n} (s) = 0
 $$
 
-所有$$\boldsymbol{n} (s)$$也是曲线$$\boldsymbol{r}_1 (s)$$的法向量场。由此可见，曲线$$\boldsymbol{r}(s)$$和$$\boldsymbol{r}_1 (s)$$在对应点有相同的法向(也是主法线)。因此，寻求Bertrand曲线偶应该在空间挠曲线(即挠率不为零的曲线)中去找。
+所以$$\boldsymbol{n} (s)$$也是曲线$$\boldsymbol{r}_1 (s)$$的法向量场。由此可见，曲线$$\boldsymbol{r}(s)$$和$$\boldsymbol{r}_1 (s)$$在对应点有相同的法向(也是主法线)。因此，寻求Bertrand曲线偶应该在空间挠曲线(即挠率不为零的曲线)中去找。
+
+**定理2.11** 设曲线$$C_1$$和$$C_2$$是Bertrand曲线偶，则$$C_1$$和$$C_2$$的对应点之间的距离是常数，并且$$C_1$$和$$C_2$$在对应点的切线成定角。
+{:.info}
+
+**证明** 设曲线$$C_1$$和$$C_2$$的参数方程分别是$$\boldsymbol{r}_1 (s)$$和$$\boldsymbol{r}_2 (s)$$，并且曲线$$C_1$$和$$C_2$$之间的对应是有相同参数点之间的对应，并且$$s$$是曲线$$C_1$$的弧长参数。用$$\{\boldsymbol{r}_1 (s); \boldsymbol{\alpha}_1 (s), \boldsymbol{\beta}_1 (s), \boldsymbol{\gamma}_1 (s) \}$$表示曲线$$C_1$$的Frenet标架，用$$\{\boldsymbol{r}_2 (s); \boldsymbol{\alpha}_2 (s), \boldsymbol{\beta}_2 (s), \boldsymbol{\gamma}_2 (s) \}$$表示曲线$$C_2$$的Frenet标架，并且假定曲线$$C_2$$的弧长参数是$$\tilde{s}$$。因为曲线$$C_1$$和$$C_2$$在对应点有相同的主法线，故
+
+$$
+\boldsymbol{r}_2 (s) = \boldsymbol{r}_1 (s) + \lambda (s) \boldsymbol{\beta}_1 (s)
+$$
+
+并且$$\boldsymbol{\beta}_1 (s) = \plusmn \boldsymbol{\beta}_1 (s)$$。
 
 ## 平面曲线
