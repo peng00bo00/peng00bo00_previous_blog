@@ -602,10 +602,29 @@ $$
 
 $$
 \begin{cases}
-x = s - \frac{\kappa_0^2}{6} s^3 + \boldsymbol{o} (s^3) \\
-y = \frac{\kappa_0}{2} s^2 + \frac{\kappa_0'}{6} s^3 + \boldsymbol{o} (s^3) \\
-z = \frac{\kappa_0 \tau_0}{6} s^3 + \boldsymbol{o} (s^3)\\
+x = s - \frac{\kappa_0^2}{6} s^3 + \boldsymbol{o} (s^3) &= s + \boldsymbol{o} (s)\\
+y = \frac{\kappa_0}{2} s^2 + \frac{\kappa_0'}{6} s^3 + \boldsymbol{o} (s^3) &= \frac{\kappa_0}{2} s^2 + \boldsymbol{o} (s^2) \\
+z = \frac{\kappa_0 \tau_0}{6} s^3 + \boldsymbol{o} (s^3) &= \frac{\kappa_0 \tau_0}{6} s^3 + \boldsymbol{o} (s^3) \\
 \end{cases}
 $$
 
 上式称为曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$在$$s=0$$处的**标准展开式**。
+
+当$$\kappa_0 \tau_0 \neq 0$$时，我们可以考虑一条新的曲线
+
+$$
+\tilde{\boldsymbol{r}} (s) = \bigg( s, \frac{\kappa_0}{2} s^2, \frac{\kappa_0 \tau_0}{6} s^3 \bigg)
+$$
+
+这是一条三次曲线，并且参数$$s$$一般不是曲线$$\tilde{\boldsymbol{r}} (s)$$的弧长参数。在$$s=0$$处有
+
+$$
+\begin{aligned}
+\tilde{\boldsymbol{r}} (s) &= (0, 0, 0) \\
+\tilde{\boldsymbol{r}}' (s) &= (1, 0, 0) \\
+\tilde{\boldsymbol{r}}'' (s) &= (0, \kappa_0, 0) \\
+\tilde{\boldsymbol{r}}''' (s) &= (0, 0, \kappa_0 \tau_0) \\
+\end{aligned}
+$$
+
+不难发现，曲线$$\tilde{\boldsymbol{r}} (s)$$在$$s=0$$处的曲率是$$\kappa_0$$，挠率是$$\tau_0$$，并且Frenet表示是$$\{ \boldsymbol{r}(0); \boldsymbol{\alpha}(0), \boldsymbol{\beta}(0), \boldsymbol{\gamma}(0) \}$$，即它与原来的曲线$$\boldsymbol{r}(s)$$在$$s=0$$处有相同的曲率、挠率和Frenet标架。
