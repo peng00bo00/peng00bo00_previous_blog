@@ -562,4 +562,26 @@ $$
 
 ## 曲线参数方程在一点的标准展开
 
-我们知道对于解析函数$$y=f(x)$$在任意点$$x_0$$的邻域内可以展开成收敛的幂级数。如果函数$$y=f(x)$$是光滑的，即有任意阶导数，则函数$$f(x)$$可以表示成任意$$n$$次的一个多项式与一个余项之和，该多项式的系数由$$f(x)$$的直到$$n$$阶导数在$$x_0$$处的值决定，并且余项在$$x \to x_0$$时是比$$(x - x_0)^n$$更高阶的无穷小量。这样的展开式称为函数$$y=f(x)$$的Taylor展开式，它是原来函数的近似。
+我们知道对于解析函数$$y=f(x)$$在任意点$$x_0$$的邻域内可以展开成收敛的幂级数。如果函数$$y=f(x)$$是光滑的，即有任意阶导数，则函数$$f(x)$$可以表示成任意$$n$$次的一个多项式与一个余项之和，该多项式的系数由$$f(x)$$的直到$$n$$阶导数在$$x_0$$处的值决定，并且余项在$$x \to x_0$$时是比$$(x - x_0)^n$$更高阶的无穷小量。这样的展开式称为函数$$y=f(x)$$的[Taylor展开式](https://en.wikipedia.org/wiki/Taylor_series)，它是原来函数的近似。正则参数曲线的参数方程是由三个可微函数组成的，将Taylor展开式用到这三个函数上，便能够得到一条多项式曲线来近似原来的曲线。特别地，当曲线的曲率和挠率都不为零时，在一点的附近可以求得一条三次曲线，它与原来的曲线在该点有同样的曲率、挠率和Frenet标架，于是原曲线在该点附近的性状可以用这条近似曲线来模拟。
+
+设$$\boldsymbol{r} = \boldsymbol{r} (s)$$是一条以弧长$$s$$为参数的正则曲线，它在$$s = 0$$处的Taylor展开式为
+
+$$
+\boldsymbol{r} (s) = \boldsymbol{r} (0) + \frac{s}{1!} \boldsymbol{r}' (0) + \frac{s^2}{2!} \boldsymbol{r}'' (0) + + \frac{s^3}{3!} \boldsymbol{r}''' (0) + \boldsymbol{o} (s^3)
+$$
+
+其中$$\boldsymbol{o} (s^3)$$是余项，满足条件
+
+$$
+\lim_{s \to 0} \frac{\vert \boldsymbol{o} (s^3) \vert}{s^3} = 0
+$$
+
+根据[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)，我们有
+
+$$
+\begin{aligned}
+\boldsymbol{r}' (0) &= \boldsymbol{\alpha} (0) \\
+\boldsymbol{r}'' (0) &= \kappa(0) \boldsymbol{\beta} (0) \\
+\boldsymbol{r}''' (0) &= -\kappa^2(0) \boldsymbol{\alpha} (0) + \kappa'(0) \boldsymbol{\beta} (0) + \kappa(0) \tau (0) \boldsymbol{\gamma} (0) \\
+\end{aligned}
+$$
