@@ -604,7 +604,7 @@ $$
 \begin{cases}
 x = s - \frac{\kappa_0^2}{6} s^3 + \boldsymbol{o} (s^3) &= s + \boldsymbol{o} (s)\\
 y = \frac{\kappa_0}{2} s^2 + \frac{\kappa_0'}{6} s^3 + \boldsymbol{o} (s^3) &= \frac{\kappa_0}{2} s^2 + \boldsymbol{o} (s^2) \\
-z = \frac{\kappa_0 \tau_0}{6} s^3 + \boldsymbol{o} (s^3) &= \frac{\kappa_0 \tau_0}{6} s^3 + \boldsymbol{o} (s^3) \\
+z = \frac{\kappa_0 \tau_0}{6} s^3 + \boldsymbol{o} (s^3) \\
 \end{cases}
 $$
 
@@ -627,4 +627,28 @@ $$
 \end{aligned}
 $$
 
-不难发现，曲线$$\tilde{\boldsymbol{r}} (s)$$在$$s=0$$处的曲率是$$\kappa_0$$，挠率是$$\tau_0$$，并且Frenet表示是$$\{ \boldsymbol{r}(0); \boldsymbol{\alpha}(0), \boldsymbol{\beta}(0), \boldsymbol{\gamma}(0) \}$$，即它与原来的曲线$$\boldsymbol{r}(s)$$在$$s=0$$处有相同的曲率、挠率和Frenet标架。
+不难发现，曲线$$\tilde{\boldsymbol{r}} (s)$$在$$s=0$$处的曲率是$$\kappa_0$$，挠率是$$\tau_0$$，并且Frenet标架是$$\{ \boldsymbol{r}(0); \boldsymbol{\alpha}(0), \boldsymbol{\beta}(0), \boldsymbol{\gamma}(0) \}$$，即它与原来的曲线$$\boldsymbol{r}(s)$$在$$s=0$$处有相同的曲率、挠率和Frenet标架。
+
+曲线$$\boldsymbol{r} = \tilde{\boldsymbol{r}} (s)$$称为原曲线$$\boldsymbol{r} = \boldsymbol{r} (s)$$在$$s=0$$处的**近似曲线**，它的性状反映了原曲线的性状。它在密切平面上的投影是抛物线
+
+$$
+x = s, y = \frac{\kappa_0}{2} s^2, z = 0
+$$
+
+它在从切平面的投影是三次曲线
+
+$$
+x = s, y = 0, z = \frac{\kappa_0 \tau_0}{6} s^3
+$$
+
+它在法平面上的投影是
+
+$$
+x = 0, y = \frac{\kappa_0}{2} s^2, z = \frac{\kappa_0 \tau_0}{6} s^3
+$$
+
+这些投影曲线的图像如下图所示。从图中可以发现曲线的挠率$$\tau_0$$控制了其穿越$$s=0$$处密切平面的方向：当$$\tau_0 \gt 0$$时，曲线是从下而上地穿过密切平面的；而当$$\tau_0 \lt 0$$时，曲线是从上而下地穿过密切平面的。这就是挠率正负符号的几何意义。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/qQ1wdBw.png" width="80%">
+</div>
