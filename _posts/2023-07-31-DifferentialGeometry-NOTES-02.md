@@ -864,10 +864,50 @@ $$
 $$
 \begin{aligned}
 \frac{d \boldsymbol{\alpha}_1 (s)}{d \tilde{s}} \frac{d \tilde{s}}{ds} &= \kappa_1 (s) \boldsymbol{\beta}_1 (s) \frac{d \tilde{s}}{ds} \\
-&= \bigg( \frac{\mu}{\sqrt{\lambda^2 + \mu^2}} \kappa (s) + \frac{\lambda}{\sqrt{\lambda^2 + \mu^2}} \tau (s) \bigg) \boldsymbol{\beta} (s)
+&= \bigg( \frac{\mu}{\sqrt{\lambda^2 + \mu^2}} \kappa (s) - \frac{\lambda}{\sqrt{\lambda^2 + \mu^2}} \tau (s) \bigg) \boldsymbol{\beta} (s)
 \end{aligned}
 $$
 
 所以$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta} (s)$$，$$C_1$$和$$C$$成为Bertrand曲线偶。
+
+### 渐伸线和渐缩线
+
+**定义2.4** 如果曲线$$C_1$$和$$C_2$$之间存在一个对应，使得曲线$$C_1$$在任意一点的切线恰好是曲线$$C_2$$在对应点的法线，则称曲线$$C_2$$是$$C_1$$的**渐伸线**，同时称曲线$$C_1$$是曲线$$C_2$$的**渐缩线**，如下图所示。
+{:.success}
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/uv2Yebx.png" width="80%">
+</div>
+
+**定理2.13** 设正则参数曲线$$C$$的参数方程是$$\boldsymbol{r}(s)$$，$$s$$是弧长参数，则$$C$$的渐伸线的参数方程是$$\boldsymbol{r} = \boldsymbol{r}(s) + (c-s) \boldsymbol{\alpha} (s)$$，其中$$c$$是任意的常数。
+{:.info}
+
+**证明** 设
+$$
+\boldsymbol{r}_1 = \boldsymbol{r}(s) + \lambda(s) \boldsymbol{\alpha} (s)
+$$
+是曲线$$C$$的渐伸线，因此$$\alpha (s)$$应该是曲线$$\boldsymbol{r}_1 (s)$$的法向量。对上式求导可以得到
+
+$$
+\boldsymbol{r}_1' (s) = (1 + \lambda'(s)) \boldsymbol{\alpha} (s) + \lambda (s) \kappa (s) \boldsymbol{\beta} (s)
+$$
+
+将上式左右两边与$$\boldsymbol{\alpha} (s)$$作点乘得到
+
+$$
+\boldsymbol{r}_1' (s) \cdot \boldsymbol{\alpha} (s) = 1 + \lambda'(s) = 0
+$$
+
+因此
+
+$$
+\lambda (s) = c - s
+$$
+
+即$$C$$的渐伸线的参数方程为
+
+$$
+\boldsymbol{r}_1 (s) = \boldsymbol{r}(s) + (c-s) \boldsymbol{\alpha} (s).
+$$
 
 ## 平面曲线
