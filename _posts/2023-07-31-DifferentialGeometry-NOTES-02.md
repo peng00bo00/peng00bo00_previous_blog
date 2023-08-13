@@ -918,4 +918,57 @@ $$
 。
 {:.info}
 
+**证明** 设
+
+$$
+\boldsymbol{r}_1 (s) = \boldsymbol{r} (s) + \lambda(s) \boldsymbol{\beta} (s) + \mu (s) \boldsymbol{\gamma} (s)
+$$
+
+是曲线$$C$$的渐缩线，那么$$\lambda(s) \boldsymbol{\beta} (s) + \mu (s) \boldsymbol{\gamma} (s)$$应该是曲线$$\boldsymbol{r}_1 (s)$$的切向量。对上式求导得到
+
+$$
+\begin{aligned}
+\boldsymbol{r}_1' (s) &= (1 - \lambda (s) \kappa (s)) \boldsymbol{\alpha} (s) \\
+&+ (\lambda' (s) - \mu(s) \tau (s)) \boldsymbol{\beta} (s) \\
+&+ (\mu' (s) + \lambda (s) \tau (s)) \boldsymbol{\gamma} (s)
+\end{aligned}
+$$
+
+因此$$\lambda(s) \boldsymbol{\beta} (s) + \mu (s) \boldsymbol{\gamma} (s)$$与$$\boldsymbol{r}_1'$$平行，即
+
+$$
+\lambda (s) \kappa (s) = 1
+$$
+
+$$
+\frac{\lambda' (s) - \mu(s) \tau (s)}{\lambda (s)} = \frac{\mu' (s) + \lambda (s) \tau (s)}{\mu (s)}
+$$
+
+因此
+
+$$
+\lambda' (s) \mu (s) - \mu' (s) \lambda (s) = (\lambda^2 (s) + \mu^2 (s)) \tau (s)
+$$
+
+$$
+\frac{d}{ds} \arctan \bigg( \frac{\mu (s)}{\lambda (s)} \bigg) = -\tau (s)
+$$
+
+故
+
+$$
+\arctan \bigg( \frac{\mu (s)}{\lambda (s)} \bigg) = -\int \tau (s) \ ds
+$$
+
+整理一下可以得到
+
+$$
+\lambda (s) = \frac{1}{\kappa (s)} , \ \ \mu (s) = -\frac{1}{\kappa (s)} \bigg( \tan \int \tau (s) \ ds \bigg)
+$$
+
+即曲线$$C$$的渐缩线为
+
+$$\boldsymbol{r} = \boldsymbol{r}(s) + \frac{1}{\kappa (s)} \boldsymbol{\beta} (s) - \frac{1}{\kappa (s)} \bigg( \tan{\int \tau (s) \ ds} \bigg) \boldsymbol{\gamma} (s)
+$$
+
 ## 平面曲线
