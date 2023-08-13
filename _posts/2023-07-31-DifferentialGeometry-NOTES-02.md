@@ -995,4 +995,50 @@ $$
 \boldsymbol{\beta} (s) = (-y'(s), x'(s))
 $$
 
-这样，沿曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$有一个定义好的右手单位正交标架场$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}, \boldsymbol{\beta} \}$$，它在平面曲线的理论中所担当的角色相当于空间曲线的Frenet标架，称为**平面曲线的Frenet标架**。值得指出的是，平面曲线的Frenet标架场$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}, \boldsymbol{\beta} \}$$的缺点只用到曲线参数方程的一阶导数，$$\boldsymbol{\beta}(s)$$是曲线的法向量，它与曲线的主法向量可能差一个正负号。
+这样，沿曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$有一个定义好的右手单位正交标架场$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha} (s), \boldsymbol{\beta} (s) \}$$，它在平面曲线的理论中所担当的角色相当于空间曲线的Frenet标架，称为**平面曲线的Frenet标架**。值得指出的是，平面曲线的Frenet标架场$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}, \boldsymbol{\beta} \}$$的缺点只用到曲线参数方程的一阶导数，$$\boldsymbol{\beta}(s)$$是曲线的法向量，它与曲线的主法向量可能差一个正负号。
+
+### 相对曲率
+
+由于$$\boldsymbol{\alpha}(s)$$是单位向量场，故有$$\boldsymbol{\alpha} (s) \perp \boldsymbol{\alpha}' (s)$$，所以$$\boldsymbol{\alpha}'(s)$$是$$\boldsymbol{\beta}(s)$$的倍数，设为
+
+$$
+\boldsymbol{\alpha}' (s) = \kappa_r (s) \boldsymbol{\beta} (s)
+$$
+
+因此
+
+$$
+\begin{aligned}
+\kappa_r (s) &= \boldsymbol{\alpha}' (s) \cdot \boldsymbol{\beta}(s) \\
+&= -x''(s) y'(s) + y''(s) x'(s) \\
+&=
+\begin{vmatrix}
+x'(s) & y'(s) \\
+x''(s) & y''(s)
+\end{vmatrix}
+\end{aligned}
+$$
+
+我们把$$\kappa_r(s)$$称为平面曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$的**相对曲率**。如果该曲线的曲率是$$\kappa(s)$$，则有
+
+$$
+\kappa_r (s) = \pm \kappa (s)
+$$
+
+其中"+"号表示曲线朝$$\boldsymbol{\beta}(s)$$所指的方向弯曲，$$\boldsymbol{\beta}(s)$$恰好是曲线的主法向量；而"-"号表示曲线朝$$\boldsymbol{\beta}(s)$$所指的相反方向弯曲，曲线的主法向量是$$-\boldsymbol{\beta}(s)$$，如下图所示。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/jji2pFE.png" width="80%">
+</div>
+
+平面曲线的Frenet标架的运动公式成为
+
+$$
+\begin{cases}
+\boldsymbol{r}'(s) &= & &\boldsymbol{\alpha}(s) \\
+\boldsymbol{\alpha}'(s) &= & & & \kappa_r \boldsymbol{\beta} (s) \\
+\boldsymbol{\beta}' (s) &= -\kappa_r (s) \boldsymbol{\alpha} (s) & &
+\end{cases}
+$$
+
+平面曲线的曲率中心是$$\boldsymbol{r} (s) + \boldsymbol{\beta} (s) / \kappa_r (s)$$，这也是平面曲线渐缩线的参数方程。
