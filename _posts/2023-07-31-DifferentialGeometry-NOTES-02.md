@@ -915,6 +915,7 @@ $$
 **定理2.14** 设正则参数曲线$$C$$的参数方程是$$\boldsymbol{r}(s)$$，$$s$$是弧长参数，则$$C$$的渐缩线的参数方程是
 $$\boldsymbol{r} = \boldsymbol{r}(s) + \frac{1}{\kappa (s)} \boldsymbol{\beta} (s) - \frac{1}{\kappa (s)} \bigg( \tan{\int \tau (s) \ ds} \bigg) \boldsymbol{\gamma} (s)
 $$
+。
 {:.info}
 
 ## 平面曲线
