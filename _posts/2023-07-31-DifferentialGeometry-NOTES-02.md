@@ -761,7 +761,7 @@ $$
 **定理2.11** 设曲线$$C_1$$和$$C_2$$是Bertrand曲线偶，则$$C_1$$和$$C_2$$的对应点之间的距离是常数，并且$$C_1$$和$$C_2$$在对应点的切线成定角。
 {:.info}
 
-**证明** 设曲线$$C_1$$和$$C_2$$的参数方程分别是$$\boldsymbol{r}_1 (s)$$和$$\boldsymbol{r}_2 (s)$$，并且曲线$$C_1$$和$$C_2$$之间的对应是有相同参数点之间的对应，而且$$s$$是曲线$$C_1$$的弧长参数。用$$\{\boldsymbol{r}_1 (s); \boldsymbol{\alpha}_1 (s), \boldsymbol{\beta}_1 (s), \boldsymbol{\gamma}_1 (s) \}$$表示曲线$$C_1$$的Frenet标架，用$$\{\boldsymbol{r}_2 (s); \boldsymbol{\alpha}_2 (s), \boldsymbol{\beta}_2 (s), \boldsymbol{\gamma}_2 (s) \}$$表示曲线$$C_2$$的Frenet标架，并且假定曲线$$C_2$$的弧长参数是$$\tilde{s}$$。因为曲线$$C_1$$和$$C_2$$在对应点有相同的主法线，故
+**证明** 设曲线$$C_1$$和$$C_2$$的参数方程分别是$$\boldsymbol{r}_1 (s)$$和$$\boldsymbol{r}_2 (s)$$，并且曲线$$C_1$$和$$C_2$$之间的对应是有相同参数点之间的对应，而且$$s$$是曲线$$C_1$$的弧长参数。用$$\{\boldsymbol{r}_1 (s); \boldsymbol{\alpha}_1 (s), \boldsymbol{\beta}_1 (s), \boldsymbol{\gamma}_1 (s) \}$$表示曲线$$C_1$$的Frenet标架，用$$\{\boldsymbol{r}_2 (s); \boldsymbol{\alpha}_2 (s), \boldsymbol{\beta}_2 (s), \boldsymbol{\gamma}_2 (s) \}$$表示曲线$$C_2$$的Frenet标架，并且假定曲线$$C_2$$的弧长参数是$$\tilde{s}$$。因为曲线$$C_1$$和$$C_2$$在对应点有相同的主法线，$$\boldsymbol{r}_2 (s)$$一定在经过对应点$$\boldsymbol{r}_1 (s)$$且方向为主法线$$\boldsymbol{\beta}_1 (s)$$的直线上，故
 
 $$
 \boldsymbol{r}_2 (s) = \boldsymbol{r}_1 (s) + \lambda (s) \boldsymbol{\beta}_1 (s)
@@ -772,7 +772,7 @@ $$
 $$
 \begin{aligned}
 \boldsymbol{\alpha}_2 (s) \frac{d \tilde{s}}{d s} &= \boldsymbol{\alpha}_1 (s) + \lambda'(s) \boldsymbol{\beta}_1 (s) + \lambda(s) \big( -\kappa_1(s) \boldsymbol{\alpha}_1(s) + \tau_1(s)\boldsymbol{\gamma}_1(s) \big) \\
-&= \big( 1-\lambda \kappa_1(s) \big) \boldsymbol{\alpha}_1 (s) + \lambda'(s) \boldsymbol{\beta}_1 (s) + \lambda(s) \tau_1 (s) \boldsymbol{\gamma}_1 (s)
+&= \big( 1-\lambda(s) \kappa_1(s) \big) \boldsymbol{\alpha}_1 (s) + \lambda'(s) \boldsymbol{\beta}_1 (s) + \lambda(s) \tau_1 (s) \boldsymbol{\gamma}_1 (s)
 \end{aligned}
 $$
 
@@ -795,5 +795,46 @@ $$
 $$
 
 故曲线$$C_1$$和$$C_2$$在对应点的切线成定角。
+
+**定理2.12** 设正则参数曲线$$C$$的曲率$$\kappa$$和挠率$$\tau$$都不是零，则存在另一条正则参数曲线$$C_1$$使得曲线$$C_1$$和$$C$$成为Bertrand曲线偶的充分必要条件是，存在常数$$\lambda \neq 0$$和$$\mu$$使得$$\lambda \kappa + \mu \tau = 1$$。
+{:.info}
+
+**证明** 设曲线$$C$$有侣线$$C_1$$，它们的参数方程分别是$$\boldsymbol{r} (s)$$和$$\boldsymbol{r}_1 (s)$$，并且曲线$$C$$和$$C_1$$的对应是由相同参数点之间的对应，而且$$s$$是曲线$$C$$的弧长参数，$$\tilde{s}$$是曲线$$C_1$$的弧长参数。用$$\{\boldsymbol{r} (s); \boldsymbol{\alpha} (s), \boldsymbol{\beta} (s), \boldsymbol{\gamma} (s) \}$$表示曲线$$C$$的Frenet标架，则根据**定理2.11**的证明有
+
+$$
+\boldsymbol{\alpha}_1 (s) \frac{d \tilde{s}}{d s} 
+= \big( 1-\lambda \kappa(s) \big) \boldsymbol{\alpha} (s) + \lambda \tau (s) \boldsymbol{\gamma} (s)
+$$
+
+其中$$\lambda \neq 0$$是常数。因此
+
+$$
+\bigg\vert \frac{d \tilde{s}}{d s} \bigg\vert^2 = ( 1-\lambda \kappa(s) )^2 + ( \lambda \tau (s) )^2
+$$
+
+另一方面由于$$\boldsymbol{\alpha}(s) \cdot \boldsymbol{\alpha}_1(s)$$为常数，我们可以得到
+
+$$
+\boldsymbol{\alpha}(s) \cdot \boldsymbol{\alpha}_1 (s) \frac{d \tilde{s}}{d s} 
+= 1-\lambda \kappa(s)
+$$
+
+所以
+
+$$
+\frac{1-\lambda \kappa(s)}{\sqrt{1-\lambda \kappa(s) )^2 + ( \lambda \tau (s)) }} = \text{常数}
+$$
+
+故
+
+$$
+\frac{1-\lambda \kappa(s)}{\tau (s)} = \mu = \text{常数}
+$$
+
+即
+
+$$
+\lambda \kappa(s) + \mu \tau(s) = 1
+$$
 
 ## 平面曲线
