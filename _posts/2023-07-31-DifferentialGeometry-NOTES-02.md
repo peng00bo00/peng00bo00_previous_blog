@@ -837,4 +837,37 @@ $$
 \lambda \kappa(s) + \mu \tau(s) = 1
 $$
 
+反过来，设正则参数曲线$$C$$的参数方程是$$\boldsymbol{r}(s)$$，$$s$$是弧长参数，并且它的曲率和挠率满足关系式$$\lambda \kappa + \mu \tau = 1$$，其中$$\lambda \neq 0$$和$$\mu$$是常数。我们可以构造一条新的曲线$$C_1$$，使它的参数方程是
+
+$$
+\boldsymbol{r}_1 (s) = \boldsymbol{r}(s) + \lambda \boldsymbol{\beta}(s)
+$$
+
+则
+
+$$
+\begin{aligned}
+\boldsymbol{r}_1' (s) &= \boldsymbol{\alpha}(s) + \lambda (-\kappa (s) \boldsymbol{\alpha}(s) + \tau(s) \boldsymbol{\gamma}(s)) \\
+&= (1 - \lambda \kappa(s)) \boldsymbol{\alpha}(s) + \lambda \tau(s) \boldsymbol{\gamma}(s) \\
+&= \mu \tau (s) \boldsymbol{\alpha}(s) + \lambda \tau(s) \boldsymbol{\gamma}(s)
+\end{aligned}
+$$
+
+因此，曲线$$C_1$$的单位切向量是
+
+$$
+\boldsymbol{\alpha}_1(s) = \frac{\mu}{\sqrt{\lambda^2 + \mu^2}} \boldsymbol{\alpha}(s) + \frac{\lambda}{\sqrt{\lambda^2 + \mu^2}} \boldsymbol{\gamma}(s)
+$$
+
+若用$$\tilde{s}$$作为曲线$$C_1$$的弧长参数，则
+
+$$
+\begin{aligned}
+\frac{d \boldsymbol{\alpha}_1 (s)}{d \tilde{s}} \frac{d \tilde{s}}{ds} &= \kappa_1 (s) \boldsymbol{\beta}_1 (s) \frac{d \tilde{s}}{ds} \\
+&= \bigg( \frac{\mu}{\sqrt{\lambda^2 + \mu^2}} \kappa (s) + \frac{\lambda}{\sqrt{\lambda^2 + \mu^2}} \tau (s) \bigg) \boldsymbol{\beta} (s)
+\end{aligned}
+$$
+
+所以$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta} (s)$$，$$C_1$$和$$C$$成为Bertrand曲线偶。
+
 ## 平面曲线
