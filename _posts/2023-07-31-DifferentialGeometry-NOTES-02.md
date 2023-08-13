@@ -995,7 +995,7 @@ $$
 \boldsymbol{\beta} (s) = (-y'(s), x'(s))
 $$
 
-这样，沿曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$有一个定义好的右手单位正交标架场$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha} (s), \boldsymbol{\beta} (s) \}$$，它在平面曲线的理论中所担当的角色相当于空间曲线的Frenet标架，称为**平面曲线的Frenet标架**。值得指出的是，平面曲线的Frenet标架场$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}, \boldsymbol{\beta} \}$$的缺点只用到曲线参数方程的一阶导数，$$\boldsymbol{\beta}(s)$$是曲线的法向量，它与曲线的主法向量可能差一个正负号。
+这样，沿曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$有一个定义好的右手单位正交标架场$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha} (s), \boldsymbol{\beta} (s) \}$$，它在平面曲线的理论中所担当的角色相当于空间曲线的Frenet标架，称为**平面曲线的Frenet标架**。值得指出的是，平面曲线的Frenet标架场$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}, \boldsymbol{\beta} \}$$的确定只用到曲线参数方程的一阶导数，$$\boldsymbol{\beta}(s)$$是曲线的法向量，它与曲线的主法向量可能差一个正负号。
 
 ### 相对曲率
 
@@ -1043,12 +1043,12 @@ $$
 
 平面曲线的曲率中心是$$\boldsymbol{r} (s) + \boldsymbol{\beta} (s) / \kappa_r (s)$$，这也是平面曲线渐缩线的参数方程。
 
-用$$\theta$$表示单位切向量$$\boldsymbol{\alpha}(s)$$与$$x$$轴的正向所构成的角，称为向量$$\boldsymbol{\alpha}(s)$$的方向角。方向角是一个多值函数，但是在$$s$$的一个小范围内总是可以取出函数$$\theta (s)$$的一个连续分支。此时
+用$$\theta (s)$$表示单位切向量$$\boldsymbol{\alpha}(s)$$与$$x$$轴的正向所构成的角，称为向量$$\boldsymbol{\alpha}(s)$$的方向角。方向角是一个多值函数，但是在$$s$$的一个小范围内总是可以取出函数$$\theta (s)$$的一个连续分支。此时
 
 $$
 \begin{aligned}
-\boldsymbol{\alpha} (s) &= (\cos \theta (s), \sin \theta (s)) \\
-\boldsymbol{\beta} (s) &= (-\sin \theta (s), \cos \theta (s))
+\boldsymbol{\alpha} (s) &= (\cos \theta (s), &\sin \theta (s)) \\
+\boldsymbol{\beta} (s) &= (-\sin \theta (s), &\cos \theta (s))
 \end{aligned}
 $$
 
