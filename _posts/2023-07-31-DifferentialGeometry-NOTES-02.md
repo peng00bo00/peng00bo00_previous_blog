@@ -972,3 +972,27 @@ $$\boldsymbol{r}_1 (s) = \boldsymbol{r}(s) + \frac{1}{\kappa (s)} \boldsymbol{\b
 $$
 
 ## 平面曲线
+
+根据[定理2.4](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)，平面曲线可以看作是挠率为零的空间曲线，因此关于空间曲线的各种结论同样适用于平面曲线的情形。不过平面曲线有它自身的特点，因此本节只限于平面本身(而不考虑外围的空间)研究其中曲线的弯曲性质。
+
+### 平面曲线的Frenet标架
+
+在平面$$\mathbb{E}^2$$的右手笛卡尔直角坐标系下，曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$可以表示为
+
+$$
+\boldsymbol{r}(s) = (x(s), y(s))
+$$
+
+其中$$s$$是弧长参数，因此它的单位切向量是
+
+$$
+\boldsymbol{\alpha} (s) = (x'(s), y'(s)), \ \ (x'(s))^2 + (y'(s))^2 = 1
+$$
+
+因为平面$$\mathbb{E}^2$$是有向平面，故可以把$$\boldsymbol{\alpha} (s)$$沿正向旋转90°得到唯一的一个与$$\boldsymbol{\alpha} (s)$$垂直的单位向量$$\boldsymbol{\beta}(s)$$，很明显
+
+$$
+\boldsymbol{\beta} (s) = (-y'(s), x'(s))
+$$
+
+这样，沿曲线$$\boldsymbol{r} = \boldsymbol{r}(s)$$有一个定义好的右手单位正交标架场$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}, \boldsymbol{\beta} \}$$，它在平面曲线的理论中所担当的角色相当于空间曲线的Frenet标架，称为**平面曲线的Frenet标架**。值得指出的是，平面曲线的Frenet标架场$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}, \boldsymbol{\beta} \}$$的缺点只用到曲线参数方程的一阶导数，$$\boldsymbol{\beta}(s)$$是曲线的法向量，它与曲线的主法向量可能差一个正负号。
