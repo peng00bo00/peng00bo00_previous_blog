@@ -907,7 +907,14 @@ $$
 即$$C$$的渐伸线的参数方程为
 
 $$
-\boldsymbol{r}_1 (s) = \boldsymbol{r}(s) + (c-s) \boldsymbol{\alpha} (s).
+\boldsymbol{r}_1 (s) = \boldsymbol{r}(s) + (c-s) \boldsymbol{\alpha} (s)
 $$
+
+曲线的渐伸线可以看作是该曲线的切线族的正交轨线，而**定理2.13**可以解释为：将一条软线沿曲线放置，把一端固定，另一端慢慢离开原曲线，并且把软线抻直，使软线抻直的部分是在保持为原曲线的切线，则这另一端描出的曲线就是原曲线渐伸线。
+
+**定理2.14** 设正则参数曲线$$C$$的参数方程是$$\boldsymbol{r}(s)$$，$$s$$是弧长参数，则$$C$$的渐缩线的参数方程是
+$$\boldsymbol{r} = \boldsymbol{r}(s) + \frac{1}{\kappa (s)} \boldsymbol{\beta} (s) - \frac{1}{\kappa (s)} \bigg( \tan{\int \tau (s) \ ds} \bigg) \boldsymbol{\gamma} (s)
+$$
+{:.info}
 
 ## 平面曲线
