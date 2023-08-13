@@ -968,7 +968,7 @@ $$
 
 即曲线$$C$$的渐缩线为
 
-$$\boldsymbol{r} = \boldsymbol{r}(s) + \frac{1}{\kappa (s)} \boldsymbol{\beta} (s) - \frac{1}{\kappa (s)} \bigg( \tan{\int \tau (s) \ ds} \bigg) \boldsymbol{\gamma} (s)
+$$\boldsymbol{r}_1 (s) = \boldsymbol{r}(s) + \frac{1}{\kappa (s)} \boldsymbol{\beta} (s) - \frac{1}{\kappa (s)} \bigg( \tan{\int \tau (s) \ ds} \bigg) \boldsymbol{\gamma} (s)
 $$
 
 ## 平面曲线
