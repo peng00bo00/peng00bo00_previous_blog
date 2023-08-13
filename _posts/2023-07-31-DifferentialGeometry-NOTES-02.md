@@ -1042,3 +1042,79 @@ $$
 $$
 
 平面曲线的曲率中心是$$\boldsymbol{r} (s) + \boldsymbol{\beta} (s) / \kappa_r (s)$$，这也是平面曲线渐缩线的参数方程。
+
+用$$\theta$$表示单位切向量$$\boldsymbol{\alpha}(s)$$与$$x$$轴的正向所构成的角，称为向量$$\boldsymbol{\alpha}(s)$$的方向角。方向角是一个多值函数，但是在$$s$$的一个小范围内总是可以取出函数$$\theta (s)$$的一个连续分支。此时
+
+$$
+\begin{aligned}
+\boldsymbol{\alpha} (s) &= (\cos \theta (s), \sin \theta (s)) \\
+\boldsymbol{\beta} (s) &= (-\sin \theta (s), \cos \theta (s))
+\end{aligned}
+$$
+
+即
+
+$$
+\begin{aligned}
+x'(s) &= \cos \theta (s) \\ 
+y'(s) &= \sin \theta (s)
+\end{aligned}
+$$
+
+再求导得到
+
+$$
+\begin{aligned}
+x''(s) &= -\sin \theta (s) \cdot \theta'(s) \\
+y''(s) &= \cos \theta (s)\cdot \theta'(s)
+\end{aligned}
+$$
+
+因此
+
+$$
+\kappa_r (s) = \frac{d \theta (s)}{d s}
+$$
+
+上式清楚地说明了相对曲率$$\kappa_r (s)$$的几何意义。对于平面曲线来说，曲线论基本定理成为下面的显示表达式
+
+$$
+\begin{aligned}
+\theta (s) &= \theta (s_0) + \int_{s_0}^s \kappa_r (s) \ ds \\
+x(s) &= x(s_0) + \int_{s_0}^s \cos \theta (s) \ ds \\
+y(s) &= y(s_0) + \int_{s_0}^s \sin \theta (s) \ ds \\
+\end{aligned}
+$$
+
+若平面曲线$$\boldsymbol{r} = \boldsymbol{r} (t)$$的参数方程是
+
+$$
+\boldsymbol{r} (t) = (x(t), y(t))
+$$
+
+其中$$t$$未必是弧长参数。曲线的弧长元素是
+
+$$
+ds = \vert \boldsymbol{r}'(t) \vert \ dt = \sqrt{(x')^2 + (y')^2} \ dt
+$$
+
+因此它的单位切向量是
+
+$$
+\boldsymbol{\alpha} (t) = \frac{\boldsymbol{r}'(t)}{\vert \boldsymbol{r}'(t) \vert} = \bigg( \frac{x'}{\sqrt{(x')^2 + (y')^2}}, \frac{y'}{\sqrt{(x')^2 + (y')^2}} \bigg)
+$$
+
+法向量是
+
+$$
+\boldsymbol{\beta} (t) = \bigg( -\frac{y'}{\sqrt{(x')^2 + (y')^2}}, \frac{x'}{\sqrt{(x')^2 + (y')^2}} \bigg)
+$$
+
+因此曲线$$C$$的相对曲率是
+
+$$
+\begin{aligned}
+\kappa_r (t) &= \frac{d \boldsymbol{\alpha} (t)}{ds} \cdot \boldsymbol{\beta}(t) = \frac{dt}{ds} \cdot \boldsymbol{\alpha}' (t) \cdot \boldsymbol{\beta}(t) \\
+&= \frac{x' y'' - x'' y'}{\sqrt{\big( (x')^2 + (y')^2 \big)^3}}
+\end{aligned}
+$$
