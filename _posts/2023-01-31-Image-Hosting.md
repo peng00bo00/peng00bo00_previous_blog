@@ -27,6 +27,8 @@ https://i.imgur.com/agozP0s.gif
 
 - 修改后图片链接：
 
+**注意：https://pic1.xuehuaimg.com 已失效**
+
 ```
 https://pic1.xuehuaimg.com/proxy/i.imgur.com/agozP0s.gif
 ```
