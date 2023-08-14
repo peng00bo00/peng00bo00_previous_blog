@@ -1035,9 +1035,9 @@ $$
 
 $$
 \begin{cases}
-\boldsymbol{r}'(s) &= & &\boldsymbol{\alpha}(s) \\
-\boldsymbol{\alpha}'(s) &= & & & \kappa_r \boldsymbol{\beta} (s) \\
-\boldsymbol{\beta}' (s) &= -\kappa_r (s) \boldsymbol{\alpha} (s) & &
+\boldsymbol{r}'(s)      &= &\boldsymbol{\alpha}(s) \\
+\boldsymbol{\alpha}'(s) &= & &\kappa_r \boldsymbol{\beta} (s) \\
+\boldsymbol{\beta}' (s) &= -\kappa_r (s) &\boldsymbol{\alpha} (s) & &
 \end{cases}
 $$
 
