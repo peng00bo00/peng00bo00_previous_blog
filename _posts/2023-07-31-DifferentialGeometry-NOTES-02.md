@@ -1118,3 +1118,29 @@ $$
 &= \frac{x' y'' - x'' y'}{\sqrt{\big( (x')^2 + (y')^2 \big)^3}}
 \end{aligned}
 $$
+
+### 旋转指标
+
+对于整条平面曲线$$\boldsymbol{r} = \boldsymbol{r}(s) \ (a \leq s \leq b)$$而言，也能取出其方向角的连续分支$$\theta (s)$$。事实上，在每一点处的单位切向量$$\boldsymbol{\alpha} (s)$$的方向角确定到差$$2 \pi$$的整数倍。这样，我们可以将区间划分得充分的小，设为
+
+$$
+a = s_0 \lt s_1 \lt \dots \lt s_n = b
+$$
+
+使得在每一小段区间$$[s_i, s_{i+1}]$$上，方向角的连续分支$$\theta (s)$$的变差不超过$$\pi$$。然后，从区间$$[s_0, s_1]$$的一个连续分支出发，依次唯一地确定了各个区间$$[s_i, s_{i+1}]$$上的连续分支$$\theta(s)$$，最终得到定义在整条曲线上的方向角连续分支$$\theta (s)$$。由此可见，方向角的任意两个连续分支$$\theta(s)$$和$$\tilde{\theta}(s)$$之间差$$2 \pi$$的一个整数倍，即有整数$$k$$使得
+
+$$
+\tilde{\theta} (s) - \theta (s) = 2k \pi
+$$
+
+由于左边是$$s$$的连续函数，因此$$k$$只能是常数。故一条平面曲线的方向角的总变差与连续分支的取法无关，即
+
+$$
+\tilde{\theta} (b) - \tilde{\theta} (a) = \theta (b) - \theta (a)
+$$
+
+根据[相对曲率](/2023/07/31/DifferentialGeometry-NOTES-02.html#相对曲率)的几何意义得知
+
+$$
+\tilde{\theta} (b) - \tilde{\theta} (a) = \int_a^b \kappa_r (s) \ ds
+$$
