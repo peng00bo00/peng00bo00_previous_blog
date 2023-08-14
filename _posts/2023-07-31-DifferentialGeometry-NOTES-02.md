@@ -1142,5 +1142,37 @@ $$
 根据[相对曲率](/2023/07/31/DifferentialGeometry-NOTES-02.html#相对曲率)的几何意义得知
 
 $$
-\tilde{\theta} (b) - \tilde{\theta} (a) = \int_a^b \kappa_r (s) \ ds
+\theta (b) - \theta (a) = \int_a^b \kappa_r (s) \ ds
 $$
+
+如果$$\boldsymbol{r} = \boldsymbol{r}(s) \ (a \leq s \leq b)$$是$$\mathbb{E}^2$$上的一条光滑曲线，并且
+
+$$
+\boldsymbol{r} (b) = \boldsymbol{r} (a), \ \ 
+\boldsymbol{r}' (b) = \boldsymbol{r}' (a), \ \ 
+\boldsymbol{r}'' (b) = \boldsymbol{r}'' (a), \ \ ...
+$$
+
+则称它为光滑闭曲线。如果$$\boldsymbol{r} = \boldsymbol{r}(s) \ (a \leq s \leq b)$$是若干段光滑曲线首尾相接而成的，并且$$\boldsymbol{r} (b) = \boldsymbol{r} (a)$$，则称它是分段光滑的闭曲线。
+
+如果$$\boldsymbol{r} = \boldsymbol{r}(s) \ (a \leq s \leq b)$$是$$\mathbb{E}^2$$上的闭曲线，并且对于任意的$$a \leq s_1 \lt s_2 \lt b$$都有
+
+$$
+\boldsymbol{r} (s_1) \neq \boldsymbol{r} (s_2)
+$$
+
+则称该曲线是简单的。简单闭曲线就是没有自交点的闭曲线。
+
+对于连续可微的闭曲线
+
+$$
+C: \boldsymbol{r} = \boldsymbol{r} (s), \ \ a \leq s \leq b
+$$
+
+它的单位切向量$$\boldsymbol{\alpah} (s)$$绕曲线转一圈回到起点时与原来的单位切向量重合，因此方向角的总变差$$\theta(b) - \theta(a)$$一定是$$2 \pi$$的整数倍，它与方向角连续分支$$\boldsymbol{\alpha} (s)$$的选取无关。命
+
+$$
+i(C) = \frac{1}{2 \pi} \big( \theta(b) - \theta(a) \big)
+$$
+
+称为连续可微闭曲线$$C$$的**旋转指标**。
