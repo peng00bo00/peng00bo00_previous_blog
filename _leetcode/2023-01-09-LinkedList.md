@@ -23,6 +23,10 @@ sidebar:
 
 **示例1：**
 
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/03/06/removelinked-list.jpg" width="80%">
+</div>
+
 ```
 输入：head = [1,2,6,3,4,5,6], val = 6
 输出：[1,2,3,4,5]
@@ -101,6 +105,10 @@ class Solution:
 给你一个链表，删除链表的倒数第`n`个结点，并且返回链表的头结点。
 
 **示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/10/03/remove_ex1.jpg" width="80%">
+</div>
 
 ```
 输入：head = [1,2,3,4,5], n = 2
@@ -629,12 +637,20 @@ class MyLinkedList:
 
 **示例1：**
 
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/02/19/rev1ex1.jpg">
+</div>
+
 ```
 输入：head = [1,2,3,4,5]
 输出：[5,4,3,2,1]
 ```
 
 **示例2：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2021/02/19/rev1ex2.jpg">
+</div>
 
 ```
 输入：head = [1,2]
@@ -714,6 +730,10 @@ class Solution:
 给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题(即，只能进行节点交换)。
 
 **示例1：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=assets.leetcode.com/uploads/2020/10/03/swap_ex1.jpg">
+</div>
 
 ```
 输入：head = [1,2,3,4]
@@ -980,6 +1000,9 @@ class Solution:
 
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head:
+            return head
+
         fast, slow = head, head
 
         while True:
@@ -1121,16 +1144,14 @@ class Solution:
         head1 = head
         head2 = reverse(mid)
 
-        res = True
         while head1 and head2:
             if head1.val != head2.val:
-                res = False
-                break
+                return False
             
             head1 = head1.next
             head2 = head2.next
         
-        return res
+        return True
 ```
 {: .snippet}
 
@@ -1152,12 +1173,20 @@ L₀ → Lₙ → L₁ → Lₙ₋₁ → L₂ → Lₙ₋₂ → …
 
 **示例1：**
 
+<div align=center>
+<img src="https://images.weserv.nl/?url=pic.leetcode-cn.com/1626420311-PkUiGI-image.png">
+</div>
+
 ```
 输入：head = [1,2,3,4]
 输出：[1,4,2,3]
 ```
 
 **示例2：**
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=pic.leetcode-cn.com/1626420320-YUiulT-image.png">
+</div>
 
 ```
 输入：head = [1,2,3,4,5]
