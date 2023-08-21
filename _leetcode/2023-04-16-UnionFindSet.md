@@ -12,8 +12,8 @@ sidebar:
 **并查集(union-find set)**是一种用于管理元素所属集合的数据结构。它的实现为一个森林，其中每棵树表示一个集合，树中的节点表示对应集合中的元素。
 
 <div align=center>
-<img src="https://images.weserv.nl/?url=he-s3.s3.amazonaws.com/media/uploads/4c11a99.jpg" width="60%">
-<img src="https://images.weserv.nl/?url=he-s3.s3.amazonaws.com/media/uploads/7439d01.jpg" width="60%">
+<img src="https://images.weserv.nl/?url=https://he-s3.s3.amazonaws.com/media/uploads/4c11a99.jpg" width="60%">
+<img src="https://images.weserv.nl/?url=https://he-s3.s3.amazonaws.com/media/uploads/7439d01.jpg" width="60%">
 </div>
 
 并查集需要实现**合并(union)**和**查询(find)**两个操作：
