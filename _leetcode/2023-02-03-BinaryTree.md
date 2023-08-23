@@ -2179,8 +2179,8 @@ class Solution:
         inorderLeft = inorder[:idx]
         inorderRight= inorder[idx+1:]
 
-        postorderLeft = postorder[:len(inorderLeft)]
-        postorderRight= postorder[len(inorderLeft):-1]
+        postorderLeft = postorder[:idx]
+        postorderRight= postorder[idx:-1]
 
         ## recursively build root.left and root.right
         root.left = self.buildTree(inorderLeft, postorderLeft)
@@ -2250,8 +2250,8 @@ class Solution:
         inorderLeft = inorder[:idx] 
         inorderRight= inorder[idx+1:]
 
-        preorderLeft = preorder[1:len(inorderLeft)+1]
-        preorderRight= preorder[1+len(inorderLeft):]
+        preorderLeft = preorder[1:idx+1]
+        preorderRight= preorder[1+idx:]
 
         ## recursively build root.left and root.right
         root.left = self.buildTree(preorderLeft, inorderLeft)
@@ -3397,8 +3397,10 @@ class Solution:
         
         if root.val > val and not root.left:
             root.left = TreeNode(val)
+            return root
         elif root.val < val and not root.right:
             root.right= TreeNode(val)
+            return root
         
         if root.val < val:
             self.insertIntoBST(root.right, val)
