@@ -475,7 +475,7 @@ class Solution:
 
 #### Solution
 
-本题和[组合总和](/leetcode/2023-03-04-Backtracking.html#39-组合总和)的区别在于`candidates`中的每个数字只能使用一次，而且`candidates`中可能会出现重复的数字。因此本题的关键在于如何对`candidates`进行去重，即保证使用过的元素不会被重复选取。这里可以首先对`candidates`进行**排序**，然后越过for循环中保证每个`startIdx`之后重复的数字。
+本题和[组合总和](/leetcode/2023-03-04-Backtracking.html#39-组合总和)的区别在于`candidates`中的每个数字只能使用一次，而且`candidates`中可能会出现重复的数字。因此本题的关键在于如何对`candidates`进行去重，即保证使用过的元素不会被重复选取。这里可以首先对`candidates`进行**排序**，然后越过for循环中`startIdx`之后所有等于前一个数字的数字。
 
 [题目链接](https://leetcode.cn/problems/combination-sum-ii/)：
 
@@ -698,9 +698,6 @@ class Solution:
         def backtracking(startIdx: int) -> None:
             ## collect current path
             res.append(path[:])
-            
-            if startIdx == len(nums):
-                return
 
             for i in range(startIdx, len(nums)):
                 path.append(nums[i])
@@ -757,12 +754,9 @@ class Solution:
         ## sort nums
         nums = sorted(nums)
 
-        def backtracking(startIdx: int) -> None:.
+        def backtracking(startIdx: int) -> None:
             ## collect current path
             res.append(path[:])
-
-            if startIdx == len(nums):
-                return
 
             for i in range(startIdx, len(nums)):
                 num = nums[i]
