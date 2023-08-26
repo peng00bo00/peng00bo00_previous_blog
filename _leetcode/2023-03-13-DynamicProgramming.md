@@ -2005,7 +2005,7 @@ class Solution:
 
 而对于初始化，我们只需要把第一天持有股票状态初始化为`-prices[0]`即可。
 
-[题目链接](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)：
+[题目链接](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/)：
 
 ```python
 class Solution:
