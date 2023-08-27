@@ -3076,8 +3076,8 @@ class Solution:
 
 这样可以得到`count[]`数组的递推公式：
 
-- `count[i] = count[j]`，`nums[i] > nums[j]`且`dp[j] + 1 > dp[i]`
-- `count[i]+= count[j]`，`nums[i] > nums[j]`且`dp[j] + 1 == dp[i]`
+- `count[i] = count[j]`，如果`nums[i] > nums[j]`且`dp[j] + 1 > dp[i]`
+- `count[i]+= count[j]`，如果`nums[i] > nums[j]`且`dp[j] + 1 == dp[i]`
 
 接下来考虑初始化，显然我们可以把`dp[]`和`count[]`两个数组都初始化为`1`，这表示任意数字`nums[i]`自己都可以组成一个只包含自身的递增序列。
 
