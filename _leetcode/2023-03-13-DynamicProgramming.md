@@ -2385,7 +2385,7 @@ class Solution:
 
 #### Solution
 
-本题的描述比较复杂，但实际上题目的意思是在`nums1`和`nums2`中寻找一个最大的公共子列且它们相同的相对顺序。在这种观察下本题与[最长公共子序列](/leetcode/2023-03-13-DynamicProgramming.html#1143-最长公共子序列)是完全相同的，直接套用[最长公共子序列](/leetcode/2023-03-13-DynamicProgramming.html#1143-最长公共子序列)的代码即可。
+本题的描述比较复杂，但实际上题目的意思是在`nums1`和`nums2`中寻找一个**最大的公共子序列**且它们保持一致的相对顺序。在这种观察下本题与[最长公共子序列](/leetcode/2023-03-13-DynamicProgramming.html#1143-最长公共子序列)是完全相同的，直接套用[最长公共子序列](/leetcode/2023-03-13-DynamicProgramming.html#1143-最长公共子序列)的代码即可。
 
 [题目链接](https://leetcode.cn/problems/uncrossed-lines/)：
 
