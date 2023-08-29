@@ -341,6 +341,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/two-sum/)：
 
+python代码：
+
 ```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -352,6 +354,30 @@ class Solution:
             records[num] = idx
         
         return []
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> table;
+
+        for (int i=0; i < nums.size(); ++i) {
+            int x = nums[i];
+
+            if (table.count(target - x)) {
+                return vector<int> {i, table[target - x]};
+            } else {
+                table[x] = i;
+            }
+        }
+
+        return {};
+    }
+};
 ```
 {: .snippet}
 
