@@ -421,6 +421,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/4sum-ii/)：
 
+python代码：
+
 ```python
 class Solution:
     def fourSumCount(self, nums1: List[int], nums2: List[int], nums3: List[int], nums4: List[int]) -> int:
@@ -437,6 +439,36 @@ class Solution:
                     count += ret[-(c+d)]
         
         return count
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
+        unordered_map<int, int> ret;
+
+        for (int x : nums1) {
+            for (int y: nums2) {
+                ++ret[x+y];
+            }
+        }
+
+        int count = 0;
+
+        for (int x : nums3) {
+            for (int y: nums4) {
+                if (ret.count(-x-y)) {
+                    count += ret[-x-y];
+                }
+            }
+        }
+
+        return count;
+    }
+};
 ```
 {: .snippet}
 
