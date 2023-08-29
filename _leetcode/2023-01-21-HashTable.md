@@ -616,6 +616,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/intersection-of-two-arrays/)：
 
+python代码：
+
 ```python
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
@@ -633,6 +635,34 @@ class Solution:
         set2 = set(nums2)
 
         return list(set1 & set2)
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> set1, set2;
+
+        for (auto &x : nums1) set1.emplace(x);
+        for (auto &x : nums2) set2.emplace(x);
+
+        return setIntersection(set1, set2);
+    }
+
+    vector<int> setIntersection(unordered_set<int>& set1, unordered_set<int>& set2) {
+        if (set1.size() > set2.size()) return setIntersection(set2, set1);
+
+        vector<int> res;
+        for (auto &x : set1) {
+            if (set2.count(x)) res.emplace_back(x);
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
