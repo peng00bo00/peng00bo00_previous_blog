@@ -429,6 +429,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/merge-two-sorted-lists/)：
 
+python代码：
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -451,9 +453,42 @@ class Solution:
 ```
 {: .snippet}
 
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        if (!list1) {
+            return list2;
+        } else if (!list2) {
+            return list1;
+        } else if (list1->val < list2->val) {
+            list1->next = mergeTwoLists(list1->next, list2);
+            return list1;
+        } else {
+            list2->next = mergeTwoLists(list1, list2->next);
+            return list2;
+        }
+
+    }
+};
+```
+{: .snippet}
+
 本题的迭代解法与递归类似可参考如下。
 
 [题目链接](https://leetcode.cn/problems/merge-two-sorted-lists/)：
+
+python代码：
 
 ```python
 # Definition for singly-linked list.
@@ -485,6 +520,55 @@ class Solution:
             node.next = head2
 
         return virtual.next
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        ListNode* dummy = new ListNode();
+
+        ListNode* n1   = list1;
+        ListNode* n2   = list2;
+        ListNode* node = dummy;
+
+        while (n1 and n2) {
+            if (n1->val < n2->val) {
+                node->next = n1;
+                n1 = n1->next;
+            } else {
+                node->next = n2;
+                n2 = n2->next;
+            }
+
+            node = node->next;
+        }
+
+        if (!n1) {
+            node->next = n2;
+        } else if (!n2) {
+            node->next = n1;
+        }
+
+        ListNode* res = dummy->next;
+        delete dummy;
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
