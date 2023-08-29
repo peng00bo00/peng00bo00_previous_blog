@@ -214,6 +214,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)：
 
+python代码：
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -235,6 +237,46 @@ class Solution:
         slow.next = slow.next.next
         
         return sentinel.next
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummy = new ListNode(0, head);
+
+        ListNode* fast = head;
+        for(int i=0; i<n; ++i) {
+            fast = fast->next;
+        }
+
+        ListNode* slow = dummy;
+        while (fast) {
+            fast = fast->next;
+            slow = slow->next;
+        }
+
+        slow->next = slow->next->next;
+        
+        ListNode* res = dummy->next;
+        delete dummy;
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
