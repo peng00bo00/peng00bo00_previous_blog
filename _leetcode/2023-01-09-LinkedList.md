@@ -1072,6 +1072,8 @@ private:
 
 [题目链接](https://leetcode.cn/problems/reverse-linked-list/)：
 
+python代码：
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -1093,7 +1095,44 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* cur = head;
+        ListNode* pre = nullptr;
+        
+        ListNode* tmp;
+
+        while (cur) {
+            tmp = cur;
+            cur = cur->next;
+
+            tmp->next = pre;
+            pre = tmp;
+        }
+
+        return pre;
+    }
+};
+```
+{: .snippet}
+
 除了对链表进行遍历外我们还可以使用递归来进行处理：首先对当前头节点`head`的下一个节点`head.next`调用翻转函数，得到翻转的后继链表头节点，记为`newhead`；接着修改后继翻转链表末尾节点的指向，使它指向`head`；然后修改`head`的指向使其指向`None`，这样`head`就称为了翻转后链表的末尾节点；最后返回`newhead`即可。
+
+python代码：
 
 ```python
 # Definition for singly-linked list.
@@ -1111,6 +1150,35 @@ class Solution:
         head.next = None
 
         return newhead
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if (!head || !(head->next)) return head;
+
+        ListNode* newHead = reverseList(head->next);
+
+        head->next->next = head;
+        head->next       = nullptr;
+
+        return newHead;
+    }
+};
 ```
 {: .snippet}
 
