@@ -344,6 +344,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/delete-node-in-a-linked-list/)：
 
+python代码：
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -360,6 +362,27 @@ class Solution:
 
         node.val = node.next.val
         node.next = node.next.next
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+        node->val  = node->next->val;
+        node->next = node->next->next;
+    }
+};
 ```
 {: .snippet}
 
