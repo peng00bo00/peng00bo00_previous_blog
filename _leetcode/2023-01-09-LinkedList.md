@@ -1552,6 +1552,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/linked-list-cycle-ii/)：
 
+python代码：
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -1583,6 +1585,43 @@ class Solution:
             slow = slow.next
         
         return fast
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        ListNode *fast = head, *slow = head;
+
+        while (1) {
+            if (fast == nullptr || fast->next == nullptr) return nullptr;
+
+            fast = fast->next->next;
+            slow = slow->next;
+
+            if (fast == slow) break;
+        }
+
+        fast = head;
+        while (fast != slow) {
+            fast = fast->next;
+            slow = slow->next;
+        }
+
+        return fast;
+    }
+};
 ```
 {: .snippet}
 
