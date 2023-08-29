@@ -235,6 +235,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/happy-number/)：
 
+python代码：
+
 ```python
 class Solution:
     def isHappy(self, n: int) -> bool:
@@ -258,6 +260,41 @@ class Solution:
             n = nextHappy(n)
 
         return True
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    bool isHappy(int n) {
+        unordered_set<int> nums;
+
+        while (nums.count(n) == 0) {
+            nums.emplace(n);
+
+            if (n == 1) return true;
+
+            n = nextHappy(n);
+        }
+
+        return false;
+    }
+
+
+    int nextHappy(int n) {
+        int res = 0;
+
+        while (n) {
+            int x = n % 10;
+            res += x*x;
+            n = n / 10;
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
