@@ -42,6 +42,8 @@ sidebar:
 
 [题目链接](https://leetcode.cn/problems/valid-anagram/)：
 
+python代码：
+
 ```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -58,6 +60,32 @@ class Solution:
             t_dict[char] = t_dict.get(char, 0) + 1
         
         return s_dict == t_dict
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if (s.length() != t.length()) return false;
+
+        int table[26] = {0};
+
+        for (auto& ch : s) {
+            ++table[ch - 'a'];
+        }
+
+        for (auto& ch : t) {
+            --table[ch - 'a'];
+
+            if (table[ch - 'a'] < 0) return false;
+        }
+
+        return true;
+    }
+};
 ```
 {: .snippet}
 
