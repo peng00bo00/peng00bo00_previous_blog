@@ -58,6 +58,8 @@ sidebar:
 
 [题目链接](https://leetcode.cn/problems/remove-linked-list-elements/)：
 
+python代码：
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -79,7 +81,43 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        ListNode dummy;
+        dummy.next = head;
+
+        ListNode* cur = &dummy;
+        while (cur) {
+            if (cur->next && cur->next->val == val) {
+                cur->next = cur->next->next;
+            } else {
+                cur = cur->next;
+            }
+        }
+
+        return dummy.next;
+    }
+};
+```
+{: .snippet}
+
 除了循环之外，我们也可以使用递归来处理删除节点的问题。每次调用函数时我们只检查当前的节点是否包含`val`，如果包含则把后继节点作为函数输入。
+
+python代码：
 
 ```python
 # Definition for singly-linked list.
@@ -99,6 +137,34 @@ class Solution:
             return self.removeElements(head.next, val)
 ```
 {: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        if (!head) return head;
+
+        if (head->val == val) {
+            return removeElements(head->next, val);
+        } else{
+            head->next = removeElements(head->next, val);
+            return head;
+        }
+    }
+};
+```
 
 ### 19. 删除链表的倒数第N个结点
 
