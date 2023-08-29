@@ -706,6 +706,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/ransom-note/)：
 
+python代码：
+
 ```python
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
@@ -722,6 +724,31 @@ class Solution:
                 return False
         
         return True
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        if (ransomNote.size() > magazine.size()) return false;
+
+        int freq[26] = {0};
+        for (auto &ch : magazine) {
+            ++freq[ch - 'a'];
+        }
+
+        for (auto &ch : ransomNote) {
+            --freq[ch - 'a'];
+
+            if (freq[ch - 'a'] < 0) return false;
+        }
+
+        return true;
+    }
+};
 ```
 {: .snippet}
 
