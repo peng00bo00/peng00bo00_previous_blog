@@ -1662,6 +1662,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/palindrome-linked-list/)：
 
+python代码：
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -1688,6 +1690,44 @@ class Solution:
             j -= 1
         
         return True
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        vector<int> vals;
+
+        auto ptr = head;
+        while (ptr != nullptr) {
+            vals.emplace_back(ptr->val);
+            ptr = ptr->next;
+        }
+
+        int i = 0, j = vals.size()-1;
+        while (i < j) {
+            if (vals[i] != vals[j]) return false;
+
+            ++i;
+            --j;
+        }
+
+        return true;
+    }
+};
 ```
 {: .snippet}
 
@@ -1804,6 +1844,8 @@ L₀ → Lₙ → L₁ → Lₙ₋₁ → L₂ → Lₙ₋₂ → …
 
 [题目链接](https://leetcode.cn/problems/reorder-list/)：
 
+python代码：
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -1835,6 +1877,47 @@ class Solution:
                 node = node.next
         
         node.next = None
+```
+{: .snippet}
+
+C++代码
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        if (head == nullptr) return;
+
+        vector<ListNode*> nodes;
+        ListNode* ptr = head;
+
+        while (ptr) {
+            nodes.emplace_back(ptr);
+            ptr = ptr->next;
+        }
+
+        int i = 0, j = nodes.size()-1;
+        while (i < j) {
+            nodes[i]->next = nodes[j];
+            ++i;
+
+            nodes[j]->next = nodes[i];
+            --j;
+        }
+
+        nodes[i]->next = nullptr;
+    }
+};
 ```
 {: .snippet}
 
