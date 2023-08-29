@@ -708,6 +708,8 @@ class MyLinkedList:
 
 [题目链接](https://leetcode.cn/problems/design-linked-list/)：
 
+python代码：
+
 ```python
 class Node:
     def __init__(self, val, next=None):
@@ -775,6 +777,99 @@ class MyLinkedList:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+struct LinkedNode {
+    int val;
+    LinkedNode *next;
+
+    LinkedNode() : val(0), next(nullptr) {}
+    LinkedNode(int x) : val(x), next(nullptr) {}
+};
+
+class MyLinkedList {
+public:
+    MyLinkedList() {
+        dummy = new LinkedNode();
+        size  = 0;
+    }
+    
+    int get(int index) {
+        if (index < 0 || index > size-1) return -1;
+
+        LinkedNode *cur = dummy->next;
+        while (index) {
+            cur = cur->next;
+            --index;
+        }
+
+        return cur->val;
+    }
+    
+    void addAtHead(int val) {
+        LinkedNode* node = new LinkedNode(val);
+
+        node->next = dummy->next;
+        dummy->next = node;
+
+        ++size;
+    }
+    
+    void addAtTail(int val) {
+        LinkedNode* node = new LinkedNode(val);
+
+        auto cur = dummy;
+        while (cur->next) {
+            cur = cur->next;
+        }
+
+        cur->next = node;
+
+        ++size;
+    }
+    
+    void addAtIndex(int index, int val) {
+        if (index > size) return;
+
+        LinkedNode* node = new LinkedNode(val);
+
+        auto cur = dummy;
+        while (index) {
+            cur = cur->next;
+            --index;
+        }
+
+        node->next = cur->next;
+        cur->next  = node;
+
+        ++size;
+    }
+    
+    void deleteAtIndex(int index) {
+        if (index >= size || index < 0) return;
+
+        auto cur = dummy;
+        while (index) {
+            cur = cur->next;
+            --index;
+        }
+
+        auto node = cur->next;
+        cur->next = node->next;
+
+        delete node;
+
+        --size;
+    }
+
+private:
+    LinkedNode *dummy;
+    int size;
+};
+```
+{: .snippet}
+
 除了上面介绍过的实现方法外，添加节点的相关函数中我们可以先实现`addAtIndex()`方法然后在它的基础上来实现`addAtHead()`和`addAtTail()`。这样的形式可以更好地复用已有代码，适合大型项目的开发。
 
 ```python
@@ -786,6 +881,8 @@ class MyLinkedList:
 ```
 
 [题目链接](https://leetcode.cn/problems/design-linked-list/)：
+
+python代码：
 
 ```python
 class Node:
@@ -841,6 +938,85 @@ class MyLinkedList:
         pre.next = pre.next.next
         
         self.size -= 1
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+struct LinkedNode {
+    int val;
+    LinkedNode *next;
+
+    LinkedNode() : val(0), next(nullptr) {}
+    LinkedNode(int x) : val(x), next(nullptr) {}
+};
+
+class MyLinkedList {
+public:
+    MyLinkedList() {
+        dummy = new LinkedNode();
+        size  = 0;
+    }
+    
+    int get(int index) {
+        if (index < 0 || index > size-1) return -1;
+
+        LinkedNode *cur = dummy->next;
+        while (index) {
+            cur = cur->next;
+            --index;
+        }
+
+        return cur->val;
+    }
+    
+    void addAtHead(int val) {
+        addAtIndex(0, val);
+    }
+    
+    void addAtTail(int val) {
+        addAtIndex(size, val);
+    }
+    
+    void addAtIndex(int index, int val) {
+        if (index > size) return;
+
+        LinkedNode* node = new LinkedNode(val);
+
+        auto cur = dummy;
+        while (index) {
+            cur = cur->next;
+            --index;
+        }
+
+        node->next = cur->next;
+        cur->next  = node;
+
+        ++size;
+    }
+    
+    void deleteAtIndex(int index) {
+        if (index >= size || index < 0) return;
+
+        auto cur = dummy;
+        while (index) {
+            cur = cur->next;
+            --index;
+        }
+
+        auto node = cur->next;
+        cur->next = node->next;
+
+        delete node;
+
+        --size;
+    }
+
+private:
+    LinkedNode *dummy;
+    int size;
+};
 ```
 {: .snippet}
 
