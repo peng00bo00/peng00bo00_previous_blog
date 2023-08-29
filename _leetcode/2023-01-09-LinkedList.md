@@ -1228,6 +1228,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/swap-nodes-in-pairs/)：
 
+python代码：
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -1252,7 +1254,50 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        ListNode* dummy = new ListNode();
+        dummy->next = head;
+
+        ListNode* cur = dummy;
+
+        while (cur->next && cur->next->next) {
+            ListNode* first  = cur->next;
+            ListNode* second = cur->next->next;
+
+            first->next  = second->next;
+            second->next = first;
+            cur->next    = second;
+            
+            cur = cur->next->next;
+        }
+
+        auto res = dummy->next;
+        delete dummy;
+
+        return res;
+    }
+};
+```
+{: .snippet}
+
 递归解法在思维上要更简洁一些：我们同样要获取当前链表的前2个节点`first`和`second`；接着令`first`指向交换后的后续链表；然后令`second`指向`first`，这样就完成了前两个节点的交换；最后返回`second`节点作为当前链表的头节点即可。
+
+python代码：
 
 ```python
 # Definition for singly-linked list.
@@ -1271,6 +1316,36 @@ class Solution:
         second.next = first
 
         return second
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        if (!head || !(head->next)) return head;
+
+        ListNode* first  = head;
+        ListNode* second = head->next;
+
+        first->next  = swapPairs(second->next);
+        second->next = first;
+
+        return second;
+    }
+};
 ```
 {: .snippet}
 
