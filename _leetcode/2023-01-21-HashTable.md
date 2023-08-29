@@ -504,6 +504,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/find-common-characters/)：
 
+python代码：
+
 ```python
 class Solution:
     def commonChars(self, words: List[str]) -> List[str]:
@@ -524,6 +526,43 @@ class Solution:
                 res.append(chr(ord('a')+i))
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<string> commonChars(vector<string>& words) {
+        int minFreq[26];
+        for (int i = 0; i < 26; ++i) {
+            minFreq[i] = INT_MAX;
+        }
+
+        for (auto &word : words) {
+            int freq[26] = {0};
+
+            for (auto &ch : word) {
+                ++freq[ch - 'a'];
+            }
+
+            for (int i = 0; i < 26; ++i) {
+                minFreq[i] = min(minFreq[i], freq[i]);
+            }
+        }
+
+        vector<string> res;
+        for (int i = 0; i < 26; ++i) {
+            for (int j = 0; j < minFreq[i]; ++j) {
+                string s(1, 'a' + i);   // convert 'a'+i to string
+                res.emplace_back(s);
+            }
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
