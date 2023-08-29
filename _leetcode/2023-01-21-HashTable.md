@@ -148,6 +148,8 @@ class Solution(object):
 
 [题目链接](https://leetcode.cn/problems/isomorphic-strings/)：
 
+python代码：
+
 ```python
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
@@ -160,6 +162,33 @@ class Solution:
             s2t[ss], t2s[tt] = tt, ss
 
         return True
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        unordered_map<char, char> s2t;
+        unordered_map<char, char> t2s;
+
+        for (int i=0; i < s.length(); ++i) {
+            char ss = s[i];
+            char tt = t[i];
+
+            if ((s2t.count(ss) && s2t[ss] != tt) || (t2s.count(tt) && t2s[tt] != ss)) {
+                return false;
+            }
+
+            s2t[ss] = tt;
+            t2s[tt] = ss;
+        }
+
+        return true;
+    }
+};
 ```
 {: .snippet}
 
