@@ -285,6 +285,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/remove-all-adjacent-duplicates-in-string/)：
 
+python代码：
+
 ```python
 class Solution:
     def removeDuplicates(self, s: str) -> str:
@@ -296,6 +298,28 @@ class Solution:
                 stack.pop()
             
         return "".join(stack)
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    string removeDuplicates(string s) {
+        string ss;
+
+        for (auto& ch : s) {
+            if (!ss.empty() && ss.back() == ch) {
+                ss.pop_back();
+            } else {
+                ss.push_back(ch);
+            }
+        }
+
+        return ss;
+    }
+};
 ```
 {: .snippet}
 
