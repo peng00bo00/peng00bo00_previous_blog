@@ -560,9 +560,50 @@ class MyStack:
 ```
 {: .snippet}
 
+C++代码：
 
+```cpp
+class MyStack {
+public:
+    MyStack() {
+
+    }
+    
+    void push(int x) {
+        queue1.push(x);
+    }
+    
+    int pop() {
+        while (queue1.size() > 1) {
+            queue2.push(queue1.front());
+            queue1.pop();
+        }
+
+        int x = queue1.front();
+        queue1.pop();
+
+        swap(queue1, queue2);
+
+        return x;
+    }
+    
+    int top() {
+        return queue1.back();
+    }
+    
+    bool empty() {
+        return queue1.empty();
+    }
+
+private:
+    queue<int> queue1, queue2;
+};
+```
+{: .snippet}
 
 如果使用双向队列`deque`则栈的实现会更加简单，代码可参考如下：
+
+python代码：
 
 ```python
 from collections import deque
@@ -588,6 +629,48 @@ class MyStack:
         return len(self.queue) == 0
 ```
 {: .snippet}
+
+C++代码：
+
+```cpp
+class MyStack {
+public:
+    MyStack() {
+
+    }
+    
+    void push(int x) {
+        queue.push(x);
+    }
+    
+    int pop() {
+        int N = queue.size();
+        int x;
+
+        for (int i = 0; i < N-1; ++i) {
+            x = queue.front();
+            queue.pop();
+            queue.push(x);
+        }
+
+        x = queue.front();
+        queue.pop();
+
+        return x;
+    }
+    
+    int top() {
+        return queue.back();
+    }
+    
+    bool empty() {
+        return queue.empty();
+    }
+
+private:
+    queue<int> queue;
+};
+```
 
 ### 239. 滑动窗口最大值
 
