@@ -640,35 +640,35 @@ public:
     }
     
     void push(int x) {
-        queue.push(x);
+        que.push(x);
     }
     
     int pop() {
-        int N = queue.size();
+        int N = que.size();
         int x;
 
         for (int i = 0; i < N-1; ++i) {
-            x = queue.front();
-            queue.pop();
-            queue.push(x);
+            x = que.front();
+            que.pop();
+            que.push(x);
         }
 
-        x = queue.front();
-        queue.pop();
+        x = que.front();
+        que.pop();
 
         return x;
     }
     
     int top() {
-        return queue.back();
+        return que.back();
     }
     
     bool empty() {
-        return queue.empty();
+        return que.empty();
     }
 
 private:
-    queue<int> queue;
+    queue<int> que;
 };
 ```
 
@@ -746,6 +746,8 @@ class MyQueue:
 
 [题目链接](https://leetcode.cn/problems/sliding-window-maximum/)：
 
+python代码：
+
 ```python
 from collections import deque
 
@@ -782,6 +784,65 @@ class Solution:
             res.append(queue.front())
         
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class MyQueue {
+private:
+    deque<int> queue;
+
+public:
+    void pop(int x) {
+        if (!empty() && front() == x) {
+            queue.pop_front();
+        }
+    }
+
+    void push(int x) {
+        while (!empty() && x > back()) {
+            queue.pop_back();
+        }
+
+        queue.push_back(x);
+    }
+
+    int front() {
+        return queue.front();
+    }
+
+    int back() {
+        return queue.back();
+    }
+
+    bool empty() {
+        return queue.empty();
+    }
+};
+
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        MyQueue queue;
+        vector<int> res;
+
+        for (int i = 0; i < k; ++i) {
+            queue.push(nums[i]);
+        }
+
+        res.push_back(queue.front());
+
+        for (int i = k; i < nums.size(); ++i) {
+            queue.pop(nums[i-k]);
+            queue.push(nums[i]);
+            res.push_back(queue.front());
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
