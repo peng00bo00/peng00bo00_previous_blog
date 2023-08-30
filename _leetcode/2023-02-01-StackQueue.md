@@ -68,6 +68,8 @@ myQueue.empty(); // return false
 
 [题目链接](https://leetcode.cn/problems/implement-queue-using-stacks/)：
 
+python代码：
+
 ```python
 class MyQueue:
 
@@ -103,6 +105,51 @@ class MyQueue:
 # param_2 = obj.pop()
 # param_3 = obj.peek()
 # param_4 = obj.empty()
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class MyQueue {
+public:
+    MyQueue() {
+
+    }
+    
+    void push(int x) {
+        stack_in.push(x);
+    }
+    
+    int pop() {
+        if (stack_out.empty()) {
+            while (!stack_in.empty()) {
+                stack_out.push(stack_in.top());
+                stack_in.pop();
+            }
+        }
+
+        int x = stack_out.top();
+        stack_out.pop();
+
+        return x;
+    }
+    
+    int peek() {
+        int x = this->pop();
+        stack_out.push(x);
+
+        return x;
+    }
+    
+    bool empty() {
+        return stack_in.empty() && stack_out.empty();
+    }
+
+private:
+    stack<int> stack_in;
+    stack<int> stack_out;
+};
 ```
 {: .snippet}
 
@@ -160,6 +207,8 @@ class MyQueue:
 
 [题目链接](https://leetcode.cn/problems/valid-parentheses/)：
 
+python代码：
+
 ```python
 class Solution:
     def isValid(self, s: str) -> bool:
@@ -178,6 +227,29 @@ class Solution:
                 stack.pop()
         
         return len(stack) == 0
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> stk;
+
+        for (auto ch : s) {
+            if (ch == '(') stk.push(')');
+            else if (ch == '[') stk.push(']');
+            else if (ch == '{') stk.push('}');
+            else if (stk.empty()) return false;
+            else if (ch != stk.top()) return false;
+            else stk.pop();
+        }
+        
+        return stk.empty();
+    }
+};
 ```
 {: .snippet}
 
@@ -400,6 +472,8 @@ myStack.empty(); // 返回 False
 
 [题目链接](https://leetcode.cn/problems/implement-stack-using-queues/)：
 
+python代码：
+
 ```python
 from collections import deque
 
@@ -427,6 +501,8 @@ class MyStack:
         return len(self.queue_in) == 0
 ```
 {: .snippet}
+
+
 
 如果使用双向队列`deque`则栈的实现会更加简单，代码可参考如下：
 
