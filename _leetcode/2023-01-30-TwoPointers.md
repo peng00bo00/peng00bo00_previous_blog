@@ -342,6 +342,8 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
 
 [题目链接](https://leetcode.cn/problems/3sum/)：
 
+python代码：
+
 ```python
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
@@ -383,6 +385,50 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        int N = nums.size();
+        sort(nums.begin(), nums.end());
+
+        vector<vector<int>> res;
+
+        for (int k = 0; k < N-2; ++k) {
+            if (nums[k] > 0) break;
+
+            if (k > 0 && nums[k] == nums[k-1]) continue;
+
+            int i = k+1, j = N-1;
+
+            while (i < j) {
+                int s = nums[i] + nums[j];
+
+                if (nums[k] == -s) {
+                    res.push_back({nums[k], nums[i], nums[j]});
+
+                    while (i < j && nums[i] == nums[i+1]) ++i;
+                    while (i < j && nums[j] == nums[j-1]) --j;
+
+                    ++i;
+                    --j;
+
+                } else if (nums[k] < -s) {
+                    ++i;
+                } else {
+                    --j;
+                }
+            }
+        }
+
+        return res;
+    }
+};
+```
+{: .snippet}
+
 ### 18. 四数之和
 
 给你一个由`n`个整数组成的数组`nums`，和一个目标值`target`。请你找出并返回满足下述全部条件且不重复的四元组`[nums[a], nums[b], nums[c], nums[d]]`（若两个四元组元素一一对应，则认为两个四元组重复）：
@@ -418,6 +464,8 @@ class Solution:
 本题的解法与[三数之和](/leetcode/2023-01-30-TwoPointers.html#15-三数之和)几乎一致，我们需要对`nums`进行排序然后固定`a`和`b`两个指针并且使用`c`和`d`两个指针对后面的数组进行搜索。
 
 [题目链接](https://leetcode.cn/problems/4sum/)：
+
+python代码：
 
 ```python
 class Solution:
@@ -458,6 +506,49 @@ class Solution:
                         c += 1
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        int N = nums.size();
+        sort(nums.begin(), nums.end());
+
+        vector<vector<int>> res;
+        for (int a = 0; a < N-3; ++a) {
+            if (a > 0 && nums[a] == nums[a-1]) continue;
+
+            for (int b = a+1; b < N-2; ++b) {
+                if (b > a+1 && nums[b] == nums[b-1]) continue;
+
+                int c = b+1, d = N-1;
+                long s = nums[a]+nums[b];
+
+                while (c < d) {
+                    if ((long) nums[c] + nums[d] == target - s) {
+                        res.push_back({nums[a], nums[b], nums[c], nums[d]});
+
+                        while (c < d && nums[c] == nums[c+1]) ++c;
+                        while (c < d && nums[d] == nums[d-1]) --d;
+
+                        ++c;
+                        --d;
+                    } else if ((long) nums[c] + nums[d] < target - s) {
+                        ++c;
+                    } else {
+                        --d;
+                    }
+                }
+            }
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
