@@ -416,6 +416,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/evaluate-reverse-polish-notation/)：
 
+python代码：
+
 ```python
 from operator import add, sub, mul
 
@@ -434,6 +436,38 @@ class Solution:
                 stack.append(ops[token](x, y))
         
         return stack.pop()
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack<int> stk;
+
+        for (auto& token : tokens) {
+            if (token == "+" || token == "-" || token == "*" || token == "/") {
+                int y = stk.top(); stk.pop();
+                int x = stk.top(); stk.pop();
+
+                if (token == "+") stk.push(x+y);
+                if (token == "-") stk.push(x-y);
+                if (token == "*") stk.push(x*y);
+                if (token == "/") stk.push(x/y);
+
+            } else {
+                stk.push(stoi(token));
+            }
+        }
+
+        int res = stk.top();
+        stk.pop();
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
