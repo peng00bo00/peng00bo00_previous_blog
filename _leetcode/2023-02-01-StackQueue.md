@@ -876,6 +876,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/top-k-frequent-elements/)：
 
+python代码：
+
 ```python
 import heapq
 
@@ -898,6 +900,44 @@ class Solution:
             res[i] = heapq.heappop(heap)[1]
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    struct cmp {
+        bool operator() (pair<int, int> x, pair<int, int> y) {
+            return x.second > y.second;
+        }
+    };
+
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int, int> freq;
+
+        for (auto num : nums) {
+            ++freq[num];
+        }
+
+        priority_queue<pair<int, int>, vector<pair<int, int>>, cmp> minHeap;
+
+        for (auto& it : freq) {
+            minHeap.emplace(it);
+
+            if (minHeap.size() > k) minHeap.pop();
+        }
+
+        vector<int> res;
+        while (!minHeap.empty()) {
+            res.push_back(minHeap.top().first);
+            minHeap.pop();
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
