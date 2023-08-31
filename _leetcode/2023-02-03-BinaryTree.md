@@ -86,6 +86,8 @@ class TreeNode:
 
 [题目链接](https://leetcode.cn/problems/binary-tree-preorder-traversal/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -99,6 +101,41 @@ class Solution:
             return []
         
         return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    void traversal(TreeNode* root, vector<int> &res) {
+        if (root == nullptr) return;
+
+        res.push_back(root->val);
+        traversal(root->left,  res);
+        traversal(root->right, res);
+    }
+
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> res;
+        traversal(root, res);
+
+        return res;
+    }
+
+};
 ```
 {: .snippet}
 
@@ -190,6 +227,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/binary-tree-inorder-traversal/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -203,6 +242,41 @@ class Solution:
             return []
         
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    void traversal(TreeNode* root, vector<int> &res) {
+        if (root == nullptr) return;
+
+        res.push_back(root->val);
+        traversal(root->left,  res);
+        traversal(root->right, res);
+    }
+
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> res;
+        traversal(root, res);
+
+        return res;
+    }
+
+};
 ```
 {: .snippet}
 
@@ -282,6 +356,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/binary-tree-postorder-traversal/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -295,6 +371,40 @@ class Solution:
             return []
         
         return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    void traversal(TreeNode* root, vector<int> &res) {
+        if (root == nullptr) return;
+
+        traversal(root->left,  res);
+        traversal(root->right, res);
+        res.push_back(root->val);
+    }
+
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> res;
+        traversal(root, res);
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
@@ -373,6 +483,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/binary-tree-level-order-traversal/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -408,6 +520,50 @@ class Solution:
         return res
 ```
 {: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        vector<vector<int>> res;
+        queue<TreeNode*> que;
+
+        if (root != nullptr) que.push(root);
+
+        while (!que.empty()) {
+            int N = que.size();
+            vector<int> level;
+
+            for (int i = 0; i < N; ++i) {
+                TreeNode* node = que.front();
+                que.pop();
+
+                level.push_back(node->val);
+
+                if (node->left != nullptr) que.push(node->left);
+                if (node->right != nullptr) que.push(node->right);
+            }
+
+            res.emplace_back(level);
+        }
+
+        return res;
+    }
+};
+```
 
 ## 属性
 
