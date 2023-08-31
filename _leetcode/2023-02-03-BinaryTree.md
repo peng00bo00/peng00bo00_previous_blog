@@ -1568,6 +1568,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/minimum-depth-of-binary-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -1594,9 +1596,41 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        if (root == nullptr) return 0;
+
+        int leftDepth = minDepth(root->left);
+        int rightDepth= minDepth(root->right);
+
+        if (root->left != nullptr && root->right != nullptr) return min(leftDepth, rightDepth) + 1;
+        else if (root->left == nullptr) return rightDepth+1;
+        else return leftDepth+1;
+    }
+};
+```
+{: .snippet}
+
 基于层序遍历的迭代解法思路更加清晰：我们只需要在遍历节点时额外检查当前节点是否为叶节点，如果是叶节点就直接返回深度。
 
 [题目链接](https://leetcode.cn/problems/minimum-depth-of-binary-tree/)：
+
+python代码：
 
 ```python
 # Definition for a binary tree node.
@@ -1631,6 +1665,50 @@ class Solution:
                     queue.append(node.right)
 
         return depth
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        if (root == nullptr) return 0;
+
+        queue<TreeNode*> que;
+        que.push(root);
+
+        int depth = 0;
+
+        while (!que.empty()) {
+            int N = que.size();
+            ++depth;
+
+            for (int i=0; i<N; ++i) {
+                TreeNode* n = que.front(); que.pop();
+
+                if (n->left == nullptr && n->right == nullptr) return depth;
+
+                if (n->left  != nullptr) que.push(n->left);
+                if (n->right != nullptr) que.push(n->right);
+            }
+        }
+
+        return depth;
+    }
+};
 ```
 {: .snippet}
 
