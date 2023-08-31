@@ -1755,6 +1755,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/count-complete-tree-nodes/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -1778,9 +1780,36 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int countNodes(TreeNode* root) {
+        if (root == nullptr) return 0;
+
+        return countNodes(root->left) + countNodes(root->right) + 1;
+    }
+};
+```
+{: .snippet}
+
 广度优先的时间复杂度为`O(n)`，而空间复杂度为`O(n)`。
 
 [题目链接](https://leetcode.cn/problems/count-complete-tree-nodes/)：
+
+python代码：
 
 ```python
 # Definition for a binary tree node.
@@ -1815,6 +1844,48 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int countNodes(TreeNode* root) {
+        if (root == nullptr) return 0;
+
+        queue<TreeNode*> que;
+        que.push(root);
+
+        int num = 0;
+
+        while (!que.empty()) {
+            int N = que.size();
+            num += N;
+
+            for (int i=0; i<N; ++i) {
+                TreeNode* node = que.front(); que.pop();
+
+                if (node->left  != nullptr) que.push(node->left);
+                if (node->right != nullptr) que.push(node->right);
+            }
+        }
+
+        return num;
+    }
+};
+```
+{: .snippet}
+
 本题的最优解法需要使用到**完全二叉树**的性质。根据定义，完全二叉树要么每一层都被填满，要么只有最下层没被填满。
 
 <div align=center>
@@ -1824,6 +1895,8 @@ class Solution:
 当二叉树每一层都填满时称为**满二叉树**，此时树中节点数量为`2ʰ-1`。在这种情况下我们只需要遍历树的深度就能够得到节点的总数量。而如果完全二叉树不是满二叉树，则只能分别统计两棵子树中节点的数量，然后树中节点总数等于两棵子树节点数量之和加1。这样可以得到递归代码如下，其时间复杂度为`O(log n × log n)`，而空间复杂度为`O(log n)`。
 
 [题目链接](https://leetcode.cn/problems/count-complete-tree-nodes/)：
+
+python代码：
 
 ```python
 # Definition for a binary tree node.
@@ -1855,6 +1928,48 @@ class Solution:
             return (2 << leftDepth) - 1
         
         return self.countNodes(root.left) + self.countNodes(root.right) + 1
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int countNodes(TreeNode* root) {
+        if (root == nullptr) return 0;
+
+        TreeNode* left = root->left;
+        TreeNode* right= root->right;
+
+        int leftDepth = 0, rightDepth = 0;
+
+        while (left != nullptr) {
+            left = left->left;
+            ++leftDepth;
+        }
+
+        while (right != nullptr) {
+            right = right->right;
+            ++rightDepth;
+        }
+
+        if (leftDepth == rightDepth) return (2 << leftDepth) - 1;
+
+        return countNodes(root->left) + countNodes(root->right) + 1;
+    }
+};
 ```
 {: .snippet}
 
