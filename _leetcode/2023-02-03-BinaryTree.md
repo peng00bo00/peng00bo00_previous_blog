@@ -742,6 +742,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/symmetric-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -760,6 +762,40 @@ class Solution:
             return compare(T1.left, T2.right) and compare(T1.right, T2.left)
         
         return compare(root.left, root.right)
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool compare(TreeNode* T1, TreeNode* T2) {
+        if (T1 == nullptr && T2 == nullptr) return true;
+        else if (T1 == nullptr && T2 != nullptr) return false;
+        else if (T1 != nullptr && T2 == nullptr) return false;
+        else if (T1->val != T2->val) return false;
+
+        return compare(T1->left, T2->right) && compare(T1->right, T2->left);
+    }
+
+    bool isSymmetric(TreeNode* root) {
+        if (root == nullptr) return true;
+        
+        return compare(root->left, root->right);
+    }
+};
 ```
 {: .snippet}
 
@@ -807,6 +843,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/symmetric-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -846,6 +884,61 @@ class Solution:
                     queue.append(node.right)
         
         return True
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+        if (root == nullptr) return true;
+
+        queue<TreeNode*> que;
+        que.push(root);
+
+        while (!que.empty()) {
+            int N = que.size();
+            vector<TreeNode*> level;
+
+            for (int i=0; i<N; ++i) {
+                level.push_back(que.front());
+                que.pop();
+            }
+
+            for (int i=0; i<N/2; ++i) {
+                TreeNode* n1 = level[i];
+                TreeNode* n2 = level[N-1-i];
+
+                if (n1 == nullptr && n2 == nullptr) continue;
+                else if (n1 == nullptr && n2 != nullptr) return false;
+                else if (n1 != nullptr && n2 == nullptr) return false;
+                else if (n1->val != n2->val) return false;
+            }
+
+            for (auto n : level) {
+                if (n != nullptr) {
+                    que.push(n->left);
+                    que.push(n->right);
+                }
+            }
+        }
+
+        return true;
+    }
+};
 ```
 {: .snippet}
 
