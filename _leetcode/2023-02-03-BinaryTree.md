@@ -3566,6 +3566,8 @@ private:
 
 [题目链接](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -3596,6 +3598,55 @@ class Solution:
         root.right= self.buildTree(preorderRight, inorderRight)
 
         return root
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        if (preorder.empty() || inorder.empty()) return nullptr;
+
+        return traversal(preorder, inorder);
+    }
+
+private:
+    TreeNode* traversal(vector<int>& preorder, vector<int>& inorder) {
+        if (preorder.empty()) return nullptr;
+
+        int N = inorder.size();
+        TreeNode* root = new TreeNode(preorder[0]);
+
+        int midIdx;
+        for (midIdx=0; midIdx < N; ++midIdx) {
+            if (inorder[midIdx] == preorder[0]) break;
+        }
+
+        vector<int> leftPreorder(preorder.begin()+1, preorder.begin()+midIdx+1);
+        vector<int> rightPreorder(preorder.begin()+midIdx+1, preorder.end());
+
+        vector<int> leftInorder(inorder.begin(), inorder.begin() + midIdx);
+        vector<int> rightInorder(inorder.begin()+midIdx+1, inorder.end());
+
+        root->left  = traversal(leftPreorder, leftInorder);
+        root->right = traversal(rightPreorder, rightInorder);
+
+        return root;
+    }
+};
 ```
 {: .snippet}
 
@@ -3653,6 +3704,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/maximum-binary-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -3680,6 +3733,47 @@ class Solution:
         root.right= self.constructMaximumBinaryTree(nums[idx+1:])
 
         return root
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
+        return traversal(nums, 0, nums.size());
+    }
+
+private:
+    TreeNode* traversal(vector<int>& nums, int left, int right) {
+        if (left >= right) return nullptr;
+        
+        int rootIdx = left;
+
+        for (int i=left+1; i<right; ++i) {
+            if (nums[rootIdx] < nums[i]) rootIdx = i;
+        }
+
+        TreeNode* root = new TreeNode(nums[rootIdx]);
+
+        root->left  = traversal(nums, left, rootIdx);
+        root->right = traversal(nums, rootIdx+1, right);
+
+        return root;
+    }
+};
 ```
 {: .snippet}
 
@@ -3726,6 +3820,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/merge-two-binary-trees/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -3745,6 +3841,37 @@ class Solution:
         root.right= self.mergeTrees(root1.right, root2.right)
 
         return root
+```
+{: .snippet}
+
+C++代码
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+        if (root1 == nullptr && root2 == nullptr) return nullptr;
+        else if (root1 != nullptr && root2 == nullptr) return root1;
+        else if (root1 == nullptr && root2 != nullptr) return root2;
+
+        root1->val += root2->val;
+        root1->left  = mergeTrees(root1->left, root2->left);
+        root1->right = mergeTrees(root1->right, root2->right);
+
+        return root1;
+    }
+};
 ```
 {: .snippet}
 
