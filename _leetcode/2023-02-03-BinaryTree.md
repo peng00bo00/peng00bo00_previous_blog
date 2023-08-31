@@ -3280,6 +3280,8 @@ private:
 
 [题目链接](https://leetcode.cn/problems/invert-binary-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -3298,7 +3300,40 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if (root == nullptr) return root;
+
+        swap(root->left, root->right);
+        root->left = invertTree(root->left);
+        root->right = invertTree(root->right);
+
+        return root;
+    }
+};
+```
+{: .snippet}
+
 当然我们也可以基于迭代来实现翻转，此时只需要利用栈或队列来保存中间节点即可。
+
+[题目链接](https://leetcode.cn/problems/invert-binary-tree/)：
+
+python代码：
 
 ```python
 # Definition for a binary tree node.
@@ -3327,6 +3362,44 @@ class Solution:
         return root
 ```
 {: .snippet}
+
+C++代码
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if (root == nullptr) return root;
+
+        stack<TreeNode*> stk;
+        stk.push(root);
+
+        while (!stk.empty()) {
+            TreeNode* node = stk.top(); stk.pop();
+
+            swap(node->left, node->right);
+
+            if (node->left  != nullptr) stk.push(node->left);
+            if (node->right != nullptr) stk.push(node->right);
+        }
+
+        return root;
+    }
+};
+```
+{: .snippet}
+
 
 ### 106. 从中序与后序遍历序列构造二叉树
 
