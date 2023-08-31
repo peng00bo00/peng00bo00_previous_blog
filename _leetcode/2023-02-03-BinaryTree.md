@@ -1207,6 +1207,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -1226,9 +1228,39 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if (root == nullptr) return 0;
+
+        int leftDepth = maxDepth(root->left);
+        int rightDepth= maxDepth(root->right);
+
+        return max(leftDepth, rightDepth) + 1;
+    }
+};
+```
+{: .snippet}
+
 而最大深度的迭代解法则类似于[层序遍历](/leetcode/2023-02-03-BinaryTree.html#102-二叉树的层序遍历)。我们使用一个变量`depth`来记录当前的深度，每深入一层就令`depth`加一。当队列为空时`depth`即为最大深度。
 
 [题目链接](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)：
+
+python代码：
 
 ```python
 # Definition for a binary tree node.
@@ -1260,6 +1292,49 @@ class Solution:
                     queue.append(node.right)
         
         return depth
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if (root == nullptr) return 0;
+
+        queue<TreeNode*> que;
+        int depth = 0;
+
+        que.push(root);
+
+        while (!que.empty()) {
+            int N = que.size();
+
+            for (int i=0; i<N; ++i) {
+                TreeNode* n = que.front(); que.pop();
+
+                if (n->left != nullptr) que.push(n->left);
+                if (n->right != nullptr) que.push(n->right);
+            }
+
+            ++depth;
+        }
+
+        return depth;
+    }
+};
 ```
 {: .snippet}
 
