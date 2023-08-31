@@ -1081,6 +1081,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/subtree-of-another-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -1106,6 +1108,39 @@ class Solution:
         return compare(root, subRoot) or self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
 ```
 {: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool compare(TreeNode* T1, TreeNode* T2) {
+        if (T1 == nullptr && T2 == nullptr) return true;
+        else if (T1 == nullptr && T2 != nullptr) return false;
+        else if (T1 != nullptr && T2 == nullptr) return false;
+        else if (T1->val != T2->val) return false;
+
+        return compare(T1->left, T2->left) && compare(T1->right, T2->right);
+    }
+
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+        if (root == nullptr) return false;
+        
+        return compare(root, subRoot) || isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
+    }
+};
+```
 
 本题的迭代解法则需要使用广度优先或者深度优先对`root`进行遍历：如果找到相同的树则返回`True`，否则继续向下直到`root`中所有节点都进行过比较并最终返回`False`。
 
