@@ -2733,6 +2733,8 @@ private:
 
 [题目链接](https://leetcode.cn/problems/path-sum/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -2749,6 +2751,33 @@ class Solution:
             return root.val == targetSum
         else:
             return self.hasPathSum(root.left, targetSum-root.val) or self.hasPathSum(root.right, targetSum-root.val)
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int targetSum) {
+        if (root == nullptr) return false;
+
+        if (root->left == nullptr && root->right == nullptr) return root->val == targetSum;
+
+        return hasPathSum(root->left, targetSum-root->val) || hasPathSum(root->right, targetSum-root->val);
+    }
+};
 ```
 {: .snippet}
 
@@ -2915,6 +2944,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/path-sum-ii/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -2947,6 +2978,64 @@ class Solution:
         backtracking(root, targetSum)
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
+        res.clear();
+        if (root == nullptr) return res;
+
+
+        path.clear();
+        path.push_back(root->val);
+
+        backtracking(root, targetSum);
+
+        return res;
+    }
+
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+
+    void backtracking(TreeNode* root, int target) {
+        if (root->left == nullptr && root->right == nullptr) {
+            if (target == root->val) {
+                res.push_back(path);
+            }
+
+            return;
+        }
+
+        if (root->left != nullptr) {
+            path.push_back(root->left->val);
+            backtracking(root->left, target-root->val);
+            path.pop_back();
+        }
+
+        if (root->right != nullptr) {
+            path.push_back(root->right->val);
+            backtracking(root->right, target-root->val);
+            path.pop_back();
+        }
+    }
+};
 ```
 {: .snippet}
 
