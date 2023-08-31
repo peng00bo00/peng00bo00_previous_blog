@@ -2133,6 +2133,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/binary-tree-paths/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -2156,6 +2158,59 @@ class Solution:
             return res
         
         return traverse(root, str(root.val), [])
+```
+{: .snippet}
+
+C++代码：
+
+```python
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<string> binaryTreePaths(TreeNode* root) {
+        vector<string> res;
+        string path;
+
+        traversal(root, path, res);
+
+        return res;
+    }
+
+    void traversal(TreeNode* node, string path, vector<string> &res) {
+        path += to_string(node->val);
+
+        if (node->left == nullptr && node->right == nullptr) {
+            res.push_back(path);
+            return;
+        }
+
+        if (node->left != nullptr) {
+            path += "->";
+
+            traversal(node->left, path, res);
+            path.pop_back();
+            path.pop_back();
+        }
+
+        if (node->right != nullptr) {
+            path += "->";
+
+            traversal(node->right, path, res);
+            path.pop_back();
+            path.pop_back();
+        }
+    }
+};
 ```
 {: .snippet}
 
