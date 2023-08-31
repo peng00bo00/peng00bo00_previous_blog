@@ -2163,7 +2163,7 @@ class Solution:
 
 C++代码：
 
-```python
+```cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -2335,6 +2335,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/sum-of-left-leaves/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -2364,9 +2366,46 @@ def isLeaf(root: Optional[TreeNode]) -> bool:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int sumOfLeftLeaves(TreeNode* root) {
+        if (root == nullptr) return 0;
+
+        int leftSum = sumOfLeftLeaves(root->left);
+        int rightSum= sumOfLeftLeaves(root->right);
+
+        int total = leftSum + rightSum;
+
+        TreeNode* left = root->left;
+        if (left != nullptr && left->left == nullptr && left->right == nullptr) {
+            total += left->val;
+        }
+
+        return total;
+    }
+};
+```
+{: .snippet}
+
 本题同样可以使用迭代来进行处理。此时只需要不断检查当前节点的左节点是否是左叶子节点即可，代码可参考如下：
 
 [题目链接](https://leetcode.cn/problems/sum-of-left-leaves/)：
+
+python代码：
 
 ```python
 # Definition for a binary tree node.
@@ -2400,6 +2439,51 @@ def isLeaf(root: Optional[TreeNode]) -> bool:
     return (not root.left) and (not root.right)
 ```
 {: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int sumOfLeftLeaves(TreeNode* root) {
+        if (root == nullptr) return 0;
+
+        int res = 0;
+        queue<TreeNode*> que;
+
+        que.push(root);
+        while (!que.empty()) {
+            TreeNode* node = que.front(); que.pop();
+
+            if (isLeaf(node->left)) res += node->left->val;
+
+            if (node->left  != nullptr) que.push(node->left);
+            if (node->right != nullptr) que.push(node->right);
+        }
+
+        return res;
+    }
+
+    bool isLeaf(TreeNode* node) {
+        if (node == nullptr) return false;
+
+        if (node->left == nullptr && node->right == nullptr) return true;
+
+        return false;
+    }
+};
+```
 
 ### 513. 找树左下角的值
 
