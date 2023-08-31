@@ -2484,6 +2484,7 @@ public:
     }
 };
 ```
+{: .snippet}
 
 ### 513. 找树左下角的值
 
@@ -2524,6 +2525,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/find-bottom-left-tree-value/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -2554,9 +2557,52 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int findBottomLeftValue(TreeNode* root) {
+        queue<TreeNode*> que;
+        que.push(root);
+
+        int res;
+
+        while (!que.empty()) {
+            int N = que.size();
+
+            for (int i=0; i<N; ++i) {
+                TreeNode* node = que.front(); que.pop();
+
+                if (i == 0) res = node->val;
+
+                if (node->left  != nullptr) que.push(node->left);
+                if (node->right != nullptr) que.push(node->right);
+            }
+        }
+
+        return res;
+    }
+};
+```
+{: .snippet}
+
 本题的另一种解法是使用深度优先搜索。我们需要分别遍历左节点和右节点，然后返回两棵子树最底层最左边节点的值以及对应的深度。这样当前树最底层最左边的值即为两棵子树中拥有最大深度树的返回节点值，相应代码可以参考如下。
 
 [题目链接](https://leetcode.cn/problems/find-bottom-left-tree-value/)：
+
+python代码：
 
 ```python
 # Definition for a binary tree node.
@@ -2586,6 +2632,53 @@ class Solution:
         return res
 ```
 {: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int findBottomLeftValue(TreeNode* root) {
+        res = 0;
+        maxDepth = 0;
+
+        traversal(root, 0);
+
+        return res;
+    }
+
+private:
+    int res;
+    int maxDepth;
+
+    void traversal(TreeNode* node, int depth) {
+        if (node->left == nullptr && node->right == nullptr) {
+            if (depth > maxDepth) {
+                maxDepth = depth;
+                res = node->val;
+            }
+
+            return;
+        }
+
+        if (node->left  != nullptr) traversal(node->left,  depth + 1);
+        if (node->right != nullptr) traversal(node->right, depth + 1);
+    }
+};
+```
+{: .snippet}
+
 
 ### 112. 路径总和
 
