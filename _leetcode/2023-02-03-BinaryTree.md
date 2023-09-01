@@ -5787,6 +5787,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/balance-a-binary-search-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -5829,6 +5831,61 @@ class Solution:
         return buildTree(nums)
 ```
 {: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* balanceBST(TreeNode* root) {
+        vector<int> nums;
+        traversal(root, nums);
+
+        return buildTree(nums, 0, nums.size());
+    }
+
+    void traversal(TreeNode* root, vector<int> &nums) {
+        stack<TreeNode*> stk;
+        TreeNode* cur = root;
+
+        while (cur != nullptr || !stk.empty()) {
+            while (cur != nullptr) {
+                stk.push(cur);
+                cur = cur->left;
+            }
+
+            cur = stk.top(); stk.pop();
+            nums.push_back(cur->val);
+            cur = cur->right;
+        }
+    }
+
+    TreeNode* buildTree(vector<int> &nums, int left, int right) {
+        if (left >= right) return nullptr;
+
+        int mid = left + (right - left) / 2;
+        TreeNode* root = new TreeNode(nums[mid]);
+
+        root->left  = buildTree(nums, left, mid);
+        root->right = buildTree(nums, mid+1, right);
+
+        return root;
+    }
+};
+```
+{: .snippet}
+
 
 ### 116. 填充每个节点的下一个右侧节点指针
 
@@ -5881,6 +5938,8 @@ struct Node {
 
 [题目链接](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/)：
 
+python代码：
+
 ```python
 """
 # Definition for a Node.
@@ -5917,6 +5976,55 @@ class Solution:
                     queue.append(node.right)
         
         return root
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+    Node* next;
+
+    Node() : val(0), left(NULL), right(NULL), next(NULL) {}
+
+    Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
+
+    Node(int _val, Node* _left, Node* _right, Node* _next)
+        : val(_val), left(_left), right(_right), next(_next) {}
+};
+*/
+
+class Solution {
+public:
+    Node* connect(Node* root) {
+        if (root == nullptr) return nullptr;
+
+        queue<Node*> que;
+        que.push(root);
+
+        while (!que.empty()) {
+            int N = que.size();
+
+            for (int i=0; i<N; ++i) {
+                Node* node = que.front(); que.pop();
+
+                if (i < N-1) node->next = que.front();
+
+                if (node->left != nullptr)  que.push(node->left);
+                if (node->right != nullptr) que.push(node->right);
+            }
+
+        }
+
+        return root;
+    }
+};
 ```
 {: .snippet}
 
