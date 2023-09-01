@@ -437,6 +437,8 @@ private:
 
 [题目链接](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)：
 
+python代码：
+
 ```python
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
@@ -469,6 +471,56 @@ class Solution:
         backtracking(0)
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<string> letterCombinations(string digits) {
+        res.clear();
+        path.clear();
+
+        if (digits.empty()) return res;
+
+        backtracking(digits, 0);
+
+        return res;
+    }
+
+private:
+    const string keyboard[10] = {
+        "",
+        "",
+        "abc",
+        "def",
+        "ghi",
+        "jkl",
+        "mno",
+        "pqrs",
+        "tuv",
+        "wxyz"
+    };
+
+    vector<string> res;
+    string path;
+
+    void backtracking(string& digits, int startIdx) {
+        if (startIdx == digits.size()) {
+            res.emplace_back(path);
+            return;
+        }
+
+        string letter = keyboard[digits[startIdx] - '0'];
+        for (auto& ch: letter) {
+            path.push_back(ch);
+            backtracking(digits, startIdx+1);
+            path.pop_back();
+        }
+    }
+};
 ```
 {: .snippet}
 
