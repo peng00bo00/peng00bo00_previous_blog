@@ -3976,6 +3976,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/search-in-a-binary-search-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -3996,9 +3998,37 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        if (root == nullptr || root->val == val) return root;
+
+        if (root->val < val) return searchBST(root->right, val);
+        else return searchBST(root->left, val);
+    }
+};
+```
+{: .snippet}
+
 而二叉搜索树的迭代遍历也比二叉树的迭代要容易一些。此时我们不再需要借助栈来进行回溯，直接向下遍历即可。
 
 [题目链接](https://leetcode.cn/problems/search-in-a-binary-search-tree/)：
+
+python代码：
 
 ```python
 # Definition for a binary tree node.
@@ -4020,6 +4050,38 @@ class Solution:
                 node = node.left
         
         return None
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        if (root == nullptr || root->val == val) return root;
+
+        TreeNode* cur = root;
+        while (cur != nullptr) {
+            if (cur->val == val) return cur;
+            else if (cur->val < val) cur = cur->right;
+            else cur = cur->left;
+        }
+
+        return nullptr;
+    }
+};
 ```
 {: .snippet}
 
