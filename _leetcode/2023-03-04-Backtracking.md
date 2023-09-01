@@ -259,6 +259,8 @@ private:
 
 [题目链接](https://leetcode.cn/problems/combination-sum-iii/)：
 
+python代码：
+
 ```python
 class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
@@ -281,6 +283,41 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> combinationSum3(int k, int n) {
+        res.clear();
+        path.clear();
+
+        backtracking(k, n, 0, 1);
+
+        return res;
+    }
+
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+
+    void backtracking(int k, int n, int sum, int start) {
+        if (path.size() == k) {
+            if (sum == n) res.emplace_back(path);
+
+            return;
+        }
+
+        for (int i=start; i<=9; ++i) {
+            path.push_back(i);
+            backtracking(k, n, sum+i, i+1);
+            path.pop_back();
+        }
+    }
+};
+```
+{: .snippet}
+
 本题的剪枝过程类似于[组合](/leetcode/2023-03-04-Backtracking.html#77-组合)，即每次for循环时数字的最大值为`10 - (k - len(path))`。除此之外我们还可以记录下当前`path`中数字的和`s = sum(path)`，当`s > n`时提前结束搜索。
 
 <div align=center>
@@ -288,6 +325,8 @@ class Solution:
 </div>
 
 [题目链接](https://leetcode.cn/problems/combination-sum-iii/)：
+
+python代码：
 
 ```python
 class Solution:
@@ -312,6 +351,43 @@ class Solution:
         backtracking(1, 0)
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> combinationSum3(int k, int n) {
+        res.clear();
+        path.clear();
+
+        backtracking(k, n, 0, 1);
+
+        return res;
+    }
+
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+
+    void backtracking(int k, int n, int sum, int start) {
+        if (sum > n) return;
+
+        if (path.size() == k) {
+            if (sum == n) res.emplace_back(path);
+
+            return;
+        }
+
+        for (int i=start; i<=9-(k-path.size())+1; ++i) {
+            path.push_back(i);
+            backtracking(k, n, sum+i, i+1);
+            path.pop_back();
+        }
+    }
+};
 ```
 {: .snippet}
 
