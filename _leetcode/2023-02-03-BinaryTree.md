@@ -5025,6 +5025,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -5045,7 +5047,36 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (root == nullptr) return root;
+
+        if (root->val < p->val && root->val < q->val) return lowestCommonAncestor(root->right, p, q);
+        else if (root->val > p->val && root->val > q->val) return lowestCommonAncestor(root->left, p, q);
+
+        return root;
+    }
+};
+```
+{: .snippet}
+
 迭代版本的代码可参考如下。
+
+python代码：
 
 ```python
 # Definition for a binary tree node.
@@ -5070,6 +5101,37 @@ class Solution:
                 return node
 ```
 {: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (p->val > q->val) return lowestCommonAncestor(root, q, p);
+
+        TreeNode* cur = root;
+
+        while (cur != nullptr) {
+            if (p->val <= cur->val && cur->val <= q->val) return cur;
+            else if (cur->val < p->val) cur = cur->right;
+            else if (cur->val > q->val) cur = cur->left;
+        }
+
+        return cur;
+    }
+};
+```
 
 ## 修改与构造
 
