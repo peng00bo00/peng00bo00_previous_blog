@@ -5537,6 +5537,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/trim-a-binary-search-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -5558,6 +5560,38 @@ class Solution:
             root.right= self.trimBST(root.right, low, high)
 
             return root
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* trimBST(TreeNode* root, int low, int high) {
+        if (root == nullptr) return root;
+
+        if (root->val < low) return trimBST(root->right, low, high);
+        else if (root->val > high) return trimBST(root->left, low, high);
+        else {
+            root->left  = trimBST(root->left, low, high);
+            root->right = trimBST(root->right, low, high);
+
+            return root;
+        }
+    }
+};
 ```
 {: .snippet}
 
