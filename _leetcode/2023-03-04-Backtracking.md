@@ -602,11 +602,47 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        res.clear();
+        path.clear();
+
+        backtracking(candidates, target, 0, 0);
+
+        return res;
+    }
+
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+
+    void backtracking(vector<int>& candidates, int target, int sum, int startIdx) {
+        if (sum > target) return;
+        else if (sum == target) {
+            res.emplace_back(path);
+            return;
+        }
+
+        for (int i=startIdx; i<candidates.size(); ++i) {
+            path.push_back(candidates[i]);
+            backtracking(candidates, target, sum+candidates[i], i);
+            path.pop_back();
+        }
+    }
+};
+```
+
 而在进行剪枝优化时则需要先对`candidates`数组进行排序。然后在每一层的循环中如果发现`s+num > target`则表明之后的每一次循环`s+num`都会大于`target`，因此我们可以提前终止循环。
 
 <div align=center>
 <img src="https://images.weserv.nl/?url=i.imgur.com/S1aCkUV.png" width="90%">
 </div>
+
+python代码：
 
 ```python
 class Solution:
@@ -636,6 +672,40 @@ class Solution:
         return res
 ```
 {: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        res.clear();
+        path.clear();
+
+        sort(candidates.begin(), candidates.end());
+        backtracking(candidates, target, 0, 0);
+
+        return res;
+    }
+
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+
+    void backtracking(vector<int>& candidates, int target, int sum, int startIdx) {
+        if (sum == target) {
+            res.emplace_back(path);
+            return;
+        }
+
+        for (int i=startIdx; i<candidates.size() && sum+candidates[i] <= target; ++i) {
+            path.push_back(candidates[i]);
+            backtracking(candidates, target, sum+candidates[i], i);
+            path.pop_back();
+        }
+    }
+};
+```
 
 ### 40. 组合总和 II
 
@@ -681,6 +751,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/combination-sum-ii/)：
 
+python代码：
+
 ```python
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -710,6 +782,43 @@ class Solution:
         backtracking(0, 0)
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        res.clear();
+        path.clear();
+
+        sort(candidates.begin(), candidates.end());
+        backtracking(candidates, target, 0, 0);
+
+        return res;
+    }
+
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+
+    void backtracking(vector<int>& candidates, int target, int sum, int startIdx) {
+        if (sum == target) {
+            res.emplace_back(path);
+            return;
+        }
+
+        for (int i=startIdx; i<candidates.size() && sum+candidates[i] <= target; ++i) {
+            if (i>startIdx && candidates[i] == candidates[i-1]) continue;
+
+            path.push_back(candidates[i]);
+            backtracking(candidates, target, sum+candidates[i], i+1);
+            path.pop_back();
+        }
+    }
+};
 ```
 {: .snippet}
 
