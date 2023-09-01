@@ -5400,6 +5400,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/delete-node-in-a-bst/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -5430,6 +5432,62 @@ class Solution:
                 root = root.right
         
         return root
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* deleteNode(TreeNode* root, int key) {
+        if (root == nullptr) return root;
+
+        if (root->val == key) {
+            if (root->left == nullptr && root->right == nullptr) {
+                delete root;
+                return nullptr;
+            }
+            else if (root->left == nullptr) {
+                auto node = root->right;
+                delete root;
+                return node;
+            }
+            else if (root->right == nullptr) {
+                auto node = root->left;
+                delete root;
+                return node;
+            } else {
+                TreeNode* cur = root->right;
+                while (cur->left != nullptr) cur = cur->left;
+
+                cur->left = root->left;
+                
+                cur = root;
+                root = root->right;
+                delete cur;
+
+                return root;
+            }
+        }
+
+        else if (root->val > key) root->left = deleteNode(root->left, key);
+        else root->right = deleteNode(root->right, key);
+
+        return root;
+    }
+};
 ```
 {: .snippet}
 
