@@ -4129,6 +4129,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/validate-binary-search-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -4188,6 +4190,8 @@ class Solution:
 上面的代码还可以进一步简化。实际上我们并不需要完全将`root`展开，只需要记录当前节点的前一个节点`pre`并且比较它们是否单调递增即可。
 
 [题目链接](https://leetcode.cn/problems/validate-binary-search-tree/)：
+
+python代码：
 
 ```python
 # Definition for a binary tree node.
@@ -4250,6 +4254,48 @@ class Solution:
             cur = cur.right
         
         return True
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        stack<TreeNode*> stk;
+
+        TreeNode* pre = nullptr;
+        TreeNode* cur = root;
+
+        while (cur != nullptr || !stk.empty()) {
+            while (cur != nullptr) {
+                stk.push(cur);
+                cur = cur->left;
+            }
+            
+            cur = stk.top(); stk.pop();
+
+            if (pre != nullptr && pre->val >= cur->val) return false;
+
+            pre = cur;
+            cur = cur->right;
+        }
+
+        return true;
+    }
+};
 ```
 {: .snippet}
 
