@@ -4799,6 +4799,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/convert-bst-to-greater-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -4826,6 +4828,46 @@ class Solution:
             cur = cur.left
         
         return root
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* convertBST(TreeNode* root) {
+        stack<TreeNode*> stk;
+        TreeNode* pre = nullptr;
+        TreeNode* cur = root;
+
+        while (cur != nullptr || !stk.empty()) {
+            while (cur != nullptr) {
+                stk.push(cur);
+                cur = cur->right;
+            }
+
+            cur = stk.top(); stk.pop();
+            if (pre != nullptr) cur->val += pre->val;
+
+            pre = cur;
+            cur = cur->left;
+        }
+
+        return root;
+    }
+};
 ```
 {: .snippet}
 
