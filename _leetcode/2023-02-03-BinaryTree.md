@@ -4553,6 +4553,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/find-mode-in-binary-search-tree/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -4646,6 +4648,63 @@ class Solution:
             cur = cur.right
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> findMode(TreeNode* root) {
+        stack<TreeNode*> stk;
+
+        TreeNode* pre = nullptr;
+        TreeNode* cur = root;
+
+        vector<int> res;
+
+        int count    = 0;
+        int maxCount = 0;
+
+        while (cur != nullptr || !stk.empty()) {
+            while (cur != nullptr) {
+                stk.push(cur);
+                cur = cur->left;
+            }
+
+            cur = stk.top(); stk.pop();
+
+            if (pre == nullptr) count = 1;
+            else if (pre->val == cur->val) ++count;
+            else count = 1;
+
+            if (count == maxCount) res.push_back(cur->val);
+            else if (count > maxCount) {
+                maxCount = count;
+
+                res.clear();
+                res.push_back(cur->val);
+            }
+
+            pre = cur;
+            cur = cur->right;
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
