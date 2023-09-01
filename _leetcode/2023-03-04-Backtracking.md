@@ -82,6 +82,8 @@ def backtracking():
 
 [题目链接](https://leetcode.cn/problems/combinations/)：
 
+python代码：
+
 ```python
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
@@ -104,6 +106,40 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> combine(int n, int k) {
+        res.clear();
+        path.clear();
+
+        backtracking(n, k, 1);
+
+        return res;
+    }
+
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+
+    void backtracking(int n, int k, int start) {
+        if (path.size() == k) {
+            res.emplace_back(path);
+            return;
+        }
+
+        for (int i=start; i<=n; ++i) {
+            path.push_back(i);
+            backtracking(n, k, i+1);
+            path.pop_back();
+        }
+    }
+};
+```
+{: .snippet}
+
 更进一步，我们可以利用当前路径`path`的长度来控制每一层循环次数。假设当前搜索过程的路径为`path`而起始数字为`startIdx`，那么本层for循环中可能的最大数字为`n - (k - len(path)) + 1`，当`i`超过这个数字时集合中的剩余元素就小于`k`也就无法形成有效的`path`。利用这一性质我们可以实现对搜索树的剪枝，从而提升算法效率。剪枝过程可以参考下图。
 
 <div align=center>
@@ -113,6 +149,8 @@ class Solution:
 使用剪枝来优化后的代码可参考如下。
 
 [题目链接](https://leetcode.cn/problems/combinations/)：
+
+python代码：
 
 ```python
 class Solution:
@@ -133,6 +171,40 @@ class Solution:
         backtracking(1)
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> combine(int n, int k) {
+        res.clear();
+        path.clear();
+
+        backtracking(n, k, 1);
+
+        return res;
+    }
+
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+
+    void backtracking(int n, int k, int start) {
+        if (path.size() == k) {
+            res.emplace_back(path);
+            return;
+        }
+
+        for (int i=start; i<=n; ++i) {
+            path.push_back(i);
+            backtracking(n, k, i+1);
+            path.pop_back();
+        }
+    }
+};
 ```
 {: .snippet}
 
@@ -373,6 +445,8 @@ class Solution:
 </div>
 
 [题目链接](https://leetcode.cn/problems/combination-sum/)：
+
+python代码：
 
 ```python
 class Solution:
