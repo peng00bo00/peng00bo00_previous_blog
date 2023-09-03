@@ -1262,6 +1262,7 @@ private:
     }
 };
 ```
+{: .snippet}
 
 ## 排列
 
@@ -1306,6 +1307,8 @@ private:
 
 [题目链接](https://leetcode.cn/problems/permutations/)：
 
+python代码：
+
 ```python
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
@@ -1325,6 +1328,47 @@ class Solution:
         backtracking(nums)
         
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        res.clear();
+        path.clear();
+
+        vector<bool> used = vector<bool>(nums.size(), false);
+        backtracking(nums, used);
+
+        return res;
+    }
+
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+
+    void backtracking(vector<int>& nums, vector<bool>& used) {
+        if (path.size() == nums.size()) {
+            res.emplace_back(path);
+            return;
+        }
+
+        for (int i=0; i<nums.size(); ++i) {
+            if (used[i]) continue;
+
+            used[i] = true;
+
+            path.push_back(nums[i]);
+            backtracking(nums, used);
+            path.pop_back();
+
+            used[i] = false;
+        }
+    }
+};
 ```
 {: .snippet}
 
@@ -1364,6 +1408,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/permutations-ii/)：
 
+python代码：
+
 ```python
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
@@ -1390,6 +1436,50 @@ class Solution:
         backtracking(nums)
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        res.clear();
+        path.clear();
+        vector<bool> used(nums.size(), false);
+
+        sort(nums.begin(), nums.end());
+        backtracking(nums, used);
+
+        return res;
+    }
+
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+
+    void backtracking(vector<int>& nums, vector<bool> used) {
+        if (path.size() == nums.size()) {
+            res.emplace_back(path);
+            return;
+        }
+
+        for (int i=0; i<nums.size(); ++i) {
+            if (i>0 && nums[i] == nums[i-1] && used[i-1] == false) continue;
+
+            if (used[i] == false) {
+                used[i] = true;
+
+                path.push_back(nums[i]);
+                backtracking(nums, used);
+                path.pop_back();
+
+                used[i] = false;
+            }
+        }
+    }
+};
 ```
 {: .snippet}
 
