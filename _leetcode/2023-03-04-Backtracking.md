@@ -859,6 +859,8 @@ private:
 
 [题目链接](https://leetcode.cn/problems/palindrome-partitioning/)：
 
+python代码：
+
 ```python
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
@@ -881,6 +883,55 @@ class Solution:
         backtracking(0)
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<string>> partition(string s) {
+        res.clear();
+        path.clear();
+
+        backtracking(s, 0);
+
+        return res;
+    }
+
+private:
+    vector<vector<string>> res;
+    vector<string> path;
+
+    void backtracking(string &s, int startIdx) {
+        if (startIdx == s.size()) {
+            res.emplace_back(path);
+            return;
+        }
+
+        for (int i=startIdx; i<s.size(); ++i) {
+            if (check(s, startIdx, i)) {
+                string str = s.substr(startIdx, i-startIdx+1);
+                path.push_back(str);
+            } else continue;
+
+            backtracking(s, i+1);
+            path.pop_back();
+        }
+    }
+
+    bool check(string &s, int left, int right) {
+        while (left < right) {
+            if (s[left] != s[right]) return false;
+
+            ++left;
+            --right;
+        }
+
+        return true;
+    }
+};
 ```
 {: .snippet}
 
@@ -928,6 +979,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/restore-ip-addresses/)：
 
+python代码：
+
 ```python
 class Solution:
     def restoreIpAddresses(self, s: str) -> List[str]:
@@ -959,6 +1012,60 @@ class Solution:
         backtracking(0)
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<string> restoreIpAddresses(string s) {
+        if (s.size() < 4 || s.size() > 12) return res;
+
+        res.clear();
+
+        backtracking(s, 0, 0);
+
+        return res;
+    }
+
+private:
+    vector<string> res;
+
+    void backtracking(string &s, int startIdx, int pointNum) {
+        if (pointNum == 3) {
+            if (check(s, startIdx, s.size()-1)) res.emplace_back(s);
+
+            return;
+        }
+
+        for (int i=startIdx; i<s.size(); ++i) {
+            if (check(s, startIdx, i)) {
+                s.insert(s.begin() + i + 1, '.');
+
+                backtracking(s, i+2, pointNum+1);
+
+                s.erase(s.begin() + i + 1);
+            } else break;
+        }
+    }
+
+    bool check(const string &s, int left, int right) {
+        if (left > right) return false;
+        else if (s[left] == '0' && left != right) return false;
+
+        int num = 0;
+        for (int i=left; i<=right; ++i) {
+            if (s[i] > '9' || s[i] < '0') return false;
+
+            num = num * 10 + (s[i] - '0');
+            if (num > 255) return false;
+        }
+
+        return true;
+    }
+};
 ```
 {: .snippet}
 
@@ -1000,6 +1107,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/subsets/)：
 
+python代码：
+
 ```python
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
@@ -1018,6 +1127,39 @@ class Solution:
         backtracking(0)
         
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        res.clear();
+        path.clear();
+
+        backtracking(nums, 0);
+
+        return res;
+    }
+
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+
+    void backtracking(vector<int>& nums, int startIdx) {
+        res.emplace_back(path);
+
+        if (startIdx == nums.size()) return;
+
+        for (int i=startIdx; i<nums.size(); ++i) {
+            path.push_back(nums[i]);
+            backtracking(nums, i + 1);
+            path.pop_back();
+        }
+    }
+};
 ```
 {: .snippet}
 
@@ -1056,6 +1198,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/subsets-ii/)：
 
+python代码：
+
 ```python
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
@@ -1085,6 +1229,39 @@ class Solution:
         return res
 ```
 {: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        res.clear();
+        path.clear();
+
+        sort(nums.begin(), nums.end());
+        backtracking(nums, 0);
+
+        return res;
+    }
+
+private:
+    vector<vector<int>> res;
+    vector<int> path;
+
+    void backtracking(vector<int>& nums, int startIdx) {
+        res.emplace_back(path);
+
+        for (int i=startIdx; i<nums.size(); ++i) {
+            if (i > startIdx && nums[i] == nums[i-1]) continue;
+
+            path.push_back(nums[i]);
+            backtracking(nums, i+1);
+            path.pop_back();
+        }
+    }
+};
+```
 
 ## 排列
 
