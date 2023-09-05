@@ -69,6 +69,8 @@ F(n) = F(n - 1) + F(n - 2)，其中 n > 1
 
 [题目链接](https://leetcode.cn/problems/fibonacci-number/)：
 
+python代码：
+
 ```python
 class Solution:
     def fib(self, n: int) -> int:
@@ -87,9 +89,33 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int fib(int n) {
+        if (n == 0) return 0;
+        else if (n == 1) return 1;
+
+        vector<int> dp(n+1, 0);
+        dp[1] = 1;
+
+        for (int i=2; i<n+1; ++i) {
+            dp[i] = dp[i-1] + dp[i-2];
+        }
+
+        return dp[n];
+    }
+};
+```
+{: .snippet}
+
 除了上述标准解法外，我们还可以只需要使用两个变量来进行递推而无需记录整个数组。这种解法的空间复杂度为`O(1)`。
 
 [题目链接](https://leetcode.cn/problems/fibonacci-number/)：
+
+python代码：
 
 ```python
 class Solution:
@@ -104,6 +130,27 @@ class Solution:
             pre, cur = cur, pre+cur
         
         return cur
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int fib(int n) {
+        if (n == 0) return 0;
+        else if (n == 1) return 1;
+
+        int pre = 0, cur = 1;
+        for (int i=2; i<n+1; ++i) {
+            swap(pre, cur);
+            cur += pre;
+        }
+
+        return cur;
+    }
+};
 ```
 {: .snippet}
 
@@ -149,6 +196,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/climbing-stairs/)：
 
+python代码：
+
 ```python
 class Solution:
     def climbStairs(self, n: int) -> int:
@@ -168,9 +217,32 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int climbStairs(int n) {
+        if (n == 1) return 1;
+
+        vector<int> dp(n+1, 0);
+        dp[0] = 1; dp[1] = 1;
+
+        for (int i=2; i<=n; ++i) {
+            dp[i] = dp[i-2] + dp[i-1];
+        }
+
+        return dp[n];
+    }
+};
+```
+{: .snippet}
+
 类似于[斐波那契数](/leetcode/2023-03-13-DynamicProgramming.html#509-斐波那契数)，我们同样可以使用`O(1)`的空间复杂度来进行递推。
 
 [题目链接](https://leetcode.cn/problems/climbing-stairs/)：
+
+python代码：
 
 ```python
 class Solution:
@@ -186,6 +258,27 @@ class Solution:
             pre, cur = cur, pre+cur
         
         return cur
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int climbStairs(int n) {
+        if (n == 1) return 1;
+
+        int pre = 1, cur = 1;
+
+        for (int i=2; i<=n; ++i) {
+            swap(pre, cur);
+            cur += pre;
+        }
+
+        return cur;
+    }
+};
 ```
 {: .snippet}
 
@@ -241,6 +334,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/min-cost-climbing-stairs/)：
 
+python代码：
+
 ```python
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
@@ -252,6 +347,26 @@ class Solution:
             dp[i] = min(dp[i-2] + cost[i-2], dp[i-1] + cost[i-1])
         
         return dp[-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        int N = cost.size();
+        
+        vector<int> dp(N+1, 0);
+
+        for (int i=2; i<=N; ++i) {
+            dp[i] = min(dp[i-2]+cost[i-2], dp[i-1]+cost[i-1]);
+        }
+
+        return dp[N];
+    }
+};
 ```
 {: .snippet}
 
@@ -332,6 +447,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/unique-paths/)：
 
+python代码：
+
 ```python
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
@@ -342,6 +459,29 @@ class Solution:
                 dp[i][j] = dp[i-1][j] + dp[i][j-1]
 
         return dp[-1][-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        vector<vector<int>> dp(m, vector<int>(n, 0));
+
+        for (int i=0; i<m; ++i) dp[i][0] = 1;
+        for (int i=0; i<n; ++i) dp[0][i] = 1;
+
+        for (int i=1; i<m; ++i) {
+            for (int j=1; j<n; ++j) {
+                dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            }
+        }
+
+        return dp[m-1][n-1];
+    }
+};
 ```
 {: .snippet}
 
@@ -524,6 +664,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/integer-break/)：
 
+python代码：
+
 ```python
 class Solution:
     def integerBreak(self, n: int) -> int:
@@ -537,6 +679,28 @@ class Solution:
         return dp[-1]
 ```
 {: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int integerBreak(int n) {
+        vector<int> dp(n+1, 0);
+        dp[2] = 1;
+
+        for (int i=2; i<=n; ++i) {
+            for (int j=1; j<i; ++j) {
+                dp[i] = max(dp[i], max(dp[i-j]*j, j*(i-j)));
+            }
+        }
+
+        return dp[n];
+    }
+};
+```
+{: .snippet}
+
 
 ### 96. 不同的二叉搜索树
 
@@ -578,6 +742,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/unique-binary-search-trees/)：
 
+python代码：
+
 ```python
 class Solution:
     def numTrees(self, n: int) -> int:
@@ -590,6 +756,27 @@ class Solution:
                 dp[i] += dp[j-1] * dp[i-j]
         
         return dp[-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int numTrees(int n) {
+        vector<int> dp(n+1, 0);
+        dp[0] = 1; dp[1] = 1;
+
+        for (int i=2; i<=n; ++i) {
+            for (int j=1; j<=i; ++j) {
+                dp[i] += dp[j-1] * dp[i-j];
+            }
+        }
+
+        return dp[n];
+    }
+};
 ```
 {: .snippet}
 
