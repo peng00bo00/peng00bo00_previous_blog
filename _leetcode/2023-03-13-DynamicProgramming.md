@@ -877,6 +877,8 @@ for i in range(N):
 
 [题目链接](https://leetcode.cn/problems/partition-equal-subset-sum/)：
 
+python代码：
+
 ```python
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
@@ -903,6 +905,46 @@ class Solution:
                     dp[i][j] = dp[i-1][j]
         
         return dp[-1][-1] == target
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+int sum(vector<int>& nums) {
+    int res = 0;
+    for (int x : nums) res += x;
+
+    return res;
+}
+
+class Solution {
+public:
+    bool canPartition(vector<int>& nums) {
+        int N = nums.size();
+        if (N == 1) return false;
+
+        int s = sum(nums);
+        if (s % 2 == 1) return false;
+
+        int target = s / 2;
+        vector<vector<int>> dp(N, vector<int>(target+1, 0));
+
+        for (int i=0; i<=target; ++i) {
+            if (i >= nums[0]) dp[0][i] = nums[0];
+        }
+
+        for (int i=1; i<N; ++i) {
+            for (int j=1; j<=target; ++j) {
+                if (j >= nums[i]) {
+                    dp[i][j] = max(dp[i-1][j], dp[i-1][j-nums[i]]+nums[i]);
+                } else dp[i][j] = dp[i-1][j];
+            }
+        }
+
+        return dp[N-1][target] == target;
+    }
+};
 ```
 {: .snippet}
 
@@ -973,6 +1015,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/last-stone-weight-ii/)：
 
+python代码：
+
 ```python
 class Solution:
     def lastStoneWeightII(self, stones: List[int]) -> int:
@@ -993,6 +1037,42 @@ class Solution:
                     dp[i][j] = dp[i-1][j]
         
         return sum(stones) - 2*dp[-1][-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+int sum(vector<int>& nums) {
+    int res = 0;
+    for (int x : nums) res += x;
+
+    return res;
+}
+
+class Solution {
+public:
+    int lastStoneWeightII(vector<int>& stones) {
+        int N = stones.size();
+        int s = sum(stones);
+        int target = s / 2;
+
+        vector<vector<int>> dp(N, vector<int>(target+1, 0));
+        for (int j=0; j<=target; ++j) {
+            if (j >= stones[0]) dp[0][j] = stones[0];
+        }
+
+        for (int i=1; i<N; ++i) {
+            for (int j=1; j<=target; ++j) {
+                if (j >= stones[i]) 
+                    dp[i][j] = max(dp[i-1][j], dp[i-1][j-stones[i]]+stones[i]);
+                else dp[i][j] = dp[i-1][j];
+            }
+        }
+
+        return s-2*dp[N-1][target];
+    }
+};
 ```
 {: .snippet}
 
@@ -1070,6 +1150,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/target-sum/)：
 
+python代码：
+
 ```python
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
@@ -1093,6 +1175,45 @@ class Solution:
                     dp[i][j] += dp[i-1][j-num]
 
         return dp[-1][-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+int sum(vector<int>& nums) {
+    int res = 0;
+    for (int x : nums) res += x;
+
+    return res;
+}
+
+class Solution {
+public:
+    int findTargetSumWays(vector<int>& nums, int target) {
+        int N = nums.size();
+        int s = sum(nums);
+
+        if (abs(target) > s || (s+target) % 2 == 1) return 0;
+
+        int pos = (s + target) / 2;
+
+        vector<vector<int>> dp(N+1, vector<int>(pos+1, 0));
+        dp[0][0] = 1;
+
+        for (int i=1; i<=N; ++i) {
+            int num = nums[i-1];
+
+            for (int j=0; j<=pos; ++j) {
+                dp[i][j] = dp[i-1][j];
+
+                if (j >= num) dp[i][j] += dp[i-1][j-num];
+            }
+        }
+
+        return dp[N][pos];
+    }
+};
 ```
 {: .snippet}
 
