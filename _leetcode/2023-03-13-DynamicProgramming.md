@@ -1409,6 +1409,8 @@ for i in range(N):
 
 [题目链接](https://leetcode.cn/problems/coin-change-ii/)：
 
+python代码：
+
 ```python
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
@@ -1422,6 +1424,28 @@ class Solution:
                 dp[j] += dp[j - coins[i]]
 
         return dp[-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int change(int amount, vector<int>& coins) {
+        int N = coins.size();
+        vector<int> dp(amount+1);
+        dp[0] = 1;
+
+        for (int i=0; i<N; ++i) {
+            for (int j=coins[i]; j<=amount; ++j) {
+                dp[j] += dp[j-coins[i]];
+            }
+        }
+
+        return dp[amount];
+    }
+};
 ```
 {: .snippet}
 
@@ -1471,6 +1495,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/combination-sum-iv/)：
 
+python代码：
+
 ```python
 class Solution:
     def combinationSum4(self, nums: List[int], target: int) -> int:
@@ -1486,6 +1512,30 @@ class Solution:
                     dp[i] += dp[i - num]
         
         return dp[-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int combinationSum4(vector<int>& nums, int target) {
+        int N = nums.size();
+
+        vector<int> dp(target+1, 0);
+        dp[0] = 1;
+
+        for (int i=0; i<=target; ++i) {
+            for (int num : nums) {
+                if (i >= num && dp[i] < INT_MAX - dp[i - num])
+                    dp[i] += dp[i-num];
+            }
+        }
+
+        return dp[target];
+    }
+};
 ```
 {: .snippet}
 
@@ -1535,6 +1585,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/coin-change/)：
 
+python代码：
+
 ```python
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
@@ -1552,6 +1604,31 @@ class Solution:
             return -1
         
         return dp[-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int coinChange(vector<int>& coins, int amount) {
+        int N = coins.size();
+        vector<int> dp(amount+1, INT_MAX);
+        dp[0] = 0;
+
+        for (int coin : coins) {
+            for (int j=coin; j<=amount; ++j) {
+                if (dp[j-coin] < INT_MAX)
+                    dp[j] = min(dp[j], dp[j-coin]+1);
+            }
+        }
+
+        if (dp[amount] == INT_MAX) return -1;
+
+        return dp[amount];
+    }
+};
 ```
 {: .snippet}
 
