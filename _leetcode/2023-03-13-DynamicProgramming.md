@@ -2185,6 +2185,8 @@ private:
 
 [题目链接](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)：
 
+python代码：
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -2200,7 +2202,30 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int N = prices.size();
+        vector<vector<int>> dp(N, vector<int>(2, 0));
+        dp[0][1] = -prices[0];
+
+        for (int i=1; i<N; ++i) {
+            dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i]);
+            dp[i][1] = max(-prices[i], dp[i-1][1]);
+        }
+
+        return dp[N-1][0];
+    }
+};
+```
+{: .snippet}
+
 当然上面的算法也可以进行优化，实际上我们只需维护一个一维数组进行递推即可。
+
+python代码：
 
 ```python
 class Solution:
@@ -2213,6 +2238,26 @@ class Solution:
             dp[1] = max(-prices[i], dp[1])
         
         return dp[0]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int N = prices.size();
+        int dp[2] = {0, -prices[0]};
+
+        for (int i=1; i<N; ++i) {
+            dp[0] = max(dp[0], dp[1] + prices[i]);
+            dp[1] = max(-prices[i], dp[1]);
+        }
+
+        return dp[0];
+    }
+};
 ```
 {: .snippet}
 
@@ -2275,6 +2320,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/)：
 
+python代码：
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -2291,9 +2338,32 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int N = prices.size();
+        vector<vector<int>> dp(N, vector<int>(2, 0));
+        dp[0][1] = -prices[0];
+
+        for (int i=1; i<N; ++i) {
+            dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i]);
+            dp[i][1] = max(dp[i-1][0] - prices[i], dp[i-1][1]);
+        }
+
+        return dp[N-1][0];
+    }
+};
+```
+{: .snippet}
+
 本题的一维递推代码可以参考如下。
 
 [题目链接](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/)：
+
+python代码：
 
 ```python
 class Solution:
@@ -2306,6 +2376,25 @@ class Solution:
             dp = [max(dp[0], dp[1] + prices[i]), max(dp[0] - prices[i], dp[1])]
         
         return dp[0]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int N = prices.size();
+        vector<int> dp(N, 0);
+
+        for (int i=1; i<N; ++i) {
+            dp[i] = dp[i-1] + max(0, prices[i] - prices[i-1]);
+        }
+
+        return dp[N-1];
+    }
+};
 ```
 {: .snippet}
 
@@ -2379,6 +2468,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/)：
 
+python代码：
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -2398,9 +2489,36 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int N = prices.size();
+        vector<vector<int>> dp(N, vector<int>(5, 0));
+        dp[0][1] = -prices[0];
+        dp[0][3] = -prices[0];
+
+        for (int i=1; i< N; ++i) {
+            dp[i][0] = dp[i-1][0];
+            dp[i][1] = max(dp[i-1][0] - prices[i], dp[i-1][1]);
+            dp[i][2] = max(dp[i-1][1] + prices[i], dp[i-1][2]);
+            dp[i][3] = max(dp[i-1][2] - prices[i], dp[i-1][3]);
+            dp[i][4] = max(dp[i-1][3] + prices[i], dp[i-1][4]);
+        }
+
+        return dp[N-1][4];
+    }
+};
+```
+{: .snippet}
+
 本题的一维递推代码可以参考如下。
 
 [题目链接](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/)：
+
+python代码：
 
 ```python
 class Solution:
@@ -2419,6 +2537,28 @@ class Solution:
                   ]
         
         return dp[-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int N = prices.size();
+        int dp[5] = {0, -prices[0], 0, -prices[0], 0};
+
+        for (int i=1; i< N; ++i) {
+            dp[1] = max(dp[0] - prices[i], dp[1]);
+            dp[2] = max(dp[1] + prices[i], dp[2]);
+            dp[3] = max(dp[2] - prices[i], dp[3]);
+            dp[4] = max(dp[3] + prices[i], dp[4]);
+        }
+
+        return dp[4];
+    }
+};
 ```
 {: .snippet}
 
@@ -2471,6 +2611,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)：
 
+python代码：
+
 ```python
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
@@ -2484,6 +2626,32 @@ class Solution:
                 dp[i][j] = max(dp[i-1][j], dp[i-1][j-1] + (-1)**j * prices[i])
         
         return dp[-1][-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int maxProfit(int k, vector<int>& prices) {
+        int N = prices.size();
+        vector<vector<int>> dp(N, vector<int>(2*k + 1, 0));
+
+        for (int i=1; i<2*k; i+=2) {
+            dp[0][i] = -prices[0];
+        }
+
+        for (int i=1; i<N; ++i) {
+            for (int j=0; j<2*k; j+=2) {
+                dp[i][j+1] = max(dp[i-1][j+1], dp[i-1][j] - prices[i]);
+                dp[i][j+2] = max(dp[i-1][j+1] + prices[i], dp[i-1][j+2]);
+            }
+        }
+
+        return dp[N-1][2*k];
+    }
+};
 ```
 {: .snippet}
 
