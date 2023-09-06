@@ -1664,6 +1664,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/perfect-squares/)：
 
+python代码：
+
 ```python
 class Solution:
     def numSquares(self, n: int) -> int:
@@ -1677,6 +1679,27 @@ class Solution:
                 dp[j] = min(dp[j], dp[j-num]+1)
         
         return dp[-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int numSquares(int n) {
+        vector<int> dp(n+1, INT_MAX);
+        dp[0] = 0;
+
+        for (int i=1; i*i <= n; ++i) {
+            for (int j = i*i; j <= n; ++j) {
+                dp[j] = min(dp[j], dp[j-i*i]+1);
+            }
+        }
+
+        return dp[n];
+    }
+};
 ```
 {: .snippet}
 
@@ -1737,7 +1760,9 @@ class Solution:
 <img src="https://images.weserv.nl/?url=i.imgur.com/6K9QJQY.png" width="70%">
 </div>
 
-[题目链接](https://leetcode.cn/problems/perfect-squares/)：
+[题目链接](https://leetcode.cn/problems/word-break/)：
+
+python代码：
 
 ```python
 class Solution:
@@ -1753,6 +1778,32 @@ class Solution:
                     dp[j] = dp[j] or (dp[j - len(word)] and word == s[j - len(word):j])
         
         return dp[-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    bool wordBreak(string s, vector<string>& wordDict) {
+        unordered_set<string> wordSet(wordDict.begin(), wordDict.end());
+        vector<bool> dp(s.size() + 1, false);
+
+        dp[0] = true;
+
+        for (int i=1; i<=s.size(); ++i) {
+            for (int j=0; j<i; ++j) {
+                string word = s.substr(j, i-j);
+
+                if (wordSet.find(word) != wordSet.end() && dp[j])
+                    dp[i] = true;
+            }
+        }
+
+        return dp[s.size()];
+    }
+};
 ```
 {: .snippet}
 
