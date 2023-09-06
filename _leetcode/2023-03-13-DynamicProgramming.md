@@ -1853,6 +1853,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/house-robber/)：
 
+python代码：
+
 ```python
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -1871,6 +1873,30 @@ class Solution:
             dp[i] = max(dp[i-1], dp[i-2] + nums[i])
         
         return dp[-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        if (nums.size() == 0) return 0;
+        else if (nums.size() == 1) return nums[0];
+        else if (nums.size() == 2) return max(nums[0], nums[1]);
+
+        vector<int> dp(nums.size(), 0);
+        dp[0] = nums[0];
+        dp[1] = max(nums[0], nums[1]);
+
+        for (int i=2; i<nums.size(); ++i) {
+            dp[i] = max(dp[i-1], dp[i-2] + nums[i]);
+        }
+
+        return dp[nums.size()-1];
+    }
+};
 ```
 {: .snippet}
 
@@ -1920,6 +1946,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/house-robber-ii/)：
 
+python代码：
+
 ```python
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -1951,6 +1979,36 @@ class Solution:
         max2 = _rob(nums[1:])
 
         return max(max1, max2)
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        if (nums.size() == 0) return 0;
+        else if (nums.size() == 1) return nums[0];
+        else if (nums.size() == 2) return max(nums[0], nums[1]);
+        
+        return max(_rob(nums, 0, nums.size()-2), _rob(nums, 1, nums.size()-1));
+    }
+
+private:
+    int _rob(vector<int>& nums, int start, int end) {
+        int N = end - start + 1;
+        vector<int> dp(N, 0);
+        dp[0] = nums[start];
+        dp[1] = max(nums[start], nums[start+1]);
+
+        for (int i=2; i<N; ++i) {
+            dp[i] = max(dp[i-1], dp[i-2] + nums[start+i]);
+        }
+
+        return dp[N-1];
+    }
+};
 ```
 {: .snippet}
 
@@ -2006,6 +2064,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/house-robber-iii/)：
 
+python代码：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -2033,6 +2093,44 @@ class Solution:
         return max(dp)
 ```
 {: .snippet}
+
+C++代码：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int rob(TreeNode* root) {
+        vector<int> res = robTree(root);
+        return max(res[0], res[1]);
+    }
+
+private:
+    vector<int> robTree(TreeNode* root) {
+        if (root == nullptr) return vector<int>{0, 0};
+
+        vector<int> left  = robTree(root->left);
+        vector<int> right = robTree(root->right);
+
+        int val1 = max(left[0], left[1]) + max(right[0], right[1]);
+        int val2 = root->val + left[0] + right[0];
+
+        return {val1, val2};
+    }
+};
+```
+{: .snippet}
+
 
 ## 股票问题
 
