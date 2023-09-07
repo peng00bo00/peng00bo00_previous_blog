@@ -3741,7 +3741,7 @@ exection -> execution (插入 'u')
 
 [题目链接](https://leetcode.cn/problems/edit-distance/)：
 
-python距离：
+python代码：
 
 ```python
 class Solution:
@@ -3768,7 +3768,7 @@ class Solution:
 ```
 {: .snippet}
 
-C++距离：
+C++代码：
 
 ```cpp
 class Solution {
@@ -3856,6 +3856,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/palindromic-substrings/)：
 
+python代码：
+
 ```python
 class Solution:
     def countSubstrings(self, s: str) -> int:
@@ -3875,6 +3877,38 @@ class Solution:
                         res += 1
         
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int countSubstrings(string s) {
+        int N = s.size();
+        int res = 0;
+
+        vector<vector<int>> dp(N, vector<int>(N, 0));
+
+        for (int i=N-1; i>=0; --i){
+            for (int j=i; j<N; ++j) {
+                if (s[i] == s[j]) {
+                    if (j-i <= 1) {
+                        dp[i][j] = 1;
+                        ++res;
+                    } 
+                    else if (dp[i+1][j-1]) {
+                        dp[i][j] = 1;
+                        ++res;
+                    }
+                }
+            }
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
@@ -3910,6 +3944,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/longest-palindromic-substring/)：
 
+python代码：
+
 ```python
 class Solution:
     def longestPalindrome(self, s: str) -> str:
@@ -3933,6 +3969,42 @@ class Solution:
                         jj = j
 
         return s[ii:jj+1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int N = s.size();
+
+        int res = 0;
+        int start = 0, end = 0;
+
+        vector<vector<bool>> dp(N, vector<bool>(N, false));
+
+        for (int i=N-1; i>=0; --i) {
+            for (int j=i; j<N; ++j) {
+                if (s[i] == s[j]) {
+                    if (j-i <= 1) {
+                        dp[i][j] = true;
+                    } else if (dp[i+1][j-1]) {
+                        dp[i][j] = true;
+                    }
+                }
+
+                if (dp[i][j] && res < j-i+1) {
+                    start = i; end = j;
+                    res = j-i+1;
+                }
+            }
+        }
+
+        return s.substr(start, end-start+1);
+    }
+};
 ```
 {: .snippet}
 
