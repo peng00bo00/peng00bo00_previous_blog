@@ -4057,6 +4057,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/longest-palindromic-subsequence/)：
 
+python代码：
+
 ```python
 class Solution:
     def longestPalindromeSubseq(self, s: str) -> int:
@@ -4074,6 +4076,30 @@ class Solution:
                     dp[i][j] = max(dp[i+1][j], dp[i][j-1])
 
         return dp[0][-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int longestPalindromeSubseq(string s) {
+        int N = s.size();
+
+        vector<vector<int>> dp(N, vector<int>(N, 0));
+        for (int i=0; i<N; ++i) dp[i][i] = 1;
+
+        for (int i=N-1; i>=0; --i) {
+            for (int j=i+1; j<N; ++j) {
+                if (s[i] == s[j]) dp[i][j] = dp[i+1][j-1] + 2;
+                else dp[i][j] = max(dp[i+1][j], dp[i][j-1]);
+            }
+        }
+
+        return dp[0][N-1];
+    }
+};
 ```
 {: .snippet}
 
