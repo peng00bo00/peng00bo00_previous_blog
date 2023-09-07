@@ -2709,6 +2709,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/)：
 
+python代码：
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -2723,6 +2725,29 @@ class Solution:
             dp[i][2] = max(dp[i-1][1], dp[i-1][2])
 
         return max(dp[-1])
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int N = prices.size();
+
+        vector<vector<int>> dp(N, vector<int>(3, 0));
+        dp[0][0] = -prices[0];
+
+        for (int i=1; i<N; ++i) {
+            dp[i][0] = max(dp[i-1][0], dp[i-1][2]-prices[i]);
+            dp[i][1] = dp[i-1][0] + prices[i];
+            dp[i][2] = max(dp[i-1][1], dp[i-1][2]);
+        }
+
+        return max(dp[N-1][1], dp[N-1][2]);
+    }
+};
 ```
 {: .snippet}
 
@@ -2771,6 +2796,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)：
 
+python代码：
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
@@ -2784,6 +2811,28 @@ class Solution:
             dp[i][1] = max(dp[i-1][1], dp[i-1][0] - prices[i])
         
         return dp[-1][0]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices, int fee) {
+        int N = prices.size();
+
+        vector<vector<int>> dp(N, vector<int>(2, 0));
+        dp[0][1] = -prices[0];
+
+        for (int i=1; i<N; ++i) {
+            dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i] - fee);
+            dp[i][1] = max(dp[i-1][1], dp[i-1][0] - prices[i]);
+        }
+
+        return dp[N-1][0];
+    }
+};
 ```
 {: .snippet}
 
