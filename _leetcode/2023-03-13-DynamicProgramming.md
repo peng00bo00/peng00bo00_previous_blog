@@ -3419,6 +3419,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/is-subsequence/)：
 
+python代码：
+
 ```python
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
@@ -3435,6 +3437,33 @@ class Solution:
                     dp[i][j] = dp[i][j-1]
         
         return dp[-1][-1] == N1
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+        int N1 = s.size();
+        int N2 = t.size();
+
+        vector<vector<int>> dp(N1+1, vector<int>(N2+1, 0));
+        
+        for (int i=1; i<N1+1; ++i) {
+            for (int j=1; j<N2+1; ++j) {
+                if (s[i-1] == t[j-1]) {
+                    dp[i][j] = dp[i-1][j-1] + 1;
+                } else {
+                    dp[i][j] = dp[i][j-1];
+                }
+            }
+        }
+
+        return dp[N1][N2] == N1;
+    }
+};
 ```
 {: .snippet}
 
@@ -3493,6 +3522,8 @@ babgbag
 
 [题目链接](https://leetcode.cn/problems/distinct-subsequences/)：
 
+python代码：
+
 ```python
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
@@ -3511,6 +3542,36 @@ class Solution:
                     dp[i][j] = dp[i-1][j]
         
         return dp[-1][-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int numDistinct(string s, string t) {
+        int N1 = s.size();
+        int N2 = t.size();
+
+        vector<vector<uint64_t>> dp(N1+1, vector<uint64_t>(N2+1, 0));
+        for (int i=0; i<N1+1; ++i) {
+            dp[i][0] = 1;
+        }
+
+        for (int i=1; i<N1+1; ++i) {
+            for (int j=1; j<N2+1; ++j) {
+                if (s[i-1] == t[j-1]) {
+                    dp[i][j] = dp[i-1][j-1] + dp[i-1][j];
+                } else {
+                    dp[i][j] = dp[i-1][j];
+                }
+            }
+        }
+
+        return dp[N1][N2];
+    }
+};
 ```
 {: .snippet}
 
@@ -3563,6 +3624,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/delete-operation-for-two-strings/)：
 
+python代码：
+
 ```python
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
@@ -3584,6 +3647,35 @@ class Solution:
                     dp[i][j] = min(dp[i-1][j]+1, dp[i][j-1]+1, dp[i-1][j-1]+2)
 
         return dp[-1][-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int minDistance(string word1, string word2) {
+        int N1 = word1.size();
+        int N2 = word2.size();
+
+        vector<vector<int>> dp(N1+1, vector<int>(N2+1, 0));
+        for (int i=0; i<N1+1; ++i) dp[i][0] = i;
+        for (int j=0; j<N2+1; ++j) dp[0][j] = j;
+
+        for (int i=1; i<N1+1; ++i) {
+            for (int j=1; j<N2+1; ++j) {
+                if (word1[i-1] == word2[j-1]) {
+                    dp[i][j] = dp[i-1][j-1];
+                } else {
+                    dp[i][j] = min({dp[i-1][j-1] + 2, dp[i-1][j] + 1, dp[i][j-1] + 1});
+                }
+            }
+        }
+
+        return dp[N1][N2];
+    }
+};
 ```
 {: .snippet}
 
