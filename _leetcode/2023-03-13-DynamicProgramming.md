@@ -2881,6 +2881,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/longest-increasing-subsequence/)：
 
+python代码：
+
 ```python
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
@@ -2899,6 +2901,31 @@ class Solution:
             res = max(res, dp[i])
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        int N = nums.size();
+        vector<int> dp(N, 1);
+
+        int res = 0;
+        for (int i=0; i<N; ++i) {
+            for (int j=0; j<i; ++j) {
+                if (nums[j] < nums[i]) 
+                    dp[i] = max(dp[i], dp[j] + 1);
+            }
+
+            res = max(res, dp[i]);
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
@@ -2945,6 +2972,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/longest-continuous-increasing-subsequence/)：
 
+python代码：
+
 ```python
 class Solution:
     def findLengthOfLCIS(self, nums: List[int]) -> int:
@@ -2963,6 +2992,30 @@ class Solution:
             res = max(res, dp[i])
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int findLengthOfLCIS(vector<int>& nums) {
+        int N = nums.size();
+        vector<int> dp(N, 1);
+
+        int res = 1;
+        for (int i=1; i<N; ++i) {
+            if (nums[i-1] < nums[i]) {
+                dp[i] = dp[i-1] + 1;
+            }
+
+            res = max(res, dp[i]);
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
@@ -3000,6 +3053,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/maximum-length-of-repeated-subarray/)：
 
+python代码：
+
 ```python
 class Solution:
     def findLength(self, nums1: List[int], nums2: List[int]) -> int:
@@ -3017,6 +3072,34 @@ class Solution:
                 res = max(res, dp[i][j])
         
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int findLength(vector<int>& nums1, vector<int>& nums2) {
+        int N1 = nums1.size();
+        int N2 = nums2.size();
+
+        vector<vector<int>> dp(N1+1, vector<int>(N2+1, 0));
+        
+        int res = 0;
+        for (int i=1; i<N1+1; ++i) {
+            for (int j=1; j<N2+1; ++j) {
+                if (nums1[i-1] == nums2[j-1]) {
+                    dp[i][j] = dp[i-1][j-1] + 1;
+                }
+
+                res = max(res, dp[i][j]);
+            }
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
@@ -3070,6 +3153,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/longest-common-subsequence/)：
 
+python代码：
+
 ```python
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
@@ -3086,6 +3171,33 @@ class Solution:
                     dp[i][j] = max(dp[i-1][j], dp[i][j-1])
         
         return dp[-1][-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int longestCommonSubsequence(string text1, string text2) {
+        int N1 = text1.size();
+        int N2 = text2.size();
+
+        vector<vector<int>> dp(N1+1, vector<int>(N2+1, 0));
+
+        for (int i=1; i<N1+1; ++i) {
+            for (int j=1; j<N2+1; ++j) {
+                if (text1[i-1] == text2[j-1]) {
+                    dp[i][j] = dp[i-1][j-1] + 1;
+                } else {
+                    dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
+                }
+            }
+        }
+
+        return dp[N1][N2];
+    }
+};
 ```
 {: .snippet}
 
@@ -3140,6 +3252,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/uncrossed-lines/)：
 
+python代码：
+
 ```python
 class Solution:
     def maxUncrossedLines(self, nums1: List[int], nums2: List[int]) -> int:
@@ -3156,6 +3270,33 @@ class Solution:
                     dp[i][j] = max(dp[i-1][j], dp[i][j-1])
         
         return dp[-1][-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2) {
+        int N1 = nums1.size();
+        int N2 = nums2.size();
+
+        vector<vector<int>> dp(N1+1, vector<int>(N2+1, 0));
+
+        for (int i=1; i<N1+1; ++i) {
+            for (int j=1; j<N2+1; ++j) {
+                if (nums1[i-1] == nums2[j-1]) {
+                    dp[i][j] = dp[i-1][j-1] + 1;
+                } else {
+                    dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
+                }
+            }
+        }
+
+        return dp[N1][N2];
+    }
+};
 ```
 {: .snippet}
 
@@ -3198,6 +3339,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/maximum-subarray/)：
 
+python代码：
+
 ```python
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -3208,6 +3351,30 @@ class Solution:
             dp[i] = max(dp[i-1]+nums[i], nums[i])
         
         return max(dp)
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        if (nums.size() == 0) return 0;
+
+        vector<int> dp(nums.size(), 0);
+        dp[0] = nums[0];
+        
+        int res = nums[0];
+
+        for (int i=1; i<nums.size(); ++i) {
+            dp[i] = max(dp[i-1]+nums[i], nums[i]);
+            res = max(res, dp[i]);
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
