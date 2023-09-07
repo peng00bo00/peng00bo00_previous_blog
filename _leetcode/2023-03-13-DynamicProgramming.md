@@ -4147,6 +4147,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/palindrome-partitioning-ii/)：
 
+python代码：
+
 ```python
 class Solution:
     def minCut(self, s: str) -> int:
@@ -4174,6 +4176,39 @@ class Solution:
                         dp[i] = min(dp[i], dp[j]+1)
         
         return dp[-1]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int minCut(string s) {
+        int N = s.size();
+
+        vector<vector<bool>> check(N, vector<bool>(N, false));
+        for (int i=N-1; i>=0; --i) {
+            for (int j=i; j<N; ++j) {
+                if (s[i] == s[j] && (j-i <= 1 || check[i+1][j-1]))
+                    check[i][j] = true;
+            }
+        }
+
+        vector<int> dp(N, N);
+
+        for (int i=0; i<N; ++i) {
+            if (check[0][i]) dp[i] = 0;
+            else {
+                for (int j=0; j<i; ++j) {
+                    if (check[j+1][i]) dp[i] = min(dp[i], dp[j]+1);
+                }
+            }
+        }
+
+        return dp[N-1];
+    }
+};
 ```
 {: .snippet}
 
@@ -4228,6 +4263,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/number-of-longest-increasing-subsequence/)：
 
+python代码：
+
 ```python
 class Solution:
     def findNumberOfLIS(self, nums: List[int]) -> int:
@@ -4258,6 +4295,44 @@ class Solution:
                 res += count[i]
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int findNumberOfLIS(vector<int>& nums) {
+        int N = nums.size();
+        if (N == 1) return 1;
+
+        vector<int> dp(N, 1);
+        vector<int> count(N, 1);
+        int maxLen = 0;
+
+        for (int i=1; i<N; ++i) {
+            for (int j=0; j<i; ++j) {
+                if (nums[j] < nums[i]) {
+                    if (dp[j]+1 > dp[i]) {
+                        dp[i] = dp[j] + 1;
+                        count[i] = count[j];
+                    } else if (dp[j]+1 == dp[i]) {
+                        count[i] += count[j];
+                    }
+                }
+            }
+            maxLen = max(maxLen, dp[i]);
+        }
+
+        int res = 0;
+        for (int i=0; i<N; ++i) {
+            if (maxLen == dp[i]) res += count[i];
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
