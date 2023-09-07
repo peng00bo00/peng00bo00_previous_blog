@@ -4322,12 +4322,13 @@ public:
                     }
                 }
             }
+
             maxLen = max(maxLen, dp[i]);
         }
 
         int res = 0;
         for (int i=0; i<N; ++i) {
-            if (maxLen == dp[i]) res += count[i];
+            if (dp[i] == maxLen) res += count[i];
         }
 
         return res;
