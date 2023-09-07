@@ -3741,6 +3741,8 @@ exection -> execution (插入 'u')
 
 [题目链接](https://leetcode.cn/problems/edit-distance/)：
 
+python距离：
+
 ```python
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
@@ -3763,6 +3765,35 @@ class Solution:
                     dp[i][j] = min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]) + 1
         
         return dp[-1][-1]
+```
+{: .snippet}
+
+C++距离：
+
+```cpp
+class Solution {
+public:
+    int minDistance(string word1, string word2) {
+        int N1 = word1.size();
+        int N2 = word2.size();
+
+        vector<vector<int>> dp(N1+1, vector<int>(N2+1, 0));
+        for (int i=0; i<N1+1; ++i) dp[i][0] = i;
+        for (int j=0; j<N2+1; ++j) dp[0][j] = j;
+
+        for (int i=1; i<N1+1; ++i) {
+            for (int j=1; j<N2+1; ++j) {
+                if (word1[i-1] == word2[j-1]) {
+                    dp[i][j] = dp[i-1][j-1];
+                } else {
+                    dp[i][j] = min({dp[i-1][j-1], dp[i-1][j], dp[i][j-1]}) + 1;
+                }
+            }
+        }
+
+        return dp[N1][N2];
+    }
+};
 ```
 {: .snippet}
 
