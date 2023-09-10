@@ -64,6 +64,8 @@ for i in range(len(nums))
 
 [题目链接](https://leetcode.cn/problems/daily-temperatures/)：
 
+python代码：
+
 ```python
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
@@ -81,6 +83,33 @@ class Solution:
         return answer
 ```
 {: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<int> dailyTemperatures(vector<int>& temperatures) {
+        int N = temperatures.size();
+        vector<int> res = vector(N, 0);
+
+        stack<int> stk;
+
+        for (int i=0; i<N; ++i) {
+            while (stk.size() > 0 && temperatures[stk.top()] < temperatures[i]) {
+                int idx = stk.top(); stk.pop();
+                res[idx] = i - idx;
+            }
+
+            stk.push(i);
+        }
+
+        return res;
+    }
+};
+```
+{: .snippet}
+
 
 ### 496. 下一个更大元素 I
 
@@ -128,6 +157,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/next-greater-element-i/)：
 
+python代码：
+
 ```python
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
@@ -148,9 +179,42 @@ class Solution:
 ```
 {: .snippet}
 
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        int N = nums2.size();
+
+        stack<int> stk;
+        unordered_map<int,int> table;
+
+        for (int i=N-1; i>=0; --i) {
+            while (!stk.empty() && stk.top() < nums2[i]) {
+                stk.pop();
+            }
+
+            table[nums2[i]] = stk.empty() ? -1 : stk.top();
+            stk.push(nums2[i]);
+        }
+        
+        vector<int> res(nums1.size(), -1);
+        for (int i=0; i<nums1.size(); ++i) {
+            res[i] = table[nums1[i]];
+        }
+
+        return res;
+    }
+};
+```
+{: .snippet}
+
 当然本题也可以使用[每日温度](/leetcode/2023-03-26-MonotoneStack.html#739-每日温度)中的单调递增栈模板来进行处理，代码可参考如下。
 
 [题目链接](https://leetcode.cn/problems/next-greater-element-i/)：
+
+python代码：
 
 ```python
 class Solution:
@@ -205,6 +269,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/next-greater-element-ii/)：
 
+python代码：
+
 ```python
 class Solution:
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
@@ -221,6 +287,32 @@ class Solution:
             stack.append(i)
         
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<int> nextGreaterElements(vector<int>& nums) {
+        int N = nums.size();
+        stack<int> stk;
+
+        vector<int> res(N, -1);
+
+        for (int i=0; i<2*N; ++i) {
+            while (!stk.empty() && nums[stk.top()] < nums[i%N]) {
+                int idx = stk.top(); stk.pop();
+                res[idx] = nums[i%N];
+            }
+
+            stk.push(i%N);
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
