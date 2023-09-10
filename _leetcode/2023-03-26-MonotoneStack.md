@@ -532,6 +532,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/largest-rectangle-in-histogram/)：
 
+python代码：
+
 ```python
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
@@ -557,6 +559,44 @@ class Solution:
             stack.append(i)
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        heights.insert(heights.begin(), 0);
+        heights.push_back(0);
+
+        int N = heights.size();
+        stack<int> stk;
+        stk.push(0);
+
+        int res = 0;
+        for (int i=1; i<N; ++i) {
+            while (!stk.empty() && heights[stk.top()] > heights[i]) {
+                int mid = stk.top(); stk.pop();
+
+                if (!stk.empty()) {
+                    int left = stk.top();
+                    int right= i;
+
+                    int h = heights[mid];
+                    int w = right - left -1;
+
+                    res = max(res, h*w);
+                }
+            }
+
+            stk.push(i);
+        }
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
