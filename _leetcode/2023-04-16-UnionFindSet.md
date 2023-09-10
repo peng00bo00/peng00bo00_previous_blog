@@ -123,6 +123,8 @@ class UnionFindSet:
 
 [题目链接](https://leetcode.cn/problems/redundant-connection/)：
 
+python代码：
+
 ```python
 class UnionFindSet:
     def __init__(self, n: int):
@@ -156,6 +158,51 @@ class Solution:
                 UF.union(u, v)
         
         return []
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    vector<int> findRedundantConnection(vector<vector<int>>& edges) {
+        int N = edges.size();
+        init(N+1);
+
+        for (int i=0; i<N; ++i) {
+            int u = edges[i][0], v = edges[i][1];
+
+            if (find(u) == find(v)) return edges[i];
+            else join(u, v);
+        }
+
+        return {};
+    }
+
+private:
+    vector<int> pa;
+
+    void init(int N) {
+        pa.clear();
+        pa.resize(N);
+
+        for (int i=0; i<N; ++i) pa[i] = i;
+    }
+
+    void join(int u, int v) {
+        u = find(u);
+        v = find(v);
+
+        if (u != v) pa[v] = u;
+    }
+
+    int find(int u) {
+        if (pa[u] != u) pa[u] = find(pa[u]);
+
+        return pa[u];
+    }
+};
 ```
 {: .snippet}
 
@@ -219,6 +266,8 @@ class Solution:
 
 [题目链接](https://leetcode.cn/problems/redundant-connection-ii/)：
 
+python代码：
+
 ```python
 class UnionFindSet:
     def __init__(self, n: int):
@@ -268,5 +317,68 @@ class Solution:
             else:
                 u, v = edges[conflict]
                 return [parent[v], v]
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+struct UnionFind {
+    vector<int> pa;
+
+    UnionFind(int N) {
+        pa.clear();
+        pa.resize(N);
+
+        for (int i=0; i<N; ++i) pa[i] = i;
+    }
+
+    void join(int u, int v) {
+        u = find(u);
+        v = find(v);
+
+        if (u != v) pa[v] = u;
+    }
+
+    int find(int u) {
+        if (pa[u] != u) pa[u] = find(pa[u]);
+
+        return pa[u];
+    }
+};
+
+class Solution {
+public:
+    vector<int> findRedundantDirectedConnection(vector<vector<int>>& edges) {
+        int N = edges.size();
+        UnionFind UF(N+1);
+
+        vector<int> parent(N+1);
+        for (int i=0; i<N+1; ++i) parent[i] = i;
+
+        int conflict = -1;
+        int cycle    = -1;
+
+        for (int i=0; i<N; ++i) {
+            int u = edges[i][0];
+            int v = edges[i][1];
+
+            if (parent[v] != v) {
+                conflict = i;
+            } else {
+                parent[v] = u;
+
+                if (UF.find(u) == UF.find(v)) cycle = i;
+                else UF.join(u, v);
+            }
+        }
+
+        if (conflict < 0) return {edges[cycle][0], edges[cycle][1]};
+        else {
+            if (cycle < 0) return {edges[conflict][0], edges[conflict][1]};
+            else return {parent[edges[conflict][1]], edges[conflict][1]};
+        }
+    }
+};
 ```
 {: .snippet}
