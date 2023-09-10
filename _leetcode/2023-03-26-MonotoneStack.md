@@ -96,7 +96,7 @@ public:
         stack<int> stk;
 
         for (int i=0; i<N; ++i) {
-            while (stk.size() > 0 && temperatures[stk.top()] < temperatures[i]) {
+            while (!stk.empty() && temperatures[stk.top()] < temperatures[i]) {
                 int idx = stk.top(); stk.pop();
                 res[idx] = i - idx;
             }
@@ -357,6 +357,8 @@ public:
 
 [题目链接](https://leetcode.cn/problems/trapping-rain-water/)：
 
+python代码：
+
 ```python
 class Solution:
     def trap(self, height: List[int]) -> int:
@@ -381,6 +383,104 @@ class Solution:
             stack.append(i)
 
         return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int N = height.size();
+        stack<int> stk;
+
+        int res = 0;
+        for (int i=0; i<N; ++i) {
+            while (!stk.empty() && height[stk.top()] < height[i]) {
+                int mid = stk.top(); stk.pop();
+                
+                if (!stk.empty()) {
+                    int left  = stk.top();
+                    int right = i;
+
+                    int h = min(height[left], height[right]) - height[mid];
+                    int w = right - left - 1;
+
+                    res += h*w;
+                }
+            }
+            stk.push(i);
+        }
+
+        return res;
+    }
+};
+```
+{: .snippet}
+
+本题的另一种处理方式是使用动态规划。我们可以使用两个数组`leftMax`和`rightMax`分别记录下当前位置`i`处左右两边雨水能够到达的最大高度，这样存在递推关系：
+
+- `leftMax[i]  = max(leftMax[i-1],  height[i])`
+- `rightMax[i] = max(rightMax[i+1], height[i])`
+
+因此可以正向遍历数组`height`得到`leftMax`的每个元素值，反向遍历得到`rightMax`的每个元素值。在每个位置`i`处能够得到的最大雨水量即为`min(leftMax[i], rightMax[i]) - height[i]`，最后对所有`i`进行求和即可。
+
+<div align=center>
+<img src="https://images.weserv.nl/?url=https://assets.leetcode-cn.com/solution-static/42/1.png">
+</div>
+
+[题目链接](https://leetcode.cn/problems/trapping-rain-water/)：
+
+python代码：
+
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        N = len(height)
+        if N == 0:
+            return 0
+
+        leftMax = [height[0] for i in range(N)]
+        rightMax= [height[-1] for i in range(N)]
+
+        for i in range(1, N):
+            leftMax[i] = max(leftMax[i-1], height[i])
+        
+        for i in range(N-2, -1, -1):
+            rightMax[i] = max(rightMax[i+1], height[i])
+        
+        res = 0
+        for i in range(N):
+            res += min(leftMax[i], rightMax[i]) - height[i]
+
+        return res
+```
+{: .snippet}
+
+C++代码：
+
+```cpp
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int N = height.size();
+        if (N == 0) return 0;
+
+        vector<int> leftMax(N, 0);
+        leftMax[0] = height[0];
+        for (int i=1; i<N; ++i) leftMax[i] = max(leftMax[i-1], height[i]);
+
+        vector<int> rightMax(N, 0);
+        rightMax[N-1] = height[N-1];
+        for (int i=N-2; i>=0; --i) rightMax[i] = max(rightMax[i+1], height[i]);
+
+        int res = 0;
+        for (int i=0; i<N; ++i) res += min(leftMax[i], rightMax[i]) - height[i];
+
+        return res;
+    }
+};
 ```
 {: .snippet}
 
