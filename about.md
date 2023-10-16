@@ -54,6 +54,10 @@ Geometry Processing
 
 ## Publications
 
+- **Design and Assessment of AD-1 Lunar Regolith Simulants** \
+  Bo Peng, Prabu Thannasi, and Kemal Celik \
+  74th International Astronautical Congress 2023
+
 - **Filler Effects of CaCO₃ Polymorphs Derived from Limestone and Seashell on Hydration and Carbonation of Magnesium Oxide (MgO) Cement (RMC)** \
   Rotana Hay, Bo Peng, and Kemal Celik \
   Cement and Concrete Research
@@ -90,7 +94,6 @@ Geometry Processing
   Bo Peng, Dalei Wang \
   International Association for Bridge and Structural Engineering (IABSE 2017)
 
-
 ## Research Experience
 
 - **Characterization and Manufacturing of Lunar Regolith Simulants**
@@ -98,7 +101,7 @@ Geometry Processing
   - Produce lunar regolith simulants with local availiable deposits in the UAE.
   - 3D shape reconstruction of aggregates with micro-CT.
   - Develop 3D shape descriptors with spherical harmonics.
-
+  - Shape generation with PCA and VAE generative models.
 
 - **Geospatial Modelling of Urban Thermodynamics: Infrastructure, Environment, and Microclimate in Cities**
   - Develop algorithms for thermal imaging interpretation and atmosphere compensation.
