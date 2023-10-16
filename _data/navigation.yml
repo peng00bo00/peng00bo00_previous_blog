@@ -622,3 +622,5 @@ STL:
     children: 
         - title: std::function
           url: /2023/10/14/STL-NOTES-01.html
+        - title: std::unique_ptr
+          url: /2023/10/16/STL-NOTES-02.html
