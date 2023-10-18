@@ -103,3 +103,5 @@ $$
 $$
 \boldsymbol{r}_x \times \boldsymbol{r}_y = \bigg( -\frac{\partial z}{\partial x}, -\frac{\partial z}{\partial y}, 1 \bigg) \neq \mathbb{0}
 $$
+
+即Monge形式给出的曲面都是正则的。
