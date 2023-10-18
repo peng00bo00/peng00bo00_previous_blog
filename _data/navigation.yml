@@ -616,6 +616,8 @@ DifferentialGeometry:
           url: /2023/07/30/DifferentialGeometry-NOTES-01.html
         - title: 曲线论
           url: /2023/07/31/DifferentialGeometry-NOTES-02.html
+        - title: 曲面的第一基本形式
+          url: /2023/10/18/DifferentialGeometry-NOTES-03.html
 
 STL:
   - title: 动手实现C++ STL容器
