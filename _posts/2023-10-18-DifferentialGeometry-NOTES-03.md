@@ -262,4 +262,19 @@ $$
 \end{aligned}
 $$
 
-这意味着曲面$$S$$在点$$p$$的切向量$$\frac{d \boldsymbol{r} (u(t), v(t))}{dt} \bigg\vert_{t=0}$$是切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$的线性组合，其组合系数恰好是$$\frac{d u(t)}{d t} \bigg\vert_{t=0}$$，$$\frac{d v(t)}{d t} \bigg\vert_{t=0}$$。反过来，切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$的任意一个现象组合$$a \boldsymbol{r}_u + b \boldsymbol{r}_v$$，其中$$a$$，$$b$$是任意的实数，必定是曲面$$S$$的一个切向量。
+这意味着曲面$$S$$在点$$p$$的切向量$$\frac{d \boldsymbol{r} (u(t), v(t))}{dt} \bigg\vert_{t=0}$$是切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$的线性组合，其组合系数恰好是$$\frac{d u(t)}{d t} \bigg\vert_{t=0}$$，$$\frac{d v(t)}{d t} \bigg\vert_{t=0}$$。反过来，切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$的任意一个现象组合$$a \boldsymbol{r}_u + b \boldsymbol{r}_v$$，其中$$a$$，$$b$$是任意的实数，必定是曲面$$S$$的一个切向量。事实上，只要考虑曲面$$S$$上的连续可微曲线
+
+$$
+\begin{cases}
+u(t) = u_0 + a t \\
+v(t) = v_0 + b t
+\end{cases}
+$$
+
+其中点$$p$$对应的参数是$$(u_0, v_0)$$，则该曲线在点$$p$$的切向量是
+
+$$
+\frac{d \boldsymbol{r} (u(t), v(t))}{dt} \bigg|_{t=0} = a \boldsymbol{r}_u + b \boldsymbol{r}_v
+$$
+
+由此可见，曲面$$S$$在点$$p$$的切向量就是点$$p$$的切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$的任意的线性组合。
