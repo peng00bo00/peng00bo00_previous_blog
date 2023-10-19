@@ -150,7 +150,7 @@ $$
 
 由此可见，在经过如上的变量替换之后，得到的仍然是正则参数曲面。这就是说，正则参数曲面的性质在满足条件(1)、(2)的参数变换下是保持不变的。我们把满足条件(1)、(2)的参数变换称为为容许的参数变换。
 
-我们还规定，向量$$\boldsymbol{r}_u \times \boldsymbol{r}_v$$所指的一侧为曲面的正侧。因此，参数$$u$$，$$v$$的次序决定了正则参数曲面的**定向**。当参数$$u$$，$$v$$的次序颠倒时，向量$$\boldsymbol{r}_u \times \boldsymbol{r}_v$$就改变它的指向，正则参数曲面的定向也随之颠倒。除此之外，容许的参数变换保持参数曲面的定向不变的充分必要条件是
+我们还规定，向量$$\boldsymbol{r}_u \times \boldsymbol{r}_v$$所指的一侧为曲面的正侧。因此，参数$$u$$，$$v$$的次序决定了正则参数曲面的**定向**。当参数$$u$$，$$v$$的次序颠倒时，向量$$\boldsymbol{r}_u \times \boldsymbol{r}_v$$就改变它的指向，正则参数曲面的定向也随之颠倒。显然，容许的参数变换保持参数曲面的定向不变的充分必要条件是
 
 $$
 \frac{\partial (u, v)}{\partial (\tilde{u}, \tilde{v})} \gt 0
@@ -162,3 +162,65 @@ $$
 
 **定义3.1** 设$$S$$是$$\mathbb{E}^3$$的一个子集。如果对于任意一点$$p \in S$$，必存在点$$p$$在$$\mathbb{E}^3$$中的一个邻域$$V \subset \mathbb{E}^3$$，以及$$\mathbb{E}^2$$中的一个区域$$U$$，使得在$$U$$和$$V \cap S$$之间能够建立一一的、双向都是连续的对应，并且该对应$$\boldsymbol{r}: U \rightarrow V \cap S \subset \mathbb{E}^3$$本身是一个正则参数曲面，则称$$S$$是$$\mathbb{E}^3$$中的一张**正则曲面**，简称为**曲面**。
 {:.success}
+
+如果曲面$$S$$有两个正则参数表示
+
+$$
+\boldsymbol{r}_i: U_i \rightarrow V_i \cap S \subset \mathbb{E}^3, \ \ i = 1,2
+$$
+
+使得$$V_1 \cap V_2 \cap S \neq \empty$$，那么在任意一点$$\p \in V_1 \cap V_2 \cap S$$的附近便有两组曲纹坐标$$(u_1, v_1)$$和$$(u_2, v_2)$$，而且它们之间必定有容许的参数变换。事实上，设
+
+$$
+\boldsymbol{r}_1 (u_1, v_1) = \big( x_1(u_1, v_1), y_1(u_1, v_1), z_1(u_1, v_1) \big), \ \ \forall (u_1, v_1) \in U_1, \\
+\boldsymbol{r}_2 (u_2, v_2) = \big( x_2(u_2, v_2), y_2(u_2, v_2), z_2(u_2, v_2) \big), \ \ \forall (u_2, v_2) \in U_2,
+$$
+
+那么在点$$p$$的附近有
+
+$$
+x = x_1(u_1, v_1) = x_2(u_2, v_2) \\ 
+y = y_1(u_1, v_1) = y_2(u_2, v_2) \\ 
+z = z_1(u_1, v_1) = z_2(u_2, v_2) \\ 
+$$
+
+对于函数$$x = x_1(u_1, v_1)$$，$$y = y_1(u_1, v_1)$$，在正则条件
+
+$$
+\frac{\partial (x_1, y_1)}{\partial (u_1, v_1)} \neq 0
+$$
+
+下，由反函数定理得知，在点$$p$$所对应的参数$$(u_1^0, v_1^0)$$的一个邻域内存在3次以上连续可微的反函数
+
+$$
+\begin{cases}
+u_1 = f(x, y) \\
+v_1 = g(x, y)
+\end{cases}
+$$
+
+它们满足恒等式
+
+$$
+\begin{cases}
+f(x_1(u_1, v_1), y_1(u_1, v_1)) \equiv u_1 \\
+g(x_1(u_1, v_1), y_1(u_1, v_1)) \equiv v_1
+\end{cases}
+$$
+
+于是曲纹坐标$$(u_1, v_1)$$和$$(u_2, v_2)$$之间的变换是
+
+$$
+\begin{cases}
+u_1 = f(x_2(u_2, v_2), y_2(u_2, v_2)) \\
+v_1 = g(x_2(u_2, v_2), y_2(u_2, v_2)) \\
+\end{cases}
+$$
+
+很明显，$$u_1$$、$$v_1$$是$$u_2$$、$$v_2$$的3次以上连续可微函数，并且
+
+$$
+\frac{\partial (u_1, v_1)}{\partial (u_2, v_2)} = \frac{\partial (f, g)}{\partial (x, y)} \cdot \frac{\partial (x_2, y_2)}{\partial (u_2, v_2)} = \frac{\partial (x_2, y_2)}{\partial (u_2, v_2)} \bigg( \frac{\partial (x_1, y_1)}{\partial (u_1, v_1)} \bigg)^{-1} \neq 0
+$$
+
+因此$$u_1$$、$$v_1$$和$$u_2$$、$$v_2$$之间的参数变换是容许的参数变换。由此可见，在正则曲面上，容许的参数变换是自然而然地出现的，定义在正则曲面上的最应该是与它的正则参数表示无关的量。
