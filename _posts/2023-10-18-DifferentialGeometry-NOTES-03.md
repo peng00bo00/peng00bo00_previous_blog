@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 微分几何笔记03-曲面的第一基本形式
-tags: ["CG", "Geometry Processing", "Math"]
+tags: ["CG", "Geometry Processing", "Math", "Differential Geometry"]
 key: DifferentialGeometry-03
 aside:
   toc: true
@@ -46,6 +46,8 @@ $$
 
 如果$$\boldsymbol{r}_u (u_0, v_0)$$和$$\boldsymbol{r}_v (u_0, v_0)$$是线性无关的，即$$\boldsymbol{r}_u \times \boldsymbol{r}_v \neq \mathbf{0}$$，则称曲面$$S$$在点$$p_0$$是**正则**的。今后我们所研究的曲面都是3次以上连续可微的、处处是正则点的参数曲面，称为**正则参数曲面**。
 
+### Monge形式
+
 设$$S: \boldsymbol{r} = \boldsymbol{r}(u, v)$$是正则参数曲面，对于任一点$$(u_0, v_0) \in D$$有
 
 $$
@@ -89,7 +91,7 @@ $$
 \boldsymbol{r} = (x, y, z(x, y))
 $$
 
-于是区域$$U$$于曲面$$S|_U$$之间的点的一一对应是由$$(u(x, y), v(x, y)) \rightarrow (x, y, z(x, y))$$给出的。
+于是区域$$U$$与曲面$$S\vert_U$$之间的点的一一对应是由$$(u(x, y), v(x, y)) \rightarrow (x, y, z(x, y))$$给出的。
 
 上面的讨论还说明，正则参数曲面在任意一点的某个邻域内总是可以表示成类似于$$z = z(x, y)$$的形式。也就是说，正则参数曲面在局部上必定可以看作一个二元连续可微函数的图像。用$$z = z(x, y)$$给出曲面的方式称为**Monge形式**。对于Monge形式给出的曲面，其参数方程恰好是$$\boldsymbol{r} = (x, y, z(x, y))$$。因此有
 

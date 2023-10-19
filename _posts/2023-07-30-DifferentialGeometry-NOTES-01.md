@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 微分几何笔记01-预备知识
-tags: ["CG", "Geometry Processing", "Math"]
+tags: ["CG", "Geometry Processing", "Math", "Differential Geometry"]
 key: DifferentialGeometry-01
 aside:
   toc: true

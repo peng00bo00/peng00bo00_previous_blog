@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 微分几何笔记02-曲线论
-tags: ["CG", "Geometry Processing", "Math"]
+tags: ["CG", "Geometry Processing", "Math", "Differential Geometry"]
 key: DifferentialGeometry-02
 aside:
   toc: true
