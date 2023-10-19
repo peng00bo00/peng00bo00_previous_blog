@@ -172,16 +172,20 @@ $$
 使得$$V_1 \cap V_2 \cap S \neq \emptyset$$，那么在任意一点$$p \in V_1 \cap V_2 \cap S$$的附近便有两组曲纹坐标$$(u_1, v_1)$$和$$(u_2, v_2)$$，而且它们之间必定有容许的参数变换。事实上，设
 
 $$
-\boldsymbol{r}_1 (u_1, v_1) = \big( x_1(u_1, v_1), y_1(u_1, v_1), z_1(u_1, v_1) \big), \ \ \forall (u_1, v_1) \in U_1, \\
-\boldsymbol{r}_2 (u_2, v_2) = \big( x_2(u_2, v_2), y_2(u_2, v_2), z_2(u_2, v_2) \big), \ \ \forall (u_2, v_2) \in U_2,
+\begin{aligned}
+\boldsymbol{r}_1 (u_1, v_1) &= \big( x_1(u_1, v_1), y_1(u_1, v_1), z_1(u_1, v_1) \big), \ \ \forall (u_1, v_1) \in U_1, \\
+\boldsymbol{r}_2 (u_2, v_2) &= \big( x_2(u_2, v_2), y_2(u_2, v_2), z_2(u_2, v_2) \big), \ \ \forall (u_2, v_2) \in U_2,
+\end{aligned}
 $$
 
 那么在点$$p$$的附近有
 
 $$
-x = x_1(u_1, v_1) = x_2(u_2, v_2) \\ 
-y = y_1(u_1, v_1) = y_2(u_2, v_2) \\ 
-z = z_1(u_1, v_1) = z_2(u_2, v_2) \\ 
+\begin{aligned}
+x &= x_1(u_1, v_1) &= x_2(u_2, v_2) \\ 
+y &= y_1(u_1, v_1) &= y_2(u_2, v_2) \\ 
+z &= z_1(u_1, v_1) &= z_2(u_2, v_2) \\ 
+\end{aligned}
 $$
 
 对于函数$$x = x_1(u_1, v_1)$$，$$y = y_1(u_1, v_1)$$，在正则条件
