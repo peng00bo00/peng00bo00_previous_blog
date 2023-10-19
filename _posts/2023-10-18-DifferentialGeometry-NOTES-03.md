@@ -107,3 +107,47 @@ $$
 $$
 
 即Monge形式给出的曲面都是正则的。
+
+### 参数变换
+
+正则参数曲面的参数容许作一定的变换。设
+
+$$
+\begin{cases}
+u = u(\tilde{u}, \tilde{v}) \\
+v = v(\tilde{u}, \tilde{v}) \\
+\end{cases}
+$$
+
+它们满足如下的条件：
+
+(1) $$u(\tilde{u}, \tilde{v})$$、$$v(\tilde{u}, \tilde{v})$$都是$$\tilde{u}$$、$$\tilde{v}$$的3次以上连续可微函数；
+
+(2) $$\frac{\partial (u, v)}{\partial (\tilde{u}, \tilde{v})} \neq 0$$
+
+将上面的函数代入正则参数曲面的方程可以得到
+
+$$
+\begin{aligned}
+\boldsymbol{r} &= \boldsymbol{r} (u(\tilde{u}, \tilde{v}), v(\tilde{u}, \tilde{v})) \\
+&= \big( 
+x(u(\tilde{u}, \tilde{v}), v(\tilde{u}, \tilde{v})), 
+y(u(\tilde{u}, \tilde{v}), v(\tilde{u}, \tilde{v})),
+z(u(\tilde{u}, \tilde{v}), v(\tilde{u}, \tilde{v}))
+\big)
+\end{aligned}
+$$
+
+于是它作为$$\tilde{u}$$、$$\tilde{v}$$的函数仍然是3次以上连续可微的，并且
+
+$$
+\begin{aligned}
+\boldsymbol{r}_{\tilde{u}} &= \boldsymbol{r}_u \frac{\partial u}{\partial \tilde{u}} + \boldsymbol{r}_v \frac{\partial v}{\partial \tilde{u}} \\
+\boldsymbol{r}_{\tilde{v}} &= \boldsymbol{r}_u \frac{\partial u}{\partial \tilde{v}} + \boldsymbol{r}_v \frac{\partial v}{\partial \tilde{v}} \\
+\boldsymbol{r}_{\tilde{u}} \times \boldsymbol{r}_{\tilde{v}} &= \frac{\partial (u, v)}{\partial (\tilde{u}, \tilde{v})} \cdot (\boldsymbol{r}_u \times \boldsymbol{r}_v) \neq \mathbf{0}
+\end{aligned}
+$$
+
+由此可见，在经过如上的变量替换之后，得到的仍然是正则参数曲面。这就是说，正则参数曲面的性质在满足条件(1)、(2)的参数变换下是保持不变的。我们把满足条件(1)、(2)的参数变换称为为容许的参数变换。
+
+### 正则曲面
