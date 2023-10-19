@@ -295,7 +295,7 @@ $$
 \boldsymbol{n} (u, v) = \frac{\boldsymbol{r}_u (u, v) \times \boldsymbol{r}_v (u, v)}{\vert \boldsymbol{r}_u (u, v) \times \boldsymbol{r}_v (u, v) \vert}
 $$
 
-在空间$$\mathbb{E}^3$$中经过点$$p$$、以法向量$$\boldsymbol{n} (u, v)$$为方向向量的直线称为曲面$$S$$在点$$p$$的法线，它的参数方程是
+在空间$$\mathbb{E}^3$$中经过点$$p$$、以法向量$$\boldsymbol{n} (u, v)$$为方向向量的直线称为曲面$$S$$在点$$p$$的**法线**，它的参数方程是
 
 $$
 \boldsymbol{X} (t) = \boldsymbol{r} (u, v) + t \boldsymbol{n} (u, v)
