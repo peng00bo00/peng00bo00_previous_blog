@@ -235,6 +235,8 @@ $$
 
 ## 切平面和法线
 
+### 切向量
+
 假定正则参数曲面$$S$$的参数方程是$$\boldsymbol{r} = \boldsymbol{r}(u,v)$$。前面介绍过，$$(u, v)$$是曲面$$S$$上的点的曲纹坐标，因此曲面$$S$$上的任意一条连续可微曲线可以用参数方程
 
 $$
@@ -278,3 +280,29 @@ $$
 $$
 
 由此可见，曲面$$S$$在点$$p$$的切向量就是点$$p$$的切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$的任意的线性组合。
+
+### 切平面和法线
+
+对于正则参数曲面，$$\boldsymbol{r}_u \times \boldsymbol{r}_v \neq \mathbf{0}$$，故切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$是线性无关的，因此曲面$$S$$在点$$p$$(设点$$p$$对应的参数是$$(u, v)$$)的全体切向量构成一个二维向量空间，这个向量空间称为曲面$$S$$在点$$p$$的**切空间**，记为$$T_pS$$。$$\{ \boldsymbol{r}_u, \boldsymbol{r}_v \}$$是曲面$$S$$在点$$p$$的切空间$$T_pS$$的基底。在空间$$\mathbf{E}^3$$中经过点$$p$$、有切向量$$\boldsymbol{r}_u$$、$$\boldsymbol{r}_v$$张成的二维平面称为曲面$$S$$在点$$p$$的**切平面**。它的参数方程是
+
+$$
+\boldsymbol{X} (\lambda, \mu) = \boldsymbol{r} (u, v) + \lambda \boldsymbol{r}_u (u, v) + \mu \boldsymbol{r}_v (u, v)
+$$
+
+其中$$\lambda$$、$$\mu$$是切平面上动点的参数。很明显，该切平面的法向量是
+
+$$
+\boldsymbol{n} (u, v) = \frac{\boldsymbol{r}_u (u, v) \times \boldsymbol{r}_v (u, v)}{\vert \boldsymbol{r}_u (u, v) \times \boldsymbol{r}_v (u, v) \vert}
+$$
+
+在空间$$\mathbb{E}^3$$中经过点$$p$$、以法向量$$\boldsymbol{n} (u, v)$$为方向向量的直线称为曲面$$S$$在点$$p$$的法线，它的参数方程是
+
+$$
+\boldsymbol{X} (t) = \boldsymbol{r} (u, v) + t \boldsymbol{n} (u, v)
+$$
+
+其中$$t$$是法线上动点的参数。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/okRmIbT.png" width="80%">
+</div>
