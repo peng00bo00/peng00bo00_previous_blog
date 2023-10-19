@@ -103,7 +103,7 @@ $$
 于是
 
 $$
-\boldsymbol{r}_x \times \boldsymbol{r}_y = \bigg( -\frac{\partial z}{\partial x}, -\frac{\partial z}{\partial y}, 1 \bigg) \neq \mathbb{0}
+\boldsymbol{r}_x \times \boldsymbol{r}_y = \bigg( -\frac{\partial z}{\partial x}, -\frac{\partial z}{\partial y}, 1 \bigg) \neq \mathbf{0}
 $$
 
 即Monge形式给出的曲面都是正则的。
@@ -123,7 +123,7 @@ $$
 
 (1) $$u(\tilde{u}, \tilde{v})$$、$$v(\tilde{u}, \tilde{v})$$都是$$\tilde{u}$$、$$\tilde{v}$$的3次以上连续可微函数；
 
-(2) $$\frac{\partial (u, v)}{\partial (\tilde{u}, \tilde{v})} \neq 0$$
+(2) $$\frac{\partial (u, v)}{\partial (\tilde{u}, \tilde{v})} \neq 0$$。
 
 将上面的函数代入正则参数曲面的方程可以得到
 
@@ -150,4 +150,15 @@ $$
 
 由此可见，在经过如上的变量替换之后，得到的仍然是正则参数曲面。这就是说，正则参数曲面的性质在满足条件(1)、(2)的参数变换下是保持不变的。我们把满足条件(1)、(2)的参数变换称为为容许的参数变换。
 
+我们还规定，向量$$\boldsymbol{r}_u \times \boldsymbol{r}_v$$所指的一侧为曲面的正侧。因此，参数$$u$$，$$v$$的次序决定了正则参数曲面的**定向**。当参数$$u$$，$$v$$的次序颠倒时，向量$$\boldsymbol{r}_u \times \boldsymbol{r}_v$$就改变它的指向，正则参数曲面的定向也随之颠倒。除此之外，容许的参数变换保持参数曲面的定向不变的充分必要条件是
+
+$$
+\frac{\partial (u, v)}{\partial (\tilde{u}, \tilde{v})} \gt 0
+$$
+
 ### 正则曲面
+
+正则参数曲面的概念在应用中是十分方便、十分广泛的，但是有的曲面却不能够用一张正则参数曲面来表示，而是要把曲面分成若干块，然后每一块用正则参数曲面来表示。因此，正则参数曲面只是表示曲面的一种手段， 正则曲面的概念本身尚需另外定义。
+
+**定义3.1** 设$$S$$是$$\mathbb{E}^3$$的一个子集。如果对于任意一点$$p \in S$$，必存在点$$p$$在$$\mathbb{E}^3$$中的一个邻域$$V \subset \mathbb{E}^3$$，以及$$\mathbb{E}^2$$中的一个区域$$U$$，使得在$$U$$和$$V \cap S$$之间能够建立一一的、双向都是连续的对应，并且该对应$$\boldsymbol{r}: U \rightarrow V \cap S \subset \mathbb{E}^3$$本身是一个正则参数曲面，则称$$S$$是$$\mathbb{E}^3$$中的一张**正则曲面**，简称为**曲面**。
+{:.success}
