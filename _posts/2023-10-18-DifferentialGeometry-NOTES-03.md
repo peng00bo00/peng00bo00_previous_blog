@@ -169,7 +169,7 @@ $$
 \boldsymbol{r}_i: U_i \rightarrow V_i \cap S \subset \mathbb{E}^3, \ \ i = 1,2
 $$
 
-使得$$V_1 \cap V_2 \cap S \neq \empty$$，那么在任意一点$$\p \in V_1 \cap V_2 \cap S$$的附近便有两组曲纹坐标$$(u_1, v_1)$$和$$(u_2, v_2)$$，而且它们之间必定有容许的参数变换。事实上，设
+使得$$V_1 \cap V_2 \cap S \neq \emptyset$$，那么在任意一点$$\p \in V_1 \cap V_2 \cap S$$的附近便有两组曲纹坐标$$(u_1, v_1)$$和$$(u_2, v_2)$$，而且它们之间必定有容许的参数变换。事实上，设
 
 $$
 \boldsymbol{r}_1 (u_1, v_1) = \big( x_1(u_1, v_1), y_1(u_1, v_1), z_1(u_1, v_1) \big), \ \ \forall (u_1, v_1) \in U_1, \\
