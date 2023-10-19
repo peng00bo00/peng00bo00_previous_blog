@@ -22,7 +22,7 @@ x = x(u, v) \\
 y = y(u, v) \\
 z = z(u, v) \\
 \end{cases}
-\ \ \ \ (u, v) \in D
+\ \ \ \ , (u, v) \in D
 $$
 
 或者写成向量方程的形式：
@@ -231,4 +231,35 @@ $$
 
 如果在正则曲面的每一点的邻域内都能够选定一个正则参数表示，使得在邻域重叠的部分其任意两组参数的变换都保持定向不变，即保持不等式$$\frac{\partial (u_1, v_1)}{\partial (u_2, v_2)} \gt 0$$成立，则称这样的正则曲面是**可定向的**。
 
-在直观上看，每一个正则参数曲面是一个开的曲面片，它与$$\mathbb{E}^2$$中的的一个开区域是同胚的而正则曲面是把一片片正则参数曲面粘起来的结果。我们研究的重点就是正则参数曲面以及它在容许参数变换下的不变量。
+在直观上看，每一个正则参数曲面是一个开的曲面片，它与$$\mathbb{E}^2$$中的的一个开区域是同胚的，而正则曲面是把一片片正则参数曲面粘起来的结果。我们研究的重点就是正则参数曲面以及它在容许参数变换下的不变量。
+
+## 切平面和法线
+
+假定正则参数曲面$$S$$的参数方程是$$\boldsymbol{r} = \boldsymbol{r}(u,v)$$。前面介绍过，$$(u, v)$$是曲面$$S$$上的点的曲纹坐标，因此曲面$$S$$上的任意一条连续可微曲线可以用参数方程
+
+$$
+\begin{cases}
+u = u(t) \\ v = v(t)
+\end{cases}
+$$
+
+表示，其中$$u(t)$$，$$v(t)$$都是$$t$$的连续可微函数。它作为空间$$\mathbb{E}^3$$中的曲线的参数方程是
+
+$$
+\boldsymbol{r} = \boldsymbol{r} (u(t), v(t))
+$$
+
+**定义3.2** 曲面$$S$$上经过点$$p$$的任意一条连续可微曲线在该点的切向量称为曲面$$S$$在点$$p$$的**切向量**。
+{:.success}
+
+根据定义，曲面$$S$$上经过点$$p$$的$$u$$-曲线和$$v$$-曲线的切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$都是曲面$$S$$在点$$p$$的切向量。假定$$p$$是曲线上对应于$$t = 0$$的点，则曲线在点$$p$$的切向量是
+
+$$
+\begin{aligned}
+\frac{d \boldsymbol{r} (u(t), v(t))}{dt} \bigg|_{t=0} 
+&= \bigg( \frac{\partial \boldsymbol{r}}{\partial u} \frac{d u(t)}{dt} + \frac{\partial \boldsymbol{r}}{\partial v} \frac{d v(t)}{dt} \bigg) \bigg|_{t=0} \\
+&= \boldsymbol{r}_u \frac{d u(t)}{d t} \bigg|_{t=0} + \boldsymbol{r}_v \frac{d v(t)}{d t} \bigg|_{t=0}
+\end{aligned}
+$$
+
+这意味着曲面$$S$$在点$$p$$的切向量$$\frac{d \boldsymbol{r} (u(t), v(t))}{dt} \bigg|_{t=0}$$是切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$的线性组合，其组合系数恰好是$$\frac{d u(t)}{d t} \bigg|_{t=0}$$，$$\frac{d v(t)}{d t} \bigg|_{t=0}$$。反过来，切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$的任意一个现象组合$$a \boldsymbol{r}_u + b \boldsymbol{r}_v$$，其中$$a$$，$$b$$是任意的实数，必定是曲面$$S$$的一个切向量。
