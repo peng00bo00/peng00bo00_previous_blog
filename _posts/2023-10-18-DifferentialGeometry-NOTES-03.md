@@ -370,7 +370,7 @@ $$
 \end{aligned}
 $$
 
-当$$(\Delta u， \Delta v) \to (0, 0)$$时它是函数$$\boldsymbol{r} (u, v)$$的增量$$\boldsymbol{r} (u + \Delta u, v + \Delta v) - \boldsymbol{r} (u, v)$$作为无穷小量的线性的主要部分，即$$\boldsymbol{r} (u + \Delta u, v + \Delta v) - \boldsymbol{r} (u, v) - \mathrm{d} \boldsymbol{r} (u, v)$$是$$\rho = \sqrt{(\Delta u)^2 + (\Delta v)^2}$$的更高阶的无穷小最，也就是
+当$$(\Delta u, \Delta v) \to (0, 0)$$时它是函数$$\boldsymbol{r} (u, v)$$的增量$$\boldsymbol{r} (u + \Delta u, v + \Delta v) - \boldsymbol{r} (u, v)$$作为无穷小量的线性的主要部分，即$$\boldsymbol{r} (u + \Delta u, v + \Delta v) - \boldsymbol{r} (u, v) - \mathrm{d} \boldsymbol{r} (u, v)$$是$$\rho = \sqrt{(\Delta u)^2 + (\Delta v)^2}$$的更高阶的无穷小最，也就是
 
 $$
 \lim_{\rho \to 0} \frac{\vert \boldsymbol{r} (u + \Delta u, v + \Delta v) - \boldsymbol{r} (u, v) - \mathrm{d} \boldsymbol{r} (u, v) \vert}{\rho} = 0
