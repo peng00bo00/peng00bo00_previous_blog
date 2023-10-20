@@ -307,7 +307,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/okRmIbT.png" width="80%">
 </div>
 
-显然，正则参数曲面$$S$$在点$$p$$的切空间、切平面、法线等概念在曲面的容许参数变换下是不变的，因而与正则曲面的参数表示方式无关。当容许参数变换保持定向时，单位法向量$$\boldsymbol{n} (u,v)$$的指向也是不变的；当容许参数变换翻转定向时，单位法向量$$\boldsymbol{n} (u,v)$$则反转指向。由此可见，在可定向的正则曲面上存在连续可微的单位法向量场，而且只有两个互为反转的单位法向量场确定取哪一个单位法向量场，就是确定了该曲面的一个定向。
+显然，正则参数曲面$$S$$在点$$p$$的切空间、切平面、法线等概念在曲面的容许参数变换下是不变的，因而与正则曲面的参数表示方式无关。当容许参数变换保持定向时，单位法向量$$\boldsymbol{n} (u,v)$$的指向也是不变的；当容许参数变换翻转定向时，单位法向量$$\boldsymbol{n} (u,v)$$则反转指向。由此可见，在可定向的正则曲面上存在连续可微的单位法向量场，而且只有两个互为反转的单位法向量场。确定取哪一个单位法向量场，就是确定了该曲面的一个定向。
 
 ### 自然标架
 
@@ -327,4 +327,37 @@ $$
 f(x, y, z) = c
 $$
 
-是$$\mathbb{E}^3$$中的一个正则曲面。
+是$$\mathbb{E}^3$$中的一个正则曲面。事实上，若设$$p$$是等值面上的一点，对应的参数是$$(x_0, y_0, z_0)$$，并且假定
+
+$$
+\frac{\partial f}{\partial z} \bigg\vert_p \neq 0
+$$
+
+则根据隐函数定理，在$$Oxy$$平面上点$$(x_0, y_0)$$的一个邻域$$D$$内存在连续可微函数$$z = g(x, y)$$，使得对应任一点$$(x, y) \in D$$满足
+
+$$
+f(x, y, g(x, y)) = c
+$$
+
+所以，等值面的参数方程是
+
+$$
+\boldsymbol{r} (x, y) = (x, y, g(x, y))
+$$
+
+很明显，$$\bigg( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \bigg)$$就是等值面的法向量。实际上，若设$$x = x(t)$$，$$y = y(t)$$，$$z = z(t)$$是等值面上任意一条连续可微曲线$$C$$的参数方程，则对于任意的$$t$$恒等地有
+
+$$
+f(x(t), y(t), z(t)) = c
+$$
+
+将上式对变量$$t$$求导得到
+
+$$
+\frac{\partial f}{\partial x} \frac{d x(t)}{dt} + \frac{\partial f}{\partial y} \frac{d y(t)}{dt}  + \frac{\partial f}{\partial z} \frac{d z(t)}{dt} = 0
+$$
+
+这说明向量$$\bigg( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \bigg)$$与曲线$$C$$的切向量$$\bigg( \frac{d x(t)}{dt}, \frac{d y(t)}{dt}, \frac{d z(t)}{dt} \bigg)$$是正交的，因而它与等值面上任意一条连续可微曲线都是垂直的，因此必定是等值面的一个法向量。
+
+### 正则参数曲面的微分
+
