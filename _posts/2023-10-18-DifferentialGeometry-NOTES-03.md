@@ -361,7 +361,7 @@ $$
 
 ### 正则参数曲面的微分
 
-现在有必要对正则参数曲面$$S$$的参数方程$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$的微分$$\mathrm{d} \boldsymbol{r} (u, v)$$作一些说明。首先，$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$的微分$$\mathrm{d} \boldsymbol{r} (u, v)$$是关于参数$$u$$、$$v$$的微分$$\mathrm{d} u$$、$$\mathrm{d} v$$的现象表达式：
+现在有必要对正则参数曲面$$S$$的参数方程$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$的微分$$\mathrm{d} \boldsymbol{r} (u, v)$$作一些说明。首先，$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$的微分$$\mathrm{d} \boldsymbol{r} (u, v)$$是关于参数$$u$$、$$v$$的微分$$\mathrm{d} u$$、$$\mathrm{d} v$$的线性表达式：
 
 $$
 \begin{aligned}

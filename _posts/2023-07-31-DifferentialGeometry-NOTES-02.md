@@ -182,9 +182,10 @@ $$
 {:.info}
 
 [定理2.2](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)证明如下：把曲线$$C$$上所有的单位切向量$$\boldsymbol{\alpha}(s)$$平行移动，使它们的起点都放在原点$$O$$出，则这些切向量的端点便描出单位球面上的一条曲线，于是切向量$$\boldsymbol{\alpha}(s + \Delta s)$$和$$\boldsymbol{\alpha}(s)$$之间的夹角$$\Delta \theta$$是在单位球面上从$$\boldsymbol{\alpha}(s + \Delta s)$$到$$\boldsymbol{\alpha}(s)$$的大圆弧的弧长，而$$\boldsymbol{\alpha}(s + \Delta s) - \boldsymbol{\alpha}(s)$$正好是该角所对的弦长，所以
+
 $$
 \begin{aligned}
-\bigg\vert \frac{d \boldsymbol{\alpha}}{\mathrm{d} s} \bigg\vert &= \lim_{\Delta s \to 0} \frac{\vert \boldsymbol{\alpha}(s + \Delta s) - \boldsymbol{\alpha}(s) \vert}{\vert \Delta s \vert} \\
+\bigg\vert \frac{\mathrm{d} \boldsymbol{\alpha}}{\mathrm{d} s} \bigg\vert &= \lim_{\Delta s \to 0} \frac{\vert \boldsymbol{\alpha}(s + \Delta s) - \boldsymbol{\alpha}(s) \vert}{\vert \Delta s \vert} \\
 &= \lim_{\Delta s \to 0} \frac{2 \vert \sin \frac{\Delta \theta}{2} \vert}{\vert \Delta s \vert} \\
 &= \lim_{\Delta s \to 0} \bigg\vert \frac{\Delta \theta}{\Delta s} \bigg\vert
 \end{aligned}
@@ -776,7 +777,7 @@ $$
 因为$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta}_2 (s)$$，所以
 
 $$
-\boldsymbol{\alpha}_2 (s) \cdot \boldsymbol{\beta}_2 (s) \frac{d \tilde{s}}{d s} = \pm \lambda'(s) \boldsymbol{\beta}_1 \cdot \boldsymbol{\beta}_1 = 0
+\boldsymbol{\alpha}_2 (s) \cdot \boldsymbol{\beta}_2 (s) \frac{\mathrm{d} \tilde{s}}{\mathrm{d} s} = \pm \lambda'(s) \boldsymbol{\beta}_1 \cdot \boldsymbol{\beta}_1 = 0
 $$
 
 即$$\lambda'(s) = 0$$，$$\lambda(s)$$为常数。故
@@ -1057,7 +1058,7 @@ $$
 因此
 
 $$
-\kappa_r (s) = \frac{d \theta (s)}{d s}
+\kappa_r (s) = \frac{\mathrm{d} \theta (s)}{\mathrm{d} s}
 $$
 
 上式清楚地说明了相对曲率$$\kappa_r (s)$$的几何意义。对于平面曲线来说，曲线论基本定理成为下面的显示表达式
@@ -1098,7 +1099,7 @@ $$
 
 $$
 \begin{aligned}
-\kappa_r (t) &= \frac{d \boldsymbol{\alpha} (t)}{\mathrm{d} s} \cdot \boldsymbol{\beta}(t) = \frac{\mathrm{d} t}{\mathrm{d} s} \cdot \boldsymbol{\alpha}' (t) \cdot \boldsymbol{\beta}(t) \\
+\kappa_r (t) &= \frac{\mathrm{d} \boldsymbol{\alpha} (t)}{\mathrm{d} s} \cdot \boldsymbol{\beta}(t) = \frac{\mathrm{d} t}{\mathrm{d} s} \cdot \boldsymbol{\alpha}' (t) \cdot \boldsymbol{\beta}(t) \\
 &= \frac{x' y'' - x'' y'}{\sqrt{\big( (x')^2 + (y')^2 \big)^3}}
 \end{aligned}
 $$
