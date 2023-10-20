@@ -81,7 +81,7 @@ $$
 这样在参数变换$$t = t(u)$$下，曲线的参数方程可以表示为$$\boldsymbol{r} (t(u))$$，简记为$$\boldsymbol{r}(u)$$。根据求导的链式法则有
 
 $$
-\boldsymbol{r}'(u) = \frac{d}{d u} \boldsymbol{r}(t(u)) = \boldsymbol{r}'(t(u)) \cdot t'(u)
+\boldsymbol{r}'(u) = \frac{\mathrm{d}}{\mathrm{d} u} \boldsymbol{r}(t(u)) = \boldsymbol{r}'(t(u)) \cdot t'(u)
 $$
 
 如果容许的参数变换还要求$$t'(u) \gt 0$$，则这种容许的参数变换保持曲线的定向不变。
@@ -91,7 +91,7 @@ $$
 设$$\mathbb{E}^3$$中的一条正则曲线$$C$$的参数方程为$$\boldsymbol{r} = \boldsymbol{r}(t)$$，$$t \in [a, b]$$，我们定义
 
 $$
-s = \int_a^b \vert \boldsymbol{r}'(t) \vert \ dt
+s = \int_a^b \vert \boldsymbol{r}'(t) \vert \ \mathrm{d} t
 $$
 
 则$$s$$是该曲线的一个不变量，即它与$$\mathbb{E}^3$$中笛卡尔直角坐标系的选取无关，也与该曲线的保持定向的容许参数变换无关。这里简单证明一下$$s$$对于保持定向的参数变换不变：
@@ -111,15 +111,15 @@ $$
 因此
 
 $$
-\bigg\vert \frac{d \boldsymbol{r}(t(u))}{du} \bigg\vert = \bigg\vert \frac{d\boldsymbol{r}}{dt}(t(u)) \bigg\vert \cdot \frac{d t}{d u}
+\bigg\vert \frac{\mathrm{d} \boldsymbol{r}(t(u))}{\mathrm{d} u} \bigg\vert = \bigg\vert \frac{\mathrm{d} \boldsymbol{r}}{\mathrm{d} t}(t(u)) \bigg\vert \cdot \frac{\mathrm{d} t}{\mathrm{d} u}
 $$
 
 根据积分变量替换公式有
 
 $$
-\int_a^b \bigg\vert \frac{d \boldsymbol{r}(t)}{dt} \bigg\vert \ dt 
-= \int_\alpha^\beta \bigg\vert \frac{d\boldsymbol{r}}{dt}(t(u)) \bigg\vert \cdot \frac{dt}{du} \ du 
-= \int_\alpha^\beta \bigg\vert \frac{d \boldsymbol{r}(t(u))}{du} \bigg\vert \ du
+\int_a^b \bigg\vert \frac{\mathrm{d} \boldsymbol{r}(t)}{\mathrm{d} t} \bigg\vert \ \mathrm{d} t 
+= \int_\alpha^\beta \bigg\vert \frac{\mathrm{d} \boldsymbol{r}}{\mathrm{d} t}(t(u)) \bigg\vert \cdot \frac{\mathrm{d} t}{\mathrm{d} u} \ \mathrm{d} u 
+= \int_\alpha^\beta \bigg\vert \frac{\mathrm{d} \boldsymbol{r}(t(u))}{\mathrm{d} u} \bigg\vert \ \mathrm{d}u
 $$
 
 因此$$s$$与参数变换无关。
@@ -127,14 +127,14 @@ $$
 不变量$$s$$的几何意义是该曲线的长度。可以证明对于对于区间$$[a, b]$$的任意一个分割$$a = t_0 \lt t_1 \lt ... \lt t_n = b$$，下面的极限成立：
 
 $$
-\lim_{\lambda \to 0} \sum_{i=1}^n \vert \boldsymbol{r}(t_i) - \boldsymbol{r}(t_{i-1}) \vert = \int_a^b \vert \boldsymbol{r}'(t) \vert \ dt
+\lim_{\lambda \to 0} \sum_{i=1}^n \vert \boldsymbol{r}(t_i) - \boldsymbol{r}(t_{i-1}) \vert = \int_a^b \vert \boldsymbol{r}'(t) \vert \ \mathrm{d} t
 $$
 
 $$
 \lambda = \max \{ \vert \Delta t_i \vert ; \ i = 1, ..., n \}
 $$
 
-不难发现等式的左端$$\sum_{i=1}^n \vert \boldsymbol{r}(t_i) - \boldsymbol{r}(t_{i-1}) \vert$$是顶点依次$$\boldsymbol{r}(t_0)$$，$$\boldsymbol{r}(t_1)$$，...，$$\boldsymbol{r}(t_n)$$为的折线长度，因此$$\int_a^b \vert \boldsymbol{r}'(t) \vert \ dt$$表示将曲线进行不断细分所得到的折线段长度的极限，也就是曲线的长度，称为**弧长**。
+不难发现等式的左端$$\sum_{i=1}^n \vert \boldsymbol{r}(t_i) - \boldsymbol{r}(t_{i-1}) \vert$$是顶点依次$$\boldsymbol{r}(t_0)$$，$$\boldsymbol{r}(t_1)$$，...，$$\boldsymbol{r}(t_n)$$为的折线长度，因此$$\int_a^b \vert \boldsymbol{r}'(t) \vert \ \mathrm{d} t$$表示将曲线进行不断细分所得到的折线段长度的极限，也就是曲线的长度，称为**弧长**。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/5CSudyd.png" width="80%">
@@ -145,47 +145,46 @@ $$
 对任意$$a \leq t \leq b$$令
 
 $$
-s(t) = \int_a^t \vert \boldsymbol{r}'(t) \vert \ dt
+s(t) = \int_a^t \vert \boldsymbol{r}'(t) \vert \ \mathrm{d} t
 $$
 
 则$$s(t)$$是曲线$$C$$由$$a$$到$$t$$的弧长。由于$$s(t)$$是关于$$t$$的三次以上连续可微函数，并且
 
 $$
-\frac{d s(t)}{d t} = \vert \boldsymbol{r}'(t) \vert \gt 0
+\frac{\mathrm{d} s(t)}{\mathrm{d} t} = \vert \boldsymbol{r}'(t) \vert \gt 0
 $$
 
 于是我们可以把弧长作为正则曲线的参数，这种参数称为曲线的**弧长参数**。弧长参数由曲线本身确定到至多相差一个常数(这反映了度量曲线长度的起点不同)，与表示曲线的笛卡尔直角坐标系的选取无关，与曲线原来的参数取法也无关。对弧长参数进行微分可以得到
 
 $$
-ds = \vert \boldsymbol{r}'(t) \vert \ dt
+\mathrm{d} s = \vert \boldsymbol{r}'(t) \vert \ \mathrm{d} t
 $$
 
-上式中$$ds$$也是曲线的不变量，称为曲线的**弧长元素**。
+上式中$$\mathrm{d} s$$也是曲线的不变量，称为曲线的**弧长元素**。
 
 在大多数情况下我们都无法显式地写出弧长参数的表达式，因此判定已知参数$$t$$是否是弧长参数是十分重要的。我们可以使用如下定理来进行判断：
 
 **定理 2.1** 设$$\boldsymbol{r} = \boldsymbol{r}(t) \ (a \leq t \leq b)$$是$$\mathbb{E}^3$$中的一条正则参数曲线，则$$t$$是它的弧长参数的充要条件是$$\vert \boldsymbol{r}'(t) \vert \equiv 1$$。
 {:.info}
 
-这里简单证明如下：当$$t$$为弧长参数$$s$$时有$$ds = dt$$，所以必有$$\vert \boldsymbol{r}'(t) \vert \equiv 1$$，反之亦然。
+这里简单证明如下：当$$t$$为弧长参数$$s$$时有$$\mathrm{d} s = \mathrm{d} t$$，所以必有$$\vert \boldsymbol{r}'(t) \vert \equiv 1$$，反之亦然。
 
 [定理2.1](/2023/07/31/DifferentialGeometry-NOTES-02.html#弧长参数)的几何意义是曲线以弧长为参数的充要条件是它的切向量场为单位向量场。
 
 ## 曲线的曲率和Frenet标架
 
-设曲线$$C$$的方程是$$\boldsymbol{r}(s)$$，其中$$s$$是曲线的弧长参数。令$$\boldsymbol{\alpha}(s) = \boldsymbol{r}'(s)$$，则$$\boldsymbol{\alpha}(s)$$是曲线$$C$$在$$s$$处的方向向量，其方向变化的快慢反映了曲线的弯曲程度，我们可以使用$$\big\vert \frac{d \boldsymbol{\alpha}}{ds} \big\vert$$来衡量。
+设曲线$$C$$的方程是$$\boldsymbol{r}(s)$$，其中$$s$$是曲线的弧长参数。令$$\boldsymbol{\alpha}(s) = \boldsymbol{r}'(s)$$，则$$\boldsymbol{\alpha}(s)$$是曲线$$C$$在$$s$$处的方向向量，其方向变化的快慢反映了曲线的弯曲程度，我们可以使用$$\big\vert \frac{\mathrm{d} \boldsymbol{\alpha}}{\mathrm{d} s} \big\vert$$来衡量。
 
 **定理 2.2** 设$$\boldsymbol{\alpha}(s)$$是曲线$$\boldsymbol{r}(s)$$的单位切向量场，$$s$$是弧长参数，用$$\Delta \theta$$表示切向量$$\boldsymbol{\alpha}(s + \Delta s)$$和$$\boldsymbol{\alpha}(s)$$之间的夹角，则
 $$
-\lim_{\Delta s \to 0} \bigg \vert \frac{\Delta \theta}{\Delta s} \bigg \vert = \big\vert \frac{d \boldsymbol{\alpha}}{ds} \big\vert
+\lim_{\Delta s \to 0} \bigg \vert \frac{\Delta \theta}{\Delta s} \bigg \vert = \big\vert \frac{\mathrm{d} \boldsymbol{\alpha}}{\mathrm{d} s} \big\vert
 $$
 {:.info}
 
 [定理2.2](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)证明如下：把曲线$$C$$上所有的单位切向量$$\boldsymbol{\alpha}(s)$$平行移动，使它们的起点都放在原点$$O$$出，则这些切向量的端点便描出单位球面上的一条曲线，于是切向量$$\boldsymbol{\alpha}(s + \Delta s)$$和$$\boldsymbol{\alpha}(s)$$之间的夹角$$\Delta \theta$$是在单位球面上从$$\boldsymbol{\alpha}(s + \Delta s)$$到$$\boldsymbol{\alpha}(s)$$的大圆弧的弧长，而$$\boldsymbol{\alpha}(s + \Delta s) - \boldsymbol{\alpha}(s)$$正好是该角所对的弦长，所以
-
 $$
 \begin{aligned}
-\bigg\vert \frac{d \boldsymbol{\alpha}}{ds} \bigg\vert &= \lim_{\Delta s \to 0} \frac{\vert \boldsymbol{\alpha}(s + \Delta s) - \boldsymbol{\alpha}(s) \vert}{\vert \Delta s \vert} \\
+\bigg\vert \frac{d \boldsymbol{\alpha}}{\mathrm{d} s} \bigg\vert &= \lim_{\Delta s \to 0} \frac{\vert \boldsymbol{\alpha}(s + \Delta s) - \boldsymbol{\alpha}(s) \vert}{\vert \Delta s \vert} \\
 &= \lim_{\Delta s \to 0} \frac{2 \vert \sin \frac{\Delta \theta}{2} \vert}{\vert \Delta s \vert} \\
 &= \lim_{\Delta s \to 0} \bigg\vert \frac{\Delta \theta}{\Delta s} \bigg\vert
 \end{aligned}
@@ -194,8 +193,7 @@ $$
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/GhhlaS3.png" width="80%">
 </div>
-
-**定义2.1** 设曲线$$C$$的方程是$$\boldsymbol{r}(s)$$，其中$$s$$是曲线的弧长参数。令$$\kappa(s) = \big\vert \frac{d \boldsymbol{\alpha}}{ds} \big\vert = \vert \boldsymbol{r}''(s) \vert$$，则称$$\kappa(s)$$为曲线$$\boldsymbol{r}(s)$$在$$s$$处的**曲率**，并且称$$\frac{d \boldsymbol{\alpha}}{ds}$$为该曲线的**曲率向量**。
+**定义2.1** 设曲线$$C$$的方程是$$\boldsymbol{r}(s)$$，其中$$s$$是曲线的弧长参数。令$$\kappa(s) = \big\vert \frac{\mathrm{d} \boldsymbol{\alpha}}{\mathrm{d} s} \big\vert = \vert \boldsymbol{r}''(s) \vert$$，则称$$\kappa(s)$$为曲线$$\boldsymbol{r}(s)$$在$$s$$处的**曲率**，并且称$$\frac{\mathrm{d} \boldsymbol{\alpha}}{\mathrm{d} s}$$为该曲线的**曲率向量**。
 {:.success}
 
 **定理2.3** 曲线$$C$$是一条直线当且仅当它的曲率$$\kappa(s) \equiv 0$$。
@@ -212,13 +210,13 @@ $$
 一般来说$$s$$不再是切线像的弧长，而切线像的弧长为
 
 $$
-d \tilde{s} = \bigg\vert \frac{d\boldsymbol{\alpha}}{ds} \bigg\vert \ ds = \kappa(s) \ ds
+\mathrm{d} \tilde{s} = \bigg\vert \frac{\mathrm{d} \boldsymbol{\alpha}}{\mathrm{d} s} \bigg\vert \ \mathrm{d}s = \kappa(s) \ \mathrm{d} s
 $$
 
 所以
 
 $$
-\kappa(s) = \frac{d \tilde{s}}{ds}
+\kappa(s) = \frac{\mathrm{d} \tilde{s}}{\mathrm{d} s}
 $$
 
 这就是说，曲线的曲率$$\kappa(s)$$是曲线切线像的弧长元素与曲线弧长元素之比。
@@ -274,8 +272,8 @@ $$
 
 $$
 \begin{aligned}
-\boldsymbol{r}'' (t) &= \frac{d \vert \boldsymbol{r}' (t) \vert}{dt} \cdot \boldsymbol{\alpha} (t) + \vert \boldsymbol{r}' (t) \vert \cdot \frac{d \boldsymbol{\alpha} (t)}{ds} \cdot \frac{ds}{dt} \\
-&= \frac{d \vert \boldsymbol{r}' (t) \vert}{dt} \cdot \boldsymbol{\alpha} (t) + \vert \boldsymbol{r}' (t) \vert^2 \cdot \kappa (t) \cdot \boldsymbol{\beta}(t)
+\boldsymbol{r}'' (t) &= \frac{\mathrm{d} \vert \boldsymbol{r}' (t) \vert}{\mathrm{d} t} \cdot \boldsymbol{\alpha} (t) + \vert \boldsymbol{r}' (t) \vert \cdot \frac{\mathrm{d} \boldsymbol{\alpha} (t)}{\mathrm{d} s} \cdot \frac{\mathrm{d} s}{\mathrm{d} t} \\
+&= \frac{\mathrm{d} \vert \boldsymbol{r}' (t) \vert}{\mathrm{d} t} \cdot \boldsymbol{\alpha} (t) + \vert \boldsymbol{r}' (t) \vert^2 \cdot \kappa (t) \cdot \boldsymbol{\beta}(t)
 \end{aligned}
 $$
 
@@ -353,7 +351,6 @@ $$
 {:.info}
 
 **证明** 前面已经证明过平面曲线的次法向量$$\boldsymbol{\gamma}$$是常向量，因此其挠率必为零；接下来证明挠率为零的曲线是平面曲线。设曲线$$C$$的参数方程为$$\boldsymbol{r} = \boldsymbol{r}(s)$$，$$s$$是弧长参数，并且$$\kappa(s) \neq 0$$，$$\tau(s) \equiv 0$$。此时曲线有确定的Frenet标架$$\{ \boldsymbol{r}(s); \boldsymbol{\alpha}(s), \boldsymbol{\beta}(s), \boldsymbol{\gamma}(s) \}$$，并且
-
 $$
 \boldsymbol{\gamma}'(s) = -\tau(s) \cdot \boldsymbol{\beta} (s) \equiv 0
 $$
@@ -361,7 +358,7 @@ $$
 因此$$\boldsymbol{\gamma}(s) = \boldsymbol{\gamma}_0$$为常向量。由于
 
 $$
-0 = \boldsymbol{r}'(s) \cdot \boldsymbol{\gamma}(s) = \boldsymbol{r}'(s) \cdot \boldsymbol{\gamma}_0 = \frac{d}{ds} \big( \boldsymbol{r}(s) \cdot \boldsymbol{\gamma}_0 \big)
+0 = \boldsymbol{r}'(s) \cdot \boldsymbol{\gamma}(s) = \boldsymbol{r}'(s) \cdot \boldsymbol{\gamma}_0 = \frac{\mathrm{d}}{\mathrm{d} s} \big( \boldsymbol{r}(s) \cdot \boldsymbol{\gamma}_0 \big)
 $$
 
 所以
@@ -450,16 +447,16 @@ $$
 $$
 \begin{aligned}
 \boldsymbol{\gamma}' (t) 
-&= \frac{d \boldsymbol{\gamma} (t)}{ds} \cdot \frac{ds}{dt} = -\tau(t) \boldsymbol{\beta}(t) \cdot \frac{ds}{dt} \\
-&= \frac{\boldsymbol{r}'(t) \times \boldsymbol{r}'''(t)}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} + \frac{d}{dt} \bigg( \frac{1}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \bigg) \cdot \big( \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \big)
+&= \frac{\mathrm{d} \boldsymbol{\gamma} (t)}{\mathrm{d} s} \cdot \frac{\mathrm{d} s}{\mathrm{d} t} = -\tau(t) \boldsymbol{\beta}(t) \cdot \frac{\mathrm{d} s}{\mathrm{d} t} \\
+&= \frac{\boldsymbol{r}'(t) \times \boldsymbol{r}'''(t)}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} + \frac{\mathrm{d}}{\mathrm{d} t} \bigg( \frac{1}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \bigg) \cdot \big( \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \big)
 \end{aligned}
 $$
 
 即
 
 $$
--\tau(t) \boldsymbol{\beta}(t) \cdot \frac{ds}{dt} 
-= \frac{\boldsymbol{r}'(t) \times \boldsymbol{r}'''(t)}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} + \frac{d}{dt} \bigg( \frac{1}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \bigg) \cdot \big( \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \big)
+-\tau(t) \boldsymbol{\beta}(t) \cdot \frac{\mathrm{d} s}{\mathrm{d} t} 
+= \frac{\boldsymbol{r}'(t) \times \boldsymbol{r}'''(t)}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} + \frac{\mathrm{d}}{\mathrm{d} t} \bigg( \frac{1}{\vert \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \vert} \bigg) \cdot \big( \boldsymbol{r}'(t) \times \boldsymbol{r}''(t) \big)
 $$
 
 再对两边同时点乘$$\boldsymbol{\beta} (t)$$的计算式
@@ -512,8 +509,8 @@ $$\tau_1(t) = \tau_2(\lambda(t))$$
 
 $$
 \begin{cases}
-\frac{d \boldsymbol{r}}{ds} = \boldsymbol{e}_1 \\
-\frac{d \boldsymbol{e}_i}{ds} = \sum_{j=1}^3 a_{ij}(s) \boldsymbol{e}_j
+\frac{\mathrm{d} \boldsymbol{r}}{\mathrm{d} s} = \boldsymbol{e}_1 \\
+\frac{\mathrm{d} \boldsymbol{e}_i}{\mathrm{d} s} = \sum_{j=1}^3 a_{ij}(s) \boldsymbol{e}_j
 \end{cases}
 $$
 
@@ -771,7 +768,7 @@ $$
 
 $$
 \begin{aligned}
-\boldsymbol{\alpha}_2 (s) \frac{d \tilde{s}}{d s} &= \boldsymbol{\alpha}_1 (s) + \lambda'(s) \boldsymbol{\beta}_1 (s) + \lambda(s) \big( -\kappa_1(s) \boldsymbol{\alpha}_1(s) + \tau_1(s)\boldsymbol{\gamma}_1(s) \big) \\
+\boldsymbol{\alpha}_2 (s) \frac{\mathrm{d} \tilde{s}}{\mathrm{d} s} &= \boldsymbol{\alpha}_1 (s) + \lambda'(s) \boldsymbol{\beta}_1 (s) + \lambda(s) \big( -\kappa_1(s) \boldsymbol{\alpha}_1(s) + \tau_1(s)\boldsymbol{\gamma}_1(s) \big) \\
 &= \big( 1-\lambda(s) \kappa_1(s) \big) \boldsymbol{\alpha}_1 (s) + \lambda'(s) \boldsymbol{\beta}_1 (s) + \lambda(s) \tau_1 (s) \boldsymbol{\gamma}_1 (s)
 \end{aligned}
 $$
@@ -791,7 +788,7 @@ $$
 对$$\boldsymbol{\alpha}_1 (s) \cdot \boldsymbol{\alpha}_2 (s)$$求导得到
 
 $$
-\frac{d}{ds} \big( \boldsymbol{\alpha}_1 (s) \cdot \boldsymbol{\alpha}_2 (s) \big) = \kappa_1 (s) \boldsymbol{\beta}_1 (s) \cdot \boldsymbol{\alpha}_2 (s) + \kappa_2(s) \boldsymbol{\alpha}_1(s) \cdot \boldsymbol{\beta}_2 (s) \frac{d \tilde{s}}{d s} = 0
+\frac{\mathrm{d}}{\mathrm{d} s} \big( \boldsymbol{\alpha}_1 (s) \cdot \boldsymbol{\alpha}_2 (s) \big) = \kappa_1 (s) \boldsymbol{\beta}_1 (s) \cdot \boldsymbol{\alpha}_2 (s) + \kappa_2(s) \boldsymbol{\alpha}_1(s) \cdot \boldsymbol{\beta}_2 (s) \frac{\mathrm{d} \tilde{s}}{\mathrm{d} s} = 0
 $$
 
 故曲线$$C_1$$和$$C_2$$在对应点的切线成定角。
@@ -800,22 +797,21 @@ $$
 {:.info}
 
 **证明** 设曲线$$C$$有侣线$$C_1$$，它们的参数方程分别是$$\boldsymbol{r} (s)$$和$$\boldsymbol{r}_1 (s)$$，并且曲线$$C$$和$$C_1$$的对应是由相同参数点之间的对应，而且$$s$$是曲线$$C$$的弧长参数，$$\tilde{s}$$是曲线$$C_1$$的弧长参数。用$$\{\boldsymbol{r} (s); \boldsymbol{\alpha} (s), \boldsymbol{\beta} (s), \boldsymbol{\gamma} (s) \}$$表示曲线$$C$$的Frenet标架，则根据**定理2.11**的证明有
-
 $$
-\boldsymbol{\alpha}_1 (s) \frac{d \tilde{s}}{d s} 
+\boldsymbol{\alpha}_1 (s) \frac{\mathrm{d} \tilde{s}}{\mathrm{d} s} 
 = \big( 1-\lambda \kappa(s) \big) \boldsymbol{\alpha} (s) + \lambda \tau (s) \boldsymbol{\gamma} (s)
 $$
 
 其中$$\lambda \neq 0$$是常数。因此
 
 $$
-\bigg\vert \frac{d \tilde{s}}{d s} \bigg\vert^2 = ( 1-\lambda \kappa(s) )^2 + ( \lambda \tau (s) )^2
+\bigg\vert \frac{\mathrm{d} \tilde{s}}{\mathrm{d} s} \bigg\vert^2 = ( 1-\lambda \kappa(s) )^2 + ( \lambda \tau (s) )^2
 $$
 
 另一方面由于$$\boldsymbol{\alpha}(s) \cdot \boldsymbol{\alpha}_1(s)$$为常数，我们可以得到
 
 $$
-\boldsymbol{\alpha}(s) \cdot \boldsymbol{\alpha}_1 (s) \frac{d \tilde{s}}{d s} 
+\boldsymbol{\alpha}(s) \cdot \boldsymbol{\alpha}_1 (s) \frac{\mathrm{d} \tilde{s}}{\mathrm{d} s} 
 = 1-\lambda \kappa(s)
 $$
 
@@ -863,7 +859,7 @@ $$
 
 $$
 \begin{aligned}
-\frac{d \boldsymbol{\alpha}_1 (s)}{d \tilde{s}} \frac{d \tilde{s}}{ds} &= \kappa_1 (s) \boldsymbol{\beta}_1 (s) \frac{d \tilde{s}}{ds} \\
+\frac{\mathrm{d} \boldsymbol{\alpha}_1 (s)}{\mathrm{d} \tilde{s}} \frac{\mathrm{d} \tilde{s}}{\mathrm{d} s} &= \kappa_1 (s) \boldsymbol{\beta}_1 (s) \frac{\mathrm{d} \tilde{s}}{\mathrm{d} s} \\
 &= \bigg( \frac{\mu}{\sqrt{\lambda^2 + \mu^2}} \kappa (s) - \frac{\lambda}{\sqrt{\lambda^2 + \mu^2}} \tau (s) \bigg) \boldsymbol{\beta} (s)
 \end{aligned}
 $$
@@ -919,13 +915,10 @@ $$
 {:.info}
 
 **证明** 设
-
 $$
 \boldsymbol{r}_1 (s) = \boldsymbol{r} (s) + \lambda(s) \boldsymbol{\beta} (s) + \mu (s) \boldsymbol{\gamma} (s)
 $$
-
 是曲线$$C$$的渐缩线，那么$$\lambda(s) \boldsymbol{\beta} (s) + \mu (s) \boldsymbol{\gamma} (s)$$应该是曲线$$\boldsymbol{r}_1 (s)$$的切向量。对上式求导得到
-
 $$
 \begin{aligned}
 \boldsymbol{r}_1' (s) &= (1 - \lambda (s) \kappa (s)) \boldsymbol{\alpha} (s) \\
@@ -933,9 +926,7 @@ $$
 &+ (\mu' (s) + \lambda (s) \tau (s)) \boldsymbol{\gamma} (s)
 \end{aligned}
 $$
-
 因此$$\lambda(s) \boldsymbol{\beta} (s) + \mu (s) \boldsymbol{\gamma} (s)$$与$$\boldsymbol{r}_1'$$平行，即
-
 $$
 \lambda (s) \kappa (s) = 1
 $$
@@ -943,9 +934,7 @@ $$
 $$
 \frac{\lambda' (s) - \mu(s) \tau (s)}{\lambda (s)} = \frac{\mu' (s) + \lambda (s) \tau (s)}{\mu (s)}
 $$
-
 因此
-
 $$
 \lambda' (s) \mu (s) - \mu' (s) \lambda (s) = (\lambda^2 (s) + \mu^2 (s)) \tau (s)
 $$
@@ -953,19 +942,14 @@ $$
 $$
 \frac{d}{ds} \arctan \bigg( \frac{\mu (s)}{\lambda (s)} \bigg) = -\tau (s)
 $$
-
 故
-
 $$
 \arctan \bigg( \frac{\mu (s)}{\lambda (s)} \bigg) = -\int \tau (s) \ ds
 $$
-
 整理一下可以得到
-
 $$
 \lambda (s) = \frac{1}{\kappa (s)} , \ \ \mu (s) = -\frac{1}{\kappa (s)} \bigg( \tan \int \tau (s) \ ds \bigg)
 $$
-
 即曲线$$C$$的渐缩线为
 
 $$\boldsymbol{r}_1 (s) = \boldsymbol{r}(s) + \frac{1}{\kappa (s)} \boldsymbol{\beta} (s) - \frac{1}{\kappa (s)} \bigg( \tan{\int \tau (s) \ ds} \bigg) \boldsymbol{\gamma} (s)
@@ -1095,7 +1079,7 @@ $$
 其中$$t$$未必是弧长参数。曲线的弧长元素是
 
 $$
-ds = \vert \boldsymbol{r}'(t) \vert \ dt = \sqrt{(x')^2 + (y')^2} \ dt
+ds = \vert \boldsymbol{r}'(t) \vert \ \mathrm{d} t = \sqrt{(x')^2 + (y')^2} \ \mathrm{d} t
 $$
 
 因此它的单位切向量是
@@ -1114,7 +1098,7 @@ $$
 
 $$
 \begin{aligned}
-\kappa_r (t) &= \frac{d \boldsymbol{\alpha} (t)}{ds} \cdot \boldsymbol{\beta}(t) = \frac{dt}{ds} \cdot \boldsymbol{\alpha}' (t) \cdot \boldsymbol{\beta}(t) \\
+\kappa_r (t) &= \frac{d \boldsymbol{\alpha} (t)}{\mathrm{d} s} \cdot \boldsymbol{\beta}(t) = \frac{\mathrm{d} t}{\mathrm{d} s} \cdot \boldsymbol{\alpha}' (t) \cdot \boldsymbol{\beta}(t) \\
 &= \frac{x' y'' - x'' y'}{\sqrt{\big( (x')^2 + (y')^2 \big)^3}}
 \end{aligned}
 $$
@@ -1142,7 +1126,7 @@ $$
 根据[相对曲率](/2023/07/31/DifferentialGeometry-NOTES-02.html#相对曲率)的几何意义得知
 
 $$
-\theta (b) - \theta (a) = \int_a^b \kappa_r (s) \ ds
+\theta (b) - \theta (a) = \int_a^b \kappa_r (s) \ \mathrm{d} s
 $$
 
 如果$$\boldsymbol{r} = \boldsymbol{r}(s) \ (a \leq s \leq b)$$是$$\mathbb{E}^2$$上的一条光滑曲线，并且
@@ -1183,7 +1167,7 @@ $$
 这是曲线的大范围微分几何性质，其直观意义是明显的，但是它的证明不是很简单。若$$C$$是分段光滑的简单闭曲线，则曲线的方向角的总变差是
 
 $$
-\theta (b) - \theta (a) = \int_a^b \kappa_r (s) \ ds + \sum_i \theta_i
+\theta (b) - \theta (a) = \int_a^b \kappa_r (s) \ \mathrm{d} s + \sum_i \theta_i
 $$
 
 这里$$\theta_i$$是曲线在各个角点处的外角，$$-\pi \lt \theta_i \lt \pi$$，即
