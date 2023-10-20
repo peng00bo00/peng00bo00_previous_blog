@@ -306,3 +306,25 @@ $$
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/okRmIbT.png" width="80%">
 </div>
+
+显然，正则参数曲面$$S$$在点$$p$$的切空间、切平面、法线等概念在曲面的容许参数变换下是不变的，因而与正则曲面的参数表示方式无关。当容许参数变换保持定向时，单位法向量$$\boldsymbol{n} (u,v)$$的指向也是不变的；当容许参数变换翻转定向时，单位法向量$$\boldsymbol{n} (u,v)$$则反转指向。由此可见，在可定向的正则曲面上存在连续可微的单位法向量场，而且只有两个互为反转的单位法向量场确定取哪一个单位法向量场，就是确定了该曲面的一个定向。
+
+### 自然标架
+
+在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r}(u, v)$$上的每一点，借助于它的参数方程定义了一个标架$$\{\boldsymbol{r}(u,v); \boldsymbol{r}_u(u,v), \boldsymbol{r}_v (u, v), \boldsymbol{n}(u, v) \}$$，称为该曲面上的**自然标架**。这样，正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r}(u, v)$$不仅是依赖参数$$(u, v)$$的点的集合，而且也是在$$\mathbb{E}^3$$中依赖参数$$u$$、$$v$$的这些自然标架的集合，即正则参数曲面不仅是在$$\mathbb{E}^3$$中依赖两个参数的点集，而被进一步看成依赖两个参数的标架族，或者是从区域$$D \subset \mathbb{E}^2$$到$$\mathbb{E}^3$$上的全体标架所构成的12维空间的一个映射。与研究正则参数曲线的情形相仿，对正则参数曲面的研究也可以归结为对自然标架场的研究，我们会在后面进行更深入的介绍。
+
+### 隐式曲面
+
+设$$f(x, y, z)$$是定义在$$\mathbb{E}^3$$上的一个区域$$\tilde{D}$$是的连续可微函数。当
+
+$$
+\bigg( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \bigg) \neq \mathbf{0}
+$$
+
+时，函数$$f$$的等值面
+
+$$
+f(x, y, z) = c
+$$
+
+是$$\mathbb{E}^3$$中的一个正则曲面。
