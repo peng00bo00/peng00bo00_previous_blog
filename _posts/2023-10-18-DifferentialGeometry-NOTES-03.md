@@ -369,3 +369,55 @@ $$
 &=\boldsymbol{r}_u (u, v) \Delta u + \boldsymbol{r}_v (u, v) \Delta v
 \end{aligned}
 $$
+
+当$$(\Delta u， \Delta v) \to (0, 0)$$时它是函数$$\boldsymbol{r} (u, v)$$的增量$$\boldsymbol{r} (u + \Delta u, v + \Delta v) - \boldsymbol{r} (u, v)$$作为无穷小量的线性的主要部分，即$$\boldsymbol{r} (u + \Delta u, v + \Delta v) - \boldsymbol{r} (u, v) - \mathrm{d} \boldsymbol{r} (u, v)$$是$$\rho = \sqrt{(\Delta u)^2 + (\Delta v)^2}$$的更高阶的无穷小最，也就是
+
+$$
+\lim_{\rho \to 0} \frac{\vert \boldsymbol{r} (u + \Delta u, v + \Delta v) - \boldsymbol{r} (u, v) - \mathrm{d} \boldsymbol{r} (u, v) \vert}{\rho} = 0
+$$
+
+另一方面，微分表达式告诉我们$$\mathrm{d} \boldsymbol{r} (u, v)$$是4个自变量$$u$$、$$v$$、$$\mathrm{d} u$$、$$\mathrm{d} v$$的函数，它关于这组新的自变量$$\mathrm{d} u$$、$$\mathrm{d} v$$是线性的。这就是说，$$\mathrm{d} \boldsymbol{r} (u, v)$$是切向量$$\boldsymbol{r}_u (u, v)$$，$$\boldsymbol{r}_v (u, v)$$的线性组合，组合系数是自变量$$\mathrm{d} u$$、$$\mathrm{d} v$$，它们可以取任意的实数值。由此可见，在自变量$$u$$、$$v$$固定的时候，也就是在曲面$$S$$上固定一点的情况下，$$\mathrm{d} \boldsymbol{r}$$代表了曲面$$S$$在点$$\boldsymbol{r}$$处的任意一个切向量，而$$\mathrm{d} u$$、$$\mathrm{d} v$$正是该切向量在自然基底$$\{ \boldsymbol{r}_u (u, v), \boldsymbol{r}_v (u, v) \}$$下的分量，因此它们是切空间$$T_p S$$上的线性函数。为说明这一点，先考察一下一般情形。
+
+我们知道，在一个$$n$$维线性空间$$V$$中取定了一个基底$$\{ \boldsymbol{e}_1, ..., \boldsymbol{e}_n \}$$，则$$V$$中任意一个元素关于该基底的分量是线性空间$$V$$上的线性函数。例如，设
+
+$$
+\boldsymbol{w} = w^1 \boldsymbol{e}_1 + ... + w^n \boldsymbol{e}_n
+$$
+
+用$$f^i$$表示取向量$$\boldsymbol{w}$$在基底$$\{ \boldsymbol{e}_1, ..., \boldsymbol{e}_n \}$$下第$$i$$个分量的函数，即
+
+$$
+f^i (\boldsymbol{w}) = w^i
+$$
+
+则$$f^i$$是线性空间$$V$$上的线性函数。实际上，若有另一元素$$\boldsymbol{z} \in V$$，
+
+$$
+\boldsymbol{z} = z^1 \boldsymbol{e}_1 + ... + z^n \boldsymbol{e}_n
+$$
+
+则
+
+$$
+\boldsymbol{w} + \boldsymbol{z} = (w^1 + z^1) \boldsymbol{e}_1 + ... + (w^n + z^n) \boldsymbol{e}_n
+$$
+
+因此
+
+$$
+f^i (\boldsymbol{w} + \boldsymbol{z}) = w^i + z^i = f^i (\boldsymbol{w}) + f^i (\boldsymbol{z})
+$$
+
+对于任意的实数$$\lambda$$有
+
+$$
+\lambda \cdot \boldsymbol{w} = (\lambda w^1) \boldsymbol{e}_1 + ... + (\lambda w^n) \boldsymbol{e}_n
+$$
+
+因此
+
+$$
+f^i (\lambda \cdot \boldsymbol{w}) = \lambda w^i = \lambda \cdot f^i (\boldsymbol{w})
+$$
+
+这说明$$f^i$$是线性空间$$V$$上的线性函数。
