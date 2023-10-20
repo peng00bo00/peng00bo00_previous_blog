@@ -40,7 +40,7 @@ $$
 但是，要使$$(u, v)$$真的能够具有曲面$$S$$上点的坐标的功能，必须要求在曲面$$S$$和区域$$D$$的点之间是一一对应的，显然上面提到的方程组本身并不能满足这一点。为此，需要在方程上加一些正则性条件。曲面$$S$$的参数曲线在点$$p_0$$的两个切向量是
 
 $$
-\boldsymbol{r}_u (u_0, v_0) = \frac{\partial \boldsymbol{r}}{\partial u} \bigg|_{(u_0, v_0)} \ \
+\boldsymbol{r}_u (u_0, v_0) = \frac{\partial \boldsymbol{r}}{\partial u} \bigg|_{(u_0, v_0)}, \ \ 
 \boldsymbol{r}_v (u_0, v_0) = \frac{\partial \boldsymbol{r}}{\partial v} \bigg|_{(u_0, v_0)}
 $$
 
@@ -258,13 +258,13 @@ $$
 
 $$
 \begin{aligned}
-\frac{d \boldsymbol{r} (u(t), v(t))}{dt} \bigg|_{t=0} 
-&= \bigg( \frac{\partial \boldsymbol{r}}{\partial u} \frac{d u(t)}{dt} + \frac{\partial \boldsymbol{r}}{\partial v} \frac{d v(t)}{dt} \bigg) \bigg|_{t=0} \\
-&= \boldsymbol{r}_u \frac{d u(t)}{d t} \bigg|_{t=0} + \boldsymbol{r}_v \frac{d v(t)}{d t} \bigg|_{t=0}
+\frac{\mathrm{d} \boldsymbol{r} (u(t), v(t))}{\mathrm{d} t} \bigg|_{t=0} 
+&= \bigg( \frac{\partial \boldsymbol{r}}{\partial u} \frac{\mathrm{d} u(t)}{\mathrm{d} t} + \frac{\partial \boldsymbol{r}}{\partial v} \frac{\mathrm{d} v(t)}{\mathrm{d} t} \bigg) \bigg|_{t=0} \\
+&= \boldsymbol{r}_u \frac{\mathrm{d} u(t)}{\mathrm{d} t} \bigg|_{t=0} + \boldsymbol{r}_v \frac{\mathrm{d} v(t)}{\mathrm{d} t} \bigg|_{t=0}
 \end{aligned}
 $$
 
-这意味着曲面$$S$$在点$$p$$的切向量$$\frac{d \boldsymbol{r} (u(t), v(t))}{dt} \bigg\vert_{t=0}$$是切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$的线性组合，其组合系数恰好是$$\frac{d u(t)}{d t} \bigg\vert_{t=0}$$，$$\frac{d v(t)}{d t} \bigg\vert_{t=0}$$。反过来，切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$的任意一个现象组合$$a \boldsymbol{r}_u + b \boldsymbol{r}_v$$，其中$$a$$，$$b$$是任意的实数，必定是曲面$$S$$的一个切向量。事实上，只要考虑曲面$$S$$上的连续可微曲线
+这意味着曲面$$S$$在点$$p$$的切向量$$\frac{\mathrm{d} \boldsymbol{r} (u(t), v(t))}{\mathrm{d} t} \bigg\vert_{t=0}$$是切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$的线性组合，其组合系数恰好是$$\frac{\mathrm{d} u(t)}{\mathrm{d} t} \bigg\vert_{t=0}$$，$$\frac{\mathrm{d} v(t)}{\mathrm{d} t} \bigg\vert_{t=0}$$。反过来，切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$的任意一个现象组合$$a \boldsymbol{r}_u + b \boldsymbol{r}_v$$，其中$$a$$，$$b$$是任意的实数，必定是曲面$$S$$的一个切向量。事实上，只要考虑曲面$$S$$上的连续可微曲线
 
 $$
 \begin{cases}
@@ -276,7 +276,7 @@ $$
 其中点$$p$$对应的参数是$$(u_0, v_0)$$，则该曲线在点$$p$$的切向量是
 
 $$
-\frac{d \boldsymbol{r} (u(t), v(t))}{dt} \bigg|_{t=0} = a \boldsymbol{r}_u + b \boldsymbol{r}_v
+\frac{\mathrm{d} \boldsymbol{r} (u(t), v(t))}{\mathrm{d} t} \bigg|_{t=0} = a \boldsymbol{r}_u + b \boldsymbol{r}_v
 $$
 
 由此可见，曲面$$S$$在点$$p$$的切向量就是点$$p$$的切向量$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$的任意的线性组合。
@@ -354,10 +354,18 @@ $$
 将上式对变量$$t$$求导得到
 
 $$
-\frac{\partial f}{\partial x} \frac{d x(t)}{dt} + \frac{\partial f}{\partial y} \frac{d y(t)}{dt}  + \frac{\partial f}{\partial z} \frac{d z(t)}{dt} = 0
+\frac{\partial f}{\partial x} \frac{\mathrm{d} x(t)}{\mathrm{d} t} + \frac{\partial f}{\partial y} \frac{\mathrm{d} y(t)}{\mathrm{d} t}  + \frac{\partial f}{\partial z} \frac{\mathrm{d} z(t)}{\mathrm{d} t} = 0
 $$
 
-这说明向量$$\bigg( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \bigg)$$与曲线$$C$$的切向量$$\bigg( \frac{d x(t)}{dt}, \frac{d y(t)}{dt}, \frac{d z(t)}{dt} \bigg)$$是正交的，因而它与等值面上任意一条连续可微曲线都是垂直的，因此必定是等值面的一个法向量。
+这说明向量$$\bigg( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \bigg)$$与曲线$$C$$的切向量$$\bigg( \frac{\mathrm{d} x(t)}{\mathrm{d} t}, \frac{\mathrm{d} y(t)}{\mathrm{d} t}, \frac{\mathrm{d} z(t)}{\mathrm{d} t} \bigg)$$是正交的，因而它与等值面上任意一条连续可微曲线都是垂直的，因此必定是等值面的一个法向量。
 
 ### 正则参数曲面的微分
 
+现在有必要对正则参数曲面$$S$$的参数方程$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$的微分$$\mathrm{d} \boldsymbol{r} (u, v)$$作一些说明。首先，$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$的微分$$\mathrm{d} \boldsymbol{r} (u, v)$$是关于参数$$u$$、$$v$$的微分$$\mathrm{d} u$$、$$\mathrm{d} v$$的现象表达式：
+
+$$
+\begin{aligned}
+\mathrm{d} \boldsymbol{r} (u, v) &= \boldsymbol{r}_u (u, v) \mathrm{d} u + \boldsymbol{r}_v (u, v) \mathrm{d} v \\
+&=\boldsymbol{r}_u (u, v) \Delta u + \boldsymbol{r}_v (u, v) \Delta v
+\end{aligned}
+$$
