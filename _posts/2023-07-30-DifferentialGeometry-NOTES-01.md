@@ -381,11 +381,11 @@ $$
 
 $$
 \begin{aligned}
-\frac{d \boldsymbol{r}}{d t} \bigg|_{t = t_0} &= \lim_{\Delta t \to 0} \frac{\boldsymbol{r}(t_0 + \Delta t) - \boldsymbol{r}(t_0)}{\Delta t} \\
+\frac{\mathrm{d} \boldsymbol{r}}{\mathrm{d} t} \bigg|_{t = t_0} &= \lim_{\Delta t \to 0} \frac{\boldsymbol{r}(t_0 + \Delta t) - \boldsymbol{r}(t_0)}{\Delta t} \\
 &= \lim_{\Delta t \to 0} \bigg( \frac{x(t_0 + \Delta t) - x(t_0)}{\Delta t}, \frac{y(t_0 + \Delta t) - y(t_0)}{\Delta t}, \frac{z(t_0 + \Delta t) - z(t_0)}{\Delta t} \bigg) \\
 &= (x'(t_0), y'(t_0), z'(t_0))
 \\ \\
-\int_a^b \boldsymbol{r}(t) \ dt &= \bigg( \int_a^b x(t) \ dt, \int_a^b y(t) \ dt, \int_a^b z(t) \ dt \bigg)
+\int_a^b \boldsymbol{r}(t) \ \mathrm{d} t &= \bigg( \int_a^b x(t) \ \mathrm{d} t, \int_a^b y(t) \ \mathrm{d} t, \int_a^b z(t) \ \mathrm{d} t \bigg)
 \end{aligned}
 $$
 
@@ -412,7 +412,7 @@ $$
 
 $$
 \begin{aligned}
-\frac{d}{dt} \vert \boldsymbol{a}(t) \vert^2 &= \frac{d (\boldsymbol{a}(t) \cdot \boldsymbol{a}(t))}{dt} \\
+\frac{\mathrm{d}}{\mathrm{d} t} \vert \boldsymbol{a}(t) \vert^2 &= \frac{\mathrm{d} (\boldsymbol{a}(t) \cdot \boldsymbol{a}(t))}{\mathrm{d} t} \\
 &= \boldsymbol{a}'(t) \cdot \boldsymbol{a}(t) + \boldsymbol{a}(t) \cdot \boldsymbol{a}'(t) \\
 &= 2 \boldsymbol{a}'(t) \cdot \boldsymbol{a}(t)
 \end{aligned}
