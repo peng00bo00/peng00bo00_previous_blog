@@ -421,3 +421,24 @@ f^i (\lambda \cdot \boldsymbol{w}) = \lambda w^i = \lambda \cdot f^i (\boldsymbo
 $$
 
 这说明$$f^i$$是线性空间$$V$$上的线性函数。
+
+由此可见，$$\mathrm{d} u$$、$$\mathrm{d} v$$是作为二维线性空间的切空间$$T_p S$$上的线性函数，它们在切向量$$\boldsymbol{X}$$上的值分别是该切向量$$\boldsymbol{X}$$在自然基底$$\{ \boldsymbol{r}_u (u, v), \boldsymbol{r}_v (u, v) \}$$下的分量。这就是说，若设$$\boldsymbol{X} = X^1 \boldsymbol{r}_u + X^2 \boldsymbol{r}_v$$，则
+
+$$
+\begin{cases}
+\begin{aligned}
+\mathrm{d} u (\boldsymbol{X}) &= X^1 \\
+\mathrm{d} v (\boldsymbol{X}) &= X^2
+\end{aligned}
+\end{cases}
+$$
+
+在上述意义下，曲面$$S$$在点$$\boldsymbol{r} (u, v)$$处的切平面的方程成为
+
+$$
+\boldsymbol{X} = \boldsymbol{r} (u, v) + \boldsymbol{r}_u (u, v) \mathrm{d} u + \boldsymbol{r}_v (u, v) \mathrm{d} v
+$$
+
+而$$\mathrm{d} u$$、$$\mathrm{d} v$$成为切平面上动点的参数。因此，在已知正则参数曲面$$S$$的参数方程的前提下，对于固定的$$(u, v)$$来说，$$(\mathrm{d} u, \mathrm{d} v)$$的每一个给定的值对应于由$$\mathrm{d} \boldsymbol{r} = \boldsymbol{r}_u \mathrm{d} u + \boldsymbol{r}_v \mathrm{d} v$$给出的一个确定的切向量，$$(\mathrm{d} u, \mathrm{d} v)$$是该切向量的分量或坐标。此外，我们还经常用比值$$\mathrm{d} u : \mathrm{d} v$$表示曲面$$S$$上的一个切方向。
+
+需要指出的是，一般说来，自然基底$$\{ \boldsymbol{r}_u (u, v), \boldsymbol{r}_v (u, v) \}$$**不是**单位正交的，因而$$(\mathrm{d} u, \mathrm{d} v)$$**不是**切向量在笛卡儿直角坐标系下的分量，两个切向量的内积**不能**写成它们的对应的分量的乘积之和。在下一节，我们将具体地研究切向量的内积的表达式。
