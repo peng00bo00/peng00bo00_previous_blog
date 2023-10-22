@@ -505,3 +505,43 @@ E & F \\ F & G
 $$
 
 则二次微分式$$\mathrm{I}$$与正则参数曲面$$S$$的参数选取是无关的，称其为曲面$$S$$的**第一基本形式**。
+
+### 参数变换
+
+### 几何意义
+
+第一基本形式$$\mathrm{I}$$的几何意义是切向量$$\mathrm{d} \boldsymbol{r}$$的长度平方。若在点$$(u, v)$$处有另一个切向量
+
+$$
+\delta \boldsymbol{r} (u, v) = \boldsymbol{r}_u (u, v) \delta u + \boldsymbol{r}_v (u, v) \delta v
+$$
+
+它的分量是$$\delta u$$、$$\delta v$$，则切向量$$\mathrm{d} \boldsymbol{r}$$和$$\delta \boldsymbol{r}$$的内积是
+
+$$
+\begin{aligned}
+\mathrm{d} \boldsymbol{r} \cdot \delta \boldsymbol{r} &= \frac{1}{2} \big[ (\mathrm{d} \boldsymbol{r} + \delta \boldsymbol{r} )^2 - (\mathrm{d} \boldsymbol{r})^2 - (\delta \boldsymbol{r})^2 \big] \\
+&= E \mathrm{d} u \delta u + F (\mathrm{d} u \delta v + \mathrm{d} v \delta u) + G \mathrm{d} v \delta v
+\end{aligned}
+$$
+
+为方便起见，有时把上式右端表达式记为$$\mathrm{I} (\mathrm{d} \boldsymbol{r}, \delta \boldsymbol{r})$$。因此
+
+$$
+\vert \mathrm{d} \boldsymbol{r} \vert = \sqrt{E (\mathrm{d} u)^2 + 2F \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2} = \sqrt{\mathrm{I} (\mathrm{d} \boldsymbol{r}, \mathrm{d} \boldsymbol{r})}
+$$
+
+并且
+
+$$
+\begin{aligned}
+\cos{\angle (\mathrm{d} \boldsymbol{r}, \delta \boldsymbol{r})} &= \frac{\mathrm{d} \boldsymbol{r} \cdot \delta \boldsymbol{r}}{\vert \mathrm{d} \boldsymbol{r} \vert \vert \delta \boldsymbol{r} \vert} = \frac{\mathrm{I} (\mathrm{d} \boldsymbol{r}, \delta \boldsymbol{r})}{\sqrt{\mathrm{I} (\mathrm{d} \boldsymbol{r}, \mathrm{d} \boldsymbol{r})} \sqrt{\mathrm{I} (\delta \boldsymbol{r}, \delta \boldsymbol{r})}} \\
+&= \frac{E \mathrm{d} u \delta u + F (\mathrm{d} u \delta v + \mathrm{d} v \delta u) + G \mathrm{d} v \delta v}{\sqrt{E (\mathrm{d} u)^2 + 2F \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2} \sqrt{E (\delta u)^2 + 2F \delta u \delta v + G (\delta v)^2}}
+\end{aligned}
+$$
+
+由此可见，切向量$$\mathrm{d} \boldsymbol{r}$$和$$\delta \boldsymbol{r}$$彼此正交的充分必要条件是：
+
+$$
+E \mathrm{d} u \delta u + F (\mathrm{d} u \delta v + \mathrm{d} v \delta u) + G \mathrm{d} v \delta v = 0
+$$
