@@ -444,3 +444,64 @@ $$
 而$$\mathrm{d} u$$、$$\mathrm{d} v$$成为切平面上动点的参数。因此，在已知正则参数曲面$$S$$的参数方程的前提下，对于固定的$$(u, v)$$来说，$$(\mathrm{d} u, \mathrm{d} v)$$的每一个给定的值对应于由$$\mathrm{d} \boldsymbol{r} = \boldsymbol{r}_u \mathrm{d} u + \boldsymbol{r}_v \mathrm{d} v$$给出的一个确定的切向量，$$(\mathrm{d} u, \mathrm{d} v)$$是该切向量的分量或坐标。此外，我们还经常用比值$$\mathrm{d} u : \mathrm{d} v$$表示曲面$$S$$上的一个切方向。
 
 需要指出的是，一般说来，自然基底$$\{ \boldsymbol{r}_u (u, v), \boldsymbol{r}_v (u, v) \}$$**不是**单位正交的，因而$$(\mathrm{d} u, \mathrm{d} v)$$**不是**切向量在笛卡儿直角坐标系下的分量，两个切向量的内积**不能**写成它们的对应的分量的乘积之和。在下一节，我们将具体地研究切向量的内积的表达式。
+
+## 第一基本形式
+
+根据上一节的讨论我们知道，曲面$$S$$上的任意一点$$p \in S$$处的切空间$$T_p S$$是由切向量$$\boldsymbol{r}_u (u, v)$$，$$\boldsymbol{r}_v (u, v)$$张成的二维向量空间，它是$$\mathbb{R}^3$$的子空间。因此，当曲面$$S$$上的切向量作为$$\mathbb{R}^3$$中的向量时可以求它们的长度和夹角。换言之，曲面$$S$$上任意一点的任意两个切向量的内积就是它们作为$$\mathbb{R}^3$$中的向量的内积。在前面已经说过，曲面$$S$$在任意一点$$\boldsymbol{r} (u, v)$$的任意一个切向量是
+
+$$
+\mathrm{d} \boldsymbol{r} (u, v) = \boldsymbol{r}_u (u, v) \mathrm{d} u + \boldsymbol{r}_v (u, v) \mathrm{d} v 
+$$
+
+其中$$(\mathrm{d} u, \mathrm{d} v)$$是切向量$$\mathrm{d} \boldsymbol{r} (u, v)$$在自然基底$$\{ \boldsymbol{r}_u (u, v), \boldsymbol{r}_v (u, v) \}$$下的分量。一般说来，$$\{ \boldsymbol{r}_u (u, v), \boldsymbol{r}_v (u, v) \}$$**不是单位正交基底**。但是，如果知道这个基底的度量系数，则切向量$$\mathrm{d} \boldsymbol{r} (u, v)$$与其自身的内积就能够表示成它的分量$$\mathrm{d} u$$、$$\mathrm{d} v$$的二次型。命
+
+$$
+\begin{aligned}
+E(u, v) &= \boldsymbol{r}_u (u, v) \cdot \boldsymbol{r}_u (u, v) \\
+F(u, v) &= \boldsymbol{r}_u (u, v) \cdot \boldsymbol{r}_v (u, v) = \boldsymbol{r}_v (u, v) \cdot \boldsymbol{r}_u (u, v) \\
+G(u, v) &= \boldsymbol{r}_v (u, v) \cdot \boldsymbol{r}_v (u, v) \\
+\end{aligned}
+$$
+
+它们就是基底$$\{ \boldsymbol{r}_u (u, v), \boldsymbol{r}_v (u, v) \}$$的度量系数，称为曲面$$S$$的**第一类基本量**，通常把它们写成一个对称矩阵的形式
+
+$$
+\begin{pmatrix}
+E & F \\ F & G
+\end{pmatrix}
+$$
+
+很明显，$$E(u, v) \gt 0$$，$$G(u, v) \gt 0$$，并且
+
+$$
+\begin{aligned}
+E(u, v) G(u, v) - F^2(u, v) 
+&= \vert \boldsymbol{r}_u (u, v) \vert^2 \cdot \vert \boldsymbol{r}_v (u, v) \vert^2 \big( 1 - \cos^2 \angle (\boldsymbol{r}_u (u, v), \boldsymbol{r}_v (u, v) \big) \\
+&\gt 0
+\end{aligned}
+$$
+
+(因为$$\boldsymbol{r}_u (u, v)$$、$$\boldsymbol{r}_v (u, v)$$不共线)，因此对称矩阵$$\begin{pmatrix} E & F \\ F & G \end{pmatrix}$$是一个正定矩阵。命
+
+$$
+\begin{aligned}
+\mathrm{I} &= \mathrm{d} \boldsymbol{r} (u, v) \cdot \mathrm{d} \boldsymbol{r} (u, v) \\
+&= \big( \boldsymbol{r}_u (u, v) \mathrm{d} u + \boldsymbol{r}_v (u, v) \mathrm{d} v  \big) \cdot \big( \boldsymbol{r}_u (u, v) \mathrm{d} u + \boldsymbol{r}_v (u, v) \mathrm{d} v  \big) \\
+&= E(u, v) (\mathrm{d} u)^2 + 2F(u, v) \mathrm{d} u \mathrm{d} v + G(u, v) (\mathrm{d} v)^2 \\
+&= 
+\begin{pmatrix}
+\mathrm{d} u, \mathrm{d} v
+\end{pmatrix}
+
+\begin{pmatrix}
+E & F \\ F & G
+\end{pmatrix}
+
+\begin{pmatrix}
+\mathrm{d} u \\ \mathrm{d} v
+\end{pmatrix}
+
+\end{aligned}
+$$
+
+则二次微分式$$\mathrm{I}$$与正则参数曲面$$S$$的参数选取是无关的，称其为曲面$$S$$的**第一基本形式**。
