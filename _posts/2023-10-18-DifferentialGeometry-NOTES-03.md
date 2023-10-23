@@ -508,6 +508,178 @@ $$
 
 ### 参数变换
 
+事实上，根据一次微分的形式不变性，$$\mathrm{d} \boldsymbol{r} (u, v)$$与正则参数曲面$$S$$的参数的选取无关，因此$$\mathrm{I}$$作为$$\mathrm{d} \boldsymbol{r} (u, v)$$与其自身的内积当然也与正则参数曲面$$S$$的参数的选取无关。这个事实也能够从另一个方面进行解释。
+
+假定正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$有一个容许的参数变换
+
+$$
+\begin{cases}
+u = u(\tilde{u}, \tilde{v}) \\
+v = v(\tilde{u}, \tilde{v}) \\
+\end{cases}
+$$
+
+为方便起见，把曲面$$S$$的新的参数方程仍旧记成
+
+$$
+\boldsymbol{r} = \boldsymbol{r} (\tilde{u}, \tilde{v}) = \boldsymbol{r} ( u(\tilde{u}, \tilde{v}), v(\tilde{u}, \tilde{v}))
+$$
+
+那么根据求导的链式法则和一次微分的形式不变性，我们有
+
+$$
+\begin{aligned}
+\mathrm{d} \boldsymbol{r} &= \boldsymbol{r}_u (u, v) \mathrm{d} u + \boldsymbol{r}_v (u, v) \mathrm{d} v  \\
+&= \boldsymbol{r}_u (u, v) \bigg( \frac{\partial u}{\partial \tilde{u}} \mathrm{d} \tilde{u} + \frac{\partial u}{\partial \tilde{v}} \mathrm{d} \tilde{v} \bigg) + \boldsymbol{r}_v (u, v) \bigg( \frac{\partial v}{\partial \tilde{u}} \mathrm{d} \tilde{u} + \frac{\partial v}{\partial \tilde{v}} \mathrm{d} \tilde{v} \bigg) \\
+&= \boldsymbol{r}_{\tilde{u}} (\tilde{u}, \tilde{v}) \mathrm{d} \tilde{u} + \boldsymbol{r}_{\tilde{v}} (\tilde{u}, \tilde{v}) \mathrm{d} \tilde{v}
+\end{aligned}
+$$
+
+因此
+
+$$
+\begin{aligned}
+\boldsymbol{r}_{\tilde{u}} (\tilde{u}, \tilde{v}) &= \boldsymbol{r}_u (u, v) \frac{\partial u}{\partial \tilde{u}} + \boldsymbol{r}_v (u, v) \frac{\partial v}{\partial \tilde{u}} \\
+\boldsymbol{r}_{\tilde{v}} (\tilde{u}, \tilde{v}) &= \boldsymbol{r}_u (u, v) \frac{\partial u}{\partial \tilde{v}} + \boldsymbol{r}_v (u, v) \frac{\partial v}{\partial \tilde{v}}
+\end{aligned}
+$$
+
+并且
+
+$$
+\begin{aligned}
+\mathrm{d} u &= \frac{\partial u}{\partial \tilde{u}} \mathrm{d} \tilde{u} + \frac{\partial u}{\partial \tilde{v}} \mathrm{d} \tilde{v} \\
+\mathrm{d} v &= \frac{\partial v}{\partial \tilde{u}} \mathrm{d} \tilde{u} + \frac{\partial v}{\partial \tilde{v}} \mathrm{d} \tilde{v}
+\end{aligned}
+$$
+
+将上面两组式子用矩阵来表示，可以得到
+
+$$
+\begin{pmatrix}
+\boldsymbol{r}_{\tilde{u}} \\ \boldsymbol{r}_{\tilde{v}}
+\end{pmatrix}
+= J \cdot
+\begin{pmatrix}
+\boldsymbol{r}_u \\ \boldsymbol{r}_v
+\end{pmatrix}
+$$
+
+$$
+\begin{pmatrix}
+\mathrm{d} u & \mathrm{d} v
+\end{pmatrix}
+=
+\begin{pmatrix}
+\mathrm{d} \tilde{u} & \mathrm{d} \tilde{v}
+\end{pmatrix}
+\cdot J
+$$
+
+其中
+
+$$
+J = 
+\begin{pmatrix}
+\frac{\partial u}{\partial \tilde{u}} & \frac{\partial v}{\partial \tilde{u}} \\
+\frac{\partial u}{\partial \tilde{v}} & \frac{\partial v}{\partial \tilde{v}} \\
+\end{pmatrix}
+$$
+
+根据曲面$$S$$的第一类基本量的定义
+
+$$
+\begin{pmatrix}
+E & F \\ F & G
+\end{pmatrix}
+=
+\begin{pmatrix}
+\boldsymbol{r}_u \\ \boldsymbol{r}_v
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{r}_u & \boldsymbol{r}_v
+\end{pmatrix}
+$$
+
+因此
+
+$$
+\begin{pmatrix}
+\tilde{E} & \tilde{F} \\ \tilde{F} & \tilde{G}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\boldsymbol{r}_{\tilde{u}} \\ \boldsymbol{r}_{\tilde{v}}
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{r}_{\tilde{u}} & \boldsymbol{r}_{\tilde{v}}
+\end{pmatrix}
+=
+J \cdot
+\begin{pmatrix}
+\tilde{E} & \tilde{F} \\ \tilde{F} & \tilde{G}
+\end{pmatrix}
+\cdot J^T
+$$
+
+所以，曲面$$S$$的第一类基本量的矩阵$$\begin{pmatrix}\tilde{E} & \tilde{F} \\ \tilde{F} & \tilde{G}\end{pmatrix}$$和$$\begin{pmatrix} E & F \\ F & G \end{pmatrix}$$差一个合同变换。
+
+将$$\begin{pmatrix}\tilde{E} & \tilde{F} \\ \tilde{F} & \tilde{G}\end{pmatrix}$$展开则得到
+
+$$
+\begin{aligned}
+\tilde{E} &= E \bigg( \frac{\partial u}{\partial \tilde{u}} \bigg)^2 + 2F \frac{\partial u}{\partial \tilde{u}} \frac{\partial v}{\partial \tilde{u}} + G \bigg(\frac{\partial v}{\partial \tilde{u}} \bigg)^2 \\
+\tilde{F} &= E \frac{\partial u}{\partial \tilde{u}} \frac{\partial u}{\partial \tilde{v}} + F \bigg( \frac{\partial u}{\partial \tilde{u}} \frac{\partial v}{\partial \tilde{v}} + \frac{\partial u}{\partial \tilde{v}} \frac{\partial v}{\partial \tilde{u}} \bigg) + G \frac{\partial v}{\partial \tilde{u}} \frac{\partial v}{\partial \tilde{v}} \\
+\tilde{G} &= E \bigg(\frac{\partial u}{\partial \tilde{v}} \bigg)^2 + 2F \frac{\partial u}{\partial \tilde{v}} \frac{\partial v}{\partial \tilde{v}} + G \bigg(\frac{\partial v}{\partial \tilde{v}} \bigg)^2\\
+\end{aligned}
+$$
+
+类似地
+
+$$
+\begin{aligned}
+\tilde{E} (\mathrm{d} \tilde{u})^2 + 2 \tilde{F} \mathrm{d} \tilde{u} \mathrm{d} \tilde{v} + \tilde{G} (\mathrm{d} \tilde{v})^2
+&=
+\begin{pmatrix}
+\mathrm{d} \tilde{u} & \mathrm{d} \tilde{v}
+\end{pmatrix}
+\begin{pmatrix}
+\tilde{E} & \tilde{F} \\ \tilde{F} & \tilde{G}
+\end{pmatrix}
+\begin{pmatrix}
+\mathrm{d} \tilde{u} \\ \mathrm{d} \tilde{v}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+\mathrm{d} \tilde{u} & \mathrm{d} \tilde{v}
+\end{pmatrix}
+J \cdot
+\begin{pmatrix}
+E & F \\ F & G
+\end{pmatrix}
+\cdot J^T
+\begin{pmatrix}
+\mathrm{d} \tilde{u} \\ \mathrm{d} \tilde{v}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+\mathrm{d} u & \mathrm{d} v
+\end{pmatrix}
+\begin{pmatrix}
+E & F \\ F & G
+\end{pmatrix}
+\begin{pmatrix}
+\mathrm{d} u \\ \mathrm{d} v
+\end{pmatrix} \\
+&= 
+E (\mathrm{d} u)^2 + 2F \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2 \\
+\end{aligned}
+$$
+
+即二次微分式$$\mathrm{I}$$与正则参数曲面$$S$$的参数的选取是无关的
+
 ### 几何意义
 
 第一基本形式$$\mathrm{I}$$的几何意义是切向量$$\mathrm{d} \boldsymbol{r}$$的长度平方。若在点$$(u, v)$$处有另一个切向量
