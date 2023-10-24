@@ -108,7 +108,7 @@ $$
 
 即Monge形式给出的曲面都是正则的。
 
-### 参数变换
+### 容许的参数变换
 
 正则参数曲面的参数容许作一定的变换。设
 
@@ -477,6 +477,7 @@ $$
 \begin{aligned}
 E(u, v) G(u, v) - F^2(u, v) 
 &= \vert \boldsymbol{r}_u (u, v) \vert^2 \cdot \vert \boldsymbol{r}_v (u, v) \vert^2 \big( 1 - \cos^2 \angle (\boldsymbol{r}_u (u, v), \boldsymbol{r}_v (u, v) \big) \\
+&= \big\vert \boldsymbol{r}_u (u, v) \times \boldsymbol{r}_v (u, v) \big\vert^2 \\
 &\gt 0
 \end{aligned}
 $$
@@ -506,7 +507,7 @@ $$
 
 则二次微分式$$\mathrm{I}$$与正则参数曲面$$S$$的参数选取是无关的，称其为曲面$$S$$的**第一基本形式**。
 
-### 参数变换
+### 第一基本形式的不变性
 
 事实上，根据一次微分的形式不变性，$$\mathrm{d} \boldsymbol{r} (u, v)$$与正则参数曲面$$S$$的参数的选取无关，因此$$\mathrm{I}$$作为$$\mathrm{d} \boldsymbol{r} (u, v)$$与其自身的内积当然也与正则参数曲面$$S$$的参数的选取无关。这个事实也能够从另一个方面进行解释。
 
