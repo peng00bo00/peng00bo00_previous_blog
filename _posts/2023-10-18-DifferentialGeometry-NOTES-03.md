@@ -679,7 +679,7 @@ E (\mathrm{d} u)^2 + 2F \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2 \\
 \end{aligned}
 $$
 
-即二次微分式$$\mathrm{I}$$与正则参数曲面$$S$$的参数的选取是无关的
+即二次微分式$$\mathrm{I}$$与正则参数曲面$$S$$的参数的选取是无关的。
 
 ### 几何意义
 
