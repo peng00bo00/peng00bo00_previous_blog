@@ -718,3 +718,69 @@ $$
 $$
 E \mathrm{d} u \delta u + F (\mathrm{d} u \delta v + \mathrm{d} v \delta u) + G \mathrm{d} v \delta v = 0
 $$
+
+**定理3.1** 在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上参数曲线网是正交曲线网的充分必要条件是$$F(u, v) \equiv 0$$。
+{:.info}
+
+### 曲面上曲线的弧长和区域面积
+
+利用曲面的第一基本形式，能够计算正则参数曲面上的曲线的弧长和区域的面积。假定正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上的一条连续可微曲线的方程是
+
+$$
+u = u(t), \ \ v = v(t), \ \ a \leq t \leq b
+$$
+
+则曲线的切向量是
+
+$$
+\frac{\mathrm{d} \boldsymbol{r} (u(t), v(t))}{\mathrm{d} t} = \boldsymbol{r}_u \frac{\mathrm{d} u(t)}{\mathrm{d} t} + \boldsymbol{r}_v \frac{\mathrm{d} v(t)}{\mathrm{d} t}
+$$
+
+结合第一基本形式$$\mathrm{I}$$可以得到
+
+$$
+\bigg\vert \frac{\mathrm{d} \boldsymbol{r} (u(t), v(t))}{\mathrm{d} t} \bigg\vert = \sqrt{E \bigg( \frac{\mathrm{d} u(t)}{\mathrm{d} t} \bigg)^2 + 2F \frac{\mathrm{d} u(t)}{\mathrm{d} t} \frac{\mathrm{d} v(t)}{\mathrm{d} t}  + G \bigg( \frac{\mathrm{d} v(t)}{\mathrm{d} t} \bigg)^2 }
+$$
+
+在根据[曲线的弧长公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的弧长)可以得到曲线的长度是
+
+$$
+\begin{aligned}
+L &= \int_a^b \vert \boldsymbol{r}'(t) \vert \mathrm{d} t \\
+&= \sqrt{E \bigg( \frac{\mathrm{d} u(t)}{\mathrm{d} t} \bigg)^2 + 2F \frac{\mathrm{d} u(t)}{\mathrm{d} t} \frac{\mathrm{d} v(t)}{\mathrm{d} t}  + G \bigg( \frac{\mathrm{d} v(t)}{\mathrm{d} t} \bigg)^2 } \mathrm{d} t
+\end{aligned}
+$$
+
+现在假定正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$定义在区域$$D \subset \mathbb{E}^2$$上。考虑曲面上由参数曲线
+
+$$
+u = u_0, \ \ u = u_0 + \Delta u, \ \ v = v_0, \ \ v = v_0 + \Delta v
+$$
+
+所围成的一小块，其中$$\Delta u \lt 0$$，$$\Delta v \lt 0$$，它的面积近似地等于在点$$\boldsymbol{r}(u_0, v_0)$$处的切平面上由向量$$(\Delta u) \boldsymbol{r}_u$$和$$(\Delta v) \boldsymbol{r}_v$$所张成的平行四边形的面积，其大小可以表示为
+
+$$
+\begin{aligned}
+\vert ((\Delta u) \boldsymbol{r}_u) \times ((\Delta v) \boldsymbol{r}_v) \vert &= \vert \boldsymbol{r}_u \times \boldsymbol{r}_v \vert \Delta u \Delta v \\
+&= \vert \boldsymbol{r}_u \vert \vert \boldsymbol{r}_v \vert \sin{\angle(\boldsymbol{r}_u, \boldsymbol{r}_v)} \Delta u \Delta v \\
+&= \sqrt{EG - F^2} \Delta u \Delta v
+\end{aligned}
+$$
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/ifmiGYP.png" width="80%">
+</div>
+
+命
+
+$$
+\mathrm{d} \sigma = \sqrt{EG - F^2} \mathrm{d} u \mathrm{d} v
+$$
+
+称$$\mathrm{d} \sigma$$为曲面$$S$$的**面积元素**。那么曲面$$S$$的面积是
+
+$$
+A = \iint_D \sqrt{EG - F^2} \mathrm{d} u \mathrm{d} v
+$$
+
+根据重积分的变量替换法则以及第一类基本量的[变换规律](/2023/10/18/DifferentialGeometry-NOTES-03.html#第一基本形式的不变性)，不难知道上式右端与曲面$$S$$是容许的参数变换是无关的。
