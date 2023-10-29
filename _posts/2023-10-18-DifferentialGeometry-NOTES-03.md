@@ -849,7 +849,12 @@ $$
 **引理** 设$$f(u, v)$$，$$g(u, v)$$是定义在区域$$D \subset \mathbb{E}^2$$上的两个不同时为零的连续可微函数，则对于任意一点$$(u_0, v_0) \in D$$必有它的一个邻域$$U \subset D$$以及$$U$$上的非零连续函数$$\lambda (u, v)$$，使得$$\lambda(u, v)$$是一次微分式$$\omega = f(u, v) \mathrm{d} u + g(u, v) \mathrm{d} v$$的积分因子，即在$$U$$上存在某个连续可微函数$$k(u, v)$$使得$$\lambda(u, v) \big( f(u, v) \mathrm{d} u + g(u, v) \mathrm{d} v \big) = \mathrm{d}k(u, v)$$。
 {:.info}
 
-上述引理的证明可以参考[全微分方程积分因子的存在性](http://staff.ustc.edu.cn/~spliu/2017DG/Chen_Weihuan.pdf)。
+上述引理的证明可以参考[全微分方程积分因子的存在性](http://staff.ustc.edu.cn/~spliu/2017DG/Chen_Weihuan.pdf)。值得指出的是，引理的结论只对含有两个变量的一次微分式才成立，这就是本节的结论**只适用于曲面情形**的理由。
+
+下面我们利用引理证明一个比正交参数系的存在性更一般的命题：
+
+**定理3.2** 假定在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上两个处处线性无关的连续可微的切向量场$$\boldsymbol{a} (u, v)$$，$$\boldsymbol{b} (u, v)$$，则对于每一点$$p \in S$$必有点$$p$$的邻域$$U \subset S$$，以及在$$U$$上的新的参数系$$(\tilde{u}, \tilde{v})$$使得新参数曲线的切向量$$\boldsymbol{r}_{\tilde{u}}$$，$$\boldsymbol{r}_{\tilde{v}}$$分别与$$\boldsymbol{a}$$，$$\boldsymbol{b}$$平行，即$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{b}$$。
+{:.info}
 
 ## 保长对应和保角对应
 
