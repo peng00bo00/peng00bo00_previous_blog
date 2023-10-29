@@ -511,7 +511,7 @@ $$
 
 事实上，根据一次微分的形式不变性，$$\mathrm{d} \boldsymbol{r} (u, v)$$与正则参数曲面$$S$$的参数的选取无关，因此$$\mathrm{I}$$作为$$\mathrm{d} \boldsymbol{r} (u, v)$$与其自身的内积当然也与正则参数曲面$$S$$的参数的选取无关。这个事实也能够从另一个方面进行解释。
 
-假定正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$有一个容许的参数变换
+假定正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$有一个[容许的参数变换](/2023/10/18/DifferentialGeometry-NOTES-03.html#容许的参数变换)
 
 $$
 \begin{cases}
@@ -784,3 +784,54 @@ A = \iint_D \sqrt{EG - F^2} \mathrm{d} u \mathrm{d} v
 $$
 
 根据重积分的变量替换法则以及第一类基本量的[变换规律](/2023/10/18/DifferentialGeometry-NOTES-03.html#第一基本形式的不变性)，不难知道上式右端与曲面$$S$$是容许的参数变换是无关的。
+
+事实上，若有[容许的参数变换](/2023/10/18/DifferentialGeometry-NOTES-03.html#容许的参数变换)则曲面的参数方程成为
+
+$$
+\boldsymbol{r} = \boldsymbol{r} (\tilde{u}, \tilde{v}) \equiv \boldsymbol{r} (u(\tilde{u}, \tilde{v}), v(\tilde{u}, \tilde{v})), \ \ \forall (\tilde{u}, \tilde{v}) \in D
+$$
+
+根据重积分的变量替换法则，曲面面积公式的二次积分在变量替换下成为
+
+$$
+\iint_D \sqrt{EG - F^2} \mathrm{d} u \mathrm{d} v = \iint_{\tilde{D}} \sqrt{EG - F^2} \bigg\vert \frac{\partial u}{\partial \tilde{u}} \frac{\partial v}{\partial \tilde{v}} - \frac{\partial u}{\partial \tilde{v}} \frac{\partial v}{\partial \tilde{u}} \bigg\vert \mathrm{d} \tilde{u} \mathrm{d} \tilde{v}
+$$
+
+根据第一类基本量之间的[变换关系](/2023/10/18/DifferentialGeometry-NOTES-03.html#第一基本形式的不变性)可以得知
+
+$$
+\det {
+\begin{pmatrix}
+\tilde{E} & \tilde{F} \\ \tilde{F} & \tilde{G}
+\end{pmatrix}
+}
+=
+\det {J} \cdot
+\det{
+\begin{pmatrix}
+E & F \\ F & G
+\end{pmatrix}
+}
+\cdot \det{J^T}
+$$
+
+即
+
+$$
+\tilde{E} \tilde{G} - \tilde{F}^2 = (EG - F^2) \bigg( \frac{\partial u}{\partial \tilde{u}} \frac{\partial v}{\partial \tilde{v}} - \frac{\partial u}{\partial \tilde{v}} \frac{\partial v}{\partial \tilde{u}} \bigg)^2
+$$
+
+因此
+
+$$
+\sqrt{\tilde{E} \tilde{G} - \tilde{F}^2} = 
+\sqrt{EG - F^2} \ \bigg\vert \frac{\partial u}{\partial \tilde{u}} \frac{\partial v}{\partial \tilde{v}} - \frac{\partial u}{\partial \tilde{v}} \frac{\partial v}{\partial \tilde{u}} \bigg\vert
+$$
+
+所以
+
+$$
+\iint_D \sqrt{EG - F^2} \mathrm{d} u \mathrm{d} v = \iint_{\tilde{D}} \sqrt{\tilde{E} \tilde{G} - \tilde{F}^2} \mathrm{d} \tilde{u} \mathrm{d} \tilde{v}
+$$
+
+也就是说正则曲面$$S$$的面积与的正则参数表示无关。
