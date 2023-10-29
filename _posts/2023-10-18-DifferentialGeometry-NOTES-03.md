@@ -927,10 +927,14 @@ $$
 将它们分别对$$u$$，$$v$$求导得到
 
 $$
-\frac{\partial u}{\partial \tilde{u}} \frac{\partial \tilde{u}}{\partial u} + \frac{\partial u}{\partial \tilde{v}} \frac{\partial \tilde{v}}{\partial u} = 1, \ \
-\frac{\partial u}{\partial \tilde{u}} \frac{\partial \tilde{u}}{\partial v} + \frac{\partial u}{\partial \tilde{v}} \frac{\partial \tilde{v}}{\partial v} = 0 \\
-\frac{\partial v}{\partial \tilde{u}} \frac{\partial \tilde{u}}{\partial u} + \frac{\partial v}{\partial \tilde{v}} \frac{\partial \tilde{v}}{\partial u} = 0, \ \
-\frac{\partial v}{\partial \tilde{u}} \frac{\partial \tilde{u}}{\partial v} + \frac{\partial v}{\partial \tilde{v}} \frac{\partial \tilde{v}}{\partial v} = 1 \\
+\begin{cases}
+\begin{aligned}
+\frac{\partial u}{\partial \tilde{u}} \frac{\partial \tilde{u}}{\partial u} + \frac{\partial u}{\partial \tilde{v}} \frac{\partial \tilde{v}}{\partial u} &= 1 \\
+\frac{\partial u}{\partial \tilde{u}} \frac{\partial \tilde{u}}{\partial v} + \frac{\partial u}{\partial \tilde{v}} \frac{\partial \tilde{v}}{\partial v} &= 0 \\
+\frac{\partial v}{\partial \tilde{u}} \frac{\partial \tilde{u}}{\partial u} + \frac{\partial v}{\partial \tilde{v}} \frac{\partial \tilde{v}}{\partial u} &= 0 \\
+\frac{\partial v}{\partial \tilde{u}} \frac{\partial \tilde{u}}{\partial v} + \frac{\partial v}{\partial \tilde{v}} \frac{\partial \tilde{v}}{\partial v} &= 1 \\
+\end{aligned}
+\end{cases}
 $$
 
 用矩阵形式表示则是
@@ -976,13 +980,15 @@ $$
 \end{pmatrix}
 $$
 
-其中$$A = a_1 b_2 - a_2 b_1$$与之前的顶用相同。由此可见
+其中$$A = a_1 b_2 - a_2 b_1$$与之前的定义相同。由此可见
 
 $$
+\begin{cases}
 \begin{aligned}
 \mathrm{d} \tilde{u} &= \frac{\partial \tilde{u}}{\partial u} \mathrm{d} u + \frac{\partial \tilde{u}}{\partial v} \mathrm{d} v = \frac{1}{\lambda A} (b_2 \mathrm{d} u - b_1 \mathrm{d} v) \\
 \mathrm{d} \tilde{v} &= \frac{\partial \tilde{v}}{\partial u} \mathrm{d} u + \frac{\partial \tilde{v}}{\partial v} \mathrm{d} v = \frac{1}{\lambda A} (-a_2 \mathrm{d} u + a_1 \mathrm{d} v) \\
 \end{aligned}
+\end{cases}
 $$
 
 这表明我们所假设的参数变换是存在的，必有函数$$\lambda(u, v)$$，$$\mu(u, v)$$使得
@@ -994,10 +1000,12 @@ $$
 是全微分。所以，我们要考虑的问题就是一次微分式
 
 $$
+\begin{cases}
 \begin{aligned}
 \alpha &= b_2 \mathrm{d} u - b_1 \mathrm{d} v \\
 \beta &= -a_2 \mathrm{d} u + a_1 \mathrm{d} v
 \end{aligned}
+\end{cases}
 $$
 
 的积分因子的存在性问题。
