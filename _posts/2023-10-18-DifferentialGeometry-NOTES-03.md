@@ -853,7 +853,12 @@ $$
 
 下面我们利用引理证明一个比正交参数系的存在性更一般的命题：
 
-**定理3.2** 假定在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上两个处处线性无关的连续可微的切向量场$$\boldsymbol{a} (u, v)$$，$$\boldsymbol{b} (u, v)$$，则对于每一点$$p \in S$$必有点$$p$$的邻域$$U \subset S$$，以及在$$U$$上的新的参数系$$(\tilde{u}, \tilde{v})$$使得新参数曲线的切向量$$\boldsymbol{r}_{\tilde{u}}$$，$$\boldsymbol{r}_{\tilde{v}}$$分别与$$\boldsymbol{a}$$，$$\boldsymbol{b}$$平行，即$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{b}$$。
+**定理3.2** 假定在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上两个处处线性无关的连续可微的切向量场$$\boldsymbol{a} (u, v)$$，$$\boldsymbol{b} (u, v)$$，则对于每一点$$p \in S$$必有点$$p$$的邻域$$U \subset S$$，以及在$$U$$上的新的参数系$$(\tilde{u}, \tilde{v})$$，使得新参数曲线的切向量$$\boldsymbol{r}_{\tilde{u}}$$，$$\boldsymbol{r}_{\tilde{v}}$$分别与$$\boldsymbol{a}$$，$$\boldsymbol{b}$$平行，即$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{b}$$。
+{:.info}
+
+定理3.2的意思是在曲面上存在局部适用的参数系，使得参数曲线分别与预先给定的处处线性无关的切向量场相切(即以已知的切向量场作为参数曲线的方向场)。但是，一般来说，要使已知的切向量场恰好是参数曲线的切向量场(即$$\boldsymbol{r}_{\tilde{u}} = \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{v}} = \boldsymbol{b}$$)是做不到的。
+
+**定理3.3** 在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上的每一点$$p \in S$$，必有点$$p$$的邻域$$U \subset S$$，以及在$$U$$上的新的参数系$$(\tilde{u}, \tilde{v})$$，使得新参数曲线的切向量$$\boldsymbol{r}_{\tilde{u}}$$，$$\boldsymbol{r}_{\tilde{v}}$$是彼此正交的，即$$(\tilde{u}, \tilde{v})$$是曲面$$S$$在$$U$$上的正交参数系。
 {:.info}
 
 ## 保长对应和保角对应
