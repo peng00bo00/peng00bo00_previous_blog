@@ -856,10 +856,158 @@ $$
 **定理3.2** 假定在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上两个处处线性无关的连续可微的切向量场$$\boldsymbol{a} (u, v)$$，$$\boldsymbol{b} (u, v)$$，则对于每一点$$p \in S$$必有点$$p$$的邻域$$U \subset S$$，以及在$$U$$上的新的参数系$$(\tilde{u}, \tilde{v})$$，使得新参数曲线的切向量$$\boldsymbol{r}_{\tilde{u}}$$，$$\boldsymbol{r}_{\tilde{v}}$$分别与$$\boldsymbol{a}$$，$$\boldsymbol{b}$$平行，即$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{b}$$。
 {:.info}
 
+**证明** 假定在自然基底$$\{ \boldsymbol{r}_u, \boldsymbol{r}_v \}$$下，切向量场$$\boldsymbol{a}(u, v)$$，$$\boldsymbol{b}(u, v)$$的表达式是
+
+$$
+\begin{aligned}
+\boldsymbol{a} (u, v) &= a_1 (u, v) \boldsymbol{r}_u + a_2 (u, v) \boldsymbol{r}_v \\
+\boldsymbol{b} (u, v) &= b_1 (u, v) \boldsymbol{r}_u + b_2 (u, v) \boldsymbol{r}_v \\
+\end{aligned}
+$$
+
+其中，$$a_i (u, v)$$，$$b_i (u, v)$$都是连续可微函数，并且
+
+$$
+A = 
+\begin{vmatrix}
+a_1 (u, v) & a_2 (u, v) \\
+b_1 (u, v) & b_2 (u, v) \\
+\end{vmatrix}
+\neq 0
+$$
+
+我们先对问题做一些分析。如果有[容许的参数变换](/2023/10/18/DifferentialGeometry-NOTES-03.html#容许的参数变换)
+
+$$
+\begin{cases}
+u = u(\tilde{u}, \tilde{v}) \\
+v = v(\tilde{u}, \tilde{v}) \\
+\end{cases}
+$$
+
+使得$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{v}} \parallel \boldsymbol{b}$$，则必有函数$$\lambda(u, v)$$，$$\mu(u, v)$$使得
+
+$$
+\boldsymbol{r}_{\tilde{u}} = \lambda \boldsymbol{a}, \ \ \boldsymbol{r}_{\tilde{v}} = \mu \boldsymbol{b}
+$$
+
+展开得到
+
+$$
+\begin{aligned}
+\boldsymbol{r}_{\tilde{u}} &= \lambda a_1 (u, v) \boldsymbol{r}_u + \lambda a_2 (u, v) \boldsymbol{r}_v \\
+\boldsymbol{r}_{\tilde{v}} &= \mu b_1 (u, v) \boldsymbol{r}_u + \mu b_2 (u, v) \boldsymbol{r}_v \\
+\end{aligned}
+$$
+
+因此
+
+$$
+J = 
+\begin{pmatrix}
+\frac{\partial u}{\partial \tilde{u}} & \frac{\partial v}{\partial \tilde{u}} \\
+\frac{\partial u}{\partial \tilde{v}} & \frac{\partial v}{\partial \tilde{v}} \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+\lambda a_1 (u, v) & \lambda a_2 (u, v) \\
+\mu b_1 (u, v) & \mu b_2 (u, v) \\
+\end{pmatrix}
+$$
+
+设$$u = u(\tilde{u}, \tilde{v})$$，$$v = v(\tilde{u}, \tilde{v})$$的反函数是$$\tilde{u} = \tilde{u}(u, v)$$，$$\tilde{v} = \tilde{v}(u, v)$$，即下面的恒等式成立
+
+$$
+\begin{cases}
+u(\tilde{u} (u, v), \tilde{v} (u, v)) \equiv u \\
+v(\tilde{u} (u, v), \tilde{v} (u, v)) \equiv v \\
+\end{cases}
+$$
+
+将它们分别对$$u$$，$$v$$求导得到
+
+$$
+\frac{\partial u}{\partial \tilde{u}} \frac{\partial \tilde{u}}{\partial u} + \frac{\partial u}{\partial \tilde{v}} \frac{\partial \tilde{v}}{\partial u} = 1, \ \
+\frac{\partial u}{\partial \tilde{u}} \frac{\partial \tilde{u}}{\partial v} + \frac{\partial u}{\partial \tilde{v}} \frac{\partial \tilde{v}}{\partial v} = 0 \\
+\frac{\partial v}{\partial \tilde{u}} \frac{\partial \tilde{u}}{\partial u} + \frac{\partial v}{\partial \tilde{v}} \frac{\partial \tilde{v}}{\partial u} = 0, \ \
+\frac{\partial v}{\partial \tilde{u}} \frac{\partial \tilde{u}}{\partial v} + \frac{\partial v}{\partial \tilde{v}} \frac{\partial \tilde{v}}{\partial v} = 1 \\
+$$
+
+用矩阵形式表示则是
+
+$$
+\begin{pmatrix}
+\frac{\partial \tilde{u}}{\partial u} & \frac{\partial \tilde{v}}{\partial u} \\
+\frac{\partial \tilde{u}}{\partial v} & \frac{\partial \tilde{v}}{\partial v} \\
+\end{pmatrix}
+\cdot 
+\begin{pmatrix}
+\frac{\partial u}{\partial \tilde{u}} & \frac{\partial v}{\partial \tilde{u}} \\
+\frac{\partial u}{\partial \tilde{v}} & \frac{\partial v}{\partial \tilde{v}} \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0 \\ 0 & 1
+\end{pmatrix}
+$$
+
+这就是说，反函数的Jacobian矩阵是原函数的Jacobian矩阵的逆，即
+
+$$
+J^{-1} = 
+\begin{pmatrix}
+\frac{\partial \tilde{u}}{\partial u} & \frac{\partial \tilde{v}}{\partial u} \\
+\frac{\partial \tilde{u}}{\partial v} & \frac{\partial \tilde{v}}{\partial v} \\
+\end{pmatrix}
+$$
+
+因此
+
+$$
+\begin{pmatrix}
+\frac{\partial \tilde{u}}{\partial u} & \frac{\partial \tilde{v}}{\partial u} \\
+\frac{\partial \tilde{u}}{\partial v} & \frac{\partial \tilde{v}}{\partial v} \\
+\end{pmatrix}
+=
+\frac{1}{\lambda \mu A}
+\begin{pmatrix}
+\mu b_2 (u, v) & -\lambda a_2 (u, v) \\
+-\mu b_1 (u, v) & \lambda a_1 (u, v)
+\end{pmatrix}
+$$
+
+其中$$A = a_1 b_2 - a_2 b_1$$与之前的顶用相同。由此可见
+
+$$
+\begin{aligned}
+\mathrm{d} \tilde{u} &= \frac{\partial \tilde{u}}{\partial u} \mathrm{d} u + \frac{\partial \tilde{u}}{\partial v} \mathrm{d} v = \frac{1}{\lambda A} (b_2 \mathrm{d} u - b_1 \mathrm{d} v) \\
+\mathrm{d} \tilde{v} &= \frac{\partial \tilde{v}}{\partial u} \mathrm{d} u + \frac{\partial \tilde{v}}{\partial v} \mathrm{d} v = \frac{1}{\lambda A} (-a_2 \mathrm{d} u + a_1 \mathrm{d} v) \\
+\end{aligned}
+$$
+
+这表明我们所假设的参数变换是存在的，必有函数$$\lambda(u, v)$$，$$\mu(u, v)$$使得
+
+$$
+\frac{1}{\lambda A} (b_2 \mathrm{d} u - b_1 \mathrm{d} v), \ \ \frac{1}{\lambda A} (-a_2 \mathrm{d} u + a_1 \mathrm{d} v)
+$$
+
+是全微分。所以，我们要考虑的问题就是一次微分式
+
+$$
+\begin{aligned}
+\alpha &= b_2 \mathrm{d} u - b_1 \mathrm{d} v \\
+\beta &= -a_2 \mathrm{d} u + a_1 \mathrm{d} v
+\end{aligned}
+$$
+
+的积分因子的存在性问题。
+
 定理3.2的意思是在曲面上存在局部适用的参数系，使得参数曲线分别与预先给定的处处线性无关的切向量场相切(即以已知的切向量场作为参数曲线的方向场)。但是，一般来说，要使已知的切向量场恰好是参数曲线的切向量场(即$$\boldsymbol{r}_{\tilde{u}} = \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{v}} = \boldsymbol{b}$$)是做不到的。
 
 **定理3.3** 在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上的每一点$$p \in S$$，必有点$$p$$的邻域$$U \subset S$$，以及在$$U$$上的新的参数系$$(\tilde{u}, \tilde{v})$$，使得新参数曲线的切向量$$\boldsymbol{r}_{\tilde{u}}$$，$$\boldsymbol{r}_{\tilde{v}}$$是彼此正交的，即$$(\tilde{u}, \tilde{v})$$是曲面$$S$$在$$U$$上的正交参数系。
 {:.info}
+
+当然，定理3.3只是一个存在性定理；要在已知曲面上找出正交参数曲线网相当于在曲面上找两个彼此正交的切向量场$$\boldsymbol{a}$$和$$\boldsymbol{b}$$，然后求出相应微分式的积分因子。一般来说，前一件事是容易做到的而后一件却不是一件容易的事。尽管如此，定理3.3仍然是十分重要的，因为这个定理保证了在正则曲面上正交参数曲线网的存在性，从而使得我们在理论上处理正则曲面的问题变得比较简单了。
 
 ## 保长对应和保角对应
 
