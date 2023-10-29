@@ -1010,6 +1010,59 @@ $$
 
 的积分因子的存在性问题。
 
+根据引理，对于任意一点$$p \in S$$存在点$$p$$的邻域和定义在$$U$$上的处处非零的连续可微函数$$\xi$$，$$\eta$$，使得它们是一次微分式$$\alpha$$，$$\beta$$的积分因子，即在$$U$$上存在连续可微函数$$\tilde{u} (u, v)$$，$$\tilde{v} (u, v)$$满足条件
+
+$$
+\begin{cases}
+\begin{aligned}
+\mathrm{d} \tilde{u} &= \xi (b_2 \mathrm{d} u - b_1 \mathrm{d} v) \\
+\mathrm{d} \tilde{v} &= \eta (-a_2 \mathrm{d} u + a_1 \mathrm{d} v) \\
+\end{aligned}
+\end{cases}
+$$
+
+于是
+
+$$
+\begin{pmatrix}
+\frac{\partial \tilde{u}}{\partial u} & \frac{\partial \tilde{v}}{\partial u} \\
+\frac{\partial \tilde{u}}{\partial v} & \frac{\partial \tilde{v}}{\partial v}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\xi b_2(u, v) & -\eta a_2(u, v) \\
+-\xi b_1(u, v) & \eta a_1(u, v) \\
+\end{pmatrix}
+$$
+
+并且它的行列式为$$\xi \eta (a_1 b_2 - a_2 b_1) \neq 0$$。这说明$$\tilde{u}$$，$$\tilde{v}$$是曲面$$S$$在邻域$$U$$内新的参数。根据前面的分析不难知道
+
+$$
+\begin{pmatrix}
+\frac{\partial \tilde{u}}{\partial u} & \frac{\partial \tilde{v}}{\partial u} \\
+\frac{\partial \tilde{u}}{\partial v} & \frac{\partial \tilde{v}}{\partial v}
+\end{pmatrix}
+=
+\frac{1}{\xi \eta (a_1 b_2 - b_1 a_2)}
+\begin{pmatrix}
+\eta a_1 & \eta a_2 \\
+\xi b_1 & \xi b_2 \\
+\end{pmatrix}
+$$
+
+所以
+
+$$
+\begin{aligned}
+\boldsymbol{r}_{\tilde{u}} &= \boldsymbol{r}_u \frac{\partial u}{\partial \tilde{u}} + \boldsymbol{r}_v \frac{\partial v}{\partial \tilde{u}} = \frac{1}{\xi (a_1 b_2 - b_1 a_2)} (a_1 \boldsymbol{r}_u + a_2 \boldsymbol{r}_v) \\
+&= \frac{1}{\xi (a_1 b_2 - b_1 a_2)} \boldsymbol{a} \\
+\boldsymbol{r}_{\tilde{v}} &= \boldsymbol{r}_u \frac{\partial u}{\partial \tilde{v}} + \boldsymbol{r}_v \frac{\partial v}{\partial \tilde{v}} = \frac{1}{\eta (a_1 b_2 - b_1 a_2)} (b_1 \boldsymbol{r}_u + b_2 \boldsymbol{r}_v) \\
+&= \frac{1}{\eta (a_1 b_2 - b_1 a_2)} \boldsymbol{b} \\
+\end{aligned}
+$$
+
+证毕。
+
 定理3.2的意思是在曲面上存在局部适用的参数系，使得参数曲线分别与预先给定的处处线性无关的切向量场相切(即以已知的切向量场作为参数曲线的方向场)。但是，一般来说，要使已知的切向量场恰好是参数曲线的切向量场(即$$\boldsymbol{r}_{\tilde{u}} = \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{v}} = \boldsymbol{b}$$)是做不到的。
 
 **定理3.3** 在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上的每一点$$p \in S$$，必有点$$p$$的邻域$$U \subset S$$，以及在$$U$$上的新的参数系$$(\tilde{u}, \tilde{v})$$，使得新参数曲线的切向量$$\boldsymbol{r}_{\tilde{u}}$$，$$\boldsymbol{r}_{\tilde{v}}$$是彼此正交的，即$$(\tilde{u}, \tilde{v})$$是曲面$$S$$在$$U$$上的正交参数系。
