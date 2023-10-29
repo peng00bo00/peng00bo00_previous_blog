@@ -1039,8 +1039,8 @@ $$
 
 $$
 \begin{pmatrix}
-\frac{\partial \tilde{u}}{\partial u} & \frac{\partial \tilde{v}}{\partial u} \\
-\frac{\partial \tilde{u}}{\partial v} & \frac{\partial \tilde{v}}{\partial v}
+\frac{\partial u}{\partial \tilde{u}} & \frac{\partial v}{\partial \tilde{u}} \\
+\frac{\partial u}{\partial \tilde{v}} & \frac{\partial v}{\partial \tilde{v}}
 \end{pmatrix}
 =
 \frac{1}{\xi \eta (a_1 b_2 - b_1 a_2)}
