@@ -955,7 +955,7 @@ $$
 \end{pmatrix}
 $$
 
-这就是说，反函数的Jacobian矩阵是原函数的Jacobian矩阵的逆，即
+这就是说，反函数的Jacobi矩阵是原函数的Jacobi矩阵的逆，即
 
 $$
 J^{-1} = 
@@ -1174,7 +1174,7 @@ $$
 \end{aligned}
 $$
 
-由此可见，映射$$\sigma_{*p}$$是线性映射并且
+由此可见，切映射$$\sigma_{*p}$$是线性映射并且
 
 $$
 \begin{cases}
@@ -1200,6 +1200,42 @@ $$
 \begin{pmatrix}
 \frac{\partial \boldsymbol{r}_2}{\partial u_2} \\ \frac{\partial \boldsymbol{r}_2}{\partial v_2}
 \end{pmatrix}
+$$
+
+对于$$T_p S_1$$中的任意一个切向量
+
+$$
+\boldsymbol{X} = a \frac{\partial \boldsymbol{r}_1}{\partial u_1} + b \frac{\partial \boldsymbol{r}_1}{\partial v_1}
+$$
+
+则有
+
+$$
+\begin{aligned}
+\sigma_{*p} (\boldsymbol{X}) &= a \bigg( \frac{\partial \boldsymbol{r}_2}{\partial u_2} \frac{\partial f(u_1, v_1)}{\partial u_1} + \frac{\partial \boldsymbol{r}_2}{\partial v_2} \frac{\partial g(u_1, v_1)}{\partial u_1} \bigg) \\
+&+ b \bigg( \frac{\partial \boldsymbol{r}_2}{\partial u_2} \frac{\partial f(u_1, v_1)}{\partial v_1} + \frac{\partial \boldsymbol{r}_2}{\partial v_2} \frac{\partial g(u_1, v_1)}{\partial v_1} \bigg) \\
+&= \bigg( a \frac{\partial u_2}{\partial u_1} + b \frac{\partial u_2}{\partial b_1} \bigg) \frac{\partial \boldsymbol{r}_2}{\partial u_2} + \bigg( a \frac{\partial v_2}{\partial u_1} + b \frac{\partial v_2}{\partial b_1} \bigg) \frac{\partial \boldsymbol{r}_2}{\partial v_2}
+\end{aligned}
+$$
+
+由此可见，切映射$$\sigma_{*p}: T_p S_1 \rightarrow T_{\sigma(p)} S_2$$是同构的，当且仅当矩阵
+
+$$
+\begin{pmatrix}
+\frac{\partial u_2}{\partial u_1} & \frac{\partial v_2}{\partial u_1} \\
+\frac{\partial u_2}{\partial v_1} & \frac{\partial v_2}{\partial v_1} \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac{\partial f(u_1, v_1)}{\partial u_1} & \frac{\partial g(u_1, v_1)}{\partial u_1} \\
+\frac{\partial f(u_1, v_1)}{\partial v_1} & \frac{\partial g(u_1, v_1)}{\partial v_1} \\
+\end{pmatrix}
+$$
+
+非退化，即Jacobi行列式非零
+
+$$
+\frac{\partial (u_2, v_2)}{\partial (u_1, v_1)} \bigg\vert_p \neq 0
 $$
 
 ## 可展曲面
