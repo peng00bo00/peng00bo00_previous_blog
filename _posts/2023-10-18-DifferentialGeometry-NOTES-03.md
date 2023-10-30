@@ -1235,7 +1235,12 @@ $$
 非退化，即Jacobi行列式非零
 
 $$
-\frac{\partial (u_2, v_2)}{\partial (u_1, v_1)} \bigg\vert_p \neq 0
+\frac{\partial (u_2, v_2)}{\partial (u_1, v_1)} \bigg\vert_p =
+\begin{vmatrix}
+\frac{\partial f(u_1, v_1)}{\partial u_1} & \frac{\partial g(u_1, v_1)}{\partial u_1} \\
+\frac{\partial f(u_1, v_1)}{\partial v_1} & \frac{\partial g(u_1, v_1)}{\partial v_1} \\
+\end{vmatrix}
+\neq 0
 $$
 
 ## 可展曲面
