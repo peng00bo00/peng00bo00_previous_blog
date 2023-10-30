@@ -1068,7 +1068,47 @@ $$
 **定理3.3** 在正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上的每一点$$p \in S$$，必有点$$p$$的邻域$$U \subset S$$，以及在$$U$$上的新的参数系$$(\tilde{u}, \tilde{v})$$，使得新参数曲线的切向量$$\boldsymbol{r}_{\tilde{u}}$$，$$\boldsymbol{r}_{\tilde{v}}$$是彼此正交的，即$$(\tilde{u}, \tilde{v})$$是曲面$$S$$在$$U$$上的正交参数系。
 {:.info}
 
-当然，定理3.3只是一个存在性定理；要在已知曲面上找出正交参数曲线网相当于在曲面上找两个彼此正交的切向量场$$\boldsymbol{a}$$和$$\boldsymbol{b}$$，然后求出相应微分式$$\alpha$$和$$\beta$$的积分因子。一般来说，前一件事是容易做到的,而后一件却不是一件容易的事。尽管如此，定理3.3仍然是十分重要的，因为这个定理保证了在正则曲面上正交参数曲线网的存在性，从而使得我们在理论上处理正则曲面的问题变得比较简单了。
+**证明** 对正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r}(u, v)$$的自然基底$$\{ \boldsymbol{r}_u, \boldsymbol{r}_v \}$$作[Schmidt正交化](https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process)如下：命
+
+$$
+\boldsymbol{e}_1 = \frac{\boldsymbol{r}_u}{\vert \boldsymbol{r}_u \vert} = \frac{\boldsymbol{r}_u}{\sqrt{E}}
+$$
+
+再令
+
+$$
+\boldsymbol{b} = \boldsymbol{r}_v + \lambda \boldsymbol{e}_1
+$$
+
+要求$$\boldsymbol{b} \cdot \boldsymbol{e}_1 = 0$$。因此
+
+$$
+\lambda = -\boldsymbol{r}_v \cdot \boldsymbol{e}_1 = -\frac{F}{\sqrt{E}}
+$$
+
+故
+
+$$
+\boldsymbol{b} = \boldsymbol{r}_v - \frac{F}{\sqrt{E}} \boldsymbol{e}_1 = \boldsymbol{r}_v - \frac{F}{E} \boldsymbol{r}_u
+$$
+
+这样
+
+$$
+\vert \boldsymbol{b} \vert^2 = G - \frac{F^2}{E} = \frac{EG - F^2}{E}
+$$
+
+命
+
+$$
+\boldsymbol{e}_2 = \frac{\boldsymbol{e}_2}{\vert \boldsymbol{e}_2 \vert} = \frac{1}{\sqrt{EG - F^2}} \bigg( -\frac{F}{\sqrt{E}} \boldsymbol{r}_u  + \sqrt{E} \boldsymbol{r}_v \bigg)
+$$
+
+则$$\{ \boldsymbol{r}_u, \boldsymbol{r}_v \}$$是曲面$$S$$上的单位正交标架场。
+
+根据定理3.2，则每一点$$p$$的一个邻域$$U$$内存在新的参数$$(\tilde{u}, \tilde{v})$$，使得$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{e}_1$$，$$\boldsymbol{r}_{\tilde{v}} \parallel \boldsymbol{e}_2$$，故$$(\tilde{u}, \tilde{v})$$是正交参数系。证毕。
+
+当然，定理3.3只是一个存在性定理；要在已知曲面上找出正交参数曲线网相当于在曲面上找两个彼此正交的切向量场$$\boldsymbol{a}$$和$$\boldsymbol{b}$$，然后求出相应微分式$$\alpha$$和$$\beta$$的积分因子。一般来说，前一件事是容易做到的，而后一件却不是一件容易的事。尽管如此，定理3.3仍然是十分重要的，因为这个定理保证了在正则曲面上正交参数曲线网的存在性，从而使得我们在理论上处理正则曲面的问题变得比较简单了。
 
 ## 保长对应和保角对应
 
