@@ -1112,7 +1112,7 @@ $$
 
 ## 保长对应和保角对应
 
-### 正则参数曲面的对应
+### 正则参数曲面之间的对应
 
 假定有两个正则参数曲面，它们的参数方程分别是
 
@@ -1156,6 +1156,50 @@ $$
 &= \frac{\partial \boldsymbol{r}_2}{\partial u_2} \bigg( \frac{\partial f(u_1, v_1)}{\partial u_1} \frac{\mathrm{d} u_1(t)}{\mathrm{d}t} + \frac{\partial f(u_1, v_1)}{\partial v_1} \frac{\mathrm{d} v_1(t)}{\mathrm{d}t} \bigg) \\
 &+ \frac{\partial \boldsymbol{r}_2}{\partial v_2} \bigg( \frac{\partial g(u_1, v_1)}{\partial u_1} \frac{\mathrm{d} u_1(t)}{\mathrm{d}t} + \frac{\partial g(u_1, v_1)}{\partial v_1} \frac{\mathrm{d} v_1(t)}{\mathrm{d}t} \bigg)
 \end{aligned}
+$$
+
+假定$$p = \boldsymbol{r}_1 (u_1(t_0), v_1(t_0))$$，命
+
+$$
+\sigma_{*p} \bigg( \frac{\mathrm{d}}{\mathrm{d} t} \boldsymbol{r}_1 (u_1(t), v_1(t)) \bigg\vert_{t=t_0} \bigg) = \frac{\mathrm{d}}{\mathrm{d}t} \boldsymbol{r}_2 (u_2(t), v_2(t)) \bigg\vert_{t = t_0}
+$$
+
+则$$C_2$$的切向量可以重新表示为
+
+$$
+\begin{aligned}
+\sigma_{*p} \bigg( \frac{\partial \boldsymbol{r}_1}{\partial u_1} \frac{\mathrm{d} u_1(t)}{\mathrm{d} t} + \frac{\partial \boldsymbol{r}_1}{\partial v_1} \frac{\mathrm{d} v_1(t)}{\mathrm{d} t} \bigg) &=
+\bigg( \frac{\partial \boldsymbol{r}_2}{\partial u_2} \frac{\partial f(u_1, v_1)}{\partial u_1} + \frac{\partial \boldsymbol{r}_2}{\partial v_2} \frac{\partial g(u_1, v_1)}{\partial u_1} \bigg) \frac{\mathrm{d} u_1(t)}{\mathrm{d}t} \\
+&+ \bigg( \frac{\partial \boldsymbol{r}_2}{\partial u_2} \frac{\partial f(u_1, v_1)}{\partial v_1} + \frac{\partial \boldsymbol{r}_2}{\partial v_2} \frac{\partial g(u_1, v_1)}{\partial v_1} \bigg) \frac{\mathrm{d} v_1(t)}{\mathrm{d}t}
+\end{aligned}
+$$
+
+由此可见，映射$$\sigma_{*p}$$是线性映射并且
+
+$$
+\begin{cases}
+\begin{aligned}
+\sigma_{*p} \bigg( \frac{\partial \boldsymbol{r}_1}{\partial u_1} \bigg) &= \frac{\partial \boldsymbol{r}_2}{\partial u_2} \frac{\partial f(u_1, v_1)}{\partial u_1} + \frac{\partial \boldsymbol{r}_2}{\partial v_2} \frac{\partial g(u_1, v_1)}{\partial u_1} \\
+\sigma_{*p} \bigg( \frac{\partial \boldsymbol{r}_1}{\partial v_1} \bigg) &= \frac{\partial \boldsymbol{r}_2}{\partial u_2} \frac{\partial f(u_1, v_1)}{\partial v_1} + \frac{\partial \boldsymbol{r}_2}{\partial v_2} \frac{\partial g(u_1, v_1)}{\partial v_1} \\
+\end{aligned}
+\end{cases}
+$$
+
+用矩阵表示则是
+
+$$
+\sigma_{*p}
+\begin{pmatrix}
+\frac{\partial \boldsymbol{r}_1}{\partial u_1} \\ \frac{\partial \boldsymbol{r}_1}{\partial v_1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac{\partial f(u_1, v_1)}{\partial u_1} & \frac{\partial g(u_1, v_1)}{\partial u_1} \\
+\frac{\partial f(u_1, v_1)}{\partial v_1} & \frac{\partial g(u_1, v_1)}{\partial v_1} \\
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial \boldsymbol{r}_2}{\partial u_2} \\ \frac{\partial \boldsymbol{r}_2}{\partial v_2}
+\end{pmatrix}
 $$
 
 ## 可展曲面
