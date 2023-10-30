@@ -747,7 +747,7 @@ $$
 $$
 \begin{aligned}
 L &= \int_a^b \vert \boldsymbol{r}'(t) \vert \mathrm{d} t \\
-&= \sqrt{E \bigg( \frac{\mathrm{d} u(t)}{\mathrm{d} t} \bigg)^2 + 2F \frac{\mathrm{d} u(t)}{\mathrm{d} t} \frac{\mathrm{d} v(t)}{\mathrm{d} t}  + G \bigg( \frac{\mathrm{d} v(t)}{\mathrm{d} t} \bigg)^2 } \mathrm{d} t
+&= \int_a^b \sqrt{E \bigg( \frac{\mathrm{d} u(t)}{\mathrm{d} t} \bigg)^2 + 2F \frac{\mathrm{d} u(t)}{\mathrm{d} t} \frac{\mathrm{d} v(t)}{\mathrm{d} t}  + G \bigg( \frac{\mathrm{d} v(t)}{\mathrm{d} t} \bigg)^2 } \mathrm{d} t
 \end{aligned}
 $$
 
