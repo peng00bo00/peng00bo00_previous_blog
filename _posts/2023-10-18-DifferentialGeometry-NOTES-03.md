@@ -1112,4 +1112,50 @@ $$
 
 ## 保长对应和保角对应
 
+### 正则参数曲面的对应
+
+假定有两个正则参数曲面，它们的参数方程分别是
+
+$$
+\begin{aligned}
+&S_1: \boldsymbol{r} = \boldsymbol{r}_1 (u_1, v_1), &(u_1, v_1) \in D_1, \\
+&S_2: \boldsymbol{r} = \boldsymbol{r}_2 (u_2, v_2), &(u_2, v_2) \in D_2, \\
+\end{aligned}
+$$
+
+其中$$D_1$$，$$D_2$$是$$\mathbb{E}^2$$中的两个区域。因为$$(u_i, v_i)$$是正则曲面$$S_i$$的点的曲纹坐标，所以从曲面$$S_1$$到$$S_2$$的一个映射表现为从区域$$D_1$$到$$D_2$$的一个映射。换言之，如果有映射$$\sigma: D_1 \rightarrow D_2$$，表示为
+
+$$
+\begin{cases}
+\begin{aligned}
+u_2 &= f(u_1, v_1) \\
+v_2 &= g(u_1, v_1)
+\end{aligned}
+\end{cases}
+$$
+
+则我们有从曲面$$S_1$$到$$S_2$$的映射(仍记为$$\sigma$$)，它吧曲面$$S_1$$上的点$$\boldsymbol{r}_1 (u_1, v_1)$$映为曲面$$S_2$$上的点$$\boldsymbol{r}_2(f(u_1, v_1), g(u_1, v_1))$$。反过来，正则参数曲面之间的映射都可以这样来表示。这就是说，正则参数曲面之间的一个对应表现为它们的参数区域之间的一个对应。如果函数表达式$$f(u_1, v_1)$$，$$g(u_1, v_1)$$是连续可微的，则称映射$$\sigma: D_1 \rightarrow D_2$$是连续可微的。根据曲面的容许参数变换条件，正则曲面之间的映射的连续可微性与曲面的容许参数的选择是无关的。
+
+下面假定映射$$\sigma: D_1 \rightarrow D_2$$是三次以上连续可微的。首先要指出，映射$$\sigma$$在每一点$$p \in S_1$$诱导出切空间$$T_p S_1$$到切空间$$T_{\sigma(p)} S_2$$的一个线性映射$$\sigma_{*p}: T_p S_1 \rightarrow T_{\sigma(p)} S_2$$，称此映射为有映射$$\sigma$$在$$p$$点的切空间$$T_p S_1$$上诱导的**切映射**。实际上，若有曲面$$S_1$$上一条连续可微曲线
+
+$$
+C_1: u_1 = u_1(t), \ \ v_1 = v_1(t) \ \ \ (t_0 - \epsilon \lt t \lt t_0 + \epsilon)
+$$
+
+则它在映射$$\sigma$$下映为曲面$$S_2$$上的一条连续可微曲线
+
+$$
+C_2: u_2 = u_2(t) = f(u_1(t), v_1(t)), \ \ v_2 = v_2(t) = g(u_1(t), v_1(t)) \\ (t_0 - \epsilon \lt t \lt t_0 + \epsilon)
+$$
+
+那么曲线$$C_2$$的切向量是
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t} \boldsymbol{r}_2 (u_2(t), v_2(t)) &= \frac{\partial \boldsymbol{r}_2}{\partial u_2} \frac{\mathrm{d} u_2(t)}{\mathrm{d} t} + \frac{\partial \boldsymbol{r}_2}{\partial v_2} \frac{\mathrm{d} v_2(t)}{\mathrm{d} t} \\
+&= \frac{\partial \boldsymbol{r}_2}{\partial u_2} \bigg( \frac{\partial f(u_1, v_1)}{\partial u_1} \frac{\mathrm{d} u_1(t)}{\mathrm{d}t} + \frac{\partial f(u_1, v_1)}{\partial v_1} \frac{\mathrm{d} v_1(t)}{\mathrm{d}t} \bigg) \\
+&+ \frac{\partial \boldsymbol{r}_2}{\partial v_2} \bigg( \frac{\partial g(u_1, v_1)}{\partial u_1} \frac{\mathrm{d} u_1(t)}{\mathrm{d}t} + \frac{\partial g(u_1, v_1)}{\partial v_1} \frac{\mathrm{d} v_1(t)}{\mathrm{d}t} \bigg)
+\end{aligned}
+$$
+
 ## 可展曲面
