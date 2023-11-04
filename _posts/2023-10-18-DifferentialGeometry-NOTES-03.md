@@ -1256,4 +1256,89 @@ u_2 &= f(u_1, v_1) \\ v_2 &= g(u_1, v_1)
 \end{cases}
 $$
 
+给出。由于在点$$p$$处有$$\frac{\partial (u_2, v_2)}{\partial (u_1, v_1)} \bigg\vert_p \neq 0$$，因此上面的式子可以看作曲面$$S_1$$在点$$p$$的某个邻域$$U_1$$上的容许参数变换，使得$$(u_2, v_2)$$成为曲面$$S_1$$在点$$p$$的某个邻域$$U_1$$内的参数系。在这样的参数系下，映射$$\sigma$$恰好是参数区域上的恒等映射。证毕。
+
+映射$$\sigma: S_1 \rightarrow S_2$$还能够把$$S_2$$上的二次微分式拉回到$$S_1$$上，成为$$S_1$$上的二次微分式。假定$$S_2$$上的一个二次微分式$$\varphi$$的表达式是
+
+$$
+\varphi = A(u_2, v_2) (\mathrm{d} u_2)^2 + 2B(u_2, v_2) \mathrm{d} u_2 \mathrm{d} v_2 + C(u_2, v_2) (\mathrm{d} v_2)^2
+$$
+
+则在映射$$\sigma: S_1 \rightarrow S_2$$下可以得到$$S_1$$上的一个二次微分式$$\sigma^* \varphi$$如下：
+
+$$
+\begin{aligned}
+\sigma^* \varphi &= A(f(u_1, v_1), g(u_1, v_1)) \bigg( \frac{\partial f}{\partial u_1} \mathrm{d} u_1 + \frac{\partial f}{\partial v_1} \mathrm{d} v_1 \bigg)^2 \\
+&+2B(f(u_1, v_1), g(u_1, v_1)) \bigg( \frac{\partial f}{\partial u_1} \mathrm{d} u_1 + \frac{\partial f}{\partial v_1} \mathrm{d} v_1 \bigg) \cdot \bigg( \frac{\partial g}{\partial u_1} \mathrm{d} u_1 + \frac{\partial g}{\partial v_1} \mathrm{d} v_1 \bigg) \\
+&+ C(f(u_1, v_1), g(u_1, v_1)) \bigg( \frac{\partial g}{\partial u_1} \mathrm{d} u_1 + \frac{\partial g}{\partial v_1} \mathrm{d} v_1 \bigg)^2 \\
+&= \tilde{A} (u_1, v_1) (\mathrm{d} u_1)^2 + 2\tilde{B}(u_1, v_1) \mathrm{d} u_1 \mathrm{d} v_2 + \tilde{C}(u_1, v_1) (\mathrm{d} v_1)^2
+\end{aligned}
+$$
+
+用矩阵表示则是
+
+$$
+\begin{pmatrix}
+\tilde{A} (u_1, v_1) & \tilde{B} (u_1, v_1) \\
+\tilde{B} (u_1, v_1) & \tilde{C} (u_1, v_1) \\
+\end{pmatrix}
+=
+J
+\begin{pmatrix}
+A (u_2, v_2) & B (u_2, v_2) \\
+B (u_2, v_2) & C (u_2, v_2) \\
+\end{pmatrix}
+J^T
+$$
+
+并且
+
+$$
+\begin{aligned}
+\sigma^* \varphi &= 
+\begin{pmatrix}
+\mathrm{d} u_1 & \mathrm{d} v_1
+\end{pmatrix} 
+\cdot
+\begin{pmatrix}
+\tilde{A} & \tilde{B} \\
+\tilde{B} & \tilde{C} \\
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\mathrm{d} u_1 \\ \mathrm{d} v_1
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+\mathrm{d} u_1 & \mathrm{d} v_1
+\end{pmatrix} 
+\cdot J \cdot
+\begin{pmatrix}
+A & B \\
+B & C \\
+\end{pmatrix}
+\cdot J^T \cdot
+\begin{pmatrix}
+\mathrm{d} u_1 \\ \mathrm{d} v_1
+\end{pmatrix}
+\end{aligned}
+$$
+
+其中
+
+$$
+J = 
+\begin{pmatrix}
+\frac{\partial u_2}{\partial u_1} & \frac{\partial v_2}{\partial u_1} \\
+\frac{\partial u_2}{\partial v_1} & \frac{\partial v_2}{\partial v_1} \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac{\partial f(u_1, v_1)}{\partial u_1} & \frac{\partial g(u_1, v_1)}{\partial u_1} \\
+\frac{\partial f(u_1, v_1)}{\partial v_1} & \frac{\partial g(u_1, v_1)}{\partial v_1} \\
+\end{pmatrix}
+$$
+
+我们把$$\sigma^* \varphi$$称为$$S_2$$上的二次微分式$$\varphi$$经过映射$$\sigma: S_1 \rightarrow S_2$$拉回到$$S_1$$上的二次微分式。
+
 ## 可展曲面
