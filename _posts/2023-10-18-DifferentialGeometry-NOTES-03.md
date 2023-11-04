@@ -1214,7 +1214,7 @@ $$
 \begin{aligned}
 \sigma_{*p} (\boldsymbol{X}) &= a \bigg( \frac{\partial \boldsymbol{r}_2}{\partial u_2} \frac{\partial f(u_1, v_1)}{\partial u_1} + \frac{\partial \boldsymbol{r}_2}{\partial v_2} \frac{\partial g(u_1, v_1)}{\partial u_1} \bigg) \\
 &+ b \bigg( \frac{\partial \boldsymbol{r}_2}{\partial u_2} \frac{\partial f(u_1, v_1)}{\partial v_1} + \frac{\partial \boldsymbol{r}_2}{\partial v_2} \frac{\partial g(u_1, v_1)}{\partial v_1} \bigg) \\
-&= \bigg( a \frac{\partial u_2}{\partial u_1} + b \frac{\partial u_2}{\partial b_1} \bigg) \frac{\partial \boldsymbol{r}_2}{\partial u_2} + \bigg( a \frac{\partial v_2}{\partial u_1} + b \frac{\partial v_2}{\partial b_1} \bigg) \frac{\partial \boldsymbol{r}_2}{\partial v_2}
+&= \bigg( a \frac{\partial u_2}{\partial u_1} + b \frac{\partial u_2}{\partial v_1} \bigg) \frac{\partial \boldsymbol{r}_2}{\partial u_2} + \bigg( a \frac{\partial v_2}{\partial u_1} + b \frac{\partial v_2}{\partial v_1} \bigg) \frac{\partial \boldsymbol{r}_2}{\partial v_2}
 \end{aligned}
 $$
 
@@ -1340,5 +1340,24 @@ J =
 $$
 
 我们把$$\sigma^* \varphi$$称为$$S_2$$上的二次微分式$$\varphi$$经过映射$$\sigma: S_1 \rightarrow S_2$$拉回到$$S_1$$上的二次微分式。
+
+### 保长对应
+
+**定义3.3** 设$$\sigma: S_1 \rightarrow S_2$$是从正则参数曲面$$S_1$$到正则参数曲面$$S_2$$的3次以上的连续可微映射。如果在每一点$$p \in S_1$$，切映射$$\sigma_{*p}: T_p S_1 \rightarrow T_{\sigma (p)} S_2$$都保持切向量的长度不变，即对于任意的$$\boldsymbol{X} \in T_p S_1$$都有$$\vert \sigma_{*p} (\boldsymbol{X}) \vert = \vert \boldsymbol{X} \vert$$，则称$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到$$S_2$$的**保长对应**。
+{:.success}
+
+向量之间的内积和向量长度之间的关系是
+
+$$
+\boldsymbol{a} \cdot \boldsymbol{b} = \frac{1}{2} (\vert \boldsymbol{a} + \boldsymbol{b} \vert^2 - \vert \boldsymbol{a} \vert^2 -\vert \boldsymbol{b} \vert^2)
+$$
+
+既然保长对应$$\sigma: S_1 \rightarrow S_2$$保持切向量的长度不变，它必定保持切向量的内积不变，即对于任意的$$\boldsymbol{X}, \boldsymbol{Y} \in T_p S_1$$，都有
+
+$$
+\sigma_{*p} (\boldsymbol{X}) \cdot \sigma_{*p} (\boldsymbol{Y}) = \boldsymbol{X} \cdot \boldsymbol{Y}
+$$
+
+### 保角对应
 
 ## 可展曲面
