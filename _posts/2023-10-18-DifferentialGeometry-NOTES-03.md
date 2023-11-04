@@ -1449,10 +1449,32 @@ $$
 即
 
 $$
-\boldsymbol{I}_1 = \sigma^* \boldsymbol{I}_2
+\mathrm{I}_1 = \sigma^* \mathrm{I}_2
 $$
 
-这里$$E_2$$，$$F_2$$，$$G_2$$是曲面$$S_2$$的第一类基本量。
+这里$$E_2$$，$$F_2$$，$$G_2$$是曲面$$S_2$$的第一类基本量。由此得到下面的定理：
+
+**定理3.5** 假定正则参数曲面$$S_1$$和$$S_2$$的第一基本形式分别是$$\mathrm{I}_1$$和$$\mathrm{I}_2$$，则$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到曲面$$S_2$$的保长对应的充分必要条件是$$\mathrm{I}_1 = \sigma^* \mathrm{I}_2$$，换言之，
+$$
+\begin{pmatrix}
+E_1 (u_1, v_1) & F_1 (u_1, v_1) \\
+F_1 (u_1, v_1) & G_1 (u_1, v_1) \\
+\end{pmatrix}
+= J
+\begin{pmatrix}
+E_2 (u_2, v_2) & F_2 (u_2, v_2) \\
+F_2 (u_2, v_2) & G_2 (u_2, v_2) \\
+\end{pmatrix}
+J^T
+$$
+其中
+$$
+J = \begin{pmatrix}
+\frac{\partial u_2}{\partial u_1} & \frac{\partial v_2}{\partial u_1} \\
+\frac{\partial u_2}{\partial v_1} & \frac{\partial v_2}{\partial v_1} \\
+\end{pmatrix}
+$$
+{:.info}
 
 ### 保角对应
 
