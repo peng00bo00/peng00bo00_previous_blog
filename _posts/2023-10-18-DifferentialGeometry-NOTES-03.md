@@ -1454,7 +1454,7 @@ $$
 
 这里$$E_2$$，$$F_2$$，$$G_2$$是曲面$$S_2$$的第一类基本量。由此得到下面的定理：
 
-**定理3.5** 假定正则参数曲面$$S_1$$和$$S_2$$的第一基本形式分别是$$\mathrm{I}_1$$和$$\mathrm{I}_2$$，则$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到曲面$$S_2$$的保长对应的充分必要条件是$$\mathrm{I}_1 = \sigma^* \mathrm{I}_2$$，换言之，
+**定理3.5** 假定正则参数曲面$$S_1$$和$$S_2$$的第一基本形式分别是$$\mathrm{I}_1$$和$$\mathrm{I}_2$$，则$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到曲面$$S_2$$的保长对应的充分必要条件是$$\mathrm{I}_1 = \sigma^* \mathrm{I}_2$$，换言之
 $$
 \begin{pmatrix}
 E_1 (u_1, v_1) & F_1 (u_1, v_1) \\
@@ -1474,6 +1474,22 @@ J = \begin{pmatrix}
 \frac{\partial u_2}{\partial v_1} & \frac{\partial v_2}{\partial v_1} \\
 \end{pmatrix}
 $$
+。
+{:.info}
+
+如果将上面的式子展开，我们便得到下面的等式
+
+$$
+\begin{aligned}
+E_2 (u_2, v_2) \bigg( \frac{\partial u_2}{\partial u_1} \bigg)^2 + 2F_2 (u_2, v_2) \frac{\partial u_2}{\partial u_1} \frac{\partial v_2}{\partial u_1} + G_2 (u_2, v_2) \bigg( \frac{\partial v_2}{\partial u_1} \bigg)^2 &= E_1 (u_1, v_1) \\
+E_2 (u_2, v_2)  \frac{\partial u_2}{\partial u_1} \frac{\partial u_2}{\partial v_1} + 2F_2 (u_2, v_2) \bigg( \frac{\partial u_2}{\partial u_1} \frac{\partial v_2}{\partial u_1} + \frac{\partial u_2}{\partial v_1} \frac{\partial v_2}{\partial u_1} \bigg) + G_2 (u_2, v_2) \frac{\partial v_2}{\partial u_1} \frac{\partial v_2}{\partial v_1} &= F_1 (u_1, v_1) \\
+E_2 (u_2, v_2) \bigg( \frac{\partial u_2}{\partial v_1} \bigg)^2 + 2F_2 (u_2, v_2) \frac{\partial u_2}{\partial v_1} \frac{\partial v_2}{\partial v_1} + G_2 (u_2, v_2) \bigg( \frac{\partial v_2}{\partial v_1} \bigg)^2 &= G_1 (u_1, v_1) \\
+\end{aligned}
+$$
+
+在已知正则曲面$$S_1$$和$$S_2$$的第一基本形式的情况下，上式实际上是寻求曲面$$S_1$$和$$S_2$$之间是否存在保持对应$$u_2 = u_2(u_1, v_1)$$，$$v_2 = v_2(u_1, v_1)$$的微分方程组。但是这是一个非线性的一阶微分方程组，要判断该方程组是否有解并把解求出来是一件十分困难的事情。后面我们要进一步研究保持对应的不变量，这对我们判断两个正则曲面是否能够建立保长对应起着重要的作用。
+
+**定理3.6** 在正则曲面$$S_1$$和$$S_2$$之间存在保长对应的充分必要条件是，能够在曲面$$S_1$$和$$S_2$$上取适当的参数系，都记成$$(u, v)$$，并且在这样的参数系下两个曲面有相同的第一基本量，即$$E_1(u, v) = E_2(u, v)$$，$$F_1(u, v) = F_2(u, v)$$，$$G_1(u, v) = G_2(u, v)$$。
 {:.info}
 
 ### 保角对应
