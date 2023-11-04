@@ -372,7 +372,7 @@ $$
 \end{aligned}
 $$
 
-当$$(\Delta u, \Delta v) \to (0, 0)$$时它是函数$$\boldsymbol{r} (u, v)$$的增量$$\boldsymbol{r} (u + \Delta u, v + \Delta v) - \boldsymbol{r} (u, v)$$作为无穷小量的线性的主要部分，即$$\boldsymbol{r} (u + \Delta u, v + \Delta v) - \boldsymbol{r} (u, v) - \mathrm{d} \boldsymbol{r} (u, v)$$是$$\rho = \sqrt{(\Delta u)^2 + (\Delta v)^2}$$的更高阶的无穷小最，也就是
+当$$(\Delta u, \Delta v) \to (0, 0)$$时它是函数$$\boldsymbol{r} (u, v)$$的增量$$\boldsymbol{r} (u + \Delta u, v + \Delta v) - \boldsymbol{r} (u, v)$$作为无穷小量的线性的主要部分，即$$\boldsymbol{r} (u + \Delta u, v + \Delta v) - \boldsymbol{r} (u, v) - \mathrm{d} \boldsymbol{r} (u, v)$$是$$\rho = \sqrt{(\Delta u)^2 + (\Delta v)^2}$$的更高阶的无穷小量，也就是
 
 $$
 \lim_{\rho \to 0} \frac{\vert \boldsymbol{r} (u + \Delta u, v + \Delta v) - \boldsymbol{r} (u, v) - \mathrm{d} \boldsymbol{r} (u, v) \vert}{\rho} = 0
@@ -1357,6 +1357,102 @@ $$
 $$
 \sigma_{*p} (\boldsymbol{X}) \cdot \sigma_{*p} (\boldsymbol{Y}) = \boldsymbol{X} \cdot \boldsymbol{Y}
 $$
+
+在[前面](/2023/10/18/DifferentialGeometry-NOTES-03.html#正则参数曲面的微分)介绍过，曲面$$S_1$$在点$$\boldsymbol{r} = \boldsymbol{r}_1 (u_1, v_1)$$处的任意一个切向量可以用它的微分
+
+$$
+\mathrm{d} \boldsymbol{r}_1 (u_1, v_1) = \mathrm{d} u_1 \frac{\partial \boldsymbol{r}_1}{\partial u_1} + \mathrm{d} v_1 \frac{\partial \boldsymbol{r}_1}{\partial v_1}
+$$
+
+来表示，这里$$(\mathrm{d} u_1, \mathrm{d} v_1)$$代表曲面$$S_1$$在点$$\boldsymbol{r} = \boldsymbol{r}_1 (u_1, v_1)$$处的任意一个切向量的分量。根据切映射的定义有
+
+$$
+\begin{aligned}
+\sigma_{*p} \big( \mathrm{d} \boldsymbol{r}_1 (u_1, v_1) \big) &= 
+\sigma_{*p} \Bigg( 
+\begin{pmatrix}
+\mathrm{d} u_1 & \mathrm{d} v_1
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial \boldsymbol{r}_1}{\partial u_1} \\ 
+\frac{\partial \boldsymbol{r}_1}{\partial v_1}
+\end{pmatrix}
+\Bigg) \\
+&= 
+\begin{pmatrix}
+\mathrm{d} u_1 & \mathrm{d} v_1
+\end{pmatrix}
+\sigma_{*p}
+\begin{pmatrix}
+\frac{\partial \boldsymbol{r}_1}{\partial u_1} \\ 
+\frac{\partial \boldsymbol{r}_1}{\partial v_1}
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+\mathrm{d} u_1 & \mathrm{d} v_1
+\end{pmatrix}
+J
+\begin{pmatrix}
+\frac{\partial \boldsymbol{r}_2}{\partial u_2} \\ 
+\frac{\partial \boldsymbol{r}_2}{\partial v_2}
+\end{pmatrix}
+\end{aligned}
+$$
+
+其中
+
+$$
+J = \begin{pmatrix}
+\frac{\partial u_2}{\partial u_1} & \frac{\partial v_2}{\partial u_1} \\
+\frac{\partial u_2}{\partial v_1} & \frac{\partial v_2}{\partial v_1} \\
+\end{pmatrix}
+$$
+
+因此，$$\sigma$$是保长对应的条件是
+
+$$
+\begin{aligned}
+\vert \mathrm{d} \boldsymbol{r}_1 (u_1, v_1) \vert^2 &= \vert \sigma_{*p} ( \mathrm{d} \boldsymbol{r}_1 (u_1, v_1) ) \vert^2 \\
+&= 
+\begin{pmatrix}
+\mathrm{d} u_1 & \mathrm{d} v_1
+\end{pmatrix}
+J
+\begin{pmatrix}
+\frac{\partial \boldsymbol{r}_2}{\partial u_2} \\ 
+\frac{\partial \boldsymbol{r}_2}{\partial v_2}
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\frac{\partial \boldsymbol{r}_2}{\partial u_2} & \frac{\partial \boldsymbol{r}_2}{\partial v_2}
+\end{pmatrix}
+J^T
+\begin{pmatrix}
+\mathrm{d} u_1 \\ \mathrm{d} v_1
+\end{pmatrix} \\
+&= \begin{pmatrix}
+\mathrm{d} u_1 & \mathrm{d} v_1
+\end{pmatrix}
+J
+\begin{pmatrix}
+E_2(u_2, v_2) & F_2(u_2, v_2) \\
+F_2(u_2, v_2) & G_2(u_2, v_2) \\
+\end{pmatrix}
+J^T
+\begin{pmatrix}
+\mathrm{d} u_1 \\ \mathrm{d} v_1
+\end{pmatrix} \\
+&= \sigma^* (\vert \mathrm{d} \boldsymbol{r}_2 (u_2, v_2) \vert^2)
+\end{aligned}
+$$
+
+即
+
+$$
+\boldsymbol{I}_1 = \sigma^* \boldsymbol{I}_2
+$$
+
+这里$$E_2$$，$$F_2$$，$$G_2$$是曲面$$S_2$$的第一类基本量。
 
 ### 保角对应
 
