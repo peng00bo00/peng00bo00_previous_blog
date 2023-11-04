@@ -849,7 +849,7 @@ $$
 **引理** 设$$f(u, v)$$，$$g(u, v)$$是定义在区域$$D \subset \mathbb{E}^2$$上的两个不同时为零的连续可微函数，则对于任意一点$$(u_0, v_0) \in D$$必有它的一个邻域$$U \subset D$$以及$$U$$上的非零连续函数$$\lambda (u, v)$$，使得$$\lambda(u, v)$$是一次微分式$$\omega = f(u, v) \mathrm{d} u + g(u, v) \mathrm{d} v$$的积分因子，即在$$U$$上存在某个连续可微函数$$k(u, v)$$使得$$\lambda(u, v) \big( f(u, v) \mathrm{d} u + g(u, v) \mathrm{d} v \big) = \mathrm{d}k(u, v)$$。
 {:.info}
 
-上述引理的证明可以参考[全微分方程积分因子的存在性](http://staff.ustc.edu.cn/~spliu/2017DG/Chen_Weihuan.pdf)。值得指出的是，引理的结论只对含有两个变量的一次微分式才成立，这就是本节的结论**只适用于曲面情形**的理由。
+上述引理的证明可以参考[《全微分方程积分因子的存在性》](http://staff.ustc.edu.cn/~spliu/2017DG/Chen_Weihuan.pdf)。值得指出的是，引理的结论只对含有两个变量的一次微分式才成立，这就是本节的结论**只适用于曲面情形**的理由。
 
 下面我们利用引理证明一个比正交参数系的存在性更一般的命题：
 
@@ -1145,7 +1145,8 @@ $$
 则它在映射$$\sigma$$下映为曲面$$S_2$$上的一条连续可微曲线
 
 $$
-C_2: u_2 = u_2(t) = f(u_1(t), v_1(t)), \ \ v_2 = v_2(t) = g(u_1(t), v_1(t)) \\ (t_0 - \epsilon \lt t \lt t_0 + \epsilon)
+C_2: u_2 = u_2(t) = f(u_1(t), v_1(t)), \ \ v_2 = v_2(t) = g(u_1(t), v_1(t)) \ \ \
+(t_0 - \epsilon \lt t \lt t_0 + \epsilon)
 $$
 
 那么曲线$$C_2$$的切向量是
@@ -1493,5 +1494,13 @@ $$
 {:.info}
 
 ### 保角对应
+
+**定义3.4** 设$$\sigma: S_1 \rightarrow S_2$$是从正则参数曲面$$S_1$$到正则参数曲面$$S_2$$的意义对应，并且它和它的逆映射都是3次以上的连续可微映射。如果在每一点$$p \in S_1$$，切映射$$\sigma_{*p}: T_p S_1 \rightarrow T_{\sigma (p)} S_2$$都保持切向量的夹角不变，即对于任意的$$\boldsymbol{X}, \boldsymbol{Y} \in T_p S_1$$都有$$\angle (\sigma_{*p} (\boldsymbol{X}), \sigma_{*p} (\boldsymbol{Y})) = \angle (\boldsymbol{X}, \boldsymbol{Y})$$，则称$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到$$S_2$$的**保角对应**。
+{:.success}
+
+在初等平面几何学中，所谓的相似三角形是指对应边成比例的三角形，然而相似三角形的特征是对应角相等。这就是说，判断两个三角形的内角对应相等的问题可以转化为对应的三边边长是否成比例的问题。下面的定理实际上就体现了这个原理。
+
+**定理3.7** 假定正则曲面$$S_1$$和$$S_2$$的第一基本形式分别是$$\mathrm{I}_1$$和$$\mathrm{I}_2$$，则$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到曲面$$S_2$$的保角对应的充分必要条件是，在曲面$$S_1$$上存在正的连续函数$$\lambda$$，使得$$\sigma^* \mathrm{I}_2 = \lambda^2 \mathrm{I}_1$$。特别地，如果$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到曲面$$S_2$$的保角对应，则在曲面$$S_1$$和$$S_2$$上能够取适当的参数系，都记成$$(u, v)$$使得在这样的参数系下这两个曲面的第一类基本量成比例，即存在正的连续函数$$\lambda$$，使得$$E_2(u, v) = \lambda^2 (u, v) E_1(u, v)$$，$$F_2(u, v) = \lambda^2 (u, v) F_1(u, v)$$，$$G_2(u, v) = \lambda^2 (u, v) G_1(u, v)$$。
+{:.info}
 
 ## 可展曲面
