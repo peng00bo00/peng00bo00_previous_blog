@@ -1702,3 +1702,36 @@ $$
 则上面给出的映射$$\sigma: S \rightarrow \tilde{S}$$是保角对应，称为Mercator投影。由于圆柱面$$\tilde{S}$$和平面是保长的，因此球面可以通过Mercator投影和平面建立保角对应。
 
 ## 可展曲面
+
+### 直纹面
+
+直纹面是指一条直线在空间中运动所产生的曲面，或者说直纹面是单参数直线族所形成的曲面。由于确定一条直线的方式通常是指定它所经过的一个点以及它的方向向量，因此确定直纹面要有两个要素：一条曲线$$\boldsymbol{r} = \boldsymbol{a} (u)$$；这是动直线上的一个固定点在时刻$$u$$的位置向量；非零向量函数$$\boldsymbol{l}(u)$$，它是动直线在时刻$$u$$的方向向量。所以该直线在时刻$$u$$经过点$$\boldsymbol{a} (u)$$以$$\boldsymbol{l}(u)$$为方向向量，故它的参数方程是
+
+$$
+\boldsymbol{r} = \boldsymbol{r} (u, v) = \boldsymbol{a} (u) + v \boldsymbol{l} (u)
+$$
+
+上式作为$$u$$，$$v$$的二元函数，恰好是直纹面的参数方程。曲线$$\boldsymbol{r} = \boldsymbol{a} (u)$$称为直纹面的**准线**，而$$v$$-曲线称为直纹面的**直母线**。因为
+
+$$
+\begin{cases}
+\boldsymbol{r}_u (u, v) &= \boldsymbol{a}' (u) + v \boldsymbol{l}' (u) \\
+\boldsymbol{r}_v (u, v) &= \boldsymbol{l} (u)
+\end{cases}
+$$
+
+所以参数曲面是正则参数曲面的充分必要条件是
+
+$$
+\boldsymbol{r}_u \times \boldsymbol{r}_v = (\boldsymbol{a}' (u) + v \boldsymbol{l}' (u)) \times \boldsymbol{l} (u) \neq \boldsymbol{0}
+$$
+
+即$$\boldsymbol{a}' (u) \times \boldsymbol{l} (u)$$和$$\boldsymbol{l}' (u) \times \boldsymbol{l} (u)$$不能同时为零。我们常见的柱面、锥面和一条空间曲线的切线面都是特殊的直纹面，它们的参数方程分别是
+
+- 柱面：$$\boldsymbol{r} = \boldsymbol{a} (u) + v \boldsymbol{l}$$，其中$$\boldsymbol{l}$$是非零常向量(图(a))
+- 锥面：$$\boldsymbol{r} = \boldsymbol{a} + v \boldsymbol{l} (u)$$，其中$$\boldsymbol{a}$$是常向量(图(b))
+- 切线面：$$\boldsymbol{r} = \boldsymbol{a} (u) + v \boldsymbol{a}' (u)$$ (图(c))
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/XIg1dkI.png" width="80%">
+</div>
