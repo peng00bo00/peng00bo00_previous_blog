@@ -1660,6 +1660,45 @@ $$
 
 给出。证毕∎
 
-在曲面$$S$$上能够使第一基本形式表示成$$\mathrm{I} = \frac{1}{\vert \lambda \vert^2} (\mathrm{d} x^2 + \mathrm{d} y^2)$$的参数系$$(x, y)$$成为**等温参数系**。在曲面$$S$$上存在等温参数系是一个十分重要的事实，它在实践中有很多应用。
+在曲面$$S$$上能够使第一基本形式表示成$$\mathrm{I} = \frac{1}{\vert \lambda \vert^2} (\mathrm{d} x^2 + \mathrm{d} y^2)$$的参数系$$(x, y)$$称为**等温参数系**。在曲面$$S$$上存在等温参数系是一个十分重要的事实，它在实践中有很多应用。比如说绘制地图时常用的[Mercator投影](https://en.wikipedia.org/wiki/Mercator_projection)就是球面到圆柱面上的等温参数系，这里简单推导一下：
+
+设$$S$$是半径为$$a$$的球面，$$\tilde{S}$$是半径为$$\tilde{a}$$的圆柱面，它们的参数方程分别为
+
+$$
+\boldsymbol{r} = (a \cos{v} \cos{u}, a \cos{v} \sin{u}, a \sin{v})
+$$
+
+$$
+\tilde{\boldsymbol{r}} = (a \cos{\tilde{u}}, a \sin{\tilde{v}}, a \tilde{v})
+$$
+
+直接计算可以得到它们的第一基本形式分别为
+
+$$
+\begin{aligned}
+\mathrm{I} &= a^2 \cos^2 {v} (\mathrm{d} u)^2 + a^2 (\mathrm{d} v)^2 \\
+&= a^2 \cos^2 {v} \bigg( (\mathrm{d} u)^2 + \frac{1}{\cos^2 {v}} (\mathrm{d} v)^2 \bigg)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\mathrm{\tilde{I}} &= a^2 (\mathrm{d} \tilde{u})^2 + a^2 (\mathrm{d} \tilde{v})^2 \\
+&= a^2 ((\mathrm{d} \tilde{u})^2 + (\mathrm{d} \tilde{v})^2)
+\end{aligned}
+$$
+
+命
+
+$$
+\begin{cases}
+\begin{aligned}
+\tilde{u} &= u \\
+\tilde{v} &= \int_0^v \frac{\mathrm{d} v}{\cos{v}} = \log{\bigg\vert \tan \bigg(\frac{v}{2}+\frac{\pi}{4} \bigg) \bigg\vert}
+\end{aligned}
+\end{cases}
+$$
+
+则上面给出的映射$$\sigma: S \rightarrow \tilde{S}$$是保角对应，称为Mercator投影。由于圆柱面$$\tilde{S}$$和平面是保长的，因此球面可以通过Mercator投影和平面建立保角对应。
 
 ## 可展曲面
