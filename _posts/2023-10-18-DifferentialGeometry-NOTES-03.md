@@ -1769,3 +1769,43 @@ $$
 \big( \boldsymbol{a}' (u), \boldsymbol{l} (u), \boldsymbol{l}' (u) \big) = 0
 $$
 {:.info}
+
+**证明** 对直纹面$$S$$的参数方程求导数得到
+
+$$
+\begin{cases}
+\boldsymbol{r}_u (u, v) &= \boldsymbol{a}' (u) + v \boldsymbol{l}' (u) \\
+\boldsymbol{r}_v (u, v) &= \boldsymbol{l} (u)
+\end{cases}
+$$
+
+因此曲面$$S$$的法向量是
+
+$$
+\boldsymbol{r}_u \times \boldsymbol{r}_v = (\boldsymbol{a}' (u) + v \boldsymbol{l}' (u)) \times \boldsymbol{l} (u)
+$$
+
+如果$$S$$是可展曲面，则在直母线上的任意两个不同点$$(u, v_1)$$和$$(u, v_2)$$，其中$$v_1 \neq v_2$$，曲面$$S$$的法向量应该互相平行，即
+
+$$
+(\boldsymbol{a}' (u) + v_1 \boldsymbol{l}' (u)) \times \boldsymbol{l} (u) \parallel (\boldsymbol{a}' (u) + v_2 \boldsymbol{l}' (u)) \times \boldsymbol{l} (u)
+$$
+
+根据[向量三重积公式](https://en.wikipedia.org/wiki/Triple_product#Vector_triple_product)
+
+$$
+(\boldsymbol{a} \times \boldsymbol{b}) \times \boldsymbol{c} = (\boldsymbol{a} \cdot \boldsymbol{c}) \boldsymbol{b} -  (\boldsymbol{b} \cdot \boldsymbol{c}) \boldsymbol{a}
+$$
+
+我们有
+
+$$
+\begin{aligned}
+\boldsymbol{0} &= \big( (\boldsymbol{a}' (u) + v_1 \boldsymbol{l}' (u)) \times \boldsymbol{l} (u) \big) \times \big( (\boldsymbol{a}' (u) + v_2 \boldsymbol{l}' (u)) \times \boldsymbol{l} (u) \big) \\
+&= \big( \boldsymbol{a}' (u) + v_1 \boldsymbol{l}' (u) \big) \cdot \big( (\boldsymbol{a}' (u) + v_2 \boldsymbol{l}' (u)) \times \boldsymbol{l} (u) \big) \boldsymbol{l} (u) \\
+&= \big( \boldsymbol{a}' (u) + v_1 \boldsymbol{l}' (u), \boldsymbol{a}' (u) + v_2 \boldsymbol{l}' (u), \boldsymbol{l} (u) \big) \boldsymbol{l} (u) \\
+&= (v_1 - v_2) \big( \boldsymbol{a}' (u), \boldsymbol{l} (u), \boldsymbol{l}' (u) \big) \boldsymbol{l} (u)
+\end{aligned}
+$$
+
+由于$$(v_1 - v_2) \boldsymbol{l} (u) \neq \boldsymbol{0}$$，所以上式末端的混合积必为零。上面的论证过程是可逆的，因此$$\big( \boldsymbol{a}' (u), \boldsymbol{l} (u), \boldsymbol{l}' (u) \big) = 0$$也是直纹面$$S$$为可展曲面的充分条件。证毕∎
