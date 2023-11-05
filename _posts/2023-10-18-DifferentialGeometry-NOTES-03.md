@@ -1645,7 +1645,7 @@ $$
 则
 
 $$
-\mathrm{I} = \omega \bar{\omega} = \frac{1}{\vert \lambda \vert^2} (\mathrm{d} x^2 + \mathrm{d} y^2)
+\mathrm{I} = \omega \bar{\omega} = \frac{1}{\vert \lambda \vert^2} ((\mathrm{d} x)^2 + (\mathrm{d} y)^2)
 $$
 
 因此曲面$$S$$上点$$p$$的一个邻域与平面上的一个邻域是保角的，保角对应由
@@ -1660,7 +1660,7 @@ $$
 
 给出。证毕∎
 
-在曲面$$S$$上能够使第一基本形式表示成$$\mathrm{I} = \frac{1}{\vert \lambda \vert^2} (\mathrm{d} x^2 + \mathrm{d} y^2)$$的参数系$$(x, y)$$称为**等温参数系**。在曲面$$S$$上存在等温参数系是一个十分重要的事实，它在实践中有很多应用。比如说绘制地图时常用的[Mercator投影](https://en.wikipedia.org/wiki/Mercator_projection)就是球面到圆柱面上的等温参数系，这里简单推导一下：
+在曲面$$S$$上能够使第一基本形式表示成$$\mathrm{I} = \frac{1}{\vert \lambda \vert^2} ((\mathrm{d} x)^2 + (\mathrm{d} y)^2)$$的参数系$$(x, y)$$称为**等温参数系**。在曲面$$S$$上存在等温参数系是一个十分重要的事实，它在实践中有很多应用。比如说绘制地图时常用的[Mercator投影](https://en.wikipedia.org/wiki/Mercator_projection)就是球面到圆柱面上的等温参数系，这里简单推导一下：
 
 设$$S$$是半径为$$a$$的球面，$$\tilde{S}$$是半径为$$\tilde{a}$$的圆柱面，它们的参数方程分别为
 
