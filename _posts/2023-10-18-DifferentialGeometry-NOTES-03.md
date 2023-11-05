@@ -1735,3 +1735,37 @@ $$
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/XIg1dkI.png" width="80%">
 </div>
+
+通过直接计算知道，这些曲面的一个共同特征是：当点沿着直母线运动时曲面的切平面是保持不变的，即这种曲面的切平面构成依赖单个参数的平面族。以切线面为例，根据其参数方程可以得到
+
+$$
+\begin{cases}
+\begin{aligned}
+\boldsymbol{r}_u &= \boldsymbol{a}' (u) + v \boldsymbol{a}'' (u) \\
+\boldsymbol{r}_v &= \boldsymbol{a}' (u) \\
+\end{aligned}
+\end{cases}
+$$
+
+所以
+
+$$
+\boldsymbol{r}_u \times \boldsymbol{r}_v = -v \boldsymbol{a}' (u) \times \boldsymbol{a}'' (u)
+$$
+
+$$
+\boldsymbol{n} = \pm \frac{\boldsymbol{a}' (u) \times \boldsymbol{a}'' (u)}{\vert \boldsymbol{a}' (u) \times \boldsymbol{a}'' (u) \vert}
+$$
+
+因为切线面的单位法向量场$$\boldsymbol{n}$$只依赖参数$$u$$，故切线面的法向量沿着直母线($$u=$$常数)保持不变，而且直母线又落在切线面的切平面上，因此当点沿着直母线运动时切线面的切平面是保持不变的。
+
+**定义3.5** 设$$S$$是直纹面，如果曲面$$S$$的切平面沿每一条直母线是不变的，则称该直纹面是**可展曲面**。
+{:.success}
+
+前面的讨论说明，柱面、锥面和一条空间曲线的切线面都是可展曲面。下面的命题给出了一个直纹面是可展曲面的条件。
+
+**定理3.9** 设直纹面$$S$$的参数方程是$$\boldsymbol{r} = \boldsymbol{a} (u) + v \boldsymbol{l} (u)$$，则$$S$$是可展曲面的充分必要条件是向量函数$$\boldsymbol{a} (u)$$，$$\boldsymbol{l} (u)$$满足方程
+$$
+\big( \boldsymbol{a}' (u), \boldsymbol{l} (u), \boldsymbol{l}' (u) \big) = 0
+$$
+{:.info}
