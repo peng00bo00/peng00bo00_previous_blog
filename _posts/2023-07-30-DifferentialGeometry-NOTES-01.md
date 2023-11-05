@@ -548,4 +548,4 @@ $$
 \boldsymbol{a}(t) \cdot \boldsymbol{b}_0(t) = \frac{\boldsymbol{a}(t) \cdot \boldsymbol{b}(t)}{\vert \boldsymbol{b}(t) \vert} \equiv \boldsymbol{0}
 $$
 
-即$$\boldsymbol{a}(t)$$与固定方向$$\boldsymbol{b}_0(t)$$垂直。证毕■
+即$$\boldsymbol{a}(t)$$与固定方向$$\boldsymbol{b}_0(t)$$垂直。证毕∎

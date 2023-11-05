@@ -1061,7 +1061,7 @@ $$
 \end{aligned}
 $$
 
-证毕■
+证毕∎
 
 定理3.2的意思是在曲面上存在局部适用的参数系，使得参数曲线分别与预先给定的处处线性无关的切向量场相切(即以已知的切向量场作为参数曲线的方向场)。但是，一般来说，要使已知的切向量场恰好是参数曲线的切向量场(即$$\boldsymbol{r}_{\tilde{u}} = \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{v}} = \boldsymbol{b}$$)是做不到的。
 
@@ -1106,7 +1106,7 @@ $$
 
 则$$\{ \boldsymbol{r}_u, \boldsymbol{r}_v \}$$是曲面$$S$$上的单位正交标架场。
 
-根据定理3.2，则每一点$$p$$的一个邻域$$U$$内存在新的参数$$(\tilde{u}, \tilde{v})$$，使得$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{e}_1$$，$$\boldsymbol{r}_{\tilde{v}} \parallel \boldsymbol{e}_2$$，故$$(\tilde{u}, \tilde{v})$$是正交参数系。证毕■
+根据定理3.2，则每一点$$p$$的一个邻域$$U$$内存在新的参数$$(\tilde{u}, \tilde{v})$$，使得$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{e}_1$$，$$\boldsymbol{r}_{\tilde{v}} \parallel \boldsymbol{e}_2$$，故$$(\tilde{u}, \tilde{v})$$是正交参数系。证毕∎
 
 当然，定理3.3只是一个存在性定理；要在已知曲面上找出正交参数曲线网相当于在曲面上找两个彼此正交的切向量场$$\boldsymbol{a}$$和$$\boldsymbol{b}$$，然后求出相应微分式$$\alpha$$和$$\beta$$的积分因子。一般来说，前一件事是容易做到的，而后一件却不是一件容易的事。尽管如此，定理3.3仍然是十分重要的，因为这个定理保证了在正则曲面上正交参数曲线网的存在性，从而使得我们在理论上处理正则曲面的问题变得比较简单了。
 
@@ -1270,7 +1270,7 @@ u_2 &= f(u_1, v_1) \\ v_2 &= g(u_1, v_1)
 \end{cases}
 $$
 
-给出。由于在点$$p$$处有$$\frac{\partial (u_2, v_2)}{\partial (u_1, v_1)} \bigg\vert_p \neq 0$$，因此上面的式子可以看作曲面$$S_1$$在点$$p$$的某个邻域$$U_1$$上的容许参数变换，使得$$(u_2, v_2)$$成为曲面$$S_1$$在点$$p$$的某个邻域$$U_1$$内的参数系。在这样的参数系下，映射$$\sigma$$恰好是参数区域上的恒等映射。证毕■
+给出。由于在点$$p$$处有$$\frac{\partial (u_2, v_2)}{\partial (u_1, v_1)} \bigg\vert_p \neq 0$$，因此上面的式子可以看作曲面$$S_1$$在点$$p$$的某个邻域$$U_1$$上的容许参数变换，使得$$(u_2, v_2)$$成为曲面$$S_1$$在点$$p$$的某个邻域$$U_1$$内的参数系。在这样的参数系下，映射$$\sigma$$恰好是参数区域上的恒等映射。证毕∎
 
 映射$$\sigma: S_1 \rightarrow S_2$$还能够把$$S_2$$上的二次微分式拉回到$$S_1$$上，成为$$S_1$$上的二次微分式。假定$$S_2$$上的一个二次微分式$$\varphi$$的表达式是
 
@@ -1557,6 +1557,16 @@ $$
 \end{aligned}
 $$
 
-证毕■
+带入第一类基本量有
+
+$$
+\begin{aligned}
+\frac{F_1}{\sqrt{E_1 G_1}} &= \frac{F_2}{\sqrt{E_2 G_2}} \\
+\frac{E_1 + F_1}{\sqrt{E_1 + 2F_1 + G_1} \sqrt{E_1}} &= \frac{E_2 + F_2}{\sqrt{E_2 + 2F_2 + G_2} \sqrt{E_2}} \\
+\frac{E_1 + F_1}{\sqrt{E_1 + 2F_1 + G_1} \sqrt{G_1}} &= \frac{E_2 + F_2}{\sqrt{E_2 + 2F_2 + G_2} \sqrt{G_2}}
+\end{aligned}
+$$
+
+证毕∎
 
 ## 可展曲面
