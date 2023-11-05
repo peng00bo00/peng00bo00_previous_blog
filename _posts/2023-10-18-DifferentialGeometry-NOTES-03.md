@@ -1061,7 +1061,7 @@ $$
 \end{aligned}
 $$
 
-证毕。
+证毕■
 
 定理3.2的意思是在曲面上存在局部适用的参数系，使得参数曲线分别与预先给定的处处线性无关的切向量场相切(即以已知的切向量场作为参数曲线的方向场)。但是，一般来说，要使已知的切向量场恰好是参数曲线的切向量场(即$$\boldsymbol{r}_{\tilde{u}} = \boldsymbol{a}$$，$$\boldsymbol{r}_{\tilde{v}} = \boldsymbol{b}$$)是做不到的。
 
@@ -1106,7 +1106,7 @@ $$
 
 则$$\{ \boldsymbol{r}_u, \boldsymbol{r}_v \}$$是曲面$$S$$上的单位正交标架场。
 
-根据定理3.2，则每一点$$p$$的一个邻域$$U$$内存在新的参数$$(\tilde{u}, \tilde{v})$$，使得$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{e}_1$$，$$\boldsymbol{r}_{\tilde{v}} \parallel \boldsymbol{e}_2$$，故$$(\tilde{u}, \tilde{v})$$是正交参数系。证毕。
+根据定理3.2，则每一点$$p$$的一个邻域$$U$$内存在新的参数$$(\tilde{u}, \tilde{v})$$，使得$$\boldsymbol{r}_{\tilde{u}} \parallel \boldsymbol{e}_1$$，$$\boldsymbol{r}_{\tilde{v}} \parallel \boldsymbol{e}_2$$，故$$(\tilde{u}, \tilde{v})$$是正交参数系。证毕■
 
 当然，定理3.3只是一个存在性定理；要在已知曲面上找出正交参数曲线网相当于在曲面上找两个彼此正交的切向量场$$\boldsymbol{a}$$和$$\boldsymbol{b}$$，然后求出相应微分式$$\alpha$$和$$\beta$$的积分因子。一般来说，前一件事是容易做到的，而后一件却不是一件容易的事。尽管如此，定理3.3仍然是十分重要的，因为这个定理保证了在正则曲面上正交参数曲线网的存在性，从而使得我们在理论上处理正则曲面的问题变得比较简单了。
 
@@ -1215,7 +1215,20 @@ $$
 \begin{aligned}
 \sigma_{*p} (\boldsymbol{X}) &= a \bigg( \frac{\partial \boldsymbol{r}_2}{\partial u_2} \frac{\partial f(u_1, v_1)}{\partial u_1} + \frac{\partial \boldsymbol{r}_2}{\partial v_2} \frac{\partial g(u_1, v_1)}{\partial u_1} \bigg) \\
 &+ b \bigg( \frac{\partial \boldsymbol{r}_2}{\partial u_2} \frac{\partial f(u_1, v_1)}{\partial v_1} + \frac{\partial \boldsymbol{r}_2}{\partial v_2} \frac{\partial g(u_1, v_1)}{\partial v_1} \bigg) \\
-&= \bigg( a \frac{\partial u_2}{\partial u_1} + b \frac{\partial u_2}{\partial v_1} \bigg) \frac{\partial \boldsymbol{r}_2}{\partial u_2} + \bigg( a \frac{\partial v_2}{\partial u_1} + b \frac{\partial v_2}{\partial v_1} \bigg) \frac{\partial \boldsymbol{r}_2}{\partial v_2}
+&= \bigg( a \frac{\partial u_2}{\partial u_1} + b \frac{\partial u_2}{\partial v_1} \bigg) \frac{\partial \boldsymbol{r}_2}{\partial u_2} + \bigg( a \frac{\partial v_2}{\partial u_1} + b \frac{\partial v_2}{\partial v_1} \bigg) \frac{\partial \boldsymbol{r}_2}{\partial v_2} \\
+&=
+\begin{pmatrix}
+a & b
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial u_2}{\partial u_1} & \frac{\partial v_2}{\partial u_1} \\
+\frac{\partial u_2}{\partial v_1} & \frac{\partial v_2}{\partial v_1} \\
+\end{pmatrix}
+
+\begin{pmatrix}
+\frac{\partial \boldsymbol{r}_2}{\partial u_2} \\ 
+\frac{\partial \boldsymbol{r}_2}{\partial u_2}
+\end{pmatrix}
 \end{aligned}
 $$
 
@@ -1257,7 +1270,7 @@ u_2 &= f(u_1, v_1) \\ v_2 &= g(u_1, v_1)
 \end{cases}
 $$
 
-给出。由于在点$$p$$处有$$\frac{\partial (u_2, v_2)}{\partial (u_1, v_1)} \bigg\vert_p \neq 0$$，因此上面的式子可以看作曲面$$S_1$$在点$$p$$的某个邻域$$U_1$$上的容许参数变换，使得$$(u_2, v_2)$$成为曲面$$S_1$$在点$$p$$的某个邻域$$U_1$$内的参数系。在这样的参数系下，映射$$\sigma$$恰好是参数区域上的恒等映射。证毕。
+给出。由于在点$$p$$处有$$\frac{\partial (u_2, v_2)}{\partial (u_1, v_1)} \bigg\vert_p \neq 0$$，因此上面的式子可以看作曲面$$S_1$$在点$$p$$的某个邻域$$U_1$$上的容许参数变换，使得$$(u_2, v_2)$$成为曲面$$S_1$$在点$$p$$的某个邻域$$U_1$$内的参数系。在这样的参数系下，映射$$\sigma$$恰好是参数区域上的恒等映射。证毕■
 
 映射$$\sigma: S_1 \rightarrow S_2$$还能够把$$S_2$$上的二次微分式拉回到$$S_1$$上，成为$$S_1$$上的二次微分式。假定$$S_2$$上的一个二次微分式$$\varphi$$的表达式是
 
@@ -1502,5 +1515,48 @@ $$
 
 **定理3.7** 假定正则曲面$$S_1$$和$$S_2$$的第一基本形式分别是$$\mathrm{I}_1$$和$$\mathrm{I}_2$$，则$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到曲面$$S_2$$的保角对应的充分必要条件是，在曲面$$S_1$$上存在正的连续函数$$\lambda$$，使得$$\sigma^* \mathrm{I}_2 = \lambda^2 \mathrm{I}_1$$。特别地，如果$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到曲面$$S_2$$的保角对应，则在曲面$$S_1$$和$$S_2$$上能够取适当的参数系，都记成$$(u, v)$$使得在这样的参数系下这两个曲面的第一类基本量成比例，即存在正的连续函数$$\lambda$$，使得$$E_2(u, v) = \lambda^2 (u, v) E_1(u, v)$$，$$F_2(u, v) = \lambda^2 (u, v) F_1(u, v)$$，$$G_2(u, v) = \lambda^2 (u, v) G_1(u, v)$$。
 {:.info}
+
+**证明** 充分性是明显的。如果$$\sigma^* \mathrm{I}_2 = \lambda^2 \mathrm{I}_1$$成立，则对于任意的$$p \in S_1$$，$$\boldsymbol{X}, \boldsymbol{Y} \in T_p S_1$$都有
+
+$$
+\begin{aligned}
+\cos{\angle (\boldsymbol{X}, \boldsymbol{Y})} &= \frac{\boldsymbol{X} \cdot \boldsymbol{Y}}{\vert \boldsymbol{X} \vert \vert \boldsymbol{Y} \vert} = \frac{\mathrm{I}_1 (\boldsymbol{X}, \boldsymbol{Y})}{\sqrt{\mathrm{I}_1 (\boldsymbol{X}, \boldsymbol{X})} \sqrt{\mathrm{I}_1 (\boldsymbol{Y}, \boldsymbol{Y})}} \\
+\cos{\angle ( \sigma_{*p} (\boldsymbol{X}), \sigma_{*p} (\boldsymbol{Y}) )} &= \frac{\mathrm{I}_2 (\sigma_{*p} (\boldsymbol{X}), \sigma_{*p} (\boldsymbol{Y}))}{\sqrt{\mathrm{I}_2 (\sigma_{*p} (\boldsymbol{X}), \sigma_{*p} (\boldsymbol{X}))} \sqrt{\mathrm{I}_2 (\sigma_{*p} (\boldsymbol{Y}), \sigma_{*p} (\boldsymbol{Y}))}} \\
+&= \frac{\sigma^* \mathrm{I}_2 (\boldsymbol{X}, \boldsymbol{Y})}{\sqrt{\sigma^* \mathrm{I}_2 (\boldsymbol{X}, \boldsymbol{X})} \sqrt{\sigma^* \mathrm{I}_2 (\boldsymbol{Y}, \boldsymbol{Y})}} \\
+&= \frac{\lambda^2 \mathrm{I}_1 (\boldsymbol{X}, \boldsymbol{Y})}{\sqrt{\lambda^2 \mathrm{I}_1 (\boldsymbol{X}, \boldsymbol{X})} \sqrt{\lambda^2 \mathrm{I}_1 (\boldsymbol{Y}, \boldsymbol{Y})}} \\
+&= \cos{\angle (\boldsymbol{X}, \boldsymbol{Y})}
+\end{aligned}
+$$
+
+反过来，假定$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到曲面$$S_2$$的保角对应，则根据定义$$\sigma$$必定是一一对应。故根据定理3.4在曲面$$S_1$$和$$S_2$$上能够取适用参数系，都记成$$(u, v)$$，使得在这样的参数系下$$\sigma$$是有相同参数值的点之间的对应，即
+
+$$
+\sigma(\boldsymbol{r}_1 (u, v)) = \boldsymbol{r}_2 (u, v)
+$$
+
+其中$$\boldsymbol{r}_1 (u, v)$$，$$\boldsymbol{r}_2 (u, v)$$分别是曲面$$S_1$$，$$S_2$$的参数方程。因此
+
+$$
+\sigma_* \bigg( \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial u} \bigg) = \frac{\partial \boldsymbol{r}_2 (u, v)}{\partial u}, \ \ \
+\sigma_* \bigg( \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial v} \bigg) = \frac{\partial \boldsymbol{r}_2 (u, v)}{\partial v}
+$$
+
+并且
+
+$$
+\sigma_* \bigg( \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial u} + \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial v} \bigg) = \frac{\partial \boldsymbol{r}_2 (u, v)}{\partial u} + \frac{\partial \boldsymbol{r}_2 (u, v)}{\partial v}
+$$
+
+根据切向量夹角不变的条件有
+
+$$
+\begin{aligned}
+\cos{\angle \bigg( \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial u} , \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial v} \bigg)} &= \cos{\angle \bigg( \frac{\partial \boldsymbol{r}_2 (u, v)}{\partial u} , \frac{\partial \boldsymbol{r}_2 (u, v)}{\partial v} \bigg)} \\
+\cos{\angle \bigg( \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial u} + \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial v}, \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial u} \bigg)} &= \cos{\angle \bigg( \frac{\partial \boldsymbol{r}_2 (u, v)}{\partial u} + \frac{\partial \boldsymbol{r}_2 (u, v)}{\partial v}, \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial u} \bigg)} \\
+\cos{\angle \bigg( \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial u} + \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial v}, \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial v} \bigg)} &= \cos{\angle \bigg( \frac{\partial \boldsymbol{r}_2 (u, v)}{\partial u} + \frac{\partial \boldsymbol{r}_2 (u, v)}{\partial v}, \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial v} \bigg)}
+\end{aligned}
+$$
+
+证毕■
 
 ## 可展曲面

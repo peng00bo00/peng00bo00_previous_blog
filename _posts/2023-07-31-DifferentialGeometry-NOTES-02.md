@@ -122,7 +122,7 @@ $$
 = \int_\alpha^\beta \bigg\vert \frac{\mathrm{d} \boldsymbol{r}(t(u))}{\mathrm{d} u} \bigg\vert \ \mathrm{d}u
 $$
 
-因此$$s$$与参数变换无关。
+因此$$s$$与参数变换无关。证毕■
 
 不变量$$s$$的几何意义是该曲线的长度。可以证明对于对于区间$$[a, b]$$的任意一个分割$$a = t_0 \lt t_1 \lt ... \lt t_n = b$$，下面的极限成立：
 
@@ -372,7 +372,7 @@ $$
 \big( \boldsymbol{r}(s) - \boldsymbol{r}(s_0) \big) \cdot \boldsymbol{\gamma}_0 = 0
 $$
 
-这说明曲线落在经过点$$\boldsymbol{r}(s_0)$$、以常向量$$\boldsymbol{\gamma}_0$$为法向量的平面内。证毕。
+这说明曲线落在经过点$$\boldsymbol{r}(s_0)$$、以常向量$$\boldsymbol{\gamma}_0$$为法向量的平面内。证毕■
 
 根据曲率、挠率和Frenet标架的定义，我们可以总结出如下公式：
 
@@ -684,7 +684,7 @@ $$
 \lim_{\Delta s} \frac{\vert \boldsymbol{r}_1 (s) - \boldsymbol{r}_2 (s) \vert}{s^{n+1}} = \frac{1}{(n+1)!} \vert \boldsymbol{r}_1^{(n+1)} (0) - \boldsymbol{r}_2^{(n+1)} (0) \vert \neq 0
 $$
 
-反之亦然。由此可见，一条正则曲线与由它的Taylor展开式的前$$n+1$$项之和给出的曲线在该点处至少有$$n$$阶切触。正则曲线与它的切线至少有1阶切触，与它在一点处的近似曲线在该点至少有2阶切触。
+反之亦然。由此可见，一条正则曲线与由它的Taylor展开式的前$$n+1$$项之和给出的曲线在该点处至少有$$n$$阶切触。正则曲线与它的切线至少有1阶切触，与它在一点处的近似曲线在该点至少有2阶切触。证毕■
 
 **定理2.9**的直接推论是两条相交的正则曲线在交点$$s=0$$处有2阶以上的切触的充要条件是
 
@@ -792,7 +792,7 @@ $$
 \frac{\mathrm{d}}{\mathrm{d} s} \big( \boldsymbol{\alpha}_1 (s) \cdot \boldsymbol{\alpha}_2 (s) \big) = \kappa_1 (s) \boldsymbol{\beta}_1 (s) \cdot \boldsymbol{\alpha}_2 (s) + \kappa_2(s) \boldsymbol{\alpha}_1(s) \cdot \boldsymbol{\beta}_2 (s) \frac{\mathrm{d} \tilde{s}}{\mathrm{d} s} = 0
 $$
 
-故曲线$$C_1$$和$$C_2$$在对应点的切线成定角。
+故曲线$$C_1$$和$$C_2$$在对应点的切线成定角。证毕■
 
 **定理2.12** 设正则参数曲线$$C$$的曲率$$\kappa$$和挠率$$\tau$$都不是零，则存在另一条正则参数曲线$$C_1$$使得曲线$$C_1$$和$$C$$成为Bertrand曲线偶的充分必要条件是，存在常数$$\lambda \neq 0$$和$$\mu$$使得$$\lambda \kappa + \mu \tau = 1$$。
 {:.info}
@@ -865,7 +865,7 @@ $$
 \end{aligned}
 $$
 
-所以$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta} (s)$$，$$C_1$$和$$C$$成为Bertrand曲线偶。
+所以$$\boldsymbol{\beta}_1 (s) = \pm \boldsymbol{\beta} (s)$$，$$C_1$$和$$C$$成为Bertrand曲线偶。证毕■
 
 ### 渐伸线和渐缩线
 
@@ -906,6 +906,8 @@ $$
 $$
 \boldsymbol{r}_1 (s) = \boldsymbol{r}(s) + (c-s) \boldsymbol{\alpha} (s)
 $$
+
+证毕■
 
 曲线的渐伸线可以看作是该曲线的切线族的正交轨线，而**定理2.13**可以解释为：将一条软线沿曲线放置，把一端固定，另一端慢慢离开原曲线，并且把软线抻直，使软线抻直的部分是在保持为原曲线的切线，则这另一端描出的曲线就是原曲线渐伸线。
 
