@@ -173,7 +173,7 @@ $$
 $$
 \mathcal{M}_{ij} = 
 \begin{cases}
-\frac{W_{j, T_i}}{\sqrt{A_{T_i}}}, & \text{if vertex $v_j$ belongs to triangle $T_i$} \\
+\frac{W_{j, T_i}}{\sqrt{A_{T_i}}}, & \text{if vertex $$v_j$$ belongs to triangle $$T_i$$} \\
 0, & \text{otherwise}
 \end{cases}
 $$
