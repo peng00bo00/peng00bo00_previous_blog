@@ -1528,7 +1528,7 @@ $$
 \end{aligned}
 $$
 
-反过来，假定$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到曲面$$S_2$$的保角对应，则根据定义$$\sigma$$必定是一一对应。故根据定理3.4在曲面$$S_1$$和$$S_2$$上能够取适用参数系，都记成$$(u, v)$$，使得在这样的参数系下$$\sigma$$是有相同参数值的点之间的对应，即
+反过来，假定$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到曲面$$S_2$$的保角对应，则根据定义$$\sigma$$必定是一一对应。故根据**定理3.4**在曲面$$S_1$$和$$S_2$$上能够取适用参数系，都记成$$(u, v)$$，使得在这样的参数系下$$\sigma$$是有相同参数值的点之间的对应，即
 
 $$
 \sigma(\boldsymbol{r}_1 (u, v)) = \boldsymbol{r}_2 (u, v)
@@ -1565,6 +1565,45 @@ $$
 \frac{E_1 + F_1}{\sqrt{E_1 + 2F_1 + G_1} \sqrt{E_1}} &= \frac{E_2 + F_2}{\sqrt{E_2 + 2F_2 + G_2} \sqrt{E_2}} \\
 \frac{E_1 + F_1}{\sqrt{E_1 + 2F_1 + G_1} \sqrt{G_1}} &= \frac{E_2 + F_2}{\sqrt{E_2 + 2F_2 + G_2} \sqrt{G_2}}
 \end{aligned}
+$$
+
+将上面的后两个式子相除得到
+
+$$
+\frac{\sqrt{E_1} + \frac{F_1}{\sqrt{E_1}}}{\sqrt{G_1} + \frac{F_1}{\sqrt{G_1}}} = \frac{\sqrt{E_2} + \frac{F_2}{\sqrt{E_2}}}{\sqrt{G_2} + \frac{F_2}{\sqrt{G_2}}}
+$$
+
+将上式展开并结合关系式$$\frac{F_1}{\sqrt{E_1 G_1}} = \frac{F_2}{\sqrt{E_2 G_2}}$$得到
+
+$$
+\sqrt{E_1 G_2} + \frac{F_1 F_2}{\sqrt{E_1 G_2}} = \sqrt{E_2 G_1} + \frac{F_1 F_2}{\sqrt{E_2 G_1}}
+$$
+
+$$
+\begin{aligned}
+(\sqrt{E_1 G_2} - \sqrt{E_2 G_1}) \bigg( 1 -\frac{F_1}{\sqrt{E_1 G_1}} \frac{F_2}{\sqrt{E_2 G_2}} \bigg) &= 
+(\sqrt{E_1 G_2} - \sqrt{E_2 G_1}) \bigg( 1 -\frac{F_1^2}{E_1 G_1} \bigg) \\
+&= (\sqrt{E_1 G_2} - \sqrt{E_2 G_1}) \bigg( 1 - \cos^2{\angle \bigg( \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial u}, \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial v} \bigg)} \bigg) \\
+&= 0
+\end{aligned}
+$$
+
+由于$$S_1$$是正则参数曲面，切向量$$\frac{\partial \boldsymbol{r}_1 (u, v)}{\partial u}$$，$$\frac{\partial \boldsymbol{r}_1 (u, v)}{\partial v}$$不共线，故
+
+$$
+\cos^2{\angle \bigg( \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial u}, \frac{\partial \boldsymbol{r}_1 (u, v)}{\partial v}} \bigg) \neq 1
+$$
+
+所以
+
+$$
+E_1 G_2 = E_2 G_1
+$$
+
+带入关系式$$\frac{F_1}{\sqrt{E_1 G_1}} = \frac{F_2}{\sqrt{E_2 G_2}}$$则得到
+
+$$
+\frac{F_2}{F_1} = \frac{E_2}{E_1} = \frac{G_2}{G_1} = \lambda^2
 $$
 
 证毕∎
