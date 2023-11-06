@@ -2026,10 +2026,48 @@ $$
 
 因此锥面和平面是保长的。
 
-(3) 切线面：
+(3) 切线面：设$$C: \boldsymbol{r} = \boldsymbol{r} (s)$$是$$\mathbb{E}^3$$中一条正则参数曲线，$$s$$是它的弧长参数，故它的切线面的参数方程是
 
-证毕∎
+$$
+\boldsymbol{r} = \boldsymbol{r} (s) + t \boldsymbol{r}' (s) = \boldsymbol{r} (s) + t \boldsymbol{\alpha} (s)
+$$
+
+这里$$\{ \boldsymbol{r} (s); \boldsymbol{\alpha} (s), \boldsymbol{\beta} (s), \boldsymbol{\gamma} (s) \}$$是曲线$$C$$的Frenet标架。因此
+
+$$
+\begin{cases}
+\begin{aligned}
+\boldsymbol{r}_s &= \boldsymbol{r}' (s) + t \kappa (s) \boldsymbol{\beta} (s) \\
+\boldsymbol{r}_t &= \boldsymbol{\alpha} (s)
+\end{aligned}
+\end{cases}
+$$
+
+其中$$\kappa(s)$$是曲线的曲率。所以
+
+$$
+\begin{cases}
+\begin{aligned}
+E &= 1 + t^2 \kappa^2 \\
+F &= 1 \\
+G &= 1
+\end{aligned}
+\end{cases}
+$$
+
+切线面的第一基本形式是
+
+$$
+\mathrm{I} = (1 + t^2 \kappa^2) (\mathrm{d} s)^2 + 2 \mathrm{d} s \mathrm{d} t + (\mathrm{d} t)^2
+$$
+
+注意到在切线面的第一基本形式中不含有曲线$$C$$的挠率，这就是说如果$$C$$，$$C_1$$是空间$$\mathbb{E}^3$$中任意两条有相同的弧长参数和相同的曲率函数的正则参数曲线，则它们的切线面必有相同的第一基本形式，因此这两个切线面必定是保长的。根据[曲线论基本定理](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的内在方程)，可以作一条平面曲线$$C_1$$，使它以$$s$$为弧长参数，以$$\kappa (s)$$为曲率函数而挠率为零，那么它的切线面是平面的一部分。由此可见，曲线$$C$$的切线面能够和平面在局部上建立保长对应。证毕∎
 
 ### 包络
 
 可展曲面的切平面沿直母线是同一个，因此可展曲面的切平面构成依赖一个参数的平面族，而可展曲面本身可以看作与该平面族中每一个成员都相切的曲面。这个概念可以作一些推广。
+
+**定义3.6** 设$$\{ S_\alpha \}$$是依赖参数$$\alpha$$的一族正则曲面。如果有一个正则曲面$$S$$，使得$$S$$上的每一点必定是曲面族$$\{ S_\alpha \}$$中的某个曲面$$S_\alpha$$上的一点，并且曲面$$S$$和$$S_\alpha$$在该点有相同的切平面；反过来，曲面族$$\{ S_\alpha \}$$中的每一个成员必定与曲面$$S$$在某一点有相同的切平面，则称曲面$$S$$是单参数曲面族$$\{ S_\alpha \}$$的**包络**。
+{:.success}
+
+根据上述定义，可展曲面是单参数平面族的包络。
