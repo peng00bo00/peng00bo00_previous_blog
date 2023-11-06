@@ -1869,7 +1869,18 @@ $$
 \boldsymbol{r} = \boldsymbol{b}_0 + (v + \beta (u)) \boldsymbol{l} (u)
 $$
 
-证毕∎
+当$$\alpha (u) - \beta' (u) \not\equiv 0$$时，不妨设在$$u$$的一个小区间内$$\alpha (u) - \beta' (u)$$恒不为零，故$$\boldsymbol{r} = \boldsymbol{b} (u)$$是一条正则曲线。此时，曲面$$S$$的参数方程成为
+
+$$
+\begin{aligned}
+\boldsymbol{r} &= \boldsymbol{b} (u) + (v + \beta (u)) \boldsymbol{l} (u) \\
+&= \boldsymbol{b} (u) + \frac{v + \beta (u)}{\alpha (u) - \beta' (u)} \boldsymbol{b}' (u)
+\end{aligned}
+$$
+
+这说明曲面$$S$$是正则参数曲线$$\boldsymbol{r} = \boldsymbol{b}$$的切线面。
+
+容易看出，在函数$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u)$$，或$$\alpha (u) - \beta' (u)$$的例外零点，正好是柱面、锥面和曲线的切线面沿直母线的拼接之处。证毕∎
 
 可展曲面的另一个特征是它和平面在局部上可以建立[保长对应](/2023/10/18/DifferentialGeometry-NOTES-03.html#保长对应)。在直观上，柱面和锥面都能够在不作伸缩的情况下展开成平面,正好体现了上面所述的特征。它的逆命题也成立，留待后面再来证明。
 
