@@ -1811,3 +1811,64 @@ $$
 $$
 
 由于$$(v_1 - v_2) \boldsymbol{l} (u) \neq \boldsymbol{0}$$，所以上式末端的混合积必为零。上面的论证过程是可逆的，因此$$\big( \boldsymbol{a}' (u), \boldsymbol{l} (u), \boldsymbol{l}' (u) \big) = 0$$也是直纹面$$S$$为可展曲面的充分条件。证毕∎
+
+在直纹面上可能会有两个不同的连续单参数直线族，那么是否会出现这样的情况：对其中一个连续单参数直线族混合积为零，而对另一个连续单参数直线族不为零？结论是否定的，这种情况不会出现。原因是存在两个不同的连续单参数直线族的曲面只有单叶双曲面、双曲抛物面和平面这三种情况。直接验证可知，前两者都不是可展曲面。因此，要判断一个直纹面是否为可展曲面，只要就直纹面的一种参数表示进行检验就可以了。
+
+**定理3.10** 可展曲面在局部上是柱面、锥面和一条空间曲线的切线面，或者是用这三种曲面以充分连续可微的方式沿直母线拼接的结果。
+{:.info}
+
+**证明** 设$$S$$是可展曲面，它的参数方程是$$\boldsymbol{r} = \boldsymbol{a} (u) + v \boldsymbol{l} (u)$$并且满足
+
+$$
+\big( \boldsymbol{a}' (u), \boldsymbol{l} (u), \boldsymbol{l}' (u) \big) = 0
+$$
+
+如果$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u) \equiv \boldsymbol{0}$$，则根据[定理1.3](/2023/07/30/DifferentialGeometry-NOTES-01.html#向量函数)，向量$$\boldsymbol{l} (u)$$有确定的方向。因此直母线互相平行，$$S$$是一个柱面。
+
+当$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u) \neq \boldsymbol{0}$$时，可以假设在$$u$$的一个小区间内$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u)$$恒不为零，于是$$\boldsymbol{l} (u)$$和$$\boldsymbol{l}' (u)$$在该区间内处处线性无关。那么条件$$\big( \boldsymbol{a}' (u), \boldsymbol{l} (u), \boldsymbol{l}' (u) \big) = 0$$意味着向量$$\boldsymbol{a}' (u)$$和$$\boldsymbol{l} (u)$$，$$\boldsymbol{l}' (u)$$共面，因而是它们的线性组合。不妨设为
+
+$$
+\boldsymbol{a}' (u) = \alpha(u) \boldsymbol{l} (u) + \beta(u) \boldsymbol{l}' (u)
+$$
+
+现在让准线做变换
+
+$$
+\boldsymbol{b} (u) = \boldsymbol{a} (u) + \lambda (u) \boldsymbol{l} (u)
+$$
+
+要求$$\boldsymbol{b}' (u) \parallel \boldsymbol{l} (u)$$。对$$\boldsymbol{b} (u)$$求导并带入$$\boldsymbol{a}' (u)$$得到
+
+$$
+\begin{aligned}
+\boldsymbol{b}' (u) &= \boldsymbol{a}' (u) + \lambda' (u) \boldsymbol{l} (u) + \lambda (u) \boldsymbol{l}' (u) \\
+&= (\alpha (u) + \lambda' (u)) \boldsymbol{l} (u) + (\beta (u) + \lambda (u)) \boldsymbol{l}' (u)
+\end{aligned}
+$$
+
+取$$\lambda (u) = -\beta (u)$$，则
+
+$$
+\begin{cases}
+\begin{aligned}
+\boldsymbol{b} (u) &= \boldsymbol{a} (u) - \beta (u) \boldsymbol{l} (u) \\
+\boldsymbol{b}' (u) &= (\boldsymbol{a} (u) - \beta' (u)) \boldsymbol{l} (u)
+\end{aligned}
+\end{cases}
+$$
+
+如果$$\alpha (u) - \beta' (u) \equiv 0$$，则$$\boldsymbol{b}' (u) \equiv \boldsymbol{0}$$，于是$$boldsymbol{b} (u) = boldsymbol{b}_0$$是常向量。此时
+
+$$
+\boldsymbol{a} (u) - \beta (u) \boldsymbol{l} (u) = \boldsymbol{b}_0
+$$
+
+即直纹面$$S$$的直母线都通过一个定点$$\boldsymbol{b}_0$$，所以该直纹面是锥面
+
+$$
+\boldsymbol{r} = \boldsymbol{b}_0 + (v + \beta (u)) \boldsymbol{l} (u)
+$$
+
+证毕∎
+
+可展曲面的另一个特征是它和平面在局部上可以建立[保长对应](/2023/10/18/DifferentialGeometry-NOTES-03.html#保长对应)。
