@@ -1887,4 +1887,149 @@ $$
 **定理3.11** 可展曲面在局部上可以和平面建立保长对应。
 {:.info}
 
+**证明** 我们只要证明柱面、锥面和曲线的切线面都可以和平面建立保长对应即可。
+
+(1) 柱面：设柱面的参数方程为
+
+$$
+\boldsymbol{r} = \boldsymbol{a} (u) + v \boldsymbol{l}_0
+$$
+
+不妨设$$\vert \boldsymbol{l}_0 \vert = 1$$。首先做准线的变换
+
+$$
+\boldsymbol{b} (u) = \boldsymbol{a} (u) + \lambda (u) \boldsymbol{l}_0
+$$
+
+使得$$\boldsymbol{b}'(u) \perp \boldsymbol{l}_0$$。对上式求导得到
+
+$$
+\boldsymbol{b}'(u) = \boldsymbol{a}'(u) + \lambda' (u) \boldsymbol{l}_0
+$$
+
+所以
+
+$$
+0 = \boldsymbol{b}'(u) \cdot \boldsymbol{l}_0 = \boldsymbol{a}'(u) \cdot \boldsymbol{l}_0 + \lambda' (u)
+$$
+
+故只需要取
+
+$$
+\lambda (u) = - \boldsymbol{a}'(u) \cdot \boldsymbol{l}_0
+$$
+
+此时，该柱面的方程成为
+
+$$
+\boldsymbol{r} = \boldsymbol{b} (u) + (v - \lambda (u)) \boldsymbol{l}_0
+$$
+
+接着再作参数变换
+
+$$
+\begin{cases}
+\begin{aligned}
+\tilde{u} &= \tilde{u} (u) = \int_{u_0}^u \vert \boldsymbol{b}' (u) \vert \ \mathrm{d} u \\
+\tilde{v} &= v - \lambda (u)
+\end{aligned}
+\end{cases}
+$$
+
+使得$$\tilde{u}$$是准线的弧长参数。此时柱面的方程成为
+
+$$
+\boldsymbol{r} = \tilde{\boldsymbol{b}} (\tilde{u}) + \tilde{v} \boldsymbol{l}_0
+$$
+
+其中
+
+$$
+\tilde{\boldsymbol{b}} (\tilde{u} (u)) = \boldsymbol{b} (u)
+$$
+
+因此
+
+$$
+\tilde{\boldsymbol{b}}' (\tilde{u}) \cdot \frac{\partial \tilde{u}}{\partial u} = \tilde{\boldsymbol{b}}' (\tilde{u}) \cdot \vert \boldsymbol{b}' (u) \vert = \boldsymbol{b}' (u)
+$$
+
+$$
+\vert \tilde{\boldsymbol{b}}' (\tilde{u}) \vert = 1
+$$
+
+经计算容易得到曲面的第一基本形式是
+
+$$
+\mathrm{I} = (\mathrm{d} \tilde{u})^2 + (\mathrm{d} \tilde{v})^2
+$$
+
+这正好是平面在笛卡儿直角坐标系下的第一基本形式，所以柱面能够和平面建立保长对应。
+
+(2) 锥面：设锥面的参数方程为
+
+$$
+\boldsymbol{r} = \boldsymbol{a}_0 + v \boldsymbol{l} (u)
+$$
+
+其中$$\boldsymbol{a}_0$$是常向量，并且假设$$\boldsymbol{l} (u)$$是单位向量，即$$\vert \boldsymbol{l} (u) \vert = 1$$。作参数变换
+
+$$
+\begin{cases}
+\begin{aligned}
+\tilde{u} &= \tilde{u} (u) = \int_{u_0}^u \vert \boldsymbol{l}' (u) \vert \ \mathrm{d} u \\
+\tilde{v} &= v
+\end{aligned}
+\end{cases}
+$$
+
+则曲面的参数方程成为
+
+$$
+\boldsymbol{r} = \boldsymbol{a}_0 + \tilde{v} \tilde{\boldsymbol{l}} (\tilde{u})
+$$
+
+其中
+
+$$
+\tilde{\boldsymbol{l}} (\tilde{u} (u)) = \boldsymbol{l} (u)
+$$
+
+故
+
+$$
+\tilde{\boldsymbol{l}} (\tilde{u}) \cdot \frac{\mathrm{d} \tilde{u} (u)}{\mathrm{d} (u)} = \tilde{\boldsymbol{l}} (\tilde{u}) \cdot \vert \boldsymbol{l}' (u) \vert = \tilde{\boldsymbol{l}} (\tilde{u})
+$$
+
+于是$$\vert \tilde{\boldsymbol{l}} (\tilde{u}) \vert = 1$$，并且$$\vert \tilde{\boldsymbol{l}}' (\tilde{u}) \vert = 1$$，即$$\tilde{u}$$是是单位球面上的曲线$$\boldsymbol{r} = \tilde{\boldsymbol{l}} (\tilde{u})$$的弧长参数。这样，锥面的第一基本形式成为
+
+$$
+\mathrm{I} = \tilde{v}^2 (\mathrm{d} \tilde{u})^2 + (\mathrm{d} \tilde{v})^2
+$$
+
+命
+
+$$
+\begin{cases}
+\begin{aligned}
+x &= \tilde{v} \cos{\tilde{u}} \\
+y &= \tilde{v} \sin{\tilde{u}}
+\end{aligned}
+\end{cases}
+$$
+
+则得到
+
+$$
+\mathrm{I} = (\mathrm{d} x)^2 + (\mathrm{d} y)^2
+$$
+
+因此锥面和平面是保长的。
+
+(3) 切线面：
+
+证毕∎
+
 ### 包络
+
+可展曲面的切平面沿直母线是同一个，因此可展曲面的切平面构成依赖一个参数的平面族，而可展曲面本身可以看作与该平面族中每一个成员都相切的曲面。这个概念可以作一些推广。
