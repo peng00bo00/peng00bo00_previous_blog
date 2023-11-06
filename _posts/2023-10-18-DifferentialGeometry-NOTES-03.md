@@ -1825,7 +1825,7 @@ $$
 
 如果$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u) \equiv \boldsymbol{0}$$，则根据[定理1.3](/2023/07/30/DifferentialGeometry-NOTES-01.html#向量函数)，向量$$\boldsymbol{l} (u)$$有确定的方向。因此直母线互相平行，$$S$$是一个柱面。
 
-当$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u) \neq \boldsymbol{0}$$时，可以假设在$$u$$的一个小区间内$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u)$$恒不为零，于是$$\boldsymbol{l} (u)$$和$$\boldsymbol{l}' (u)$$在该区间内处处线性无关。那么条件$$\big( \boldsymbol{a}' (u), \boldsymbol{l} (u), \boldsymbol{l}' (u) \big) = 0$$意味着向量$$\boldsymbol{a}' (u)$$和$$\boldsymbol{l} (u)$$，$$\boldsymbol{l}' (u)$$共面，因而是它们的线性组合。不妨设为
+当$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u) \not\equiv \boldsymbol{0}$$时，可以假设在$$u$$的一个小区间内$$\boldsymbol{l} (u) \times \boldsymbol{l}' (u)$$恒不为零，于是$$\boldsymbol{l} (u)$$和$$\boldsymbol{l}' (u)$$在该区间内处处线性无关。那么条件$$\big( \boldsymbol{a}' (u), \boldsymbol{l} (u), \boldsymbol{l}' (u) \big) = 0$$意味着向量$$\boldsymbol{a}' (u)$$和$$\boldsymbol{l} (u)$$，$$\boldsymbol{l}' (u)$$共面，因而是它们的线性组合。不妨设为
 
 $$
 \boldsymbol{a}' (u) = \alpha(u) \boldsymbol{l} (u) + \beta(u) \boldsymbol{l}' (u)
@@ -2037,7 +2037,7 @@ $$
 $$
 \begin{cases}
 \begin{aligned}
-\boldsymbol{r}_s &= \boldsymbol{r}' (s) + t \kappa (s) \boldsymbol{\beta} (s) \\
+\boldsymbol{r}_s &= \boldsymbol{\alpha} (s) + t \kappa (s) \boldsymbol{\beta} (s) \\
 \boldsymbol{r}_t &= \boldsymbol{\alpha} (s)
 \end{aligned}
 \end{cases}
