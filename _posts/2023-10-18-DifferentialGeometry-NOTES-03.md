@@ -1857,7 +1857,7 @@ $$
 \end{cases}
 $$
 
-如果$$\alpha (u) - \beta' (u) \equiv 0$$，则$$\boldsymbol{b}' (u) \equiv \boldsymbol{0}$$，于是$$boldsymbol{b} (u) = boldsymbol{b}_0$$是常向量。此时
+如果$$\alpha (u) - \beta' (u) \equiv 0$$，则$$\boldsymbol{b}' (u) \equiv \boldsymbol{0}$$，于是$$\boldsymbol{b} (u) = \boldsymbol{b}_0$$是常向量。此时
 
 $$
 \boldsymbol{a} (u) - \beta (u) \boldsymbol{l} (u) = \boldsymbol{b}_0
