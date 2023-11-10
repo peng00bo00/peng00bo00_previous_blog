@@ -100,9 +100,182 @@ $$
 
 $$
 \begin{aligned}
-\mathrm{II} &= \mathrm{d}^2 \boldsymbol{r} \cdot \boldsymbol{n} = - \mathrm{d} \boldsymbol{r} \cdot \mathrm{d} \boldsymbol{n} \\
+\mathrm{II} &= (\mathrm{d}^2 \boldsymbol{r}) \cdot \boldsymbol{n} = - \mathrm{d} \boldsymbol{r} \cdot \mathrm{d} \boldsymbol{n} \\
 &= L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + N (\mathrm{d} v)^2
 \end{aligned}
 $$
 
 上式称为曲面的**第二基本形式**，其系数$$L$$，$$M$$，$$N$$称为曲面的**第二类基本量**。
+
+### 容许的参数变换
+
+曲面的第二基本形式$$\mathrm{II}$$与第一基本形式$$\mathrm{I}$$有类似的特性，即与曲面上保持定向的容许参数变换是无关的。假定曲面有容许的参数变换
+
+$$
+\begin{cases}
+\begin{aligned}
+u &= u(\tilde{u}, \tilde{v}) \\ 
+v &= v(\tilde{u}, \tilde{v}) \\ 
+\end{aligned}
+\end{cases}
+$$
+
+并且
+
+$$
+\frac{\partial (u, v)}{\partial (\tilde{u}, \tilde{v})} \gt 0
+$$
+
+因此
+
+$$
+\begin{cases}
+\begin{aligned}
+\boldsymbol{r}_{\tilde{u}} &= \boldsymbol{r}_u \frac{\partial u}{\partial \tilde{u}} + \boldsymbol{r}_v \frac{\partial v}{\partial \tilde{u}} \\
+\boldsymbol{r}_{\tilde{v}} &= \boldsymbol{r}_u \frac{\partial u}{\partial \tilde{v}} + \boldsymbol{r}_v \frac{\partial v}{\partial \tilde{v}}
+\end{aligned}
+\end{cases}
+$$
+
+故
+
+$$
+\boldsymbol{r}_{\tilde{u}} \times \boldsymbol{r}_{\tilde{v}} = \frac{\partial (u, v)}{\partial (\tilde{u}, \tilde{v})} \boldsymbol{r}_u \times \boldsymbol{r}_v
+$$
+
+$$
+\tilde{\boldsymbol{n}} = \boldsymbol{n}
+$$
+
+对法向量$$\tilde{\boldsymbol{n}}$$进行微分有
+
+$$
+\begin{cases}
+\begin{aligned}
+\tilde{\boldsymbol{n}}_{\tilde{u}} &= \boldsymbol{n}_u \frac{\partial u}{\partial \tilde{u}} + \boldsymbol{n}_v \frac{\partial v}{\partial \tilde{v}} \\
+\tilde{\boldsymbol{n}}_{\tilde{v}} &= \boldsymbol{n}_u \frac{\partial u}{\partial \tilde{v}} + \boldsymbol{n}_v \frac{\partial v}{\partial \tilde{v}} \\
+\end{aligned}
+\end{cases}
+$$
+
+把它们写成矩阵的形式有
+
+$$
+\begin{pmatrix}
+\boldsymbol{r}_{\tilde{u}} \\ \boldsymbol{r}_{\tilde{v}}
+\end{pmatrix}
+= J \cdot
+\begin{pmatrix}
+\boldsymbol{r}_{u} \\ \boldsymbol{r}_{v}
+\end{pmatrix}
+$$
+
+$$
+\begin{pmatrix}
+\boldsymbol{n}_{\tilde{u}} \\ \boldsymbol{n}_{\tilde{v}}
+\end{pmatrix}
+= J \cdot
+\begin{pmatrix}
+\boldsymbol{n}_{u} \\ \boldsymbol{n}_{v}
+\end{pmatrix}
+$$
+
+其中
+
+$$
+J = 
+\begin{pmatrix}
+\frac{\partial u}{\partial \tilde{u}} & \frac{\partial v}{\partial \tilde{u}} \\
+\frac{\partial u}{\partial \tilde{v}} & \frac{\partial v}{\partial \tilde{v}} \\
+\end{pmatrix}
+$$
+
+带入到第二基本形式的定义可以得到
+
+$$
+\begin{aligned}
+\begin{pmatrix}
+\tilde{L} & \tilde{M} \\ \tilde{M} & \tilde{N}
+\end{pmatrix}
+&=
+-
+\begin{pmatrix}
+\boldsymbol{r}_{\tilde{u}} \\ \boldsymbol{r}_{\tilde{v}}
+\end{pmatrix} \cdot
+\begin{pmatrix}
+\boldsymbol{n}_{\tilde{u}} & \boldsymbol{n}_{\tilde{v}}
+\end{pmatrix} \\
+&= -J \cdot
+\begin{pmatrix}
+\boldsymbol{r}_{u} \\ \boldsymbol{r}_{v}
+\end{pmatrix} \cdot
+\begin{pmatrix}
+\boldsymbol{n}_{u} & \boldsymbol{n}_{v}
+\end{pmatrix}
+\cdot J^T \\
+&= J 
+\begin{pmatrix}
+L & M \\ M & N
+\end{pmatrix}
+J^T
+\end{aligned}
+$$
+
+由此可见，$$L$$，$$M$$，$$N$$在保持定向的容许参数变换下的变换规律与第一类基本量$$E$$，$$F$$，$$G$$的变换规律是一样的。很明显，根据函数微分的公式有
+
+$$
+\begin{pmatrix}
+\mathrm{d} u & \mathrm{d} v
+\end{pmatrix} = 
+\begin{pmatrix}
+\mathrm{d} \tilde{u} & \mathrm{d} \tilde{v}
+\end{pmatrix}
+\cdot J
+$$
+
+因此
+
+$$
+\begin{aligned}
+L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + N (\mathrm{d} v)^2 &=
+\begin{pmatrix}
+\mathrm{d} u & \mathrm{d} v
+\end{pmatrix}
+\begin{pmatrix}
+L & M \\ M & N
+\end{pmatrix}
+\begin{pmatrix}
+\mathrm{d} u \\ \mathrm{d} v
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+\mathrm{d} \tilde{u} & \mathrm{d} \tilde{v}
+\end{pmatrix}
+\cdot J
+\begin{pmatrix}
+L & M \\ M & N
+\end{pmatrix}
+J^T \cdot
+\begin{pmatrix}
+\mathrm{d} \tilde{u} \\ \mathrm{d} \tilde{v}
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+\mathrm{d} \tilde{u} & \mathrm{d} \tilde{v}
+\end{pmatrix}
+\begin{pmatrix}
+\tilde{L} & \tilde{M} \\ \tilde{M} & \tilde{N}
+\end{pmatrix}
+\begin{pmatrix}
+\mathrm{d} \tilde{u} \\ \mathrm{d} \tilde{v}
+\end{pmatrix} \\
+&=
+\tilde{L} (\mathrm{d} \tilde{u})^2 + 2\tilde{M} \mathrm{d} \tilde{u} \mathrm{d} \tilde{v} + \tilde{N} (\mathrm{d} \tilde{v})^2
+\end{aligned}
+$$
+
+这就说明了第二基本形式$$\mathrm{II}$$与曲面$$S$$是保持定向的容许参数变换是无关的。由此可见，在有向正则曲面$$S$$上存在定义在整个曲面$$S$$上的第二基本形式$$\mathrm{II}$$，它和第一基本形式$$\mathrm{I}$$一起是有向正则曲面$$S$$上的两个基本的二次微分形式。
+
+### 平面的第二基本形式
+
+### 球面的第二基本形式
