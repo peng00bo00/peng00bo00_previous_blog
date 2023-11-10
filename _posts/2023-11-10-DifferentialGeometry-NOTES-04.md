@@ -286,4 +286,55 @@ $$
 
 ### 平面的第二基本形式
 
+**定理4.1** 一块正则曲面是平面的一部分，当且仅当它的第二基本形式恒等于零。
+{:.info}
+
+**证明** 我们首先来计算平面的第二基本形式。设$$S$$是$$\mathbb{E}^3$$中的$$Oxy$$平面，所以它的参数方程可以表示为
+
+$$
+\boldsymbol{r} = (u, v, 0)
+$$
+
+它的单位法向量为
+
+$$
+\boldsymbol{n} = (0, 0, 1)
+$$
+
+所以
+
+$$
+\begin{cases}
+\begin{aligned}
+\mathrm{I} &= \mathrm{d} \boldsymbol{r} \cdot \mathrm{d} \boldsymbol{r} = (\mathrm{d} u)^2 + (\mathrm{d} v)^2 \\
+\mathrm{II} &= -\mathrm{d} \boldsymbol{r} \cdot \mathrm{d} \boldsymbol{n} = 0
+\end{aligned}
+\end{cases}
+$$
+
+因此平面的第二基本形式恒为零。接下来考虑充分性，假定正则参数曲面的参数方程是
+
+$$
+\boldsymbol{r} = \boldsymbol{r} (u, v)
+$$
+
+它的第二基本形式恒为零，即
+
+$$
+\begin{cases}
+\begin{aligned}
+L &= -\boldsymbol{r}_{u} \cdot n_u = 0 \\
+M &= -\boldsymbol{r}_{u} \cdot n_v = -\boldsymbol{r}_{v} \cdot n_u = 0 \\
+N &= -\boldsymbol{r}_{v} \cdot n_v = 0 \\
+\end{aligned}
+\end{cases}
+$$
+
+我们要证明它的单位法向量$$\boldsymbol{n}$$是常向量场。
+
+证毕∎
+
 ### 球面的第二基本形式
+
+**定理4.2** 一块正则曲面是球面的一部分，当且仅当在曲面上的每一点，它的第二基本形式是第一基本形式的非零倍数。
+{:.info}

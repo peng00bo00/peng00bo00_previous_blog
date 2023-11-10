@@ -476,7 +476,7 @@ $$
 $$
 \begin{aligned}
 E(u, v) G(u, v) - F^2(u, v) 
-&= \vert \boldsymbol{r}_u (u, v) \vert^2 \cdot \vert \boldsymbol{r}_v (u, v) \vert^2 \big( 1 - \cos^2 \angle (\boldsymbol{r}_u (u, v), \boldsymbol{r}_v (u, v) \big) \\
+&= \vert \boldsymbol{r}_u (u, v) \vert^2 \cdot \vert \boldsymbol{r}_v (u, v) \vert^2 \big( 1 - \cos^2 \angle (\boldsymbol{r}_u (u, v), \boldsymbol{r}_v (u, v)) \big) \\
 &= \big\vert \boldsymbol{r}_u (u, v) \times \boldsymbol{r}_v (u, v) \big\vert^2 \\
 &\gt 0
 \end{aligned}
