@@ -419,4 +419,80 @@ N(u, v) &= c(u, v) G(u, v) \\
 \end{cases}
 $$
 
-证毕∎
+根据第一类基本量和第二类基本量的定义，上面的方程组等价于
+
+$$
+\begin{cases}
+\begin{aligned}
+(\boldsymbol{n}_u + c \ \boldsymbol{r}_u) \cdot \boldsymbol{r}_u &= 0 \\
+(\boldsymbol{n}_u + c \ \boldsymbol{r}_u) \cdot \boldsymbol{r}_v &= (\boldsymbol{n}_v + c \ \boldsymbol{r}_v) \cdot \boldsymbol{r}_u =  0 \\
+(\boldsymbol{n}_v + c \ \boldsymbol{r}_v) \cdot \boldsymbol{r}_v &= 0 \\
+\end{aligned}
+\end{cases}
+$$
+
+另一方面，$$\boldsymbol{n}$$是单位法向量场，所以
+
+$$
+(\boldsymbol{n}_u + c \ \boldsymbol{r}_u) \cdot \boldsymbol{n} = (\boldsymbol{n}_v + c \ \boldsymbol{r}_v) \cdot \boldsymbol{n} = 0
+$$
+
+由于$$\{ \boldsymbol{r}; \boldsymbol{r}_u, \boldsymbol{r}_v, \boldsymbol{n} \}$$是空间$$\mathbb{E}^3$$中的标架，上面的两组式子说明向量$$\boldsymbol{n}_u + c \boldsymbol{r}_u$$，$$\boldsymbol{n}_v + c \boldsymbol{r}_v$$在标架向量$$\boldsymbol{r}_u$$，$$\boldsymbol{r}_v$$，$$\boldsymbol{n}$$上的正交投影都是零，所以$$\boldsymbol{n}_u + c \boldsymbol{r}_u$$，$$\boldsymbol{n}_v + c \boldsymbol{r}_v$$都是零向量，即
+
+$$
+\begin{cases}
+\begin{aligned}
+\boldsymbol{n}_u + c \boldsymbol{r}_u &= \boldsymbol{0} \\
+\boldsymbol{n}_v + c \boldsymbol{r}_v &= \boldsymbol{0} \\
+\end{aligned}
+\end{cases}
+$$
+
+将上式分别对$$u$$，$$v$$求导得到
+
+$$
+\begin{cases}
+\begin{aligned}
+\boldsymbol{n}_{uv} + c_v \boldsymbol{r}_u + c \boldsymbol{r}_{uv} &= \boldsymbol{0} \\
+\boldsymbol{n}_{vu} + c_u \boldsymbol{r}_v + c \boldsymbol{r}_{vu} &= \boldsymbol{0} \\
+\end{aligned}
+\end{cases}
+$$
+
+比较这两个式子得到
+
+$$
+c_v \boldsymbol{r}_u = c_u \boldsymbol{r}_v
+$$
+
+因为$$\boldsymbol{r}_u$$，$$\boldsymbol{r}_v$$是线性无关的，上面的式子意味着
+
+$$
+c_u = c_v = 0
+$$
+
+即$$c(u, v) = c$$是常数。因此有
+
+$$
+\mathrm{d} (\boldsymbol{n} + c \boldsymbol{r}) = (\boldsymbol{n}_u + c \boldsymbol{r}_u) \mathrm{d} u + (\boldsymbol{n}_v + c \boldsymbol{r}_v) \mathrm{d} v = \boldsymbol{0}
+$$
+
+故$$\boldsymbol{n} + c \boldsymbol{r}$$是定义在曲面$$S$$上的常向量场。不妨设有常向量$$\boldsymbol{r}_0$$使得
+
+$$
+\boldsymbol{n} + c \boldsymbol{r} = c \boldsymbol{r}_0
+$$
+
+于是
+
+$$
+\boldsymbol{r} (u, v) - \boldsymbol{r}_0 = -\frac{1}{c} \boldsymbol{n} (u,v)
+$$
+
+$$
+\big( \boldsymbol{r} (u, v) - \boldsymbol{r}_0 \big)^2 = \frac{1}{c^2}
+$$
+
+即曲面$$S$$落在以$$\boldsymbol{r}_0$$为中心、以$$\frac{1}{\vert c \vert}$$为半径的球面上。证毕∎
+
+定理4.2的条件的意义是在曲面上的每一点，曲面沿各个方向的弯曲程度都是相同的。这个条件用下一节要介绍的法曲率的概念来表达将会变得更加清晰。定理4.2结论是很强的，它的意思是：如果曲面上在每一个固定点沿各个方向的弯曲程度都是相同的，则它在各个点、沿各个方向的弯曲程度都是相同的。
