@@ -330,9 +330,41 @@ N &= -\boldsymbol{r}_{v} \cdot n_v = 0 \\
 \end{cases}
 $$
 
-我们要证明它的单位法向量$$\boldsymbol{n}$$是常向量场。
+我们要证明它的单位法向量$$\boldsymbol{n}$$是常向量场。由于$$\boldsymbol{n}$$是单位向量场，故有
 
-证毕∎
+$$
+\boldsymbol{n}_u \cdot \boldsymbol{n} = \boldsymbol{n}_v \cdot \boldsymbol{n} = 0
+$$
+
+注意到$$\{ \boldsymbol{r}; \boldsymbol{r}_u, \boldsymbol{r}_v, \boldsymbol{n} \}$$是空间$$\mathbb{E}^3$$中的标架，而上面的式子说明$$\boldsymbol{n}_u$$，$$\boldsymbol{n}_v$$在标架向量$$\boldsymbol{r}_u$$，$$\boldsymbol{r}_v$$，$$\boldsymbol{n}$$上的正交投影都是零，所以$$\boldsymbol{n}_u$$，$$\boldsymbol{n}_v$$都是零向量，即
+
+$$
+\mathrm{d} \boldsymbol{n} = \boldsymbol{n}_u \mathrm{d} u + \boldsymbol{n}_v \mathrm{d} v = \boldsymbol{0}
+$$
+
+因此，$$\boldsymbol{n}$$为常向量场。由于
+
+$$
+\mathrm{d} \boldsymbol{r} \cdot \boldsymbol{n} = 0
+$$
+
+所以
+
+$$
+\mathrm{d} (\boldsymbol{r} \cdot \boldsymbol{n}) = \mathrm{d} \boldsymbol{r} \cdot \boldsymbol{n} + \boldsymbol{r} \cdot \mathrm{d} \boldsymbol{n} = 0
+$$
+
+因此，$$\boldsymbol{r} \cdot \boldsymbol{n}$$为常数。于是
+
+$$
+\boldsymbol{r} (u, v) \cdot \boldsymbol{n} = \boldsymbol{r} (u_0, v_0) \cdot \boldsymbol{n}
+$$
+
+$$
+\big( \boldsymbol{r} (u, v) - \boldsymbol{r} (u_0, v_0) \big) \cdot \boldsymbol{n} = 0
+$$
+
+这说明曲面$$S$$落在经过点$$\boldsymbol{r} (u_0, v_0)$$，以$$\boldsymbol{n}$$为法向量的平面内。证毕∎
 
 ### 球面的第二基本形式
 
