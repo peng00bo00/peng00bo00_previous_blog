@@ -370,3 +370,53 @@ $$
 
 **定理4.2** 一块正则曲面是球面的一部分，当且仅当在曲面上的每一点，它的第二基本形式是第一基本形式的非零倍数。
 {:.info}
+
+**证明** 设曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$是落在以$$\boldsymbol{r}_0$$为中心、以常数$$R$$为半径的球面上，则曲面的参数方程满足条件
+
+$$
+\big( \boldsymbol{r}(u, v) - \boldsymbol{r}_0 \big)^2 = R^2
+$$
+
+对上式进行微分得到
+
+$$
+\mathrm{d} \boldsymbol{r} \cdot \big( \boldsymbol{r}(u, v) - \boldsymbol{r}_0 \big) = 0
+$$
+
+由此可见，$$(\boldsymbol{r}(u, v) - \boldsymbol{r}_0)$$是曲面的法向量，故
+
+$$
+\boldsymbol{n} = \frac{1}{R} \big( \boldsymbol{r}(u, v) - \boldsymbol{r}_0 \big)
+$$
+
+因此
+
+$$
+\mathrm{II} = - \mathrm{d} \boldsymbol{r} \cdot \mathrm{d} \boldsymbol{n} = -\frac{1}{R} \mathrm{d} \boldsymbol{r} \cdot \mathrm{d} \boldsymbol{r} = -\frac{1}{R} \mathrm{I}
+$$
+
+反过来，假定有处处不为零的函数$$c(u, v)$$，使得曲面的第二基本形式和第一基本形式满足关系式
+
+$$
+\mathrm{II} = c(u, v) \cdot \mathrm{I}
+$$
+
+将上面的关系式展开便得到
+
+$$
+(L - cE) (\mathrm{d} u)^2 + 2(M - cF) \mathrm{d} u \mathrm{d} v + (N - cG) (\mathrm{d} v)^2 = 0
+$$
+
+对于任意一个固定点$$(u, v)$$，上式是关于$$(\mathrm{d} u, \mathrm{d} v)$$的恒等式，因此
+
+$$
+\begin{cases}
+\begin{aligned}
+L(u, v) &= c(u, v) E(u, v) \\
+M(u, v) &= c(u, v) F(u, v) \\
+N(u, v) &= c(u, v) G(u, v) \\
+\end{aligned}
+\end{cases}
+$$
+
+证毕∎
