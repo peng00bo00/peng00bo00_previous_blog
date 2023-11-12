@@ -630,3 +630,5 @@ STL:
           url: /2023/10/16/STL-NOTES-02.html
         - title: std::array
           url: /2023/10/21/STL-NOTES-03.html
+        - title: std::vector
+          url: /2023/11/12/STL-NOTES-04.html
