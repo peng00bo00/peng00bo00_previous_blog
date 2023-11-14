@@ -620,7 +620,7 @@ $$
 =
 J \cdot
 \begin{pmatrix}
-\tilde{E} & \tilde{F} \\ \tilde{F} & \tilde{G}
+E & F \\ F & G
 \end{pmatrix}
 \cdot J^T
 $$
