@@ -540,7 +540,7 @@ $$
 \end{aligned}
 $$
 
-从上面的表达式可以知道，$$\kappa_n$$只依赖于曲面在该点的第二类基本量$$L$$、$$M$$、$$N$$，以及曲线$$C$$的单位切向量$$\bigg( \frac{\mathrm{d} u(s)}{\mathrm{d} s}, \frac{\mathrm{d} v(s)}{\mathrm{d} s} \bigg)$$，通常把$$\kappa_n$$称为曲面$$S$$上曲线$$C$$的**法曲率**。由此可见，如果曲面$$S$$上由两条曲线$$C_1$$，$$C_2$$在$$p$$处有相同的单位切向量，则这两条曲线在点$$p$$有相同的法曲率。这个结论也称为[梅尼埃定理](https://en.wikipedia.org/wiki/Meusnier%27s_theorem)。
+从上面的表达式可以知道，$$\kappa_n$$只依赖于曲面在该点的第二类基本量$$L$$、$$M$$、$$N$$，以及曲线$$C$$的单位切向量$$\big( \frac{\mathrm{d} u(s)}{\mathrm{d} s}, \frac{\mathrm{d} v(s)}{\mathrm{d} s} \big)$$，通常把$$\kappa_n$$称为曲面$$S$$上曲线$$C$$的**法曲率**。由此可见，如果曲面$$S$$上由两条曲线$$C_1$$，$$C_2$$在$$p$$处有相同的单位切向量，则这两条曲线在点$$p$$有相同的法曲率。这个结论也称为[梅尼埃定理](https://en.wikipedia.org/wiki/Meusnier%27s_theorem)。
 
 命$$\angle (\boldsymbol{\beta}, \boldsymbol{n}) = \theta$$是曲线$$C$$的主法向量$$\boldsymbol{\beta}$$与曲面$$S$$的法向量$$\boldsymbol{n}$$之间的夹角，则有
 
@@ -548,11 +548,53 @@ $$
 \kappa_n = \kappa \cos{\theta}
 $$
 
-从上式还能得到一个有趣的事实：在曲面$$S$$上考虑经过点$$p = \boldsymbol{r} (u(s), v(s))$$，并且在点$$p$$处彼此相切的所以曲线，则这些曲线在点$$p$$的去了中心都落在与该切方向垂直的平面(这些曲线的公共的法平面)内直径为$$\frac{1}{\vert \kappa_n \vert}$$的圆周上，如下图所示。
+从上式还能得到一个有趣的事实：在曲面$$S$$上考虑经过点$$p = \boldsymbol{r} (u(s), v(s))$$，并且在点$$p$$处彼此相切的所有曲线，则这些曲线在点$$p$$的[曲率中心](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲率圆)都落在与该切方向垂直的平面(这些曲线的公共的法平面)内直径为$$\frac{1}{\vert \kappa_n \vert}$$的圆周上，如下图所示。
 
 <div align=center>
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/vkrfZFs.png" width="80%">
 </div>
+
+根据关系式$$\frac{1}{\kappa} = \frac{1}{\kappa_n} \cos \theta$$，可以得到曲线$$C$$的曲率中心是
+
+$$
+\begin{aligned}
+\boldsymbol{c} &= \boldsymbol{r} (u(s), v(s)) + \frac{1}{\kappa} \boldsymbol{\beta} \\
+&= \boldsymbol{r} (u(s), v(s)) + \frac{1}{\vert \kappa_n \vert} \cos \theta \cdot \boldsymbol{\beta}
+\end{aligned}
+$$
+
+所以
+
+$$
+\vert \boldsymbol{c} - \boldsymbol{r} (u(s), v(s)) \vert^2 = \frac{1}{\kappa_n^2} \cos^2 \theta
+$$
+
+由于曲面上在一点相切的曲线在该点有相同的法曲率，所以法曲率的概念可以抽象出来作为曲面上在一点的切方向的函数。事实上，因为$$s$$是曲线$$\boldsymbol{r} (s) = \boldsymbol{r} (u(s), v(s))$$的弧长参数，所以
+
+$$
+\vert \boldsymbol{r}'(s) \vert^2 = E \bigg( \frac{\mathrm{d} u(s)}{\mathrm{d} s} \bigg)^2 + 2F \frac{\mathrm{d} u(s)}{\mathrm{d} s} \frac{\mathrm{d} v(s)}{\mathrm{d} s} + G \bigg( \frac{\mathrm{d} v(s)}{\mathrm{d} s} \bigg)^2 = 1
+$$
+
+即
+
+$$
+\mathrm{d} s^2 = E (\mathrm{d} u)^2 + 2F \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2 = \mathrm{I}
+$$
+
+带入法曲率$$\kappa_n$$得到
+
+$$
+\kappa_n = \frac{L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + N (\mathrm{d} v)^2}{\mathrm{d} s^2} = \frac{\mathrm{II}}{\mathrm{I}}
+$$
+
+上述表达式的分子和分母都是$$(\mathrm{d} u, \mathrm{d} u)$$的二次齐次多项式，因此它只是$$\frac{\mathrm{d} u}{\mathrm{d} v}$$的函数。
+
+**定义4.1** 设正则参数曲面$$S$$的参数方程是$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$，$$\mathrm{I}$$和$$\mathrm{II}$$分别是它的第一基本形式和第二基本形式，则
+$$
+\kappa_n = \frac{\mathrm{II}}{\mathrm{I}} = \frac{L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + N (\mathrm{d} v)^2}{E (\mathrm{d} u)^2 + 2F \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2}
+$$
+称为曲面$$S$$在点$$(u, v)$$沿切方向$$(\mathrm{d} u, \mathrm{d} v)$$的**法曲率**。
+{:.success}
 
 ## Weingarten映射和主曲率
 
