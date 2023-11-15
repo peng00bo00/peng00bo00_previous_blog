@@ -499,6 +499,61 @@ $$
 
 ## 法曲率
 
+设曲面$$S$$的参数方程是$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$，它上面的曲线$$C$$可以用参数方程
+
+$$
+\begin{cases}
+\begin{aligned}
+u &= u(s) \\ v &= v(s)
+\end{aligned}
+\end{cases}
+$$
+
+来表示，假定这里的$$s$$是曲线的弧长参数。作为空间$$\mathbb{E}^3$$中的曲线，$$C$$的参数方程将是
+
+$$
+\boldsymbol{r} = \boldsymbol{r} (u(s), v(s))
+$$
+
+因此它的单位切向量是
+
+$$
+\boldsymbol{\alpha} (s) = \frac{\mathrm{d} \boldsymbol{r}}{\mathrm{d} s} = \boldsymbol{r}_u \frac{\mathrm{d} u(s)}{\mathrm{d} s} + \boldsymbol{r}_v \frac{\mathrm{d} v(s)}{\mathrm{d} s}
+$$
+
+曲率向量是
+
+$$
+\begin{aligned}
+\frac{\mathrm{d} \boldsymbol{\alpha}}{\mathrm{d} s} &= \kappa \boldsymbol{\beta} \\
+&= \boldsymbol{r}_{uu} \bigg( \frac{\mathrm{d} u(s)}{\mathrm{d} s} \bigg)^2 + 2 \boldsymbol{r}_{uv} \frac{\mathrm{d} u(s)}{\mathrm{d} s} \frac{\mathrm{d} v(s)}{\mathrm{d} s} + \boldsymbol{r}_{vv} \bigg( \frac{\mathrm{d} v(s)}{\mathrm{d} s} \bigg)^2 \\
+&+ \boldsymbol{r}_u \frac{\mathrm{d}^2 u(s)}{\mathrm{d} s^2} + \boldsymbol{r}_v \frac{\mathrm{d}^2 v(s)}{\mathrm{d} s^2}
+\end{aligned}
+$$
+
+因此曲线$$C$$的曲率向量在曲面的法向量$$\boldsymbol{n}$$上的正交投影是
+
+$$
+\begin{aligned}
+\kappa_n &= \frac{\mathrm{d} \boldsymbol{\alpha}}{\mathrm{d} s} \cdot \boldsymbol{n} = \kappa (\boldsymbol{\beta} \cdot \boldsymbol{n}) \\
+&= L \bigg( \frac{\mathrm{d} u(s)}{\mathrm{d} s} \bigg)^2 + 2M \frac{\mathrm{d} u(s)}{\mathrm{d} s} \frac{\mathrm{d} v(s)}{\mathrm{d} s}  + N \bigg( \frac{\mathrm{d} v(s)}{\mathrm{d} s} \bigg)^2
+\end{aligned}
+$$
+
+从上面的表达式可以知道，$$\kappa_n$$只依赖于曲面在该点的第二类基本量$$L$$、$$M$$、$$N$$，以及曲线$$C$$的单位切向量$$\bigg( \frac{\mathrm{d} u(s)}{\mathrm{d} s}, \frac{\mathrm{d} v(s)}{\mathrm{d} s} \bigg)$$，通常把$$\kappa_n$$称为曲面$$S$$上曲线$$C$$的**法曲率**。由此可见，如果曲面$$S$$上由两条曲线$$C_1$$，$$C_2$$在$$p$$处有相同的单位切向量，则这两条曲线在点$$p$$有相同的法曲率。这个结论也称为[梅尼埃定理](https://en.wikipedia.org/wiki/Meusnier%27s_theorem)。
+
+命$$\angle (\boldsymbol{\beta}, \boldsymbol{n}) = \theta$$是曲线$$C$$的主法向量$$\boldsymbol{\beta}$$与曲面$$S$$的法向量$$\boldsymbol{n}$$之间的夹角，则有
+
+$$
+\kappa_n = \kappa \cos{\theta}
+$$
+
+从上式还能得到一个有趣的事实：在曲面$$S$$上考虑经过点$$p = \boldsymbol{r} (u(s), v(s))$$，并且在点$$p$$处彼此相切的所以曲线，则这些曲线在点$$p$$的去了中心都落在与该切方向垂直的平面(这些曲线的公共的法平面)内直径为$$\frac{1}{\vert \kappa_n \vert}$$的圆周上，如下图所示。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/vkrfZFs.png" width="80%">
+</div>
+
 ## Weingarten映射和主曲率
 
 ## 主方向和主曲率的计算
