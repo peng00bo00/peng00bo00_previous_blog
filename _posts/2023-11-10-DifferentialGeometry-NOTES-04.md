@@ -611,7 +611,114 @@ $$
 **定理4.3** 曲面$$S$$在点$$(u, v)$$处沿切方向$$(\mathrm{d} u, \mathrm{d} v)$$的法曲率$$\kappa_n$$，等于以曲面$$S$$在该点处由切方向$$(\mathrm{d} u, \mathrm{d} v)$$确定的法截线作为相应的有向法截面上的平面曲线的相对曲率$$\kappa_r$$。
 {:.info}
 
+在直观上，可以把法截面想象为与曲面在一点处垂直(即包含曲面在该点的法线)的"刀"，法截线就是用这把刀在曲面上切割出来的剖面线。法曲率恰好是曲面在该点沿相应的切方向的剖面线的相对曲率。
+
 ### Euler公式
+
+假定曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$的参数系$$(u, v)$$在点$$\boldsymbol{r} (u_0, v_0)$$处是正交的，于是曲面$$S$$在该点的第一基本形式和第二基本形式分别是
+
+$$
+\begin{cases}
+\begin{aligned}
+\mathrm{I} &= E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2 \\
+\mathrm{II} &= L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2 \\
+\end{aligned}
+\end{cases}
+$$
+
+所以曲面$$S$$在该点的法曲率是
+
+$$
+\begin{aligned}
+\kappa_n &= \frac{\mathrm{II}}{\mathrm{I}} = \frac{L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2}{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2} \\
+&= \frac{L}{E} \bigg( \frac{\sqrt{E} \mathrm{d} u}{\sqrt{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2}} \bigg)^2 \\
+&+ \frac{2M}{\sqrt{EG}} \frac{\sqrt{E} \mathrm{d} u}{\sqrt{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2}} \frac{\sqrt{G} \mathrm{d} v}{\sqrt{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2}} \\
+&+ \frac{N}{G} \bigg( \frac{\sqrt{G} \mathrm{d} v}{\sqrt{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2}} \bigg)^2
+\end{aligned}
+$$
+
+用$$\theta$$记切方向$$(\mathrm{d}u, \mathrm{d}v)$$与$$u$$-曲线切方向的夹角，则
+
+$$
+\begin{cases}
+\begin{aligned}
+\cos{\theta} &= \frac{\sqrt{E} \mathrm{d} u}{\sqrt{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2}} \\
+\sin{\theta} &= \frac{\sqrt{G} \mathrm{d} v}{\sqrt{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2}} \\
+\end{aligned}
+\end{cases}
+$$
+
+因此
+
+$$
+\begin{aligned}
+\kappa_n (\theta) &= \frac{L}{E} \cos^2{\theta} + \frac{2M}{\sqrt{EG}} \cos{\theta} \sin{\theta} + \frac{N}{G} \sin^2{\theta} \\
+&= \frac{L}{E} \frac{1 + \cos{2 \theta}}{2} + \frac{M}{\sqrt{EG}} \sin{2 \theta} + \frac{N}{G} \frac{1 - \cos{2 \theta}}{2} \\
+&= \frac{1}{2} \bigg( \frac{L}{E} + \frac{N}{G} \bigg) + \frac{1}{2} \bigg( \frac{L}{E} - \frac{N}{G} \bigg) \cos{2 \theta} + \frac{M}{\sqrt{EG}} \sin{2 \theta}
+\end{aligned}
+$$
+
+命
+
+$$
+A = \sqrt{\bigg( \frac{1}{2} \bigg( \frac{L}{E} - \frac{N}{G} \bigg) \bigg)^2 + \bigg( \frac{M}{\sqrt{EG}} \bigg)^2}
+$$
+
+则当$$A \neq 0$$是可以引入辅助角$$\theta_0$$使得
+
+$$
+\begin{cases}
+\begin{aligned}
+\cos{2 \theta_0} &= \frac{1}{2A} \bigg( \frac{L}{E} - \frac{N}{G} \bigg) \\
+\sin{2 \theta_0} &= \frac{M}{A \sqrt{EG}} \\
+\end{aligned}
+\end{cases}
+$$
+
+于是
+
+$$
+\begin{aligned}
+\kappa_n (\theta) &= \frac{1}{2} \bigg( \frac{L}{E} + \frac{N}{G} \bigg) + A (\cos{2 \theta} \cos{2 \theta_0} + \sin{2 \theta} \sin{2 \theta_0}) \\
+&= \frac{1}{2} \bigg( \frac{L}{E} + \frac{N}{G} \bigg) + A \cos{2(\theta - \theta_0)}
+\end{aligned}
+$$
+
+由此可见，当$$\theta = \theta_0$$时，法曲率$$\kappa_n (\theta)$$取最大值
+
+$$
+\kappa_1 = \frac{1}{2} \bigg( \frac{L}{E} + \frac{N}{G} \bigg) + \sqrt{\bigg( \frac{1}{2} \bigg( \frac{L}{E} - \frac{N}{G} \bigg) \bigg)^2 + \bigg( \frac{M}{\sqrt{EG}} \bigg)^2}
+$$
+
+当$$\theta = \theta_0 + \frac{\pi}{2}$$时，法曲率$$\kappa_n (\theta)$$取最小值
+
+$$
+\kappa_2 = \frac{1}{2} \bigg( \frac{L}{E} + \frac{N}{G} \bigg) - \sqrt{\bigg( \frac{1}{2} \bigg( \frac{L}{E} - \frac{N}{G} \bigg) \bigg)^2 + \bigg( \frac{M}{\sqrt{EG}} \bigg)^2}
+$$
+
+而当$$A = 0$$时，法曲率$$\kappa_n (\theta)$$与角$$\theta$$无关，即
+
+$$
+\kappa_n (\theta) = \frac{1}{2} \bigg( \frac{L}{E} + \frac{N}{G} \bigg)
+$$
+
+无论如何，上面的结果可以叙述成下列定理：
+
+**定理4.4** 正则参数曲面在任意一个固定点，其法曲率必定在两个彼此正交的切方向上分别取最大值和最小值。
+{:.info}
+
+**定义4.2** 正则参数曲面在任意一个固定点，其法曲率取最大值和最小值的方向称为曲面在该点的**主方向**，相应的法曲率称为曲面在该点的**主曲率**。
+{:.success}
+
+根据法曲率$$\kappa_n (\theta)$$的表达式，沿方向角为$$\theta$$的切方向的法曲率可以由两个主曲率来表示
+
+$$
+\kappa_n (\theta) = \kappa_1 \cos^2{(\theta - \theta_0)} + \kappa_2 \sin^2{(\theta - \theta_0)}
+$$
+
+上式也称为法曲率的**Euler公式**。
+
+### 渐近方向和渐近曲线
 
 ## Weingarten映射和主曲率
 
