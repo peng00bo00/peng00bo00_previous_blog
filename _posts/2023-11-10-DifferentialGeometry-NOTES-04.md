@@ -578,13 +578,13 @@ $$
 即
 
 $$
-\mathrm{d} s^2 = E (\mathrm{d} u)^2 + 2F \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2 = \mathrm{I}
+(\mathrm{d} s)^2 = E (\mathrm{d} u)^2 + 2F \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2 = \mathrm{I}
 $$
 
 带入法曲率$$\kappa_n$$得到
 
 $$
-\kappa_n = \frac{L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + N (\mathrm{d} v)^2}{\mathrm{d} s^2} = \frac{\mathrm{II}}{\mathrm{I}}
+\kappa_n = \frac{L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + N (\mathrm{d} v)^2}{(\mathrm{d} s)^2} = \frac{\mathrm{II}}{\mathrm{I}}
 $$
 
 上述表达式的分子和分母都是$$(\mathrm{d} u, \mathrm{d} u)$$的二次齐次多项式，因此它只是$$\frac{\mathrm{d} u}{\mathrm{d} v}$$的函数。
@@ -595,6 +595,23 @@ $$
 $$
 称为曲面$$S$$在点$$(u, v)$$沿切方向$$(\mathrm{d} u, \mathrm{d} v)$$的**法曲率**。
 {:.success}
+
+### 法截面和法截线
+
+因此，曲面$$S$$在点$$(u, v)$$处沿切方向$$(\mathrm{d} u, \mathrm{d} v)$$的法曲率恰好等于曲面$$S$$上经过点$$(u, v)$$、以$$(\mathrm{d} u, \mathrm{d} v)$$为切方向的曲线在该点的法曲率。曲面$$S$$在点$$(u, v)$$处由切方向$$(\mathrm{d} u, \mathrm{d} v)$$和法向量$$\boldsymbol{n} (u, v)$$决定了一个平面，称为曲面$$S$$在该点处由切方向$$(\mathrm{d} u, \mathrm{d} v)$$确定的**法截面**。法截面与曲面$$S$$本身相交成一条平面曲线，它是曲面$$S$$上经过点$$(u, v)$$、以$$(\mathrm{d} u, \mathrm{d} v)$$为切方向的一条曲线，称为曲面在该点的一条**法截线**。
+
+根据前面的讨论，曲面$$S$$上所有在点$$(u, v)$$处与法截线相切的曲线在该点有相同的法曲率，也就是法截线在该点处的法曲率。由于法截线是曲面$$S$$上经过点$$(u, v)$$、以$$(\mathrm{d} u, \mathrm{d} v)$$为切方向的平面曲线，它以曲面在该点的法向量$$\boldsymbol{n}$$为法向量，也就是它的主法向量$$\boldsymbol{\beta} = \pm \boldsymbol{n}$$，因此有
+
+$$
+\kappa = \vert \kappa_n \vert
+$$
+
+如果规定曲面$$S$$在点$$(u, v)$$处由切方向$$(\mathrm{d} u, \mathrm{d} v)$$确定的法截面以切方向$$(\mathrm{d} u, \mathrm{d} v)$$到曲面的法向量$$\boldsymbol{n} (u, v)$$的旋转方向为正定向，那么上面的结果还可以更准确的描述为
+
+**定理4.3** 曲面$$S$$在点$$(u, v)$$处沿切方向$$(\mathrm{d} u, \mathrm{d} v)$$的法曲率$$\kappa_n$$，等于以曲面$$S$$在该点处由切方向$$(\mathrm{d} u, \mathrm{d} v)$$确定的法截线作为相应的有向法截面上的平面曲线的相对曲率$$\kappa_r$$。
+{:.info}
+
+### Euler公式
 
 ## Weingarten映射和主曲率
 
