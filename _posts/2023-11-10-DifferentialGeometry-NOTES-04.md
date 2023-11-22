@@ -621,7 +621,7 @@ $$
 \begin{cases}
 \begin{aligned}
 \mathrm{I} &= E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2 \\
-\mathrm{II} &= L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2 \\
+\mathrm{II} &= L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + N (\mathrm{d} v)^2 \\
 \end{aligned}
 \end{cases}
 $$
@@ -630,7 +630,7 @@ $$
 
 $$
 \begin{aligned}
-\kappa_n &= \frac{\mathrm{II}}{\mathrm{I}} = \frac{L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2}{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2} \\
+\kappa_n &= \frac{\mathrm{II}}{\mathrm{I}} = \frac{L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + N (\mathrm{d} v)^2}{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2} \\
 &= \frac{L}{E} \bigg( \frac{\sqrt{E} \mathrm{d} u}{\sqrt{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2}} \bigg)^2 \\
 &+ \frac{2M}{\sqrt{EG}} \frac{\sqrt{E} \mathrm{d} u}{\sqrt{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2}} \frac{\sqrt{G} \mathrm{d} v}{\sqrt{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2}} \\
 &+ \frac{N}{G} \bigg( \frac{\sqrt{G} \mathrm{d} v}{\sqrt{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2}} \bigg)^2
@@ -726,7 +726,7 @@ $$
 在一个固定点$$(u, v)$$，渐近方向$$(\mathrm{d} u, \mathrm{d} v)$$是二次方程
 
 $$
-L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2 = 0
+L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + N (\mathrm{d} v)^2 = 0
 $$
 
 的解。因此，曲面在点$$(u, v)$$有实渐近方向的充分必要条件是
@@ -747,12 +747,12 @@ $$
 \frac{\mathrm{d} u}{\mathrm{d} v} = -\frac{M}{L} = -\frac{N}{M}
 $$
 
-把$$(u, v)$$看作动点则二次方程$$L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2 = 0$$是渐近曲线的微分方程。特别是，如果曲面上条件$$LN - M^2 \lt 0$$处处成立，则在曲面上存在两个处处线性无关的渐近方向场。于是根据[定理3.2](/2023/10/18/DifferentialGeometry-NOTES-03.html#曲面上正交参数曲线网的存在性)，在曲面上存在由渐近曲线构成的参数曲线网。
+把$$(u, v)$$看作动点则二次方程$$L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + N (\mathrm{d} v)^2 = 0$$是渐近曲线的微分方程。特别是，如果曲面上条件$$LN - M^2 \lt 0$$处处成立，则在曲面上存在两个处处线性无关的渐近方向场。于是根据[定理3.2](/2023/10/18/DifferentialGeometry-NOTES-03.html#曲面上正交参数曲线网的存在性)，在曲面上存在由渐近曲线构成的参数曲线网。
 
 **定理4.5** 曲面上的参数曲线网是渐近曲线网的充分必要条件是$$L = N = 0$$。
 {:.info}
 
-**证明** 如果曲面上的参数曲线网是渐近曲线网，即$$u$$-曲线和$$v$$-曲线都是渐近曲线，于是$$(\mathrm{d} u, \mathrm{d} v) = (1, 0)$$和$$(\mathrm{d} u, \mathrm{d} v) = (0, 1)$$都是渐近方向。将它们分别带入二次方程$$L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2 = 0$$便得到$$L = N = 0$$。
+**证明** 如果曲面上的参数曲线网是渐近曲线网，即$$u$$-曲线和$$v$$-曲线都是渐近曲线，于是$$(\mathrm{d} u, \mathrm{d} v) = (1, 0)$$和$$(\mathrm{d} u, \mathrm{d} v) = (0, 1)$$都是渐近方向。将它们分别带入二次方程$$L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + N (\mathrm{d} v)^2 = 0$$便得到$$L = N = 0$$。
 
 反过来，如果$$L = N = 0$$，则二次方程成为
 
@@ -984,6 +984,64 @@ $$
 **定理4.10 (Euler公式)** 设$$\boldsymbol{e}_1$$、$$\boldsymbol{e}_2$$是曲面$$S$$在点$$p$$处的两个彼此正交的主方向单位向量，对应的主曲率是$$\kappa_1$$、$$\kappa_2$$，则曲面$$S$$在点$$p$$处沿任意一个切向量$$\boldsymbol{e} = \cos{\theta} \boldsymbol{e}_1 + \sin{\theta} \boldsymbol{e}_2$$的法曲率是
 $$
 \kappa_n (\theta) = \kappa_1 \cos^2{\theta} + \kappa_2 \sin^2{\theta}
+$$
+。
+{:.info}
+
+当$$\kappa_1 = \kappa_2$$时，对任意的切方向$$\theta$$都有$$\kappa_n (\theta) = \kappa_1 = \kappa_2$$，这正是主方向不确定的情形。我们把这样的点称为曲面的**脐点**。由于在脐点，法曲率
+
+$$
+\kappa_n = \frac{L (\mathrm{d} u)^2 + 2M \mathrm{d} u \mathrm{d} v + N (\mathrm{d} v)^2}{E (\mathrm{d} u)^2 + 2F \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2} \\
+$$
+
+与切方向$$(\mathrm{d} u, \mathrm{d} v)$$无关，即
+
+$$
+(L - \kappa_n E) (\mathrm{d} u)^2 + 2 (M - \kappa_n F) \mathrm{d} u \mathrm{d} v + (N - \kappa_n G) (\mathrm{d} v)^2 = 0
+$$
+
+是关于$$\mathrm{d} u$$、$$\mathrm{d} v$$的恒等式，所以在该点有
+
+$$
+\frac{L}{E} = \frac{M}{F} = \frac{N}{G}
+$$
+
+由此可见脐点是曲面的第一类基本量和第二类基本量成比例的点。如果这个比例是零，则称该脐点是**平点**；如果这个比例不是零，则称该脐点是**圆点**。按照这样的术语，[定理4.1](/2023/11/10/DifferentialGeometry-NOTES-04.html#平面的第二基本形式)和[定理4.2](/2023/11/10/DifferentialGeometry-NOTES-04.html#球面的第二基本形式)可以重述为
+
+**命题** 曲面$$S$$是平面，当且仅当曲面$$S$$上的点都是平点；曲面$$S$$是球面，当且仅当曲面$$S$$上的点都是圆点。
+
+### 曲率线
+
+**定义4.4** 设$$C$$是正则曲面$$S$$上的一条曲线。如果曲线$$C$$在每一点的切向量都是曲面$$S$$在该点的主方向，则称曲线$$C$$是曲面$$S$$上的一条曲率线。
+{:.success}
+
+从定义可知，曲率线是曲面$$S$$上主方向场的积分曲线。设曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上的一条曲线$$C$$的参数方程是
+
+$$
+\begin{cases}
+\begin{aligned}
+u &= u(t) \\ v &= v(t)
+\end{aligned}
+\end{cases}
+$$
+
+根据定义4.4，曲线$$C$$是曲面$$S$$上的曲率线的条件是
+
+$$
+W \bigg( \frac{\mathrm{d} \boldsymbol{r} (u(t), v(t))}{\mathrm{d} t} \bigg) = \lambda \frac{\mathrm{d} \boldsymbol{r} (u(t), v(t))}{\mathrm{d} t}
+$$
+
+由Weingarten映射的定义得知
+
+$$
+W \bigg( \frac{\mathrm{d} \boldsymbol{r} (u(t), v(t))}{\mathrm{d} t} \bigg) = -\frac{\mathrm{d} \boldsymbol{n} (u(t), v(t))}{\mathrm{d} t}
+$$
+
+由此得到曲线$$C$$是曲面$$S$$上的曲率线的判别准则：
+
+**定理4.11 (Rodriques定理)** 曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上的一条曲线$$C: u=u(t), v=v(t)$$是曲率线的充分必要条件是，曲面$$S$$沿曲线$$C$$的法向量场$$\boldsymbol{n} (u(t), v(t))$$沿曲线$$C$$的导数与曲线$$C$$相切，即
+$$
+\frac{\mathrm{d} \boldsymbol{n} (u(t), v(t))}{\mathrm{d} t} \bigg\Vert \frac{\mathrm{d} \boldsymbol{r} (u(t), v(t))}{\mathrm{d} t}
 $$
 。
 {:.info}
