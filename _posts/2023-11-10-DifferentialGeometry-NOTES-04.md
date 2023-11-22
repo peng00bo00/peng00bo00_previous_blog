@@ -858,14 +858,14 @@ $$
 W(\mathrm{d} \boldsymbol{r}) &= W (\boldsymbol{r}_u \mathrm{d} u + \boldsymbol{r}_v \mathrm{d} v) = -g_* (\boldsymbol{r}_u \mathrm{d} u + \boldsymbol{r}_v \mathrm{d} v) \\
 &= -g_* (\boldsymbol{r}_u) \mathrm{d} u - g_* (\boldsymbol{r}_v) \mathrm{d} v \\
 &= -(\boldsymbol{n}_u \mathrm{d} u + \boldsymbol{n}_v \mathrm{d} v) \\
-&= - \mathrm{d} n
+&= - \mathrm{d} \boldsymbol{n}
 \end{aligned}
 $$
 
 所以
 
 $$
-\mathrm{II} = - \mathrm{d} n \cdot \mathrm{d} \boldsymbol{r} = W(\mathrm{d} \boldsymbol{r}) \cdot \mathrm{d} \boldsymbol{r}
+\mathrm{II} = - \mathrm{d} \boldsymbol{n} \cdot \mathrm{d} \boldsymbol{r} = W(\mathrm{d} \boldsymbol{r}) \cdot \mathrm{d} \boldsymbol{r}
 $$
 
 证毕∎
@@ -911,6 +911,82 @@ W(\mathrm{d} \boldsymbol{r}) \cdot \delta \boldsymbol{r} &= -(\boldsymbol{n}_u \
 $$
 
 证毕∎
+
+如果有非零切向量$$\mathrm{d} \boldsymbol{r}$$和实数$$\lambda$$，使得
+
+$$
+W(\mathrm{d} \boldsymbol{r}) = \lambda \mathrm{d} \boldsymbol{r}
+$$
+
+则称$$\lambda$$是Weingarten映射的特征值，并且把$$\mathrm{d} \boldsymbol{r}$$称为对应于特征值$$\lambda$$的特征向量。此时
+
+$$
+W(\mathrm{d} \boldsymbol{r}) \cdot \mathrm{d} \boldsymbol{r} = \lambda \mathrm{d} \boldsymbol{r} \cdot \mathrm{d} \boldsymbol{r}
+$$
+
+由定理4.7可知，曲面沿特征向量$$\mathrm{d} \boldsymbol{r}$$的法曲率是
+
+$$
+\kappa_n = \frac{\mathrm{II}}{\mathrm{I}} = \frac{W(\mathrm{d} \boldsymbol{r}) \cdot \mathrm{d} \boldsymbol{r}}{\mathrm{d} \boldsymbol{r} \cdot \mathrm{d} \boldsymbol{r}} = \lambda
+$$
+
+这说明，如果$$\lambda$$是Weingarten映射$$W$$的一个实特征值，则它正好是曲面在该点沿与它对应的特征方向的法曲率。
+
+定理4.7告诉我们，Weingarten映射$$W: T_p S \rightarrow T_{p} S$$是自共轭映射。根据线性代数理论，2），从一个二维向量空间到它自身的自共轭映射正好有两个实特征值(这两个实特征值可能相等)，并且对应地有两个线性无关的实特征向最。特别地，当这两个实特征值不相等时，对应的实特征方向是完全确定的，并且它们彼此正交；如果这两个实特征值相等，则曲面在该点的任意一个切方向都是特征方向。由此可见，曲面在每一点$$p$$的Weingarten映射$$W: T_p S \rightarrow T_{p} S$$必定有两个特征值，并且不管那两个特征值是否相等，在点$$p$$总是有两个彼此正交的特征方向。
+
+根据上面的讨论，我们有如下定理：
+
+**定理4.9** 正则参数曲面在每一点的Weingarten映射的两个特征值恰好是该曲面在这一点的主曲率，对应的特征方向是曲面的主方向。
+{:.info}
+
+**证明** 我们再切空间$$T_p S$$中总是可以取单位正交基底$$\{ \boldsymbol{e}_1, \boldsymbol{e}_2 \}$$，使得切向量$$\boldsymbol{e}_1$$、$$\boldsymbol{e}_2$$是曲面$$S$$在点$$p$$的特征方向，对应的特征值是$$\lambda_1 \geq \lambda_2$$，则
+
+$$
+\begin{cases}
+\begin{aligned}
+W (\boldsymbol{e}_1) &= \lambda_1 \boldsymbol{e}_1 \\
+W (\boldsymbol{e}_2) &= \lambda_2 \boldsymbol{e}_2 \\
+\end{aligned}
+\end{cases}
+$$
+
+现在设$$\boldsymbol{e}$$是曲面$$S$$在点$$p$$的任意一个切向量，于是可以把它表示为
+
+$$
+\boldsymbol{e} = \cos{\theta} \boldsymbol{e}_1 + \sin{\theta} \boldsymbol{e}_2
+$$
+
+则
+
+$$
+\begin{aligned}
+W(\boldsymbol{e}) &= \cos{\theta} W (\boldsymbol{e}_1) + \sin{\theta} W (\boldsymbol{e}_2) \\
+&= \lambda_1 \cos{\theta} \boldsymbol{e}_1 + \lambda_2 \sin{\theta} \boldsymbol{e}_2
+\end{aligned}
+$$
+
+因此沿切方向$$\boldsymbol{e}$$的法曲率是
+
+$$
+\begin{aligned}
+\kappa_\theta &= \frac{W(\boldsymbol{e}) \cdot \boldsymbol{e}}{\boldsymbol{e} \cdot \boldsymbol{e}} \\
+&= (\lambda_1 \cos{\theta} \boldsymbol{e}_1 + \lambda_2 \sin{\theta} \boldsymbol{e}_2) \cdot (\cos{\theta} \boldsymbol{e}_1 + \sin{\theta} \boldsymbol{e}_2) \\
+&= \lambda_1 \cos^2{\theta} + \lambda_2 \sin^2{\theta} \\
+&= \lambda_1 - (\lambda_1 - \lambda_2) \sin^2{\theta} \\
+&= \lambda_2 + (\lambda_1 - \lambda_2) \cos^2{\theta} \\
+\end{aligned}
+$$
+
+由此可见，法曲率$$\kappa_n (\theta)$$在$$\theta = 0$$时取最大值$$\lambda_1$$，$$\theta = \frac{\pi}{2}$$时取最小值$$\lambda_2$$。换言之，Weingarten映射的特征值$$\lambda_1 \geq \lambda_2$$分别是曲面在该点的主曲率$$\kappa_1$$、$$\kappa_2$$，因而其对应的特征方向是曲面在该点的主方向。证毕∎
+
+现在可以把[Euler公式](/2023/11/10/DifferentialGeometry-NOTES-04.html#euler公式)重新叙述成如下定理：
+
+**定理4.10 (Euler公式)** 设$$\boldsymbol{e}_1$$、$$\boldsymbol{e}_2$$是曲面$$S$$在点$$p$$处的两个彼此正交的主方向单位向量，对应的主曲率是$$\kappa_1$$、$$\kappa_2$$，则曲面$$S$$在点$$p$$处沿任意一个切向量$$\boldsymbol{e} = \cos{\theta} \boldsymbol{e}_1 + \sin{\theta} \boldsymbol{e}_2$$的法曲率是
+$$
+\kappa_n (\theta) = \kappa_1 \cos^2{\theta} + \kappa_2 \sin^2{\theta}
+$$
+。
+{:.info}
 
 ## 主方向和主曲率的计算
 
