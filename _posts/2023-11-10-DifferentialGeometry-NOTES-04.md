@@ -838,7 +838,79 @@ $$
 W = -g_* : T_p S \rightarrow T_{p} S
 $$
 
-称$$W$$为曲面$$S$$在点$$p$$的**Weingarten映射**。
+称$$W$$为曲面$$S$$在点$$p$$的**Weingarten映射**。据线性代数的理论，在具有欧氏内积的向量空间上的自共轭线性变换和二次型是彼此确定的。我们这里定义的Weingarten映射和曲面的第二基本形式恰好有这种关系。
+
+**定理4.7** 曲面$$S$$的第二基本形式$$\mathrm{II}$$可以用Weingarten映射表示成
+$$\mathrm{II} = W(\mathrm{d} \boldsymbol{r}) \cdot \mathrm{d} \boldsymbol{r}$$
+。
+{:.info}
+
+**证明** 曲面$$S$$上任意一个切向量可以表示成
+
+$$
+\mathrm{d} \boldsymbol{r} = \boldsymbol{r}_u \mathrm{d} u + \boldsymbol{r}_v \mathrm{d} v
+$$
+
+其中$$\mathrm{d} u$$、$$\mathrm{d} v$$是切向量的分量。利用Weingarten映射的定义有
+
+$$
+\begin{aligned}
+W(\mathrm{d} \boldsymbol{r}) &= W (\boldsymbol{r}_u \mathrm{d} u + \boldsymbol{r}_v \mathrm{d} v) = -g_* (\boldsymbol{r}_u \mathrm{d} u + \boldsymbol{r}_v \mathrm{d} v) \\
+&= -g_* (\boldsymbol{r}_u) \mathrm{d} u - g_* (\boldsymbol{r}_v) \mathrm{d} v \\
+&= -(\boldsymbol{n}_u \mathrm{d} u + \boldsymbol{n}_v \mathrm{d} v) \\
+&= - \mathrm{d} n
+\end{aligned}
+$$
+
+所以
+
+$$
+\mathrm{II} = - \mathrm{d} n \cdot \mathrm{d} \boldsymbol{r} = W(\mathrm{d} \boldsymbol{r}) \cdot \mathrm{d} \boldsymbol{r}
+$$
+
+证毕∎
+
+**定理4.8** Weingarten映射$$W$$是从切空间$$T_p S$$到它自身的共轭映射，即对于曲面$$S$$在点$$(u, v)$$的任意两个切方向$$\mathrm{d} \boldsymbol{r}$$和$$\delta \boldsymbol{r}$$满足
+$$
+W(\mathrm{d} \boldsymbol{r}) \cdot \delta \boldsymbol{r} = \mathrm{d} \boldsymbol{r} \cdot W(\delta \boldsymbol{r})
+$$
+。
+{:.info}
+
+**证明** 设
+
+$$
+\begin{cases}
+\begin{aligned}
+\mathrm{d} \boldsymbol{r} &= \boldsymbol{r}_u \mathrm{d} u + \boldsymbol{r}_v \mathrm{d} v \\
+\delta \boldsymbol{r} &= \boldsymbol{r}_u \delta u + \boldsymbol{r}_v \delta v \\
+\end{aligned}
+\end{cases}
+$$
+
+利用Weingarten映射的定义有
+
+$$
+\begin{cases}
+\begin{aligned}
+W(\mathrm{d} \boldsymbol{r}) &= - (\boldsymbol{n}_u \mathrm{d} u + \boldsymbol{n}_v \mathrm{d} v)\\
+W(\delta \boldsymbol{r}) &= - (\boldsymbol{n}_u \delta u + \boldsymbol{n}_v \delta v)
+\end{aligned}
+\end{cases}
+$$
+
+这样
+
+$$
+\begin{aligned}
+W(\mathrm{d} \boldsymbol{r}) \cdot \delta \boldsymbol{r} &= -(\boldsymbol{n}_u \mathrm{d} u + \boldsymbol{n}_v \mathrm{d} v) \cdot (\boldsymbol{r}_u \delta u + \boldsymbol{r}_v \delta v ) \\
+&= L \mathrm{d} u \delta u + M (\mathrm{d} u \delta v + \mathrm{d} v \delta u) + N \mathrm{d} v \delta u \\
+&= -(\boldsymbol{r}_u \mathrm{d} u + \boldsymbol{r}_v \mathrm{d} v) \cdot (\boldsymbol{n}_u \delta u + \boldsymbol{n}_v \delta v) \\
+&= \mathrm{d} \boldsymbol{r} \cdot W(\delta \boldsymbol{r})
+\end{aligned}
+$$
+
+证毕∎
 
 ## 主方向和主曲率的计算
 
