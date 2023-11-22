@@ -775,6 +775,71 @@ $$
 
 ## Weingarten映射和主曲率
 
+### Gauss映射
+
+设$$\boldsymbol{r} = \boldsymbol{r} (u,v)$$是一块正则参数曲面，它在每一点处有一个确定的单位法向量$$\boldsymbol{n} (u, v)$$。将$$\boldsymbol{n} (u, v)$$在$$\mathbb{E}^3$$中平行移动到坐标原点$$O$$，那么它的终点便落在$$\mathbb{E}^3$$中的单位球面$$\Sigma$$上，于是得到从曲面$$S$$到$$\Sigma$$的一个可微映射$$g: S \rightarrow \Sigma$$使得
+
+$$
+g (\boldsymbol{r} (u, v)) = \boldsymbol{n} (u, v)
+$$
+
+这个映射称为**Gauss映射**。很明显，当曲面$$S$$弯曲得比较厉害时， 则当曲面$$S$$上的点变动时其相应的法向量的变化就比较大，于是法向量场在$$\Sigma$$上所扫过的面积与曲面上的点扫过的面积之比就比较大，如下图所示。这正是Gauss观察曲面形状的出发点。据说，Gauss的灵感来自他担任天文台台长时从事大地测量的研究工作。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/WR2A38L.png" width="80%">
+</div>
+
+### Weingarten映射
+
+在[正则参数曲面之间的对应](/2023/10/18/DifferentialGeometry-NOTES-03.html#正则参数曲面之间的对应)一节我们提到过两个曲面之间的可微映射在对应点的切空间之间诱导出一个线性映射，称为该映射的切映射。这样，Gauss映射$$g: S \rightarrow \Sigma$$便诱导出从曲面$$S$$在点$$p$$的切空间$$T_p S$$到球面$$\Sigma$$在像点$$g(p)$$的切空间$$T_{g(p)} \Sigma$$的切映射
+
+$$
+g_* : T_p S \rightarrow T_{g(p)} \Sigma
+$$
+
+下面我们来求这个切映射的表达式：
+
+设曲面$$S$$上的一条曲线的参数方程是
+
+$$
+\begin{cases}
+\begin{aligned}
+u &= u(t) \\ v &= v(t)
+\end{aligned}
+\end{cases}
+$$
+
+于是它在Gauss映射下的像是
+
+$$
+g (\boldsymbol{r} (u(t), v(t))) = \boldsymbol{n} (u(t), v(t))
+$$
+
+根据诱导切映射的定义
+
+$$
+g_* \bigg( \frac{\mathrm{d} \boldsymbol{r}}{\mathrm{d} t} \bigg) = \frac{\mathrm{d} \boldsymbol{n} (u(t), v(t))}{\mathrm{d} t} = \boldsymbol{n}_u \frac{\mathrm{d} u(t)}{\mathrm{d} t} + \boldsymbol{n}_v \frac{\mathrm{d} v(t)}{\mathrm{d} t}
+$$
+
+因此
+
+$$
+\begin{cases}
+\begin{aligned}
+g_* (\boldsymbol{r}_u) &= \boldsymbol{n}_u \\ 
+g_* (\boldsymbol{r}_v) &= \boldsymbol{n}_v
+\end{aligned}
+\end{cases}
+$$
+
+由于$$\boldsymbol{n}$$是球面$$\Sigma$$的向径，因此它本身也是球面$$\Sigma$$的法向量，这就是说曲面$$S$$在点$$p$$的切平面和球面$$\Sigma$$在点$$g(p)$$的切平面是彼此平行的，特别是切空间$$T_p S$$和切空间$$T_{g(p)} \Sigma$$可以自然地等同起来，于是球面$$\Sigma$$的切向量$$\boldsymbol{n}_u$$、$$\boldsymbol{n}_v$$可以看作曲面$$S$$的切向量。这样，切映射$$g_*$$成为从切空间$$T_p S$$到它自身的线性映射。命
+
+$$
+W = -g_* : T_p S \rightarrow T_{p} S
+$$
+
+称$$W$$为曲面$$S$$在点$$p$$的**Weingarten映射**。
+
 ## 主方向和主曲率的计算
 
 ## Dupin标形和曲面参数方程在一点的标准展开
