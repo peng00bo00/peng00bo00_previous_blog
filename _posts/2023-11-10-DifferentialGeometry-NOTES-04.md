@@ -1308,6 +1308,7 @@ $$
 \end{aligned}
 \end{cases}
 $$
+
 其中$$\kappa_1$$、$$\kappa_2$$是曲面的主曲率。
 {:.info}
 
