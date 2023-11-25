@@ -1174,7 +1174,7 @@ $$
 我们把$$H = \frac{1}{2} (\kappa_1 + \kappa_2)$$称为曲面的**平均曲率**，把$$K = \kappa_1 \kappa_2$$称为曲面的**Gauss曲率**或**总曲率**。这样，主曲率是方程
 
 $$
-\lambda^1 - 2H \lambda + K = 0
+\lambda^2 - 2H \lambda + K = 0
 $$
 
 的根，于是
@@ -1189,6 +1189,88 @@ $$
 $$
 
 直接验证可知，二次方程在曲面保持定向的参数变换下是不变的，因此平均曲率$$H$$和Gauss曲率$$K$$的表达式在曲面保持定向的参数变换下也是不变的。
+
+**定理4.13** 曲面的主曲率$$\kappa_1$$、$$\kappa_2$$是定义在曲面上的连续函数，并且在每一个非脐点的一个邻域内，主曲率$$\kappa_1$$、$$\kappa_2$$是连续可微的函数。
+{:.info}
+
+**证明** 已经假定曲面的参数方程至少是三次连续可微的，而曲面的第一类基本量和第二类基本量是曲面的参数方程经过两次求偏导得到的，因此平均曲率$$H$$和Gauss曲率$$K$$都是连续可微的函数。根据主曲率的计算公式，主曲率$$\kappa_1$$、$$\kappa_2$$是连续的。在非脐点的邻域内我们有$$\kappa_1 =\neq \kappa_2$$，即$$H^2 - K \gt 0$$，因此$$\sqrt{H^2 - K}$$还是连续可微的，故主曲率$$\kappa_1$$、$$\kappa_2$$是连续可微的函数。证毕∎
+
+现在把求主方向和主曲率的方法综述如下：
+
+1. 按照公式用曲面的第一类基本量和第二类基本量计算曲面的平均曲率$$H$$和Gauss曲率$$K$$，并解二次方程得到曲面的主曲率$$\kappa_1$$、$$\kappa_2$$
+2. 根据脐点和非脐点的情形，分两种情况来处理
+   1. 在非脐点的情形，$$\kappa_1 \neq \kappa_2$$，逐次将$$\kappa_1$$和$$\kappa_2$$带入线性方程组
+
+$$
+\begin{cases}
+\begin{aligned}
+(L - \lambda E) \delta u + (M - \lambda F) \delta v &= 0 \\
+(M - \lambda F) \delta u + (N - \lambda G) \delta v &= 0 \\
+\end{aligned}
+\end{cases}
+$$
+
+因此对应于$$\kappa_1$$的主方向是
+
+$$
+\frac{\delta u}{\delta v} = -\frac{M - \kappa_1 F}{L - \kappa_1 E} = -\frac{N - \kappa_1 G}{M - \kappa_1 F}
+$$
+
+对应于$$\kappa_2$$的主方向是
+
+$$
+\frac{\delta u}{\delta v} = -\frac{M - \kappa_2 F}{L - \kappa_2E} = -\frac{N - \kappa_2 G}{M - \kappa_2 F}
+$$
+    
+   2. 在脐点的情形，$$\kappa_1 = \kappa_2 = \frac{L}{E} = \frac{M}{F} = \frac{N}{G}$$。此时任意的非零数组$$(\delta u, \delta v)$$都是方程组的解，即主方向是不定的。
+
+上述求解的次序是先求主曲率、后求主方向。这种求解的过程可以倒过来，即为先求主方向，后求主曲率的方法。将方程组改写，可以得到
+
+$$
+\begin{cases}
+\begin{aligned}
+(L \delta u + M \delta v) \delta u - \lambda (E \delta u + F \delta v) &= 0 \\
+(M \delta u + N \delta v) \delta u - \lambda (F \delta u + G \delta v) &= 0 \\
+\end{aligned}
+\end{cases}
+$$
+
+因此
+
+$$
+\lambda = \frac{L \delta u + M \delta v}{E \delta u + F \delta v} = \frac{M \delta u + N \delta v}{F \delta u + G \delta v}
+$$
+
+上式说明，主方向$$(\delta u, \delta v)$$必须满足方程
+
+$$
+\begin{vmatrix}
+L \delta u + M \delta v & E \delta u + F \delta v \\
+M \delta u + N \delta v & F \delta u + G \delta v
+\end{vmatrix}
+= 0
+$$
+
+将上式展开得到
+
+$$
+(LF - ME) (\delta u)^2 + (LG - NE) \delta u \delta v + (MG - NF) (\delta v)^2 = 0
+$$
+
+于是可以先解上面的二次方程，得到主方向$$ \delta u : \delta v$$，然后带入$$\lambda$$得到相应的主曲率。
+
+为了便于记忆，用$$(\mathrm{d} u, \mathrm{d} v)$$代替$$(\delta u, \delta v)$$，并且把二次方程改写为
+
+$$
+\begin{vmatrix}
+(\mathrm{d} v)^2 & - \mathrm{d} u \mathrm{d} v & (\mathrm{d} u)^2 \\
+E & F & G \\
+L & M & N \\
+\end{vmatrix}
+= 0
+$$
+
+对于固定的点，上式是求主方向$$(\mathrm{d} u, \mathrm{d} v)$$的方程；而如果把$$(u, v)$$看作动点，则上式是曲面上曲率线所满足的微分方程。
 
 ### 第三基本形式
 
