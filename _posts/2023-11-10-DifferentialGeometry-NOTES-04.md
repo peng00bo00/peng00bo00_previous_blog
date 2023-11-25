@@ -1096,6 +1096,102 @@ $$
 
 ## 主方向和主曲率的计算
 
+根据法曲率的Euler公式，曲面在一点的主曲率是曲面在该点的法曲率的最大值和最小值。因此，计算主方向和主曲率是了解曲面在该点的弯曲情况的重要手段。在上一节已经知道主方向和主曲率恰好是曲面在这一点的Weingarten映射的特征方向和特征值，因此求曲面主方向和主曲率的问题归结为求Weingarten映射的特征方向和特征值。
+
+### 平均曲率和Gauss曲率
+
+设曲面$$S$$的方程是$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$。假定$$\delta \boldsymbol{r} = \boldsymbol{r}_u \delta u + \boldsymbol{r}_v \delta v$$是曲面在点$$(u, v)$$的一个主方向，即$$(\delta u, \delta v) \neq \boldsymbol{0}$$，并且有实数$$\lambda$$使得
+
+$$
+W(\delta \boldsymbol{r}) = \lambda \delta \boldsymbol{r}
+$$
+
+将上式展开得到
+
+$$
+- (\boldsymbol{n}_u \delta u + \boldsymbol{n}_v \delta v) = \lambda (\boldsymbol{r}_u \delta u + \boldsymbol{r}_v \delta v)
+$$
+
+将上式分别与切向量$$\boldsymbol{r}_u$$、$$\boldsymbol{r}_v$$作内积，得到
+
+$$
+\begin{cases}
+\begin{aligned}
+L \delta u + M \delta v &= \lambda (E \delta u + F \delta v) \\
+M \delta u + N \delta v &= \lambda (F \delta u + G \delta v) \\
+\end{aligned}
+\end{cases}
+$$
+
+所以$$(\delta u, \delta v)$$应该是线性方程组
+
+$$
+\begin{cases}
+\begin{aligned}
+(L - \lambda E) \delta u + (M - \lambda F) \delta v &= 0 \\
+(M - \lambda F) \delta u + (N - \lambda G) \delta v &= 0 \\
+\end{aligned}
+\end{cases}
+$$
+
+的非零解。根据线性方程组理论，线性齐次方程组有非零解的充分必要条件是，它的系数行列式为零，即$$\lambda$$要满足二次方程
+
+$$
+\begin{vmatrix}
+L - \lambda E & M - \lambda F \\
+M - \lambda F & N - \lambda G
+\end{vmatrix}
+= 0
+$$
+
+将它展开得到
+
+$$
+\lambda^2 - \frac{LG - 2MF + NE}{EG - F^2} \lambda + \frac{LN - M^2}{EG - F^2} = 0
+$$
+
+根据定理4.9知道，二次方程必定有两个实根$$\kappa_1$$、$$\kappa_2$$。这个事实也能够用二次方程的的判别式来检验。实际上，二次方程的判别式是
+
+$$
+\begin{aligned}
+&(LG - 2MF + NE)^2 - 4 (EG - F^2) (LN - M^2) \\
+=& \bigg( (EN - GL) - \frac{2F}{E} (EM - FL) + \frac{2L}{E} (EG- F^2) \bigg)^2 - 4 (EG - F^2) (LN - M^2) \\
+=& \bigg( (EN - GL) - \frac{2F}{E} (EM - FL) \bigg)^2 + \frac{4 (EG - F^2)}{E^2} (EM - FL)^2 \geq 0
+\end{aligned}
+$$
+
+由二次方程的系数与根的关系得知
+
+$$
+\begin{cases}
+\begin{aligned}
+\kappa_1 + \kappa_2 &= 2H = \frac{LG - 2MF + NE}{EG - F^2} \\
+\kappa_1 \kappa_2 &= K = \frac{LN - M^2}{EG - F^2}
+\end{aligned}
+\end{cases}
+$$
+
+我们把$$H = \frac{1}{2} (\kappa_1 + \kappa_2)$$称为曲面的**平均曲率**，把$$K = \kappa_1 \kappa_2$$称为曲面的**Gauss曲率**或**总曲率**。这样，主曲率是方程
+
+$$
+\lambda^1 - 2H \lambda + K = 0
+$$
+
+的根，于是
+
+$$
+\begin{cases}
+\begin{aligned}
+\kappa_1 &= H + \sqrt{H^2 - K} \\
+\kappa_2 &= H - \sqrt{H^2 - K}
+\end{aligned}
+\end{cases}
+$$
+
+直接验证可知，二次方程在曲面保持定向的参数变换下是不变的，因此平均曲率$$H$$和Gauss曲率$$K$$的表达式在曲面保持定向的参数变换下也是不变的。
+
+### 第三基本形式
+
 ## Dupin标形和曲面参数方程在一点的标准展开
 
 ## 某些特殊曲面
