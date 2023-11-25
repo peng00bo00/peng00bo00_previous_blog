@@ -1048,7 +1048,7 @@ $$
 
 根据定理4.11还可以得到曲率线的一个特征性质：
 
-**定理4.12 ** 曲面$$S$$上的曲线$$C$$是曲率线的充分必要条件是，曲面$$S$$沿曲线$$C$$的法线构成一个可展曲面。
+**定理4.12** 曲面$$S$$上的曲线$$C$$是曲率线的充分必要条件是，曲面$$S$$沿曲线$$C$$的法线构成一个可展曲面。
 {:.info}
 
 **证明** 设曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上的一条曲线$$C$$的参数方程是
@@ -1088,7 +1088,7 @@ $$
 故
 
 $$
-\boldsymbol{r}'(s) \times \boldsymbol{n}'(s) = \boldsymbol{0}, \ \ \
+\boldsymbol{r}'(s) \times \boldsymbol{n}'(s) = \boldsymbol{0} \Leftrightarrow
 \boldsymbol{r}'(s) \parallel \boldsymbol{n}'(s)
 $$
 
