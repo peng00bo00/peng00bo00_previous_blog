@@ -1776,8 +1776,10 @@ $$
 
 $$
 \begin{cases}
+\begin{aligned}
 \boldsymbol{r}_u (u, v) &= \boldsymbol{a}' (u) + v \boldsymbol{l}' (u) \\
 \boldsymbol{r}_v (u, v) &= \boldsymbol{l} (u)
+\end{aligned}
 \end{cases}
 $$
 

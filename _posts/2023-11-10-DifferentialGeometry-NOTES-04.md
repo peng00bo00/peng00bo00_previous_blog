@@ -1046,6 +1046,54 @@ $$
 。
 {:.info}
 
+根据定理4.11还可以得到曲率线的一个特征性质：
+
+**定理4.12 ** 曲面$$S$$上的曲线$$C$$是曲率线的充分必要条件是，曲面$$S$$沿曲线$$C$$的法线构成一个可展曲面。
+{:.info}
+
+**证明** 设曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$上的一条曲线$$C$$的参数方程是
+
+$$
+\begin{cases}
+\begin{aligned}
+u &= u(s) \\ v &= v(s)
+\end{aligned}
+\end{cases}
+$$
+
+其中$$s$$是弧长参数。设曲面$$S$$沿曲线$$C$$的单位法向量是$$\boldsymbol{n} = \boldsymbol{n} (u(s), v(s))$$，因此由曲面$$S$$上沿曲线$$C$$的法线构成的直纹面是
+
+$$
+\boldsymbol{r} = \boldsymbol{r} (s) + t \boldsymbol{n} (s)
+$$
+
+其中$$\boldsymbol{r} (s) = \boldsymbol{r} (u(s), v(s))$$。根据[定理3.9](/2023/10/18/DifferentialGeometry-NOTES-03.html#可展曲面-1)，这个直纹面是可展曲面的充分必要条件是
+
+$$
+\big( \boldsymbol{r}'(s), \boldsymbol{n} (s), \boldsymbol{n}' (s) \big) = 0
+$$
+
+由于$$\boldsymbol{n} (s)$$是曲面$$S$$的单位法向量，所以$$\boldsymbol{r}'(s) \cdot \boldsymbol{n} (s) = 0$$，$$\boldsymbol{n}'(s) \cdot \boldsymbol{n} (s) = 0$$。因此$$\boldsymbol{n} (s) \parallel (\boldsymbol{r}'(s) \times \boldsymbol{n}'(s))$$，不妨设
+
+$$
+\boldsymbol{r}'(s) \times \boldsymbol{n}'(s) = \lambda \boldsymbol{n} (s)
+$$
+
+带入混合积有
+
+$$
+0 = - \big( \boldsymbol{r}'(s) \times \boldsymbol{n}'(s) \big) \cdot \boldsymbol{n} (s) = \lambda \boldsymbol{n} (s) \cdot \boldsymbol{n} (s) = \lambda
+$$
+
+故
+
+$$
+\boldsymbol{r}'(s) \times \boldsymbol{n}'(s) = \boldsymbol{0}, \ \ \
+\boldsymbol{r}'(s) \parallel \boldsymbol{n}'(s)
+$$
+
+由此可见，曲面$$S$$沿曲线$$C$$的法线构成可展曲面的充分必要条件是$$\boldsymbol{r}'(s) \parallel \boldsymbol{n}'(s)$$，即$$C$$是曲面$$S$$上的曲率线。证毕∎
+
 ## 主方向和主曲率的计算
 
 ## Dupin标形和曲面参数方程在一点的标准展开
