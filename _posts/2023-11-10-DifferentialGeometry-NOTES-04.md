@@ -1320,6 +1320,143 @@ $$
 
 ### 第三基本形式
 
+设曲面$$S$$的方程是$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$。根据Weingarten映射的定义
+
+$$
+\begin{cases}
+\begin{aligned}
+W(\boldsymbol{r}_u) = - \boldsymbol{n}_u \\
+W(\boldsymbol{r}_v) = - \boldsymbol{n}_v \\
+\end{aligned}
+\end{cases}
+$$
+
+因为$$\boldsymbol{n}_u$$、$$\boldsymbol{n}_v$$是曲面$$S$$的切向量，不妨设
+
+$$
+\begin{pmatrix}
+- \boldsymbol{n}_u \\ - \boldsymbol{n}_v
+\end{pmatrix}
+=
+\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{pmatrix}
+\begin{pmatrix}
+\boldsymbol{r}_u \\ \boldsymbol{r}_v
+\end{pmatrix}
+$$
+
+将上式两倍分别与向量组$$(\boldsymbol{r}_u, \boldsymbol{r}_v)$$作内积
+
+$$
+\begin{pmatrix}
+- \boldsymbol{n}_u \\ - \boldsymbol{n}_v
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{r}_u  & \boldsymbol{r}_v
+\end{pmatrix}
+=
+\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{pmatrix}
+\begin{pmatrix}
+\boldsymbol{r}_u \\ \boldsymbol{r}_v
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{r}_u  & \boldsymbol{r}_v
+\end{pmatrix}
+$$
+
+得到
+
+$$
+\begin{pmatrix}
+L & M \\
+M & N \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{pmatrix}
+\begin{pmatrix}
+E & F \\
+F & G \\
+\end{pmatrix}
+$$
+
+所以
+
+$$
+\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+L & M \\
+M & N \\
+\end{pmatrix}
+\begin{pmatrix}
+E & F \\
+F & G \\
+\end{pmatrix}^{-1}
+$$
+
+对于$$2 \times 2$$可逆矩阵容易知道其逆矩阵的公式是
+
+$$
+\begin{pmatrix}
+E & F \\
+F & G \\
+\end{pmatrix}^{-1}
+=
+\frac{1}{EG - F^2}
+\begin{pmatrix}
+G  & -F \\
+-F & E  \\
+\end{pmatrix}
+$$
+
+因此
+
+$$
+\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{pmatrix}
+=
+\frac{1}{EG - F^2}
+\begin{pmatrix}
+LG-MF & -LF+ME \\
+MG-NF & -MF+NE \\
+\end{pmatrix}
+$$
+
+所以
+
+$$
+W
+\begin{pmatrix}
+\boldsymbol{r}_u \\ \boldsymbol{r}_v
+\end{pmatrix}
+=
+\frac{1}{EG - F^2}
+\begin{pmatrix}
+LG-MF & -LF+ME \\
+MG-NF & -MF+NE \\
+\end{pmatrix}
+\begin{pmatrix}
+\boldsymbol{r}_u \\ \boldsymbol{r}_v
+\end{pmatrix}
+$$
+
+线性变换在某基底下的矩阵的迹和行列式是线性变换的不变量，它们与基底的选取无关。
+
 ## Dupin标形和曲面参数方程在一点的标准展开
 
 ## 某些特殊曲面
