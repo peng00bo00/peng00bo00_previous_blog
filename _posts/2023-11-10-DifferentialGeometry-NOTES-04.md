@@ -1455,7 +1455,54 @@ MG-NF & -MF+NE \\
 \end{pmatrix}
 $$
 
-线性变换在某基底下的矩阵的迹和行列式是线性变换的不变量，它们与基底的选取无关。
+线性变换在某基底下的矩阵的迹和行列式是线性变换的不变量，它们与基底的选取无关。从上式中不难发现Weingarten映射$$W$$在自然基底$$(\boldsymbol{r}_u, \boldsymbol{r}_v)$$的矩阵的迹和行列式分别是$$2H$$和$$K$$，即
+
+$$
+\begin{cases}
+\begin{aligned}
+2H &= a_{11} + a_{22} = \frac{LG - 2MF + NE}{EG - F^2} \\
+K &= a_{11} a_{22} - a_{12} a_{21} = \frac{LN - M^2}{EG - F^2}
+\end{aligned}
+\end{cases}
+$$
+
+在这里，我们顺便能够得到Gauss曲率的几何意义。将$$\boldsymbol{n}_u$$和$$\boldsymbol{n}_v$$进行叉乘，得到
+
+$$
+\boldsymbol{n}_u \times \boldsymbol{n}_v = (a_{11} a_{22} - a_{12} a_{21}) \boldsymbol{r}_u \times \boldsymbol{r}_v = K \boldsymbol{r}_u \times \boldsymbol{r}_v
+$$
+
+因此
+
+$$
+\vert \boldsymbol{n}_u \times \boldsymbol{n}_v \vert = \vert K \vert \cdot \vert \boldsymbol{r}_u \times \boldsymbol{r}_v \vert
+$$
+
+面积元素$$\mathrm{d} \sigma = \vert \boldsymbol{r}_u \times \boldsymbol{r}_v \vert \mathrm{d} u \mathrm{d} v$$实质上是曲面$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$上由参数曲线$$u = u_0$$，$$u = u_0 + \mathrm{d} u$$，$$v = v_0$$，$$v = v_0 + \mathrm{d} v$$围成的小区域的面积，它在Gauss映射下的像的面积是$$\mathrm{d} \sigma_0 = \vert \boldsymbol{n}_u \times \boldsymbol{n}_v \vert \mathrm{d} u \mathrm{d} v$$，因此上式成为
+
+$$
+\mathrm{d} \sigma = \vert K \vert \mathrm{d} \sigma_0
+$$
+
+即
+
+$$
+\vert K \vert = \frac{\mathrm{d} \sigma}{\mathrm{d} \sigma_0}
+$$
+
+如果$$D$$是曲面$$S$$上围绕点$$p$$的一个邻域，用$$g(D)$$表示它在Gauss映射下的像，那么$$g(D)$$的面积是
+
+$$
+A(g(D)) = \int_{g(D)} {d} \sigma_0 = \int_D \vert K \vert {d} \sigma
+$$
+
+利用重积分的中值定理并且让区域$$D$$收缩于一点$$p$$取极限得到
+
+$$
+\vert K \vert = \lim_{D \rightarrow p} \frac{A(g(D))}{A(D)}
+$$
+
+由此可见，曲面$$S$$在点$$p$$的Gauss曲率的绝对值$$\vert K \vert$$的意义是，围绕点$$p$$的小区域$$D$$在Gauss映射下的像$$g(D)$$的面积与区域$$D$$的面积之比在区域$$D$$收缩到点$$p$$时的极限。在曲线论中，关于去了也有类似的[解释](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)。
 
 ## Dupin标形和曲面参数方程在一点的标准展开
 
