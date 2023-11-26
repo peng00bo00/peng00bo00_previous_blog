@@ -1564,7 +1564,7 @@ g &= \boldsymbol{n}_v \cdot \boldsymbol{n}_v = (\kappa_2)^2 G \\
 \end{cases}
 $$
 
-于是在点$$p$$处由
+于是在点$$p$$处有
 
 $$
 \begin{cases}
