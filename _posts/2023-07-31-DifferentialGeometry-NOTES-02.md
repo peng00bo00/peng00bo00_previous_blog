@@ -181,7 +181,7 @@ $$
 $$
 {:.info}
 
-**证明** 把曲线$$C$$上所有的单位切向量$$\boldsymbol{\alpha}(s)$$平行移动，使它们的起点都放在原点$$O$$出，则这些切向量的端点便描出单位球面上的一条曲线，于是切向量$$\boldsymbol{\alpha}(s + \Delta s)$$和$$\boldsymbol{\alpha}(s)$$之间的夹角$$\Delta \theta$$是在单位球面上从$$\boldsymbol{\alpha}(s + \Delta s)$$到$$\boldsymbol{\alpha}(s)$$的大圆弧的弧长，而$$\boldsymbol{\alpha}(s + \Delta s) - \boldsymbol{\alpha}(s)$$正好是该角所对的弦长，所以
+**证明** 把曲线$$C$$上所有的单位切向量$$\boldsymbol{\alpha}(s)$$平行移动，使它们的起点都放在原点$$O$$处，则这些切向量的端点便描出单位球面上的一条曲线，于是切向量$$\boldsymbol{\alpha}(s + \Delta s)$$和$$\boldsymbol{\alpha}(s)$$之间的夹角$$\Delta \theta$$是在单位球面上从$$\boldsymbol{\alpha}(s + \Delta s)$$到$$\boldsymbol{\alpha}(s)$$的大圆弧的弧长，而$$\boldsymbol{\alpha}(s + \Delta s) - \boldsymbol{\alpha}(s)$$正好是该角所对的弦长，所以
 
 $$
 \begin{aligned}
@@ -203,7 +203,7 @@ $$
 **定理2.3** 曲线$$C$$是一条直线当且仅当它的曲率$$\kappa(s) \equiv 0$$。
 {:.info}
 
-**证明** 直线$$C$$的参数方程为$$\boldsymbol{r}(s) = \boldsymbol{r}_0 + \boldsymbol{\alpha}_0 s$$，其中$$\boldsymbol{\alpha}$$是该直线的方向向量。因此有$$\boldsymbol{r}'(s) = \boldsymbol{\alpha}$$，$$\boldsymbol{r}''(s) = \boldsymbol{0}$$，故$$\kappa(s) = \vert \boldsymbol{0} \vert \equiv 0$$。上述推导是可逆的，即$$\kappa(s) \equiv 0$$蕴含着$$\boldsymbol{r}(s) = \boldsymbol{r}_0 + \boldsymbol{\alpha}_0 s$$。
+**证明** 直线$$C$$的参数方程为$$\boldsymbol{r}(s) = \boldsymbol{r}_0 + \boldsymbol{\alpha}_0 s$$，其中$$\boldsymbol{\alpha}$$是该直线的方向向量。因此有$$\boldsymbol{r}'(s) = \boldsymbol{\alpha}$$，$$\boldsymbol{r}''(s) = \boldsymbol{0}$$，故$$\kappa(s) = \vert \boldsymbol{0} \vert \equiv 0$$。上述推导是可逆的，即$$\kappa(s) \equiv 0$$蕴含着$$\boldsymbol{r}(s) = \boldsymbol{r}_0 + \boldsymbol{\alpha}_0 s$$。证毕∎
 
 把曲线$$C$$的切向量$$\boldsymbol{\alpha}(s)$$平行移动到原点$$O$$，其端点描绘出的曲线称为曲线$$C$$的**切线像**，它的参数方程为
 
@@ -223,7 +223,7 @@ $$
 \kappa(s) = \frac{\mathrm{d} \tilde{s}}{\mathrm{d} s}
 $$
 
-这就是说，曲线的曲率$$\kappa(s)$$是曲线切线像的弧长元素与曲线弧长元素之比。证毕∎
+这就是说，曲线的曲率$$\kappa(s)$$是曲线切线像的弧长元素与曲线弧长元素之比。
 
 因为$$\vert \boldsymbol{\alpha}(s) \vert = 1$$，根据[定理1.3](/2023/07/30/DifferentialGeometry-NOTES-01.html#向量函数)可知$$\boldsymbol{\alpha}'(s) \cdot \boldsymbol{\alpha}(s) = 0$$，即$$\boldsymbol{\alpha}(s) \perp \boldsymbol{\alpha}'(s)$$，所以$$\boldsymbol{\alpha}'(s)$$是曲线$$C$$的一个法向量。如果$$\kappa(s) \neq 0$$，则向量$$\boldsymbol{\alpha}'(s)$$有完全确定的方向，将这个方向的单位向量记为$$\boldsymbol{\beta}(s)$$，称其为曲线$$C$$的**主法向量**。于是，曲率向量$$\boldsymbol{\alpha}'(s)$$可以表示为
 
