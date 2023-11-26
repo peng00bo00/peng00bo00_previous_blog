@@ -1506,6 +1506,87 @@ $$
 
 ### 第三基本形式
 
+如果用$$\mathrm{I}_0$$表示单位球面$$\Sigma$$上的第一基本形式，那么它通过Gauss映射$$g: S \rightarrow \Sigma$$拉回到曲面$$S$$上所得到的二次微分形式称为曲面$$S$$的**第三基本形式**，记为
+
+$$
+\mathrm{III} = g^* \mathrm{I}_0
+$$
+
+根据[正则参数曲面之间的对应](/2023/10/18/DifferentialGeometry-NOTES-03.html#正则参数曲面之间的对应)
+
+$$
+\mathrm{III} = \mathrm{d} \boldsymbol{n} \cdot \mathrm{d} \boldsymbol{n} = e (\mathrm{d} u)^2 + 2f \mathrm{d} u \mathrm{d} v + g (\mathrm{d} v)^2
+$$
+
+其中
+
+$$
+\begin{cases}
+\begin{aligned}
+e &= \boldsymbol{n}_u \cdot \boldsymbol{n}_u \\
+f &= \boldsymbol{n}_u \cdot \boldsymbol{n}_v \\
+g &= \boldsymbol{n}_v \cdot \boldsymbol{n}_v \\
+\end{aligned}
+\end{cases}
+$$
+
+从曲面$$S$$的第三基本形式得不到更多的不变量，因为$$\mathrm{III}$$和$$\mathrm{I}$$、$$\mathrm{II}$$有着密切的关系。我们有如下定理
+
+**定理4.17** 曲面$$S$$上的三个基本形式满足关系式
+$$
+\mathrm{III} - 2H \mathrm{II} + K \mathrm{I} \equiv 0
+$$
+其中$$H$$、$$K$$分别是曲面$$S$$的平均曲率和Gauss曲率。
+{:.info}
+
+**证明** 因为$$\mathrm{III}$$、$$\mathrm{I}$$、$$\mathrm{II}$$、$$H$$、$$K$$都与曲面$$S$$上保持定向的参数变换无关，所以我们只要在曲面$$S$$上的任意一点$$p$$的附近取一个特殊的参数系来验证就可以了。不妨设$$(u, v)$$是点$$p$$附近的参数系，使得$$u$$-曲线和$$v$$-曲线的方向是曲面$$S$$在点$$p$$的彼此正交的主方向，于是在点$$p$$有$$F=M=0$$(参看[定理4.14](/2023/11/10/DifferentialGeometry-NOTES-04.html#平均曲率和gauss曲率))，并且
+
+$$
+\begin{cases}
+\begin{aligned}
+\kappa_1 &= \frac{L}{E} \\
+\kappa_2 &= \frac{N}{G} \\
+-\boldsymbol{n}_u &= \kappa_1 \boldsymbol{r}_u \\
+-\boldsymbol{n}_v &= \kappa_2 \boldsymbol{r}_v \\
+\end{aligned}
+\end{cases}
+$$
+
+所以
+
+$$
+\begin{cases}
+\begin{aligned}
+e &= \boldsymbol{n}_u \cdot \boldsymbol{n}_u = (\kappa_1)^2 E \\
+f &= \boldsymbol{n}_u \cdot \boldsymbol{n}_v = 0 \\
+g &= \boldsymbol{n}_v \cdot \boldsymbol{n}_v = (\kappa_2)^2 G \\
+\end{aligned}
+\end{cases}
+$$
+
+于是在点$$p$$处由
+
+$$
+\begin{cases}
+\begin{aligned}
+\mathrm{I} &= E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2 \\
+\mathrm{II} &= \kappa_1 E (\mathrm{d} u)^2 + \kappa_2 G (\mathrm{d} v)^2 \\
+\mathrm{III} &= (\kappa_1)^2 E (\mathrm{d} u)^2 + (\kappa_2)^2 G (\mathrm{d} v)^2 \\
+\end{aligned}
+\end{cases}
+$$
+
+因此
+
+$$
+\begin{aligned}
+2H \mathrm{II} - K \mathrm{I} &= (\kappa_1 + \kappa_2) [\kappa_1 E (\mathrm{d} u)^2 + \kappa_2 G (\mathrm{d} v)^2] - \kappa_1 \kappa_2 [\kappa_1 E (\mathrm{d} u)^2 + \kappa_2 G (\mathrm{d} v)^2] \\
+&= (\kappa_1)^2 E (\mathrm{d} u)^2 + (\kappa_2)^2 G (\mathrm{d} v)^2 \\
+&= \mathrm{III}
+\end{aligned}
+$$
+
+证毕∎
 
 ## Dupin标形和曲面参数方程在一点的标准展开
 
