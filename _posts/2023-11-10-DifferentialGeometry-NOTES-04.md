@@ -1657,6 +1657,76 @@ $$
 
 ### 近似曲面
 
+现在我们来观察曲面在一点附近的大致形状。设曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$在点$$p$$的两个彼此正交的主方向单位向量是$$\boldsymbol{e}_1$$，$$\boldsymbol{e}_2$$，并且$$\boldsymbol{n} = \boldsymbol{e}_1 \times \boldsymbol{e}_2$$。在曲面$$S$$上总是可以取点$$p$$附近的参数系$$(u, v)$$使得在点$$p$$处有$$\boldsymbol{r}_u = \boldsymbol{e}_1$$，$$\boldsymbol{r}_v = \boldsymbol{e}_2$$，于是在点$$p$$处下式成立：
+
+$$
+\begin{cases}
+\begin{aligned}
+E &= G = 1 \\
+F &= M = 0 \\
+L &= \kappa_1 \\
+N &= \kappa_2
+\end{aligned}
+\end{cases}
+$$
+
+不妨设点$$p$$对应于参数$$u = 0$$，$$v = 0$$。根据Taylor展开式，我们有
+
+$$
+\begin{aligned}
+\boldsymbol{r} (u, v) &= \boldsymbol{r} (0) + \boldsymbol{r}_u (0) u + \boldsymbol{r}_v (0) v  \\
+&+ \frac{1}{2} \big( \boldsymbol{r}_{uu} (0) u^2 + 2 \boldsymbol{r}_{uv} (0) uv + \boldsymbol{r}_{vv} (0) v^2 \big) \\
+&+ \boldsymbol{o} (u^2 + v^2)
+\end{aligned}
+$$
+
+将$$\boldsymbol{r}_{uu}(0)$$，$$\boldsymbol{r}_{uv}(0)$$，$$\boldsymbol{r}_{vv}(0)$$分解出切分量和法分量，并且注意到
+
+$$
+\begin{cases}
+\begin{aligned}
+&\boldsymbol{r}_{uu}(0) \cdot \boldsymbol{n} = L = \kappa_1 \\
+&\boldsymbol{r}_{uu}(0) \cdot \boldsymbol{n} = 0 \\
+&\boldsymbol{r}_{vv}(0) \cdot \boldsymbol{n} = N = \kappa_2 \\
+\end{aligned}
+\end{cases}
+$$
+
+于是$$\boldsymbol{r}(u, v)$$可以写成
+
+$$
+\begin{aligned}
+\boldsymbol{r} (u, v) &= \boldsymbol{r} (0) + \big( u + o(\sqrt{u^2 + v^2}) \big) \boldsymbol{e}_1 + \big( v + o(\sqrt{u^2 + v^2}) \big) \boldsymbol{e}_2 \\
+&+ \frac{1}{2} \big( \kappa_1 u^2 + \kappa_2 v^2 + o(u^2 + v^2) \big) \boldsymbol{n}
+\end{aligned}
+$$
+
+如果把$$\{ p; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{n} \}$$取成空间$$\mathbb{E}^3$$的直角坐标系，那么曲面$$S$$的参数方程成为
+
+$$
+\begin{cases}
+\begin{aligned}
+x &= u + o(\sqrt{u^2 + v^2}) \\
+y &= v + o(\sqrt{u^2 + v^2}) \\
+z &= \frac{1}{2} (\kappa_1 u^2 + \kappa_2 v^2) + o(u^2 + v^2)
+\end{aligned}
+\end{cases}
+$$
+
+或者
+
+$$
+z = \frac{1}{2} (\kappa_1 x^2 + \kappa_2 y^2) + o(x^2 + y^2)
+$$
+
+把上式称为曲面$$S$$的参数方程在点$$p$$的**标准展开**。当$$\kappa_1$$、$$\kappa_2$$不全为0时，上式右端在$$u^2 + v^2 \to 0$$时作为无穷小量的主要部分是
+
+$$
+z = \frac{1}{2} (\kappa_1 x^2 + \kappa_2 y^2)
+$$
+
+这是一个二次曲面，成为曲面$$S$$在点$$p$$的**近似曲面**，记为$$S^*$$。
+
 |          |  Gauss曲率$$K$$  | Dupin标形  |  近似曲面  |  渐近方向  |
 |  :----:  |  :----:  |  :----:  |  :----:  |  :----:  |
 | 椭圆点  | $$K \gt 0$$ | 椭圆 | 椭圆抛物面 | -
