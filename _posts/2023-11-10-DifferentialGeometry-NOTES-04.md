@@ -1407,7 +1407,7 @@ F & G \\
 \end{pmatrix}^{-1}
 $$
 
-对于$$2 \times 2$$可逆矩阵容易知道其逆矩阵的公式是
+对于2×2可逆矩阵容易知道其逆矩阵的公式是
 
 $$
 \begin{pmatrix}
@@ -1589,5 +1589,44 @@ $$
 证毕∎
 
 ## Dupin标形和曲面参数方程在一点的标准展开
+
+### Dupin标形
+
+设曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$在点$$p$$的两个主曲率是$$\kappa_1$$，$$\kappa_2$$，其对应的两个彼此正交的主方向单位向量是$$\boldsymbol{e}_1$$，$$\boldsymbol{e}_2$$，则[Euler公式](/2023/11/10/DifferentialGeometry-NOTES-04.html#euler公式)表明，曲面$$S$$在点$$p$$沿任意一个切方向
+
+$$
+\boldsymbol{e} = \cos{\theta} \boldsymbol{e}_1 + \sin{\theta} \boldsymbol{e}_2
+$$
+
+的法曲率是
+
+$$
+\kappa_n = \kappa_1 \cos^2{\theta} + \kappa_2 \cos^2{\theta}
+$$
+
+自然，$$\{ p; \boldsymbol{e}_1, \boldsymbol{e}_2 \}$$给出曲面$$S$$在点$$p$$处的切平面$$\Pi$$上的指教坐标系。假定沿切方向$$\boldsymbol{e}$$的法曲率$$\kappa_n (\theta) \neq 0$$，则在该方向的射线上可以取一点$$q$$，使得线段$$pq$$的长度是
+
+$$
+\vert pq \vert = \frac{1}{\sqrt{\vert \kappa_n (\theta) \vert}}
+$$
+
+那么在上述直角坐标系下点$$q$$的坐标是
+
+$$
+\begin{cases}
+\begin{aligned}
+x &= \frac{1}{\sqrt{\vert \kappa_n (\theta) \vert}} \cos{\theta} \\ 
+y &= \frac{1}{\sqrt{\vert \kappa_n (\theta) \vert}} \sin{\theta} \\ 
+\end{aligned}
+\end{cases}
+$$
+
+根据Euler公式，点$$q$$的坐标$$(x, y)$$所满足的方程为
+
+$$
+\kappa_1 x^2 + \kappa_2 y^2 = \text{sign} (\kappa_n (\theta))
+$$
+
+显然这是一条二次曲线。
 
 ## 某些特殊曲面
