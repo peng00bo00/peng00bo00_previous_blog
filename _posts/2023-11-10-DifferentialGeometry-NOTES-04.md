@@ -1627,6 +1627,32 @@ $$
 \kappa_1 x^2 + \kappa_2 y^2 = \text{sign} (\kappa_n (\theta))
 $$
 
-显然这是一条二次曲线。
+显然这是一条二次曲线：
+
+1. 当$$K = \kappa_1 \kappa_2 \gt 0$$时，$$\kappa_n (\theta)$$与$$\kappa_1$$，$$\kappa_2$$同号，所以二次曲线的方程成为一个椭圆(参见图(a))。
+
+$$
+\vert \kappa_1 \vert x^2 + \vert \kappa_2 \vert y^2 = 1
+$$
+
+2. 当$$K = \kappa_1 \kappa_2 \lt 0$$时，$$\kappa_1$$和$$\kappa_2$$异号，所以二次曲线的方程是两对彼此共轭的双曲线(参见图(b))。此时，曲面的渐近方向，即$$\kappa_n (\theta) = 0$$的方向，恰好是这两对共扼双曲线的渐近线的方向(其实这就是"渐近方向"的名称由来)。
+
+$$
+\vert \kappa_1 \vert x^2 - \vert \kappa_2 \vert y^2 = \pm 1
+$$
+
+3. 如果$$K = \kappa_1 \kappa_2 = 0$$，但是$$\kappa_1$$，$$\kappa_2$$不全为0，不妨设$$\kappa_2 \neq 0$$，则二次曲线的方程是与渐近方向$$\boldsymbol{e}_1$$平行的一对直线(参见图(c))。
+
+$$
+\vert \kappa_2 \vert y^2 = 1
+$$
+
+4. 当$$\kappa_1 = \kappa_2 = 0$$时，对应的曲线不再存在。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/x4fYxFu.png" width="80%">
+</div>
+
+我们把曲面$$S$$在点$$p$$的切平面$$\Pi$$在直角坐标系$$\{ p; \boldsymbol{e}_1, \boldsymbol{e}_2 \}$$下，二次曲线的方程称为曲面$$S$$在点$$p$$的**Dupin标形**，它可以看作曲面$$S$$在点$$p$$的法曲率$$\kappa_n$$的一种直观描述。根据Gauss曲率$$K$$的符号不同，Dupin标形表现为不同类型的二次曲线。因此，我们把$$K \lt 0$$的点称为**椭圆点**，把$$K \lt 0$$的点称为**双曲点**，把$$K = 0$$的点称为**抛物点**。圆点属于椭圆点，而平点属于抛物点。
 
 ## 某些特殊曲面
