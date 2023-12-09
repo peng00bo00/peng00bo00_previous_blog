@@ -1772,7 +1772,7 @@ $$
 
 本节我们要讨论几种特殊曲面的例子，这些特殊曲面包括Gauss曲率为常数的曲面和平均曲率为零的曲面。
 
-### 常数Gauss曲率的曲面
+### Gauss曲率为常数的曲面
 
 在后面的课程我们会证明Gauss曲率为常数曲面的第一基本形式有完全确定的表达式，于是在任意两个有相同的常数Gauss曲率的曲面之间在局部上是能够建立保长对应的，因此了解常数Gauss曲率的曲面的例子是重要的。
 
@@ -1916,3 +1916,105 @@ $$
 当$$0 \lt b^2 \lt 1$$或$$b^2 \gt 1$$时，积分$$f(u) = \pm \int \sqrt{\frac{a^2 b^2 - u^2}{a^2 (1 - b^2) + u^2}} \mathrm{d} u$$便给出Gauss曲率为负常数的旋转曲面的其它例子。
 
 ### 极小曲面
+
+平均曲率为零的曲面称为极小曲面.极小曲面是微分几何研究的一个重要课题。一百多年来，关于以已知曲线为边界的极小曲面的存在性(即[Plateau问题](https://en.wikipedia.org/wiki/Plateau%27s_problem))，以及大范围极小曲面的性质和极小曲面在高维的推广，人们做了大量的研究工作，并且取得了十分丰富的成果。利用变分法可以证明，如果在所有以给定的曲线$$C$$为边界的曲面中曲面$$S$$的面积达到最小值，则曲面$$S$$必定是极小曲面。在这里，我们要给出极小曲面的一些例子。
+
+下面我们来求旋转极小曲面。设曲面$$S$$的方程为
+
+$$
+\boldsymbol{r} = (u \cos{v}, u \sin{v}, f(u))
+$$
+
+利用它的第一基本形式和第二基本形式可以得到曲面$$S$$的平均曲率
+
+$$
+\begin{aligned}
+H &= \frac{1}{2} \bigg( \frac{f''(u)}{(\sqrt{1 + f'^2 (u)})^3} + \frac{f'(u)}{u \sqrt{1 + f'^2(u)}} \bigg) \\
+&= \frac{u f''(u) + f'(u) (1 + f'^2 (u))}{2u (\sqrt{1 + f'^2 (u)})^3}
+\end{aligned}
+$$
+
+由此可见，如果$$S$$是极小曲面，则函数$$f(u)$$必须满足微分方程
+
+$$
+u f''(u) + f'(u) (1 + f'^2 (u)) = 0
+$$
+
+上式可以改写为
+
+$$
+\frac{\mathrm{d}}{\mathrm{d} u} \bigg( \frac{u f'(u)}{\sqrt{1 + f'^2 (u)}} \bigg) = 0
+$$
+
+因此得到它的第一积分
+
+$$
+\frac{f'^2(u)}{1 + f'^2 (u)} = \frac{c}{u^2}
+$$
+
+这里的常数$$c$$必须是非负数。如果$$c = 0$$，则
+
+$$
+f' (u) = 0 \Leftrightarrow f(u) = \text{const}
+$$
+
+相应的曲面是平面。假定$$c = a^2$$，$$a \gt 0$$，则
+
+$$
+f'(u) = \pm \frac{a}{\sqrt{u^2 - a^2}}
+$$
+
+$$
+f(u) = \pm \int \frac{a \mathrm{d} u}{\sqrt{u^2 - a^2}} = \pm a \log{(u + \sqrt{u^2 - a^2})}
+$$
+
+相应的极小曲面的方程是
+
+$$
+\begin{cases}
+\begin{aligned}
+x &= u \cos{v} \\
+y &= u \sin{v} \\
+z &= \pm a \log{(u + \sqrt{u^2 - a^2})}
+\end{aligned}
+\end{cases}
+$$
+
+命
+
+$$
+\begin{cases}
+\begin{aligned}
+u &= a \cosh{\frac{r}{a}} \\
+v &= \theta
+\end{aligned}
+\end{cases}
+$$
+
+则曲面的方程成为
+
+$$
+\begin{cases}
+\begin{aligned}
+x &= a \cosh{\frac{r}{a}} \cos{\theta} \\
+y &= a \cosh{\frac{r}{a}} \sin{\theta} \\
+z &= r
+\end{aligned}
+\end{cases}
+$$
+
+它的图像是一条悬链线绕轴旋转一周所得的曲面，称为悬链面，是旋转曲面中的极小曲面。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/cXCG32T.png" width="80%">
+</div>
+
+根据定义，$$2H = \kappa_1 + \kappa_2$$，所以在极小曲面上两个主曲率的绝对值相等、符号相反，因此$$K = \kappa_1 \kappa_2 = -(\kappa_1)^2 \leq 0$$。这就是说在极小曲面上没有椭圆点，只有平点或双曲点。另外，根据Euler公式，极小曲面在双曲点的渐近方向是彼此正交的。事实上，若设渐近方向与$$\kappa_1$$所对应的主方向的夹角是$$\theta$$，则$$\theta$$满足方程
+
+$$
+0 = \kappa_n (\theta) = \kappa_1 (\cos^2{\theta} - \sin^2{\theta}) = \kappa_1 \cos{2 \theta}
+$$
+
+于是$$2 \theta = \frac{\pi}{2}$$，这正好是两个渐近方向之间的夹角。
+
+平均曲率为非零常数的曲面也是微分几何研究的重要课题。球面和圆柱面就是这样的一类曲面。Hopf曾经提出一个问题：寻求平均曲率为非零常数的非球面闭曲面的例子。这个问题吸引了许多几何学家的关注。经过50多年的努力，这个问题最后在20世纪80年代被解决了。在1986年，Wente成功地构造出$$\mathbb{E}^3$$中平均曲率为非零常数的环面的例子，但是它和它自己会相交。在解决这个问题的过程中发展了很多数学方法，推动了数学的发展。
