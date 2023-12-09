@@ -1685,9 +1685,9 @@ $$
 $$
 \begin{cases}
 \begin{aligned}
-&\boldsymbol{r}_{uu}(0) \cdot \boldsymbol{n} = L = \kappa_1 \\
-&\boldsymbol{r}_{uu}(0) \cdot \boldsymbol{n} = 0 \\
-&\boldsymbol{r}_{vv}(0) \cdot \boldsymbol{n} = N = \kappa_2 \\
+\boldsymbol{r}_{uu}(0) \cdot \boldsymbol{n} &= L = \kappa_1 \\
+\boldsymbol{r}_{uv}(0) \cdot \boldsymbol{n} &= 0 \\
+\boldsymbol{r}_{vv}(0) \cdot \boldsymbol{n} &= N = \kappa_2 \\
 \end{aligned}
 \end{cases}
 $$
