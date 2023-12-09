@@ -1222,7 +1222,7 @@ $$
 $$
 \frac{\delta u}{\delta v} = -\frac{M - \kappa_2 F}{L - \kappa_2E} = -\frac{N - \kappa_2 G}{M - \kappa_2 F}
 $$
-    
+
 b. 在脐点的情形，$$\kappa_1 = \kappa_2 = \frac{L}{E} = \frac{M}{F} = \frac{N}{G}$$。此时任意的非零数组$$(\delta u, \delta v)$$都是方程组的解，即主方向是不定的。
 
 上述求解的次序是先求主曲率、后求主方向。这种求解的过程也可以倒过来，即为先求主方向，后求主曲率的方法。将线性方程组改写，可以得到
@@ -1592,7 +1592,7 @@ $$
 
 ### Dupin标形
 
-设曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$在点$$p$$的两个主曲率是$$\kappa_1$$，$$\kappa_2$$，其对应的两个彼此正交的主方向单位向量是$$\boldsymbol{e}_1$$，$$\boldsymbol{e}_2$$，则[Euler公式](/2023/11/10/DifferentialGeometry-NOTES-04.html#euler公式)表明，曲面$$S$$在点$$p$$沿任意一个切方向
+设曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$在点$$p$$的两个主曲率是$$\kappa_1$$、$$\kappa_2$$，其对应的两个彼此正交的主方向单位向量是$$\boldsymbol{e}_1$$、$$\boldsymbol{e}_2$$，则[Euler公式](/2023/11/10/DifferentialGeometry-NOTES-04.html#euler公式)表明，曲面$$S$$在点$$p$$沿任意一个切方向
 
 $$
 \boldsymbol{e} = \cos{\theta} \boldsymbol{e}_1 + \sin{\theta} \boldsymbol{e}_2
@@ -1629,7 +1629,7 @@ $$
 
 显然这是一条二次曲线：
 
-- 当$$K = \kappa_1 \kappa_2 \gt 0$$时，$$\kappa_n (\theta)$$与$$\kappa_1$$，$$\kappa_2$$同号，所以二次曲线的方程成为一个椭圆(参见图(a))。
+- 当$$K = \kappa_1 \kappa_2 \gt 0$$时，$$\kappa_n (\theta)$$与$$\kappa_1$$、$$\kappa_2$$同号，所以二次曲线的方程成为一个椭圆(参见图(a))。
 
 $$
 \vert \kappa_1 \vert x^2 + \vert \kappa_2 \vert y^2 = 1
@@ -1641,7 +1641,7 @@ $$
 \vert \kappa_1 \vert x^2 - \vert \kappa_2 \vert y^2 = \pm 1
 $$
 
-- 如果$$K = \kappa_1 \kappa_2 = 0$$，但是$$\kappa_1$$，$$\kappa_2$$不全为0，不妨设$$\kappa_2 \neq 0$$，则二次曲线的方程是与渐近方向$$\boldsymbol{e}_1$$平行的一对直线(参见图(c))。
+- 如果$$K = \kappa_1 \kappa_2 = 0$$，但是$$\kappa_1$$、$$\kappa_2$$不全为0，不妨设$$\kappa_2 \neq 0$$，则二次曲线的方程是与渐近方向$$\boldsymbol{e}_1$$平行的一对直线(参见图(c))。
 
 $$
 \vert \kappa_2 \vert y^2 = 1
@@ -1657,7 +1657,7 @@ $$
 
 ### 近似曲面
 
-现在我们来观察曲面在一点附近的大致形状。设曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$在点$$p$$的两个彼此正交的主方向单位向量是$$\boldsymbol{e}_1$$，$$\boldsymbol{e}_2$$，并且$$\boldsymbol{n} = \boldsymbol{e}_1 \times \boldsymbol{e}_2$$。在曲面$$S$$上总是可以取点$$p$$附近的参数系$$(u, v)$$使得在点$$p$$处有$$\boldsymbol{r}_u = \boldsymbol{e}_1$$，$$\boldsymbol{r}_v = \boldsymbol{e}_2$$，于是在点$$p$$处下式成立：
+现在我们来观察曲面在一点附近的大致形状。设曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u, v)$$在点$$p$$的两个彼此正交的主方向单位向量是$$\boldsymbol{e}_1$$、$$\boldsymbol{e}_2$$，并且$$\boldsymbol{n} = \boldsymbol{e}_1 \times \boldsymbol{e}_2$$。在曲面$$S$$上总是可以取点$$p$$附近的参数系$$(u, v)$$使得在点$$p$$处有$$\boldsymbol{r}_u = \boldsymbol{e}_1$$、$$\boldsymbol{r}_v = \boldsymbol{e}_2$$，于是在点$$p$$处下式成立：
 
 $$
 \begin{cases}
@@ -1670,7 +1670,7 @@ N &= \kappa_2
 \end{cases}
 $$
 
-不妨设点$$p$$对应于参数$$u = 0$$，$$v = 0$$。根据Taylor展开式，我们有
+不妨设点$$p$$对应于参数$$u = 0$$、$$v = 0$$。根据Taylor展开式，我们有
 
 $$
 \begin{aligned}
@@ -1680,7 +1680,7 @@ $$
 \end{aligned}
 $$
 
-将$$\boldsymbol{r}_{uu}(0)$$，$$\boldsymbol{r}_{uv}(0)$$，$$\boldsymbol{r}_{vv}(0)$$分解出切分量和法分量，并且注意到
+将$$\boldsymbol{r}_{uu}(0)$$、$$\boldsymbol{r}_{uv}(0)$$、$$\boldsymbol{r}_{vv}(0)$$分解出切分量和法分量，并且注意到
 
 $$
 \begin{cases}
