@@ -1816,19 +1816,25 @@ $$
 f(u) = \pm \int \sqrt{\frac{1 - c  + K u^2}{c - K u^2}} \mathrm{d} u
 $$
 
+#### 零Gauss曲率曲面
+
 如果$$K = 0$$，则
 
 $$
 f(u) = au + b
 $$
 
-其中$$a = \sqrt{\frac{1-c}{c}}$$，$$0 \lt c \lt 1$$。此时，旋转面$$S$$要么为平面($$a = 0$$)，要么为圆锥面$$a \neq 0$$。另一种Gauss曲率$$K = 0$$的旋转面是圆柱面，其方程是
+其中$$a = \sqrt{\frac{1-c}{c}}$$，$$0 \lt c \lt 1$$。此时，旋转面$$S$$要么为平面($$a = 0$$)，要么为圆锥面$$a \neq 0$$。
+
+另一种Gauss曲率$$K = 0$$的旋转面是圆柱面，其方程是
 
 $$
 \boldsymbol{r} = (a \cos{v}, a \sin{v}, u)
 $$
 
 不在$$\boldsymbol{r} = (u \cos{v}, u \sin{v}, f(u))$$所描述的曲面之列。
+
+#### 正Gauss曲率曲面
 
 如果$$K \gt 0$$，不妨设$$K = \frac{1}{a^2}$$，则
 
@@ -1841,5 +1847,72 @@ $$
 $$
 f(u) = \pm \int \sqrt{\frac{a^2 (1-b^2) + u^2}{a^2 b^2 - u^2}} \mathrm{d} u
 $$
+
+取$$b^2 = 1$$，则得到
+
+$$
+f(u) = \pm \int \frac{u}{\sqrt{a^2 - u^2}}\mathrm{d} u = \mp \sqrt{a^2 - u^2} + c_0
+$$
+
+它的图像是半径为$$a$$的圆周，所以将它绕$$z$$轴旋转得到的是半径为$$a$$的球面。
+
+若取$$b \gt 1$$或$$0 \lt b^2 \lt 1$$，积分后得到非球面的正常曲率$$K = \frac{1}{a^2}$$的旋转面，这样的曲面可以看成是将球面去掉南、北极之后再往里压，或者向外抻的结果。课程后面会介绍所有这样的曲面在局部上能够建立保长对应。然而在大范围微分几何学中已经证明， Gauss 曲率为正的凸闭曲面有刚硬性，即它们不可能与其它曲面有除了刚体运动以外的保长对应，因此球面也是刚硬的。但是在上面所说的变形中，已经把球面的南、北极去掉了，因而它不再是闭曲面了，不具有刚硬性。
+
+#### 负Gauss曲率曲面
+
+如果$$K \lt 0$$，不妨设$$K = -\frac{1}{a^2}$$，则
+
+$$
+f(u) = \pm \int \sqrt{\frac{a^2 (1-c) - u^2}{ca^2 + u^2}} \mathrm{d} u
+$$
+
+由此可见，必须有$$c \lt 1$$。设$$c = 1 - b^2$$，则上式成为
+
+$$
+f(u) = \pm \int \sqrt{\frac{a^2 b^2 - u^2}{a^2 (1 - b^2) + u^2}} \mathrm{d} u
+$$
+
+取$$b^2 = 1$$，则得到
+
+$$
+f(u) = \pm \int \frac{\sqrt{a^2 - u^2}}{u} \mathrm{d} u
+$$
+
+作变量替换$$u = a \cos{\varphi}$$，$$0 \leq \varphi \lt \frac{\pi}{2}$$，则得
+
+$$
+f = \mp \int a \cdot \frac{\sin^2{\varphi}}{\cos^2{\varphi}} \mathrm{d} \varphi = \pm \big( \log{(\sec{\varphi} + \tan{\varphi})} - \sin{\varphi} \big)
+$$
+
+在$$Oyz$$平面上，由函数$$f(\varphi)$$给出的曲线是
+
+$$
+\begin{cases}
+\begin{aligned}
+y &= a \cos{\varphi} \\
+z &= \pm a \big( \log{(\sec{\varphi} + \tan{\varphi})} - \sin{\varphi} \big)
+\end{aligned}
+\end{cases}
+$$
+
+这是由两条[曳物线](https://en.wikipedia.org/wiki/Tractrix)构成的曲线，在$$(y, z) = (a, 0)$$处有一个尖点，$$y$$轴是它在尖点的切线，并且$$z$$轴是它的渐近线。把上半条曳物线绕$$z$$轴旋转一周所得到的曲面称为[伪球面](https://en.wikipedia.org/wiki/Pseudosphere)，它的方程是
+
+$$
+\begin{cases}
+\begin{aligned}
+x &= a \cos{\varphi} \cos{\theta} \\
+y &= a \cos{\varphi} \sin{\theta} \\
+z &= a \big( \log{(\sec{\varphi} + \tan{\varphi})} - \sin{\varphi} \big)
+\end{aligned}
+\end{cases}
+$$
+
+其中$$0 \leq \varphi \lt \frac{\pi}{2}$$，$$0 \leq \theta \lt 2 \pi$$。伪球面是Gauss 曲率为负常数的曲面的典型例子。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/8CSWi1e.png" width="80%">
+</div>
+
+当$$0 \lt b^2 \lt 1$$或$$b^2 \gt 1$$时，积分$$f(u) = \pm \int \sqrt{\frac{a^2 b^2 - u^2}{a^2 (1 - b^2) + u^2}} \mathrm{d} u$$便给出Gauss曲率为负常数的旋转曲面的其它例子。
 
 ### 极小曲面
