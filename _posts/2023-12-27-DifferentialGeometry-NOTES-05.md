@@ -45,7 +45,30 @@ $$
 \end{aligned}
 $$
 
-在最后一式中，我们采用了Einstein的**和式约定**，即：在一个单项式中，如果同一个指标字母$$\alpha$$出现两次，一次作为上指标，一次作为下指标，则该单项式实际上代表对于$$\alpha=1,2$$的求和式。
+在最后一式中，我们采用了**Einstein求和约定**，即：在一个单项式中，如果同一个指标字母$$\alpha$$出现两次，一次作为上指标，一次作为下指标，则该单项式实际上代表对于$$\alpha=1,2$$的求和式。多对重复的指标字母
+表示多重的求和式，例如
+
+$$
+S_{\alpha \beta} T^{\alpha \beta \gamma} = \sum_{\alpha = 1}^2 \sum_{\beta = 1}^2 S_{\alpha \beta} T^{\alpha \beta \gamma}
+$$
+
+$$
+P_\alpha^\alpha = \sum_{\alpha = 1}^2 P_\alpha^\alpha = P_1^1 + P_2^2
+$$
+
+在求和式中，求和指标的字母本身并没有实质性意义，它们是所谓的"哑"指标，也可以用别的字母来代替，例如
+
+$$
+S_{\alpha \beta} T^{\alpha \beta \gamma} = S_{\xi \eta} T^{\xi \eta \gamma}
+$$
+
+但是这里的指标$$\gamma$$**不是**哑指标，不表示求和，左、右两边应该保待一致。另外，在一个求和式中同一个指标字母出现三次以上是没有意义的，例如表达式$$S_\alpha T^{\alpha \alpha}$$的写法是不适当的，如果要表示这样的和式必须写出和号，例如
+
+$$
+\sum_{\alpha = 1}^2 S_\alpha T^{\alpha \alpha} = S_1 T^{1 1} + S_2 T^{2 2}
+$$
+
+**不能**用Einstein求和约定。在表示多重和式时，Einstein求和约定起到十分重要的简化作用。
 
 ### Christoffel记号
 
