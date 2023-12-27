@@ -620,6 +620,8 @@ DifferentialGeometry:
           url: /2023/10/18/DifferentialGeometry-NOTES-03.html
         - title: 曲面的第二基本形式
           url: /2023/11/10/DifferentialGeometry-NOTES-04.html
+        - title: 曲面论基本定理
+          url: /2023/12/27/DifferentialGeometry-NOTES-05.html
 
 STL:
   - title: 动手实现C++ STL容器
