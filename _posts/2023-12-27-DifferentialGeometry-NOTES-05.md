@@ -14,7 +14,7 @@ sidebar:
 
 ## 自然标架的运动公式
 
-在研究空间曲线时，我们在曲线上曲率不为零的每一个点处附加了一个确定的[Frenet标架](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)，那么Frenet标架沿曲线运动的状况便反映出曲线本身的弯曲情况。Frenet标架可以通过曲线的参数方程的导数和适当的代数运算显式地表示出来，从而$$\mathbb{E}$$中一条曲线可以转化为$$\mathbb{E}$$上所有的标架构成的空间中的一条曲线。曲线论的基本定理和存在定理都是通过标架空间中的这个单参数标架族进行证明的，因为只有这个单参数标架族在运动时给出的信息才完整地表达曲线的弯曲形状。对于空间中的正则参数曲面$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$，我们也需要以某种确定的方式在每一点附加一个标架，这个标架就是自然标架$$\{ \boldsymbol{r}; \boldsymbol{r}_u, \boldsymbol{r}_v, \boldsymbol{n} \}$$。与曲线的情形不同的是，自然标架和曲面的参数选择是有关系的，而且一般来说自然标架不是正交标架，更不是单位正交标架。当然，我们可以在曲面上取单位正交标架场，如$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{n} \}$$，其中$$\boldsymbol{e}_1$$, $$\boldsymbol{e}_1$$是曲面在该点的彼此正交的主方向单位向量。但是，主方向本身并不能够像曲线的Frenet标架那样从曲面的参数方程$$\boldsymbol{r} = \boldsymbol{r}(u, v)$$的偏导数直截了当地显式表示出来。即使我们假定在曲面上取了正交曲率线网作为曲面的参数曲线网，也只能做到$$\boldsymbol{r}_u \parallel \boldsymbol{e}_1$$，$$\boldsymbol{r}_v \parallel \boldsymbol{e}_2$$，而不是$$\boldsymbol{r}_u = \boldsymbol{e}_1$$，$$\boldsymbol{r}_v = \boldsymbol{e}_2$$。由此可见，从自然标架场出发展开我们的理论比较方便。后来Cartan发展了活动标架理论来研究微分几何学，在曲面上可以取任意的标架场，包括单位正交标架场，此时要用"微分"替代"偏导数"，因而相应地要用到外微分方法。我们将在后面介绍Cartan的活动标架和外微分法。
+在研究空间曲线时，我们在曲线上曲率不为零的每一个点处附加了一个确定的[Frenet标架](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的曲率和frenet标架)，那么Frenet标架沿曲线运动的状况便反映出曲线本身的弯曲情况。Frenet标架可以通过曲线的参数方程的导数和适当的代数运算显式地表示出来，从而$$\mathbb{E}^3$$中一条曲线可以转化为$$\mathbb{E}^3$$上所有的标架构成的空间中的一条曲线。曲线论的基本定理和存在定理都是通过标架空间中的这个单参数标架族进行证明的，因为只有这个单参数标架族在运动时给出的信息才完整地表达曲线的弯曲形状。对于空间中的正则参数曲面$$\boldsymbol{r} = \boldsymbol{r} (u, v)$$，我们也需要以某种确定的方式在每一点附加一个标架，这个标架就是自然标架$$\{ \boldsymbol{r}; \boldsymbol{r}_u, \boldsymbol{r}_v, \boldsymbol{n} \}$$。与曲线的情形不同的是，自然标架和曲面的参数选择是有关系的，而且一般来说自然标架不是正交标架，更不是单位正交标架。当然，我们可以在曲面上取单位正交标架场，如$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{n} \}$$，其中$$\boldsymbol{e}_1$$, $$\boldsymbol{e}_2$$是曲面在该点的彼此正交的主方向单位向量。但是，主方向本身并不能够像曲线的Frenet标架那样从曲面的参数方程$$\boldsymbol{r} = \boldsymbol{r}(u, v)$$的偏导数直截了当地显式表示出来。即使我们假定在曲面上取了正交曲率线网作为曲面的参数曲线网，也只能做到$$\boldsymbol{r}_u \parallel \boldsymbol{e}_1$$，$$\boldsymbol{r}_v \parallel \boldsymbol{e}_2$$，而不是$$\boldsymbol{r}_u = \boldsymbol{e}_1$$，$$\boldsymbol{r}_v = \boldsymbol{e}_2$$。由此可见，从自然标架场出发展开我们的理论比较方便。后来Cartan发展了活动标架理论来研究微分几何学，在曲面上可以取任意的标架场，包括单位正交标架场，此时要用"微分"替代"偏导数"，因而相应地要用到外微分方法。我们将在后面介绍Cartan的活动标架和外微分法。
 
 ### Einstein求和约定
 
@@ -69,6 +69,79 @@ $$
 $$
 
 **不能**用Einstein求和约定。在表示多重和式时，Einstein求和约定起到十分重要的简化作用。
+
+### 张量记号
+
+我们用$$g_{\alpha \beta}$$和$$b_{\alpha \beta}$$分别表示曲面$$S$$的第一类基本量和第二类基本量，即
+
+$$
+g_{\alpha \beta} = \boldsymbol{r}_\alpha \cdot \boldsymbol{r}_\beta
+$$
+
+$$
+b_{\alpha \beta} = \boldsymbol{r}_{\alpha \beta} \cdot \boldsymbol{n} = -\boldsymbol{r}_\alpha \cdot \boldsymbol{n}_\beta = -\boldsymbol{n}_\beta \cdot \boldsymbol{r}_\alpha
+$$
+
+其中
+
+$$
+\boldsymbol{r}_{\alpha \beta} = \frac{\partial}{\partial u^\beta} \bigg( \frac{\partial \boldsymbol{r} (u^1, u^2)}{\partial u^\alpha} \bigg)
+$$
+
+这样，曲面$$S$$的两个基本形式是
+
+$$
+\begin{cases}
+\begin{aligned}
+\mathrm{I} &= g_{\alpha \beta} \mathrm{d} u^\alpha \mathrm{d} u^\beta \\
+\mathrm{II} &= b_{\alpha \beta} \mathrm{d} u^\alpha \mathrm{d} u^\beta \\
+\end{aligned}
+\end{cases}
+$$
+
+另外，记
+
+$$
+\begin{cases}
+\begin{aligned}
+g &= \det (g_{\alpha \beta}) = g_{11} g_{22} - g_{12}^2 \\
+b &= \det (b_{\alpha \beta}) = b_{11} b_{22} - b_{12}^2 \\
+\end{aligned}
+\end{cases}
+$$
+
+既然矩阵$$(g_{\alpha \beta})$$是正定的，故它有逆矩阵，记为$$(g^{\alpha \beta})$$，于是
+
+$$
+g^{\alpha \beta} g_{\beta \gamma} = \delta_\gamma^\alpha = 
+\begin{cases}
+\begin{aligned}
+1, & &\alpha = \gamma \\
+0, & &\alpha \neq \gamma
+\end{aligned}
+\end{cases}
+$$
+
+实际上，根据2×2可逆矩阵的逆矩阵公式，显然有
+
+$$
+\begin{pmatrix}
+g^{11} & g^{12} \\
+g^{21} & g^{22} \\
+\end{pmatrix}
+=
+\frac{1}{g}
+\begin{pmatrix}
+ g_{22} &-g_{12} \\
+-g_{21} & g_{11} \\
+\end{pmatrix}
+$$
+
+总体来说，Gauss的记号和张量记号对照如下表：
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/dQjRIxf.png" width="80%">
+</div>
 
 ### Christoffel记号
 
