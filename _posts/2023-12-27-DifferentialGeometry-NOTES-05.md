@@ -198,7 +198,7 @@ $$
 b_\beta^\gamma \cdot g_{\gamma \eta} = b_{\beta \xi} g^{\xi \gamma} g_{\gamma \eta} = b_{\beta \xi} \delta_{\eta}^\xi = b_{\beta \eta}
 $$
 
-这就是说$$b_{\beta \eta}$$是将$$b_\beta^\eta$$的上指标$$\eta$$借助于矩阵$$(g_{\alpha \beta})$$下降的结果。这样，$$(b_\alpha^\beta)$$这组量和第二类基本量$$b_{\alpha \beta}$$是彼此决定的，并且系数$$D_\beta^\gamma$$是
+这就是说$$b_{\beta \eta}$$是将$$b_\beta^\eta$$的上指标$$\eta$$借助于矩阵$$(g_{\alpha \beta})$$下降的结果。这样，$$(b_\alpha^\beta)$$这组量和第二类基本量$$(b_{\alpha \beta})$$是彼此决定的，并且系数$$D_\beta^\gamma$$是
 
 $$
 D_\beta^\gamma = -b_\beta^\gamma
