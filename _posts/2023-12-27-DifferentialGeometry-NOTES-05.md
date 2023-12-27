@@ -145,6 +145,78 @@ $$
 
 ### Christoffel记号
 
+采用张量记号，正则参数曲面$$S$$上的自然标架成为$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$。下面要求自然标架场的运动公式。首先根据定义，标架原点的偏导数是
+
+$$
+\frac{\partial \boldsymbol{r}}{\partial u^\alpha} = \boldsymbol{r}_\alpha
+$$
+
+另外，既然$$\boldsymbol{r}_1$$，$$\boldsymbol{r}_2$$，$$\boldsymbol{n}$$是线性无关的，而$$\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta}$$，$$\frac{\partial \boldsymbol{n}}{\partial u^\beta}$$仍然是空间$$\mathbb{E}^3$$中的向量，因此不妨假定
+
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} &= \Gamma_{\alpha \beta}^\gamma \boldsymbol{r}_\gamma + C_{\alpha \beta} \boldsymbol{n} \\
+\frac{\partial \boldsymbol{n}}{\partial u^\beta} &= D_\beta^\gamma \boldsymbol{r}_\gamma + D_\beta \boldsymbol{n} 
+\end{aligned}
+\end{cases}
+$$
+
+其中$$\Gamma_{\alpha \beta}^\gamma$$，$$C_{\alpha \beta}$$，$$D_\beta^\gamma$$，$$D_\beta$$都是待定的系数函数。
+
+将上面第一式的两边用法向量$$\boldsymbol{n}$$作内积，得到
+
+$$
+C_{\alpha \beta} = \frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} \cdot \boldsymbol{n} = \boldsymbol{r}_{\alpha \beta} \cdot \boldsymbol{n} = b_{\alpha \beta}
+$$
+
+即系数$$C_{\alpha \beta}$$恰好是曲面$$S$$的第二类基本量$$b_{\alpha \beta}$$。将第二式的两边用切向量$$\boldsymbol{r}_\xi$$作内积，得到
+
+$$
+\frac{\partial \boldsymbol{n}}{\partial u^\beta} \cdot \boldsymbol{r}_\xi = D_\beta^\gamma \boldsymbol{r}_\gamma \cdot \boldsymbol{r}_\xi = D_\beta^\gamma g_{\gamma \xi}
+$$
+
+因此
+
+$$
+D_\beta^\gamma g_{\gamma \xi} = -b_{\beta \xi}
+$$
+
+$$
+D_\beta^\gamma = -b_{\beta \xi} g^{\xi \gamma}
+$$
+
+命
+
+$$
+b_\beta^\gamma = b_{\beta \xi} g^{\xi \gamma}
+$$
+
+把$$b_\beta^\gamma$$看成是将$$b_\beta \gamma$$的指标$$\gamma$$借助于矩阵$$(g^{\alpha \beta})$$上升的结果。这个过程是可逆的，即
+
+$$
+b_\beta^\gamma \cdot g_{\gamma \eta} = b_{\beta \xi} g^{\xi \gamma} g_{\gamma \eta} = b_{\beta \xi} \delta_{\eta}^\xi = b_{\beta \eta}
+$$
+
+这就是说$$b_{\beta \eta}$$是将$$b_\beta^\eta$$的上指标$$\eta$$借助于矩阵$$(g_{\alpha \beta})$$下降的结果。这样，$$(b_\alpha^\beta)$$这组量和第二类基本量$$b_{\alpha \beta}$$是彼此决定的，并且系数$$D_\beta^\gamma$$是
+
+$$
+D_\beta^\gamma = -b_\beta^\gamma
+$$
+
+另外，由于$$\boldsymbol{n}$$是单位向量场，故容易得到$$D_\beta = 0$$。
+
+综上所述，$$\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta}$$，$$\frac{\partial \boldsymbol{n}}{\partial u^\beta}$$可以重新表示为
+
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} &= \Gamma_{\alpha \beta}^\gamma \boldsymbol{r}_\gamma + b_{\alpha \beta} \boldsymbol{n} \\
+\frac{\partial \boldsymbol{n}}{\partial u^\beta} &= -b_\beta^\gamma \boldsymbol{r}_\gamma
+\end{aligned}
+\end{cases}
+$$
+
 ## 曲面的唯一性定理
 
 ## 曲面论基本方程
