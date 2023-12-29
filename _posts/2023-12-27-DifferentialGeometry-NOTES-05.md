@@ -263,6 +263,12 @@ $$
 \frac{\partial g_{\alpha \beta}}{\partial u^\gamma} = \boldsymbol{r}_{\alpha \gamma} \cdot \boldsymbol{r}_\beta + \boldsymbol{r}_\alpha \cdot \boldsymbol{r}_{\beta \gamma}
 $$
 
+带入$$\Gamma_{\gamma \alpha \beta}$$的定义式$$\boldsymbol{r}_{\alpha \beta} \cdot \boldsymbol{r}_\gamma = \Gamma_{\gamma \alpha \beta}$$得到
+
+$$
+\frac{\partial g_{\alpha \beta}}{\partial u^\gamma} = \Gamma_{\beta \alpha \gamma} + \Gamma_{\alpha \beta \gamma}
+$$
+
 将下指标进行调换得到
 
 $$
