@@ -314,7 +314,11 @@ $$
 \end{cases}
 $$
 
-称为曲面$$S$$上自然标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$的**运动公式**。通常把$$\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} = \Gamma_{\alpha \beta}^\gamma \boldsymbol{r}_\gamma + b_{\alpha \beta} \boldsymbol{n}$$称为曲面的**Gauss公式**，把$$\frac{\partial \boldsymbol{n}}{\partial u^\beta} = -b_\beta^\gamma \boldsymbol{r}_\gamma$$称为曲面的**Weingarten公式**。容易知道，Weingarten公式正是Weingarten映射$$W$$的表达式。这就是说，$$(b_\beta^\gamma)$$是Weingarten映射$$W$$在自然基底$$\{ \boldsymbol{r}_1, \boldsymbol{r}_2 \}$$下的矩阵。
+称为曲面$$S$$上自然标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$的**运动公式**。通常把第二式$$\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} = \Gamma_{\alpha \beta}^\gamma \boldsymbol{r}_\gamma + b_{\alpha \beta} \boldsymbol{n}$$称为曲面的**Gauss公式**，把第三式$$\frac{\partial \boldsymbol{n}}{\partial u^\beta} = -b_\beta^\gamma \boldsymbol{r}_\gamma$$称为曲面的**Weingarten公式**。容易知道，Weingarten公式正是Weingarten映射$$W$$的表达式。这就是说，$$(b_\beta^\gamma)$$是Weingarten映射$$W$$在自然基底$$\{ \boldsymbol{r}_1, \boldsymbol{r}_2 \}$$下的矩阵。
+
+从上面的公式可以看出，曲面$$S$$上的自然标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$沿参数曲线的运动公式是由曲面$$S$$的第一类基本最和第二类基本量完全确定的。要记住，$$\Gamma_{\alpha \beta}^\gamma$$的几何意义是向量$$\boldsymbol{r}_{\alpha \beta}$$用自然标架分解时在切向量$$\boldsymbol{r}_\gamma$$上的分量，而$$\Gamma_{\gamma \alpha \beta}$$的几何意义是向量$$\boldsymbol{r}_{\alpha \beta}$$在切向量$$\boldsymbol{r}_\gamma$$上的正交投影。因此，在求$$\Gamma_{\gamma \alpha \beta}$$时，我们既可以以根据曲面的度量矩阵按照定义式$$
+\Gamma_{\gamma \alpha \beta} = \frac{1}{2} \bigg( \frac{\partial g_{\alpha \gamma}}{\partial u^\beta} + \frac{\partial g_{\gamma \beta}}{\partial u^\alpha} - \frac{\partial g_{\alpha \beta}}{\partial u^\gamma} \bigg)
+$$进行计算，也可以根据曲面的参数方程依据它的几何意义进行计算。
 
 ## 曲面的唯一性定理
 
