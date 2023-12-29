@@ -93,8 +93,8 @@ $$
 $$
 \begin{cases}
 \begin{aligned}
-\mathrm{I} &= g_{\alpha \beta} \mathrm{d} u^\alpha \mathrm{d} u^\beta \\
-\mathrm{II} &= b_{\alpha \beta} \mathrm{d} u^\alpha \mathrm{d} u^\beta \\
+\mathrm{I} &= g_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta \\
+\mathrm{II} &= b_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta \\
 \end{aligned}
 \end{cases}
 $$
@@ -295,6 +295,20 @@ $$
 由此可见，系数函数$$\Gamma_{\alpha \beta}^\gamma$$是由曲面$$S$$的第一类基本量及其一阶偏导数决定的。通常把上式所定义的$$\Gamma_{\alpha \beta}^\gamma$$称为由曲面$$S$$的度量矩阵$$(g_{\alpha \beta})$$决定的**Christoffel记号**。
 
 ### 自然标架场的运动公式
+
+我们将
+
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\partial \boldsymbol{r}}{\partial u^\alpha} &= \boldsymbol{r}_\alpha \\
+\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} &= \Gamma_{\alpha \beta}^\gamma \boldsymbol{r}_\gamma + b_{\alpha \beta} \boldsymbol{n} \\
+\frac{\partial \boldsymbol{n}}{\partial u^\beta} &= -b_\beta^\gamma \boldsymbol{r}_\gamma
+\end{aligned}
+\end{cases}
+$$
+
+称为曲面$$S$$上自然标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$的**运动公式**。通常把$$\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} = \Gamma_{\alpha \beta}^\gamma \boldsymbol{r}_\gamma + b_{\alpha \beta} \boldsymbol{n}$$称为曲面的**Gauss公式**，把$$\frac{\partial \boldsymbol{n}}{\partial u^\beta} = -b_\beta^\gamma \boldsymbol{r}_\gamma$$称为曲面的**Weingarten公式**。容易知道，Weingarten公式正是Weingarten映射$$W$$的表达式。这就是说，$$(b_\beta^\gamma)$$是Weingarten映射$$W$$在自然基底$$\{ \boldsymbol{r}_1, \boldsymbol{r}_2 \}$$下的矩阵。
 
 ## 曲面的唯一性定理
 
