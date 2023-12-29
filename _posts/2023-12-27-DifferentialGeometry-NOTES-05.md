@@ -217,6 +217,85 @@ $$
 \end{cases}
 $$
 
+现在我们来求系数函数$$\Gamma_{\alpha \beta}^\gamma $$。在第一式两边点乘$$\boldsymbol{r}_\xi$$，则得
+
+$$
+\boldsymbol{r}_{\alpha \beta} \cdot \boldsymbol{r}_\xi = \Gamma_{\alpha \beta}^\gamma \boldsymbol{r}_\gamma \cdot \boldsymbol{r}_\xi = \Gamma_{\alpha \beta}^\gamma g_{\gamma \xi}
+$$
+
+记
+
+$$
+\Gamma_{\alpha \beta}^\gamma g_{\gamma \xi} = \Gamma_{\xi \alpha \beta}
+$$
+
+则我们有
+
+$$
+\Gamma_{\alpha \beta}^\gamma = g^{\gamma \xi} \Gamma_{\xi \alpha \beta}
+$$
+
+这就是说，记号$$\Gamma_{\alpha \beta}^\gamma$$的上指标$$\gamma$$可以借助于第一类基本量的矩阵$$(g_{\alpha \beta})$$(以后常常称它为曲面的**度量矩阵**)及其逆矩阵$$(g^{\alpha \beta})$$下降和上升。在这里我们规定，当记号$$\Gamma_{\alpha \beta}^\gamma$$的上指标$$\gamma$$下降时落在下指标的最左边成为$$\Gamma_{\gamma \alpha \beta}$$。这样可以得到
+
+$$
+\boldsymbol{r}_{\alpha \beta} \cdot \boldsymbol{r}_\xi = \Gamma_{\xi \alpha \beta}
+$$
+
+注意到
+
+$$
+\boldsymbol{r}_{\alpha \beta} = \frac{\partial}{\partial u^\beta} \bigg( \frac{\partial \boldsymbol{r}(u^1, u^2)}{\partial u^\alpha} \bigg) = \frac{\partial}{\partial u^\alpha} \bigg( \frac{\partial \boldsymbol{r}(u^1, u^2)}{\partial u^\beta} \bigg) = \boldsymbol{r}_{\beta \alpha}
+$$
+
+即函数$$\boldsymbol{r}(u^1, u^2)$$的两次偏导数与求导的次序无关，因此$$\boldsymbol{r}_{\alpha \beta}$$关于下指标$$\alpha$$，$$\beta$$是对称的，于是记号$$\Gamma_{\alpha \beta}^{\gamma}$$和$$\Gamma_{\xi \alpha \beta}$$关于下指标$$\alpha$$，$$\beta$$是对称的，即
+
+$$
+\Gamma_{\alpha \beta}^{\gamma} = \Gamma_{\beta \alpha}^{\gamma}
+$$
+
+$$
+\Gamma_{\xi \alpha \beta} = \Gamma_{\xi \beta \alpha}
+$$
+
+对$$g_{\alpha \beta} = \boldsymbol{r}_\alpha \cdot \boldsymbol{r}_\beta$$求偏导数得到
+
+$$
+\frac{\partial g_{\alpha \beta}}{\partial u^\gamma} = \boldsymbol{r}_{\alpha \gamma} \cdot \boldsymbol{r}_\beta + \boldsymbol{r}_\alpha \cdot \boldsymbol{r}_{\beta \gamma}
+$$
+
+将下指标进行调换得到
+
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\partial g_{\alpha \gamma}}{\partial u^\beta} &= \Gamma_{\gamma \alpha \beta} + \Gamma_{\alpha \gamma \beta} \\
+\frac{\partial g_{\gamma \beta}}{\partial u^\alpha} &= \Gamma_{\beta \gamma \alpha} + \Gamma_{\gamma \beta \alpha} \\
+\end{aligned}
+\end{cases}
+$$
+
+将两式相加再减去$$\frac{\partial g_{\alpha \beta}}{\partial u^\gamma}$$，并且利用$$\Gamma_{\gamma \alpha \beta}$$关于后两个下指标的对称性，则得
+
+$$
+2 \Gamma_{\gamma \alpha \beta} = \frac{\partial g_{\alpha \gamma}}{\partial u^\beta} + \frac{\partial g_{\gamma \beta}}{\partial u^\alpha} - \frac{\partial g_{\alpha \beta}}{\partial u^\gamma}
+$$
+
+或者
+
+$$
+\Gamma_{\gamma \alpha \beta} = \frac{1}{2} \bigg( \frac{\partial g_{\alpha \gamma}}{\partial u^\beta} + \frac{\partial g_{\gamma \beta}}{\partial u^\alpha} - \frac{\partial g_{\alpha \beta}}{\partial u^\gamma} \bigg)
+$$
+
+因此
+
+$$
+\Gamma_{\alpha \beta}^\gamma = \frac{1}{2} g^{\gamma \xi} \bigg( \frac{\partial g_{\alpha \xi}}{\partial u^\beta} + \frac{\partial g_{\xi \beta}}{\partial u^\alpha} - \frac{\partial g_{\alpha \beta}}{\partial u^\xi} \bigg)
+$$
+
+由此可见，系数函数$$\Gamma_{\alpha \beta}^\gamma$$是由曲面$$S$$的第一类基本量及其一阶偏导数决定的。通常把上式所定义的$$\Gamma_{\alpha \beta}^\gamma$$称为由曲面$$S$$的度量矩阵$$(g_{\alpha \beta})$$决定的**Christoffel记号**。
+
+### 自然标架场的运动公式
+
 ## 曲面的唯一性定理
 
 ## 曲面论基本方程
