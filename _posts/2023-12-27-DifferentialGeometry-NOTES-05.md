@@ -314,7 +314,22 @@ $$
 \end{cases}
 $$
 
-称为曲面$$S$$上自然标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$的**运动公式**。通常把第二式$$\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} = \Gamma_{\alpha \beta}^\gamma \boldsymbol{r}_\gamma + b_{\alpha \beta} \boldsymbol{n}$$称为曲面的**Gauss公式**，把第三式$$\frac{\partial \boldsymbol{n}}{\partial u^\beta} = -b_\beta^\gamma \boldsymbol{r}_\gamma$$称为曲面的**Weingarten公式**。容易知道，Weingarten公式正是[Weingarten映射$$W$$的表达式](/2023/11/10/DifferentialGeometry-NOTES-04.html#gauss曲率的几何意义)。这就是说，$$(b_\beta^\gamma)$$是Weingarten映射$$W$$在自然基底$$\{ \boldsymbol{r}_1, \boldsymbol{r}_2 \}$$下的矩阵。
+称为曲面$$S$$上自然标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$的**运动公式**。通常把第二式$$\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} = \Gamma_{\alpha \beta}^\gamma \boldsymbol{r}_\gamma + b_{\alpha \beta} \boldsymbol{n}$$称为曲面的**Gauss公式**，把第三式$$\frac{\partial \boldsymbol{n}}{\partial u^\beta} = -b_\beta^\gamma \boldsymbol{r}_\gamma$$称为曲面的**Weingarten公式**。容易知道，Weingarten公式正是[Weingarten映射$$W$$的表达式](/2023/11/10/DifferentialGeometry-NOTES-04.html#gauss曲率的几何意义)。
+
+$$
+W = 
+\begin{pmatrix}
+L & M \\
+M & N \\
+\end{pmatrix}
+\begin{pmatrix}
+E & F \\
+F & G \\
+\end{pmatrix}^{-1}
+$$
+
+
+这就是说，$$(b_\beta^\gamma)$$是Weingarten映射$$W$$在自然基底$$\{ \boldsymbol{r}_1, \boldsymbol{r}_2 \}$$下的矩阵。
 
 $$
 b_\beta^\gamma = W_{\gamma \beta} = b_{\beta \alpha} g_{\alpha \gamma}^{-1} = b_{\beta \alpha} g^{\alpha \gamma}
