@@ -348,7 +348,7 @@ $$
 b_j^i = W_{i j} = b_{j k} g^{k i}
 $$
 
-从上面的公式可以看出，曲面$$S$$上的自然标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$沿参数曲线的运动公式是由曲面$$S$$的第一类基本最和第二类基本量完全确定的。要记住，$$\Gamma_{\alpha \beta}^\gamma$$的几何意义是向量$$\boldsymbol{r}_{\alpha \beta}$$用自然标架分解时在切向量$$\boldsymbol{r}_\gamma$$上的分量，而$$\Gamma_{\gamma \alpha \beta}$$的几何意义是向量$$\boldsymbol{r}_{\alpha \beta}$$在切向量$$\boldsymbol{r}_\gamma$$上的正交投影。因此，在求$$\Gamma_{\gamma \alpha \beta}$$时，我们既可以以根据曲面的度量矩阵按照定义式
+从上面的公式可以看出，曲面$$S$$上的自然标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$沿参数曲线的运动公式是由曲面$$S$$的第一类基本量和第二类基本量完全确定的。要记住，$$\Gamma_{\alpha \beta}^\gamma$$的几何意义是向量$$\boldsymbol{r}_{\alpha \beta}$$用自然标架分解时在切向量$$\boldsymbol{r}_\gamma$$上的分量，而$$\Gamma_{\gamma \alpha \beta}$$的几何意义是向量$$\boldsymbol{r}_{\alpha \beta}$$在切向量$$\boldsymbol{r}_\gamma$$上的正交投影。因此，在求$$\Gamma_{\gamma \alpha \beta}$$时，我们既可以以根据曲面的度量矩阵按照定义式
 
 $$
 \Gamma_{\gamma \alpha \beta} = \frac{1}{2} \bigg( \frac{\partial g_{\alpha \gamma}}{\partial u^\beta} + \frac{\partial g_{\gamma \beta}}{\partial u^\alpha} - \frac{\partial g_{\alpha \beta}}{\partial u^\gamma} \bigg)
@@ -389,7 +389,7 @@ $$
 \end{aligned}
 $$
 
-通常，求曲面的Christoffel记号是用曲面的第一类基本量，套用上面的公式进行计算。但是如果知道曲面的参数方程则可以借助于Christoffel记号的几何意义直接来求。
+通常，求曲面的Christoffel记号是用曲面的第一类基本量，套用上面的公式进行计算。但是如果知道曲面的参数方程则也可以借助于Christoffel记号的几何意义直接来求。
 
 ## 曲面的唯一性定理
 
