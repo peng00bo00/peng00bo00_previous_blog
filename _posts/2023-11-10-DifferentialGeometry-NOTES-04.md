@@ -1347,7 +1347,7 @@ a_{21} & a_{22} \\
 \end{pmatrix}
 $$
 
-将上式两倍分别与向量组$$(\boldsymbol{r}_u, \boldsymbol{r}_v)$$作内积
+将上式两边分别与向量组$$(\boldsymbol{r}_u, \boldsymbol{r}_v)$$作内积
 
 $$
 \begin{pmatrix}
