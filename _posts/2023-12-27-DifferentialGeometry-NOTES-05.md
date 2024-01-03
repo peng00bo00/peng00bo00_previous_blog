@@ -398,6 +398,22 @@ $$
 **定理5.1** 设$$S_1$$、$$S_2$$是定义在同一个参数区域$$D \subset \mathbb{E}^2$$上的两个正则参数曲面。若在每一点$$(u^1, u^2) \in D$$，曲面$$S_1$$、$$S_2$$都有相同的第一基本形式和第二基本形式，则曲面$$S_1$$、$$S_2$$在空间$$\mathbb{E}^3$$的一个刚体运动下是彼此重合的。
 {:.info}
 
+**证明** 因为$$S_1$$、$$S_2$$上采用了同一组参数，因此在每一点$$u = (u^1, u^2) \in D$$处曲面$$S_1$$和$$S_2$$都有相同的第一基本形式和第二基本形式的意思是，它们在每一点都有相同的第一类基本量和第二类基本量。
+
+假定曲面$$S_i$$的自然标架场是$$\{ \boldsymbol{r}^{(i)}; \boldsymbol{r}_1^{(i)}, \boldsymbol{r}_2^{(i)}, \boldsymbol{n}^{(i)} \}$$，$$i=1,2$$，任意地取定一点$$u_0 = (u_0^1, u_0^2) \in D$$，则由假定得知
+
+$$
+\begin{aligned}
+\boldsymbol{r}_{\alpha}^{(1)} (u_0) \cdot \boldsymbol{r}_{\beta}^{(1)} (u_0) &= \boldsymbol{r}_{\alpha}^{(2)} (u_0) \cdot \boldsymbol{r}_{\beta}^{(2)} (u_0) = g_{\alpha \beta} (u_0) \\
+\boldsymbol{r}_{\alpha}^{(1)} (u_0) \cdot \boldsymbol{n}^{(1)} (u_0) &= \boldsymbol{r}_{\alpha}^{(2)} (u_0) \cdot \boldsymbol{n}^{(2)} (u_0) = 0 \\
+\boldsymbol{n}^{(1)} (u_0) \cdot \boldsymbol{n}^{(1)} (u_0) &= \boldsymbol{n}^{(2)} (u_0) \cdot \boldsymbol{n}^{(2)} (u_0) = 1 \\
+\end{aligned}
+$$
+
+并且$$\{ \boldsymbol{r}^{(i)} (u_0); \boldsymbol{r}_1^{(i)} (u_0), \boldsymbol{r}_2^{(i)} (u_0), \boldsymbol{n}^{(i)} (u_0) \}$$，$$i=1,2$$，都是右手系。这就是说，这两个标架具有相同的度最系数和定向，因而在空间$$\mathrm{E}^3$$中存在一个刚体运动$$\sigma$$，把标架$$\{ \boldsymbol{r}^{(2)} (u_0); \boldsymbol{r}_1^{(2)} (u_0), \boldsymbol{r}_2^{(2)} (u_0), \boldsymbol{n}^{(2)} (u_0) \}$$变长标架$$\{ \boldsymbol{r}^{(1)} (u_0); \boldsymbol{r}_1^{(1)} (u_0), \boldsymbol{r}_2^{(1)} (u_0), \boldsymbol{n}^{(1)} (u_0) \}$$ (参见[定理1.1](/2023/07/30/DifferentialGeometry-NOTES-01.html#正交标架))。
+
+证毕∎
+
 上面的定理称为**曲面的唯一性定理**，在理论上有十分重要的意义，以后我们还要给出它的一些应用。要判断采用不同参数系的两个曲面在空间$$\mathbb{E}^3$$的一个刚体运动下是否能够重合，综合[定理3.4](/2023/10/18/DifferentialGeometry-NOTES-03.html#正则参数曲面之间的对应)和这里的曲面唯一性定理，我们有下面的结论。
 
 **定理5.2** 设$$S_1$$、$$S_2$$是空间$$\mathbb{E}^3$$的两个正则参数曲面，其第一基本形式和第二基本形式分别是$$\mathrm{I}_i$$和$$\mathrm{II}_i$$。如果有光滑映射$$\sigma: S_1 \rightarrow S_2$$，使得$$\sigma^* \mathrm{I}_2 = \mathrm{I}_1$$且$$\sigma^* \mathrm{II}_2 = \mathrm{II}_1$$，则曲面$$S_1$$、$$S_2$$经过$$\mathbb{E}^3$$的一个刚体运动是彼此重合的。
