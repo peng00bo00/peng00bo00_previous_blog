@@ -422,7 +422,80 @@ $$
 \end{cases}
 $$
 
-证毕∎
+不妨把新的曲面$$\sigma (S_2)$$仍然记为$$S_2$$，则曲面$$S_2$$和$$S_1$$在点$$u_0$$有相同的自然标架，而且处处有相同的第一类基本量和第二类基本量。我们想要证明的是，曲面$$S_2$$和$$S_1$$的自然标架场处处是重合的，进而曲面$$S_2$$和$$S_1$$是重合的。
+
+为此，命
+
+$$
+f_{\alpha \beta} (u) = (\boldsymbol{r}_\alpha^{(1)} - \boldsymbol{r}_\alpha^{(2)}) \cdot (\boldsymbol{r}_\beta^{(1)} - \boldsymbol{r}_\beta^{(2)}) \\
+f_\alpha (u) = (\boldsymbol{r}_\alpha^{(1)} - \boldsymbol{r}_\alpha^{(2)}) \cdot (\boldsymbol{n}^{(1)} - \boldsymbol{n}^{(2)}) \\
+f(u) = (\boldsymbol{n}^{(1)} - \boldsymbol{n}^{(2)})^2
+$$
+
+由于曲面$$S_2$$和$$S_1$$在点$$u_0$$有相同的自然标架，所以上式所定义的函数在点$$u = u_0$$处必定满足条件
+
+$$
+f_{\alpha \beta} (u_0) = 0 , \ \ \ f_\alpha (u_0) = 0, \ \ \ f(u_0) = 0
+$$
+
+另外，根据自然标架的公式经过直接计算得到函数$$f_{\alpha \beta}$$，$$f_\alpha$$，$$f$$，满足下列一阶线性齐次偏微分方程组
+
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\partial f_{\alpha \beta}}{\partial u^\gamma} &= \Gamma_{\gamma \alpha}^\delta f_{\delta \beta} + \Gamma_{\gamma \beta}^\delta f_{\delta \alpha} + b_{\gamma \alpha} f_\beta + b_{\gamma \beta} f_\alpha \\
+\frac{\partial f_{\alpha}}{\partial u^\gamma} &= -b_\gamma^\delta f_{\delta \alpha} + \Gamma_{\gamma \alpha}^\delta f_{\delta} + b_{\gamma \alpha} f \\
+\frac{\partial f}{\partial u^\gamma} &= -2 b_\gamma^\delta f_\delta
+\end{aligned}
+\end{cases}
+$$
+
+很明显，一阶线性齐次偏微分方程组在初始条件$$f_{\alpha \beta} (u_0) = 0$$，$$f_\alpha (u_0) = 0$$，$$f(u_0) = 0$$下的一个解是零解。根据一阶偏微分方程组在已知初始条件下的唯一性得知相应的函数必定是零函数，即
+
+$$
+f_{\alpha \beta} (u) = 0 , \ \ \ f_\alpha (u) = 0, \ \ \ f(u) = 0
+$$
+
+上面的事实说明
+
+$$
+\begin{aligned}
+\vert \boldsymbol{r}_\alpha^{(1)} (u) - \boldsymbol{r}_\alpha^{(2)} (u) \vert^2 &= f_{\alpha \alpha} (u) = 0 \\
+\vert \boldsymbol{n}^{(1)} (u) - \boldsymbol{n}^{(2)} (u) \vert^2 &= f (u) = 0
+\end{aligned}
+$$
+
+即
+
+$$
+\boldsymbol{r}^{(1)}_\alpha (u) = \boldsymbol{r}_\alpha^{(2)} (u), \ \ \ \boldsymbol{n}^{(1)} (u) = \boldsymbol{n}^{(2)} (u)
+$$
+
+再命
+
+$$
+h(u) = (\boldsymbol{r}^{(1)} (u) - \boldsymbol{r}^{(2)} (u))^2
+$$
+
+对上式求导得到
+
+$$
+\frac{\partial h}{\partial u^\gamma} = 2 (\boldsymbol{r}^{(1)} (u) - \boldsymbol{r}^{(2)} (u)) \cdot (\boldsymbol{r}_\gamma^{(1)} (u) - \boldsymbol{r}_\gamma^{(2)} (u)) = 0
+$$
+
+故
+
+$$
+h(u) = h(u_0) = 0
+$$
+
+即
+
+$$
+\boldsymbol{r}^{(1)} (u) = \boldsymbol{r}^{(2)} (u)
+$$
+
+这说明曲面$$S_1$$和$$S_2$$是重合的。证毕∎
 
 上面的定理称为**曲面的唯一性定理**，在理论上有十分重要的意义，以后我们还要给出它的一些应用。要判断采用不同参数系的两个曲面在空间$$\mathbb{E}^3$$的一个刚体运动下是否能够重合，综合[定理3.4](/2023/10/18/DifferentialGeometry-NOTES-03.html#正则参数曲面之间的对应)和这里的曲面唯一性定理，我们有下面的结论。
 
