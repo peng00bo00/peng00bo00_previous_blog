@@ -427,9 +427,11 @@ $$
 为此，命
 
 $$
-f_{\alpha \beta} (u) = (\boldsymbol{r}_\alpha^{(1)} - \boldsymbol{r}_\alpha^{(2)}) \cdot (\boldsymbol{r}_\beta^{(1)} - \boldsymbol{r}_\beta^{(2)}) \\
-f_\alpha (u) = (\boldsymbol{r}_\alpha^{(1)} - \boldsymbol{r}_\alpha^{(2)}) \cdot (\boldsymbol{n}^{(1)} - \boldsymbol{n}^{(2)}) \\
-f(u) = (\boldsymbol{n}^{(1)} - \boldsymbol{n}^{(2)})^2
+\begin{aligned}
+f_{\alpha \beta} (u) &= (\boldsymbol{r}_\alpha^{(1)} - \boldsymbol{r}_\alpha^{(2)}) \cdot (\boldsymbol{r}_\beta^{(1)} - \boldsymbol{r}_\beta^{(2)}) \\
+f_\alpha (u) &= (\boldsymbol{r}_\alpha^{(1)} - \boldsymbol{r}_\alpha^{(2)}) \cdot (\boldsymbol{n}^{(1)} - \boldsymbol{n}^{(2)}) \\
+f(u) &= (\boldsymbol{n}^{(1)} - \boldsymbol{n}^{(2)})^2
+\end{aligned}
 $$
 
 由于曲面$$S_2$$和$$S_1$$在点$$u_0$$有相同的自然标架，所以上式所定义的函数在点$$u = u_0$$处必定满足条件
@@ -515,7 +517,7 @@ $$
 \end{cases}
 $$
 
-其中$$\alpha, \beta = 1, 2$$，$$g_{\alpha \beta} = g_{\beta \alpha}$$，$$b_{\alpha \beta} = b_{\beta \alpha}$$，并且$$\varphi$$是正定的，那么我们的问题是：在空间$$\mathbb{E}^3$$中是否存在参数曲面$$f: D \rightarrow \mathbb{E}^3$$，使得它以已知的微分形式$$\varphi$$、$$\psi$$作为它的第一基本形式和第二基本形式？？这个问题比较复杂，需要作比较深入的分析。首先我们会看到，曲面上的第一基本形式和第二基本形式有一定的联系，并不是彼此独立的；它们必须适合一定的相容性条件，这就是我们在本节要讨论的**曲面论基本方程**。在下一节要进一步证明，如果两个微分形式$$\varphi$$、$$\psi$$满足这些相容性条件，则上述问题的答案是肯定的。
+其中$$\alpha, \beta = 1, 2$$，$$g_{\alpha \beta} = g_{\beta \alpha}$$，$$b_{\alpha \beta} = b_{\beta \alpha}$$，并且$$\varphi$$是正定的，那么我们的问题是：在空间$$\mathbb{E}^3$$中是否存在参数曲面$$f: D \rightarrow \mathbb{E}^3$$，使得它以已知的微分形式$$\varphi$$、$$\psi$$作为它的第一基本形式和第二基本形式？这个问题比较复杂，需要作比较深入的分析。首先我们会看到，曲面上的第一基本形式和第二基本形式有一定的联系，并不是彼此独立的；它们必须适合一定的相容性条件，这就是我们在本节要讨论的**曲面论基本方程**。在[下一节](/2023/12/27/DifferentialGeometry-NOTES-05.html#曲面的存在性定理)要进一步证明，如果两个微分形式$$\varphi$$、$$\psi$$满足这些相容性条件，则上述问题的答案是肯定的。
 
 ### Riemann记号
 
