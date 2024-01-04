@@ -521,7 +521,7 @@ $$
 
 ### Riemann记号
 
-已知曲面$$S$$的参数方程是$$\boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$，），它的第一基本形式和第二基本形式是
+已知曲面$$S$$的参数方程是$$\boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$，它的第一基本形式和第二基本形式是
 
 $$
 \begin{cases}
@@ -554,7 +554,7 @@ $$
 b_\beta^\gamma = g^{\gamma \xi} b_{\xi \beta}
 $$
 
-由千正则参数曲面的方程具有三次以上的连续偏导数，所以$$\boldsymbol{r}_\alpha$$和$$\boldsymbol{n}$$的两次偏导数是连续的，并且它们与求导的次序无关，即
+由于正则参数曲面的方程具有三次以上的连续偏导数，所以$$\boldsymbol{r}_\alpha$$和$$\boldsymbol{n}$$的两次偏导数是连续的，并且它们与求导的次序无关，即
 
 $$
 \frac{\partial^2 \boldsymbol{r}_\alpha}{\partial u^\beta \partial u^\gamma} = \frac{\partial^2 \boldsymbol{r}_\alpha}{\partial u^\gamma \partial u^\beta}
