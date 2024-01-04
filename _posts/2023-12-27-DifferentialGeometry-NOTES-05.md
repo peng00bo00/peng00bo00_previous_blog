@@ -593,7 +593,33 @@ $$
 \frac{\partial b_{\alpha \beta}}{\partial u^\gamma} - \frac{\partial b_{\alpha \gamma}}{\partial u^\beta} = \Gamma_{\alpha \beta}^\delta b_{\delta \gamma} - \Gamma_{\alpha \gamma}^\delta b_{\delta \beta}
 $$
 
+注意到上面第一式的左边只是由曲面$$S$$的第一类基本量$$g_{\alpha \beta}$$的不高于二阶的偏导数构成的量，可以把它记成
+
+$$
+R_{\alpha \beta \gamma}^\delta = \frac{\partial}{\partial u^\gamma} \Gamma_{\alpha \beta}^\delta - \frac{\partial}{\partial u^\beta} \Gamma_{\alpha \gamma}^\delta + \Gamma_{\alpha \beta}^\eta \Gamma_{\eta \gamma}^\delta - \Gamma_{\alpha \gamma}^\eta \Gamma_{\eta \beta}^\delta
+$$
+
+称$$R_{\alpha \beta \gamma}^\delta$$为曲面$$S$$的第一类基本量的**Riemann记号**。如同Christoffel记号$$\Gamma_{\alpha \beta}^\gamma$$一样，Riemann记号$$R_{\alpha \beta \gamma}^\delta$$$的上指标可以借助于度量矩阵$$(g_{\alpha \beta})$$下降，然后该指标又能够借助于度量矩阵的逆矩阵上升，并且规定当上指标下降时落在下指标的左边第二个位置，即
+
+$$
+R_{\alpha \delta \beta \gamma} = g_{\delta \eta} R_{\alpha \beta \gamma}^\eta, \ \ \ R_{\alpha \beta \gamma}^\delta = g^{\delta \eta} R_{\alpha \eta \beta \gamma}
+$$
+
 ### Gauss-Codazzi方程
+
+利用Riemann记号，我们可以把方程组改写为
+
+$$
+R_{\alpha \beta \gamma}^\delta = b_{\alpha \beta} b_\gamma^\delta - b_{\alpha \gamma} b_\beta^\delta
+\Leftrightarrow
+R_{\alpha \delta \beta \gamma} = b_{\alpha \beta} b_{\delta \gamma} - b_{\alpha \gamma} b_{\delta \beta}
+$$
+
+$$
+\frac{\partial b_{\alpha \beta}}{\partial u^\gamma} - \frac{\partial b_{\alpha \gamma}}{\partial u^\beta} = \Gamma_{\alpha \beta}^\delta b_{\delta \gamma} - \Gamma_{\alpha \gamma}^\delta b_{\delta \beta}
+$$
+
+其中第一式称为**Gauss方程**，第二式称为**Codazzi方程**。很明显，Gauss-Codazzi方程是曲面的第一类基本量和第二类基本量必须满足的相容条件。
 
 ## 曲面的存在性定理
 
