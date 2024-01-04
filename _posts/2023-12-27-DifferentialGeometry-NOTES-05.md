@@ -504,6 +504,23 @@ $$
 
 ## 曲面论基本方程
 
+现在我们着手讨论曲面的存在性问题。具体地说，如果在参数区域$$D$$上给定两个二次微分形式
+
+$$
+\begin{cases}
+\begin{aligned}
+\varphi &= g_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta \\
+\psi &= b_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta \\
+\end{aligned}
+\end{cases}
+$$
+
+其中$$\alpha, \beta = 1, 2$$，$$g_{\alpha \beta} = g_{\beta \alpha}$$，$$b_{\alpha \beta} = b_{\beta \alpha}$$，并且$$\varphi$$是正定的，那么我们的问题是：在空间$$\mathbb{E}^3$$中是否存在参数曲面$$f: D \rightarrow \mathbb{E}^3$$，使得它以已知的微分形式$$\varphi$$、$$\psi$$作为它的第一基本形式和第二基本形式？？这个问题比较复杂，需要作比较深入的分析。首先我们会看到，曲面上的第一基本形式和第二基本形式有一定的联系，并不是彼此独立的；它们必须适合一定的相容性条件，这就是我们在本节要讨论的**曲面论基本方程**。在下一节要进一步证明，如果两个微分形式$$\varphi$$、$$\psi$$满足这些相容性条件，则上述问题的答案是肯定的。
+
+### Riemann记号
+
+### Gauss-Codazzi方程
+
 ## 曲面的存在性定理
 
 ## Gauss定理
