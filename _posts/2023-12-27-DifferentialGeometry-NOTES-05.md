@@ -599,7 +599,7 @@ $$
 R_{\alpha \beta \gamma}^\delta = \frac{\partial}{\partial u^\gamma} \Gamma_{\alpha \beta}^\delta - \frac{\partial}{\partial u^\beta} \Gamma_{\alpha \gamma}^\delta + \Gamma_{\alpha \beta}^\eta \Gamma_{\eta \gamma}^\delta - \Gamma_{\alpha \gamma}^\eta \Gamma_{\eta \beta}^\delta
 $$
 
-称$$R_{\alpha \beta \gamma}^\delta$$为曲面$$S$$的第一类基本量的**Riemann记号**。如同Christoffel记号$$\Gamma_{\alpha \beta}^\gamma$$一样，Riemann记号$$R_{\alpha \beta \gamma}^\delta$$$的上指标可以借助于度量矩阵$$(g_{\alpha \beta})$$下降，然后该指标又能够借助于度量矩阵的逆矩阵上升，并且规定当上指标下降时落在下指标的左边第二个位置，即
+称$$R_{\alpha \beta \gamma}^\delta$$为曲面$$S$$的第一类基本量的**Riemann记号**。如同Christoffel记号$$\Gamma_{\alpha \beta}^\gamma$$一样，Riemann记号$$R_{\alpha \beta \gamma}^\delta$$的上指标可以借助于度量矩阵$$(g_{\alpha \beta})$$下降，然后该指标又能够借助于度量矩阵的逆矩阵上升，并且规定当上指标下降时落在下指标的左边第二个位置，即
 
 $$
 R_{\alpha \delta \beta \gamma} = g_{\delta \eta} R_{\alpha \beta \gamma}^\eta, \ \ \ R_{\alpha \beta \gamma}^\delta = g^{\delta \eta} R_{\alpha \eta \beta \gamma}
