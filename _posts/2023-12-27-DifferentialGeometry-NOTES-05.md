@@ -521,6 +521,78 @@ $$
 
 ### Riemann记号
 
+已知曲面$$S$$的参数方程是$$\boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$，），它的第一基本形式和第二基本形式是
+
+$$
+\begin{cases}
+\begin{aligned}
+\mathrm{I} &= g_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta \\
+\mathrm{II} &= b_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta \\
+\end{aligned}
+\end{cases}
+$$
+
+那么曲面$$S$$上的自然标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n} \}$$的运动公式是
+
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\partial \boldsymbol{r}}{\partial u^\alpha} &= \boldsymbol{r}_\alpha \\
+\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} &= \Gamma_{\alpha \beta}^\gamma \boldsymbol{r}_\gamma + b_{\alpha \beta} \boldsymbol{n} \\
+\frac{\partial \boldsymbol{n}}{\partial u^\beta} &= -b_\beta^\gamma \boldsymbol{r}_\gamma
+\end{aligned}
+\end{cases}
+$$
+
+其中
+
+$$
+\Gamma_{\alpha \beta}^\gamma = \frac{1}{2} g^{\gamma \xi} \bigg( \frac{\partial g_{\alpha \xi}}{\partial u^\beta} + \frac{\partial g_{\xi \beta}}{\partial u^\alpha} - \frac{\partial g_{\alpha \beta}}{\partial u^\xi} \bigg)
+$$
+
+$$
+b_\beta^\gamma = g^{\gamma \xi} b_{\xi \beta}
+$$
+
+由千正则参数曲面的方程具有三次以上的连续偏导数，所以$$\boldsymbol{r}_\alpha$$和$$\boldsymbol{n}$$的两次偏导数是连续的，并且它们与求导的次序无关，即
+
+$$
+\frac{\partial^2 \boldsymbol{r}_\alpha}{\partial u^\beta \partial u^\gamma} = \frac{\partial^2 \boldsymbol{r}_\alpha}{\partial u^\gamma \partial u^\beta}
+$$
+
+$$
+\frac{\partial^2 \boldsymbol{n}}{\partial u^\beta \partial u^\gamma} = \frac{\partial^2 \boldsymbol{n}}{\partial u^\gamma \partial u^\beta}
+$$
+
+把自然标架场的运动公式带入上式得到
+
+$$
+\frac{\partial }{\partial u^\gamma} (\Gamma_{\alpha \beta}^\delta  \boldsymbol{r}_\delta + b_{\alpha \beta} \boldsymbol{n}) = \frac{\partial }{\partial u^\beta} (\Gamma_{\alpha \gamma}^\delta  \boldsymbol{r}_\delta + b_{\alpha \gamma} \boldsymbol{n})
+$$
+
+$$
+\frac{\partial }{\partial u^\gamma} (b_\beta^\delta \boldsymbol{r}_\delta) = \frac{\partial }{\partial u^\beta} (b_\gamma^\delta \boldsymbol{r}_\delta)
+$$
+
+将上式展开，并且再次用自然标架场的运动公式带入，整理后得到
+
+$$
+\begin{aligned}
+&\bigg( \frac{\partial}{\partial u^\gamma} \Gamma_{\alpha \beta}^\delta - \frac{\partial}{\partial u^\beta} \Gamma_{\alpha \gamma}^\delta + \Gamma_{\alpha \beta}^\eta \Gamma_{\eta \gamma}^\delta - \Gamma_{\alpha \gamma}^\eta \Gamma_{\eta \beta}^\delta - b_{\alpha \beta} b_\gamma^\delta + b_{\alpha \gamma} b_\beta^\delta \bigg) \boldsymbol{r}_\delta \\
++ &\bigg( \Gamma_{\alpha \beta}^\delta b_{\delta \gamma} - \Gamma_{\alpha \gamma}^\delta b_{\delta \beta} + \frac{\partial b_{\alpha \beta}}{\partial u^\gamma} - \frac{\partial b_{\alpha \gamma}}{\partial u^\beta} \bigg) \boldsymbol{n} = \boldsymbol{0}
+\end{aligned}
+$$
+
+由于$$\boldsymbol{r}_1$$、$$\boldsymbol{r}_2$$、$$\boldsymbol{n}$$是处处线性无关的，所以上式的系数必须为零，即有
+
+$$
+\frac{\partial}{\partial u^\gamma} \Gamma_{\alpha \beta}^\delta - \frac{\partial}{\partial u^\beta} \Gamma_{\alpha \gamma}^\delta + \Gamma_{\alpha \beta}^\eta \Gamma_{\eta \gamma}^\delta - \Gamma_{\alpha \gamma}^\eta \Gamma_{\eta \beta}^\delta = b_{\alpha \beta} b_\gamma^\delta - b_{\alpha \gamma} b_\beta^\delta
+$$
+
+$$
+\frac{\partial b_{\alpha \beta}}{\partial u^\gamma} - \frac{\partial b_{\alpha \gamma}}{\partial u^\beta} = \Gamma_{\alpha \beta}^\delta b_{\delta \gamma} - \Gamma_{\alpha \gamma}^\delta b_{\delta \beta}
+$$
+
 ### Gauss-Codazzi方程
 
 ## 曲面的存在性定理
