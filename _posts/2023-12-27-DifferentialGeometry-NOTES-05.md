@@ -679,7 +679,7 @@ $$
 \end{cases}
 $$
 
-需要强调指出的是Gauss方程和Codazzi方程是$$\boldsymbol{r}_\alpha$$和$$\boldsymbol{n}$$的**两次偏导数与求导次序的无关性**的推论。反过来，如果Gauss方程和Codazzi方程成立，则$$\boldsymbol{r}_\alpha$$和$$\boldsymbol{n}$$的两次偏导数与求导的次序无关性也成立。这就是说，如果给定了两个二次微分形式$$\varphi &= g_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta$$，$$\psi &= b_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta$$，它们具有相应的对称性和正定性，那么我们可以利用[自然标架场的运动公式](/2023/12/27/DifferentialGeometry-NOTES-05.html#自然标架场的运动公式)构造一阶偏微分方程组，其中$$\boldsymbol{r}$$、$$\boldsymbol{r}_1$$、$$\boldsymbol{r}_2$$、$$\boldsymbol{n}$$是向量形式的未知函数(一共是12个数量未知函数)。当已知函数$$g_{\alpha \beta}$$和$$b_{\alpha \beta}$$满足Gauss-Codazzi方程时，则自然标架场的运动公式的相容性条件
+需要强调指出的是Gauss方程和Codazzi方程是$$\boldsymbol{r}_\alpha$$和$$\boldsymbol{n}$$的**两次偏导数与求导次序的无关性**的推论。反过来，如果Gauss方程和Codazzi方程成立，则$$\boldsymbol{r}_\alpha$$和$$\boldsymbol{n}$$的两次偏导数与求导的次序无关性也成立。这就是说，如果给定了两个二次微分形式$$\varphi = g_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta$$，$$\psi = b_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta$$，它们具有相应的对称性和正定性，那么我们可以利用[自然标架场的运动公式](/2023/12/27/DifferentialGeometry-NOTES-05.html#自然标架场的运动公式)构造一阶偏微分方程组，其中$$\boldsymbol{r}$$、$$\boldsymbol{r}_1$$、$$\boldsymbol{r}_2$$、$$\boldsymbol{n}$$是向量形式的未知函数(一共是12个数量未知函数)。当已知函数$$g_{\alpha \beta}$$和$$b_{\alpha \beta}$$满足Gauss-Codazzi方程时，则自然标架场的运动公式的相容性条件
 
 $$
 \begin{cases}
