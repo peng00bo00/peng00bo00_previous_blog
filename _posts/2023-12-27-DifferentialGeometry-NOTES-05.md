@@ -621,6 +621,64 @@ $$
 
 其中第一式称为**Gauss方程**，第二式称为**Codazzi方程**。很明显，Gauss-Codazzi方程是曲面的第一类基本量和第二类基本量必须满足的相容条件。
 
+Gauss-Codazzi方程看上去比较复杂，但是实质上在Codazzi方程中只包含一个方程，在Gauss方程中只包含两个方程。为了说清楚上面的事实首先需要研究Riemann记号$$R_{\alpha \beta \gamma}^\delta$$的重要的对称性质。实际上，由$$R_{\alpha \beta \gamma}^\delta$$的定义得到
+
+$$
+\begin{aligned}
+R_{\alpha \delta \beta \gamma} &= g_{\delta \eta} \bigg( \frac{\partial}{\partial u^\gamma} \Gamma_{\alpha \beta}^\eta - \frac{\partial}{\partial u^\beta} \Gamma_{\alpha \gamma}^\eta + \Gamma_{\alpha \beta}^\xi \Gamma_{\xi \gamma}^\eta - \Gamma_{\alpha \gamma}^\xi \Gamma_{\xi \beta}^\eta \bigg) \\
+&= \frac{\partial \Gamma_{\delta \alpha \beta}}{\partial u^\gamma} - \frac{\partial \Gamma_{\delta \alpha \gamma}}{\partial u^\beta} - \frac{\partial g_{\delta \eta}}{\partial u^\gamma} \Gamma_{\alpha \beta}^\eta + \frac{\partial g_{\delta \eta}}{\partial u^\beta} \Gamma_{\alpha \gamma}^\eta + \Gamma_{\alpha \beta}^\xi \Gamma_{\delta \xi \gamma} - \Gamma_{\alpha \gamma}^\xi \Gamma_{\delta \xi \beta} \\
+&= \frac{\partial \Gamma_{\delta \alpha \beta}}{\partial u^\gamma} - \frac{\partial \Gamma_{\delta \alpha \gamma}}{\partial u^\beta} + \Gamma_{\eta \delta \beta} \Gamma_{\alpha \gamma}^\eta - \Gamma_{\eta \delta \gamma} \Gamma_{\alpha \beta}^\eta
+\end{aligned}
+$$
+
+上式右端的前两项用[Christoffel记号](/2023/12/27/DifferentialGeometry-NOTES-05.html#christoffel记号)的表达式代入，经整理得到
+
+$$
+\begin{aligned}
+R_{\alpha \delta \beta \gamma} &= \frac{1}{2} \bigg( \frac{\partial^2 g_{\delta \beta}}{\partial u^\alpha \partial u^\gamma} + \frac{\partial^2 g_{\alpha \gamma}}{\partial u^\delta \partial u^\beta} - \frac{\partial^2 g_{\delta \gamma}}{\partial u^\alpha \partial u^\beta} - \frac{\partial^2 g_{\alpha \beta}}{\partial u^\delta \partial u^\gamma} \bigg) \\
+&+ \Gamma_{\eta \delta \beta} \Gamma_{\alpha \gamma}^\eta - \Gamma_{\eta \delta \gamma} \Gamma_{\alpha \beta}^\eta
+\end{aligned}
+$$
+
+从上式容易看出Riemann记号的下列对称性：
+
+$$
+R_{\alpha \delta \beta \gamma} = R_{\beta \gamma \alpha \delta} = -R_{\delta \alpha \beta \gamma} = -R_{\alpha \delta \gamma \beta}
+$$
+
+即把$$R_{\alpha \delta \beta \gamma}$$的下指标分为前后两组：$$R_{\alpha \delta \beta \gamma}$$的这两组指标交换位置时其数值不变，当每一组中的两个指标交换位置时$$R_{\alpha \delta \beta \gamma}$$的数值只改变它的符号。由此可见
+
+$$
+R_{1 1 \beta \gamma} = R_{2 2 \beta \gamma} = 0
+$$
+
+$$
+R_{\alpha \delta 1 1} = R_{\alpha \delta 2 2} = 0
+$$
+
+很明显，Gauss方程右端同样具有这样的对称性质，所以它在实质上只包含一个方程，即
+
+$$
+R_{1 2 1 2} = b_{1 1} b_{2 2} - (b_{1 2})^2
+$$
+
+或者写成
+
+$$
+b_{1 1} b_{2 2} - (b_{1 2})^2 = R_{1 2 1 2}
+$$
+
+在Codazzi方程中，如果指标$$\beta$$、$$\gamma$$取相同的值，则该式便成为平凡的恒等式，于是有意义的情况只有$$\beta = 1$$、$$\gamma = 2$$、$$\alpha = 1, 2$$，即
+
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\partial b_{1 1}}{\partial u^2} - \frac{\partial b_{1 2}}{\partial u^1} &= -b_{2 \delta} \Gamma_{1 1}^\delta + b_{1 \delta} \Gamma_{1 2}^\delta \\
+\frac{\partial b_{2 1}}{\partial u^2} - \frac{\partial b_{2 2}}{\partial u^1} &= -b_{2 \delta} \Gamma_{2 1}^\delta + b_{1 \delta} \Gamma_{2 2}^\delta \\
+\end{aligned}
+\end{cases}
+$$
+
 ## 曲面的存在性定理
 
 ## Gauss定理
