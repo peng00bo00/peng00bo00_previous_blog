@@ -695,6 +695,41 @@ $$
 
 在这里可以领略到曲面论和曲线论的本质差别。在曲线论的情形，曲率和挠率可以是弧长参数的任意函数(只要求曲率函数是正的)；而在曲面论的情形，两个基本微分形式$$\mathrm{I}$$和$$\mathrm{II}$$是彼此关联的，而不是相互独立的。这就是说在$$\mathbb{E}^3$$中一张曲面**不能够**作保持第一基本形式不变的随意的弯曲变形，在曲面作保持第一基本形式不变的变形时必定会保持曲面某种内在的弯曲性质不变。这个事实将导致开创微分几何新纪元的著名的Gauss绝妙定理。
 
+在适当的参数系下，Riemann记号$$R_{1 2 1 2}$$和Codazzi方程能够写成便于记忆和应用的形式。为此，下面恢复用Gauss曲面论的记法。先假定我们用的是正交参数曲线网$$(u, v)$$，于是$$F \equiv 0$$，并且$$\Gamma_{\alpha \beta}^\gamma$$有简单的表达式，因此
+
+$$
+\begin{aligned}
+R_{1 2 1 2} &= -\frac{1}{2} \bigg( \frac{\partial^2 E}{\partial v \partial v} + \frac{\partial^2 G}{\partial u \partial u} \bigg) - \Gamma_{\eta 1 1} \Gamma_{2 2}^\eta + \Gamma_{\eta 1 2} \Gamma_{1 2}^\eta \\
+&= -\frac{1}{2} \frac{\partial}{\partial v} \bigg( \frac{\partial E}{\partial v} \bigg) + \frac{1}{4E} \frac{\partial E}{\partial v} \frac{\partial E}{\partial v} + \frac{1}{4G} \frac{\partial E}{\partial v} \frac{\partial G}{\partial v} \\
+&- \frac{1}{2} \frac{\partial}{\partial u} \bigg( \frac{\partial G}{\partial u} \bigg) + \frac{1}{4G} \frac{\partial G}{\partial u} \frac{\partial G}{\partial u} + \frac{1}{4E} \frac{\partial G}{\partial u} \frac{\partial E}{\partial u}
+\end{aligned}
+$$
+
+也就是
+
+$$
+R_{1 2 1 2} = -\sqrt{EG} \bigg[ \bigg( \frac{\big( \sqrt{E} \big)_v}{\sqrt{G}} \bigg)_v + \bigg( \frac{\big( \sqrt{G} \big)_u}{\sqrt{E}} \bigg)_u \bigg]
+$$
+
+如果我们在曲面上采用正交的曲率线网作为参数曲线网，则$$F = M \equiv 0$$，因此Codazzi方程成为
+
+$$
+\begin{aligned}
+\frac{\partial L}{\partial v} &= -N \Gamma_{1 1}^2 + L \Gamma_{1 2}^1 = \frac{N}{2G} \frac{\partial E}{\partial v} + \frac{L}{2E} \frac{\partial E}{\partial v} = H \frac{\partial E}{\partial v} \\
+\frac{\partial N}{\partial u} &= \ \ \  N \Gamma_{2 1}^2 - L \Gamma_{2 2}^1 = \frac{N}{2G} \frac{\partial G}{\partial u} + \frac{L}{2E} \frac{\partial G}{\partial u} = H \frac{\partial G}{\partial u} \\
+\end{aligned}
+$$
+
+即
+
+$$
+\frac{\partial L}{\partial v} = H \frac{\partial E}{\partial v}, \ \ \  \frac{\partial N}{\partial u} = H \frac{\partial G}{\partial u}
+$$
+
+其中$$H = \frac{1}{2} \bigg( \frac{L}{E} + \frac{N}{G} \bigg)$$是曲面的平均曲率。
+
+上面介绍的Riemann记号式和Codazzi方程是比较容易记忆的，但是必须记住它们所使用的是哪一种参数系。
+
 ## 曲面的存在性定理
 
 ## Gauss定理
