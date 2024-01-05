@@ -701,7 +701,7 @@ $$
 \begin{aligned}
 R_{1 2 1 2} &= -\frac{1}{2} \bigg( \frac{\partial^2 E}{\partial v \partial v} + \frac{\partial^2 G}{\partial u \partial u} \bigg) - \Gamma_{\eta 1 1} \Gamma_{2 2}^\eta + \Gamma_{\eta 1 2} \Gamma_{1 2}^\eta \\
 &= -\frac{1}{2} \frac{\partial}{\partial v} \bigg( \frac{\partial E}{\partial v} \bigg) + \frac{1}{4E} \frac{\partial E}{\partial v} \frac{\partial E}{\partial v} + \frac{1}{4G} \frac{\partial E}{\partial v} \frac{\partial G}{\partial v} \\
-&- \frac{1}{2} \frac{\partial}{\partial u} \bigg( \frac{\partial G}{\partial u} \bigg) + \frac{1}{4G} \frac{\partial G}{\partial u} \frac{\partial G}{\partial u} + \frac{1}{4E} \frac{\partial G}{\partial u} \frac{\partial E}{\partial u}
+& \ \ \ \ -\frac{1}{2} \frac{\partial}{\partial u} \bigg( \frac{\partial G}{\partial u} \bigg) + \frac{1}{4G} \frac{\partial G}{\partial u} \frac{\partial G}{\partial u} + \frac{1}{4E} \frac{\partial G}{\partial u} \frac{\partial E}{\partial u}
 \end{aligned}
 $$
 
