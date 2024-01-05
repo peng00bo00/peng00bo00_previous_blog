@@ -590,7 +590,7 @@ $$
 $$
 
 $$
-\frac{\partial b_{\alpha \beta}}{\partial u^\gamma} - \frac{\partial b_{\alpha \gamma}}{\partial u^\beta} = \Gamma_{\alpha \beta}^\delta b_{\delta \gamma} - \Gamma_{\alpha \gamma}^\delta b_{\delta \beta}
+\frac{\partial b_{\alpha \beta}}{\partial u^\gamma} - \frac{\partial b_{\alpha \gamma}}{\partial u^\beta} = \Gamma_{\alpha \gamma}^\delta b_{\delta \beta} - \Gamma_{\alpha \beta}^\delta b_{\delta \gamma}
 $$
 
 注意到上面第一式的左边只是由曲面$$S$$的第一类基本量$$g_{\alpha \beta}$$的不高于二阶的偏导数构成的量，可以把它记成
@@ -616,12 +616,12 @@ R_{\alpha \delta \beta \gamma} = b_{\alpha \beta} b_{\delta \gamma} - b_{\alpha 
 $$
 
 $$
-\frac{\partial b_{\alpha \beta}}{\partial u^\gamma} - \frac{\partial b_{\alpha \gamma}}{\partial u^\beta} = \Gamma_{\alpha \beta}^\delta b_{\delta \gamma} - \Gamma_{\alpha \gamma}^\delta b_{\delta \beta}
+\frac{\partial b_{\alpha \beta}}{\partial u^\gamma} - \frac{\partial b_{\alpha \gamma}}{\partial u^\beta} = \Gamma_{\alpha \gamma}^\delta b_{\delta \beta} - \Gamma_{\alpha \beta}^\delta b_{\delta \gamma}
 $$
 
 其中第一式称为**Gauss方程**，第二式称为**Codazzi方程**。很明显，Gauss-Codazzi方程是曲面的第一类基本量和第二类基本量必须满足的相容条件。
 
-Gauss-Codazzi方程看上去比较复杂，但是实质上在Codazzi方程中只包含一个方程，在Gauss方程中只包含两个方程。为了说清楚上面的事实首先需要研究Riemann记号$$R_{\alpha \beta \gamma}^\delta$$的重要的对称性质。实际上，由$$R_{\alpha \beta \gamma}^\delta$$的定义得到
+Gauss-Codazzi方程看上去比较复杂，但是实质上在Gauss方程中只包含一个方程，在Codazzi方程中只包含两个方程。为了说清楚上面的事实首先需要研究Riemann记号$$R_{\alpha \beta \gamma}^\delta$$的重要的对称性质。实际上，由$$R_{\alpha \beta \gamma}^\delta$$的定义得到
 
 $$
 \begin{aligned}
