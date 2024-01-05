@@ -679,6 +679,22 @@ $$
 \end{cases}
 $$
 
+需要强调指出的是Gauss方程和Codazzi方程是$$\boldsymbol{r}_\alpha$$和$$\boldsymbol{n}$$的**两次偏导数与求导次序的无关性**的推论。反过来，如果Gauss方程和Codazzi方程成立，则$$\boldsymbol{r}_\alpha$$和$$\boldsymbol{n}$$的两次偏导数与求导的次序无关性也成立。这就是说，如果给定了两个二次微分形式$$\varphi &= g_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta$$，$$\psi &= b_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta$$，它们具有相应的对称性和正定性，那么我们可以利用[自然标架场的运动公式](/2023/12/27/DifferentialGeometry-NOTES-05.html#自然标架场的运动公式)构造一阶偏微分方程组，其中$$\boldsymbol{r}$$、$$\boldsymbol{r}_1$$、$$\boldsymbol{r}_2$$、$$\boldsymbol{n}$$是向量形式的未知函数(一共是12个数量未知函数)。当已知函数$$g_{\alpha \beta}$$和$$b_{\alpha \beta}$$满足Gauss-Codazzi方程时，则自然标架场的运动公式的相容性条件
+
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\partial}{\partial u^\gamma} \bigg( \frac{\partial \boldsymbol{r}}{\partial u^\beta} \bigg) &= \frac{\partial}{\partial u^\beta} \bigg( \frac{\partial \boldsymbol{r}}{\partial u^\gamma} \bigg) \\
+\frac{\partial}{\partial u^\gamma} \bigg( \frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} \bigg) &= \frac{\partial}{\partial u^\beta} \bigg( \frac{\partial \boldsymbol{r}_\alpha}{\partial u^\gamma} \bigg) \\
+\frac{\partial}{\partial u^\gamma} \bigg( \frac{\partial \boldsymbol{n}}{\partial u^\beta} \bigg) &= \frac{\partial}{\partial u^\beta} \bigg( \frac{\partial \boldsymbol{n}}{\partial u^\gamma} \bigg) \\
+\end{aligned}
+\end{cases}
+$$
+
+成立。由此可见，根据一阶偏微分方程组的解的存在性定理，自然标架场的运动公式是可积的，即在任意给定的初始条件下程组的解是存在的，并且是唯一的。
+
+在这里可以领略到曲面论和曲线论的本质差别。在曲线论的情形，曲率和挠率可以是弧长参数的任意函数(只要求曲率函数是正的)；而在曲面论的情形，两个基本微分形式$$\mathrm{I}$$和$$\mathrm{II}$$是彼此关联的，而不是相互独立的。这就是说在$$\mathbb{E}^3$$中一张曲面**不能够**作保持第一基本形式不变的随意的弯曲变形，在曲面作保持第一基本形式不变的变形时必定会保持曲面某种内在的弯曲性质不变。这个事实将导致开创微分几何新纪元的著名的Gauss绝妙定理。
+
 ## 曲面的存在性定理
 
 ## Gauss定理
