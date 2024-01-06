@@ -911,9 +911,13 @@ $$
 (\boldsymbol{r}_1 (u^1, u^2), \boldsymbol{r}_2 (u^1, u^2), \boldsymbol{n} (u^1, u^2)) \gt 0
 $$
 
-即$$\{ \boldsymbol{r}_1 (u^1, u^2), \boldsymbol{r}_2 (u^1, u^2), \boldsymbol{n} (u^1, u^2) \}$$成右手系。
+即$$\{ \boldsymbol{r}_1 (u^1, u^2), \boldsymbol{r}_2 (u^1, u^2), \boldsymbol{n} (u^1, u^2) \}$$成右手系。因为$$\boldsymbol{r}_1 \perp \boldsymbol{n}$$、$$\boldsymbol{r}_2 \perp \boldsymbol{n}$$、$$\boldsymbol{n} \cdot \boldsymbol{n} = 1$$，所以
 
-证毕∎
+$$
+\boldsymbol{n} = \frac{\boldsymbol{r}_1 \times \boldsymbol{r}_2}{\vert \boldsymbol{r}_1 \times \boldsymbol{r}_2 \vert}
+$$
+
+从函数$$\boldsymbol{r} (u^1, u^1)$$满足偏微分方程组的第一式可知，若把$$\boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$看作$$\mathbb{E}^3$$中的一块曲面，则$$\boldsymbol{r}_1 (u^1, u^2)$$、$$\boldsymbol{r}_2 (u^1, u^2)$$是该曲面的参数曲线的切向量。因为这两个切向量线性无关，故该曲面是正则参数曲面，并且$$\boldsymbol{n} (u^1, u^2)$$是它的单位法向量。同时，$$\varphi$$是它的第一基本形式，$$\psi$$是它的第二基本形式。证毕∎
 
 从曲面的存在性定理的证明可以看出，把曲面看作一族标架的观念是十分重要的和基本的。把曲面放到标架空间中去看， 未知函数的偏导数不再含有新的未知函数。后面我们要更加细致地研究空间$$\mathbb{E}^3$$中的标架族的理论，而曲面的存在性定理就成为标架族存在性定理的一个特例。
 
