@@ -881,6 +881,38 @@ $$
 \end{aligned}
 $$
 
+另外，由上式得到
+
+$$
+\begin{aligned}
+(\boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{n})^2 &= \det
+\begin{pmatrix}
+\begin{pmatrix}
+\boldsymbol{r}_1 \\ \boldsymbol{r}_2 \\ \boldsymbol{n}
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\boldsymbol{r}_1 & \boldsymbol{r}_2 & \boldsymbol{n}
+\end{pmatrix}
+\end{pmatrix} \\
+&= \det
+\begin{pmatrix}
+g_{11} & g_{12} & 0 \\
+g_{21} & g_{22} & 0 \\
+0 & 0 & 1 \\
+\end{pmatrix}
+=\det (g_{\alpha \beta}) \gt 0
+\end{aligned}
+$$
+
+即向量函数$$\boldsymbol{r}_1 (u^1, u^2)$$、$$\boldsymbol{r}_2 (u^1, u^2)$$、$$\boldsymbol{n} (u^1, u^2)$$是处处线性无关的。由于解的连续性，并且$$(\boldsymbol{r}_1 (u_0^1, u_0^2), \boldsymbol{r}_2 (u_0^1, u_0^2), \boldsymbol{n} (u_0^1, u_0^2)) \gt 0$$，因此处处有
+
+$$
+(\boldsymbol{r}_1 (u^1, u^2), \boldsymbol{r}_2 (u^1, u^2), \boldsymbol{n} (u^1, u^2)) \gt 0
+$$
+
+即$$\{ \boldsymbol{r}_1 (u^1, u^2), \boldsymbol{r}_2 (u^1, u^2), \boldsymbol{n} (u^1, u^2) \}$$成右手系。
+
 证毕∎
 
 从曲面的存在性定理的证明可以看出，把曲面看作一族标架的观念是十分重要的和基本的。把曲面放到标架空间中去看， 未知函数的偏导数不再含有新的未知函数。后面我们要更加细致地研究空间$$\mathbb{E}^3$$中的标架族的理论，而曲面的存在性定理就成为标架族存在性定理的一个特例。
