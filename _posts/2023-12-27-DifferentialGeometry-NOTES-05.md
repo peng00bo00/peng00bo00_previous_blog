@@ -824,7 +824,7 @@ $$
 \end{cases}
 $$
 
-问题在于：这样得到的函数$$\{ \boldsymbol{r} (u^1, u^2); \boldsymbol{r}_1 (u^1, u^2), \boldsymbol{r}_2 (u^1, u^2), \boldsymbol{n} (u^1, u^2) \}$$是否构成依赖参数$$u^1$$和$$u^2$$的标架族，即向量函数$$\boldsymbol{r}_1 (u^1, u^2)$$、$$\boldsymbol{r}_2 (u^1, u^2)$$、$$\boldsymbol{n} (u^1, u^2)$$）是不是处处线性无关的？由$$\boldsymbol{r} (u^1, u^2)$$给出的向量函数是不是一张正则参数曲面？它是否以$$\varphi$$和$$\psi$$为它的第一基本形式和第二基本形式？为了得到这些问题的肯定答案，初始值$$\boldsymbol{r}^0$$、$$\boldsymbol{r}_1^0$$、$$\boldsymbol{r}_2^0$$、$$\boldsymbol{n}^0$$就不能取任意的值。因为它们将构成所求曲面在点$$(u_0^1, u_0^2)$$处的自然标架$$\{ \boldsymbol{r}^0; \boldsymbol{r}_1^0, \boldsymbol{r}_2^0, \boldsymbol{n}^0 \}$$，因此必须假定它们的度量系数满足下列条件：
+问题在于：这样得到的函数$$\{ \boldsymbol{r} (u^1, u^2); \boldsymbol{r}_1 (u^1, u^2), \boldsymbol{r}_2 (u^1, u^2), \boldsymbol{n} (u^1, u^2) \}$$是否构成依赖参数$$u^1$$和$$u^2$$的标架族，即向量函数$$\boldsymbol{r}_1 (u^1, u^2)$$、$$\boldsymbol{r}_2 (u^1, u^2)$$、$$\boldsymbol{n} (u^1, u^2)$$是不是处处线性无关的？由$$\boldsymbol{r} (u^1, u^2)$$给出的向量函数是不是一张正则参数曲面？它是否以$$\varphi$$和$$\psi$$为它的第一基本形式和第二基本形式？为了得到这些问题的肯定答案，初始值$$\boldsymbol{r}^0$$、$$\boldsymbol{r}_1^0$$、$$\boldsymbol{r}_2^0$$、$$\boldsymbol{n}^0$$就不能取任意的值。因为它们将构成所求曲面在点$$(u_0^1, u_0^2)$$处的自然标架$$\{ \boldsymbol{r}^0; \boldsymbol{r}_1^0, \boldsymbol{r}_2^0, \boldsymbol{n}^0 \}$$，因此必须假定它们的度量系数满足下列条件：
 
 $$
 \begin{aligned}
