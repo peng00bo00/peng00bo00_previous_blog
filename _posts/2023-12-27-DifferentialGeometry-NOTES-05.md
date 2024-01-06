@@ -732,4 +732,54 @@ $$
 
 ## 曲面的存在性定理
 
+本节要证明，Gauss-Codazzi方程也是以给定的两个二次微分形式为它的两个基本形式的曲面存在的充分条件。
+
+设$$D \subset \mathbb{E}^2$$是$$\mathbb{E}^2$$中的一个单连通区域，设
+
+$$
+\begin{cases}
+\begin{aligned}
+\varphi &= g_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta \\
+\psi &= b_{\alpha \beta} \ \mathrm{d} u^\alpha \mathrm{d} u^\beta \\
+\end{aligned}
+\end{cases}
+$$
+
+是定义在$$D$$内的两个二次微分形式，其中$$g_{\alpha \beta}$$在$$D$$上至少是二阶连续可微的，$$b_{\alpha \beta}$$至少是一阶连续可微的，$$g_{\alpha \beta} = g_{\beta \alpha}$$，$$b_{\alpha \beta} = b_{\beta \alpha}$$，且矩阵$$(g_{\alpha \beta})$$是正定的。用$$(g^{\alpha \beta})$$表示$$(g_{\alpha \beta})$$的逆矩阵。利用$$g_{\alpha \beta}$$及其导数构造下列各个量：
+
+$$
+\Gamma_{\gamma \alpha \beta} = \frac{1}{2} \bigg( \frac{\partial g_{\gamma \beta}}{\partial u^\alpha} + \frac{\partial g_{\alpha \gamma}}{\partial u^\beta} - \frac{\partial g_{\alpha \beta}}{\partial u^\gamma} \bigg)
+$$
+
+$$
+\Gamma_{\alpha \beta}^\gamma = g^{\gamma \delta} \Gamma_{\delta \alpha \beta}
+$$
+
+$$
+R_{\alpha \beta \gamma}^\delta = \frac{\partial \Gamma_{\alpha \beta}^\delta}{\partial u^\gamma} - \frac{\partial \Gamma_{\alpha \gamma}^\delta}{\partial u^\beta} + \Gamma_{\alpha \beta}^\eta \Gamma_{\eta \gamma}^\delta - \Gamma_{\alpha \gamma}^\eta \Gamma_{\eta \beta}^\delta
+$$
+
+$$
+R_{\alpha \delta \beta \gamma} = g_{\delta \eta} R_{\alpha \beta \gamma}^\eta
+$$
+
+**定理5.3** 如果由给出的两个二次微分形式$$\varphi$$、$$\psi$$满足Gauss-Codazzi方程
+$$
+\begin{cases}
+\begin{aligned}
+&b_{1 1} b_{2 2} - (b_{1 2})^2 = R_{1 2 1 2} \\
+&\frac{\partial b_{1 1}}{\partial u^2} - \frac{\partial b_{1 2}}{\partial u^1} = -b_{2 \delta} \Gamma_{1 1}^\delta + b_{1 \delta} \Gamma_{1 2}^\delta \\
+&\frac{\partial b_{2 1}}{\partial u^2} - \frac{\partial b_{2 2}}{\partial u^1} = -b_{2 \delta} \Gamma_{2 1}^\delta + b_{1 \delta} \Gamma_{2 2}^\delta \\
+\end{aligned}
+\end{cases}
+$$
+，则在任意一点$$(u_0^1, u_0^2) \in D$$必有它的一个邻域$$U \subset D$$，以及在空间$$\mathbb{E}^3$$中定义在该邻域$$U$$上的一个正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u^1, u^2), (u^1, u^2) \in D$$，使得它的第一基本形式和第二基本形式分别是$$\varphi \vert_U$$和$$\psi \vert_U$$，并且在$$\mathbb{E}^3$$中任意两块满足上述条件的曲面必定能够在$$\mathbb{E}^3$$的一个缸体运动下彼此重合。
+{:.info}
+
+**证明**
+
+证毕∎
+
+从曲面的存在性定理的证明可以看出，把曲面看作一族标架的观念是十分重要的和基本的。把曲面放到标架空间中去看， 未知函数的偏导数不再含有新的未知函数。后面我们要更加细致地研究空间$$\mathbb{E}^3$$中的标架族的理论，而曲面的存在性定理就成为标架族存在性定理的一个特例。
+
 ## Gauss定理
