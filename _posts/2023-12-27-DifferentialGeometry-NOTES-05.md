@@ -837,6 +837,50 @@ $$
 
 我们要证明：初始值满足上述条件时，偏微分方程组满足初始条件的解$$\boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$给出了符合定理要求的正则参数曲面。
 
+设$$\boldsymbol{r} (u^1, u^2)$$、$$\boldsymbol{r}_1 (u^1, u^2)$$、$$\boldsymbol{r}_2 (u^1, u^2)$$、$$\boldsymbol{n} (u^1, u^2)$$是偏微分方程组在初始条件下的解，考虑一组函数
+
+$$
+\begin{aligned}
+f_{\alpha \beta} (u^1, u^2) &= \boldsymbol{r}_{\alpha} (u^1, u^2) \cdot \boldsymbol{r}_{\beta} (u^1, u^2) - g_{\alpha \beta} (u^1, u^2) \\
+f_{\alpha} (u^1, u^2) &= \boldsymbol{r}_{\alpha} (u^1, u^2) \cdot \boldsymbol{n} (u^1, u^2) \\
+f (u^1, u^2) &= \boldsymbol{n} (u^1, u^2) \cdot \boldsymbol{n} (u^1, u^2) - 1 \\
+\end{aligned}
+$$
+
+根据点$$(u_0^1, u_0^2)$$处的初始条件，这组函数满足
+
+$$
+f_{\alpha \beta} (u_0^1, u_0^2) = f_{\alpha} (u_0^1, u_0^2) = f (u_0^1, u_0^2) = 0
+$$
+
+对函数$$f_{\alpha \beta} (u^1, u^2)$$、$$f_{\alpha} (u^1, u^2)$$、$$f (u^1, u^2)$$求偏导数，并利用函数$$\boldsymbol{r}_\alpha (u^1, u^2)$$和$$\boldsymbol{n} (u^1, u^2)$$所满足的偏微分方程，得到
+
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\partial f_{\alpha \beta}}{\partial u^\gamma} &= \Gamma_{\gamma \alpha}^\delta f_{\delta \beta} + \Gamma_{\gamma \beta}^\delta f_{\delta \alpha} + b_{\gamma \alpha} f_{\beta} + b_{\gamma \beta} f_{\alpha} \\
+\frac{\partial f_\alpha}{\partial u^\gamma} &= -b_\gamma^\delta f_{\delta \alpha} + \Gamma_{\gamma \alpha}^\delta f_\delta + b_{\gamma \alpha} f \\
+\frac{\partial f}{\partial u^\gamma} &= -2b_\gamma^\delta f_\delta
+\end{aligned}
+\end{cases}
+$$
+
+注意到这里方程组在初始条件下的一个解是零解。根据一阶偏微分方程组在已知初始条件下的唯一性，方程组的解只能是零解，即在$$U$$上有恒等式
+
+$$
+f_{\alpha \beta} (u^1, u^2) = f_{\alpha} (u^1, u^2) = f(u^1, u^2) \equiv 0
+$$
+
+所以在$$U$$上如下的式子恒成立：
+
+$$
+\begin{aligned}
+\boldsymbol{r}_{\alpha} (u^1, u^2) \cdot \boldsymbol{r}_{\beta} (u^1, u^2) &= g_{\alpha \beta} (u^1, u^2) \\
+\boldsymbol{r}_{\alpha} (u^1, u^2) \cdot \boldsymbol{n} (u^1, u^2) &=0 \\
+\boldsymbol{n} (u^1, u^2) \cdot \boldsymbol{n} (u^1, u^2) &=1 \\
+\end{aligned}
+$$
+
 证毕∎
 
 从曲面的存在性定理的证明可以看出，把曲面看作一族标架的观念是十分重要的和基本的。把曲面放到标架空间中去看， 未知函数的偏导数不再含有新的未知函数。后面我们要更加细致地研究空间$$\mathbb{E}^3$$中的标架族的理论，而曲面的存在性定理就成为标架族存在性定理的一个特例。
