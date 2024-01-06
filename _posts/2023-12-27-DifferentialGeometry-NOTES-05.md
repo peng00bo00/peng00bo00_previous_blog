@@ -776,8 +776,7 @@ $$
 ，则在任意一点$$(u_0^1, u_0^2) \in D$$必有它的一个邻域$$U \subset D$$，以及在空间$$\mathbb{E}^3$$中定义在该邻域$$U$$上的一个正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$，其中$$(u^1, u^2) \in D$$，使得它的第一基本形式和第二基本形式分别是$$\varphi \vert_U$$和$$\psi \vert_U$$，并且在$$\mathbb{E}^3$$中任意两块满足上述条件的曲面必定能够在$$\mathbb{E}^3$$的一个刚体运动下彼此重合。
 {:.info}
 
-**证明** 此定理的唯一性部分正是[定理5.1](/2023/12/27/DifferentialGeometry-NOTES-05.html#曲面的唯一性定理)，所以在这里只要证明满足上述条件的曲面的存在性。利用$$\varphi$$、$$\psi$$的系数及其导数可以列出如下
-的一阶线性齐次偏微分方程组
+**证明** 此定理的唯一性部分正是[定理5.1](/2023/12/27/DifferentialGeometry-NOTES-05.html#曲面的唯一性定理)，所以在这里只要证明满足上述条件的曲面的存在性。利用$$\varphi$$、$$\psi$$的系数及其导数可以列出如下的一阶线性齐次偏微分方程组
 
 $$
 \begin{cases}
@@ -800,6 +799,43 @@ $$
 \end{aligned}
 \end{cases}
 $$
+
+然而，上述相容性条件等价于Gauss-Codazzi方程，所以在定理的假设条件下方程组是完全可积的。这就是说，对于任意给定的$$(u_0^1, u_0^2) \in D$$，以及任意给定的初始值$$\boldsymbol{r}^0$$、$$\boldsymbol{r}_1^0$$、$$\boldsymbol{r}_2^0$$、$$\boldsymbol{n}^0$$，必有它的一个邻域$$U \subset D$$和定义在$$U$$上的函数
+
+$$
+\begin{aligned}
+\boldsymbol{r} &= \boldsymbol{r} (u^1, u^2) \\
+\boldsymbol{r}_1 &= \boldsymbol{r}_1 (u^1, u^2) \\
+\boldsymbol{r}_2 &= \boldsymbol{r}_2 (u^1, u^2) \\
+\boldsymbol{n} &= \boldsymbol{n} (u^1, u^2) \\
+\end{aligned}
+$$
+
+使得它们满足偏微分方程组和初始值
+
+$$
+\begin{cases}
+\begin{aligned}
+\boldsymbol{r} (u_0^1, u_0^2) &= \boldsymbol{r}^0 \\
+\boldsymbol{r}_1 (u_0^1, u_0^2) &= \boldsymbol{r}_1^0 \\
+\boldsymbol{r}_2 (u_0^1, u_0^2) &= \boldsymbol{r}_2^0 \\
+\boldsymbol{n} (u_0^1, u_0^2) &= \boldsymbol{n}^0 \\
+\end{aligned}
+\end{cases}
+$$
+
+问题在于：这样得到的函数$$\{ \boldsymbol{r} (u^1, u^2); \boldsymbol{r}_1 (u^1, u^2), \boldsymbol{r}_2 (u^1, u^2), \boldsymbol{n} (u^1, u^2) \}$$是否构成依赖参数$$u^1$$和$$u^2$$的标架族，即向量函数$$\boldsymbol{r}_1 (u^1, u^2)$$、$$\boldsymbol{r}_2 (u^1, u^2)$$、$$\boldsymbol{n} (u^1, u^2)$$）是不是处处线性无关的？由$$\boldsymbol{r} (u^1, u^2)$$给出的向量函数是不是一张正则参数曲面？它是否以$$\varphi$$和$$\psi$$为它的第一基本形式和第二基本形式？为了得到这些问题的肯定答案，初始值$$\boldsymbol{r}^0$$、$$\boldsymbol{r}_1^0$$、$$\boldsymbol{r}_2^0$$、$$\boldsymbol{n}^0$$就不能取任意的值。因为它们将构成所求曲面在点$$(u_0^1, u_0^2)$$处的自然标架$$\{ \boldsymbol{r}^0; \boldsymbol{r}_1^0, \boldsymbol{r}_2^0, \boldsymbol{n}^0 \}$$，因此必须假定它们的度量系数满足下列条件：
+
+$$
+\begin{aligned}
+&\boldsymbol{r}_\alpha^0 \cdot \boldsymbol{r}_\beta^0 = g_{\alpha \beta} (u_0^1, u_0^2) \\
+&\boldsymbol{r}_\alpha^0 \cdot \boldsymbol{n}^0 = 0 \\
+&\boldsymbol{n}^0 \cdot \boldsymbol{n}^0 = 1 \\
+&(\boldsymbol{r}_1^0, \boldsymbol{r}_2^0, \boldsymbol{n}^0) \gt 0
+\end{aligned}
+$$
+
+我们要证明：初始值满足上述条件时，偏微分方程组满足初始条件的解$$\boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$给出了符合定理要求的正则参数曲面。
 
 证毕∎
 
