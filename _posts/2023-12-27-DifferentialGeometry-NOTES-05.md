@@ -768,15 +768,38 @@ $$
 \begin{cases}
 \begin{aligned}
 &b_{1 1} b_{2 2} - (b_{1 2})^2 = R_{1 2 1 2} \\
-&\frac{\partial b_{1 1}}{\partial u^2} - \frac{\partial b_{1 2}}{\partial u^1} = -b_{2 \delta} \Gamma_{1 1}^\delta + b_{1 \delta} \Gamma_{1 2}^\delta \\
-&\frac{\partial b_{2 1}}{\partial u^2} - \frac{\partial b_{2 2}}{\partial u^1} = -b_{2 \delta} \Gamma_{2 1}^\delta + b_{1 \delta} \Gamma_{2 2}^\delta \\
+&\frac{\partial b_{1 1}}{\partial u^2} - \frac{\partial b_{1 2}}{\partial u^1} = -b_{2 \gamma} \Gamma_{1 1}^\gamma + b_{1 \gamma} \Gamma_{1 2}^\gamma \\
+&\frac{\partial b_{2 1}}{\partial u^2} - \frac{\partial b_{2 2}}{\partial u^1} = -b_{2 \gamma} \Gamma_{2 1}^\gamma + b_{1 \gamma} \Gamma_{2 2}^\gamma \\
 \end{aligned}
 \end{cases}
 $$
-，则在任意一点$$(u_0^1, u_0^2) \in D$$必有它的一个邻域$$U \subset D$$，以及在空间$$\mathbb{E}^3$$中定义在该邻域$$U$$上的一个正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u^1, u^2), (u^1, u^2) \in D$$，使得它的第一基本形式和第二基本形式分别是$$\varphi \vert_U$$和$$\psi \vert_U$$，并且在$$\mathbb{E}^3$$中任意两块满足上述条件的曲面必定能够在$$\mathbb{E}^3$$的一个缸体运动下彼此重合。
+，则在任意一点$$(u_0^1, u_0^2) \in D$$必有它的一个邻域$$U \subset D$$，以及在空间$$\mathbb{E}^3$$中定义在该邻域$$U$$上的一个正则参数曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$，其中$$(u^1, u^2) \in D$$，使得它的第一基本形式和第二基本形式分别是$$\varphi \vert_U$$和$$\psi \vert_U$$，并且在$$\mathbb{E}^3$$中任意两块满足上述条件的曲面必定能够在$$\mathbb{E}^3$$的一个刚体运动下彼此重合。
 {:.info}
 
-**证明**
+**证明** 此定理的唯一性部分正是[定理5.1](/2023/12/27/DifferentialGeometry-NOTES-05.html#曲面的唯一性定理)，所以在这里只要证明满足上述条件的曲面的存在性。利用$$\varphi$$、$$\psi$$的系数及其导数可以列出如下
+的一阶线性齐次偏微分方程组
+
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\partial \boldsymbol{r}}{\partial u^\beta} &= \boldsymbol{r}_\beta \\
+\frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} &= \Gamma_{\alpha \beta}^\gamma \boldsymbol{r}_\gamma + b_{\alpha \beta} \boldsymbol{n} \\
+\frac{\partial \boldsymbol{n}}{\partial u^\beta} &= -b_\beta^\gamma \boldsymbol{r}_\gamma
+\end{aligned}
+\end{cases}
+$$
+
+其中$$\boldsymbol{r}$$、$$\boldsymbol{r}_1$$、$$\boldsymbol{r}_2$$、$$\boldsymbol{n}$$都是写成向量形式的未知函数，因而一共有12个未知函数，$$u^1$$和$$u^2$$是自变量。换言之，我们把求空间$$\mathbb{E}^3$$中的曲面的问题归结为求空间$$\mathbb{E}^3$$中依赖两个参数的标架族的问题。根据一阶偏微分方程组的理论，上述方程组有解的充分必要条件是它满足相容性条件
+
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\partial}{\partial u^\gamma} \bigg( \frac{\partial \boldsymbol{r}}{\partial u^\beta} \bigg) &= \frac{\partial}{\partial u^\beta} \bigg( \frac{\partial \boldsymbol{r}}{\partial u^\gamma} \bigg) \\
+\frac{\partial}{\partial u^\gamma} \bigg( \frac{\partial \boldsymbol{r}_\alpha}{\partial u^\beta} \bigg) &= \frac{\partial}{\partial u^\beta} \bigg( \frac{\partial \boldsymbol{r}_\alpha}{\partial u^\gamma} \bigg) \\
+\frac{\partial}{\partial u^\gamma} \bigg( \frac{\partial \boldsymbol{n}}{\partial u^\beta} \bigg) &= \frac{\partial}{\partial u^\beta} \bigg( \frac{\partial \boldsymbol{n}}{\partial u^\gamma} \bigg) \\
+\end{aligned}
+\end{cases}
+$$
 
 证毕∎
 
