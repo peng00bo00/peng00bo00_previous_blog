@@ -263,7 +263,7 @@ $$
 \frac{\partial g_{\alpha \beta}}{\partial u^\gamma} = \boldsymbol{r}_{\alpha \gamma} \cdot \boldsymbol{r}_\beta + \boldsymbol{r}_\alpha \cdot \boldsymbol{r}_{\beta \gamma}
 $$
 
-带入$$\Gamma_{\gamma \alpha \beta}$$的定义式$$\boldsymbol{r}_{\alpha \beta} \cdot \boldsymbol{r}_\gamma = \Gamma_{\gamma \alpha \beta}$$得到
+代入$$\Gamma_{\gamma \alpha \beta}$$的定义式$$\boldsymbol{r}_{\alpha \beta} \cdot \boldsymbol{r}_\gamma = \Gamma_{\gamma \alpha \beta}$$得到
 
 $$
 \frac{\partial g_{\alpha \beta}}{\partial u^\gamma} = \Gamma_{\beta \alpha \gamma} + \Gamma_{\alpha \beta \gamma}
@@ -564,7 +564,7 @@ $$
 \frac{\partial^2 \boldsymbol{n}}{\partial u^\beta \partial u^\gamma} = \frac{\partial^2 \boldsymbol{n}}{\partial u^\gamma \partial u^\beta}
 $$
 
-把自然标架场的运动公式带入上式得到
+把自然标架场的运动公式代入上式得到
 
 $$
 \frac{\partial }{\partial u^\gamma} (\Gamma_{\alpha \beta}^\delta  \boldsymbol{r}_\delta + b_{\alpha \beta} \boldsymbol{n}) = \frac{\partial }{\partial u^\beta} (\Gamma_{\alpha \gamma}^\delta  \boldsymbol{r}_\delta + b_{\alpha \gamma} \boldsymbol{n})
@@ -574,7 +574,7 @@ $$
 \frac{\partial }{\partial u^\gamma} (b_\beta^\delta \boldsymbol{r}_\delta) = \frac{\partial }{\partial u^\beta} (b_\gamma^\delta \boldsymbol{r}_\delta)
 $$
 
-将上式展开，并且再次用自然标架场的运动公式带入，整理后得到
+将上式展开，并且再次用自然标架场的运动公式代入，整理后得到
 
 $$
 \begin{aligned}
@@ -1150,7 +1150,7 @@ $$
 \frac{\partial \lambda}{\partial u} = \frac{\partial \lambda}{\partial v} = 0
 $$
 
-即$$\lambda$$是常数。将$$\tilde{E} = \lambda E$$、$$\tilde{G} = \lambda G$$带入$$K = -\frac{1}{\sqrt{EG}} \bigg[ \bigg( \frac{\big( \sqrt{E} \big)_v}{\sqrt{G}} \bigg)_v + \bigg( \frac{\big( \sqrt{G} \big)_u}{\sqrt{E}} \bigg)_u \bigg]$$得到
+即$$\lambda$$是常数。将$$\tilde{E} = \lambda E$$、$$\tilde{G} = \lambda G$$代入$$K = -\frac{1}{\sqrt{EG}} \bigg[ \bigg( \frac{\big( \sqrt{E} \big)_v}{\sqrt{G}} \bigg)_v + \bigg( \frac{\big( \sqrt{G} \big)_u}{\sqrt{E}} \bigg)_u \bigg]$$得到
 
 $$
 \tilde{K} = \frac{1}{\lambda} K
