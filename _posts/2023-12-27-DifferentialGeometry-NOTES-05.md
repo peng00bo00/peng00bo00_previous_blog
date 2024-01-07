@@ -982,8 +982,75 @@ $$
 **定理5.5** 空间$$\mathbb{E}^3$$的一块无脐点的曲面$$S$$是可展曲面的充分必要条件是，它的Gauss曲率$$K$$恒等于零。
 {:.info}
 
+**证明** 必要性已经证明过了，现在只要证明充分性成立。设曲面$$S$$的Gauss曲率$$K \equiv 0$$。现在假定点$$p \in S$$，由于处处没有脐点，故有点$$p$$在曲面$$S$$上的一个邻域$$U$$，使得在$$U$$内存在正交曲率线网作为参数曲线网$$(u, v)$$，所以$$F = M \equiv 0$$，并且
+
+$$
+K = \frac{LN}{EG} \equiv 0
+$$
+
+不妨假定$$v$$-曲线对应的主曲率$$\kappa_2 = \frac{N}{G}$$恒等于零，于是$$N \equiv 0$$，$$L \neq 0$$。由Codazzi方程得知
+
+
+$$
+H \frac{\partial G}{\partial u} = \frac{\partial N}{\partial u} = 0
+$$
+
+$$
+2H = \frac{L}{E} + \frac{N}{G} = \frac{L}{E} \neq 0
+$$
+
+因此
+
+$$
+\frac{\partial G}{\partial u} = 0
+$$
+
+我们首先要证明曲面$$S$$是直纹面，更具体地说我们要证明每一条$$v$$-曲线是直线。为此只要证明$$v$$-曲线的切方向不变，即$$\boldsymbol{r}_{vv} \times \boldsymbol{r}_v \equiv \boldsymbol{0}$$。事实上，根据自然标架的运动公式我们有
+
+$$
+\boldsymbol{r}_{vv} = \Gamma_{22}^1 \boldsymbol{r}_u + \Gamma_{22}^2 \boldsymbol{r}_v + N \boldsymbol{n} = \Gamma_{22}^1 \boldsymbol{r}_u + \Gamma_{22}^2 \boldsymbol{r}_v
+$$
+
+$$
+\boldsymbol{r}_{vv} \times \boldsymbol{r}_{v} = \Gamma_{22}^1 \boldsymbol{r}_u \times \boldsymbol{r}_{v}
+$$
+
+由$$\frac{\partial G}{\partial u} = 0$$得知
+
+$$
+\Gamma_{22}^1 = -\frac{1}{2E} \frac{\partial G}{\partial u} \equiv 0
+$$
+
+故有
+
+$$
+\boldsymbol{r}_{vv} \times \boldsymbol{r}_{v} \equiv \boldsymbol{0}
+$$
+
+得证。下面要证明曲面$$S$$的单位法向量$$\boldsymbol{n}$$沿$$v$$-曲线是不变的。实际上，根据定义和假定，我们有
+
+$$
+\boldsymbol{n}_v \cdot \boldsymbol{r}_u = -M = 0
+$$
+
+$$
+\boldsymbol{n}_v \cdot \boldsymbol{r}_v = -N = 0
+$$
+
+$$
+\boldsymbol{n}_v \cdot \boldsymbol{n} = 0
+$$
+
+因此$$\boldsymbol{n}_v$$只能是零向量，故$$\boldsymbol{n}$$沿$$v$$-曲线是不变的，所以$$S$$是可展曲面。证毕∎
+
 **定理5.6** 无脐点曲面$$S$$是可展曲面的充分必要条件是是它能够和一块平面建立保长对应。
 {:.info}
+
+**证明** [定理3.11](/2023/10/18/DifferentialGeometry-NOTES-03.html#可展曲面-1)已经证明可展曲面可以和一块平面建立保长对应。现在假定曲面$$S$$能够和一块平面建立保长对应，则根据Gauss绝妙定理，曲面$$S$$的Gauss曲率恒等于零，因而由定理5.5得知曲面$$S$$是可展曲面。证毕∎
+
+### 法曲率
+
+下面我们要证明一个重要的定理，它说明在一般情形下曲面的[法曲率](/2023/11/10/DifferentialGeometry-NOTES-04.html#法曲率)的确包含了曲面形状的全部信息。
 
 **定理5.7** 设$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到$$S_2$$的连续可微映射，其中曲面$$S_1$$没有脐点，并且它的Gauss曲率$$K$$不为零。如果曲面$$S_1$$和$$S_2$$在所有的对应点、沿所有的对应切方向的法曲率保持不变，则有空间$$\mathbb{E}^3$$中的一个刚体运动$$\tilde{\sigma}: \mathbb{E}^3 \rightarrow \mathbb{E}^3$$使得$$\sigma = \tilde{\sigma} \vert_{S_1}$$。
 {:.info}
