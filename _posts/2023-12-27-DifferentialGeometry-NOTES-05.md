@@ -971,6 +971,12 @@ $$
 R_{1 2 1 2} = -\sqrt{EG} \bigg[ \bigg( \frac{\big( \sqrt{E} \big)_v}{\sqrt{G}} \bigg)_v + \bigg( \frac{\big( \sqrt{G} \big)_u}{\sqrt{E}} \bigg)_u \bigg]
 $$
 
+所以
+
+$$
+K = -\frac{1}{\sqrt{EG}} \bigg[ \bigg( \frac{\big( \sqrt{E} \big)_v}{\sqrt{G}} \bigg)_v + \bigg( \frac{\big( \sqrt{G} \big)_u}{\sqrt{E}} \bigg)_u \bigg]
+$$
+
 特别地，如果在曲面$$S$$上取[等温参数系](/2023/10/18/DifferentialGeometry-NOTES-03.html#保角对应)$$(u, v)$$，则曲面$$S$$的第一基本形式成为$$\mathrm{I} = \lambda^2 ((\mathrm{d} u)^2 + (\mathrm{d} v)^2)$$，于是它的Gauss曲率是
 
 $$
@@ -1054,3 +1060,112 @@ $$
 
 **定理5.7** 设$$\sigma: S_1 \rightarrow S_2$$是从曲面$$S_1$$到$$S_2$$的连续可微映射，其中曲面$$S_1$$没有脐点，并且它的Gauss曲率$$K$$不为零。如果曲面$$S_1$$和$$S_2$$在所有的对应点、沿所有的对应切方向的法曲率保持不变，则有空间$$\mathbb{E}^3$$中的一个刚体运动$$\tilde{\sigma}: \mathbb{E}^3 \rightarrow \mathbb{E}^3$$使得$$\sigma = \tilde{\sigma} \vert_{S_1}$$。
 {:.info}
+
+**证明** 因为在曲面$$S_1$$上没有跻点，所以在曲面$$S_1$$上可以取正交曲率线网作为参数曲线网$$(u, v)$$，于是曲面$$S_1$$的两个基本微分形式成为
+
+$$
+\begin{cases}
+\begin{aligned}
+\mathrm{I} &= E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2 \\
+\mathrm{II} &= L (\mathrm{d} u)^2 + N (\mathrm{d} v)^2 \\
+\end{aligned}
+\end{cases}
+$$
+
+并且
+
+$$
+L = \kappa_1 E, \ \ \
+N = \kappa_2 G, \ \ \
+\kappa_1 \gt \kappa_2, \ \ \
+K = \kappa_1 \kappa_2 \neq 0
+$$
+
+由于假定曲面$$S_1$$和$$S_2$$在所有的对应点、沿所有的对应切方向的法曲率保持不变，因此切映射$$\sigma_*$$首先应该是处处非退化的。于是$$(u, v)$$也可以作为曲面$$S_2$$上的参数，从而$$\sigma$$是曲面$$S_1$$和曲面$$S_2$$上有相同参数值的点之间的对应。不妨设曲面$$S_2$$的两个基本微分形式是
+
+$$
+\begin{cases}
+\begin{aligned}
+\mathrm{\tilde{I}} &= \tilde{E} (\mathrm{d} u)^2 + 2 \tilde{F} \mathrm{d} u \mathrm{d} v + \tilde{G} (\mathrm{d} v)^2 \\
+\mathrm{\tilde{II}} &= \tilde{L} (\mathrm{d} u)^2 + 2 \tilde{M} \mathrm{d} u \mathrm{d} v + \tilde{N} (\mathrm{d} v)^2 \\
+\end{aligned}
+\end{cases}
+$$
+
+因为在对应$$\sigma$$下，曲面$$S_1$$和$$S_2$$在所有的对应点、沿所有的对应切方向的法曲率都相等，因此曲面$$S_2$$沿$$u$$-曲线方向的法曲率应该是$$\kappa_1$$，沿$$v$$-曲线方向的法曲率应该是$$\kappa_2$$，并且它们同样是曲面$$S_2$$在每一点沿各个切方向的法曲率的最大值和最小值。这就是说，$$(u,v)$$也是曲面$$S_2$$上的正交曲率线网，故有
+
+$$
+\tilde{F} = \tilde{M} = 0, \ \ \
+\tilde{L} = \kappa_1 \tilde{E}, \ \ \
+\tilde{N} = \kappa_2 \tilde{G}
+$$
+
+这样，曲面$$S_1$$和$$S_2$$在对应点、沿对应切方向的法曲率相等的条件成为
+
+$$
+\frac{\kappa_1 E (\mathrm{d} u)^2 + \kappa_2 G (\mathrm{d} v)^2}{E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2} = \frac{\kappa_1 \tilde{E} (\mathrm{d} u)^2 + \kappa_2 \tilde{G} (\mathrm{d} v)^2}{\tilde{E} (\mathrm{d} u)^2 + \tilde{G} (\mathrm{d} v)^2}
+$$
+
+将上式展开得到
+
+$$
+(\kappa_1 - \kappa_2) (\tilde{E} G - E \tilde{G}) (\mathrm{d} u)^2 (\mathrm{d} v)^2 = 0
+$$
+
+由于$$\kappa_1 - \kappa_2 \gt 0$$，并且上式是关于$$\mathrm{d} u$$、$$\mathrm{d} v$$的恒等式，故有
+
+$$
+\tilde{E} G - E \tilde{G} = 0
+$$
+
+设
+
+$$
+\frac{\tilde{E}}{E} = \frac{\tilde{G}}{G} = \lambda
+$$
+
+因此我们需要证明$$\lambda = 1$$。
+
+由于采用了正交的曲率线网作为参数曲线网，曲面$$S_1$$和$$S_2$$的Codazzi方程是
+
+$$
+\frac{\partial L}{\partial v} = H \frac{\partial E}{\partial v}, \ \ \
+\frac{\partial N}{\partial u} = H \frac{\partial G}{\partial u}
+$$
+
+$$
+\frac{\partial \tilde{L}}{\partial v} = H \frac{\partial \tilde{E}}{\partial v}, \ \ \
+\frac{\partial \tilde{N}}{\partial u} = H \frac{\partial \tilde{G}}{\partial u}
+$$
+
+其中$$H = \frac{1}{2} (\kappa_1 + \kappa_2)$$。因为$$\tilde{E} = \lambda E$$、$$\tilde{G} = \lambda G$$、$$\tilde{L} = \lambda L$$、$$\tilde{N} = \lambda N$$，将上式展开得到
+
+$$
+(\kappa_1 - \kappa_2) \frac{\partial \lambda}{\partial u} = (\kappa_1 - \kappa_2) \frac{\partial \lambda}{\partial v} = 0
+$$
+
+所以
+
+$$
+\frac{\partial \lambda}{\partial u} = \frac{\partial \lambda}{\partial v} = 0
+$$
+
+即$$\lambda$$是常数。将$$\tilde{E} = \lambda E$$、$$\tilde{G} = \lambda G$$带入$$K = -\frac{1}{\sqrt{EG}} \bigg[ \bigg( \frac{\big( \sqrt{E} \big)_v}{\sqrt{G}} \bigg)_v + \bigg( \frac{\big( \sqrt{G} \big)_u}{\sqrt{E}} \bigg)_u \bigg]$$得到
+
+$$
+\tilde{K} = \frac{1}{\lambda} K
+$$
+
+但是，在另一方面
+
+$$
+\tilde{K} = \kappa_1 \kappa_2 = K \neq 0
+$$
+
+故得
+
+$$
+\lambda = 1
+$$
+
+由此可见，曲面$$S_1$$和$$S_2$$有相同的第一基本形式和第二基本形式。根据[定理5.2](/2023/12/27/DifferentialGeometry-NOTES-05.html#曲面的唯一性定理)，在空间$$\mathbb{E}^3$$中存在一个刚体运动$$\tilde{\sigma}$$使得$$\sigma = \tilde{\sigma} \vert_{S_1}$$。证毕∎
