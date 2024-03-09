@@ -636,3 +636,10 @@ STL:
           url: /2023/11/12/STL-NOTES-04.html
         - title: std::list
           url: /2023/11/18/STL-NOTES-05.html
+
+GAMES001:
+  - title: 图形学中的数学
+  - title: 几何与代数
+    children:
+      - title: 线性代数基础
+        url: /2024/03/09/GAMES001-NOTES-01.html
