@@ -639,7 +639,13 @@ STL:
 
 GAMES001:
   - title: 图形学中的数学
-  - title: 几何与代数
+  - title: PartI 几何与代数
     children:
       - title: 线性代数基础
         url: /2024/03/09/GAMES001-NOTES-01.html
+  # - title: PartII 数值方法
+  #   children:
+  # - title: PartIII 微分方程求解
+  #   children:
+  # - title: PartIV 优化与拓扑
+  #   children:
