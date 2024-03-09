@@ -643,9 +643,9 @@ GAMES001:
     children:
       - title: 线性代数基础
         url: /2024/03/09/GAMES001-NOTES-01.html
-  # - title: Part II 数值方法
+  # - title: "Part II: 数值方法"
   #   children:
-  # - title: Part III 微分方程求解
+  # - title: "Part III: 微分方程求解"
   #   children:
-  # - title: Part IV 优化与拓扑
+  # - title: "Part IV: 优化与拓扑"
   #   children:
