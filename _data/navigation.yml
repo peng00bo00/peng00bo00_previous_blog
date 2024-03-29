@@ -644,6 +644,8 @@ GAMES001:
         url: /2024/03/09/GAMES001-NOTES-01.html
       - title: 计算几何
         url: /2024/03/28/GAMES001-NOTES-02.html
+      - title: 旋转变换
+        url: /2024/03/29/GAMES001-NOTES-03.html
   - title: "Part II: 数值方法"
   - title: "Part III: 微分方程求解"
   - title: "Part IV: 优化与拓扑"
