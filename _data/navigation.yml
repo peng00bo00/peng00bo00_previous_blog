@@ -646,6 +646,8 @@ GAMES001:
         url: /2024/03/28/GAMES001-NOTES-02.html
       - title: 旋转变换
         url: /2024/03/29/GAMES001-NOTES-03.html
+      - title: 奇异值分解与主成分分析
+        url: /2024/04/02/GAMES001-NOTES-04.html
   - title: "Part II: 数值方法"
   - title: "Part III: 微分方程求解"
   - title: "Part IV: 优化与拓扑"
