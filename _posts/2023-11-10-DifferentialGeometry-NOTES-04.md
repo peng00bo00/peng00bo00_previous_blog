@@ -64,9 +64,9 @@ $$
 $$
 \begin{cases}
 \begin{aligned}
-L &= \boldsymbol{r}_{uu} (u_0, v_0) \cdot n (u_0, v_0) \\
-M &= \boldsymbol{r}_{uv} (u_0, v_0) \cdot n (u_0, v_0) \\
-N &= \boldsymbol{r}_{vv} (u_0, v_0) \cdot n (u_0, v_0) \\
+L &= \boldsymbol{r}_{uu} (u_0, v_0) \cdot \boldsymbol{n} (u_0, v_0) \\
+M &= \boldsymbol{r}_{uv} (u_0, v_0) \cdot \boldsymbol{n} (u_0, v_0) \\
+N &= \boldsymbol{r}_{vv} (u_0, v_0) \cdot \boldsymbol{n} (u_0, v_0) \\
 \end{aligned}
 \end{cases}
 $$
