@@ -138,6 +138,72 @@ $$
 **定理6.2** 曲面$$S$$的任意一条曲线$$C$$的测地曲率$$\kappa_g$$在，曲面$$S$$作保长对应时是保持不变的，即曲面上曲线的测地曲率是属于曲面内蕴几何学的量。
 {:.info}
 
+**证明** 曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$上任意一条曲线$$C: u^1 = u^1 (s), u^2 = u^2 (s)$$作为空间$$\mathbb{E}^3$$中的曲线的参数方程是
+
+$$
+\boldsymbol{r} (s) = \boldsymbol{r} (u^1 (s), u^2 (s))
+$$
+
+其中$$s$$是弧长参数。所以
+
+$$
+\boldsymbol{e}_1 (s) = \boldsymbol{\alpha} (s) = \frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} = \boldsymbol{r}_\alpha \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s}
+$$
+
+于是
+
+$$
+\begin{aligned}
+\frac{\mathrm{d} \boldsymbol{e}_1}{\mathrm{d} s} &= \frac{\mathrm{d}^2 \boldsymbol{r} (s)}{\mathrm{d} s^2} = \boldsymbol{r}_{\alpha \beta} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} + \boldsymbol{r}_\alpha \frac{\mathrm{d}^2 u^\alpha (s)}{\mathrm{d} s^2} \\
+&= \bigg( \frac{\mathrm{d}^2 u^\gamma (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^\gamma \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \bigg) \boldsymbol{r}_\gamma + b_{\alpha \beta} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \boldsymbol{n}
+\end{aligned}
+$$
+
+因此
+
+$$
+\begin{aligned}
+\kappa_g &= \frac{\mathrm{d} \boldsymbol{e}_1 (s)}{\mathrm{d} s} \cdot \boldsymbol{e}_2 (s) \\
+&= \bigg( \frac{\mathrm{d}^2 u^\gamma (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^\gamma \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \bigg) \boldsymbol{r}_\gamma \cdot \boldsymbol{e}_2
+\end{aligned}
+$$
+
+但是
+
+$$
+\boldsymbol{e}_2 = \boldsymbol{n} \times \boldsymbol{e}_1 = \boldsymbol{n} \times \bigg( \frac{\mathrm{d} u^1 (s)}{\mathrm{d} s} \boldsymbol{r}_1 + \frac{\mathrm{d} u^2 (s)}{\mathrm{d} s} \boldsymbol{r}_2 \bigg)
+$$
+
+故
+
+$$
+\begin{cases}
+\begin{aligned}
+\boldsymbol{r}_1 \cdot \boldsymbol{e}_2 &= \frac{\mathrm{d} u^2 (s)}{\mathrm{d} s} \boldsymbol{r}_1 \cdot (\boldsymbol{n} \times \boldsymbol{r}_2) = -\frac{\mathrm{d} u^2 (s)}{\mathrm{d} s} \vert \boldsymbol{r}_1 \times \boldsymbol{r}_2 \vert \\ 
+\boldsymbol{r}_2 \cdot \boldsymbol{e}_2 &= \frac{\mathrm{d} u^1 (s)}{\mathrm{d} s} \boldsymbol{r}_2 \cdot (\boldsymbol{n} \times \boldsymbol{r}_1) = \frac{\mathrm{d} u^1 (s)}{\mathrm{d} s} \vert \boldsymbol{r}_1 \times \boldsymbol{r}_2 \vert \\ 
+\end{aligned}
+\end{cases}
+$$
+
+因此
+
+$$
+\begin{aligned}
+\kappa_g &= \vert \boldsymbol{r}_1 \times \boldsymbol{r}_2 \vert \bigg(
+\frac{\mathrm{d} u^1}{\mathrm{d} s} \bigg( \frac{\mathrm{d}^2 u^2 (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^2 \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg) - \frac{\mathrm{d} u^2}{\mathrm{d} s} \bigg( \frac{\mathrm{d}^2 u^1 (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^1 \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg)
+\bigg) \\
+&= \sqrt{g_{11} g_{22} - (g_{12})^2}
+\begin{vmatrix}
+\frac{\mathrm{d} u^1}{\mathrm{d} s} & \frac{\mathrm{d}^2 u^1 (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^1 \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \\
+\frac{\mathrm{d} u^2}{\mathrm{d} s} & \frac{\mathrm{d}^2 u^2 (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^2 \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \\
+\end{vmatrix}
+\end{aligned}
+$$
+
+由于上面的式子只依赖曲面$$S$$的第一类基本量及其导数，以及在曲面$$S$$的曲纹坐标下曲线$$C$$的参数方程及其导数，而与曲面$$S$$的第二类基本形式无关，所以当曲面$$S$$作保长变形时，曲线$$C$$的测地曲率$$\kappa_g$$是保持不变的。证毕∎
+
+上面给出的测地曲率公式比较容易记忆，但在计算时比较复杂。如果在曲面$$S$$上取正交参数系，则曲面$$S$$上的曲线$$C$$的测地曲率$$\kappa_g$$能够写成比较简单的表达式，称为**Liouville公式**。下面我们恢复使用Gauss的记号。
+
 **定理6.3** 设$$(u, v)$$是曲面$$S$$上的正交参数系，因而曲面$$S$$的第一基本形式是$$\mathrm{I} = E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2$$。设$$C: u = u(s), v = v(s)$$是曲面$$S$$上的一条曲线，其中$$s$$是弧长参数。假定曲线$$C$$与$$u$$-曲线的夹角是$$\theta$$，则曲线$$C$$的测地曲率是
 $$
 \kappa_g = \frac{\mathrm{d} \theta}{\mathrm{d} s} - \frac{1}{2 \sqrt{G}} \frac{\partial \log{E}}{\partial v} \cos{\theta} + \frac{1}{2 \sqrt{E}} \frac{\partial \log{G}}{\partial u} \sin{\theta}
