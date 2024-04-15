@@ -1230,8 +1230,8 @@ b. 在脐点的情形，$$\kappa_1 = \kappa_2 = \frac{L}{E} = \frac{M}{F} = \fra
 $$
 \begin{cases}
 \begin{aligned}
-(L \delta u + M \delta v) \delta u - \lambda (E \delta u + F \delta v) &= 0 \\
-(M \delta u + N \delta v) \delta u - \lambda (F \delta u + G \delta v) &= 0 \\
+(L \delta u + M \delta v) - \lambda (E \delta u + F \delta v) &= 0 \\
+(M \delta u + N \delta v) - \lambda (F \delta u + G \delta v) &= 0 \\
 \end{aligned}
 \end{cases}
 $$
