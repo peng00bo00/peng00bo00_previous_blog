@@ -622,6 +622,8 @@ DifferentialGeometry:
           url: /2023/11/10/DifferentialGeometry-NOTES-04.html
         - title: 曲面论基本定理
           url: /2023/12/27/DifferentialGeometry-NOTES-05.html
+        - title: 测地曲率和测地线
+          url: /2024/04/15/DifferentialGeometry-NOTES-06.html
 
 STL:
   - title: 动手实现C++ STL容器
