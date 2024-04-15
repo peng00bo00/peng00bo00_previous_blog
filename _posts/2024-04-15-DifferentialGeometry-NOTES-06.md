@@ -16,6 +16,8 @@ sidebar:
 
 ## 测地曲率和测地挠率
 
+### 曲面上曲线的正交标架场
+
 设正则参数曲面$$S$$的方程是$$\boldsymbol{r} = \boldsymbol{r}(u^1, u^2)$$，$$C$$是曲面$$S$$上的一条曲线，它的方程是$$u^\alpha = u^\alpha (s)$$，$$\alpha = 1, 2$$，其中$$s$$是曲线$$C$$的弧长参数。那么$$C$$作为空间$$\mathbb{E}^3$$中曲线的参数方程是
 
 $$
@@ -68,11 +70,13 @@ $$
 $$
 \begin{aligned}
 \tau_g &= \frac{\mathrm{d} \boldsymbol{e}_2}{\mathrm{d} s} \cdot \boldsymbol{n} = \frac{\mathrm{d} (\boldsymbol{n} \times \boldsymbol{r}' (s))}{\mathrm{d} s} \cdot \boldsymbol{n} \\
-&= (\boldsymbol{n}' (s) \times \boldsymbol{r}' (s)) \cdot \boldsymbol{n} = \big( \boldsymbol{n}, \boldsymbol{n}' (s), \boldsymbol{r}' (s)) \big)
+&= (\boldsymbol{n}' (s) \times \boldsymbol{r}' (s)) \cdot \boldsymbol{n} = \big( \boldsymbol{n}, \boldsymbol{n}' (s), \boldsymbol{r}' (s) \big)
 \end{aligned}
 $$
 
 称$$\tau_g$$为曲面$$S$$上的曲线$$C$$的**测地挠率**。
+
+### Liouville公式
 
 ## 测地线
 
