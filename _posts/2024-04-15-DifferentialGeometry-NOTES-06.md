@@ -150,7 +150,7 @@ $$
 \boldsymbol{e}_1 (s) = \boldsymbol{\alpha} (s) = \frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} = \boldsymbol{r}_\alpha \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s}
 $$
 
-于是
+于是，根据[Gauss公式](/2023/12/27/DifferentialGeometry-NOTES-05.html#自然标架场的运动公式)有
 
 $$
 \begin{aligned}
@@ -210,6 +210,28 @@ $$
 $$
 。
 {:.info}
+
+**证明**
+
+证毕∎
+
+作为特例，考虑$$u$$-曲线的测地曲率$$\kappa_{g1}$$。此时$$\theta = 0$$，因此
+
+$$
+\kappa_{g1} = -\frac{1}{2 \sqrt{G}} \frac{\partial \log{E}}{\partial v}
+$$
+
+同时，对于$$v$$-曲线，$$\theta = \frac{\pi}{2}$$，因此它的测地曲率$$\kappa_{g2}$$是
+
+$$
+\kappa_{g2} = \frac{1}{2 \sqrt{E}} \frac{\partial \log{G}}{\partial u}
+$$
+
+这样，Liouville公式又可以写成
+
+$$
+\kappa_g = \frac{\mathrm{d} \theta}{\mathrm{d} s} + \kappa_{g1} \cos{\theta} + \kappa_{g2} \sin{\theta}
+$$
 
 ### 测地挠率
 
