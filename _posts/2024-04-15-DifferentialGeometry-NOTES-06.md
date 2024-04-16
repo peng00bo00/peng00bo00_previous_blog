@@ -427,9 +427,26 @@ $$
 **定理6.4** 在曲面$$S$$上非直线的渐近曲线$$C$$的挠率是曲面$$S$$沿曲线$$C$$的切方向的测地挠率。
 {:.info}
 
-**证明**
+**证明** 由于曲线$$C$$是非直线的渐近曲线，故$$\kappa \neq 0$$，但是$$\kappa_n \equiv 0$$。于是标架场的运动方程成为
 
-证毕∎
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} &= \boldsymbol{e}_1 \\
+\frac{\mathrm{d} \boldsymbol{e}_1}{\mathrm{d} s} &= \vert \kappa_g \vert (\varepsilon \boldsymbol{e}_2) \\
+\frac{\mathrm{d} (\varepsilon \boldsymbol{e}_2)}{\mathrm{d} s} &= -\vert \kappa_g \vert \boldsymbol{e}_1 + \tau_g (\varepsilon \boldsymbol{e}_3) \\
+\frac{\mathrm{d} (\varepsilon \boldsymbol{e}_3)}{\mathrm{d} s} &= - \tau_g (\varepsilon \boldsymbol{e}_2)\\
+\end{aligned}
+\end{cases}
+$$
+
+因为
+
+$$
+\kappa_g^2 = \kappa_g^2 + \kappa_n^2 = \kappa^2 \neq 0
+$$
+
+所以$$\{ \boldsymbol{r} (s); \boldsymbol{e}_1, \varepsilon \boldsymbol{e}_2, \varepsilon \boldsymbol{e}_3 \}$$恰好是曲线$$C$$的Frenet标架，其中$$\varepsilon = \text{sign} (\kappa_g)$$。因此曲线$$C$$的曲率是$$\vert \kappa_g \vert$$，挠率是$$\tau_g$$。证毕∎
 
 总起来说，本节介绍了曲面$$S$$上的曲线C的测地曲率和测地挠率的概念，其中测地曲率是曲面$$S$$的内蕴几何量，与曲面$$S$$的第二基本形式无关；测地挠率是曲面$$S$$在任意一点的切方向的函数，它与法曲率有密切的关系，实际上测地挠率是法曲率作为切方向的函数的导数之半。
 
