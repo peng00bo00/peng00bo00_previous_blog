@@ -245,6 +245,88 @@ $$
 
 其中$$\theta$$是$$\boldsymbol{r}' (s)$$与$$\boldsymbol{\alpha}_1$$的夹角。
 
+因此切向量$$\boldsymbol{e}_2$$是将切向量$$\boldsymbol{e}_1$$在切平面内作正向旋转90°得到的，即$$\boldsymbol{e}_2 = \boldsymbol{n} \times \boldsymbol{e}_1$$，所以
+
+$$
+\boldsymbol{e}_2 = -\sin{\theta} \boldsymbol{\alpha}_1 + \cos{\theta} \boldsymbol{\alpha}_2
+$$
+
+但是
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}^2 \boldsymbol{r} (s)}{\mathrm{d} s^2} &= \frac{\mathrm{d}}{\mathrm{d} s} (\cos{\theta} \boldsymbol{\alpha}_1 + \sin{\theta} \boldsymbol{\alpha}_2) \\
+&= (-\sin{\theta} \boldsymbol{\alpha}_1 + \cos{\theta} \boldsymbol{\alpha}_2) \frac{\mathrm{d} \theta}{\mathrm{d} s} + \cos{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} + \sin{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_2}{\mathrm{d} s}
+\end{aligned}
+$$
+
+所以
+
+$$
+\kappa_g = \frac{\mathrm{d}^2 \boldsymbol{r} (s)}{\mathrm{d} s^2} \cdot \boldsymbol{e}_2 
+= \frac{\mathrm{d} \theta}{\mathrm{d} s} + \cos{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} \cdot \boldsymbol{e}_2 + \sin{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_2}{\mathrm{d} s} \cdot \boldsymbol{e}_2
+$$
+
+然而
+
+$$
+\frac{\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} \cdot \boldsymbol{\alpha}_1 = \frac{\mathrm{d} \boldsymbol{\alpha}_2}{\mathrm{d} s} \cdot \boldsymbol{\alpha}_2 = 0
+$$
+
+$$
+\frac{\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} \cdot \boldsymbol{\alpha}_2 = -\frac{\mathrm{d} \boldsymbol{\alpha}_2}{\mathrm{d} s} \cdot \boldsymbol{\alpha}_1
+$$
+
+因此
+
+$$
+\begin{aligned}
+\kappa_g &= \frac{\mathrm{d} \theta}{\mathrm{d} s} + \cos{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} \cdot \boldsymbol{e}_2 + \sin{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_2}{\mathrm{d} s} \cdot \boldsymbol{e}_2 \\
+&= \frac{\mathrm{d} \theta}{\mathrm{d} s} + \cos{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} \cdot (-\sin{\theta} \boldsymbol{\alpha}_1 + \cos{\theta} \boldsymbol{\alpha}_2) \\
+&+ \sin{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_2}{\mathrm{d} s} \cdot (-\sin{\theta} \boldsymbol{\alpha}_1 + \cos{\theta} \boldsymbol{\alpha}_2) \\
+&= \frac{\mathrm{d} \theta}{\mathrm{d} s} + \cos^2{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} \cdot \boldsymbol{\alpha}_2 - \sin^2{\theta} \frac{\mathrm{d} \boldsymbol{\alpha}_2}{\mathrm{d} s} \cdot \boldsymbol{\alpha}_1 \\
+&= \frac{\mathrm{d} \theta}{\mathrm{d} s} + \frac{\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} \cdot \boldsymbol{\alpha}_2
+\end{aligned}
+$$
+
+由$$\boldsymbol{\alpha}_1$$和$$\boldsymbol{\alpha}_2$$的表达式得到
+
+$$
+\frac{\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} = \frac{\mathrm{d}}{\mathrm{d} s} \bigg( \frac{1}{\sqrt{E}} \bigg) \boldsymbol{r}_u + \frac{1}{\sqrt{E}} \bigg( \boldsymbol{r}_{uu} \frac{\mathrm{d} u}{\mathrm{d} s} + \boldsymbol{r}_{uv} \frac{\mathrm{d} v}{\mathrm{d} s} \bigg)
+$$
+
+$$
+\frac{\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} \cdot \boldsymbol{\alpha}_2 = \frac{1}{\sqrt{EG}} \bigg( \boldsymbol{r}_{uu} \cdot \boldsymbol{r}_v \frac{\mathrm{d} u}{\mathrm{d} s} + \boldsymbol{r}_{uv} \cdot \boldsymbol{r}_v \frac{\mathrm{d} v}{\mathrm{d} s} \bigg)
+$$
+
+因为$$\boldsymbol{r}_u$$和$$\boldsymbol{r}_v$$是彼此正交的，容易得知
+
+$$
+\begin{aligned}
+\boldsymbol{r}_{uu} \cdot \boldsymbol{r}_v &= (\boldsymbol{r}_u \cdot \boldsymbol{r}_v)_u - \boldsymbol{r}_u \cdot \boldsymbol{r}_{uv} = -\boldsymbol{r}_u \cdot \boldsymbol{r}_{uv} \\
+&= -\frac{1}{2} \frac{\partial}{\partial v} (\boldsymbol{r}_u \cdot \boldsymbol{r}_u) = -\frac{1}{2} \frac{\partial E}{\partial v}
+\end{aligned}
+$$
+
+$$
+\boldsymbol{r}_{uv} \cdot \boldsymbol{r}_v = \frac{1}{2} \frac{\partial}{\partial u} (\boldsymbol{r}_v \cdot \boldsymbol{r}_v) = \frac{1}{2} \frac{\partial G}{\partial u}
+$$
+
+所以
+
+$$
+\begin{aligned}
+\frac{\mathrm{d} \boldsymbol{\alpha}_1}{\mathrm{d} s} \cdot \boldsymbol{\alpha}_2 &= \frac{1}{\sqrt{EG}} \bigg( -\frac{1}{2 \sqrt{E}} \frac{\partial E}{\partial v} \cos{\theta} + \frac{1}{2 \sqrt{G}} \frac{\partial G}{\partial u} \sin{\theta} \bigg) \\
+&= -\frac{1}{2 \sqrt{G}} \frac{\partial \log{E}}{\partial v} \cos{\theta} + \frac{1}{2 \sqrt{E}} \frac{\partial \log{G}}{\partial u} \sin{\theta}
+\end{aligned}
+$$
+
+因此
+
+$$
+\kappa_g = \frac{\mathrm{d} \theta}{\mathrm{d} s} - \frac{1}{2 \sqrt{G}} \frac{\partial \log{E}}{\partial v} \cos{\theta} + \frac{1}{2 \sqrt{E}} \frac{\partial \log{G}}{\partial u} \sin{\theta}
+$$
+
 证毕∎
 
 作为特例，考虑$$u$$-曲线的测地曲率$$\kappa_{g1}$$。此时$$\theta = 0$$，因此
