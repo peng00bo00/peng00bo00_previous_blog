@@ -612,13 +612,13 @@ $$
 u^\alpha (a, t) = u^\alpha (a), \ \ \ u^\alpha (b, t) = u^\alpha (b)
 $$
 
-则称该变分有固定的端点。在直观上，对于每一个参数$$t \in (-\varepsilon, \varepsilon)$$，函数组$$u^\alpha = u^\alpha (s, t)$$给出了一条曲线$$C_t$$，它的参数方程是
+则称该变分有固定的端点。在直观上，对于每一个参数$$t \in (-\varepsilon, \varepsilon)$$，函数组$$u^\alpha (s, t)$$给出了一条曲线$$C_t$$，它的参数方程是
 
 $$
 u^\alpha = u_t^\alpha (s) = u^\alpha (s, t)
 $$
 
-条件$$u^\alpha (s, 0) = u^\alpha (s)$$说明已知的曲线$$C$$是这族曲线中的一员，且$$C = C_0$$。因此，所谓的曲线$$C$$的变分就是把它嵌入到在它周围变化的一个曲线族$$C_t$$中去。有固定端点的意思是，曲线$$C$$的变分曲线$$C_t$$和曲线$$C$$本身有相同的起点和终点即它们有公共的端点。需要指出的是，尽管可以假定参数$$s$$是曲线$$C$$的弧长参数，但是$$s$$未必是变分曲线$$C_t$$的弧长参数。
+条件$$u^\alpha (s, 0) = u^\alpha (s)$$说明已知的曲线$$C$$是这族曲线中的一员，且$$C = C_0$$。因此，所谓的曲线$$C$$的变分就是把它嵌入到在它周围变化的一个曲线族$$C_t$$中去。有固定端点的意思是，曲线$$C$$的变分曲线$$C_t$$和曲线$$C$$本身有相同的起点和终点，即它们有公共的端点。需要指出的是，尽管可以假定参数$$s$$是曲线$$C$$的弧长参数，但是$$s$$未必是变分曲线$$C_t$$的弧长参数。
 
 用$$L(C)$$表示曲线$$C$$的长度，即
 
@@ -633,6 +633,28 @@ $$
 $$
 
 当曲面$$S$$上的曲线$$C$$关于它的一个变分$$C_t$$满足上述条件，则称曲线$$C$$的弧长在它的变分曲线$$C_t$$中达到临界值。需要指出的是，上面的做法完全忽略了曲面$$S$$的外在特征，而只与曲面$$S$$的第一基本形式有关，这就是说，上述考虑属于曲面$$S$$的内蕴几何的范畴。
+
+命
+
+$$
+v^\alpha (s) = \frac{\partial}{\partial t} \bigg\vert_{t = 0} u^\alpha (s, t)
+$$
+
+$$
+\boldsymbol{v} (s) = v^\alpha \boldsymbol{r}_\alpha (u^1 (s), u^2 (s))
+$$
+
+则$$\boldsymbol{v} (s)$$是曲面$$S$$上沿曲线$$C$$定义的一个切向量场，称为变分$$u^\alpha (s, t)$$的**变分向量场**。实际上，变分向量$$\boldsymbol{v} (s_0)$$是变分$$u^\alpha (s, t)$$在$$s = s_0$$时给出的曲线$$u^\alpha = u^\alpha (s_0, t)$$在$$t = 0$$处的切向量。条件$$u^\alpha (a, t) = u^\alpha (a)， u^\alpha (b, t) = u^\alpha (b)$$意味着$$\boldsymbol{v} (a) = \boldsymbol{0}$$，$$\boldsymbol{v} (b) = \boldsymbol{0}$$，即对于曲线$$C$$有固定端点的变分而言，它的变分向量场在端点的值为零。反过来，如果在曲面$$S$$上沿曲线$$C$$给定了一个切向量场$$\boldsymbol{v} (s)$$，则可以定义曲线$$C$$的一个变分，使得它的变分向量场是$$\boldsymbol{v} (s)$$。实际上，只要命
+
+$$
+u^\alpha (s, t) = u^\alpha (s) + t v^\alpha (s)
+$$
+
+就可以了。很明显，当$$\boldsymbol{v} (a) = \boldsymbol{0}$$，$$\boldsymbol{v} (b) = \boldsymbol{0}$$时，上面的变分确实有固定的端点。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/FSM2GOh.png" width="80%">
+</div>
 
 ## 测地坐标系和法坐标系
 
