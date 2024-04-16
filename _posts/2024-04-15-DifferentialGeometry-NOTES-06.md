@@ -656,6 +656,75 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/FSM2GOh.png" width="80%">
 </div>
 
+假定曲面$$S$$的第一基本形式是
+
+$$
+\mathrm{I} = g_{\alpha \beta} (u^1, u^2) \mathrm{d} u^\alpha \mathrm{d} u^\beta
+$$
+
+则变分曲线$$C_t$$的长度是
+
+$$
+L(C_t) = \int_a^b \sqrt{g_{\alpha \beta} (u^1 (s), u^2 (s)) \frac{\partial u^\alpha (s, t)}{\partial s} \frac{\partial u^\beta (s, t)}{\partial s}} \ \mathrm{d} s
+$$
+
+所以
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d} t} L(C_t) &= \int_a^b \frac{\partial}{\partial t} \bigg( \sqrt{g_{\alpha \beta} \frac{\partial u^\alpha}{\partial s} \frac{\partial u^\beta}{\partial s}} \bigg) \ \mathrm{d} s \\
+&= \frac{1}{2} \int_a^b \bigg( \frac{\partial g_{\alpha \beta}}{\partial u^\gamma} \frac{\partial u^\gamma}{\partial t} \frac{\partial u^\alpha}{\partial s} \frac{\partial u^\beta}{\partial s} + 2 g_{\alpha \beta} \frac{\partial^2 u^\alpha}{\partial s \partial t} \frac{\partial u^\beta}{\partial s} \bigg) \\
+&\cdot \bigg( g_{\alpha \beta} \frac{\partial u^\alpha}{\partial s} \frac{\partial u^\beta}{\partial s} \bigg)^{-\frac{1}{2}} \ \mathrm{d} s
+\end{aligned}
+$$
+
+因为$$s$$是曲线$$C = C_0$$的弧长参数，因此
+
+$$
+g_{\alpha \beta} \frac{\partial u^\alpha}{\partial s} \frac{\partial u^\beta}{\partial s} \bigg\vert_{t=0} = 1
+$$
+
+所以
+
+$$
+\frac{\mathrm{d}}{\mathrm{d} t} L(C_t) \bigg\vert_{t=0} = \int_a^b \frac{1}{2} \bigg( \frac{\partial g_{\alpha \beta}}{\partial u^\gamma} v^\gamma (s) \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} + 2 g_{\alpha \beta} \frac{\mathrm{d} v^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg) \ \mathrm{d} s
+$$
+
+由于
+
+$$
+\begin{aligned}
+g_{\alpha \beta} \frac{\mathrm{d} v^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} &= \frac{\mathrm{d}}{\mathrm{d} s} \bigg( g_{\alpha \beta} v^\alpha \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg) - v^\alpha \frac{\mathrm{d}}{\mathrm{d} s} \bigg( g_{\alpha \beta} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg) \\
+&= \frac{\mathrm{d}}{\mathrm{d} s} \bigg( g_{\alpha \beta} v^\alpha \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg) - v^\alpha \bigg( \frac{\partial g_{\alpha \beta}}{\partial u^\gamma} \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} + g_{\alpha \beta} \frac{\mathrm{d}^2 u^\beta}{\mathrm{d} s^2} \bigg)
+\end{aligned}
+$$
+
+代入前面的式子后再用分部积分得到
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d} t} L(C_t) \bigg\vert_{t=0} &= \int_a^b \bigg[ \frac{\mathrm{d}}{\mathrm{d} s} \bigg( g_{\alpha \beta} v^\alpha \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg) - v^\alpha \bigg(
+  g_{\alpha \beta} \frac{\mathrm{d}^2 u^\beta}{\mathrm{d} s^2} 
+  + \frac{1}{2} \bigg( 
+  \frac{\partial g_{\alpha \beta}}{\partial u^\gamma} + \frac{\partial g_{\alpha \gamma}}{\partial u^\beta} - \frac{\partial g_{\gamma \beta}}{\partial u^\alpha}
+  \bigg)
+  \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} 
+\bigg) \bigg] \ \mathrm{d} s \\
+&= g_{\alpha \beta} v^\alpha \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg\vert_{s = a}^{s = b} - \int_a^b g_{\alpha \beta} v^\alpha \bigg( \frac{\mathrm{d}^2 u^\beta}{\mathrm{d} s^2} +\Gamma_{\gamma \delta}^\beta \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \frac{\mathrm{d} u^\delta}{\mathrm{d} s} \bigg) \ \mathrm{d} s
+\end{aligned}
+$$
+
+假定变分有固定的端点，则$$v^\alpha (a) = b^\alpha (b) = 0$$，于是
+
+$$
+\frac{\mathrm{d}}{\mathrm{d} t} L(C_t) \bigg\vert_{t=0} = -\int_a^b g_{\alpha \beta} v^\alpha \bigg( \frac{\mathrm{d}^2 u^\beta}{\mathrm{d} s^2} +\Gamma_{\gamma \delta}^\beta \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \frac{\mathrm{d} u^\delta}{\mathrm{d} s} \bigg) \ \mathrm{d} s
+$$
+
+前一个关于$$\frac{\mathrm{d}}{\mathrm{d} t} L(C_t) \bigg\vert_{t=0}$$的式子称为曲面$$S$$上的曲线$$C$$的弧长的第一变分公式，而后一个式子称为曲面$$S$$上的曲线$$C$$关于有固定端点的变分的弧长的第一变分公式。
+
+**定理6.7** 设$$C$$是曲面$$S$$上的一条曲线，则$$C$$的弧长在它的任意一个有固定端点的变分$$C_t$$中达到临界值的充分必要条件是，曲线$$C$$是曲面$$S$$上的测地线。
+{:.info}
+
 ## 测地坐标系和法坐标系
 
 ## 常曲率曲面
