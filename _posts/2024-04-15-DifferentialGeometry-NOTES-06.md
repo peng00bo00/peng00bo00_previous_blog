@@ -496,7 +496,27 @@ $$
 \frac{\mathrm{d}^2 u^\gamma (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^\gamma \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} = 0
 $$
 
-这就是曲面$$S$$上的测地线所满足的微分方程，并且该方程只涉及曲面$$S$$的第一基本形式而与曲面S的第二基本形式无关。因此，这是曲面$$S$$上的测地线属于曲面内蕴几何范畴的微分方程。
+这就是曲面$$S$$上的测地线所满足的微分方程，并且该方程只涉及曲面$$S$$的第一基本形式，而与曲面$$S$$的第二基本形式无关。因此，这是曲面$$S$$上的测地线属于曲面内蕴几何范畴的微分方程。
+
+若引进新的未知函数$$v^\gamma$$，则上面的二阶常微分方程组便降阶为一阶常微分方程组
+
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\mathrm{d} u^\gamma}{\mathrm{d} s} &= v^\gamma \\
+\frac{\mathrm{d} v^\gamma}{\mathrm{d} s} &= -\Gamma_{\alpha \beta}^\gamma v^\alpha v^\beta
+\end{aligned}
+\end{cases}
+$$
+
+这是拟线性常微分方程组。根据常微分方程组的理论，对于任意给定的初始值$$(u_0^1, u_0^2; v_0^1, v_0^2)$$，必存在$$\varepsilon \gt 0$$，使得方程组有定义在区
+间$$(-\varepsilon, \varepsilon)$$上的唯一解$$u^\gamma = u^\gamma (s)$$，$$v^\gamma = v^\gamma (s)$$, 满足初始条件
+
+$$
+u^\gamma (0) = u_0^\gamma, \ \ \ v^\gamma (0) = v_0^\gamma
+$$
+
+很明显，函数组$$u^\gamma = u^\gamma (s)$$满足测地线的微分方程组。
 
 ### 最短曲线
 
