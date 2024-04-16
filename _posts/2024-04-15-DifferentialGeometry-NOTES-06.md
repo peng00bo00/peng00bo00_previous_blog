@@ -358,6 +358,62 @@ $$
 
 ### 测地挠率
 
+最后，我们来讨论测地挠率。由[自然标架的运动公式](/2023/12/27/DifferentialGeometry-NOTES-05.html#自然标架场的运动公式)得到
+
+$$
+\frac{\mathrm{d} \boldsymbol{n} (s)}{\mathrm{d} s} = \frac{\partial \boldsymbol{n}}{\partial u^\alpha} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} = -b_\alpha^\beta \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \boldsymbol{r}_\beta
+$$
+
+代入测地挠率$$\tau_g$$的表达式得到
+
+$$
+\begin{aligned}
+\tau_g &= \big( \boldsymbol{n}, \boldsymbol{n}' (s), \boldsymbol{r}' (s) \big) = -b_\alpha^\beta \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \big( \boldsymbol{n}, \boldsymbol{r}_\beta, \boldsymbol{r}_\gamma \big) \\
+&= \bigg( -b_\alpha^1 \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^2}{\mathrm{d} s} + b_\alpha^2 \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^1}{\mathrm{d} s} \bigg) \vert \boldsymbol{r}_1 \times \boldsymbol{r}_2 \vert \\
+&= \sqrt{g} \bigg( -b_2^1 \bigg( \frac{\mathrm{d} u^2}{\mathrm{d} s} \bigg)^2 + (b_2^2 - b_1^1) \frac{\mathrm{d} u^1}{\mathrm{d} s} \frac{\mathrm{d} u^2}{\mathrm{d} s} + b_1^1 \bigg( \frac{\mathrm{d} u^1}{\mathrm{d} s} \bigg)^2 \bigg)
+\end{aligned}
+$$
+
+由于
+
+$$
+g^{11} = \frac{g_{22}}{g}, \ \ \ g^{12} = g^{21} = -\frac{g_{12}}{g}, \ \ \ g^{22} = \frac{g_{11}}{g}
+$$
+
+所以
+
+$$
+-b_2^1 = -g^{11} b_{12} - g^{12} b_{22} = \frac{1}{g} 
+\begin{vmatrix}
+g_{12} & g_{22} \\ b_{12} & b_{22}
+\end{vmatrix}
+$$
+
+$$
+b_2^2 - b_1^1 = g^{21} b_{12} + g^{22} b_{22} - g^{11} b_{11} - g^{12} b_{21} = \frac{1}{g}
+\begin{vmatrix}
+g_{11} & g_{22} \\ b_{11} & b_{22}
+\end{vmatrix}
+$$
+
+$$
+b_1^2 = g^{21} b_{11} + g^{22} b_{21} = \frac{1}{g}
+\begin{vmatrix}
+g_{11} & g_{12} \\ b_{11} & b_{12}
+\end{vmatrix}
+$$
+
+因此
+
+$$
+\tau_g = \frac{1}{\sqrt{g}}
+\begin{vmatrix}
+\bigg( \frac{\mathrm{d} u^2}{\mathrm{d} s} \bigg)^2 & \frac{\mathrm{d} u^1}{\mathrm{d} s} \frac{\mathrm{d} u^2}{\mathrm{d} s} & \bigg( \frac{\mathrm{d} u^1}{\mathrm{d} s} \bigg)^2 \\
+g_{11} & g_{12} & g_{22} \\
+b_{11} & b_{12} & b_{22} \\
+\end{vmatrix}
+$$
+
 ## 测地线
 
 ## 测地坐标系和法坐标系
