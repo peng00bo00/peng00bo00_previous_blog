@@ -549,6 +549,47 @@ $$
 **定理6.6** 对于曲面$$S$$上的任意一点$$p$$和曲面$$S$$在点$$p$$的任意一个单位切向量$$\boldsymbol{v}$$，在曲面$$S$$上必存在唯一的一条以弧长为参数的测地线$$C$$通过点$$p$$，并且在点$$p$$以$$\boldsymbol{v}$$为它的切向量。
 {:.info}
 
+需要指出，**定理6.6**的证明本身说明方程组
+
+$$
+\frac{\mathrm{d}^2 u^\gamma (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^\gamma \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} = 0
+$$
+
+的解$$u = u^\gamma (s)$$必定满足
+
+$$
+\frac{\mathrm{d}}{\mathrm{d} s} \bigg( g_{\alpha \beta} (u^1 (s), u^2 (s)) \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \bigg) = 0
+$$
+
+因此只要初始值$$(v_0^1, v_0^2) \neq \mathbf{0}$$，则
+
+$$
+\begin{aligned}
+\bigg\vert \frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} \bigg\vert^2 &= g_{\alpha \beta} (u^1 (s), u^2 (s)) \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \\
+&= g_{\alpha \beta} (u_0^1, u_0^2) v_0^\alpha v_0^\beta = \text{常数} \neq 0
+\end{aligned}
+$$
+
+这就是说，曲线$$C: \boldsymbol{r} = \boldsymbol{r} (u^1 (s), u^2 (s))$$是正则曲线，并且参数$$s$$与弧长成比例。特别是，当条件
+
+$$
+u^\gamma (0) = u_0^\gamma, \ \ \ v^\gamma (0) = v_0^\gamma
+$$
+
+成立时，即切向量$$\boldsymbol{v}$$的长度为1时，$$s$$恰好是它的弧长参数。
+
+如果在曲面$$S$$上取正交参数系$$(u, v)$$，则利用测地曲率的Liouville公式，测地线的微分方程组还可以写成
+
+$$
+\begin{cases}
+\begin{aligned}
+\frac{\mathrm{d} u}{\mathrm{d} s} &= \frac{1}{\sqrt{E}} \cos{\theta} \\
+\frac{\mathrm{d} v}{\mathrm{d} s} &= \frac{1}{\sqrt{G}} \sin{\theta} \\
+\frac{\mathrm{d} \theta}{\mathrm{d} s} &= \frac{1}{2 \sqrt{G}} \frac{\partial \log{E}}{\partial v} \cos{\theta} - \frac{1}{2 \sqrt{E}} \frac{\partial \log{G}}{\partial u} \sin{\theta}
+\end{aligned}
+\end{cases}
+$$
+
 ### 最短曲线
 
 ## 测地坐标系和法坐标系
