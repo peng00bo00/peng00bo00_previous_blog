@@ -509,14 +509,45 @@ $$
 \end{cases}
 $$
 
-这是拟线性常微分方程组。根据常微分方程组的理论，对于任意给定的初始值$$(u_0^1, u_0^2; v_0^1, v_0^2)$$，必存在$$\varepsilon \gt 0$$，使得方程组有定义在区
-间$$(-\varepsilon, \varepsilon)$$上的唯一解$$u^\gamma = u^\gamma (s)$$，$$v^\gamma = v^\gamma (s)$$, 满足初始条件
+这是拟线性常微分方程组。根据常微分方程组的理论，对于任意给定的初始值$$(u_0^1, u_0^2; v_0^1, v_0^2)$$，必存在$$\varepsilon \gt 0$$，使得方程组有定义在区间$$(-\varepsilon, \varepsilon)$$上的唯一解$$u^\gamma = u^\gamma (s)$$，$$v^\gamma = v^\gamma (s)$$, 满足初始条件
 
 $$
 u^\gamma (0) = u_0^\gamma, \ \ \ v^\gamma (0) = v_0^\gamma
 $$
 
 很明显，函数组$$u^\gamma = u^\gamma (s)$$满足测地线的微分方程组。
+
+如果初始值$$(u_0^1, u_0^2; v_0^1, v_0^2)$$满足条件
+
+$$
+g_{\alpha \beta} (u_0^1, u_0^2) v_0^\alpha v_0^\beta = 1
+$$
+
+则能够证明如上所给出的解函数$$u^\gamma = u^\gamma (s)$$是曲面$$S$$上以弧长$$s$$为参数的一条测地线。实际上，如果命
+
+$$
+f(s) = g_{\alpha \beta} (u^1 (s), u^2 (s)) \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} - 1
+$$
+
+则
+
+$$
+\begin{aligned}
+\frac{\mathrm{d} f (s)}{\mathrm{d} s} &= \frac{\partial g_{\alpha \beta}}{\partial u^\gamma} \frac{\mathrm{d} u^\gamma (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} + 2 g_{\alpha \beta} \frac{\mathrm{d}^2 u^\alpha (s)}{\mathrm{d} s^2} \frac{\mathrm{d}^2 u^\beta (s)}{\mathrm{d} s^2} \\
+&= (\Gamma_{\alpha \beta \gamma} + \Gamma_{\beta \alpha \gamma}) \frac{\mathrm{d} u^\gamma (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} - 2 g_{\alpha \beta} \Gamma_{\gamma \delta}^\alpha \frac{\mathrm{d} u^\gamma (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\delta (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} = 0
+\end{aligned}
+$$
+
+根据条件$$f(0) = g_{\alpha \beta} (u_0^1, u_0^2) v_0^\alpha v_0^\beta - 1 = 0$$，所以
+
+$$
+f (s) \equiv 0
+$$
+
+这意味着，由方程$$u^\gamma = u^\gamma (s)$$给出的曲线是正则曲线，并且$$s$$是它的弧长参数。上面的讨论可以归结为
+
+**定理6.6** 对于曲面$$S$$上的任意一点$$p$$和曲面$$S$$在点$$p$$的任意一个单位切向量$$\boldsymbol{v}$$，在曲面$$S$$上必存在唯一的一条以弧长为参数的测地线$$C$$通过点$$p$$，并且在点$$p$$以$$\boldsymbol{v}$$为它的切向量。
+{:.info}
 
 ### 最短曲线
 
