@@ -38,7 +38,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/DjV5ATz.png" width="80%">
 </div>
 
-直观上，向量$$\boldsymbol{e}_2$$是将曲线$$C$$的切向量$$\boldsymbol{e}_1 = \boldsymbol{\alpha}$$围绕曲面$$S$$的单位法向量$$\boldsymbol{n}$$按正向旋转90°得到的。与[Frenet公式](/2023/07/31/DifferentialGeometry-NOTES-02.html#曲线的挠率和frenet公式)相对照不难发现，我们在这里对于曲面$$S$$上的曲线$$C$$建立正交标架场的做法和平面曲线建立正交标架场的做法是一致的。换言之我们现在的目标是把平面上的曲线论推广成为曲面$$S$$上的曲线论。
+直观上，向量$$\boldsymbol{e}_2$$是将曲线$$C$$的切向量$$\boldsymbol{e}_1 = \boldsymbol{\alpha}$$围绕曲面$$S$$的单位法向量$$\boldsymbol{n}$$按正向旋转90°得到的。与[平面曲线的Frenet标架](/2023/07/31/DifferentialGeometry-NOTES-02.html#平面曲线的frenet标架)相对照不难发现，我们在这里对于曲面$$S$$上的曲线$$C$$建立正交标架场的做法和平面曲线建立正交标架场的做法是一致的。换言之我们现在的目标是把平面上的曲线论推广成为曲面$$S$$上的曲线论。
 
 首先我们要建立曲面$$S$$上沿曲线$$C$$的正交标架场$$\{ \boldsymbol{r}; \boldsymbol{e}_1, \boldsymbol{e}_2, \boldsymbol{e}_3 \}$$的运动公式。因为这是单位正交标架场，所以可以假设
 
@@ -211,7 +211,39 @@ $$
 。
 {:.info}
 
-**证明**
+**证明** 把$$u$$-曲线和$$v$$-曲线的单位切向量分别记成$$\boldsymbol{\alpha}_1$$和$$\boldsymbol{\alpha}_2$$，于是
+
+$$
+\begin{cases}
+\begin{aligned}
+\boldsymbol{\alpha}_1 &= \frac{1}{\sqrt{E}} \boldsymbol{r}_u \\
+\boldsymbol{\alpha}_2 &= \frac{1}{\sqrt{E}} \boldsymbol{r}_v \\
+\end{aligned}
+\end{cases}
+$$
+
+因此曲线$$C$$的单位切向量能够表示成
+
+$$
+\begin{aligned}
+\frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} &= \boldsymbol{e}_1 = \cos{\theta} \boldsymbol{\alpha}_1 + \sin{\theta} \boldsymbol{\alpha}_2 \\
+&= \boldsymbol{r}_u \frac{\mathrm{d} u (s)}{\mathrm{d} s} + \boldsymbol{r}_v \frac{\mathrm{d} v (s)}{\mathrm{d} s} \\
+&= \sqrt{E} \frac{\mathrm{d} u (s)}{\mathrm{d} s} \boldsymbol{\alpha}_1 + \sqrt{G} \frac{\mathrm{d} v (s)}{\mathrm{d} s} \boldsymbol{\alpha}_2
+\end{aligned}
+$$
+
+所以
+
+$$
+\begin{cases}
+\begin{aligned}
+\cos{\theta} &= \sqrt{E} \frac{\mathrm{d} u (s)}{\mathrm{d} s} \\
+\sin{\theta} &= \sqrt{G} \frac{\mathrm{d} v (s)}{\mathrm{d} s} \\
+\end{aligned}
+\end{cases}
+$$
+
+其中$$\theta$$是$$\boldsymbol{r}' (s)$$与$$\boldsymbol{\alpha}_1$$的夹角。
 
 证毕∎
 
