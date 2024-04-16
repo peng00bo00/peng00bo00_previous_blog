@@ -474,6 +474,30 @@ $$
 
 ### 测地线方程
 
+为了在一般的曲面$$S$$上求测地线，需要知道曲面$$S$$上的测地线所满足的微分方程。在上一节我们推导过切向量$$\boldsymbol{e}_1$$的运动方程
+
+$$
+\begin{aligned}
+\frac{\mathrm{d} \boldsymbol{e}_1 (s)}{\mathrm{d} s} &= \kappa_g \boldsymbol{e}_2 + \kappa_n \boldsymbol{e}_3 \\
+&= \frac{\mathrm{d}^2 \boldsymbol{r} (s)}{\mathrm{d} s^2} = \boldsymbol{r}_{\alpha \beta} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} + \boldsymbol{r}_\alpha \frac{\mathrm{d}^2 u^\alpha (s)}{\mathrm{d} s^2} \\
+&= \bigg( \frac{\mathrm{d}^2 u^\gamma (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^\gamma \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \bigg) \boldsymbol{r}_\gamma + b_{\alpha \beta} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \boldsymbol{e}_3
+\end{aligned}
+$$
+
+因此
+
+$$
+\kappa_g \boldsymbol{e}_2 = \bigg( \frac{\mathrm{d}^2 u^\gamma (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^\gamma \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \bigg) \boldsymbol{r}_\gamma
+$$
+
+显然$$\boldsymbol{r}_1$$和$$\boldsymbol{r}_2$$是线性无关的，因此$$\kappa_g \equiv 0$$的充分必要条件是
+
+$$
+\frac{\mathrm{d}^2 u^\gamma (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^\gamma \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} = 0
+$$
+
+这就是曲面$$S$$上的测地线所满足的微分方程，并且该方程只涉及曲面$$S$$的第一基本形式而与曲面S的第二基本形式无关。因此，这是曲面$$S$$上的测地线属于曲面内蕴几何范畴的微分方程。
+
 ### 最短曲线
 
 ## 测地坐标系和法坐标系
