@@ -496,7 +496,7 @@ $$
 \frac{\mathrm{d}^2 u^\gamma}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^\gamma \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} = 0
 $$
 
-这就是曲面$$S$$上的测地线所满足的微分方程，并且该方程只涉及曲面$$S$$的第一基本形式，而与曲面$$S$$的第二基本形式无关。因此，这是曲面$$S$$上的测地线属于曲面内蕴几何范畴的微分方程。
+这就是曲面$$S$$上的**测地线所满足的微分方程**，并且该方程只涉及曲面$$S$$的第一基本形式，而与曲面$$S$$的第二基本形式无关。因此，这是曲面$$S$$上的测地线属于曲面内蕴几何范畴的微分方程。
 
 若引进新的未知函数$$v^\gamma$$，则上面的二阶常微分方程组便降阶为一阶常微分方程组
 
@@ -606,7 +606,7 @@ $$
 u^\alpha (s, 0) = u^\alpha (s)
 $$
 
-则称$$u^\alpha = u^\alpha (s, t)$$是曲线$$C$$的一个**变分**。如果进一步有
+则称$$u^\alpha (s, t)$$是曲线$$C$$的一个**变分**。如果进一步有
 
 $$
 u^\alpha (a, t) = u^\alpha (a), \ \ \ u^\alpha (b, t) = u^\alpha (b)
@@ -665,7 +665,7 @@ $$
 则变分曲线$$C_t$$的长度是
 
 $$
-L(C_t) = \int_a^b \sqrt{g_{\alpha \beta} (u^1 (s), u^2 (s)) \frac{\partial u^\alpha (s, t)}{\partial s} \frac{\partial u^\beta (s, t)}{\partial s}} \ \mathrm{d} s
+L(C_t) = \int_a^b \sqrt{g_{\alpha \beta} (u^1 (s, t), u^2 (s, t)) \frac{\partial u^\alpha (s, t)}{\partial s} \frac{\partial u^\beta (s, t)}{\partial s}} \ \mathrm{d} s
 $$
 
 所以
@@ -704,8 +704,8 @@ $$
 $$
 \begin{aligned}
 \frac{\mathrm{d}}{\mathrm{d} t} L(C_t) \bigg\vert_{t=0} &= \int_a^b \bigg[ \frac{\mathrm{d}}{\mathrm{d} s} \bigg( g_{\alpha \beta} v^\alpha \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg) - v^\alpha \bigg(
-  g_{\alpha \beta} \frac{\mathrm{d}^2 u^\beta}{\mathrm{d} s^2} 
-  + \frac{1}{2} \bigg( 
+  g_{\alpha \beta} \frac{\mathrm{d}^2 u^\beta}{\mathrm{d} s^2} \\
+  &+ \frac{1}{2} \bigg( 
   \frac{\partial g_{\alpha \beta}}{\partial u^\gamma} + \frac{\partial g_{\alpha \gamma}}{\partial u^\beta} - \frac{\partial g_{\gamma \beta}}{\partial u^\alpha}
   \bigg)
   \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} 
