@@ -725,6 +725,68 @@ $$
 **定理6.7** 设$$C$$是曲面$$S$$上的一条曲线，则$$C$$的弧长在它的任意一个有固定端点的变分$$C_t$$中达到临界值的充分必要条件是，曲线$$C$$是曲面$$S$$上的测地线。
 {:.info}
 
+**证明** 设$$C$$是曲面$$S$$上的一条测地线，则它的参数方程$$u^\alpha = u^\alpha (s)$$满足微分方程组
+
+$$
+\frac{\mathrm{d}^2 u^\beta}{\mathrm{d} s^2} + \Gamma_{\gamma \delta}^\beta \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \frac{\mathrm{d} u^\delta}{\mathrm{d} s} = 0
+$$
+
+于是根据第一变分公式，对于曲线$$C$$的任意一个有固定端点的变分$$C_t$$有下式成立
+
+$$
+\frac{\mathrm{d}}{\mathrm{d} t} L(C_t) \bigg\vert_{t = 0} = 0
+$$
+
+反过来，假定对于曲线$$C$$的任意一个有固定端点的变分$$C_t$$，上式都成立。取
+
+$$
+v^\alpha (s) = \sin{\frac{(s - a) \pi}{b-a}} \bigg( \frac{\mathrm{d}^2 u^\alpha}{\mathrm{d} s^2} + \Gamma_{\xi \eta}^\alpha \frac{\mathrm{d} u^\xi}{\mathrm{d} s} \frac{\mathrm{d} u^\eta}{\mathrm{d} s} \bigg)
+$$
+
+则$$v^\alpha (a) = v^\alpha (b) = 0$$，于是在曲面$$S$$上有曲线$$C$$的以$$v^\alpha (a)$$为变分向量场的变分$$C_t$$，它有固定的端点。将上式代入有固定端点的变分的弧长的第一变分公式得到
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d} t} L(C_t) \bigg\vert_{t=0} &= \int_a^b \sin{\frac{(s - a) \pi}{b-a}} g_{\alpha \beta} \bigg( \frac{\mathrm{d}^2 u^\alpha}{\mathrm{d} s^2} + \Gamma_{\xi \eta}^\alpha \frac{\mathrm{d} u^\xi}{\mathrm{d} s} \frac{\mathrm{d} u^\eta}{\mathrm{d} s} \bigg)\\
+&\cdot \bigg( \frac{\mathrm{d}^2 u^\beta}{\mathrm{d} s^2} +\Gamma_{\gamma \delta}^\beta \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \frac{\mathrm{d} u^\delta}{\mathrm{d} s} \bigg) \ \mathrm{d} s
+\end{aligned}
+$$
+
+根据关系式
+
+$$
+\kappa_g \boldsymbol{e}_2 = \bigg( \frac{\mathrm{d}^2 u^\gamma}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^\gamma \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg) \boldsymbol{r}_\gamma
+$$
+
+有
+
+$$
+\begin{aligned}
+(\kappa_g)^2 &= (\kappa_g \boldsymbol{e}_2) \cdot (\kappa_g \boldsymbol{e}_2) \\
+&= \bigg( \frac{\mathrm{d}^2 u^\alpha}{\mathrm{d} s^2} + \Gamma_{\xi \eta}^\alpha \frac{\mathrm{d} u^\xi}{\mathrm{d} s} \frac{\mathrm{d} u^\eta}{\mathrm{d} s} \bigg) \bigg( \frac{\mathrm{d}^2 u^\beta}{\mathrm{d} s^2} +\Gamma_{\gamma \delta}^\beta \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \frac{\mathrm{d} u^\delta}{\mathrm{d} s} \bigg)\boldsymbol{r}_\alpha \cdot \boldsymbol{r}_\beta \\
+&= g_{\alpha \beta} \bigg( \frac{\mathrm{d}^2 u^\alpha}{\mathrm{d} s^2} + \Gamma_{\xi \eta}^\alpha \frac{\mathrm{d} u^\xi}{\mathrm{d} s} \frac{\mathrm{d} u^\eta}{\mathrm{d} s} \bigg) \bigg( \frac{\mathrm{d}^2 u^\beta}{\mathrm{d} s^2} +\Gamma_{\gamma \delta}^\beta \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \frac{\mathrm{d} u^\delta}{\mathrm{d} s} \bigg)
+\end{aligned}
+$$
+
+因此
+
+$$
+\frac{\mathrm{d}}{\mathrm{d} t} L(C_t) \bigg\vert_{t = 0} = \int_a^b \sin{\frac{(s - a) \pi}{b-a}} (\kappa_g)^2 \ \mathrm{d} s = 0
+$$
+
+由于上式的被积表达式$$\sin{\frac{(s - a) \pi}{b-a}} (\kappa_g)^2 \geq 0$$，故有
+
+$$
+\sin{\frac{(s - a) \pi}{b-a}} (\kappa_g)^2 = 0
+$$
+
+于是$$\kappa_g \equiv 0$$，曲线$$C$$是曲面$$S$$上的测地线。证毕∎
+
+**推论** 设$$p$$，$$q$$是曲面$$S$$上的任意两点，如果曲线$$C$$是在曲面$$S$$上连接$$p$$，$$q$$两点的最短线，则$$C$$必是曲面$$S$$上的测地线。
+{:.info}
+
+**定理6.7**的证明过程只涉及曲面$$S$$的第一基本形式，与曲面$$S$$的外在特征无关。
+
 ## 测地坐标系和法坐标系
 
 ## 常曲率曲面
