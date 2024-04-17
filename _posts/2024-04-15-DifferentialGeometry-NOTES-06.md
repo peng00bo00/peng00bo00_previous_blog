@@ -835,18 +835,41 @@ $$
 **定理6.8** 设$$\Sigma$$是曲面$$S$$上覆盖了区域$$D$$的测地曲线族，$$\Sigma_1$$是由在区域$$D$$内与$$\Sigma$$中曲线正交的轨线构成的曲线族，则$$\Sigma_1$$中的任意两条曲线在测地线族$$\Sigma$$中的各条测地线上截出的曲线段的长度都相等。
 {:.info}
 
-**证明**
+**证明** 假定在区域$$D$$上取参数系$$(\tilde{u}, \tilde{v})$$，使得曲面$$S$$的第一基本形式在$$D$$上为
 
-证毕∎
+$$
+\mathrm{I} = (\mathrm{d} \tilde{u})^2 + \tilde{G} (\tilde{u}, \tilde{v}) (\mathrm{d} \tilde{v})^2
+$$
+
+在$$\Sigma_1$$中取定两条曲线，设为$$C_1: \tilde{u} = u_1$$，$$C_2: \tilde{u} = u_2$$，假定$$u_1 \lt u_2$$。又设$$C: \tilde{v} = v_0$$是属于测地线族$$\Sigma$$的一条曲线，它被曲线$$C_1$$和$$C_2$$所截，截得的长度是
+
+$$
+\int_{u_1}^{u_2} \sqrt{\mathrm{I}} \bigg\vert_{\tilde{v} = v_0} = \int_{u_1}^{u_2} \ \mathrm{d} \tilde{u} = u_2 - u_1
+$$
+
+它与$$v_0$$的值无关。证毕∎
 
 **定理6.8**的直观意义是，覆盖区域$$D$$的测地线族的任意两条正交轨线之间的距离是处处相等的。因此从这个意义上说，覆盖区域$$D$$的测地线族的任意两条正交轨线是测地平行的。
 
 **定理6.9** 设$$C$$是曲面$$S$$上连接$$p$$，$$q$$两点的一条测地线。如果曲线$$C$$能够嵌入到一个覆盖了区域$$D$$的测地线族$$\Sigma$$中去，并且$$p, q \in D$$，则曲线$$C$$是在区域$$D$$内连接$$p$$，$$q$$两点的最短线。
 {:.info}
 
-**证明**
+**证明** 假定在区域$$D$$上取参数系$$(\tilde{u}, \tilde{v})$$，使得曲面$$S$$的第一基本形式在$$D$$上为
 
-证毕∎
+$$
+\mathrm{I} = (\mathrm{d} \tilde{u})^2 + \tilde{G} (\tilde{u}, \tilde{v}) (\mathrm{d} \tilde{v})^2
+$$
+
+曲线$$C$$对应于$$\tilde{v} = 0$$，$$p$$的曲纹坐标是$$(0, 0)$$，而$$q$$的曲纹坐标是$$(l, 0)$$，其中$$l$$是曲线$$C$$的长度。若$$\tilde{C}$$是区域$$D$$内连接$$p$$，$$q$$两点的任意一条曲线，设它的参数方程是$$\tilde{u} = u(t)$$，$$\tilde{v} = v(t)$$，$$0 \leq t \leq l$$，并且$$u(0) = 0$$，$$u(l) = l$$，$$v(0) = v(l) = 0$$，则它的长度是
+
+$$
+\begin{aligned}
+L(\tilde{C}) &= \int_0^l \sqrt{\bigg( \frac{\mathrm{d} u(t)}{\mathrm{d} t} \bigg)^2 + \tilde{G}(u(t), v(t)) \bigg( \frac{\mathrm{d} v(t)}{\mathrm{d} t} \bigg)^2} \ \mathrm{d} s \\
+&\geq \int_0^l \bigg\vert \frac{\mathrm{d} u(t)}{\mathrm{d} t} \bigg\vert  \ \mathrm{d} s \geq \int_0^l \mathrm{d} u(t) = l
+\end{aligned}
+$$
+
+因此$$L(\tilde{C}) \geq L(C)$$。证毕∎
 
 在曲面$$S$$上构造覆盖某个区域的测地线族的方法有很多。在本节，我们介绍两种方法，它们所对应的参数系分别称为测地平行坐标系和测地极坐标系。
 
