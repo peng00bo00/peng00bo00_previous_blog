@@ -975,7 +975,166 @@ $$
 \tilde{\gamma} (0) = \gamma (0) = p, \ \ \ \tilde{\gamma}' (0) = \lambda \gamma' (0) = \lambda \boldsymbol{v}
 $$
 
-由此可见，$$\tilde{\gamma} (t)$$是一条从点$$p$$出发、以$$\lambda \boldsymbol{v}$$为它在点$$p$$为切向量的测地线。
+由此可见，$$\tilde{\gamma} (t)$$是一条从点$$p$$出发、以$$\lambda \boldsymbol{v}$$为它在点$$p$$为切向量的测地线。根据定理**定理6.6**的唯一性以及记号$$\gamma (s; \boldsymbol{v})$$的意义得知，必定有
+
+$$
+\tilde{\gamma} (t) = \gamma (\lambda t; \boldsymbol{v}) = \gamma (t; \lambda \boldsymbol{v})
+$$
+
+上式的意义是：对于给定的切向量$$\boldsymbol{v}$$来说，测地线$$\gamma(s; \boldsymbol{v})$$定义域可能是某个充分小的区间$$(-\varepsilon, \varepsilon)$$。如果将初始切向量$$\boldsymbol{v}$$的长度成倍地缩小，则测地线$$\gamma (s; \boldsymbol{v})$$的定义域将会成倍地增大。这就是说，当切向量$$\boldsymbol{v}$$的长度充分小时，可以使测地线$$\gamma (s; \boldsymbol{v})$$的定义域足够大。因此，在切空间$$T_p S$$上可以取原点的一个充分小的邻域$$U$$，使得由
+
+$$
+\exp_p (\boldsymbol{v}) = \gamma (1; \boldsymbol{v}), \ \ \ \forall \boldsymbol{v} \in U
+$$
+
+给出的映射$$\exp_p: U \rightarrow S$$有定义。该映射$$\exp_p: U \rightarrow S$$称为曲面$$S$$在点$$p$$的**指数映射**，它的几何意义是明显的。当$$\boldsymbol{v} = \boldsymbol{0}$$时，$$\exp_p (\boldsymbol{0}) = p$$；当$$\boldsymbol{v} \neq \boldsymbol{0}$$时，命$$\boldsymbol{v}_0 = \frac{\boldsymbol{v}}{\vert \boldsymbol{v} \vert}$$，则$$\boldsymbol{v}_0$$是$$\boldsymbol{v}$$的单位方向向量。根据关系式$$\gamma (\lambda t; \boldsymbol{v}) = \gamma (t; \lambda \boldsymbol{v})$$有
+
+$$
+\gamma (1; \boldsymbol{v}) = \gamma (1; \vert \boldsymbol{v} \vert \boldsymbol{v}_0) = \gamma (\vert \boldsymbol{v} \vert; \boldsymbol{v}_0)
+$$
+
+由此可见，若以单位切向量$$\boldsymbol{v}_0$$为初始切向量作经过点$$p$$的测地线$$\gamma (s; \boldsymbol{v}_0)$$，其中$$s$$是弧长参数，则在该测地线上截取$$s = \vert \boldsymbol{v} \vert$$的点正好是指数映射$$\exp_p$$下的像$$\exp_p (\boldsymbol{v}) = \gamma (1; \boldsymbol{v})$$。根据常微分方程组的解关于初始值的连续可微依赖性得知，指数映射$$\exp_p: U \rightarrow S$$是连续可微的。
+
+假定切空间$$T_p S$$在单位正交标架$$\{ p; \boldsymbol{r}_1\vert_p, \boldsymbol{r}_2\vert_p \}$$下的坐标是$$(v^1, v^2)$$，即在点$$p$$的任意一个切向量$$\boldsymbol{v} \in T_p S$$可以表示为
+
+$$
+\boldsymbol{v} = v^1 \boldsymbol{r}_1\vert_p + v^2 \boldsymbol{r}_2\vert_p
+$$
+
+我们要说明，切空间$$T_p S$$上的坐标系$$(v^1, v^2)$$经过指数映射$$\exp_p: U \rightarrow S$$称为曲面$$S$$在点$$p$$附近的参数系，这样得到的参数系称为曲面$$S$$在点$$p$$的法坐标系。实际上，命
+
+$$
+u^\alpha = u^\alpha (\exp_p (\boldsymbol{v})) = u^\alpha (\gamma (1; \boldsymbol{v})) \equiv u^\alpha (v^1, v^2), \ \ \ \alpha = 1, 2
+$$
+
+它们是参数$$v^1$$，$$v^2$$的连续可微函数。任意取定$$\boldsymbol{v} \in U$$，命
+
+$$
+u^\alpha (t) = u^\alpha (\exp_p (t \boldsymbol{v})) = u^\alpha (\gamma (1; t \boldsymbol{v}))
+$$
+
+因此
+
+$$
+u^\alpha (t) = u^\alpha (t v^1, t v^2)
+$$
+
+这正好是曲面$$S$$上经过点$$p$$、以$$\boldsymbol{v}$$为初始切向量的测地线$$\gamma (t; \boldsymbol{v})$$的参数方程。因此
+
+$$
+u^\alpha (0) = u^\alpha (0, 0) = 0, \ \ \ \alpha = 1, 2
+$$
+
+并且
+
+$$
+\boldsymbol{v} = \gamma' (t; \boldsymbol{v}) \vert_{t = 0} = \frac{\mathrm{d} u^\alpha (t)}{\mathrm{d} t} \bigg\vert_{t=0} \boldsymbol{r}_\alpha \vert_p = \frac{\partial u^\alpha}{\partial v^\beta} \bigg\vert_p \cdot v^\beta \boldsymbol{r}_\alpha \vert_p
+$$
+
+将上式与$$\boldsymbol{v} = v^1 \boldsymbol{r}_1\vert_p + v^2 \boldsymbol{r}_2\vert_p$$向比较得到
+
+$$
+\frac{\partial u^\alpha}{\partial v^\beta} \bigg\vert_p = \delta_\beta^\alpha = 
+\begin{cases}
+1, \ \ \ \alpha = \beta \\
+0, \ \ \ \alpha \neq \beta \\
+\end{cases}
+$$
+
+由此可见，变换$$u^\alpha = u^\alpha (v^1, v^2)$$是曲面$$S$$在点$$p$$附近的正则参数变换，因此$$(v^1, v^2)$$是曲面$$S$$在点$$p$$附近容许的参数系。
+
+曲面$$S$$在点$$p$$的法坐标系$$(v^1, v^2)$$的特征是：经过点$$p$$的测地线$$\gamma (t; \boldsymbol{v})$$的参数方程
+
+$$
+v^\alpha (t) = v^\alpha (\gamma (t; \boldsymbol{v})) = v^\alpha (u^1 (t), u^2 (t))
+$$
+
+是$$t$$的线性函数。事实上，设参数变换$$u^\alpha = u^\alpha (v^1, v^2)$$的逆变换是
+
+$$
+v^\alpha = v^\alpha (u^1, u^2)
+$$
+
+即它们关于任意的$$(u^1, u^2)$$满足恒等式
+
+$$
+u^\alpha \equiv u^\alpha (v^1 (u^1, u^2), v^2 (u^1, u^2)), \ \ \ \alpha = 1, 2
+$$
+
+特别是将测地线$$\gamma(t; \boldsymbol{v})$$的参数方程$$(u^1 (t), u^2 (t))$$带入上式得到
+
+$$
+\begin{aligned}
+u^\alpha (t) &= u^\alpha (v^1 (u^1 (t), u^2 (t)), v^2 (u^1 (t), u^2 (t))) \\
+&= u^\alpha (v^1 (t), v^2 (t))
+\end{aligned}
+$$
+
+另一方面
+
+$$
+u^\alpha (t) = u^\alpha (t v^1, t v^2)
+$$
+
+根据在给定的参数系下点的曲纹坐标的唯一性，比较上面两式，得到经过点$$p$$的测地线$$\gamma(t; \boldsymbol{v})$$的参数方程是
+
+$$
+\begin{cases}
+\begin{aligned}
+v^1 (t) &= t v^1 \\ v^2 (t) &= t v^2
+\end{aligned}
+\end{cases}
+$$
+
+假定曲面$$S$$在点$$p$$的法坐标系$$(v^1, v^2)$$下的第一类基本量是$$$\tilde{g}_{\alpha \beta}$，那么
+
+$$
+\tilde{g}_{\alpha \beta} = g_{\gamma \delta} \frac{\partial u^\gamma}{v^\alpha} \frac{\partial u^\delta}{v^\beta}
+$$
+
+特别地由$$\frac{\partial u^\alpha}{\partial v^\beta} \bigg\vert_p = \delta_\beta^\alpha$$得知
+
+$$
+\tilde{g}_{11} (0, 0) = \tilde{g}_{22} (0, 0) = g_{11} (0, 0) = g_{22} (0, 0) = 1
+$$
+
+$$
+\tilde{g}_{12} (0, 0) = \tilde{g}_{21} (0, 0) = g_{12} (0, 0) = g_{21} (0, 0) = 0
+$$
+
+我们还能够得到关于$$\tilde{g}_{\alpha \beta}$$的更多的信息。由于$$v^\alpha (t) = t v^\alpha$$是曲面$$S$$上经过点$$p$$、以$$\boldsymbol{v}$$为切向量的测地线，它应该满足测地线的微分方程
+
+$$
+\frac{\mathrm{d}^2 v^\gamma (t)}{\mathrm{d} t^2} + \tilde{\Gamma}_{\alpha \beta}^\gamma \frac{\mathrm{d} v^\alpha (t)}{\mathrm{d} t} \frac{\mathrm{d} v^\beta (t)}{\mathrm{d} t} = \tilde{\Gamma}_{\alpha \beta}^\gamma (\gamma(t; \boldsymbol{v})) v^\alpha v^\beta = 0
+$$
+
+其中$$\tilde{\Gamma}_{\alpha \beta}^\gamma$$是关于$$\tilde{g}_{\alpha \beta}$$的Christoffel记号。取$$t = 0$$，则上式成为
+
+$$
+\tilde{\Gamma}_{\alpha \beta}^\gamma (p) v^\alpha v^\beta = 0
+$$
+
+在$$U$$上这是关于$$\boldsymbol{v} = (v^1, v^2)$$的恒等式，并且$$\tilde{\Gamma}_{\alpha \beta}^\gamma (p) = \tilde{\Gamma}_{\beta \alpha}^\gamma (p)$$，因此
+
+$$
+\tilde{\Gamma}_{\alpha \beta}^\gamma (p) = 0
+$$
+
+由此可见，我们有下面的定理：
+
+**定理6.11** 曲面$$S$$在任意一点$$p$$的附近必有法坐标系$$(v^1, v^2)$$，在此坐标系下从点$$p$$出发、以$$(v_0^1, v_0^2)$$为切向量的测地线的参数方程是$$v^1 (t) = t v_0^1$$，$$v^2 (t) = t v_0^2$$，并且曲面$$S$$的第一类基本量$$\tilde{g}_{\alpha \beta}$$满足$$\tilde{g}_{11}(p) = \tilde{g}_{22}(p) = 1$$，$$\tilde{g}_{12}(p) = \tilde{g}_{21}(p) = 0$$，$$\tilde{\Gamma}_{\alpha \beta}^\gamma (p) = 0$$，因此
+$$
+\frac{\partial \tilde{g}_{\alpha \beta}}{\partial v^\gamma} (p) = \tilde{g}_{\alpha \delta} \tilde{\Gamma}_{\beta \gamma}^\delta (p) + \tilde{g}_{\beta \delta} \tilde{\Gamma}_{\alpha \gamma}^\delta (p) = 0
+$$
+{:.info}
+
+需要指出的是，在点$$p$$的法坐标系$$(v^1, v^2)$$下，曲面$$S$$的第一类基本量$$\tilde{g}_{\alpha \beta}$$在点$$p$$有很好的性质，但在点$$p$$意外却未必有下列等式：
+
+$$
+\tilde{g}_{12} = \tilde{g}_{21} = 0
+$$
+
+即法坐标系在点$$p$$以外未必是正交参数系。
 
 ### 测地极坐标系
 
