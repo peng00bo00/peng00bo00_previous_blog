@@ -912,6 +912,71 @@ $$
 
 很明显，平面上的测地平行坐标系就是通常的笛卡儿直角坐标系。
 
+### 法坐标系
+
+现在我们采取另一种做法，先引进曲面$$S$$在点$$p$$的法坐标系，采用张量记号。在曲面$$S$$上取定一点$$p$$，假定$$(u^1, u^2)$$是曲面$$S$$在点$$p$$附近的正交参数系，$$u^1 (p) = 0$$，$$u^2 (p) = 0$$，于是曲面$$S$$的第一基本形式成为
+
+$$
+\mathrm{I} = g_{11} (\mathrm{d} u^1)^2 + g_{22} (\mathrm{d} u^2)^2, \ \ \ g_{12} = g_{21} = 0
+$$
+
+并且可以假定
+
+$$
+g_{11} (0, 0) = 1, \ \ \ g_{22} (0, 0) = 1
+$$
+
+这样，$$\{ p; \boldsymbol{r}_1\vert_p, \boldsymbol{r}_2\vert_p \}$$是曲面$$S$$在点$$p$$的切空间$$T_p S$$上的一个单位正交标架。首先，我们要定义映射$$\exp_p: T_p S \rightarrow S$$，称为曲面$$S$$在点$$p$$的指数映射。
+
+根据**定理6.6**，对于在点$$p$$的任意一个切向量$$\boldsymbol{v}$$，存在唯一的一条测地线经过点$$p$$，并且以$$\boldsymbol{v}$$为它在点$$p$$的切向量，记为$$\gamma (s) = \gamma (s; \boldsymbol{v})$$。于是
+
+$$
+\gamma (0) = p, \ \ \ \gamma' (0) = \boldsymbol{v}
+$$
+
+并且由上式得知
+
+$$
+\vert \gamma' (s) \vert = \vert \gamma' (0) \vert = \vert \boldsymbol{v} \vert \text{(常数)}
+$$
+
+记$$u^\alpha (s) = u^\alpha (\gamma (s))$$，这是测地线$$\gamma (s)$$的参数方程，并且参数$$s$$与弧长成比例。让$$s$$作变量替换$$s = \lambda t$$，其中$$\lambda \gt 0$$是常数，并且命
+
+$$
+\tilde{\gamma} (t) = \gamma (\lambda t) = \gamma (\lambda t; \boldsymbol{v})
+$$
+
+它的参数方程是
+
+$$
+\tilde{u}^\alpha (t) = u^\alpha (\tilde{\gamma} (t)) = u^\alpha (\gamma (\lambda t)) = u^\alpha (\lambda t)
+$$
+
+那么
+
+$$
+\frac{\mathrm{d} \tilde{u}^\alpha (t)}{\mathrm{d} t} = \lambda \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s}
+$$
+
+$$
+\frac{\mathrm{d}^2 \tilde{u}^\alpha (t)}{\mathrm{d} t^2} = \lambda^2 \frac{\mathrm{d}^2 u^\alpha (s)}{\mathrm{d} s^2}
+$$
+
+因此
+
+$$
+\frac{\mathrm{d}^2 \tilde{u}^\alpha (t)}{\mathrm{d} t^2} + \Gamma_{\beta \gamma}^\alpha \frac{\mathrm{d} \tilde{u}^\beta (t)}{\mathrm{d} t} \frac{\mathrm{d} \tilde{u}^\gamma (t)}{\mathrm{d} t} \\
+= \lambda^2 \bigg( \frac{\mathrm{d}^2 u^\alpha (s)}{\mathrm{d} s^2} + \Gamma_{\beta \gamma}^\alpha \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma (s)}{\mathrm{d} s} \bigg) = 0
+$$
+
+这说明$$\tilde{\gamma} (t)$$仍然是一条测地线，并且
+
+$$
+\tilde{\gamma} (0) = \gamma (0) = p, \ \ \ \tilde{\gamma}' (0) = \lambda \gamma' (0) = \lambda \boldsymbol{v}
+$$
+
+由此可见，$$\tilde{\gamma} (t)$$是一条从点$$p$$出发、以$$\lambda \boldsymbol{v}$$为它在点$$p$$为切向量的测地线。
+
 ### 测地极坐标系
 
 ## 常曲率曲面
