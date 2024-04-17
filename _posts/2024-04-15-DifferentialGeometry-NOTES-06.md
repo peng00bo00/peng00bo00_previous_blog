@@ -1086,7 +1086,7 @@ v^1 (t) &= t v^1 \\ v^2 (t) &= t v^2
 \end{cases}
 $$
 
-假定曲面$$S$$在点$$p$$的法坐标系$$(v^1, v^2)$$下的第一类基本量是$$$\tilde{g}_{\alpha \beta}$，那么
+假定曲面$$S$$在点$$p$$的法坐标系$$(v^1, v^2)$$下的第一类基本量是$$\tilde{g}_{\alpha \beta}$$，那么
 
 $$
 \tilde{g}_{\alpha \beta} = g_{\gamma \delta} \frac{\partial u^\gamma}{v^\alpha} \frac{\partial u^\delta}{v^\beta}
