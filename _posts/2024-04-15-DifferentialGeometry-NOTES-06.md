@@ -59,7 +59,7 @@ $$
 \kappa_n = \frac{\mathrm{d} \boldsymbol{e}_1 (s)}{\mathrm{d} s} \cdot \boldsymbol{e}_3 (s) = \boldsymbol{r}'' (s) \cdot \boldsymbol{n}
 $$
 
-所以$$\kappa_n$$恰好是曲面$$S$$沿曲线$$C$$的切方向的[法曲率](/2023/11/10/DifferentialGeometry-NOTES-04.html#法曲率)。代入上式得到
+所以$$\kappa_n$$恰好是曲面$$S$$沿曲线$$C$$的切方向的[法曲率](/2023/11/10/DifferentialGeometry-NOTES-04.html#法曲率)。类似地，将运动方程的第二式两边同时和$$\boldsymbol{e}_2$$作内积得到
 
 $$
 \kappa_g = \frac{\mathrm{d}^2 \boldsymbol{r} (s)}{\mathrm{d} s^2} \cdot \boldsymbol{e}_2 = \boldsymbol{r}'' (s) \cdot (\boldsymbol{n} (s) \times \boldsymbol{r}' (s)) = \big( \boldsymbol{n} (s), \boldsymbol{r}' (s), \boldsymbol{r}'' (s) \big)
@@ -70,7 +70,7 @@ $$
 $$
 \begin{aligned}
 \tau_g &= \frac{\mathrm{d} \boldsymbol{e}_2}{\mathrm{d} s} \cdot \boldsymbol{n} = \frac{\mathrm{d} (\boldsymbol{n} \times \boldsymbol{r}' (s))}{\mathrm{d} s} \cdot \boldsymbol{n} \\
-&= (\boldsymbol{n}' (s) \times \boldsymbol{r}' (s)) \cdot \boldsymbol{n} = \big( \boldsymbol{n}, \boldsymbol{n}' (s), \boldsymbol{r}' (s) \big)
+&= (\boldsymbol{n}' (s) \times \boldsymbol{r}' (s)) \cdot \boldsymbol{n} = \big( \boldsymbol{n} (s), \boldsymbol{n}' (s), \boldsymbol{r}' (s) \big)
 \end{aligned}
 $$
 
@@ -135,7 +135,7 @@ $$
 <img src="https://search.pstatic.net/common?src=https://i.imgur.com/npQ2rvZ.png" width="80%">
 </div>
 
-**定理6.2** 曲面$$S$$的任意一条曲线$$C$$的测地曲率$$\kappa_g$$在，曲面$$S$$作保长对应时是保持不变的，即曲面上曲线的测地曲率是属于曲面内蕴几何学的量。
+**定理6.2** 曲面$$S$$上的任意一条曲线$$C$$的测地曲率$$\kappa_g$$在曲面$$S$$作保长对应时是保持不变的，即曲面上曲线的测地曲率是属于曲面内蕴几何学的量。
 {:.info}
 
 **证明** 曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$上任意一条曲线$$C: u^1 = u^1 (s), u^2 = u^2 (s)$$作为空间$$\mathbb{E}^3$$中的曲线的参数方程是
@@ -154,7 +154,7 @@ $$
 
 $$
 \begin{aligned}
-\frac{\mathrm{d} \boldsymbol{e}_1}{\mathrm{d} s} &= \frac{\mathrm{d}^2 \boldsymbol{r} (s)}{\mathrm{d} s^2} = \boldsymbol{r}_{\alpha \beta} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} + \boldsymbol{r}_\alpha \frac{\mathrm{d}^2 u^\alpha (s)}{\mathrm{d} s^2} \\
+\frac{\mathrm{d} \boldsymbol{e}_1 (s)}{\mathrm{d} s} &= \frac{\mathrm{d}^2 \boldsymbol{r} (s)}{\mathrm{d} s^2} = \boldsymbol{r}_{\alpha \beta} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} + \boldsymbol{r}_\alpha \frac{\mathrm{d}^2 u^\alpha (s)}{\mathrm{d} s^2} \\
 &= \bigg( \frac{\mathrm{d}^2 u^\gamma (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^\gamma \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \bigg) \boldsymbol{r}_\gamma + b_{\alpha \beta} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \boldsymbol{n}
 \end{aligned}
 $$
@@ -190,7 +190,7 @@ $$
 $$
 \begin{aligned}
 \kappa_g &= \vert \boldsymbol{r}_1 \times \boldsymbol{r}_2 \vert \bigg(
-\frac{\mathrm{d} u^1}{\mathrm{d} s} \bigg( \frac{\mathrm{d}^2 u^2 (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^2 \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg) - \frac{\mathrm{d} u^2}{\mathrm{d} s} \bigg( \frac{\mathrm{d}^2 u^1 (s)}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^1 \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg)
+\frac{\mathrm{d} u^1}{\mathrm{d} s} \bigg( \frac{\mathrm{d}^2 u^2}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^2 \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg) - \frac{\mathrm{d} u^2}{\mathrm{d} s} \bigg( \frac{\mathrm{d}^2 u^1}{\mathrm{d} s^2} + \Gamma_{\alpha \beta}^1 \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg)
 \bigg) \\
 &= \sqrt{g_{11} g_{22} - (g_{12})^2}
 \begin{vmatrix}
@@ -202,7 +202,7 @@ $$
 
 由于上面的式子只依赖曲面$$S$$的第一类基本量及其导数，以及在曲面$$S$$的曲纹坐标下曲线$$C$$的参数方程及其导数，而与曲面$$S$$的第二类基本形式无关，所以当曲面$$S$$作保长变形时，曲线$$C$$的测地曲率$$\kappa_g$$是保持不变的。证毕∎
 
-上面给出的测地曲率公式比较容易记忆，但在计算时比较复杂。如果在曲面$$S$$上取正交参数系，则曲面$$S$$上的曲线$$C$$的测地曲率$$\kappa_g$$能够写成比较简单的表达式，称为**Liouville公式**。下面我们恢复使用Gauss的记号。
+上面给出的测地曲率公式比较容易记忆，但是在计算时比较复杂。如果在曲面$$S$$上取正交参数系，则曲面$$S$$上的曲线$$C$$的测地曲率$$\kappa_g$$能够写成比较简单的表达式，称为**Liouville公式**。下面我们恢复使用Gauss的记号。
 
 **定理6.3** 设$$(u, v)$$是曲面$$S$$上的正交参数系，因而曲面$$S$$的第一基本形式是$$\mathrm{I} = E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2$$。设$$C: u = u(s), v = v(s)$$是曲面$$S$$上的一条曲线，其中$$s$$是弧长参数。假定曲线$$C$$与$$u$$-曲线的夹角是$$\theta$$，则曲线$$C$$的测地曲率是
 $$
@@ -368,7 +368,7 @@ $$
 
 $$
 \begin{aligned}
-\tau_g &= \big( \boldsymbol{n}, \boldsymbol{n}' (s), \boldsymbol{r}' (s) \big) = -b_\alpha^\beta \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \big( \boldsymbol{n}, \boldsymbol{r}_\beta, \boldsymbol{r}_\gamma \big) \\
+\tau_g &= \big( \boldsymbol{n} (s), \boldsymbol{n}' (s), \boldsymbol{r}' (s) \big) = -b_\alpha^\beta \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \big( \boldsymbol{n}, \boldsymbol{r}_\beta, \boldsymbol{r}_\gamma \big) \\
 &= \bigg( -b_\alpha^1 \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^2}{\mathrm{d} s} + b_\alpha^2 \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \frac{\mathrm{d} u^1}{\mathrm{d} s} \bigg) \vert \boldsymbol{r}_1 \times \boldsymbol{r}_2 \vert \\
 &= \sqrt{g} \bigg( -b_2^1 \bigg( \frac{\mathrm{d} u^2}{\mathrm{d} s} \bigg)^2 + (b_2^2 - b_1^1) \frac{\mathrm{d} u^1}{\mathrm{d} s} \frac{\mathrm{d} u^2}{\mathrm{d} s} + b_1^1 \bigg( \frac{\mathrm{d} u^1}{\mathrm{d} s} \bigg)^2 \bigg)
 \end{aligned}
@@ -408,7 +408,7 @@ $$
 $$
 \tau_g = \frac{1}{\sqrt{g}}
 \begin{vmatrix}
-\bigg( \frac{\mathrm{d} u^2}{\mathrm{d} s} \bigg)^2 & \frac{\mathrm{d} u^1}{\mathrm{d} s} \frac{\mathrm{d} u^2}{\mathrm{d} s} & \bigg( \frac{\mathrm{d} u^1}{\mathrm{d} s} \bigg)^2 \\
+\bigg( \frac{\mathrm{d} u^2}{\mathrm{d} s} \bigg)^2 & -\frac{\mathrm{d} u^1}{\mathrm{d} s} \frac{\mathrm{d} u^2}{\mathrm{d} s} & \bigg( \frac{\mathrm{d} u^1}{\mathrm{d} s} \bigg)^2 \\
 g_{11} & g_{12} & g_{22} \\
 b_{11} & b_{12} & b_{22} \\
 \end{vmatrix}
@@ -448,7 +448,7 @@ $$
 
 所以$$\{ \boldsymbol{r} (s); \boldsymbol{e}_1, \varepsilon \boldsymbol{e}_2, \varepsilon \boldsymbol{e}_3 \}$$恰好是曲线$$C$$的Frenet标架，其中$$\varepsilon = \text{sign} (\kappa_g)$$。因此曲线$$C$$的曲率是$$\vert \kappa_g \vert$$，挠率是$$\tau_g$$。证毕∎
 
-总起来说，本节介绍了曲面$$S$$上的曲线C的测地曲率和测地挠率的概念，其中测地曲率是曲面$$S$$的内蕴几何量，与曲面$$S$$的第二基本形式无关；测地挠率是曲面$$S$$在任意一点的切方向的函数，它与法曲率有密切的关系，实际上测地挠率是法曲率作为切方向的函数的导数之半。
+总起来说，本节介绍了曲面$$S$$上的曲线$$C$$的测地曲率和测地挠率的概念，其中测地曲率是曲面$$S$$的内蕴几何量，与曲面$$S$$的第二基本形式无关；测地挠率是曲面$$S$$在任意一点的切方向的函数，它与法曲率有密切的关系，实际上测地挠率是法曲率作为切方向的函数的导数之半。
 
 从方法上来讲，沿曲面$$S$$上的曲线$$C$$建立与曲面$$S$$和曲线$$C$$都有关联的单位正交标架场是十分重要的。实际上，这是把平面上曲线的Frenet标架场搬到曲面上的情形。测地曲率的Liouville公式是十分有用的，它的推导过程有典型意义，应该予以足够的重视。
 
