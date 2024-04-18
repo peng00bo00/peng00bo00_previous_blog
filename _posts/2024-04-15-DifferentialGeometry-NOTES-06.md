@@ -1126,6 +1126,7 @@ $$
 $$
 \frac{\partial \tilde{g}_{\alpha \beta}}{\partial v^\gamma} (p) = \tilde{g}_{\alpha \delta} \tilde{\Gamma}_{\beta \gamma}^\delta (p) + \tilde{g}_{\beta \delta} \tilde{\Gamma}_{\alpha \gamma}^\delta (p) = 0
 $$
+。
 {:.info}
 
 需要指出的是，在点$$p$$的法坐标系$$(v^1, v^2)$$下，曲面$$S$$的第一类基本量$$\tilde{g}_{\alpha \beta}$$在点$$p$$有很好的性质，但在点$$p$$意外却未必有下列等式：
@@ -1137,6 +1138,192 @@ $$
 即法坐标系在点$$p$$以外未必是正交参数系。
 
 ### 测地极坐标系
+
+最后，我们来看曲面$$S$$在点$$p$$的测地极坐标系$$(s, \theta)$$。设$$(v^1, v^2)$$是切空间$$T_p S$$中的笛卡尔直角坐标系，则在切空间$$T_p S$$上可以取极坐标系$$(s, \theta)$$，使得
+
+$$
+\begin{cases}
+\begin{aligned}
+v^1 &= s \cos{\theta} \\
+v^2 &= s \sin{\theta} \\
+\end{aligned}
+\end{cases}
+$$
+
+这样的坐标系适用于切空间$$T_p S$$中除去从点$$p$$出发的一条射线后余下的区域。于是$$(v^1, v^2)$$通过指数映射$$\exp_p: U \rightarrow S$$成为曲面$$S$$在点$$p$$附近的法坐标系，同时$$(s, \theta)$$成为曲面$$S$$在点$$p$$附近、除去从点$$p$$出发的一条测地线后余下的区域上的一个新的参数系，称为曲面$$S$$在点$$p$$的**测地极坐标系**。从测地极坐标系$$(s, \theta)$$到法坐标系$$(v^1, v^2)$$的坐标变换恰好是由上式给出的。
+
+为确定起见，假定所去掉的射线对应于$$\theta = \pi$$，于是在切空间$$T_p S$$上测地极坐标系$$(s, \theta)$$的适用范围是$$0 \lt s \lt \infty$$，$$-\pi \lt \theta \lt \pi$$。用$$U_0$$表示区域$$U$$是在去掉从点$$p$$出发的这条对应的测地线后余下的区域。对于任意固定的$$-\pi \lt \theta_0 \lt \pi$$，让$$s$$变化，则上面方程组给出$$T_p S$$中从原点出发的一条射线，而在曲面$$S$$上得到从点$$p$$出发的一条测地线，该测地线用法坐标系表示的参数方程是
+
+$$
+\begin{cases}
+\begin{aligned}
+v^1 (s) &= s \cos{\theta_0} \\
+v^2 (s) &= s \sin{\theta_0} \\
+\end{aligned}
+\end{cases}
+$$
+
+将所有这样的测地线的集合记为$$\Sigma$$，那么$$\Sigma$$是覆盖了区域$$U_0$$的测地线族。任意固定一个充分小的值$$s = s_0 \gt 0$$，让$$\theta$$变化，则在曲面$$S$$上得到一条曲线，它是在测地线族$$\Sigma$$中每一条测地线上从点$$p$$出发、截取长度为$$s_0$$的点所得到的轨迹，称为曲面$$S$$上以点$$p$$为中心、以$$s_0$$为半径的**测地圆**。将以点$$p$$为中心的全体测地圆的集合记为$$\Sigma_1$$。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/3WpCyGW.png" width="80%">
+</div>
+
+**引理** 点$$p$$出发的测地线与以点$$p$$为中心的测地圆是彼此正交的，即曲线族$$\Sigma_1$$中的每一条曲线是测地线族$$\Sigma$$的正交轨线。
+{:.info}
+
+通常把上面的引理称为**Gauss引理**。
+
+**证明** 假定$$(u^1, u^2)$$是点$$p$$附近的正交参数系，并且点$$p$$对应于坐标$$u^1 = 0$$，$$u^2 = 0$$。设曲面$$S$$的第一基本形式是
+
+$$
+\mathrm{I} = g_{\alpha \beta} \mathrm{d} u^\alpha \mathrm{d} u^\beta
+$$
+
+用$$\theta$$表示在点$$p$$的切向量与$$u^1$$-曲线的夹角。根据**定理6.6**，经过点$$p$$、与$$u^1$$-曲线的夹角为$$\theta$$的测地线记为$$C_\theta$$，其参数方程是$$u^\alpha = u^\alpha (s, \theta)$$，其中$$s$$是测地线的弧长参数，并且$$u^\alpha (s, \theta)$$是$$s$$，$$\theta$$的连续可微函数。曲线族$$\Sigma$$中的曲线$$\Sigma_\theta$$就是$$\theta$$为常数的曲线，曲线族$$\Sigma_1$$中的曲线就是$$s$$为常数的曲线。设曲线$$C$$是测地线$$\theta = \theta_0$$，$$0 \leq s \leq s_0$$，即它的参数方程是$$u^\alpha = u^\alpha (s, \theta_0)$$，$$0 \leq s \leq s_0$$，那么曲线族$$\Sigma$$是它的一个变分，其变分向量场由
+
+$$
+w^\alpha (s) = \frac{\partial u^\alpha (s, \theta)}{\partial \theta} \bigg\vert_{\theta = \theta_0}
+$$
+
+给出。由于变分曲线都是从点$$p$$出发的，故$$u^\alpha (0, \theta) = 0$$，所以$$w^\alpha (0) = 0$$，$$\alpha = 1, 2$$。然而$$w^\alpha (s_0) \boldsymbol{r}_\alpha$$是测地圆$$u^\alpha = u^\alpha (s_0, \theta)$$在$$\theta = \theta_0$$处的切向量，根据曲线弧长的第一变分公式得到
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d} \theta} \bigg\vert_{\theta = \theta_0} L(C_\theta) &= g_{\alpha \beta} w^\alpha (s) \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg\vert_{s=0}^{s=s_0} - \int_0^r g_{\alpha \beta} w^\alpha \bigg( \frac{\mathrm{d}^2 u^\beta}{\mathrm{d} s^2} + \Gamma_{\gamma \delta}^\beta \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \frac{\mathrm{d} u^\delta}{\mathrm{d} s} \bigg) \mathrm{d} s \\
+&= g_{\alpha \beta} w^\alpha (s_0) \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg\vert_{s=0}
+\end{aligned}
+$$
+
+但是，每一条测地线$$C_\theta: u^\alpha = u^\alpha (s, \theta)$$，$$0 \leq s \leq s_0$$的长度都是$$s_0$$，即$$L(C_\theta) = s_0$$，因此上式的最左段为零，于是
+
+$$
+g_{\alpha \beta} w^\alpha (s_0) \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \bigg\vert_{s=0} = 0
+$$
+
+这意味着，测地线$$C$$与直径为$$s_0$$的测地圆是彼此正交的。证毕∎
+
+由于$$\Sigma_1$$是测地线族$$\Sigma$$的正交轨道族，$$s$$是曲线族$$\Sigma$$中测地线的弧长参数，于是$$(s, \theta)$$是$$U_0$$上的参数系，而且曲面$$S$$的第一基本形式成为
+
+$$
+\mathrm{I} = (\mathrm{d} s)^2 + G(s, \theta) (\mathrm{d} \theta)^2
+$$
+
+我们想要知道函数$$G(s, \theta)$$的更多性质。已知曲面$$S$$在点$$p$$的法坐标系$$(v^1, v^2)$$和测地极坐标系$$(s, \theta)$$的坐标变换是由
+
+$$
+\begin{cases}
+\begin{aligned}
+v^1 &= s \cos{\theta} \\
+v^2 &= s \sin{\theta} \\
+\end{aligned}
+\end{cases}
+$$
+
+给出的，因此
+
+$$
+\begin{cases}
+\begin{aligned}
+&(v^1)^2 + (v^2)^2 = s^2 \\
+&\frac{v^2}{v^1} = \tan{\theta}
+\end{aligned}
+\end{cases}
+$$
+
+$$
+\begin{cases}
+\begin{aligned}
+\mathrm{d} v^1 &= \cos{\theta} \mathrm{d} s - s \sin{\theta} \mathrm{d} \theta \\
+\mathrm{d} v^2 &= \sin{\theta} \mathrm{d} s + s \cos{\theta} \mathrm{d} \theta
+\end{aligned}
+\end{cases}
+$$
+
+所以
+
+$$
+\begin{cases}
+\begin{aligned}
+\mathrm{d} s &= \frac{v^1 \mathrm{d} v^1 + v^2 \mathrm{d} v^2}{s} \\
+\mathrm{d} \theta &= \frac{v^1 \mathrm{d} v^2 - v^2 \mathrm{d} v^1}{s^2}
+\end{aligned}
+\end{cases}
+$$
+
+将上式代入第一基本形式得到
+
+$$
+\begin{aligned}
+\mathrm{I} &= (\mathrm{d} s)^2 + G(s, \theta) (\mathrm{d} \theta)^2 \\
+&= \bigg( \frac{v^1}{s} \mathrm{d} v^1 + \frac{v^2}{s} \mathrm{d} v^2 \bigg)^2 + G(s, \theta) \bigg( \frac{v^1}{s^2} \mathrm{d} v^2 + \frac{v^2}{s^2} \mathrm{d} v^1 \bigg)^2 \\
+&= \bigg( \frac{(v^1)^2}{s^2} + G\frac{(v^2)^2}{s^4} \bigg) (\mathrm{d} v^1)^2 + \frac{2 v^1 v^2}{s^2} \bigg( 1 - \frac{G}{s^2} \bigg) \mathrm{d} v^1 \mathrm{d} v^2 + \bigg( \frac{(v^2)^2}{s^2} + G\frac{(v^1)^2}{s^4} \bigg) (\mathrm{d} v^2)^2 \\
+&= \bigg( 1 + \frac{(v^2)^2}{s^2} \bigg( \frac{G}{s^2} - 1 \bigg) \bigg) (\mathrm{d} v^1)^2 + \frac{2 v^1 v^2}{s^2} \bigg( 1 - \frac{G}{s^2} \bigg) \mathrm{d} v^1 \mathrm{d} v^2 + \bigg( 1 + \frac{(v^1)^2}{s^2} \bigg( \frac{G}{s^2} - 1 \bigg) \bigg) (\mathrm{d} v^2)^2
+\end{aligned}
+$$
+
+由此可见
+
+$$
+\begin{cases}
+\begin{aligned}
+\tilde{g}_{11} &= 1 + \frac{(v^2)^2}{s^2} \bigg( \frac{G}{s^2} - 1 \bigg) = 1 + \sin^2{\theta} \bigg( \frac{G}{s^2} - 1 \bigg) \\
+\tilde{g}_{12} &= \frac{v^1 v^2}{s^2} \bigg( 1 - \frac{G}{s^2} \bigg) = \sin{\theta} \cos{\theta} \bigg( 1 - \frac{G}{s^2} \bigg) \\
+\tilde{g}_{22} &= 1 + \frac{(v^1)^2}{s^2} \bigg( \frac{G}{s^2} - 1 \bigg) = 1 + \cos^2{\theta} \bigg( \frac{G}{s^2} - 1 \bigg) \\
+\end{aligned}
+\end{cases}
+$$
+
+与法坐标系下的第一基本量相对比得到
+
+$$
+\lim_{s \rightarrow 0} \frac{G (s, \theta)}{s^2} = 1
+$$
+
+即
+
+$$
+G (s, \theta) = s^2 + o(s^2)
+$$
+
+$$
+\sqrt{G (s, \theta)} = s + o(s)
+$$
+
+因此
+
+$$
+\lim_{s \rightarrow 0} \sqrt{G (s, \theta)} = 0
+$$
+
+并且
+
+因此
+
+$$
+\lim_{s \rightarrow 0} (\sqrt{G (s, \theta)})_s = 1
+$$
+
+综合上面的讨论我们有下述定理。
+
+**定理6.12** 在曲面$$S$$的每一点$$p$$的邻域内，除去从点$$p$$出发的一条测地线外，必存在测地极坐标系$$(s, 0)$$，使得曲面$$S$$的第一基本形式成为
+$$
+\mathrm{I} = (\mathrm{d} s)^2 + G(s, \theta) (\mathrm{d} \theta)^2
+$$
+其中函数$$G(s, \theta)$$满足条件
+$$
+\lim_{s \rightarrow 0} \sqrt{G(s, \theta)} = 0
+$$
+，
+$$
+\lim_{s \rightarrow 0} \frac{\partial}{\partial s} \sqrt{G(s, \theta)} = 1
+$$
+。
+{:.info}
+
+显然，平面上的极坐标系就是测地极坐标系。
+
+在本节，我们分别介绍了曲面上的测地平行坐标系、法坐标系和测地极坐标系。曲面的第一基本形式在测地平行坐标系和测地极坐标系有最简单的表达式，这就是本节所叙述的**定理6.10**和**定理6.12**。曲面上的法坐标系是将曲面在一点处的切空间的笛卡儿直角坐标系经过指数映射产生的，它的特点是经过该点的测地线参数方程变得十分简单，恰好是参数的线性函数，因而相应的第一类基本量在该点有很好的性质。在维数≥3的黎曼几何情形，测地平行坐标系和测地极坐标系不再以如此简单的形式出现了，但是仍然有法坐标系的理论，其中Gauss引理将是十分重要的基本事实。
 
 ## 常曲率曲面
 
