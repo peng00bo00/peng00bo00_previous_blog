@@ -975,7 +975,7 @@ $$
 \tilde{\gamma} (0) = \gamma (0) = p, \ \ \ \tilde{\gamma}' (0) = \lambda \gamma' (0) = \lambda \boldsymbol{v}
 $$
 
-由此可见，$$\tilde{\gamma} (t)$$是一条从点$$p$$出发、以$$\lambda \boldsymbol{v}$$为它在点$$p$$为切向量的测地线。根据定理**定理6.6**的唯一性以及记号$$\gamma (s; \boldsymbol{v})$$的意义得知，必定有
+由此可见，$$\tilde{\gamma} (t)$$是一条从点$$p$$出发、以$$\lambda \boldsymbol{v}$$为它在点$$p$$为切向量的测地线。根据**定理6.6**的唯一性以及记号$$\gamma (s; \boldsymbol{v})$$的意义得知，必定有
 
 $$
 \tilde{\gamma} (t) = \gamma (\lambda t; \boldsymbol{v}) = \gamma (t; \lambda \boldsymbol{v})
