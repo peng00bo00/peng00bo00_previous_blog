@@ -1001,7 +1001,7 @@ $$
 \boldsymbol{v} = v^1 \boldsymbol{r}_1\vert_p + v^2 \boldsymbol{r}_2\vert_p
 $$
 
-我们要说明，切空间$$T_p S$$上的坐标系$$(v^1, v^2)$$经过指数映射$$\exp_p: U \rightarrow S$$称为曲面$$S$$在点$$p$$附近的参数系，这样得到的参数系称为曲面$$S$$在点$$p$$的法坐标系。实际上，命
+我们要说明，切空间$$T_p S$$上的坐标系$$(v^1, v^2)$$经过指数映射$$\exp_p: U \rightarrow S$$成为曲面$$S$$在点$$p$$附近的参数系，这样得到的参数系称为曲面$$S$$在点$$p$$的**法坐标系**。实际上，命
 
 $$
 u^\alpha = u^\alpha (\exp_p (\boldsymbol{v})) = u^\alpha (\gamma (1; \boldsymbol{v})) \equiv u^\alpha (v^1, v^2), \ \ \ \alpha = 1, 2
@@ -1031,7 +1031,7 @@ $$
 \boldsymbol{v} = \gamma' (t; \boldsymbol{v}) \vert_{t = 0} = \frac{\mathrm{d} u^\alpha (t)}{\mathrm{d} t} \bigg\vert_{t=0} \boldsymbol{r}_\alpha \vert_p = \frac{\partial u^\alpha}{\partial v^\beta} \bigg\vert_p \cdot v^\beta \boldsymbol{r}_\alpha \vert_p
 $$
 
-将上式与$$\boldsymbol{v} = v^1 \boldsymbol{r}_1\vert_p + v^2 \boldsymbol{r}_2\vert_p$$向比较得到
+将上式与$$\boldsymbol{v} = v^1 \boldsymbol{r}_1\vert_p + v^2 \boldsymbol{r}_2\vert_p$$相比较得到
 
 $$
 \frac{\partial u^\alpha}{\partial v^\beta} \bigg\vert_p = \delta_\beta^\alpha = 
