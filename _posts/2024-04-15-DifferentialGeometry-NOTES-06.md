@@ -1331,6 +1331,86 @@ $$
 
 Gauss曲率为常数的曲面称为**常曲率曲面**。在[Gauss曲率为常数的曲面](/2023/11/10/DifferentialGeometry-NOTES-04.html#gauss曲率为常数的曲面)一节我们已经根据常曲率旋转曲面所满足的微分方程算出它的参数方程。在本节，我们将利用测地坐标系决定常曲率曲面的第一基本形式。由此可见，有相同常Gauss曲率的常曲率曲面在局部上是彼此等距的。
 
+假定曲面$$S$$的Gauss曲率$$K$$是常数。在曲面$$S$$上取测地平行坐标系$$(u, v)$$，因而它的第一基本形式为
+
+$$
+\mathrm{I} = (\mathrm{d} u)^2 + G(u, v) (\mathrm{d} v)^2
+$$
+
+其中$$G(u, v)$$满足条件
+
+$$
+G(0, v) = 1, \ \ \ \frac{\partial G}{\partial u} (0, v) = 0
+$$
+
+根据Gauss曲率$$K$$的[内蕴表达式](/2023/12/27/DifferentialGeometry-NOTES-05.html#gauss定理)，我们有
+
+$$
+K = -\frac{1}{\sqrt{EG}} \bigg[ \bigg( \frac{\big( \sqrt{E} \big)_v}{\sqrt{G}} \bigg)_v + \bigg( \frac{\big( \sqrt{G} \big)_u}{\sqrt{E}} \bigg)_u \bigg] = -\frac{1}{\sqrt{G}} (\sqrt{G})_{uu}
+$$
+
+所以$$\sqrt{G}$$作为$$u$$的函数满足常系数二阶线性齐次方程
+
+$$
+(\sqrt{G})_{uu} + K \sqrt{G} = 0
+$$
+
+初始条件是
+
+$$
+G(0, v) = 1, \ \ \ (\sqrt{G})_u (0, v) = 0
+$$
+
+齐次方程的特征方程是
+
+$$
+\lambda^2 + K = 0
+$$
+
+因此，根据$$K$$的不同符号，方程的通解分别为
+
+$$
+\sqrt{G} = 
+\begin{cases}
+\begin{aligned}
+&a(v) \cos{(\sqrt{K} u)} + b(v) \sin{(\sqrt{K} u)}, \ \ \ & K \gt 0 \\
+&a(v) + b(v) u, \ \ \ & K = 0 \\
+&a(v) \cosh{(\sqrt{-K} u)} + b(v) \sinh{(\sqrt{-K} u)}, \ \ \ & K \lt 0 \\
+\end{aligned}
+\end{cases}
+$$
+
+在初始条件下，微分方程的解为
+
+$$
+\sqrt{G} = 
+\begin{cases}
+\begin{aligned}
+&\cos{(\sqrt{K} u)}, \ \ \ & K \gt 0 \\
+&1, \ \ \ & K = 0 \\
+&\cosh{(\sqrt{-K} u)}, \ \ \ & K \lt 0 \\
+\end{aligned}
+\end{cases}
+$$
+
+因此，Gauss曲率为$$K$$的常曲率曲面$$S$$的第一基本形式在测地平行坐标系$$(u, v)$$下有完全确定的表达式，根据其Gauss曲率$$K$$的符号的不同分别为
+
+$$
+\mathrm{I} = 
+\begin{cases}
+\begin{aligned}
+&(\mathrm{d} u)^2 + \cos^2{(\sqrt{K} u)} (\mathrm{d} v)^2, \ \ \ & K \gt 0 \\
+&(\mathrm{d} u)^2 + (\mathrm{d} v)^2, \ \ \ & K = 0 \\
+&(\mathrm{d} u)^2 + \cosh^2{(\sqrt{-K} u)} (\mathrm{d} v)^2, \ \ \ & K \lt 0 \\
+\end{aligned}
+\end{cases}
+$$
+
+由此得到下面的定理：
+
+**定理6.13** 有相同常数Gauss曲率$$K$$的任意两块常曲率曲面在局部上必定可以建立保长对应。
+{:.info}
+
 ## 曲面上切向量的平行移动
 
 ## 抽象曲面
