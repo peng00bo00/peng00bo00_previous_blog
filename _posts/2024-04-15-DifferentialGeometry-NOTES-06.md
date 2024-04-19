@@ -1411,6 +1411,28 @@ $$
 **定理6.13** 有相同常数Gauss曲率$$K$$的任意两块常曲率曲面在局部上必定可以建立保长对应。
 {:.info}
 
+通过前面各节的讨论可以看出，Gauss的绝妙定理启发我们去研究只具有第一基本形式的一张抽象曲面，而不是放在欧氏空间$$\mathbb{R}^3$$中的一张具体的曲面。换句话说，我们所考虑的曲面是两个变数$$u$$，$$v$$的区域$$D$$，并且在$$D$$上指定了一个正定的二次微分形式
+
+$$
+(\mathrm{d} s)^2 = E(u, v) (\mathrm{d} u)^2 + 2 F(u, v) \mathrm{d} u \mathrm{d} v + G(u, v) (\mathrm{d} v)^2
+$$
+
+称为该抽象曲面上的度量形式。它的几何意义是，抽象曲面在点$$(u, v)$$的切向量$$(\mathrm{d} u, \mathrm{d} v)$$的长度的平方。抽象曲面在一点$$(u, v)$$的两个切向量$$(\mathrm{d} u, \mathrm{d} v)$$和$$(\delta u, \delta v)$$的夹角$$\theta$$余弦是
+
+$$
+\cos{\theta} = \frac{E(u, v) \mathrm{d} u \delta u + F(u, v) (\mathrm{d} u \delta v + \delta u \mathrm{d} v) + G(u, v) \mathrm{d} v \delta v}{\sqrt{E (\mathrm{d} u)^2 + 2F \mathrm{d} u \mathrm{d} v + G (\mathrm{d} v)^2} \sqrt{E (\delta u)^2 + 2F \delta u \delta v + G (\delta v)^2}}
+$$
+
+曲面上的曲线$$u = u(t)$$，$$v = v(t)$$，$$a \leq t \leq b$$的长度是
+
+$$
+\int_a^b \sqrt{E \bigg( \frac{\mathrm{d} u}{\mathrm{d} t} \bigg)^2 + 2F \frac{\mathrm{d} u}{\mathrm{d} t} \frac{\mathrm{d} v}{\mathrm{d} t} + G \bigg( \frac{\mathrm{d} v}{\mathrm{d} t} \bigg)^2 } \ \mathrm{d} t
+$$
+
+在1854年，Riemann把Gauss内蕴微分几何的思想一举推广到任意维数$$n$$的情形，开创了现在所称的Riemann几何学。于是，Gauss内蕴微分几何学就是二维的Riemann几何学。在这样的抽象曲面上除了计算上面所述的几何量以外，最主要的几何量是Gauss曲率$$K$$, 以及曲面上的曲线的测地曲率和曲面上的测地线等等由此可见，在抽象曲面上仍然有丰富的几何学可供研究。
+
+最简单的一类抽象曲面就是常曲率曲面，它的第一基本形式是由它的常数Gauss曲率$$K$$完全确定的。非欧几何学的出现是人类思想史的划时代进展。从现代数学的观点来看，从欧氏几何学到非欧几何学的发展实际上就是把平面几何学推广到常曲率曲面上的几何学，更进一步可以推广到一般的Riemann几何学。欧氏几何学和非欧几何学的本质差别在于空间的弯曲程度不同。欧氏空间是平坦的空间，其Gauss曲率$$K$$为零。非欧空间是常弯曲的空间，其Gauss曲率$$K$$是非零常数。空间的弯曲性质的不同决定了该空间中的直线(即测地线)的性状的不同，从而决定了该空间中的(测地)三角形的内角和的不同。在[后面](/2024/04/15/DifferentialGeometry-NOTES-06.html#gauss-bonnet公式)要介绍的Gauss-Bonnet定理将会清晰地揭示这个事实。在本节，我们将进一步讨论常曲率曲面上测地线的性状。
+
 ## 曲面上切向量的平行移动
 
 ## 抽象曲面
