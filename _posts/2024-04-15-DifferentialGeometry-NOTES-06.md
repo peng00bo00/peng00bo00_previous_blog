@@ -1433,6 +1433,122 @@ $$
 
 最简单的一类抽象曲面就是常曲率曲面，它的第一基本形式是由它的常数Gauss曲率$$K$$完全确定的。非欧几何学的出现是人类思想史的划时代进展。从现代数学的观点来看，从欧氏几何学到非欧几何学的发展实际上就是把平面几何学推广到常曲率曲面上的几何学，更进一步可以推广到一般的Riemann几何学。欧氏几何学和非欧几何学的本质差别在于空间的弯曲程度不同。欧氏空间是平坦的空间，其Gauss曲率$$K$$为零。非欧空间是常弯曲的空间，其Gauss曲率$$K$$是非零常数。空间的弯曲性质的不同决定了该空间中的直线(即测地线)的性状的不同，从而决定了该空间中的(测地)三角形的内角和的不同。在[后面](/2024/04/15/DifferentialGeometry-NOTES-06.html#gauss-bonnet公式)要介绍的Gauss-Bonnet定理将会清晰地揭示这个事实。在本节，我们将进一步讨论常曲率曲面上测地线的性状。
 
+直接计算表明，度量形式
+
+$$
+(\mathrm{d} s)^2 = \frac{(\mathrm{d} u)^2 + (\mathrm{d} v)^2}{\bigg(1 + \frac{K}{4} (u^2 + v^2) \bigg)^2}
+$$
+
+的Gauss曲率为常数$$K$$。这个公式把常曲率曲面的度量形式写成统一的表达式，这是Riemann首先给出来的。当$$K \geq 0$$时，该抽象曲面的定义域是整个$$uv$$平面；当$$K \lt 0$$时，该抽象曲面的定义域是$$uv$$平面上的一个区域
+
+$$
+D = \bigg\{ (u, v): u^2 + v^2 \lt - \frac{4}{K} \bigg\}
+$$
+
+设$$K = 0$$，则$$(\mathrm{d} s)^2 = (\mathrm{d} u)^2 + (\mathrm{d} v)^2$$，所以这个抽象曲面就是普通的平面，它上面的测地线就是普通的直线。
+
+设$$K \gt 0$$，则相应的抽象曲面可以看作为，三维欧氏空间$$\mathbb{E}^3$$中半径为$$\frac{1}{\sqrt{K}}$$的球面通过从南极向球面北极处的切平面作球极投影所得的像。具体地说，该投影的表达式是
+
+$$
+u = \frac{2x}{\sqrt{K} z + 1}, \ \ \ 
+v = \frac{2y}{\sqrt{K} z + 1}, \ \ \ 
+x^2 + y^2 + z^2 = \frac{1}{K}
+$$
+
+或者反过来得到
+
+$$
+\begin{aligned}
+x &= \frac{4u}{4 + K(u^2 + v^2)} \\
+y &= \frac{4v}{4 + K(u^2 + v^2)} \\
+z &= \frac{1}{\sqrt{K}} \frac{4 - K(u^2 + v^2)}{4 + K(u^2 + v^2)} \\
+\end{aligned}
+$$
+
+直接计算表明，上面定义的球面的第一基本形式恰好是
+
+$$
+(\mathrm{d} s)^2 = \frac{(\mathrm{d} u)^2 + (\mathrm{d} v)^2}{\bigg(1 + \frac{K}{4} (u^2 + v^2) \bigg)^2}
+$$
+
+在球面上，测地线就是大圆周。很明显，这些大圆周在球极投影下的像是在$$uv$$平面上以原点为中心、以$$\frac{2}{\sqrt{K}}$$为半径的圆周$$C$$，以及经过圆周$$C$$的的任意一对对径点的所有圆周和直线。由此可见，在这个抽象曲面上，任意两条"直线"是彼此相交的。
+
+[前面](/2023/11/10/DifferentialGeometry-NOTES-04.html#负gauss曲率曲面)所介绍的伪球面是负常曲率曲面的例子，但是在该曲面上不是所有的测地线都能够无限地延伸的。要给出常数$$K \lt 0$$时，区域为$$D$$、第一基本形式为$$(\mathrm{d} s)^2 = \frac{(\mathrm{d} u)^2 + (\mathrm{d} v)^2}{\bigg(1 + \frac{K}{4} (u^2 + v^2) \bigg)^2}$$的抽象曲面(称为Klein圆)的具体模型，在三维欧式空间$$\mathbb{E}^3$$中是做不到的。我们引进所谓的洛伦兹空间$$L^3$$，其中的点仍然是一组3个有序的实数$$(x, y ,z)$$，但是任意两个向量$$\boldsymbol{a} = (x_1, y_1, z_1)$$和$$\boldsymbol{b} = (x_2, y_2, z_2)$$的内积定义为
+
+$$
+\boldsymbol{a} \cdot \boldsymbol{b} = x_1 x_2 + y_1 y_2 - z_1 z_2
+$$
+
+考虑$$L^3$$中的曲面
+
+$$
+\Sigma = \bigg\{ (x, y, z) \in L^3: x^2 + y^2 - z^2 = \frac{1}{K}, z \gt 0 \bigg\}
+$$
+
+它也可以用参数方程来表示，一种表示方式是所谓的球极投影：将曲面$$\Sigma$$上的任意一点$$(x, y, z)$$与点$$(0, 0, -\frac{1}{\sqrt{-K}})$$连成一条直线，该直线与$$L^3$$中的平面$$z = \frac{1}{\sqrt{-K}}$$交于一点，记为$$(u, v, \frac{1}{\sqrt{-K}})$$，称该点为曲面$$\Sigma$$上的点$$(x, y, z)$$在球极投影下的像。经直接计算得到
+
+$$
+u = \frac{2x}{\sqrt{-K} z + 1}, \ \ \ v = \frac{2y}{\sqrt{-K} z + 1}
+$$
+
+或者反过来得到
+
+$$
+\begin{aligned}
+x &= \frac{4u}{4 + K(u^2 + v^2)} \\
+y &= \frac{4v}{4 + K(u^2 + v^2)} \\
+z &= \frac{1}{\sqrt{-K}} \frac{4 - K(u^2 + v^2)}{4 + K(u^2 + v^2)} \\
+\end{aligned}
+$$
+
+参数$$(u, v)$$的取值范围正好是区域$$D$$，而且曲面$$\Sigma$$和区域$$D$$在上述球极投影下是一一对应的。对上式求微分得到
+
+$$
+\begin{aligned}
+\mathrm{d} x &= \frac{4(4 + K(-u^2 + v^2)) \mathrm{d} u - 8 K u v \mathrm{d} v}{(4 + K(u^2 + v^2))^2} \\
+\mathrm{d} y &= \frac{- 8 K u v \mathrm{d} u + 4(4 + K(u^2 - v^2)) \mathrm{d} v}{(4 + K(u^2 + v^2))^2} \\
+\mathrm{d} z &= \frac{16 \sqrt{-K} (u \mathrm{d} u + v \mathrm{d} v)}{(4 + K(u^2 + v^2))^2} \\
+\end{aligned}
+$$
+
+因此，洛伦兹空间$$L^3$$在曲面$$\Sigma$$上诱导的第一基本形式是
+
+$$
+\mathrm{I} = \frac{16 \big( (\mathrm{d} u)^2 + (\mathrm{d} v)^2 \big)}{(4 + K(u^2 + v^2))^2} = \frac{(\mathrm{d} u)^2 + (\mathrm{d} v)^2}{\bigg(1 + \frac{K}{4} (u^2 + v^2) \bigg)^2}
+$$
+
+这正好是前面给出的度量形式，即洛伦兹空间$$L^3$$中具有诱导第一基本形式的曲面$$\Sigma$$是抽象曲面Klein圆$$(D, (ds)^2)$$的模型。如果把洛伦兹空间$$L^3$$称为伪欧氏空间，则曲面$$\Sigma$$相当于"伪"球面。实际上，若把洛伦兹空间$$L^3$$中的点$$(x, y,z)$$仍然记成$$\boldsymbol{r}$$，则曲面$$\Sigma$$满足方程
+
+$$
+\boldsymbol{r} \cdot \boldsymbol{r} = \frac{1}{K}, \ \ \ z \gt 0
+$$
+
+对上式求微分得到
+
+$$
+\mathrm{d} \boldsymbol{r} \cdot \boldsymbol{r} = 0
+$$
+
+这表明向径$$\boldsymbol{r}$$与曲面$$\Sigma$$在洛伦兹内积意义下正交，即向径$$\boldsymbol{r}$是曲面$$\Sigma$$的法向量。用空间$$L^3$$经过原点的平面$$\Pi$$与曲面$$\Sigma$$相交，设交线的参数方程是$$\boldsymbol{r} (s)$$，其中$$s$$是曲线的弧长参数，那么
+
+$$
+\frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} \cdot \frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} = 1
+$$
+
+求导数得到
+
+$$
+\frac{\mathrm{d}^2 \boldsymbol{r} (s)}{\mathrm{d} s^2} \cdot \frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} = 0
+$$
+
+因此
+
+$$
+\frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} \cdot \boldsymbol{r} (s) = 0
+$$
+
+这说明在同一个平面$$\Pi$$内的向量$$\frac{\mathrm{d}^2 \boldsymbol{r} (s)}{\mathrm{d} s^2}$$，$$\boldsymbol{r} (s)$$同时与该平面内的非零向量$$\frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s}$$正交，于是曲线$$\boldsymbol{r} (s)$$的曲率向量$$\frac{\mathrm{d}^2 \boldsymbol{r} (s)}{\mathrm{d} s^2}$$(它的方向向量是主法向量)与曲面$$\Sigma$$的法向量$$\boldsymbol{r} (s)$$平行，故曲线$$\boldsymbol{r} (s)$$是曲面$$\Sigma$$上的测地线。反过来可以证明，曲面$$\Sigma$$上的测地线就是这样的曲线。在球极投影下，曲面$$\Sigma$$上的测地线成为$$uv$$平面内与区域$$D$$的边界曲线$$u^2 + v^2 = -\frac{K}{4}$$正交的圆弧或直径。很明显，在抽象曲面Klein圆$$(D, (\mathrm{d} s)^2)$$上，经过"直线"外一点可以作无数条"直线"与已知"直线"不相交，这正是非欧几何学的平行公理。
+
 ## 曲面上切向量的平行移动
 
 ## 抽象曲面
