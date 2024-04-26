@@ -654,5 +654,7 @@ GAMES001:
     children:
       - title: 插值&拟合
         url: /2024/04/10/GAMES001-NOTES-05.html
+      - title: 傅里叶变换与球谐函数
+        url: /2024/04/26/GAMES001-NOTES-06.html
   - title: "Part III: 微分方程求解"
   - title: "Part IV: 优化与拓扑"
