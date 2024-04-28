@@ -1529,7 +1529,7 @@ $$
 \mathrm{d} \boldsymbol{r} \cdot \boldsymbol{r} = 0
 $$
 
-这表明向径$$\boldsymbol{r}$$与曲面$$\Sigma$$在洛伦兹内积意义下正交，即向径$$\boldsymbol{r}$是曲面$$\Sigma$$的法向量。用空间$$L^3$$经过原点的平面$$\Pi$$与曲面$$\Sigma$$相交，设交线的参数方程是$$\boldsymbol{r} (s)$$，其中$$s$$是曲线的弧长参数，那么
+这表明向径$$\boldsymbol{r}$$与曲面$$\Sigma$$在洛伦兹内积意义下正交，即向径$$\boldsymbol{r}$$是曲面$$\Sigma$$的法向量。用空间$$L^3$$经过原点的平面$$\Pi$$与曲面$$\Sigma$$相交，设交线的参数方程是$$\boldsymbol{r} (s)$$，其中$$s$$是曲线的弧长参数，那么
 
 $$
 \frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} \cdot \frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} = 1
