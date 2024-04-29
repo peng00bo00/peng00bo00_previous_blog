@@ -1632,9 +1632,9 @@ $$
 其中$$\Gamma_{\beta \gamma}^\alpha$$是曲面$$S$$的第一类基本量的Christoffel记号。
 
 **定理6.15** 曲面$$S$$上的可微切向量场的协变微分有下列运算法则：
-(1) $$\mathrm{D} ( \boldsymbol{X} + \boldsymbol{Y} ) = \mathrm{D} \boldsymbol{X} + \mathrm{D} \boldsymbol{Y}$$
-(2) $$\mathrm{D} ( f \cdot \boldsymbol{X} ) = \mathrm{d} f \cdot \boldsymbol{X} + f \cdot \mathrm{D} \boldsymbol{X}$$
-(3) $$\mathrm{d} ( \boldsymbol{X} \cdot \boldsymbol{Y} ) = \mathrm{D} \boldsymbol{X} \cdot \boldsymbol{Y} + \boldsymbol{X} \cdot \mathrm{D} \boldsymbol{Y}$$
+(1) $$\mathrm{D} ( \boldsymbol{X} + \boldsymbol{Y} ) = \mathrm{D} \boldsymbol{X} + \mathrm{D} \boldsymbol{Y}$$  
+(2) $$\mathrm{D} ( f \cdot \boldsymbol{X} ) = \mathrm{d} f \cdot \boldsymbol{X} + f \cdot \mathrm{D} \boldsymbol{X}$$  
+(3) $$\mathrm{d} ( \boldsymbol{X} \cdot \boldsymbol{Y} ) = \mathrm{D} \boldsymbol{X} \cdot \boldsymbol{Y} + \boldsymbol{X} \cdot \mathrm{D} \boldsymbol{Y}$$  
 其中$$\boldsymbol{X}$$，$$\boldsymbol{Y}$$是曲面$$S$$上的可微切向量场，$$f$$是定义在曲面$$S$$上的可微函数。
 {:.info}
 
