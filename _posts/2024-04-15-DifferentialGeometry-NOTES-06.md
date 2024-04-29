@@ -1623,7 +1623,7 @@ $$
 
 由**定理6.14**可知，切向量场$$\boldsymbol{X}$$的协变微分是属于曲面的内蕴几何的概念，与曲面的第二基本形式无关。
 
-实际上，在具有第一基本形式的抽象曲面$$S$$上能够定义可微的切向量场$$\boldsymbol{X} (u^1, u^2) = x^\alpha (u^1, u^2) \boldsymbol{r}_alpha (u^1, u^2)$$的协变微分
+实际上，在具有第一基本形式的抽象曲面$$S$$上能够定义可微的切向量场$$\boldsymbol{X} (u^1, u^2) = x^\alpha (u^1, u^2) \boldsymbol{r}_\alpha (u^1, u^2)$$的协变微分
 
 $$
 \mathrm{D} \boldsymbol{X} (u^1, u^2) = ( \mathrm{d} x^\alpha + x^\beta \Gamma_{\beta \gamma}^\alpha \mathrm{d} u^\gamma ) \boldsymbol{r}_\alpha
