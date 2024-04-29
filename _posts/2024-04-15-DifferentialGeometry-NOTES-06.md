@@ -1551,6 +1551,78 @@ $$
 
 ## 曲面上切向量的平行移动
 
+本节我们要叙述曲面的内蕴微分几何的一个重要的概念，即曲面上的切向量场的协变微分和曲面上的切向量沿曲线的平行移动。为了容易理解起见，我们首先在$$\mathbb{E}^3$$中的曲面上来考虑，然后把这些讨论推广到具有第一基本形式的抽象曲面上去。
+
+### 协变微分
+
+设$$S$$是欧式空间$$\mathbb{E}^3$$中的一个曲面，它的参数方程是$$\boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$。假定$$\boldsymbol{X} (u^1, u^2)$$是定义在曲面$$S$$上的一个切向量场，所以它在曲面的自然切标架场$$\{ \boldsymbol{r}; \boldsymbol{r}_1, \boldsymbol{r}_2 \}$$下可以表示为
+
+$$
+\boldsymbol{X} (u^1, u^2) = x^\alpha (u^1, u^2) \boldsymbol{r}_\alpha (u^1, u^2)
+$$
+
+如果$$x^\alpha (u^1, u^2)$$是可微函数，则称切向量场$$\boldsymbol{X} (u^1, u^2)$$是可微的。把$$\boldsymbol{X} (u^1, u^2)$$作为空间$$\mathbb{E}^3$$中定义在曲面$$S$$上的向量场，微分$$\mathrm{d} \boldsymbol{X} (u^1, u^2)$$是有意义的。从直观上看，$$\mathrm{d} \boldsymbol{X} (u^1, u^2)$$是向量场$$\boldsymbol{X} (u^1, u^2)$$在无限邻近的两个点$$(u^1, u^2)$$和$$(u^1 + \mathrm{d} u^1, u^2 + \mathrm{d} u^2)$$的值之差：
+
+$$
+\mathrm{d} \boldsymbol{X} (u^1, u^2) = \boldsymbol{X} (u^1 + \mathrm{d} u^1, u^2 + \mathrm{d} u^2) - \boldsymbol{X} (u^1, u^2)
+$$
+
+上式右端的两个向量有不同的起点，它们能做减法的原因是，向量在欧氏空间$$\mathbb{E}^3$$中能够作平行移动，因而把这两个向量的起点移到同一点后再相减。但是，一般说来，向量$$\mathrm{d} \boldsymbol{X} (u^1, u^2)$$不再与曲面$$S$$相切了。实际上，对$$\boldsymbol{X} (u^1, u^2)$$求微分得到
+
+$$
+\begin{aligned}
+\mathrm{d} \boldsymbol{X} (u^1, u^2) &= \mathrm{d} x^\alpha \boldsymbol{r}_\alpha + x^\alpha \mathrm{d} \boldsymbol{r}_\alpha \\
+&= (\mathrm{d} x^\alpha + x^\beta \Gamma_{\beta \gamma}^\alpha \mathrm{d} u^\gamma ) \boldsymbol{r}_\alpha + x^\alpha \mathrm{d} u^\beta b_{\alpha \beta} \boldsymbol{n}
+\end{aligned}
+$$
+
+要从$$\mathrm{d} \boldsymbol{X} (u^1, u^2)$$得到曲面$$S$$的切向量，只要取$$\mathrm{d} \boldsymbol{X} (u^1, u^2)$$的切分量，也就是将$$\mathrm{d} \boldsymbol{X} (u^1, u^2)$$在$$S$$的切空间上作正交投影。
+
+**定义6.2** 命
+$$
+\mathrm{D} \boldsymbol{X} (u^1, u^2) = \big( \mathrm{d} \boldsymbol{X} (u^1, u^2) \big)^\top = ( \mathrm{d} x^\alpha + x^\beta \Gamma_{\beta \gamma}^\alpha \mathrm{d} u^\gamma ) \boldsymbol{r}_\alpha
+$$
+，其中$$\top$$表示将$$\mathbb{E}^3$$中的向量向曲面$$S$$在$$(u^1, u^2)$$的切空间作正交投影。称$$\mathrm{D} \boldsymbol{X} (u^1, u^2)$$为曲面$$S$$上的切向量场$$\boldsymbol{X} (u^1, u^2)$$的**协变微分**。
+{:.success}
+
+记
+
+$$
+\mathrm{D} x^\alpha = \mathrm{d} x^\alpha + x^\beta \Gamma_{\beta \gamma}^\alpha \mathrm{d} u^\gamma
+$$
+
+则协变微分可以表示为
+
+$$
+\mathrm{D} \boldsymbol{X} (u^1, u^2) = \mathrm{D} x^\alpha \ \boldsymbol{r}_\alpha
+$$
+
+我们称$$\mathrm{D} x^\alpha$$为切向量场$$\boldsymbol{X}$$的分量$$x^\alpha (u^1, u^2)$$的协变微分。
+
+**定理6.14** 曲面$$S$$上的切向量场$$\boldsymbol{X}$$的协变微分在曲面$$S$$的保长变换下是保持不变的，即如果$$\sigma: S \rightarrow \tilde{S}$$是保长对应，则对曲面$$S$$上的任意一个可微的切向量场$$\boldsymbol{X}$$有$$\sigma_* (\mathrm{D} \boldsymbol{X}) = \mathrm{D} (\sigma_* \boldsymbol{X})$$。
+{:.info}
+
+**证明** 在曲面$$S$$和$$\tilde{S}$$上取适用的参数系，使得保长对应$$\sigma$$是曲面$$S$$和$$\tilde{S}$$上有相同参数值的点之间的对应，因而切映射$$\sigma_*$$把曲面$$S$$的自然基底向量映射为$$\tilde{S}$$的对应的自然基底向量。由于切映射$$\sigma_*$$是线性映射，所以切向量场$$\boldsymbol{X}$$和$$\sigma_* \boldsymbol{X}$$关于各自的自然基底有相同的分量$$x^\alpha (u^1, u^2)$$，即
+
+$$
+\boldsymbol{X} = x^\alpha (u^1, u^2) \boldsymbol{r}_\alpha , \ \ \ 
+\sigma_* \boldsymbol{X} = x^\alpha (u^1, u^2) \tilde{\boldsymbol{r}}_\alpha
+$$
+
+因为$$\sigma$$是保长对应，故曲面$$S$$和$$\tilde{S}$$在适用的参数系下有相同的第一类基本量，因而有相同的Christoffel记号$$\Gamma_{\beta \gamma}^\alpha$$。根据协变微分的定义式，$$\mathrm{D} \boldsymbol{X}$$和$$\mathrm{D} (\sigma_* \boldsymbol{X})$$关于各自的自然切标架场有相同的分量，因此
+
+$$
+\mathrm{D} \boldsymbol{X} = ( \mathrm{d} x^\alpha + x^\beta \Gamma_{\beta \gamma}^\alpha \mathrm{d} u^\gamma ) \boldsymbol{r}_\alpha
+$$
+
+$$
+\mathrm{D} (\sigma_* \boldsymbol{X}) = ( \mathrm{d} x^\alpha + x^\beta \Gamma_{\beta \gamma}^\alpha \mathrm{d} u^\gamma ) \tilde{\boldsymbol{r}}_\alpha = \sigma_* (\mathrm{D} \boldsymbol{X})
+$$
+
+证毕∎
+
+由**定理6.14**可知，切向量场$$\boldsymbol{X}$$的协变微分是属于曲面的内蕴几何的概念，与曲面的第二基本形式无关。
+
 ## 抽象曲面
 
 ## 抽象曲面上的几何学
