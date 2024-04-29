@@ -1648,7 +1648,7 @@ $$
 $$
 \frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t} = \bigg( \frac{\mathrm{d} \boldsymbol{X} (t)}{\mathrm{d} t} \bigg)^\top
 $$
-，我们把$$\frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t}$$称为曲面$$S$$上沿曲线$$C$$定义的切向量场$$\boldsymbol{X} (t)$$沿曲线$$C$$的**协变微分**。
+，我们把$$\frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t}$$称为曲面$$S$$上沿曲线$$C$$定义的切向量场$$\boldsymbol{X} (t)$$沿曲线$$C$$的**协变导数**。
 {:.success}
 
 若设
@@ -1684,7 +1684,7 @@ $$
 \frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t} = \frac{\mathrm{D} x^\alpha (t)}{\mathrm{d} t} \boldsymbol{r}_\alpha
 $$
 
-我们把$$\frac{\mathrm{D} x^\alpha (t)}{\mathrm{d} t}$$称为沿曲线$$C$$定义的切向量场$$\boldsymbol{X} (t)$$的分量$$x^\alpha (t)$$沿曲线$$C$$的**协变导数**。
+我们把$$\frac{\mathrm{D} x^\alpha (t)}{\mathrm{d} t}$$称为沿曲线$$C$$定义的切向量场$$\boldsymbol{X} (t)$$的分量$$x^\alpha (t)$$沿曲线$$C$$的协变导数。
 
 从$$\frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t}$$的表达式得知，若在具有第一基本形式的抽象曲面$$S$$上沿曲线$$C$$定义了切向量场$$\boldsymbol{X} (t)$$，则我们就能够定义它沿曲线$$C$$的协变导数。协变导数$$\frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t}$$在曲面$$S$$的保长变换下是不变的，并且协变导数算子$$\frac{\mathrm{D}}{\mathrm{d} t}$$具有**定理6.15**所叙述的运算法则。
 
@@ -1702,8 +1702,7 @@ $$
 
 ### 平行移动
 
-
-**定义6.4** 设$$\boldsymbol{X} (t)$$是曲面$$S$$上沿曲线$$C: u^\gamma = u^\gamma (t)$$定义的可微切向量场。如果$$\frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t} = \boldsymbol{0}$$，则称切向量场$$\boldsymbol{X} (t)$$沿曲线$$C$$是平行的。
+**定义6.4** 设$$\boldsymbol{X} (t)$$是曲面$$S$$上沿曲线$$C: u^\gamma = u^\gamma (t)$$定义的可微切向量场。如果$$\frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t} = \boldsymbol{0}$$，则称切向量场$$\boldsymbol{X} (t)$$沿曲线$$C$$是**平行**的。
 {:.success}
 
 由协变导数的定义可知，切向量场$$\boldsymbol{X} (t)$$沿曲线$$C$$平行的充分必要条件是，它的分量$$x^\alpha (t)$$满足常微分方程组
@@ -1719,6 +1718,63 @@ $$
 $$
 
 称为曲面$$S$$在点$$\boldsymbol{r}_0 = \boldsymbol{r} (u^1 (t_0), u^2 (t_0))$$处的切向量$$\boldsymbol{X}_0 = x_0^\alpha \boldsymbol{r}_\alpha \big( u^1 (t_0), u^2 (t_0) \big)$$沿曲线$$C$$作**平行移动**产生的向量场。
+
+因为常微分方程组是一阶线性齐次常微分方程组，所以它的解的全体构成一个向量空间，该向最空间与曲面$$S$$在点$$\boldsymbol{r}_0$$处的切空间线性同构。用几何的语言说，上述性质表明：曲面$$S$$上的切向量沿可微曲线$$C$$的平行移动在曲面$$S$$沿曲线$$C$$各点的切空间之间建立了线性同构。另外，根据**定理6.15**(3)，如果$$\boldsymbol{X} (t)$$，$$\boldsymbol{Y} (t)$$是曲面$$S$$上沿曲线$$C$$平行的切向量场，则
+
+$$
+\frac{\mathrm{d}}{\mathrm{d} t} \big( \boldsymbol{X} (t) \cdot \boldsymbol{Y} (t) \big) = \frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t} \cdot \boldsymbol{Y} (t) + \boldsymbol{X} (t) \cdot \frac{\mathrm{D} \boldsymbol{Y} (t)}{\mathrm{d} t} = 0
+$$
+
+这意味着$$\boldsymbol{X} (t) \cdot \boldsymbol{Y} (t)$$是常数，即切向量沿曲线$$C$$的平行移动保持切
+向量的内积不变。特别地，切向量沿曲线$$C$$的平行移动保持切向量的长度不变。综上所述，我们有下面的定理：
+
+**定理6.16** 设$$C: u^\gamma = u^\gamma (t)$$，$$a \leq t \leq b$$是曲面$$S$$上连接点$$A = (u^1(a), u^2(a))$$和点$$B = (u^1(b), u^2(b))$$的一条可微曲线。用$$\mathrm{P}_a^b$$表示曲面$$S$$上的切向量沿曲线$$C$$从$$t = a$$到$$t = b$$的平行移动，则
+$$
+\mathrm{P}_a^b: T_A S \rightarrow T_B S
+$$
+是从切空间$$T_A S$$到切空间$$T_B S$$的等距同构。
+{:.info}
+
+从协变导数的**定义6.3**可以直接得到下面的定理，它为构造曲面上的切向量沿曲线的平行移动提供了一条有效途径。
+
+**定理6.17** 设空间$$\mathbb{E}^3$$中两个曲面$$S_1$$和$$S_2$$相切，曲面$$S_1$$和$$S_2$$沿曲线$$C: u^\gamma = u^\gamma (t)$$的协变导数算子分别记为$$\frac{\mathrm{D}^{(1)}}{\mathrm{d} t}$$和$$\frac{\mathrm{D}^{(2)}}{\mathrm{d} t}$$。设$$\boldsymbol{X} (t)$$是这两个曲面沿曲线$$C$$定义的切向量场，则$$\frac{\mathrm{D}^{(1)} \boldsymbol{X} (t)}{\mathrm{d} t} = \frac{\mathrm{D}^{(2)} \boldsymbol{X} (t)}{\mathrm{d} t}$$。特别是，如果$$\boldsymbol{X}(t)$$作为曲面$$S_1$$上沿曲线$$C$$的切向量场是平行的，则它作为曲面$$S_2$$上沿曲线$$C$$的切向量场也是平行的。
+{:.info}
+
+一般来说，当切向量在曲面$$S$$上沿一条封闭曲线平行移动一周时所得到的切向量与原切向量未必是重合的。这是弯曲曲面上的几何学与欧氏平面几何学的本质差别。
+
+<div align=center>
+<img src="https://search.pstatic.net/common?src=https://i.imgur.com/g2VEqkW.png" width="80%">
+</div>
+
+在有了协变导数的概念之后，曲线的测地曲率的表达式和平面曲线的相对曲率的表达式就统一起来了。设曲面$$S$$上的曲线$$C$$的参数方程是$$u^\gamma = u^\gamma (s)$$，其中$$s$$是弧长参数，则曲线$$C$$的测地曲率是
+
+$$
+\begin{aligned}
+\kappa_g &= \frac{\mathrm{d}^2 \boldsymbol{r}}{\mathrm{d} s^2} \cdot \boldsymbol{e}_2 (s) = \frac{\mathrm{D} \boldsymbol{e}_1 (s)}{\mathrm{d} s}  \cdot \boldsymbol{e}_2 (s) \\
+&=
+\sqrt{g_{11} g_{22} - (g_{12})^2}
+\begin{vmatrix}
+\frac{\mathrm{d} u^1}{\mathrm{d} s} & \frac{\mathrm{d} u^2}{\mathrm{d} s} \\
+\frac{\mathrm{D}}{\mathrm{d} s} \big( \frac{\mathrm{d} u^1}{\mathrm{d} s} \big) & \frac{\mathrm{D}}{\mathrm{d} s} \big( \frac{\mathrm{d} u^2}{\mathrm{d} s} \big) \\
+\end{vmatrix}
+\end{aligned}
+$$
+
+对于在笛卡儿直角坐标系下的平面$$\mathbb{R}^2$$，其协变导数$$\frac{\mathrm{D}}{\mathrm{d} s}$$就是普通导数$$\frac{\mathrm{d}}{\mathrm{d} s}$$，于是上面的公式称为平面$$\mathbb{R}^2$$上曲线$$C$$的相对曲率$$\kappa_r$$的公式。
+
+特别地，测地线的微分方程成为
+
+$$
+\frac{\mathrm{D}}{\mathrm{d} s} \bigg( \frac{\mathrm{d} \boldsymbol{r} (s)}{\mathrm{d} s} \bigg) = 0
+$$
+
+或者
+
+$$
+\frac{\mathrm{D}}{\mathrm{d} s} \bigg( \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \bigg) = 0
+$$
+
+所以，曲面$$S$$上的测地线$$C$$就是其单位切向量在曲面$$S$$上沿该曲线$$C$$自身平行的曲线，或者说曲面$$S$$上的测地线$$C$$就是该曲面$$S$$上的自平行曲线。在平面上，直线可以描述为其切方向不变的曲线。因此，在这个意义上，曲面上的测地线的概念也是平面上的直线概念的推广。
 
 ## 抽象曲面
 
