@@ -1623,6 +1623,23 @@ $$
 
 由**定理6.14**可知，切向量场$$\boldsymbol{X}$$的协变微分是属于曲面的内蕴几何的概念，与曲面的第二基本形式无关。
 
+实际上，在具有第一基本形式的抽象曲面$$S$$上能够定义可微的切向量场$$\boldsymbol{X} (u^1, u^2) = x^\alpha (u^1, u^2) \boldsymbol{r}_a\pha (u^1, u^2)$$的协变微分
+
+$$
+\mathrm{D} \boldsymbol{X} (u^1, u^2) = ( \mathrm{d} x^\alpha + x^\beta \Gamma_{\beta \gamma}^\alpha \mathrm{d} u^\gamma ) \boldsymbol{r}_\alpha
+$$
+
+其中$$\Gamma_{\beta \gamma}^\alpha$$是曲面$$S$$的第一类基本量的Christoffel记号。
+
+**定理6.15** 曲面$$S$$上的可微切向量场的协变微分有下列运算法则：
+(1) $$\mathrm{D} ( \boldsymbol{X} + \boldsymbol{Y} ) = \mathrm{D} \boldsymbol{X} + \mathrm{D} \boldsymbol{Y}$$
+(2) $$\mathrm{D} ( f \cdot \boldsymbol{X} ) = \mathrm{d} f \cdot \boldsymbol{X} + f \cdot \mathrm{D} \boldsymbol{X}$$
+(3) $$\mathrm{d} ( \boldsymbol{X} \cdot \boldsymbol{Y} ) = \mathrm{D} \boldsymbol{X} \cdot \boldsymbol{Y} + \boldsymbol{X} \cdot \mathrm{D} \boldsymbol{Y}$$
+其中$$\boldsymbol{X}$$，$$\boldsymbol{Y}$$是曲面$$S$$上的可微切向量场，$$f$$是定义在曲面$$S$$上的可微函数。
+{:.info}
+
+**定理6.15**说明，协变微分$$\mathrm{D}$$具有普通微分$$\mathrm{d}$$所具有的相同的运算法则。
+
 ## 抽象曲面
 
 ## 抽象曲面上的几何学
