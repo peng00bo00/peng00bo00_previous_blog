@@ -1623,7 +1623,7 @@ $$
 
 由**定理6.14**可知，切向量场$$\boldsymbol{X}$$的协变微分是属于曲面的内蕴几何的概念，与曲面的第二基本形式无关。
 
-实际上，在具有第一基本形式的抽象曲面$$S$$上能够定义可微的切向量场$$\boldsymbol{X} (u^1, u^2) = x^\alpha (u^1, u^2) \boldsymbol{r}_a\pha (u^1, u^2)$$的协变微分
+实际上，在具有第一基本形式的抽象曲面$$S$$上能够定义可微的切向量场$$\boldsymbol{X} (u^1, u^2) = x^\alpha (u^1, u^2) \boldsymbol{r}_alpha (u^1, u^2)$$的协变微分
 
 $$
 \mathrm{D} \boldsymbol{X} (u^1, u^2) = ( \mathrm{d} x^\alpha + x^\beta \Gamma_{\beta \gamma}^\alpha \mathrm{d} u^\gamma ) \boldsymbol{r}_\alpha
@@ -1631,7 +1631,7 @@ $$
 
 其中$$\Gamma_{\beta \gamma}^\alpha$$是曲面$$S$$的第一类基本量的Christoffel记号。
 
-**定理6.15** 曲面$$S$$上的可微切向量场的协变微分有下列运算法则：
+**定理6.15** 曲面$$S$$上的可微切向量场的协变微分有下列运算法则：  
 (1) $$\mathrm{D} ( \boldsymbol{X} + \boldsymbol{Y} ) = \mathrm{D} \boldsymbol{X} + \mathrm{D} \boldsymbol{Y}$$  
 (2) $$\mathrm{D} ( f \cdot \boldsymbol{X} ) = \mathrm{d} f \cdot \boldsymbol{X} + f \cdot \mathrm{D} \boldsymbol{X}$$  
 (3) $$\mathrm{d} ( \boldsymbol{X} \cdot \boldsymbol{Y} ) = \mathrm{D} \boldsymbol{X} \cdot \boldsymbol{Y} + \boldsymbol{X} \cdot \mathrm{D} \boldsymbol{Y}$$  
@@ -1639,6 +1639,86 @@ $$
 {:.info}
 
 **定理6.15**说明，协变微分$$\mathrm{D}$$具有普通微分$$\mathrm{d}$$所具有的相同的运算法则。
+
+### 协变导数
+
+设$$C: u^\alpha = u^\alpha (t)$$是曲面$$S$$上的一条曲线，假定$$\boldsymbol{X} (t)$$是曲面$$S$$上沿曲线$$C$$定义的一个切向量场。先假定$$\boldsymbol{X} (t)$$是曲面$$S$$上沿曲线$$C$$定义的一个切向量场。先假定$$S$$是空间$$\mathbb{E}^3$$中的一张曲面，那么$$\frac{\mathrm{d} \boldsymbol{X} (t)}{\mathrm{d} t}$$是空间$$\mathbb{E}^3$$中沿曲线$$C$$定义的一个向量场，一般说来，它不是曲面$$S$$上沿曲线$$C$$定义的切向量场。要从$$\frac{\mathrm{d} \boldsymbol{X} (t)}{\mathrm{d} t}$$得到曲面$$S$$上沿曲线$$C$$定义的切向量场，只要将它正交投影到曲面$$S$$在相应的点的切空间就行了。
+
+**定义6.3** 命
+$$
+\frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t} = \bigg( \frac{\mathrm{d} \boldsymbol{X} (t)}{\mathrm{d} t} \bigg)^\top
+$$
+，我们把$$\frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t}$$称为曲面$$S$$上沿曲线$$C$$定义的切向量场$$\boldsymbol{X} (t)$$沿曲线$$C$$的**协变微分**。
+{:.success}
+
+若设
+
+$$
+\boldsymbol{X} (t) = x^\alpha (t) \boldsymbol{r}_\alpha (u^1 (t), u^2 (t))
+$$
+
+则有
+
+$$
+\begin{aligned}
+\frac{\mathrm{d} \boldsymbol{X} (t)}{\mathrm{d} t} &= \frac{\mathrm{d} x^\alpha (t)}{\mathrm{d} t} \boldsymbol{r}_\alpha + x^\alpha (t) \frac{\partial \boldsymbol{r}_\alpha}{\partial u^\gamma} \frac{\mathrm{d} u^\gamma (t)}{\mathrm{d} t} \\
+&= \bigg( \frac{\mathrm{d} x^\alpha (t)}{\mathrm{d} t} + \Gamma_{\beta \gamma}^\alpha x^\beta (t) \frac{\mathrm{d} u^\gamma (t)}{\mathrm{d} t} \bigg) \boldsymbol{r}_\alpha + b_{\alpha \gamma} x^\alpha (t) \frac{\mathrm{d} u^\gamma (t)}{\mathrm{d} t} \boldsymbol{n}
+\end{aligned}
+$$
+
+因此
+
+$$
+\frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t} = \bigg( \frac{\mathrm{d} \boldsymbol{X} (t)}{\mathrm{d} t} \bigg)^\top = \bigg( \frac{\mathrm{d} x^\alpha (t)}{\mathrm{d} t} + \Gamma_{\beta \gamma}^\alpha x^\beta (t) \frac{\mathrm{d} u^\gamma (t)}{\mathrm{d} t} \bigg) \boldsymbol{r}_\alpha
+$$
+
+若命
+
+$$
+\frac{\mathrm{D} x^\alpha (t)}{\mathrm{d} t} = \frac{\mathrm{d} x^\alpha (t)}{\mathrm{d} t} + \Gamma_{\beta \gamma}^\alpha x^\beta (t) \frac{\mathrm{d} u^\gamma (t)}{\mathrm{d} t}
+$$
+
+则
+
+$$
+\frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t} = \frac{\mathrm{D} x^\alpha (t)}{\mathrm{d} t} \boldsymbol{r}_\alpha
+$$
+
+我们把$$\frac{\mathrm{D} x^\alpha (t)}{\mathrm{d} t}$$称为沿曲线$$C$$定义的切向量场$$\boldsymbol{X} (t)$$的分量$$x^\alpha (t)$$沿曲线$$C$$的**协变导数**。
+
+从$$\frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t}$$的表达式得知，若在具有第一基本形式的抽象曲面$$S$$上沿曲线$$C$$定义了切向量场$$\boldsymbol{X} (t)$$，则我们就能够定义它沿曲线$$C$$的协变导数。协变导数$$\frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t}$$在曲面$$S$$的保长变换下是不变的，并且协变导数算子$$\frac{\mathrm{D}}{\mathrm{d} t}$$具有**定理6.15**所叙述的运算法则。
+
+类似地，如果曲面$$S$$上的可微切向量场$$\boldsymbol{X} (u^1, u^2)$$的分量是$$x^\alpha (u^1, u^2)$$，则同样可以定义它沿参数曲线的协变导数
+
+$$
+x_{, \gamma}^\alpha = \frac{\partial x^\alpha (u^1, u^2)}{\partial u^\gamma} + \Gamma_{\beta \gamma}^\alpha x^\beta (u^1, u^2)
+$$
+
+于是分量$$x^\alpha (u^1, u^2)$$的协变微分成为
+
+$$
+\mathrm{D} x^\alpha = x_{, \gamma}^\alpha \mathrm{d} u^\gamma
+$$
+
+### 平行移动
+
+
+**定义6.4** 设$$\boldsymbol{X} (t)$$是曲面$$S$$上沿曲线$$C: u^\gamma = u^\gamma (t)$$定义的可微切向量场。如果$$\frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t} = \boldsymbol{0}$$，则称切向量场$$\boldsymbol{X} (t)$$沿曲线$$C$$是平行的。
+{:.success}
+
+由协变导数的定义可知，切向量场$$\boldsymbol{X} (t)$$沿曲线$$C$$平行的充分必要条件是，它的分量$$x^\alpha (t)$$满足常微分方程组
+
+$$
+\frac{\mathrm{d} x^\alpha (t)}{\mathrm{d} t} + \Gamma_{\beta \gamma}^\alpha x^\beta (t) \frac{\mathrm{d} u^\gamma (t)}{\mathrm{d} t} = 0
+$$
+
+这是一阶线性齐次常微分方程组。根据常微分方程组理论，对于给定的可微曲线$$C: u^\gamma = u^\gamma (t)$$，$$a \leq t \leq b$$，以及任意给定的初始值$$x_0^\alpha$$，方程组在区间$$[a, b]$$上有唯一的一组解$$x^\alpha = x^\alpha (t)$$使得$$x^\alpha (t_0) = x_0^\alpha$$，其中$$t_0$$是区间$$[a, b]$$中的任意一个固定点。我们把沿曲线$$C$$定义的切向量场
+
+$$
+\boldsymbol{X} (t) = x^\alpha (t) \boldsymbol{r}_\alpha \big( u^1 (t), u^2 (t) \big)
+$$
+
+称为曲面$$S$$在点$$\boldsymbol{r}_0 = \boldsymbol{r} (u^1 (t_0), u^2 (t_0))$$处的切向量$$\boldsymbol{X}_0 = x_0^\alpha \boldsymbol{r}_\alpha \big( u^1 (t_0), u^2 (t_0) \big)$$沿曲线$$C$$作**平行移动**产生的向量场。
 
 ## 抽象曲面
 
