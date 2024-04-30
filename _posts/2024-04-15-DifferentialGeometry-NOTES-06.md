@@ -1875,6 +1875,61 @@ $$
 
 ### 度量形式
 
+所谓的在二维光滑流形上$$M$$的一个度量形式$$g$$是指对于$$M$$的任意一个容许坐标卡$$(U_i, \varphi_i)$$，$$g$$在$$U_i$$上的限制是一个正定的二次微分形式
+
+$$
+g \vert_{U_i} = g_{\alpha \beta}^{(i)} \mathrm{d} u_i^\alpha \mathrm{d} u_i^\beta
+$$
+
+其中$$g_{\alpha \beta}^{(i)} \in C^\infty (U_i)$$，且$$g_{\alpha \beta}^{(i)} = g_{\beta \alpha}^{(i)}$$，矩阵$$(g_{\alpha \beta}^{(i)})$$在$$U_i$$上是处处正定的。如果$$(U_j, \varphi_j)$$是另一个容许坐标卡，且$$U_i \cap U_j \neq \varnothing$$，则在交集$$U_i \cap U_j$$上有
+
+$$
+g \vert_{U_i \cap U_j} = g_{\alpha \beta}^{(i)} \mathrm{d} u_i^\alpha \mathrm{d} u_i^\beta = g_{\gamma \delta}^{(j)} \mathrm{d} u_j^\gamma \mathrm{d} u_j^\delta = g_{\gamma \delta}^{(j)} \frac{\partial u_j^\gamma}{\partial u_i^\alpha} \frac{\partial u_j^\delta}{\partial u_i^\beta} \mathrm{d} u_i^\alpha \mathrm{d} u_i^\beta
+$$
+
+这里的$$g_{\gamma \delta}^{(j)} \frac{\partial u_j^\gamma}{\partial u_i^\alpha} \frac{\partial u_j^\delta}{\partial u_i^\beta}$$关于下指标$$\alpha$$，$$\beta$$显然是对称的，因此有
+
+$$
+g_{\alpha \beta}^{(i)} = g_{\gamma \delta}^{(j)} \frac{\partial u_j^\gamma}{\partial u_i^\alpha} \frac{\partial u_j^\delta}{\partial u_i^\beta}, \ \ \ \alpha, \beta = 1, 2
+$$
+
+由此可见，$$M$$上的度量形式$$g$$实际上是在任意一个容许坐标卡$$(U_i, \varphi_i)$$下指定了一个由定义在区域$$U_i$$上的光滑函数构成的、对称的正定矩阵$$(g_{\alpha \beta}^{(i)})$$，并且当另一个容许坐标卡$$(U_j, \varphi_j)$$适合条件$$U_i \cap U_j \neq \varnothing$$时，相应的$$g_{\alpha \beta}^{(i)}$$和$$g_{\gamma \delta}^{(j)}$$在$$U_i \cap U_j$$上满足双重线性变换的关系式
+
+$$
+g_{\alpha \beta}^{(i)} = g_{\gamma \delta}^{(j)} \frac{\partial u_j^\gamma}{\partial u_i^\alpha} \frac{\partial u_j^\delta}{\partial u_i^\beta}, \ \ \ 1 \leq \alpha, \beta \leq 2
+$$
+
+我们把具有上述结构的量$$g$$称为2阶协变张量。
+
+如在一个二维光滑流形$$M$$上指定了一个度量形式$$g$$，则称$$(M, g)$$是一个**二维黎曼流形**，这就是我们所要研究的抽象曲面。很明显，这种抽象曲面$$(M, g)$$就是一些抽象曲面片(或参数曲面片)粘合的结果。在这里，度量形式$$g$$有明确的几何意义：设$$\boldsymbol{v}$$是$$M$$在点$$p$$的一个切向量，$$(U_i, \varphi_i)$$是包含点$$p$$的一个容许坐标卡，假定$$\boldsymbol{v}$$对应于数组$$(v_i^1, v_i^2)$$，而$$g \vert_{U_i} = g_{\alpha \beta}^{(i)} \mathrm{d} u_i^\alpha \mathrm{d} u_i^\beta$$，命
+
+$$
+g\vert_p (\boldsymbol{v}, \boldsymbol{v}) = g_{\alpha \beta}^{(i)}\vert_p v_i^\alpha v_i^\beta
+$$
+
+则上式右端与坐标卡$$(U_i, \varphi_i)$$的选取无关，记$$g\vert_p (\boldsymbol{v}, \boldsymbol{v}) = \vert \boldsymbol{v} \vert^2$$。
+
+实际上，若有另一个容许坐标卡$$(U_j, \varphi_j)$$，使得$$p \in U_j$$，则$$\boldsymbol{v}$$对应于数组$$(v_j^1, v_j^2)$$，而$$g\vert_{U_j} =  g_{\gamma \delta}^{(j)} \mathrm{d} u_j^\gamma \mathrm{d} u_j^\delta$$，那么
+
+$$
+v_j^\gamma = v_i^\alpha \cdot \frac{\partial u_j^\gamma}{\partial u_i^\alpha} \bigg\vert_p, \ \ \
+g_{\alpha \beta}^{(i)}\vert_p = g_{\gamma \delta}^{(j)}\vert_p \frac{\partial u_j^\gamma}{\partial u_i^\alpha}\bigg\vert_p \frac{\partial u_j^\delta}{\partial u_i^\beta}\bigg\vert_p
+$$
+
+因此
+
+$$
+g_{\gamma \delta}^{(j)}\vert_p v_j^\gamma v_j^\delta =
+g_{\gamma \delta}^{(j)}\vert_p \ \frac{\partial u_j^\gamma}{\partial u_i^\alpha} \bigg\vert_p \ \frac{\partial u_j^\delta}{\partial u_i^\beta} \bigg\vert_p v_i^\alpha v_i^\beta = 
+g_{\alpha \beta}^{(i)}\vert_p v_i^\alpha v_i^\beta
+$$
+
+很明显，度量形式$$g$$在坐标卡$$(U_i, \varphi_i)$$下的矩阵$$(g_{\alpha \beta}^{(i)})$$正好是自然标架场$$\bigg\{ p; \frac{\partial}{\partial u_i^1}\bigg\vert_p, \frac{\partial}{\partial u_i^2}\bigg\vert_p \bigg\}$$的度量系数，即
+
+$$
+g_{\alpha \beta}^{(i)} = g\vert_{U_i} \bigg( \frac{\partial}{\partial u_i^1}, \frac{\partial}{\partial u_i^2} \bigg)
+$$
+
 ## 抽象曲面上的几何学
 
 ## 抽象曲面的曲率
