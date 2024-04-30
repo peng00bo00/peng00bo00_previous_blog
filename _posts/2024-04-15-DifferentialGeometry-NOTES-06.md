@@ -1791,7 +1791,7 @@ $$
 从[定义3.1](/2023/10/18/DifferentialGeometry-NOTES-03.html#正则曲面)得到启发，所谓的整体的抽象曲面是一些参数曲面片粘合的结果，要求两个参数曲面片$$(U_i; (u_i^1, u_i^2))$$和$$(U_j; (u_j^1, u_j^2))$$在其交集$$U_i \cap U_j \neq \varnothing$$的情况下，坐标变换
 
 $$
-u_i^\alpha = u_i^\alpha (u_j^1, u_j^2), \ \ \ u_j^\alpha = u_j^\alpha (u_i^1, u_i^2)
+u_i^\alpha = u_i^\alpha (u_j^1, u_j^2), \ \ \ u_j^\alpha = u_j^\alpha (u_i^1, u_i^2), \ \ \ \alpha = 1, 2
 $$
 
 都是$$C^\infty$$函数，并且坐标变换的Jacobi矩阵
@@ -1810,6 +1810,27 @@ $$
 $$
 
 都是可逆矩阵，并且互为逆矩阵。
+
+更为正式的定义是：设$$M$$是一个拓扑空间(因而在$$M$$中有开集的结构，以及连续函数和连续映射的概念)。如果对于每一点$$p \in M$$都存在点$$p$$的一个开邻域$$U$$和$$\mathbb{R}^2$$中的一个开区域$$D$$, 以及从$$D$$到$$U$$的同胚$$\varphi: D \rightarrow U$$(即$$\varphi$$是从$$D$$到$$U$$的一一对应，并且$$\varphi$$以及它的逆映射都是连续的)，则称$$M$$是一个**二维拓扑流形**。这里的$$(U, \varphi)$$称为$$M$$的一个**坐标卡**。对于任意一点$$p \in U$$，命
+
+$$
+u^\alpha (p) = \big( \varphi^{-1} (p) \big)^\alpha, \ \ \ \alpha = 1, 2
+$$
+
+则称$$(u^1 (p), u^2 (p))$$为点$$p$$的坐标，而称$$(U; (u^1, u^2))$$为$$M$$的一个坐标系。
+
+假定$$M$$是一个二维拓扑流形。如果存在$$M$$的坐标卡组成的一个集合$$\{ (U_i, \varphi_i): i \in I \}$$，使得
+
+(1) $$\{ U_i: i \in I \}$$是$$M$$的一个开覆盖；  
+(2) 对于任意的$$i, j \in I$$，当$$U_i \cap U_j \neq \varnothing$$时，要求映射$$\varphi_j^{-1} \circ \varphi_i: \varphi_i^{-1} (U_i \cap U_j) \rightarrow \varphi_j^{-1} (U_i \cap U_j)$$和$$\varphi_i^{-1} \circ \varphi_j: \varphi_j^{-1} (U_i \cap U_j) \rightarrow \varphi_i^{-1} (U_i \cap U_j)$$都是$$C^\infty$$的；
+
+则称$$M$$是一个**二维光滑流形**。
+
+映射$$\varphi_j^{-1} \circ \varphi_i$$正是前面所说的坐标变换。实际上，对于任意的$$p \in U_i \cap U_j$$，我们有
+
+$$
+\varphi_j^{-1} \circ \varphi_i (u_i^1 (p), u_i^2 (p)) = \varphi_j^{-1} \circ \varphi_i (\varphi_i^{-1} (p)) = \varphi_j^{-1} (p) = (u_j^1 (p), u_j^2 (p))
+$$
 
 ## 抽象曲面上的几何学
 
