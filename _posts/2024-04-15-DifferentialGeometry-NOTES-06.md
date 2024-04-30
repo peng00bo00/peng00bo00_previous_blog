@@ -1788,6 +1788,8 @@ $$
 
 需要指出的是，在本章前面的叙述中，往往是从三维欧氏空间$$\mathbb{E}^3$$中一张"具体的"参数曲面片出发，分析出那些不依赖曲面的第二基本形式、而只与曲面的第一基本形式有关的几何量和几何概念，因此在引入这些概念的过程中显得有点繁杂，而不是那么直截了当的。在另一方面，我们还只局限千一个坐标域内，即局限在一个曲面片上，缺乏对于抽象曲面的整体性的描述和了解。因此，在这一节，我们首先要引进整体的抽象曲面的概念，然后讨论该抽象曲面上的几何概念和几何性质。
 
+### 二维流形
+
 从[定义3.1](/2023/10/18/DifferentialGeometry-NOTES-03.html#正则曲面)得到启发，所谓的整体的抽象曲面是一些参数曲面片粘合的结果，要求两个参数曲面片$$(U_i; (u_i^1, u_i^2))$$和$$(U_j; (u_j^1, u_j^2))$$在其交集$$U_i \cap U_j \neq \varnothing$$的情况下，坐标变换
 
 $$
@@ -1808,7 +1810,6 @@ $$
 \frac{\partial u_j^1}{\partial u_i^2} & \frac{\partial u_i^2}{\partial u_i^2} \\
 \end{pmatrix}
 $$
-
 都是可逆矩阵，并且互为逆矩阵。
 
 更为正式的定义是：设$$M$$是一个拓扑空间(因而在$$M$$中有开集的结构，以及连续函数和连续映射的概念)。如果对于每一点$$p \in M$$都存在点$$p$$的一个开邻域$$U$$和$$\mathbb{R}^2$$中的一个开区域$$D$$, 以及从$$D$$到$$U$$的同胚$$\varphi: D \rightarrow U$$(即$$\varphi$$是从$$D$$到$$U$$的一一对应，并且$$\varphi$$以及它的逆映射都是连续的)，则称$$M$$是一个**二维拓扑流形**。这里的$$(U, \varphi)$$称为$$M$$的一个**坐标卡**。对于任意一点$$p \in U$$，命
@@ -1831,6 +1832,48 @@ $$
 $$
 \varphi_j^{-1} \circ \varphi_i (u_i^1 (p), u_i^2 (p)) = \varphi_j^{-1} \circ \varphi_i (\varphi_i^{-1} (p)) = \varphi_j^{-1} (p) = (u_j^1 (p), u_j^2 (p))
 $$
+
+### 切向量
+
+对于$$\mathbb{E}^3$$的曲面而言，切向量是一个十分直观的概念。对于二维光滑流形来说，切向量的概念引进却颇费周折。我们采取以下的定义：设$$p \in M$$，所谓$$M$$在点$$p$$的一个**切向量**$$\boldsymbol{v}$$是指在包含点$$p$$的每一个容许的坐标卡$$(U_i, \varphi_i)$$下，$$\boldsymbol{v}$$对应于一组数$$(v_i^1, v_i^2)$$，并且当$$(U_i, \varphi_i)$$和$$(U_j, \varphi_j)$$是包含点$$p$$的任意两个容许的坐标卡时，对应的数组$$(v_i^1, v_i^2)$$和$$(v_j^1, v_j^2)$$满足以下的关系式：
+
+$$
+v_j^\alpha = v_i^\beta \cdot \frac{\partial u_j^\alpha}{\partial u_i^\beta} \bigg\vert_p, \ \ \ \alpha = 1, 2
+$$
+
+这里，$$\alpha, \beta = 1, 2$$是求和指标，$$i$$、$$j$$是标记不同坐标卡的记号，不做求和用，以下都遵从这样的规定。换言之，切向量在各个坐标卡下对应的数组之间是线性变换关系，而该线性变换的矩阵恰好是坐标变换的Jacobi矩阵。
+
+二维光滑流形$$M$$在点$$p$$的切向量$$\boldsymbol{v}$$能够解释为在点$$p$$的微分算子$$\boldsymbol{v}: C_p^\infty \rightarrow \mathbb{R}$$，这里$$C_p^\infty$$是指在点$$p$$的某个开邻域有定义、并且有各阶连续可微偏导数的函数的集合，该微分算子的定义是
+
+$$
+\boldsymbol{v} (f) = v_i^\alpha \cdot \frac{\partial (f \circ \varphi_i)}{\partial u_i^\alpha} \bigg\vert_{\varphi_i^{-1} (p)}, \ \ \ \forall f \in C_p^\infty
+$$
+
+上述定义与含有点$$p$$的容许坐标卡$$(U_i, \varphi_i)$$的选择无关。实际上，若$$(U_j, \varphi_j)$$是另一个含有点$$p$$的容许坐标卡，则根据求偏导数的链式法则得到
+
+$$
+\begin{aligned}
+v_j^\alpha \cdot \frac{\partial (f \circ \varphi_j)}{\partial u_j^\alpha} \bigg\vert_{\varphi_j^{-1} (p)} 
+&= v_j^\alpha \cdot \frac{\partial \big( (f \circ \varphi_i) \circ (\varphi_i^{-1} \circ \varphi_j) \big)}{\partial u_j^\alpha} \bigg\vert_{\varphi_j^{-1} (p)} \\
+&= v_j^\alpha \cdot \frac{\partial (f \circ \varphi_i)}{\partial u_i^\beta} \bigg\vert_{\varphi_i^{-1} (p)} \cdot \frac{\partial (\varphi_i^{-1} \circ \varphi_j)^\beta}{\partial u_j^\alpha} \bigg\vert_{\varphi_j^{-1} (p)} \\
+&= v_i^\beta \cdot \frac{\partial (f \circ \varphi_i)}{\partial u_i^\beta} \bigg\vert_{\varphi_i^{-1} (p)}
+\end{aligned}
+$$
+
+不难验证，微分算子$$\boldsymbol{v}: C_p^\infty \rightarrow \mathbb{R}$$遵从以下两个法则：
+
+(1) $$\boldsymbol{v} (f + \lambda g) = \boldsymbol{v} (f) + \lambda \boldsymbol{v} (g)$$；  
+(2) $$\boldsymbol{v} (f \cdot g) = f(p) \cdot \boldsymbol{v} (g) + g(p) \cdot \boldsymbol{v} (f)$$，$$\forall f, g \in C_p^\infty$$，$$\lambda \in \mathbb{R}$$
+
+值得指出的是，若$$(U_i, \varphi_i)$$是$$M$$的一个坐标卡，则在$$U_i$$上定义好了两个向量场$$\frac{\partial}{\partial u_i^\alpha}: C^\infty (U_i) \rightarrow C^\infty (U_i)$$，$$\alpha = 1, 2$$，它们的定义是
+
+$$
+\frac{\partial}{\partial u_i^\alpha} (f) = \frac{\partial (f \circ \varphi_i)}{\partial u_i^\alpha}, \ \ \ \forall f \in C^\infty (U_i)
+$$
+
+很明显，这两个切向量场是处处线性无关的。实际上在坐标卡$$(U_i, \varphi_i)$$下，向量场$$\frac{\partial}{\partial u_i^1}$$对应于数组$$(1, 0)$$，向量场$$\frac{\partial}{\partial u_i^2}$$对应于数组$$(0, 1)$$。因此，$$\bigg\{ p; \frac{\partial}{\partial u_i^1}\bigg\vert_p, \frac{\partial}{\partial u_i^2}\bigg\vert_p \bigg\}$$是坐标域$$U_i$$内的标架场，称为$$U_i$$上的自然标架场。
+
+### 度量形式
 
 ## 抽象曲面上的几何学
 
