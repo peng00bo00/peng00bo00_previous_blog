@@ -1778,6 +1778,39 @@ $$
 
 ## 抽象曲面
 
+在本章已经对于抽象曲面片上的微分几何进行了研究。具体地讲，所谓的抽象曲面片是指二维欧氏空间$$\mathbb{E}^2$$中的一个开区域$$D$$，并且在其中给定了一个正定的二次微分形式
+
+$$
+\mathrm{I} = g_{\alpha \beta} \mathrm{d} u^\alpha \mathrm{d} u^\beta
+$$
+
+其中求和指标$$\alpha$$、$$\beta$$取值为$$\alpha, \beta = 1, 2$$，$$g_{\alpha \beta} = g_{\beta \alpha}$$是$$D$$上的光滑函数，并且矩阵$$(g_{\alpha \beta})$$在$$D$$内是处处正定的。它就是熟知的曲面的第一基本形式，或称为度量形式，其几何意义是分量为$$( \mathrm{d} u^1, \mathrm{d} u^2)$$的切向量的长度平方。所谓的在抽象曲面片$$(D, \mathrm{I})$$上的微分几何是指在本章中所论述的只与第一基本形式有关的几何量和几何概念，例如Gauss曲率$$K$$，区域$$D$$中一条曲线的长度和测地曲率，区域$$D$$中曲线长度的变分公式及测地线测地坐标系和法坐标系，区域$$D$$内的切向量沿一条光滑曲线的平行移动，等等。
+
+需要指出的是，在本章前面的叙述中，往往是从三维欧氏空间$$\mathbb{E}^3$$中一张"具体的"参数曲面片出发，分析出那些不依赖曲面的第二基本形式、而只与曲面的第一基本形式有关的几何量和几何概念，因此在引入这些概念的过程中显得有点繁杂，而不是那么直截了当的。在另一方面，我们还只局限千一个坐标域内，即局限在一个曲面片上，缺乏对于抽象曲面的整体性的描述和了解。因此，在这一节，我们首先要引进整体的抽象曲面的概念，然后讨论该抽象曲面上的几何概念和几何性质。
+
+从[定义3.1](/2023/10/18/DifferentialGeometry-NOTES-03.html#正则曲面)得到启发，所谓的整体的抽象曲面是一些参数曲面片粘合的结果，要求两个参数曲面片$$(U_i; (u_i^1, u_i^2))$$和$$(U_j; (u_j^1, u_j^2))$$在其交集$$U_i \cap U_j \neq \varnothing$$的情况下，坐标变换
+
+$$
+u_i^\alpha = u_i^\alpha (u_j^1, u_j^2), \ \ \ u_j^\alpha = u_j^\alpha (u_i^1, u_i^2)
+$$
+
+都是$$C^\infty$$函数，并且坐标变换的Jacobi矩阵
+$$
+\begin{pmatrix}
+\frac{\partial u_i^1}{\partial u_j^1} & \frac{\partial u_i^2}{\partial u_j^1} \\
+\frac{\partial u_i^1}{\partial u_j^2} & \frac{\partial u_i^2}{\partial u_j^2} \\
+\end{pmatrix}
+$$
+以及
+$$
+\begin{pmatrix}
+\frac{\partial u_j^1}{\partial u_i^1} & \frac{\partial u_j^2}{\partial u_i^1} \\
+\frac{\partial u_j^1}{\partial u_i^2} & \frac{\partial u_i^2}{\partial u_i^2} \\
+\end{pmatrix}
+$$
+
+都是可逆矩阵，并且互为逆矩阵。
+
 ## 抽象曲面上的几何学
 
 ## 抽象曲面的曲率
