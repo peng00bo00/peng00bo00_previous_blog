@@ -1936,6 +1936,107 @@ $$
 
 ### 在(M, g)中的光滑曲线的长度
 
+设$$\gamma: [a, b] \rightarrow M$$是$$(M, g)$$中的一条光滑曲线，它的切向量$$\gamma'(t)$$是沿曲线$$\gamma(t)$$定义的切向量场。实际上，若有$$[t_0, t_1] \subset [a, b]$$使得曲线段$$\gamma\vert_{[t_0, t_1]}$$落在容许坐标卡$$(U_i, \varphi_i)$$内，命
+
+$$
+u_i^\alpha (t) = u_i^\alpha (\gamma (t)) = (\varphi_i^{-1} (\gamma (t)))^\alpha, \ \ \ t_0 \leq t \leq t_1
+$$
+
+则$$\gamma'(t) \vert_{[t_0, t_1]}$$的分量是$$\bigg( \frac{\mathrm{d} u_i^1 (t)}{\mathrm{d} t}, \frac{\mathrm{d} u_i^2 (t)}{\mathrm{d} t} \bigg)$$。若有另一个容许坐标卡$$(U_j, \varphi_j)$$使得$$\gamma\vert_{[t_0, t_1]}$$落在$$U_j$$内，则$$\gamma'(t) \vert_{[t_0, t_1]}$$的相应分量成为$$\bigg( \frac{\mathrm{d} u_j^1 (t)}{\mathrm{d} t}, \frac{\mathrm{d} u_j^2 (t)}{\mathrm{d} t} \bigg)$$。但是
+
+$$
+\begin{aligned}
+u_j^\alpha (t) &= (\varphi_j^{-1} (\gamma (t)))^\alpha = ((\varphi_j^{-1} \circ \varphi_i) (\varphi_i^{-1} (\gamma (t))))^\alpha \\
+&= (\varphi_j^{-1} \circ \varphi_i)^\alpha (u_i^1 (t), u_i^2 (t))
+\end{aligned}
+$$
+
+因此
+
+$$
+\begin{aligned}\frac{\mathrm{d} u_j^\alpha (t)}{\mathrm{d} t} &= \frac{\mathrm{d}}{\mathrm{d} t} \big( (\varphi_j^{-1} \circ \varphi_i)^\alpha (u_i^1 (t), u_i^2 (t)) \big) \\
+&= \frac{\partial (\varphi_j^{-1} \circ \varphi_i)^\alpha}{\partial u_i^\beta} \cdot \frac{\mathrm{d} u_i^\beta (t)}{\mathrm{d} t} = \frac{\partial u_j^\alpha}{\partial u_i^\beta} \cdot \frac{\mathrm{d} u_i^\beta (t)}{\mathrm{d} t}
+\end{aligned}
+$$
+
+即分量$$\bigg( \frac{\mathrm{d} u_j^1 (t)}{\mathrm{d} t}, \frac{\mathrm{d} u_j^2 (t)}{\mathrm{d} t} \bigg)$$与分量$$\bigg( \frac{\mathrm{d} u_i^1 (t)}{\mathrm{d} t}, \frac{\mathrm{d} u_i^2 (t)}{\mathrm{d} t} \bigg)$$）在坐标变换时满足切向量分量的线性变换规律，所以它们代表$$M$$中的切向量，记为$$\gamma'(t)$$，称为曲线$$\gamma$$的切向量。
+
+我们也能把$$\gamma'(t)$$看作微分算子$$\gamma'(t): C_{\gamma (t)}^\infty \rightarrow \mathbb{R}$$。实际上，若$$f \in C_{\gamma (t)}^\infty$$，则
+
+$$
+(\gamma' (t)) (f) = \frac{\mathrm{d} (f \circ \gamma (t))}{\mathrm{d} t}
+$$
+
+也就是首先把函数$$f$$限制在曲线$$\gamma (t)$$上，成为定义在区间$$[t_0, t_1]$$上的光滑函数$$f \circ \gamma$$，再求它的导数，此即上式的右端。若曲线段$$\gamma\vert_{[t_0, t_1]}$$落在容许坐标卡$$(U_i, \varphi_i)$$内，则
+
+$$
+\begin{aligned}
+\frac{\mathrm{d} (f \circ \gamma (t))}{\mathrm{d} t} &= \frac{\mathrm{d} \big( f \circ \varphi_i (\varphi_i^{-1} \gamma (t)) \big)}{\mathrm{d} t} = \frac{\mathrm{d} \big( f \circ \varphi_i (u_i^1 (t), u_i^2 (t)) \big)}{\mathrm{d} t} \\
+&= \frac{\partial (f \circ \varphi_i)}{\partial u_i^\alpha} \cdot \frac{\mathrm{d} u_i^\alpha (t)}{\mathrm{d} t} = \frac{\mathrm{d} u_i^\alpha (t)}{\mathrm{d} t} \cdot \frac{\partial}{\partial u_i^\alpha} (f)
+\end{aligned}
+$$
+
+即
+
+$$
+\gamma'(t) \vert_{U_i} = \frac{\mathrm{d} u_i^\alpha (t)}{\mathrm{d} t} \cdot \frac{\partial}{\partial u_i^\alpha} \bigg\vert_{\gamma (t)}
+$$
+
+现在，曲线$$\gamma: [a, b] \rightarrow M$$的长度定义为
+
+$$
+L (\gamma) = \int_a^b \vert \gamma'(t) \vert \ \mathrm{d} t = \int_a^b \sqrt{g( \gamma'(t), \gamma'(t) )} \ \mathrm{d} t
+$$
+
+上式右端与曲线的参数选择是无关的。若有一个保持曲线定向的参数变换$$t = t(s)$$，$$t'(s) \gt 0$$，$$c \leq s \leq d$$，那么曲线$$\gamma$$的新的参数方程成为$$\tilde{\gamma} (s) = \gamma (t(s))$$，于是$$\tilde{\gamma}'(s)$$作为微分算子成为
+
+$$
+\begin{aligned}
+(\tilde{\gamma}'(s)) (f) &= \frac{\mathrm{d} (f(\gamma(t(s))))}{\mathrm{d} s} = \frac{\mathrm{d}}{\mathrm{d} t} (f \circ \gamma (t)) \cdot \frac{\mathrm{d} (t(s))}{\mathrm{d} s} \\
+&= \frac{\mathrm{d} (t(s))}{\mathrm{d} s} \cdot \gamma'(t) (f)
+\end{aligned}
+$$
+
+即
+
+$$
+\tilde{\gamma}'(s) = \frac{\mathrm{d} t(s)}{\mathrm{d} t} \cdot \gamma'(t)
+$$
+
+这样，我们有
+
+$$
+\vert \tilde{\gamma}'(s) \vert = \vert t'(s) \cdot \gamma'(t) \vert = \vert \gamma'(t) \vert \cdot t'(s)
+$$
+
+所以
+
+$$
+\int_c^d \vert \tilde{\gamma}'(s) \vert \ \mathrm{d} s = \int_c^d \vert \gamma'(t) \vert \cdot t'(s) \ \mathrm{d} s = \int_a^b \vert \gamma'(t) \vert \ \mathrm{d} t
+$$
+
+故它与曲线的保持定向的参数变换无关。
+
+对于$$(M, g)$$中的光滑曲线$$\gamma: [a, b] \rightarrow M$$，命
+
+$$
+s = s(t) = \int_a^t \vert \gamma'(t) \vert \ \mathrm{d} t
+$$
+
+则$$0 \leq s \leq L(\gamma)$$，且$$s'(t) = \vert \gamma'(t) \vert \gt 0$$。将$$s$$看作曲线$$\gamma$$的新参数，即$$\gamma(t) = \tilde{\gamma} (s(t))$$，则
+
+$$
+\gamma'(t) = \frac{\mathrm{d}}{\mathrm{d} t} \tilde{\gamma} (s (t)) = \tilde{\gamma}' (s) \cdot \frac{\mathrm{d} s(t)}{\mathrm{d} t} = \tilde{\gamma}' (s) \cdot \vert \gamma' (t) \vert
+$$
+
+故$$\vert \tilde{\gamma}' (s) \vert = 1$$。这样，
+
+$$
+L(\gamma \vert_{[a, t]}) = L(\tilde{\gamma}_{[0, s]}) = \int_0^s \vert \tilde{\gamma}' (s) \vert \ \mathrm{d} s = s
+$$
+
+我们把$$s$$称为曲线$$\gamma$$的弧长参数。
+
 ### (M, g)上的一个紧致闭区域的面积
 
 ### (M, g)上的切向量场的协变微分
