@@ -2049,7 +2049,7 @@ $$
 A(D) = \int_{\varphi_i^{-1}} \sqrt{g_{11}^{(1)} g_{22}^{(1)} - \big( g_{12}^{(1)} \big)^2} \ \mathrm{d} u_i^1 \mathrm{d} u_i^2
 $$
 
-上式右端的数值与坐标卡$$(U_i, \varphi_i)$$的选择无关。实际上，若有另一个属于$$M$$的定向的容许坐标卡$$(U_j, \varphi_j)$$，使得$$D \subset U_j$$，则$$\frac{\partial (u_i^1, u_i^2)}{\partial (u_j^1, u_j^2)} \gt 0$$，并且由度量形式的双重线性变换关系式得到
+上式右端的数值与坐标卡$$(U_i, \varphi_i)$$的选择无关。实际上，若有另一个属于$$M$$的定向的容许坐标卡$$(U_j, \varphi_j)$$，使得$$D \subset U_j$$，则$$\frac{\partial (u_i^1, u_i^2)}{\partial (u_j^1, u_j^2)} \gt 0$$，并且由[度量形式的双重线性变换关系式](/2024/04/15/DifferentialGeometry-NOTES-06.html#度量形式)得到
 
 $$
 \begin{pmatrix}
