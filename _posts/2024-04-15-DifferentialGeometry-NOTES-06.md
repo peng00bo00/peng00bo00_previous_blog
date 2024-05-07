@@ -1959,7 +1959,7 @@ $$
 \end{aligned}
 $$
 
-即分量$$\bigg( \frac{\mathrm{d} u_j^1 (t)}{\mathrm{d} t}, \frac{\mathrm{d} u_j^2 (t)}{\mathrm{d} t} \bigg)$$与分量$$\bigg( \frac{\mathrm{d} u_i^1 (t)}{\mathrm{d} t}, \frac{\mathrm{d} u_i^2 (t)}{\mathrm{d} t} \bigg)$$）在坐标变换时满足切向量分量的线性变换规律，所以它们代表$$M$$中的切向量，记为$$\gamma'(t)$$，称为曲线$$\gamma$$的切向量。
+即分量$$\bigg( \frac{\mathrm{d} u_j^1 (t)}{\mathrm{d} t}, \frac{\mathrm{d} u_j^2 (t)}{\mathrm{d} t} \bigg)$$与分量$$\bigg( \frac{\mathrm{d} u_i^1 (t)}{\mathrm{d} t}, \frac{\mathrm{d} u_i^2 (t)}{\mathrm{d} t} \bigg)$$在坐标变换时满足切向量分量的线性变换规律，所以它们代表$$M$$中的切向量，记为$$\gamma'(t)$$，称为曲线$$\gamma$$的切向量。
 
 我们也能把$$\gamma'(t)$$看作微分算子$$\gamma'(t): C_{\gamma (t)}^\infty \rightarrow \mathbb{R}$$。实际上，若$$f \in C_{\gamma (t)}^\infty$$，则
 
@@ -2038,6 +2038,67 @@ $$
 我们把$$s$$称为曲线$$\gamma$$的弧长参数。
 
 ### (M, g)上的一个紧致闭区域的面积
+
+设$$A$$是拓扑空间$$X$$的一个子集。如果对于$$A$$的任意一个开覆盖，必有它的一个有限子覆盖，则称$$A$$是$$X$$的紧致子集。$$\mathbb{R}^n$$中的有界闭子集必定是紧致的。紧致性概念是$$\mathbb{R}^n$$中有界闭子集概念的抽象化。$$X$$中的闭区域$$D$$是指$$X$$的一个连通开子集的闭包。
+
+设$$M$$是一个二维光滑流形。如果存在$$M$$的一个容许坐标卡集$$\{ (U_i, \varphi_i) : i \in \tilde{I} \}$$，使得$$\cup_{i \in \tilde{I}} U_i = M$$，并且当$$U_i \cap U_j \neq \varnothing$$时，坐标变换的Jacobi行列式$$\frac{\partial (u_i^1, u_i^2)}{\partial (u_j^1, u_j^2)}$$在$$U_i \cap U_j$$上总是处处为正的，则称$$M$$是可定向的，且称这样的一个坐标卡集$$\{ (U_i, \varphi_i) : i \in \tilde{I} \}$$给出了$$M$$的一个定向。
+
+现在假设$$D$$是有向的二维黎曼流形$$(M, g)$$的一个紧致闭区域。若有属于$$M$$的定向的容许坐标卡$$(U_i, \varphi_i)$$，使得$$D \subset U_i$$，定义
+
+$$
+A(D) = \int_{\varphi_i^{-1}} \sqrt{g_{11}^{(1)} g_{22}^{(1)} - \big( g_{12}^{(1)} \big)^2} \ \mathrm{d} u_i^1 \mathrm{d} u_i^2
+$$
+
+上式右端的数值与坐标卡$$(U_i, \varphi_i)$$的选择无关。实际上，若有另一个属于$$M$$的定向的容许坐标卡$$(U_j, \varphi_j)$$，使得$$D \subset U_j$$，则$$\frac{\partial (u_i^1, u_i^2)}{\partial (u_j^1, u_j^2)} \gt 0$$，并且由度量形式的双重线性变换关系式得到
+
+$$
+\begin{pmatrix}
+g_{11}^{(i)} & g_{12}^{(i)} \\
+g_{21}^{(i)} & g_{22}^{(i)} \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac{\partial u_j^1}{\partial u_i^1} & \frac{\partial u_j^2}{\partial u_i^1} \\
+\frac{\partial u_j^1}{\partial u_i^2} & \frac{\partial u_j^2}{\partial u_i^2} \\
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+g_{11}^{(j)} & g_{12}^{(j)} \\
+g_{21}^{(j)} & g_{22}^{(j)} \\
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\frac{\partial u_j^1}{\partial u_i^1} & \frac{\partial u_j^1}{\partial u_i^2} \\
+\frac{\partial u_j^2}{\partial u_i^1} & \frac{\partial u_j^2}{\partial u_i^2} \\
+\end{pmatrix}
+$$
+
+因此
+
+$$
+g_{11}^{(i)} g_{22}^{(i)} - \big( g_{12}^{(i)} \big)^2 = \bigg( g_{11}^{(j)} g_{22}^{(j)} - \big( g_{12}^{(j)} \big)^2 \bigg) \cdot \bigg( \frac{\partial (u_j^1, u_j^2)}{\partial (u_i^1, u_i^2)} \bigg)^2
+$$
+
+$$
+\sqrt{g_{11}^{(i)} g_{22}^{(i)} - \big( g_{12}^{(i)} \big)^2} = \sqrt{ g_{11}^{(j)} g_{22}^{(j)} - \big( g_{12}^{(j)} \big)^2 } \cdot \frac{\partial (u_j^1, u_j^2)}{\partial (u_i^1, u_i^2)}
+$$
+
+根据2重积分变量替换原理，我们有
+
+$$
+\begin{aligned}
+\int_{\varphi_j^{-1} (D)} \sqrt{ g_{11}^{(j)} g_{22}^{(j)} - \big( g_{12}^{(j)} \big)^2 } \ \mathrm{d} u_j^1 \mathrm{d} u_j^2 &= \int_{\varphi_i^{-1} (D)} \sqrt{ g_{11}^{(j)} g_{22}^{(j)} - \big( g_{12}^{(j)} \big)^2 } \cdot \frac{\partial (u_j^1, u_j^2)}{\partial (u_i^1, u_i^2)} \ \mathrm{d} u_i^1 \mathrm{d} u_i^2 \\
+&= \int_{\varphi_i^{-1} (D)} \sqrt{ g_{11}^{(i)} g_{22}^{(i)} - \big( g_{12}^{(i)} \big)^2 } \ \mathrm{d} u_i^1 \mathrm{d} u_i^2
+\end{aligned}
+$$
+
+因为$$D$$是$$M$$的紧致闭区域，于是$$D$$可以分割成有限多个子区域的并集$$D = \cup_{\alpha = 1}^N D_\alpha$$，使得每一个$$D_\alpha$$落在属于$$M$$的定向的某个容许坐标卡$$(U_i, \varphi_i)$$内(确切的做法要用到单位分解定理，在这里略过，不细说了)。令
+
+$$
+A(D) = \sum_{\alpha = 1}^N A(D_\alpha)
+$$
+
+称为闭区域$$D$$的面积。
 
 ### (M, g)上的切向量场的协变微分
 
