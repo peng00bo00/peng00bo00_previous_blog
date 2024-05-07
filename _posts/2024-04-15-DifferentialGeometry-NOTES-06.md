@@ -2102,6 +2102,16 @@ $$
 
 ### (M, g)上的切向量场的协变微分
 
+在抽象曲面$$(M, g)$$上，切向量场$$\boldsymbol{X}$$本身就是定义在$$M$$上的光滑函数的微分算子$$\boldsymbol{X}: C^\infty (M) \rightarrow C^\infty (M)$$。实际上，切向量场是指以光滑地依赖于点的方式在每一点指定一个切向量。对于任意的$$f \in C^\infty (M)$$，$$\boldsymbol{X} (f)$$也是$$M$$上的光滑函数，其定义是对于任意一点$$p \in M$$，$$(\boldsymbol{X} (f)) (p') = (\boldsymbol{X} (p)) (f)$$。下一个重要的数学结构应该是定义在抽象曲面$$M$$上的切向量场$$\boldsymbol{Y}$$沿另一个切向量场$$\boldsymbol{X}$$的导数$$\mathrm{D}_{\boldsymbol{X}} \boldsymbol{Y}$$，称为协变导数。叙述它的定义的时候，我们需要把欧氏空间中切向量场沿另一个切向量场求导的法则作为参照的对象，因此要求所引进的协变导数应该遴从以下的规则：设$$\boldsymbol{X}$$，$$\boldsymbol{Y}$$，$$\boldsymbol{Z}$$是定义在$$M$$上的任意的光滑切向量场，$$f \in C^\infty (M)$$，则
+
+(1) $$\mathrm{D}_{f \cdot \boldsymbol{X}} \boldsymbol{Y} = f \cdot \mathrm{D}_{\boldsymbol{X}} \boldsymbol{Y}$$，$$\mathrm{D}_{\boldsymbol{X} + \boldsymbol{Z}} \boldsymbol{Y} = \mathrm{D}_{\boldsymbol{X}} \boldsymbol{Y} + \mathrm{D}_{\boldsymbol{Z}} \boldsymbol{Y}$$
+
+(2) $$\mathrm{D}_{\boldsymbol{X}} (f \cdot \boldsymbol{Y}) = \boldsymbol{X} (f) \boldsymbol{Y} + f \cdot \mathrm{D}_{\boldsymbol{X}} \boldsymbol{Y}$$，$$\mathrm{D}_{\boldsymbol{X}} (\boldsymbol{Y} + \boldsymbol{Z}) = \mathrm{D}_{\boldsymbol{X}} \boldsymbol{Y} + \mathrm{D}_{\boldsymbol{X}} \boldsymbol{Z}$$  
+
+(3) $$\boldsymbol{X} (g (\boldsymbol{Y}, \boldsymbol{Z})) = g (\mathrm{D}_{\boldsymbol{X}} \boldsymbol{Y}, \boldsymbol{Z}) + g (\boldsymbol{Y}, \mathrm{D}_{\boldsymbol{X}} \boldsymbol{Z})$$
+
+其中(1)，(2)两条说明$$\mathrm{D}$$是微分算子，第(3)条说明协变导数与度量形式(即向量内积)的关系。
+
 ### 切向量沿光滑曲线的平行移动
 
 ### (M, g)中曲线的测地曲率
