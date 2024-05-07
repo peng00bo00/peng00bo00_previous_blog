@@ -2144,6 +2144,25 @@ $$
 
 由此可见，求得$$\mathrm{D}_{\boldsymbol{X}} \boldsymbol{Y} \vert_U$$在局部坐标系$$(U; u^\alpha)$$下表达式的关键是求出系数$$\Gamma_{\beta \alpha}^\gamma$$。
 
+由协变导数应该遵循的规则(3)得到
+
+$$
+\begin{aligned}
+\frac{\partial g_{\beta \gamma}}{\partial u^\alpha} &= \frac{\partial}{\partial u^\alpha} \bigg( g\vert_U \bigg( \frac{\partial}{\partial u^\beta}, \frac{\partial}{\partial u^\gamma} \bigg) \bigg) \\
+&= g\vert_U \bigg( \mathrm{D}_{\frac{\partial}{\partial u^\alpha}} \frac{\partial}{\partial u^\beta}, \frac{\partial}{\partial u^\gamma} \bigg) + g\vert_U \bigg( \frac{\partial}{\partial u^\beta}, \mathrm{D}_{\frac{\partial}{\partial u^\alpha}} \frac{\partial}{\partial u^\gamma} \bigg) \\
+&= g\vert_U \bigg( \Gamma_{\beta \alpha}^\delta \cdot \frac{\partial}{\partial u^\delta}, \frac{\partial}{\partial u^\gamma} \bigg) + g\vert_U \bigg( \frac{\partial}{\partial u^\beta}, \Gamma_{\gamma \alpha}^\delta \cdot \frac{\partial}{\partial u^\delta} \bigg) \\
+&= \Gamma_{\beta \alpha}^\delta \cdot g_{\delta \gamma} + \Gamma_{\gamma \alpha}^\delta \cdot g_{\beta \delta}
+\end{aligned}
+$$
+
+如果假定系数$$\Gamma_{\alpha \beta}^\gamma$$关于下指标$$\alpha$$，$$\beta$$是对称的，即$$\Gamma_{\beta \alpha}^\gamma = \Gamma_{\alpha \beta}^\gamma$$，则容易唯一地确定系数$$\Gamma_{\alpha \beta}^\gamma$$的表达式是
+
+$$
+\Gamma_{\alpha \beta}^\gamma = \frac{1}{2} g^{\delta \gamma} \bigg( \frac{\partial g_{\alpha \delta}}{\partial u^\beta} + \frac{\partial g_{\delta \beta}}{\partial u^\alpha} - \frac{\partial g_{\alpha \beta}}{\partial u^\delta} \bigg)
+$$
+
+称为由度量矩阵$$(g_{\alpha \beta})$$决定的Christoffel记号，其中$$(g^{\alpha \beta})$$是指矩阵$$(g_{\alpha \beta})$$的逆矩阵，即满足关系式$$g^{\alpha \gamma} g_{\gamma \beta} = \delta_\beta^\alpha$$，$$\alpha, \beta = 1, 2$$。
+
 ### 切向量沿光滑曲线的平行移动
 
 ### (M, g)中曲线的测地曲率
