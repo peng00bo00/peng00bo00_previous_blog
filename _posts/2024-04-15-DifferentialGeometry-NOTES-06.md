@@ -2112,6 +2112,38 @@ $$
 
 其中(1)，(2)两条说明$$\mathrm{D}$$是微分算子，第(3)条说明协变导数与度量形式(即向量内积)的关系。
 
+现在假定$$(U, \varphi)$$是$$M$$的一个容许坐标卡，我们的目标是求协变导数$$\mathrm{D}$$在该坐标卡下可能的表达式。在这里，为了简单起见，省略了坐标卡的标识记号，以后在用到两个以上的坐标卡时再恢复标识记号。设
+
+$$
+\boldsymbol{X}\vert_U = X^\alpha \frac{\partial}{\partial u^\alpha}, \ \ \
+\boldsymbol{Y}\vert_U = Y^\beta \frac{\partial}{\partial u^\beta}, \ \ \
+\boldsymbol{Z}\vert_U = Z^\gamma \frac{\partial}{\partial u^\gamma}
+$$
+
+$$
+g(\boldsymbol{Y}, \boldsymbol{Z})\vert_U = g_{\beta \gamma} Y^\beta Z^\gamma
+$$
+
+那么，按照求协变导数的法则得到
+
+$$
+\mathrm{D}_{\boldsymbol{X}} \boldsymbol{Y} \vert_U = \mathrm{D}_{X^\alpha \frac{\partial}{\partial u^\alpha}} \bigg(Y^\beta \frac{\partial}{\partial u^\beta} \bigg) = X^\alpha \bigg( \frac{\partial Y^\beta}{\partial u^\alpha} \frac{\partial}{\partial u^\beta} + Y^\beta \cdot \mathrm{D}_{\frac{\partial}{\partial u^\alpha}} \frac{\partial}{\partial u^\beta} \bigg)
+$$
+
+如果假定
+
+$$
+\mathrm{D}_{\frac{\partial}{\partial u^\alpha}} \frac{\partial}{\partial u^\beta} = \Gamma_{\beta \alpha}^\gamma \frac{\partial}{\partial u^\gamma}
+$$
+
+则
+
+$$
+\mathrm{D}_{\boldsymbol{X}} \boldsymbol{Y} \vert_U = X^\alpha \bigg( \frac{\partial Y^\gamma}{\partial u^\alpha} + Y^\beta \cdot \Gamma_{\beta \alpha}^\gamma \bigg) \cdot \frac{\partial}{\partial u^\gamma}
+$$
+
+由此可见，求得$$\mathrm{D}_{\boldsymbol{X}} \boldsymbol{Y} \vert_U$$在局部坐标系$$(U; u^\alpha)$$下表达式的关键是求出系数$$\Gamma_{\beta \alpha}^\gamma$$。
+
 ### 切向量沿光滑曲线的平行移动
 
 ### (M, g)中曲线的测地曲率
