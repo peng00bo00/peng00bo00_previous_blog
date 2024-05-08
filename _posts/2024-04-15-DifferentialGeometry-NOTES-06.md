@@ -2509,4 +2509,66 @@ $$
 
 所以，带四个下指标的曲率张量只有一个实质性的分量$$R_{1212}$$。
 
+现在回到两个容许坐标卡$$(U_i, \varphi_i)$$，$$(U_j, \varphi_j)$$的情形，设$$U_i \cap U_j \neq \varnothing$$，则在$$U_i \cap U_j$$上有
+
+$$
+R_{\gamma \beta \alpha}^{(i) \delta} = R_{\zeta \eta \mu}^{(j) \xi} \cdot \frac{\partial u_j^\zeta}{\partial u_i^\gamma} \cdot \frac{\partial u_j^\eta}{\partial u_i^\beta} \frac{\partial u_j^\mu}{\partial u_i^\alpha} \frac{\partial u_i^\delta}{\partial u_j^\xi}
+$$
+
+$$
+R_{\gamma \delta \beta \alpha}^{(i)} = R_{\zeta \eta \mu}^{(j) \xi} \cdot \frac{\partial u_j^\zeta}{\partial u_i^\gamma} \cdot \frac{\partial u_j^\eta}{\partial u_i^\beta} \frac{\partial u_j^\mu}{\partial u_i^\alpha} \frac{\partial u_i^\nu}{\partial u_j^\xi}
+$$
+
+$$
+g_{\delta \nu}^{(i)} = R_{\zeta \eta \mu}^{(j) \xi} \cdot \frac{\partial u_j^\zeta}{\partial u_i^\gamma} \cdot \frac{\partial u_j^\eta}{\partial u_i^\beta} \frac{\partial u_j^\mu}{\partial u_i^\alpha} \frac{\partial u_j^\nu}{\partial u_i^\xi}
+$$
+
+$$
+g_{\xi \nu}^{(j)} = R_{\zeta \nu \eta \mu}^{(j)} \cdot \frac{\partial u_j^\zeta}{\partial u_i^\gamma} \frac{\partial u_j^\nu}{\partial u_i^\delta} \frac{\partial u_j^\eta}{\partial u_i^\beta} \frac{\partial u_j^\mu}{\partial u_i^\alpha}
+$$
+
+因此
+
+$$
+R_{1212}^{(i)} = R_{\zeta \nu \eta \mu}^{(j)} \cdot \frac{\partial u_j^\zeta}{\partial u_i^1} \frac{\partial u_j^\nu}{\partial u_i^2} \frac{\partial u_j^\eta}{\partial u_i^1} \frac{\partial u_j^\mu}{\partial u_i^2} = R_{1212}^{(j)} \cdot \bigg( \frac{\partial u_j^1}{\partial u_i^1} \frac{\partial u_j^2}{\partial u_i^2} - \frac{\partial u_j^2}{\partial u_i^1} \frac{\partial u_j^1}{\partial u_i^2} \bigg)^2
+$$
+
+另一方面，两个坐标卡的度量形式满足
+
+$$
+\begin{pmatrix}
+g_{11}^{(i)} & g_{12}^{(i)} \\
+g_{21}^{(i)} & g_{22}^{(i)} \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac{\partial u_j^1}{\partial u_i^1} & \frac{\partial u_j^2}{\partial u_i^1} \\
+\frac{\partial u_j^1}{\partial u_i^2} & \frac{\partial u_j^2}{\partial u_i^2} \\
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+g_{11}^{(j)} & g_{12}^{(j)} \\
+g_{21}^{(j)} & g_{22}^{(j)} \\
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\frac{\partial u_j^1}{\partial u_i^1} & \frac{\partial u_j^1}{\partial u_i^2} \\
+\frac{\partial u_j^2}{\partial u_i^1} & \frac{\partial u_j^2}{\partial u_i^2} \\
+\end{pmatrix}
+$$
+
+两边取它们的行列式得到
+
+$$
+g_{11}^{(i)} g_{22}^{(i)} - g_{12}^{(i)} g_{21}^{(i)} = (g_{11}^{(j)} g_{22}^{(j)} - g_{12}^{(j)} g_{21}^{(j)} ) \cdot \bigg( \frac{\partial u_j^1}{\partial u_i^1} \frac{\partial u_j^2}{\partial u_i^2} - \frac{\partial u_j^2}{\partial u_i^1} \frac{\partial u_j^1}{\partial u_i^2} \bigg)^2
+$$
+
+将上式与曲率张量相除得到
+
+$$
+K = \frac{R_{1212}^{(i)}}{g_{11}^{(i)} g_{22}^{(i)} - g_{12}^{(i)} g_{21}^{(i)}} = \frac{R_{1212}^{(j)}}{g_{11}^{(j)} g_{22}^{(j)} - g_{12}^{(j)} g_{21}^{(j)}}
+$$
+
+由此可见$$K$$与容许坐标卡的选取无关，因而它是定义在整个抽象曲面$$(M, g)$$上的几何量，称为$$(M, g)$$的去了，实际上它就是曲面的Gauss曲率。
+
 ## Gauss-Bonnet公式
