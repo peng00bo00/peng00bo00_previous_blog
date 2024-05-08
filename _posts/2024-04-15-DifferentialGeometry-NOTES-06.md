@@ -2414,7 +2414,7 @@ $$
 
 设$$(M, g)$$是一个抽象曲面实际上它是一个二维的弯曲空间。为此，需要知道空间的"弯曲"指的是什么？
 
-在$$(M, g)$$上已经定义了切向量场的协变微分算子$$\mathrm{D}$$。当$$(M, g)$$是欧式平面时，在$$M$$上可以取笛卡尔直角坐标系$$(u^1， u^2)$$，此时$$\bigg{ p; \frac{\partial}{\partial u^1} \bigg\vert_p, \frac{\partial}{\partial u^2} \bigg\vert_p \bigg}$$是在$$M$$上在平行移动下彼此合同的单位正交标架场，故$$\frac{\partial}{\partial u^1}$$，$$\frac{\partial}{\partial u^2}$$是在$$M$$上大范围平行的切向量场，于是
+在$$(M, g)$$上已经定义了切向量场的协变微分算子$$\mathrm{D}$$。当$$(M, g)$$是欧式平面时，在$$M$$上可以取笛卡尔直角坐标系$$(u^1， u^2)$$，此时$$\bigg\{ p; \frac{\partial}{\partial u^1} \bigg\vert_p, \frac{\partial}{\partial u^2} \bigg\vert_p \bigg\}$$是在$$M$$上在平行移动下彼此合同的单位正交标架场，故$$\frac{\partial}{\partial u^1}$$，$$\frac{\partial}{\partial u^2}$$是在$$M$$上大范围平行的切向量场，于是
 
 $$
 \mathrm{D}_{\frac{\partial}{\partial u^\alpha}} \frac{\partial}{\partial u^\beta} = 0, \ \ \ \forall \alpha, \beta = 1, 2
@@ -2467,5 +2467,46 @@ $$
 R_{\gamma \beta \alpha}^{(i) \delta} \cdot \frac{\partial u_j^\xi}{\partial u_i^\delta} = R_{\zeta \eta \mu}^{(j) \xi} \cdot \frac{\partial u_j^\zeta}{\partial u_i^\gamma} \cdot \frac{\partial u_j^\eta}{\partial u_i^\beta} \cdot \frac{\partial u_j^\mu}{\partial u_i^\alpha}
 $$
 
+下面我们要导出曲率张量$$R_{\gamma \beta \alpha}^{(i) \delta}$$用度量张量$$g_{\alpha \beta}^{(i)}$$表示的更为直接的表达式，并且得到它的一些对称性质。为了简便起见，省略坐标卡的标识记号$$i$$，在容许坐标卡$$(U, \varphi)$$内考虑。命
+
+$$
+R_{\gamma \delta \alpha \beta} = g_{\delta \eta} R_{\gamma \alpha \beta}^\eta, \ \ \ \Gamma_{\delta \alpha \beta} = g_{\delta \eta} \Gamma_{\alpha \beta}^\eta
+$$
+
+则
+
+$$
+R_{\gamma \alpha \beta}^\delta = g^{\delta \eta} R_{\gamma \eta \alpha \beta}, \ \ \ \Gamma_{\alpha \beta}^\delta = g^{\delta \eta} \Gamma_{\eta \alpha \beta}
+$$
+
+注意：在曲率张量$$R_{\gamma \alpha \beta}^\delta$$的上指标落下来的时候，放在下指标的第二个位置。这只是我们的规定，没有本质的意义。因此有
+
+$$
+\frac{\partial g_{\alpha \beta}}{\partial u^\gamma} = \Gamma_{\alpha \beta \gamma} + \Gamma_{\beta \alpha \gamma}
+$$
+
+所以
+
+$$
+\Gamma_{\delta \alpha \beta} = \frac{1}{2} \bigg( \frac{\partial g_{\alpha \delta}}{\partial u^\beta} + \frac{\partial g_{\delta \beta}}{\partial u^\alpha} - \frac{\partial g_{\alpha \beta}}{\partial u^\delta} \bigg)
+$$
+
+由Riemann记号的定义式得到
+
+$$
+\begin{aligned}
+R_{\gamma \delta \beta \alpha} &= g_{\delta \mu} \frac{\partial \Gamma_{\gamma \beta}^\mu}{\partial u^\alpha} - g_{\delta \mu} \frac{\partial \Gamma_{\gamma \alpha}^\mu}{\partial u^\beta} + \Gamma_{\gamma \beta}^\mu \Gamma_{\delta \mu \alpha} - \Gamma_{\gamma \alpha}^\mu \Gamma_{\delta \mu \beta} \\
+&= \frac{\partial \Gamma_{\delta \gamma \beta}}{\partial u^\alpha} - \frac{\partial \Gamma_{\delta \gamma \alpha}}{\partial u^\beta} - \Gamma_{\gamma \beta}^\mu \frac{\partial g_{\delta \mu}}{\partial u^\alpha} + \Gamma_{\gamma \alpha}^\mu \frac{\partial g_{\delta \mu}}{\partial u^\beta} + \Gamma_{\gamma \beta}^\mu \Gamma_{\delta \mu \alpha} - \Gamma_{\gamma \alpha}^\mu \Gamma_{\delta \mu \beta} \\
+&= \frac{1}{2} \bigg( \frac{\partial^2 g_{\beta \delta}}{\partial u^\gamma \partial u^\alpha} + \frac{\partial^2 g_{\gamma \alpha}}{\partial u^\delta \partial u^\beta} - \frac{\partial^2 g_{\alpha \delta}}{\partial u^\gamma \partial u^\beta} - \frac{\partial^2 g_{\beta \gamma}}{\partial u^\delta \partial u^\alpha} \bigg) - \Gamma_{\gamma \beta}^\mu \Gamma_{\mu \delta \beta} + \Gamma_{\gamma \alpha}^\mu \Gamma_{\mu \delta \beta}
+\end{aligned}
+$$
+
+由此可见，带四个下指标的曲率张量有下列对称性：
+
+$$
+R_{\gamma \delta \beta \alpha} = - R_{\gamma \delta \alpha \beta} = - R_{\delta \gamma \beta \alpha} = R_{\beta \alpha \gamma \delta}
+$$
+
+所以，带四个下指标的曲率张量只有一个实质性的分量$$R_{1212}$$。
 
 ## Gauss-Bonnet公式
