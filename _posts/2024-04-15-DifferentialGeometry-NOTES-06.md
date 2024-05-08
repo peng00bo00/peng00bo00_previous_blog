@@ -2248,6 +2248,36 @@ $$
 
 ### 切向量沿光滑曲线的平行移动
 
+这一段内容是[曲面上切向量的平行移动](/2024/04/15/DifferentialGeometry-NOTES-06.html#曲面上切向量的平行移动)的重复，不多赘述了，只是提及主要的定义和公式。
+
+设$$\gamma: [a, b] \rightarrow M$$是$$(M, g)$$中的一条光滑曲线，$$\boldsymbol{X}$$是$$M$$上的一个光滑切向量场。假定曲线$$\gamma$$落在坐标卡$$(U, \varphi)$$内，设$$\gamma$$的参数方程是$$u^\alpha = u^\alpha (t)$$，$$\alpha = 1, 2$$，故$$\gamma'(t) = \frac{\mathrm{d} u^\alpha (t)}{\mathrm{d} t} \frac{\partial}{\partial u^\alpha} \bigg\vert_{\gamma(t)}$$。设$$\boldsymbol{X} (t) = \boldsymbol{X} \vert_{\gamma (t)} = X^\alpha (t) \frac{\partial}{\partial u^\alpha} \bigg\vert_{\gamma (t)}$$。那么
+
+$$
+\begin{aligned}
+\mathrm{D}_{\gamma'(t)} \boldsymbol{X} (t) &= \mathrm{D}_{\gamma'(t)} \bigg( X^\alpha (t) \frac{\partial}{\partial u^\alpha} \bigg\vert_{\gamma (t)}  \bigg) \\
+&= \bigg( \frac{\mathrm{d} X^\gamma (t)}{\mathrm{d} t} +X^\alpha (t) \frac{\mathrm{d} u^\beta (t)}{\mathrm{d} t} \Gamma_{\alpha \beta}^\gamma (\gamma (t)) \bigg) \cdot \frac{\partial}{\partial u^\gamma} \bigg\vert_{\gamma (t)}
+\end{aligned}
+$$
+
+如果$$\mathrm{D}_{\gamma'(t)} \boldsymbol{X} (t) = \boldsymbol{0}$$，则$$\boldsymbol{X} (t)$$称沿曲线$$\gamma$$是平行的。该条件等价于分量$$X^\alpha (t)$$满足微分方程
+
+$$
+\frac{\mathrm{d} X^\gamma (t)}{\mathrm{d} t} +X^\alpha (t) \frac{\mathrm{d} u^\beta (t)}{\mathrm{d} t} \Gamma_{\alpha \beta}^\gamma (\gamma (t)) = 0, \ \ \
+\alpha = 1, 2
+$$
+
+容易证明上述条件与曲线$$\gamma$$的参数选择无关。另外，如果$$\boldsymbol{X} (t)$$沿曲线$$\gamma$$是平行的，则
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d} t} (g (\boldsymbol{X} (t), \boldsymbol{X} (t))) &= \gamma'(t) (g (\boldsymbol{X} (t), \boldsymbol{X} (t))) \\
+&= g(\mathrm{D}_{\gamma'(t)} \boldsymbol{X} (t), \boldsymbol{X} (t)) + g(\boldsymbol{X} (t), \mathrm{D}_{\gamma'(t)} \boldsymbol{X} (t)) \\
+&= 0
+\end{aligned}
+$$
+
+由此可见，沿曲线$$\gamma (t)$$平行的切向量场$$\boldsymbol{X} (t)$$的长度是常数。
+
 ### (M, g)中曲线的测地曲率
 
 ### (M, g)中的测地线
