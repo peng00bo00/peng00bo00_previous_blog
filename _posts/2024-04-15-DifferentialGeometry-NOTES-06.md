@@ -2218,6 +2218,34 @@ $$
 X_i^\alpha \bigg( \frac{\partial Y_i^\beta}{\partial u_i^\alpha} + Y_i^\gamma \Gamma_{\gamma \alpha}^{(i) \beta} \bigg) \frac{\partial}{\partial u_i^\beta} = X_j^\alpha \bigg( \frac{\partial Y_j^\beta}{\partial u_j^\alpha} + Y_j^\gamma \Gamma_{\gamma \alpha}^{(j) \beta} \bigg) \frac{\partial}{\partial u_j^\beta}
 $$
 
+实际上，
+
+$$
+\begin{aligned}
+X_i^\alpha \bigg( \frac{\partial Y_i^\beta}{\partial u_i^\alpha} + Y_i^\gamma \Gamma_{\gamma \alpha}^{(i) \beta} \bigg) \frac{\partial}{\partial u_i^\beta} &= X_i^\alpha \bigg( \frac{\partial}{\partial u_i^\alpha} \bigg( Y_j^\xi \cdot \frac{\partial u_i^\beta}{\partial u_j^\xi} \bigg) + Y_j^\xi \cdot \frac{\partial u_i^\gamma}{\partial u_j^\xi} \Gamma_{\gamma \alpha}^{(i) \beta} \bigg) \frac{\partial u_j^\eta}{\partial u_i^\beta} \frac{\partial}{\partial u_j^\eta} \\
+&= X_i^\alpha \bigg( \frac{\partial Y_j^\xi}{\partial u_j^\zeta} \frac{\partial u_j^\zeta}{\partial u_i^\alpha} \cdot \delta_\xi^\eta + Y_j^\xi \bigg( \frac{\partial^2 u_i^\beta}{\partial u_j^\xi u_j^\zeta} \frac{\partial u_j^\eta}{\partial u_i^\beta} \frac{\partial u_j^\zeta}{\partial u_i^\alpha} + \Gamma_{\gamma \alpha}^{(i) \beta} \frac{\partial u_j^\eta}{\partial u_i^\beta} \frac{\partial u_i^\gamma}{\partial u_j^\xi} \bigg) \bigg) \frac{\partial}{\partial u_j^\eta} \\
+&= X_i^\alpha \bigg( \frac{\partial Y_j^\eta}{\partial u_j^\zeta} \frac{\partial u_j^\zeta}{\partial u_i^\alpha} + Y_j^\xi \frac{\partial u_j^\zeta}{\partial u_i^\alpha} \bigg( \Gamma_{\xi \zeta}^{(j) \eta} - \Gamma_{\nu \lambda}^{(i) \mu} \frac{\partial u_i^\nu}{\partial u_j^\xi} \frac{\partial u_i^\lambda}{\partial u_j^\zeta} \frac{\partial u_i^\eta}{\partial u_j^\mu} \bigg) + Y_j^\xi \Gamma_{\gamma \alpha}^{(i) \beta} \frac{\partial u_j^\eta}{\partial u_i^\beta} \frac{\partial u_i^\gamma}{\partial u_j^\xi} \bigg) \frac{\partial}{\partial u_j^\eta} \\
+&= X_i^\alpha \frac{\partial u_j^\zeta}{\partial u_i^\alpha} \bigg( \frac{\partial Y_j^\eta}{\partial u_j^\zeta} + Y_j^\xi \Gamma_{\xi \zeta}^{(j) \eta} \bigg) \frac{\partial}{\partial u_j^\eta} \\
+&= X_j^\zeta \bigg( \frac{\partial Y_j^\eta}{\partial u_j^\zeta} + Y_j^\xi \Gamma_{\xi \zeta}^{(j) \eta} \bigg) \frac{\partial}{\partial u_j^\eta}
+\end{aligned}
+$$
+
+由此可见，利用Christoffel记号表达式$$X_i^\alpha \bigg( \frac{\partial Y_i^\beta}{\partial u_i^\alpha} + Y_i^\gamma \Gamma_{\gamma \alpha}^{(i) \beta} \bigg) \frac{\partial}{\partial u_i^\beta}$$与坐标卡$$(U_i, \varphi_i)$$的选取无关，所以它是大范围地定义在$$M$$上定义好的切向量场，记为$$\mathrm{D}_{\boldsymbol{X}} \boldsymbol{Y}$$，它在$$U_i$$上的限制是
+
+$$
+\mathrm{D}_{\boldsymbol{X}} \boldsymbol{Y} \vert_{U_i} = X_i^\alpha \bigg( \frac{\partial Y_i^\beta}{\partial u_i^\alpha} + Y_i^\gamma \Gamma_{\gamma \alpha}^{(i) \beta} \bigg) \frac{\partial}{\partial u_i^\beta}
+$$
+
+容易验证，$$\mathrm{D}_{\boldsymbol{X}} \boldsymbol{Y}$$遵循前面所提到的三条法则，称为切向量场$$\boldsymbol{Y}$$沿$$\boldsymbol{X}$$的协变导数，并且把
+
+$$
+\mathrm{D} \boldsymbol{Y} = \big( \mathrm{d} Y_i^\beta + Y_i^\gamma \Gamma_{\gamma \alpha}^{(i) \beta} \mathrm{d} u_i^\alpha \big) \frac{\partial}{\partial u_i^\beta}
+$$
+
+叫作$$\boldsymbol{Y}$$的协变微分。
+
+对比[前面](/2024/04/15/DifferentialGeometry-NOTES-06.html#协变微分)协变微分的定义知道，此处切向量场的协变微分公式和前面是一致的。不过之前引进切向量场的协变微分是通过"外在的途径"，在这里则是完全采用内在的方式，不涉及曲面的外在形状。
+
 ### 切向量沿光滑曲线的平行移动
 
 ### (M, g)中曲线的测地曲率
