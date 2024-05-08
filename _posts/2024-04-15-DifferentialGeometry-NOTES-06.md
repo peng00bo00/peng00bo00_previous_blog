@@ -2412,4 +2412,55 @@ $$
 
 ## 抽象曲面的曲率
 
+设$$(M, g)$$是一个抽象曲面实际上它是一个二维的弯曲空间。为此，需要知道空间的"弯曲"指的是什么？
+
+在$$(M, g)$$上已经定义了切向量场的协变微分算子$$\mathrm{D}$$。当$$(M, g)$$是欧式平面时，在$$M$$上可以取笛卡尔直角坐标系$$(u^1， u^2)$$，此时$$\bigg{ p; \frac{\partial}{\partial u^1} \bigg\vert_p, \frac{\partial}{\partial u^2} \bigg\vert_p \bigg}$$是在$$M$$上在平行移动下彼此合同的单位正交标架场，故$$\frac{\partial}{\partial u^1}$$，$$\frac{\partial}{\partial u^2}$$是在$$M$$上大范围平行的切向量场，于是
+
+$$
+\mathrm{D}_{\frac{\partial}{\partial u^\alpha}} \frac{\partial}{\partial u^\beta} = 0, \ \ \ \forall \alpha, \beta = 1, 2
+$$
+
+若$$\boldsymbol{X}$$是$$M$$上的光滑切向量场，设为$$\boldsymbol{X} = X^\alpha \frac{\partial}{\partial u^\alpha}$$，则
+
+$$
+\mathrm{D}_{\frac{\partial}{\partial u^\alpha}} \boldsymbol{X} = \frac{\partial X^\gamma}{\partial u^\alpha} \frac{\partial}{\partial u^\gamma}
+$$
+
+$$
+\mathrm{D}_{\frac{\partial}{\partial u^\beta}} \mathrm{D}_{\frac{\partial}{\partial u^\alpha}} \boldsymbol{X} = \frac{\partial^2 X^\gamma}{\partial u^\alpha \partial u^\beta} \frac{\partial}{\partial u^\gamma}
+$$
+
+因此
+
+$$
+\mathrm{D}_{\frac{\partial}{\partial u^\beta}} \mathrm{D}_{\frac{\partial}{\partial u^\alpha}} \boldsymbol{X} - \mathrm{D}_{\frac{\partial}{\partial u^\alpha}} \mathrm{D}_{\frac{\partial}{\partial u^\beta}} \boldsymbol{X} = \bigg( \frac{\partial^2 X^\gamma}{\partial u^\alpha \partial u^\beta} - \frac{\partial^2 X^\gamma}{\partial u^\beta \partial u^\alpha}\bigg) \frac{\partial}{\partial u^\gamma} = 0
+$$
+
+在一般的抽象曲面$$(M, g)$$上取一个容许坐标卡$$(U, \varphi)$$，则有
+
+$$
+\mathrm{D}_{\frac{\partial}{\partial u^\beta}} \frac{\partial}{\partial u^\gamma} = \Gamma_{\gamma \beta}^\delta \frac{\partial}{\partial u^\delta}
+$$
+
+$$
+\begin{aligned}
+\mathrm{D}_{\frac{\partial}{\partial u^\alpha}} \mathrm{D}_{\frac{\partial}{\partial u^\beta}} \frac{\partial}{\partial u^\gamma} &= \frac{\partial \Gamma_{\gamma \beta}^\delta}{\partial u^\alpha} \cdot \frac{\partial}{\partial u^\delta} + \Gamma_{\gamma \beta}^\delta \Gamma_{\delta \alpha}^\mu \frac{\partial}{\partial u^\mu} \\
+&= \bigg( \frac{\partial \Gamma_{\gamma \beta}^\delta}{\partial u^\alpha} + \Gamma_{\gamma \beta}^\mu \Gamma_{\mu \alpha}^\delta \bigg) \frac{\partial}{\partial u^\delta}
+\end{aligned}
+$$
+
+所以
+
+$$
+\mathrm{D}_{\frac{\partial}{\partial u^\alpha}} \mathrm{D}_{\frac{\partial}{\partial u^\beta}} \frac{\partial}{\partial u^\gamma} - \mathrm{D}_{\frac{\partial}{\partial u^\beta}} \mathrm{D}_{\frac{\partial}{\partial u^\alpha}} \frac{\partial}{\partial u^\gamma} = \bigg( \frac{\partial \Gamma_{\gamma \beta}^\delta}{\partial u^\alpha} - \frac{\partial \Gamma_{\gamma \alpha}^\delta}{\partial u^\beta} + \Gamma_{\gamma \beta}^\mu \Gamma_{\mu \alpha}^\delta - \Gamma_{\gamma \alpha}^\mu \Gamma_{\mu \beta}^\delta \bigg) \frac{\partial}{\partial u^\delta}
+$$
+
+记
+
+$$
+R_{\gamma \beta \alpha}^\delta = \frac{\partial \Gamma_{\gamma \beta}^\delta}{\partial u^\alpha} - \frac{\partial \Gamma_{\gamma \alpha}^\delta}{\partial u^\beta} + \Gamma_{\gamma \beta}^\mu \Gamma_{\mu \alpha}^\delta - \Gamma_{\gamma \alpha}^\mu \Gamma_{\mu \beta}^\delta
+$$
+
+注意到这个量的表达式和前面介绍的[Riemann记号](/2023/12/27/DifferentialGeometry-NOTES-05.html#riemann记号)是一样的，称为度量形式$$g$$的Riemann记号。重要的是，当坐标卡变换时，它是按照4重线性变换的规律进行变换的，因此它是否等于零与坐标卡的选择无关。由此可见，在欧氏平面上取笛卡儿直角坐标系时这个量显然是零，而在欧氏平面上取一般的曲纹坐标系时，这个扯也恒等于零。这就是说，这个量是否为零是判断该抽象曲面是不是欧氏平面的特征。我们把这个Riemann记号称为抽象曲面的**曲率张量**。
+
 ## Gauss-Bonnet公式
