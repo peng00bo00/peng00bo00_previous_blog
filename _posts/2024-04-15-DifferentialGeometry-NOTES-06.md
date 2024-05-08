@@ -2461,6 +2461,11 @@ $$
 R_{\gamma \beta \alpha}^\delta = \frac{\partial \Gamma_{\gamma \beta}^\delta}{\partial u^\alpha} - \frac{\partial \Gamma_{\gamma \alpha}^\delta}{\partial u^\beta} + \Gamma_{\gamma \beta}^\mu \Gamma_{\mu \alpha}^\delta - \Gamma_{\gamma \alpha}^\mu \Gamma_{\mu \beta}^\delta
 $$
 
-注意到这个量的表达式和前面介绍的[Riemann记号](/2023/12/27/DifferentialGeometry-NOTES-05.html#riemann记号)是一样的，称为度量形式$$g$$的Riemann记号。重要的是，当坐标卡变换时，它是按照4重线性变换的规律进行变换的，因此它是否等于零与坐标卡的选择无关。由此可见，在欧氏平面上取笛卡儿直角坐标系时这个量显然是零，而在欧氏平面上取一般的曲纹坐标系时，这个扯也恒等于零。这就是说，这个量是否为零是判断该抽象曲面是不是欧氏平面的特征。我们把这个Riemann记号称为抽象曲面的**曲率张量**。
+注意到这个量的表达式和前面介绍的[Riemann记号](/2023/12/27/DifferentialGeometry-NOTES-05.html#riemann记号)是一样的，称为度量形式$$g$$的Riemann记号。重要的是，当坐标卡变换时，它是按照4重线性变换的规律进行变换的，因此它是否等于零与坐标卡的选择无关。由此可见，在欧氏平面上取笛卡儿直角坐标系时这个量显然是零，而在欧氏平面上取一般的曲纹坐标系时，这个量也恒等于零。这就是说，这个量是否为零是判断该抽象曲面是不是欧氏平面的特征。我们把这个Riemann记号称为抽象曲面的**曲率张量**，它在不同坐标卡下的变换公式为
+
+$$
+R_{\gamma \beta \alpha}^{(i) \delta} \cdot \frac{\partial u_j^\xi}{\partial u_i^\delta} = R_{\zeta \eta \mu}^{(j) \xi} \cdot \frac{\partial u_j^\zeta}{\partial u_i^\gamma} \cdot \frac{\partial u_j^\eta}{\partial u_i^\beta} \cdot \frac{\partial u_j^\mu}{\partial u_i^\alpha}
+$$
+
 
 ## Gauss-Bonnet公式
