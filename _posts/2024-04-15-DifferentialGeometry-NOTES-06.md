@@ -2163,6 +2163,61 @@ $$
 
 称为由度量矩阵$$(g_{\alpha \beta})$$决定的Christoffel记号，其中$$(g^{\alpha \beta})$$是指矩阵$$(g_{\alpha \beta})$$的逆矩阵，即满足关系式$$g^{\alpha \gamma} g_{\gamma \beta} = \delta_\beta^\alpha$$，$$\alpha, \beta = 1, 2$$。
 
+现在，在$$(M, g)$$的每一个容许坐标卡$$(U_i, \varphi_i)$$下，由度量矩阵$$(g_{\alpha \beta}^{(i)})$$决定了Christoffel记号$$\Gamma_{\alpha \beta}^{(i)\gamma}$$。若有另一个容许坐标卡$$(U_j, \varphi_j)$$，且$$U_i \cap U_j \neq \varnothing$$，则在$$U_i \cap U_j$$上的Christoffel记号$$\Gamma_{\alpha \beta}^{(i)\gamma}$$，$$\Gamma_{\alpha \beta}^{(j)\gamma}$$之间有一定的联系。注意到，度量矩阵$$(g_{\alpha \beta}^{(i)})$$，$$(g_{\alpha \beta}^{(j)})$$在坐标变换下满足关系式
+
+$$
+g_{\alpha \beta}^{(j)} = g_{\gamma \delta}^{(i)} \cdot \frac{\partial u_i^\gamma}{\partial u_j^\alpha} \cdot \frac{\partial u_i^\delta}{\partial u_j^\beta}
+$$
+
+容易得到
+
+$$
+g_{\alpha \beta}^{(j)} \cdot \frac{\partial u_j^\alpha}{\partial u_i^\gamma} = g_{\gamma \delta}^{(i)} \cdot \frac{\partial u_i^\delta}{\partial u_j^\beta}, \ \ \
+g_{(i)}^{\gamma \delta} = g_{(j)}^{\alpha \beta} \cdot \frac{\partial u_i^\gamma}{\partial u_j^\alpha} \cdot \frac{\partial u_i^\delta}{\partial u_j^\beta}
+$$
+
+对前面的关系式求导得到
+
+$$
+\begin{aligned}
+\frac{\partial g_{\alpha \beta}^{(j)}}{\partial u_j^\gamma} &= \frac{\partial g_{\xi \zeta}^{(i)}}{\partial u_i^\eta} \frac{\partial u_i^\eta}{\partial u_j^\gamma} \frac{\partial u_i^\xi}{\partial u_j^\alpha} \frac{\partial u_i^\zeta}{\partial u_j^\beta} + g_{\xi \zeta}^{(i)} \frac{\partial^2 u_i^\xi}{\partial u_j^\alpha \partial u_j^\gamma} \cdot \frac{\partial u_i^\zeta}{\partial u_j^\beta} \\
+&+ g_{\xi \zeta}^{(i)} \frac{\partial u_i^\xi}{\partial u_j^\alpha} \cdot \frac{\partial^2 u_i^\zeta}{\partial u_j^\beta \partial u_j^\gamma}
+\end{aligned}
+$$
+
+将上式的指标$$\alpha$$，$$\beta$$，$$\gamma$$轮换，并且带入Christoffel记号$$\Gamma_{\alpha \beta}^{(j)\gamma}$$的表达式得到
+
+$$
+\Gamma_{\alpha \beta}^{(j)\gamma} = \Gamma_{\xi \zeta}^{(i)\eta} \cdot \frac{\partial u_i^\xi}{\partial u_j^\alpha} \frac{\partial u_i^\zeta}{\partial u_j^\beta} \frac{\partial u_i^\gamma}{\partial u_j^\eta} + \frac{\partial^2 u_i^\eta}{\partial u_j^\alpha \partial u_j^\gamma} \cdot \frac{\partial u_i^\gamma}{\partial u_j^\eta}
+$$
+
+$$
+\Gamma_{\alpha \beta}^{(j)\gamma} \frac{\partial u_i^\eta}{\partial u_j^\gamma} = \Gamma_{\xi \zeta}^{(i)\eta} \cdot \frac{\partial u_i^\xi}{\partial u_j^\alpha} \frac{\partial u_i^\zeta}{\partial u_j^\beta} + \frac{\partial^2 u_i^\eta}{\partial u_j^\alpha \partial u_j^\gamma}
+$$
+
+设$$\boldsymbol{X}$$，$$\boldsymbol{Y}$$是$$M$$上的两个光滑切向量场，它们限制在$$U_i \cap U_j$$上是
+
+$$
+\boldsymbol{X} \vert_{U_i \cap U_j} = X_i^\alpha \cdot \frac{\partial}{\partial u_i^\alpha} = X_j^\beta \cdot \frac{\partial}{\partial u_j^\beta} = X_j^\beta \cdot \frac{\partial u_i^\alpha}{\partial u_j^\beta} \frac{\partial}{\partial u_i^\alpha}
+$$
+
+$$
+\boldsymbol{Y} \vert_{U_i \cap U_j} = Y_i^\alpha \cdot \frac{\partial}{\partial u_i^\alpha} = Y_j^\beta \cdot \frac{\partial}{\partial u_j^\beta} = Y_j^\beta \cdot \frac{\partial u_i^\alpha}{\partial u_j^\beta} \frac{\partial}{\partial u_i^\alpha}
+$$
+
+所以
+
+$$
+X_i^\alpha = X_j^\beta \cdot \frac{\partial u_i^\alpha}{\partial u_j^\beta}, \ \ \
+Y_i^\alpha = Y_j^\beta \cdot \frac{\partial u_i^\alpha}{\partial u_j^\beta}
+$$
+
+我们要证明在$$U_i \cap U_j$$上有
+
+$$
+X_i^\alpha \bigg( \frac{\partial Y_i^\beta}{\partial u_i^\alpha} + Y_i^\gamma \Gamma_{\gamma \alpha}^{(i) \beta} \bigg) \frac{\partial}{\partial u_i^\beta} = X_j^\alpha \bigg( \frac{\partial Y_j^\beta}{\partial u_j^\alpha} + Y_j^\gamma \Gamma_{\gamma \alpha}^{(j) \beta} \bigg) \frac{\partial}{\partial u_j^\beta}
+$$
+
 ### 切向量沿光滑曲线的平行移动
 
 ### (M, g)中曲线的测地曲率
