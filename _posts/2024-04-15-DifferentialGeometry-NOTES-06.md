@@ -2404,6 +2404,12 @@ $$
 
 ### (M, g)中的测地线
 
+抽象曲面$$(M, g)$$中的测地线就是测地曲率$$\kappa_g$$为零的曲线，即其单位切向量沿该曲线$$\gamma (s)$$本身是平行的曲线。所以，测地线满足微分方程
+
+$$
+\frac{\mathrm{d}^2 u^\alpha (s)}{\mathrm{d} s^2} + \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma (s)}{\mathrm{d} s}  \Gamma_{\beta \gamma}^\alpha (\gamma (s))= 0, \ \ \ \alpha = 1, 2
+$$
+
 ## 抽象曲面的曲率
 
 ## Gauss-Bonnet公式
