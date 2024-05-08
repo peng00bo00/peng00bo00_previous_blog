@@ -2280,6 +2280,128 @@ $$
 
 ### (M, g)中曲线的测地曲率
 
+设$$\gamma: [0, L] \rightarrow M$$是有向抽象曲面$$(M, g)$$中的一条以弧长$$s$$为参数的光滑曲线，那么$$g (\gamma'(s), \gamma' (s)) = 1$$，于是
+
+$$
+0 = \frac{\mathrm{d}}{\mathrm{d} s} (g (\gamma'(s), \gamma' (s))) = 2 g (\mathrm{D}_{\gamma'(t)} \gamma' (s), \gamma' (s))
+$$
+
+由此可见，$$\mathrm{D}_{\gamma'(t)} \gamma' (s) \perp \gamma' (s)$$。若命$$\boldsymbol{e}_1 (s) = \gamma' (s)$$，$$\boldsymbol{e}_2$$是将$$\boldsymbol{e}_1$$按曲面的正定向旋转90°得到的单位切向量，则可以命
+
+$$
+\mathrm{D}_{\gamma'(t)} \gamma' (s) = \kappa_g (s) \cdot \boldsymbol{e}_2 (s)
+$$
+
+因此，
+
+$$
+\kappa_g (s) = g (\mathrm{D}_{\gamma'(t)} \gamma' (s), \boldsymbol{e}_2 (s))
+$$
+
+称为曲线$$\gamma (s)$$的测地曲率。
+
+假定曲线$$\gamma: [0, L] \rightarrow M$$落在容许坐标卡$$(U, \varphi)$$内，设$$\gamma (s)$$的参数方程是$$u^\alpha = u^\alpha (s)$$，$$\alpha = 1, 2$$，于是$$\gamma$$的切向量是$$\gamma'(s) = \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \cdot \frac{\partial}{\partial u^\alpha}$$。假定$$\boldsymbol{e}_2 (s) = v^\alpha (s) \frac{\partial}{\partial u^\alpha}$$，则下面的条件成立
+
+$$
+g_{\alpha \beta} v^\alpha v^\beta = 1, \ \ \
+g_{\alpha \beta} v^\alpha \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} = 0
+$$
+
+从上面第二式得到
+
+$$
+v^\alpha g_{\alpha 1} \frac{\mathrm{d} u^1 (s)}{\mathrm{d} s} + v^\alpha g_{\alpha 2} \frac{\mathrm{d} u^2 (s)}{\mathrm{d} s} = 0
+$$
+
+所以
+
+$$
+(v^\alpha g_{\alpha 1}, v^\alpha g_{\alpha 2}) = \lambda \cdot \bigg( -\frac{\mathrm{d} u^2 (s)}{\mathrm{d} s}, \frac{\mathrm{d} u^1 (s)}{\mathrm{d} s} \bigg)
+$$
+
+考虑到$$\{ \boldsymbol{e}_1 (s), \boldsymbol{e}_2 (s) \}$$给出了曲面$$M$$的定向，所以$$\lambda \gt 0$$。注意到
+
+$$
+\mathrm{D}_{\gamma'(s)} \gamma' (s) = \bigg( \frac{\mathrm{d}^2 u^\alpha(s)}{\mathrm{d} s^2} + \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma (s)}{\mathrm{d} s} \Gamma_{\beta \gamma}^\alpha (\gamma (s)) \bigg) \frac{\partial}{\partial u^\alpha} \bigg\vert_{\gamma (s)}
+$$
+
+带入测地曲率定义式得到
+
+$$
+\begin{aligned}
+\kappa_g (s) &= g_{\alpha 1} v^\alpha \bigg( \frac{\mathrm{d}^2 u^1(s)}{\mathrm{d} s^2} + \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma (s)}{\mathrm{d} s} \Gamma_{\beta \gamma}^1 (\gamma (s)) \bigg) \\
+&+ g_{\alpha 2} v^\alpha \bigg( \frac{\mathrm{d}^2 u^2(s)}{\mathrm{d} s^2} + \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma (s)}{\mathrm{d} s} \Gamma_{\beta \gamma}^2 (\gamma (s)) \bigg) \\
+&= \lambda \bigg[ - \bigg( \frac{\mathrm{d}^2 u^1}{\mathrm{d} s^2} + \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \Gamma_{\beta \gamma}^1 \bigg) \frac{\mathrm{d} u^2}{\mathrm{d} s} \\
+&+ \bigg( \frac{\mathrm{d}^2 u^2}{\mathrm{d} s^2}
++ \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \Gamma_{\beta \gamma}^2 \bigg) \frac{\mathrm{d} u^1}{\mathrm{d} s} \bigg]
+\end{aligned}
+$$
+
+即
+
+$$
+\kappa_g (s) = \lambda \cdot
+\begin{vmatrix}
+\frac{\mathrm{d} u^1}{\mathrm{d} s} & \frac{\mathrm{d}^2 u^1}{\mathrm{d} s^2} + \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \Gamma_{\beta \gamma}^1 \\
+\frac{\mathrm{d} u^2}{\mathrm{d} s} & \frac{\mathrm{d}^2 u^2}{\mathrm{d} s^2}
++ \frac{\mathrm{d} u^\beta}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma}{\mathrm{d} s} \Gamma_{\beta \gamma}^2 \\
+\end{vmatrix}
+$$
+
+下面来决定系数$$\lambda$$。首先，$$(v^\alpha g_{\alpha 1}, v^\alpha g_{\alpha 2}) = \lambda \cdot \bigg( -\frac{\mathrm{d} u^2 (s)}{\mathrm{d} s}, \frac{\mathrm{d} u^1 (s)}{\mathrm{d} s} \bigg)$$可以改写成为
+
+$$
+(v^1, v^2) \cdot
+\begin{pmatrix}
+g_{11} & g_{12} \\
+g_{21} & g_{22} \\
+\end{pmatrix}
+= \lambda \cdot \bigg( - \frac{\mathrm{d} u^2}{\mathrm{d} s}, \frac{\mathrm{d} u^1}{\mathrm{d} s} \bigg)
+$$
+
+因此
+
+$$
+\begin{aligned}
+(v^1, v^2) &= \frac{\lambda}{g_{11} g_{22} - (g_{12})^2} \cdot \bigg( - \frac{\mathrm{d} u^2}{\mathrm{d} s}, \frac{\mathrm{d} u^1}{\mathrm{d} s} \bigg) \cdot
+\begin{pmatrix}
+g_{22} & -g_{12} \\
+-g_{21} & g_{11} \\
+\end{pmatrix} \\
+&= \frac{\lambda}{g_{11} g_{22} - (g_{12})^2} \bigg( -g_{2 \alpha} \frac{\mathrm{d} u^\alpha}{\mathrm{d} s}, g_{1 \alpha} \frac{\mathrm{d} u^\alpha}{\mathrm{d} s} \bigg)
+\end{aligned}
+$$
+
+于是，$$g_{\alpha \beta} v^\alpha v^\beta = 1$$成为
+
+$$
+\begin{aligned}
+1 &= (v^\alpha g_{\alpha 1}, v^\alpha g_{\alpha 2}) \cdot
+\begin{pmatrix}
+v^1 \\ v^2
+\end{pmatrix} \\
+&= \frac{\lambda^2}{g_{11} g_{22} - (g_{12})^2} \cdot \bigg( - \frac{\mathrm{d} u^2 (s)}{\mathrm{d} s}, \frac{\mathrm{d} u^1 (s)}{\mathrm{d} s} \bigg) \cdot 
+\begin{pmatrix}
+-g_{2 \alpha} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \\
+g_{1 \alpha} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s}
+\end{pmatrix} \\
+&= \frac{\lambda^2}{g_{11} g_{22} - (g_{12})^2} \cdot g_{\alpha \beta} \frac{\mathrm{d} u^\alpha (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \\
+&= \frac{\lambda^2}{g_{11} g_{22} - (g_{12})^2}
+\end{aligned}
+$$
+
+即$$\lambda = \sqrt{g_{11} g_{22} - (g_{12})^2}$$。所以，光滑曲线$$\gamma$$的测地曲率是
+
+$$
+\kappa_g = \sqrt{g_{11} g_{22} - (g_{12})^2}
+\begin{vmatrix}
+\frac{\mathrm{d} u^1}{\mathrm{d} s} & \frac{\mathrm{d}^2 u^1 (s)}{\mathrm{d} s^2} + \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma (s)}{\mathrm{d} s} \Gamma_{\beta \gamma}^1 \\
+\frac{\mathrm{d} u^2}{\mathrm{d} s} & \frac{\mathrm{d}^2 u^2 (s)}{\mathrm{d} s^2} + \frac{\mathrm{d} u^\beta (s)}{\mathrm{d} s} \frac{\mathrm{d} u^\gamma (s)}{\mathrm{d} s} \Gamma_{\beta \gamma}^2 \\
+\end{vmatrix}
+$$
+
+这样，我们通过内在的途径重新获得了测地曲率的公式。
+
 ### (M, g)中的测地线
 
 ## 抽象曲面的曲率
