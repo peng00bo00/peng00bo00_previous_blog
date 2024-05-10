@@ -1719,7 +1719,7 @@ $$
 
 称为曲面$$S$$在点$$\boldsymbol{r}_0 = \boldsymbol{r} (u^1 (t_0), u^2 (t_0))$$处的切向量$$\boldsymbol{X}_0 = x_0^\alpha \boldsymbol{r}_\alpha \big( u^1 (t_0), u^2 (t_0) \big)$$沿曲线$$C$$作**平行移动**产生的向量场。
 
-因为常微分方程组是一阶线性齐次常微分方程组，所以它的解的全体构成一个向量空间，该向最空间与曲面$$S$$在点$$\boldsymbol{r}_0$$处的切空间线性同构。用几何的语言说，上述性质表明：曲面$$S$$上的切向量沿可微曲线$$C$$的平行移动在曲面$$S$$沿曲线$$C$$各点的切空间之间建立了线性同构。另外，根据**定理6.15**(3)，如果$$\boldsymbol{X} (t)$$，$$\boldsymbol{Y} (t)$$是曲面$$S$$上沿曲线$$C$$平行的切向量场，则
+因为常微分方程组是一阶线性齐次常微分方程组，所以它的解的全体构成一个向量空间，该向量空间与曲面$$S$$在点$$\boldsymbol{r}_0$$处的切空间线性同构。用几何的语言说，上述性质表明：曲面$$S$$上的切向量沿可微曲线$$C$$的平行移动在曲面$$S$$沿曲线$$C$$各点的切空间之间建立了线性同构。另外，根据**定理6.15**(3)，如果$$\boldsymbol{X} (t)$$，$$\boldsymbol{Y} (t)$$是曲面$$S$$上沿曲线$$C$$平行的切向量场，则
 
 $$
 \frac{\mathrm{d}}{\mathrm{d} t} \big( \boldsymbol{X} (t) \cdot \boldsymbol{Y} (t) \big) = \frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t} \cdot \boldsymbol{Y} (t) + \boldsymbol{X} (t) \cdot \frac{\mathrm{D} \boldsymbol{Y} (t)}{\mathrm{d} t} = 0
