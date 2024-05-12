@@ -1725,8 +1725,7 @@ $$
 \frac{\mathrm{d}}{\mathrm{d} t} \big( \boldsymbol{X} (t) \cdot \boldsymbol{Y} (t) \big) = \frac{\mathrm{D} \boldsymbol{X} (t)}{\mathrm{d} t} \cdot \boldsymbol{Y} (t) + \boldsymbol{X} (t) \cdot \frac{\mathrm{D} \boldsymbol{Y} (t)}{\mathrm{d} t} = 0
 $$
 
-这意味着$$\boldsymbol{X} (t) \cdot \boldsymbol{Y} (t)$$是常数，即切向量沿曲线$$C$$的平行移动保持切
-向量的内积不变。特别地，切向量沿曲线$$C$$的平行移动保持切向量的长度不变。综上所述，我们有下面的定理：
+这意味着$$\boldsymbol{X} (t) \cdot \boldsymbol{Y} (t)$$是常数，即切向量沿曲线$$C$$的平行移动保持切向量的内积不变。特别地，切向量沿曲线$$C$$的平行移动保持切向量的长度不变。综上所述，我们有下面的定理：
 
 **定理6.16** 设$$C: u^\gamma = u^\gamma (t)$$，$$a \leq t \leq b$$是曲面$$S$$上连接点$$A = (u^1(a), u^2(a))$$和点$$B = (u^1(b), u^2(b))$$的一条可微曲线。用$$\mathrm{P}_a^b$$表示曲面$$S$$上的切向量沿曲线$$C$$从$$t = a$$到$$t = b$$的平行移动，则
 $$
@@ -2572,3 +2571,25 @@ $$
 由此可见$$K$$与容许坐标卡的选取无关，因而它是定义在整个抽象曲面$$(M, g)$$上的几何量，称为$$(M, g)$$的曲率，实际上它就是曲面的Gauss曲率。
 
 ## Gauss-Bonnet公式
+
+欧氏平面上的平行公设等价于"三角形的内角和等于180°"， 或者"三角形的外角和等于360°"。在Klein圆内，欧氏几何的平行公理不再成立，与之等价的是测地三角形的内角和不再等于180°，或者测地三角形的外角和不再等于360°，原因是Klein 圆不再是平坦的空间，它有非零的曲率(事实上，它的Gauss曲率是负常数)。对于一般的曲面测地三角形的内角和(或者外角和)如何?这是本节要研究的问题。我们先讨论一般的Gauss-Bonnet公式，然后将它用于测地三角形，得到测地三角形的外角和的公式。
+
+在[平面曲线](/2023/07/31/DifferentialGeometry-NOTES-02.html#平面曲线)一节中我们巳经叙述过平面上分段光滑的简单闭曲线的概念。现在假定$$C$$是曲面$$S: \boldsymbol{r} = \boldsymbol{r} (u^1, u^2)$$上的一条曲线，它的参数方程是$$u^1 = u^1 (s)$$，$$u^2 = u^2 (s)$$，其中$$s$$是弧长参数，$$0 \leq s \leq L$$。如果函数$$u^\alpha (s)$$是连续的，并且区间$$[0, L]$$有一个分割$$0 = s_0 \lt s_1 \lt \cdots \lt s_n = L$$，使得函数$$u^\alpha (s)$$在每一个小区间$$(s_{i-1}, s_i)$$内部是光滑的，则称$$C$$是分段光滑曲线，而$$s = s_1, \cdots, s_{n-1}$$称为曲线$$C$$的角点。如果$$u^\alpha (0) = u^\alpha (L)$$，$$\alpha = 1, 2$$，则称曲线$$C$$是封闭曲线。一般说来，端点$$s = s_0$$或$$s_n$$也是封闭曲线$$C$$的角点。如果曲线$$C$$除了端点外没有其他自交点，即对于任意的$$0 \leq a \lt b \lt L$$都有$$\boldsymbol{r} (a) \neq \boldsymbol{r} (b)$$则称该曲线是简单的。如果$$C$$是光滑的简单封闭曲线，则有
+
+$$
+\lim_{s \rightarrow s_i - 0} \boldsymbol{r}' (s) = \lim_{s \rightarrow s_i + 0} \boldsymbol{r}' (s), \ \ \
+1 \leq i \leq n-1
+$$
+
+$$
+\lim_{s \rightarrow L - 0} \boldsymbol{r}' (s) = \lim_{s \rightarrow 0 + 0} \boldsymbol{r}' (s)
+$$
+
+**定理6.18 (Gauss-Bonnet公式)** 假定曲线$$C$$是有向曲面$$S$$上的一条由$$n$$段光滑曲线组成的分段光滑简单闭曲线，它所包围的区域$$D$$是曲面$$S$$的一个单连通区域，则
+$$\oint_C \kappa_g \ \mathrm{d} s + \iint_D K \ \mathrm{d} \sigma = 2 \pi - \sum_{i=1}^n \alpha_i$$
+其中$$\kappa_g$$是曲线$$C$$的测地曲率，$$K$$是曲面$$S$$的Gauss曲率，$$\alpha_i$$表示曲线$$C$$在角点$$s = s_i$$的外角。
+{:.info}
+
+**证明**
+
+证毕∎
