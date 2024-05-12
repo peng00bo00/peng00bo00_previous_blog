@@ -2590,6 +2590,54 @@ $$\oint_C \kappa_g \ \mathrm{d} s + \iint_D K \ \mathrm{d} \sigma = 2 \pi - \sum
 其中$$\kappa_g$$是曲线$$C$$的测地曲率，$$K$$是曲面$$S$$的Gauss曲率，$$\alpha_i$$表示曲线$$C$$在角点$$s = s_i$$的外角。
 {:.info}
 
-**证明**
+**证明** 我们分若干步骤来证明这个定理。首先假定曲线$$C$$是连续可微的简单封闭曲线，它所包围的区域$$D$$是落在曲面$$S$$的一个坐标域$$(U; (u, v))$$内的单连通区域，并且$$(u, v)$$是曲面$$S$$的正交参数系。于是，曲面的第一基本形式是
+
+$$
+\mathrm{I} = E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2
+$$
+
+设曲线$$C$$的参数方程是$$u = u(s)$$，$$v = v(s)$$，$$s$$是弧长参数。用$$\theta(s)$$表示曲线$$C$$在$$u$$-曲线在$$s$$处所夹的方向角，则由Liouville定理，曲线$$C$$的测地曲率等于
+
+$$
+\kappa_g = \frac{\mathrm{d} \theta (s)}{\mathrm{d} s} - \frac{1}{2 \sqrt{G}} \frac{\partial \log{E}}{\partial v} \cos{\theta} + \frac{1}{2 \sqrt{E}} \frac{\partial \log{G}}{\partial u} \sin{\theta}
+$$
+
+将上式沿曲线$$C$$积分得到
+
+$$
+\begin{aligned}
+\oint_C \kappa_g \ \mathrm{d} s &= \oint_C \mathrm{d} \theta + \oint_C \bigg( - \frac{1}{2 \sqrt{G}} \frac{\partial \log{E}}{\partial v} \cos{\theta} + \frac{1}{2 \sqrt{E}} \frac{\partial \log{G}}{\partial u} \sin{\theta} \bigg) \ \mathrm{d} s \\
+&= \oint_C \mathrm{d} \theta + \oint_C \bigg( - \frac{\sqrt{E}}{2 \sqrt{G}} \frac{\partial \log{E}}{\partial v} \ \mathrm{d} u + \frac{\sqrt{G}}{2 \sqrt{E}} \frac{\partial \log{G}}{\partial u} \ \mathrm{d} v \bigg) \\
+&= \oint_C \mathrm{d} \theta + \oint_C \bigg( - \frac{(\sqrt{E})_v}{\sqrt{G}} \ \mathrm{d} u + \frac{(\sqrt{G})_u}{\sqrt{E}} \ \mathrm{d} v \bigg)
+\end{aligned}
+$$
+
+上式的第二个等号中用了公式
+
+$$
+\cos{\theta} = \sqrt{E} \frac{\mathrm{d} u}{\mathrm{d} s}, \ \ \
+\sin{\theta} = \sqrt{G} \frac{\mathrm{d} v}{\mathrm{d} s}
+$$
+
+根据[Green公式](https://en.wikipedia.org/wiki/Green%27s_theorem)，积分式右端第二个积分是
+
+$$
+\begin{aligned}
+\oint_C \bigg( - \frac{(\sqrt{E})_v}{\sqrt{G}} \ \mathrm{d} u + \frac{(\sqrt{G})_u}{\sqrt{E}} \ \mathrm{d} v \bigg) &= \iint_D \bigg( \bigg( \frac{(\sqrt{E})_v}{\sqrt{G}} \bigg)_v + \bigg( \frac{(\sqrt{G})_u}{\sqrt{E}} \bigg)_u \bigg) \ \mathrm{d} u \ \mathrm{d} v \\
+&= - \iint_D K \ \mathrm{d} \sigma
+\end{aligned}
+$$
+
+因为$$\theta$$是由连续可微的曲线$$C$$与$$u$$-曲线所构成的方向角，因此它能够从方向角$$\theta$$内取出连续分支$$\theta (s)$$，它是$$s$$的可微函数。由此可见，积分$$\oint_C \mathrm{d} \theta$$是$$\theta$$的一个连续分支$$\theta (s)$$在起、终点的值之差$$\theta (L) - \theta (0)$$，也就是连续可微的曲线$$C$$的方向角的总变差。但是，曲线$$C$$在$$s = O$$和$$s = L$$处的切向量是同一个，故曲线$$C$$的方向角的总变差$$\theta (L) - \theta (0)$$必定是$$2 \pi$$的整数倍。此外，方向角是根据曲面$$S$$的第一类基本量$$E$$，$$G$$计算出来的，当曲面$$S$$的第一类基本量$$E$$，$$G$$作连续变化时，方向角$$\theta$$必然作连续的变化，于是积分$$\oint_C \mathrm{d} \theta$$的值也作连续的变化，因而这个整数值必定保持不变。现在已知$$E \gt 0$$，$$G \gt 0$$，因此$$E$$，$$G$$可以保持在正值的情况下连续地变为1。实际上只要取$$E_t = 1 + t (E-1)$$，$$G_t = 1 + t (G-1)$$，$$0 \leq t \leq 1$$ (需要指出的是，当$$E_t$$，$$G_t$$在$$t$$于区间$$[0,1]$$之间变动时，区域$$U$$，$$D$$以及曲线$$C$$都原地不动)。很明显，$$E_t \gt 0$$，$$G_t \gt 0$$。这样，当$$t = 0$$时该曲面成为一张平面，$$C$$是该平面上的一条简单封闭曲线；而在$$t = 1$$时则回到原来的曲面$$S$$的情形，但是对于$$\mathrm{I} = E_t (\mathrm{d} u)^2 + G_t (\mathrm{d} v)$$计算积分$$\oint_C \mathrm{d} \theta$$，无论是在$$t=0$$时计算，还是在$$t = 1$$时计算，其结果都是一样的。而在平面的情形，$$C$$的正向是使区域$$D$$始终在行进者的左侧，故由[旋转指标定理](/2023/07/31/DifferentialGeometry-NOTES-02.html#旋转指标)得到
+
+$$
+\oint_C \mathrm{d} \theta = 2 \pi
+$$
+
+综合上面的几个积分式得到
+
+$$
+\oint_C \kappa_g \ \mathrm{d} s + \iint_D K \ \mathrm{d} \sigma = 2 \pi
+$$
 
 证毕∎
