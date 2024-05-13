@@ -214,12 +214,8 @@ $$
 **证明** 把$$u$$-曲线和$$v$$-曲线的单位切向量分别记成$$\boldsymbol{\alpha}_1$$和$$\boldsymbol{\alpha}_2$$，于是
 
 $$
-\begin{cases}
-\begin{aligned}
-\boldsymbol{\alpha}_1 &= \frac{1}{\sqrt{E}} \boldsymbol{r}_u \\
-\boldsymbol{\alpha}_2 &= \frac{1}{\sqrt{E}} \boldsymbol{r}_v \\
-\end{aligned}
-\end{cases}
+\boldsymbol{\alpha}_1 = \frac{1}{\sqrt{E}} \boldsymbol{r}_u, \ \ \
+\boldsymbol{\alpha}_2 = \frac{1}{\sqrt{G}} \boldsymbol{r}_v 
 $$
 
 因此曲线$$C$$的单位切向量能够表示成
@@ -2728,6 +2724,91 @@ $$
 
 其中$$\chi (S) = f - e + v$$称为曲面$$S$$的**Euler示性数**。
 
-从这个公式本身可以得到很多信息。首先它的左端与曲面$$S$$被剖分成一些单连通三角形区域的方式无关，并且与曲面$$S$$作等距变形无关，因此该公式表明曲面$$S$$的Euler示性数$$\chi (S)v$$实际上与如何把曲面$$S$$划分成一些单连通区域的方式无关，与曲面$$S$$等距变形也无关(这一类量称为曲面$$S$$的拓扑不变量)。反过来，等式的右端根本不涉及曲面的第一基本形式和Gauss曲率，只是将曲面作三角剖分之后得到的一个数值。由此可见，在紧致无边的可定向封闭曲面$$S$$上Gauss曲率的积分实际上与曲面的第一基本形式没有关系，只是曲面$$S$$的一个拓扑不变量。众所周知，球面的Euler示性数是2，环面的Euler示性数是0。一般地，有g个洞的面包圈状曲面$$S$$的Euler示性数是$$\chi (S) = 2 (1 - \mathfrak{g})$$，这里$$\mathfrak{g}$$称为曲面$$S$$的亏格。
+从这个公式本身可以得到很多信息。首先它的左端与曲面$$S$$被剖分成一些单连通三角形区域的方式无关，并且与曲面$$S$$作等距变形无关，因此该公式表明曲面$$S$$的Euler示性数$$\chi (S)v$$实际上与如何把曲面$$S$$划分成一些单连通区域的方式无关，与曲面$$S$$等距变形也无关(这一类量称为曲面$$S$$的拓扑不变量)。反过来，等式的右端根本不涉及曲面的第一基本形式和Gauss曲率，只是将曲面作三角剖分之后得到的一个数值。由此可见，在紧致无边的可定向封闭曲面$$S$$上Gauss曲率的积分实际上与曲面的第一基本形式没有关系，只是曲面$$S$$的一个拓扑不变量。众所周知，球面的Euler示性数是2，环面的Euler示性数是0。一般地，有$$\mathfrak{g}$$个洞的面包圈状曲面$$S$$的Euler示性数是$$\chi (S) = 2 (1 - \mathfrak{g})$$，这里$$\mathfrak{g}$$称为曲面$$S$$的亏格。
 
-公式$$\iint_{D} K \ \mathrm{d} \sigma = 2 \pi \chi (S)$$叫作**Gauss-Bonnet定理**，它把曲面$$S$$的微分几何的量K(Gauss曲率)与它的拓扑不变量$$\chi (S)$$(Euler 示性数)联系了起来，是一个非常了不起的定理。它在高维情形的推广是现代微分几何学发展的一个重要的原动力。
+公式$$\iint_{D} K \ \mathrm{d} \sigma = 2 \pi \chi (S)$$叫作**Gauss-Bonnet定理**，它把曲面$$S$$的微分几何的量$$K$$(Gauss曲率)与它的拓扑不变量$$\chi (S)$$(Euler 示性数)联系了起来，是一个非常了不起的定理。它在高维情形的推广是现代微分几何学发展的一个重要的原动力。
+
+本节的最后我们要用Gauss-Bonnet公式来研究曲面$$S$$上的切向量沿封闭曲线平行移动一周所产生的旋转角，再次说明曲面$$S$$的Gauss曲率在产生这种旋转角的过程中所起到的本质作用，以及欧氏平面几何学与曲面上的几何学的本质区别。
+
+假定曲面$$S$$上连续可微的简单封闭曲线$$C$$所围成的单连通区域$$D被正交参数系$$(u,v)$$所覆盖，曲面的第一基本形式为
+
+$$
+\mathrm{I} = E (\mathrm{d} u)^2 + G (\mathrm{d} v)^2
+$$
+
+命
+
+$$
+\boldsymbol{\alpha}_1 = \frac{1}{\sqrt{E}} \boldsymbol{r}_u, \ \ \
+\boldsymbol{\alpha}_2 = \frac{1}{\sqrt{G}} \boldsymbol{r}_v 
+$$
+
+则$$\{ \boldsymbol{r}; \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2 \}$$是曲面$$S$$上的单位正交切标架场。设曲线$$C$$的参数方程是$$u = u(s)$$，$$v = v(s)$$，$$0 \leq s \leq l$$是弧长参数，$$\boldsymbol{X} (s)$$是沿曲线$$C$$平行的单位切向量场，于是可以设
+
+$$
+\boldsymbol{X} (s) = \cos{\varphi (s)} \cdot \boldsymbol{\alpha}_1 (u(s), v(s)) + \sin{\varphi (s)} \cdot \boldsymbol{\alpha}_2 (u(s), v(s))
+$$
+
+其中$$\varphi (s)$$是切向量$$\boldsymbol{X} (s)$$与$$u$$-曲线所成的方向角。由于向量场$$\boldsymbol{X} (s)$$沿曲线$$C$$的平行性，故有
+
+$$
+\frac{\mathrm{D} \boldsymbol{X} (s)}{\mathrm{d} s} = \frac{\mathrm{d} \varphi (s)}{\mathrm{d} s} (-\sin{\varphi} \boldsymbol{\alpha}_1 + \cos{\varphi} \boldsymbol{\alpha}_2) + \cos{\varphi} \frac{\mathrm{D} \boldsymbol{\alpha_1}}{\mathrm{d} s} + \sin{\varphi} \frac{\mathrm{D} \boldsymbol{\alpha_2}}{\mathrm{d} s} = \boldsymbol{0}
+$$
+
+即
+
+$$
+\frac{\mathrm{d} \varphi (s)}{\mathrm{d} s} (\sin{\varphi} \boldsymbol{\alpha}_1 - \cos{\varphi} \boldsymbol{\alpha}_2) = \cos{\varphi} \frac{\mathrm{D} \boldsymbol{\alpha_1}}{\mathrm{d} s} + \sin{\varphi} \frac{\mathrm{D} \boldsymbol{\alpha_2}}{\mathrm{d} s}
+$$
+
+将上式两边与$$(\sin{\varphi} \boldsymbol{\alpha}_1 - \cos{\varphi} \boldsymbol{\alpha}_2)$$作内积，并且根据**定理6.15**(3)有
+
+$$
+\frac{\mathrm{D} \boldsymbol{\alpha_1}}{\mathrm{d} s} \cdot \boldsymbol{\alpha_1} = \frac{\mathrm{D} \boldsymbol{\alpha_2}}{\mathrm{d} s} \cdot \boldsymbol{\alpha_2} = 0
+$$
+
+$$
+\frac{\mathrm{D} \boldsymbol{\alpha_1}}{\mathrm{d} s} \cdot \boldsymbol{\alpha_2} = -\frac{\mathrm{D} \boldsymbol{\alpha_2}}{\mathrm{d} s} \cdot \boldsymbol{\alpha_1}
+$$
+
+由此得到
+
+$$
+\begin{aligned}
+\frac{\mathrm{d} \varphi (s)}{\mathrm{d} s} &= (\sin{\varphi} \boldsymbol{\alpha}_1 - \cos{\varphi} \boldsymbol{\alpha}_2) \cdot \bigg( \cos{\varphi} \frac{\mathrm{D} \boldsymbol{\alpha_1}}{\mathrm{d} s} + \sin{\varphi} \frac{\mathrm{D} \boldsymbol{\alpha_2}}{\mathrm{d} s} \bigg) \\
+&= -\frac{\mathrm{D} \boldsymbol{\alpha_1}}{\mathrm{d} s} \cdot \boldsymbol{\alpha_2}
+\end{aligned}
+$$
+
+另一方面，用$$\boldsymbol{e}_1$$记曲线$$C$$的单位切向量，命$$\boldsymbol{e}_2 = \boldsymbol{n} \times \boldsymbol{e}_1$$，即$$\boldsymbol{e}_2$$是将$$\boldsymbol{e}_1$$按正向旋转90°所得到的单位向量。用$$\theta$$表示$$\boldsymbol{e}_1$$与$$u$$-曲线所成的方向角，于是
+
+$$
+\boldsymbol{e}_1 = \cos{\theta} \boldsymbol{\alpha}_1 + \sin{\theta} \boldsymbol{\alpha}_2, \ \ \
+\boldsymbol{e}_2 = -\sin{\theta} \boldsymbol{\alpha}_1 + \cos{\theta} \boldsymbol{\alpha}_2
+$$
+
+于是得到
+
+$$
+\kappa_g = \frac{\mathrm{D} \boldsymbol{e_1}}{\mathrm{d} s} \cdot \boldsymbol{e_2} = \frac{\mathrm{d} \theta}{\mathrm{d} s} + \frac{\mathrm{D} \boldsymbol{\alpha_1}}{\mathrm{d} s} \cdot \boldsymbol{\alpha_2}
+$$
+
+因此有
+
+$$
+\frac{\mathrm{d} \theta}{\mathrm{d} s} - \kappa_g = \frac{\mathrm{d} \varphi}{\mathrm{d} s}
+$$
+
+分别取$$\theta (s)$$和$$\varphi (s)$$的连续分支，将上式在曲线$$C$$上积分，则得
+
+$$
+\varphi (l) - \varphi (0) = \oint_C \ \mathrm{d} \varphi = \oint_C \ \mathrm{d} \theta - \oint_C \kappa_g \ \mathrm{d} s = 2 \pi - \oint_C \kappa_g \ \mathrm{d} s
+$$
+
+其中$$l$$是简单封闭曲线$$C$$的弧长。利用Gauss-Bonnet公式得到
+
+$$
+\varphi (l) - \varphi (0) = \iint_D K \ \mathrm{d} \sigma
+$$
+
+由此可见，当单位向量$$\boldsymbol{X}$$绕简单封闭曲线$$C$$平行移动一周后再回到出发点时未必与初始单位向量$$\boldsymbol{X}$$重合，所转过的角度恰好是曲面$$S$$的Gauss曲率$$K$$在曲线$$C$$所围成的单连通区域$$D$$上的积分。当$$C$$是分段光滑的简单封闭曲线时，上式仍然成立，但是必须假定曲线$$C$$所围成的区域$$D$$是单连通的。
