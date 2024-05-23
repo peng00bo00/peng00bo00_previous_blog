@@ -661,6 +661,7 @@ GAMES001:
       - title: 概率论II
         url: /2024/05/16/GAMES001-NOTES-08.html
   - title: "Part III: 微分方程求解"
+    children:
       - title: 场论初步
         url: /2024/05/23/GAMES001-NOTES-09.html
   - title: "Part IV: 优化与拓扑"
