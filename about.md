@@ -30,11 +30,11 @@ aside:
 
 **Hi there!**
 
-My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https://nyuad.nyu.edu/en/). During my phd study in civil engineering, I also finished my second master degree in computer science at [Georgia Tech's OMSCS program](https://omscs.gatech.edu/). This blog is used to record what I've learned in this journey.
+My name is **Bo Peng (彭博)** and I'm a PhD student at [NYU Abu Dhabi](https://nyuad.nyu.edu/en/). During my phd study in civil engineering, I also finished my second master degree in computer science at [Georgia Tech's OMSCS program](https://omscs.gatech.edu/). This blog is used to record what I've learned in this journey.
 
 ## Education
-- **New York University Abu Dhabi** <span style="float:right">2019.09 - Present</span> \
-  PhD candidate in Civil and Urban Engineering
+- **New York University Abu Dhabi** <span style="float:right">2019.09 - 2024.05</span> \
+  PhD in Civil Engineering
 
 - **Georgia Institute of Technology** <span style="float:right">2021.01 - 2022.12</span> \
   MS in Computer Science
@@ -47,14 +47,18 @@ My name is **Bo Peng (彭博)** and I'm a phd student at [NYU Abu Dhabi](https:/
 
 ## Research Interests
 
-Machine Learning, 
-Computer Vision, 
 Computer Graphics,
-Geometry Processing
+Geometry Processing,
+Machine Learning, 
+Computer Vision
 
 ## Publications
 
-- **Design and Assessment of AD-1 Lunar Regolith Simulants** \
+- **High Performance Computing for Simulation of the Urban Microclimate** \
+  Matthias Fitzky, Bo Peng, Vivaldi Rinaldi, and Masoud Ghandehari \
+  104th AMS Annual Meeting
+
+- **Design and Assessment of NYUAD-1 Lunar Regolith Simulants** \
   Bo Peng, Prabu Thannasi, and Kemal Celik \
   74th International Astronautical Congress 2023
 
