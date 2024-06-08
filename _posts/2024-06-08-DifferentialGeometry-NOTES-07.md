@@ -189,7 +189,7 @@ $$
 \boldsymbol{x}_i = x_i^1 \boldsymbol{e}_1 + \cdots + x_i^n \boldsymbol{e}_n
 $$
 
-任意取定一组指标$$1 \leq j_1 \lt \cdots \lt \j_r \leq n$$，命
+任意取定一组指标$$1 \leq j_1 \lt \cdots \lt j_r \leq n$$，命
 
 $$
 D^{j_1 ... j_r} (\boldsymbol{x}_1, ..., \boldsymbol{x}_r) = 
