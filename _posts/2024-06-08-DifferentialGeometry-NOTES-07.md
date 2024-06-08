@@ -98,6 +98,8 @@ $$
 
 这意味着所有的实数$$\alpha_1, ..., \alpha_n$$必须为零，因此线性函数$$e^1, ..., e^n$$是线性无关的，故它们构成对偶向量空间$$V^*$$的基底，特别是$$\dim{V^*} = n$$。$$V$$上的线性函数也称为一次形式，或者1-形式。
 
+### 多重线性函数
+
 类似地，我们可以考虑线性空间$$V$$上的多重线性函数。设
 
 $$
@@ -136,10 +138,68 @@ $$
 \begin{aligned}
 f(\boldsymbol{x}_1, ..., \boldsymbol{x}_r) &= f(x_1^{i_1} \boldsymbol{e}_{i_1}, ..., x_r^{i_r} \boldsymbol{e}_{i_r}) \\
 &= x_1^{i_1} \cdots x_r^{i_r} \cdot f(\boldsymbol{e}_{i_1}, ..., \boldsymbol{e}_{i_r}) \\
-&= f_{i_1 \cdots i_r} e^{i_1} \otimes \cdots \otimes e^{i_r}
+&= f_{i_1 \cdots i_r} e^{i_1} \otimes \cdots \otimes e^{i_r} (\boldsymbol{x}_1, ..., \boldsymbol{x}_r)
 \end{aligned}
 $$
 
+其中
+
+$$
+f_{i_1 \cdots i_r} = f(\boldsymbol{e}_{i_1}, ..., \boldsymbol{e}_{i_r})
+$$
+
+因此
+
+$$
+f = f_{i_1 \cdots i_r} e^{i_1} \otimes \cdots \otimes e^{i_r}
+$$
+
 类似地，可以证明$$n^r$$个$$r$$重线性函数是线性无关性的。
+
+### 外形式
+
+设$$f \in \bigotimes^r V^*$$。如果在函数$$f$$的任意两个自变量交换位置时$$f$$的值只改变它的符号，即对于任意的$$\boldsymbol{x}_1, ..., \boldsymbol{x}_r \in V$$以及任意的$$1 \leq s \lt t \leq r$$总有
+
+$$
+f(\boldsymbol{x}_1, ..., \boldsymbol{x}_{s-1}, \boldsymbol{x}_s, \boldsymbol{x}_{s+1}, ..., \boldsymbol{x}_{t-1}, \boldsymbol{x}_t, \boldsymbol{x}_{t+1}, ...) = \\
+-f(\boldsymbol{x}_1, ..., \boldsymbol{x}_{s-1}, \boldsymbol{x}_t, \boldsymbol{x}_{s+1}, ..., \boldsymbol{x}_{t-1}, \boldsymbol{x}_s, \boldsymbol{x}_{t+1}, ..)
+$$
+
+则称$$f$$是一个反对称的$$r$$重线性函数，或称$$f$$是一个$$r$$次**外形式**，简称为$$r$$-形式。此时，如果$$\sigma$$是$$\{ 1, ..., r \}$$的任意一个置换，则有
+
+$$
+f(\boldsymbol{x}_{\sigma(1)}, ..., \boldsymbol{x}_{\sigma(r)}) = \text{sign} (\sigma) \cdot f(\boldsymbol{x}_1, ..., \boldsymbol{x}_r)
+$$
+
+其中$$\text{sign}(\sigma)$$是置换$$\sigma$$的符号，即
+
+$$
+\text{sign} (\sigma) = 
+\begin{cases}
+1, &\text{若 $\sigma$是偶置换} \\
+-1, &\text{若 $\sigma$是奇置换} \\
+\end{cases}
+$$
+
+实际上，$$r$$次外形式的最简单的例子就是由行列式给出的。
+
+设$$\boldsymbol{x}_1, ..., \boldsymbol{x}_r$$是向量空间$$V$$中的$$r$$个元素，在基底$$\{ \boldsymbol{e}_1, ..., \boldsymbol{e}_n \}$$下它们可以表示为
+
+$$
+\boldsymbol{x}_i = x_i^1 \boldsymbol{e}_1 + \cdots + x_i^n \boldsymbol{e}_n
+$$
+
+任意取定一组指标$$1 \leq j_1 \lt \cdots \lt \j_r \leq n$$，命
+
+$$
+D^{j_1 ... j_r} (\boldsymbol{x}_1, ..., \boldsymbol{x}_r) = 
+\begin{vmatrix}
+x_1^{j_1} & \cdots & x_1^{j_r} \\
+\vdots & & \vdots \\
+x_r^{j_1} & \cdots & x_r^{j_r} \\
+\end{vmatrix}
+$$
+
+根据行列式的形式，函数$$D^{j_1 ... j_r} (\boldsymbol{x}_1, ..., \boldsymbol{x}_r)$$是$$\boldsymbol{x}_1, ..., \boldsymbol{x}_r$$的反对称的$$r$$重线性函数，即$$D^{j_1 ... j_r}$$是一个$$r$$次外形式。
 
 ### 外积
