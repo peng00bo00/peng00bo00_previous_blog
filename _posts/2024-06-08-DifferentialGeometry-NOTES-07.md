@@ -106,4 +106,40 @@ $$
 
 是$$V$$上的$$r$$元函数。如果它对于每一个自变量来说都是线性函数，则称它是$$r$$重线性函数。线性空间$$V$$上全体$$r$$重线性函数的集合关于加法和数乘法自然是封闭的，因此它本身是一个向量空间，记为$$\bigotimes^r V^*$$，或者$$V_r$$。
 
+另外，任意两个多重线性函数能够作张量积，得到一个新的多重线性函数。例如，设$$f$$是一个$$r$$重线性函数，$$g$$是一个$$s$$重线性函数，$$f$$和$$g$$的张量积$$f \otimes g$$定义为
+
+$$
+f \otimes g (x_1, ..., x_{r+s}) = f(x_1, ..., x_r) \cdot g(x_{r+1}, ..., x_{r+s})
+$$
+
+其中$$x_1, ..., x_{r+s} \in V$$。很明显，$$f \otimes g$$是一个$$r+s$$重线性函数。容易验证，张量积具有分配律和结合律，即
+
+分配率：$$(f+g) \otimes h = f \otimes h + g \otimes h$$，$$h \otimes (f + g) = h \otimes f + h \otimes g$$
+
+结合律：$$(f \otimes g) \otimes h = f \otimes (g \otimes h) = f \otimes g \otimes h$$
+
+因此，$$r$$个线性函数的张量积便成为一个$$r$$重线性函数。特别地，设$$\{ e^1, ..., e^n \}$$是对偶向量空间$$V^*$$的基底，任意固定$$r$$个指标$$i_1, ..., i_r$$，则我们得到一个$$r$$重线性函数$$e^{i_1} \otimes \cdots \otimes e^{i_r}$$，它在向量$$\boldsymbol{x}_1, ..., \boldsymbol{x}_r \in V$$上的值是
+
+$$
+e^{i_1} \otimes \cdots \otimes e^{i_r} (\boldsymbol{x}_1, ..., \boldsymbol{x}_r) = e^{i_1} (\boldsymbol{x}_1) \cdots e^{i_r} (\boldsymbol{x}_r) = x_1^{i_1} \cdots x_r^{i_r}
+$$
+
+指标$$i_1, ..., i_r$$的选法共有$$n^r$$种，因此我们得到$$n^r$$个$$r$$重线性函数
+
+$$
+e^{i_1} \otimes \cdots \otimes e^{i_r}, \ \ \ 1 \leq i_1, ..., i_r \leq n
+$$
+
+它们构成向量空间$$\bigotimes^r V^*$$的基底，由此可见$$\dim{\bigotimes^r V^*} = n^r$$。实际上，若设$$f \in \bigotimes^r V^*$$，$$\boldsymbol{x}_1, ..., \boldsymbol{x}_r \in V$$，则
+
+$$
+\begin{aligned}
+f(\boldsymbol{x}_1, ..., \boldsymbol{x}_r) &= f(x_1^{i_1} \boldsymbol{e}_{i_1}, ..., x_r^{i_r} \boldsymbol{e}_{i_r}) \\
+&= x_1^{i_1} \cdots x_r^{i_r} \cdot f(\boldsymbol{e}_{i_1}, ..., \boldsymbol{e}_{i_r}) \\
+&= f_{i_1 \cdots i_r} e^{i_1} \otimes \cdots \otimes e^{i_r}
+\end{aligned}
+$$
+
+类似地，可以证明$$n^r$$个$$r$$重线性函数是线性无关性的。
+
 ### 外积
