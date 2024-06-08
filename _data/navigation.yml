@@ -624,6 +624,8 @@ DifferentialGeometry:
           url: /2023/12/27/DifferentialGeometry-NOTES-05.html
         - title: 测地曲率和测地线
           url: /2024/04/15/DifferentialGeometry-NOTES-06.html
+        - title: 活动标架和外微分法
+          url: /2024/06/08/DifferentialGeometry-NOTES-07.html
 
 STL:
   - title: 动手实现C++ STL容器
