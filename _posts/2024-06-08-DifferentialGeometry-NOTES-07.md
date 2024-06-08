@@ -161,8 +161,10 @@ $$
 设$$f \in \bigotimes^r V^*$$。如果在函数$$f$$的任意两个自变量交换位置时$$f$$的值只改变它的符号，即对于任意的$$\boldsymbol{x}_1, ..., \boldsymbol{x}_r \in V$$以及任意的$$1 \leq s \lt t \leq r$$总有
 
 $$
+\begin{aligned}
 f(\boldsymbol{x}_1, ..., \boldsymbol{x}_{s-1}, \boldsymbol{x}_s, \boldsymbol{x}_{s+1}, ..., \boldsymbol{x}_{t-1}, \boldsymbol{x}_t, \boldsymbol{x}_{t+1}, ...) = \\
 -f(\boldsymbol{x}_1, ..., \boldsymbol{x}_{s-1}, \boldsymbol{x}_t, \boldsymbol{x}_{s+1}, ..., \boldsymbol{x}_{t-1}, \boldsymbol{x}_s, \boldsymbol{x}_{t+1}, ..)
+\end{aligned}
 $$
 
 则称$$f$$是一个反对称的$$r$$重线性函数，或称$$f$$是一个$$r$$次**外形式**，简称为$$r$$-形式。此时，如果$$\sigma$$是$$\{ 1, ..., r \}$$的任意一个置换，则有
