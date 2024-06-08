@@ -16,13 +16,15 @@ sidebar:
 
 本节要在代数上做一些准备，介绍外形式和外代数的概念。
 
+### 对偶空间
+
 设$$V$$是$$n$$维向量空间，$$\{ \boldsymbol{e}_1, ..., \boldsymbol{e}_n \}$$是它的一个基底，则空间$$V$$中的任意一个元素$$\boldsymbol{x}$$都能够唯一地表示为基底向量$$\boldsymbol{e}_1, ..., \boldsymbol{e}_n$$的线性组合，设为
 
 $$
 \boldsymbol{x} = x^1 \boldsymbol{e}_1 + \cdots + x^n \boldsymbol{e}_n \equiv x^i \boldsymbol{e}_i
 $$
 
-在最右端我们采用了[Einstein的和式约定](/2023/12/27/DifferentialGeometry-NOTES-05.html#einstein求和约定)。在本节，我们规定所有的指标$$i$$，$$j$$，$$k$$，$$l$$的取值范围是从1到$$n$$的整数。实数$$x^1, ...，x^n$$称为向量$$\boldsymbol{x}$$在基底$$\{ \boldsymbol{e}_1, ..., \boldsymbol{e}_n \}$$下的分量。
+在最右端我们采用了[Einstein的和式约定](/2023/12/27/DifferentialGeometry-NOTES-05.html#einstein求和约定)。在本节，我们规定所有的指标$$i$$，$$j$$，$$k$$，$$l$$的取值范围是从1到$$n$$的整数。实数$$x^1, ..., x^n$$称为向量$$\boldsymbol{x}$$在基底$$\{ \boldsymbol{e}_1, ..., \boldsymbol{e}_n \}$$下的分量。
 
 设$$f: V \rightarrow \mathbb{R}$$是向量空间$$V$$上的函数。如果对于任意的$$\boldsymbol{x}, \boldsymbol{y} \in V$$及$$\alpha \in \mathbb{R}$$总有
 
@@ -57,3 +59,51 @@ $$
 $$
 
 这里的$$\delta_i^j$$是专用记号，与基底$$\{ \boldsymbol{e}_i \}$$所用的字母的记号没有关系。
+
+很明显，向量空间$$V$$上的任意两个线性函数的和是$$V$$上的线性函数，$$V$$上的一个线性函数与实数$$\alpha$$的乘积仍然是$$V$$上的线性函数。这就是说，$$V$$上全体线性函数的集合关于加法和数乘法是封闭的。因此该集合是一个新的向量空间，记为$$V^*$$, 称为原向量空间$$V$$的**对偶空间**。容易证明，前面在$$V$$的固定基底$$\{ \boldsymbol{e}_i \}$$下定义的$$n$$个线性函数$$e^1, ..., e^n$$恰好构成空间$$V^*$$的基底，称为与原向量空间$$V$$的基底$$\{ \boldsymbol{e}_1, ..., \boldsymbol{e}_n \}$$对偶的基底。实际上，对于任意的线性函数$$f \in V^*$$和任意的向量$$\boldsymbol{x} = x^i \boldsymbol{e}_i \in V$$，我们有
+
+$$
+f(\boldsymbol{x}) = f(x^i \boldsymbol{e}_i) = x^i f(\boldsymbol{e}_i)
+$$
+
+命
+
+$$
+f_i = f(\boldsymbol{e}_i)
+$$
+
+则可以得到
+
+$$
+f(\boldsymbol{x}) = f_i x^i = f_i e^i (\boldsymbol{x}) = (f_i e^i) (\boldsymbol{x}), \ \ \ \forall \boldsymbol{x} \in V
+$$
+
+因此
+
+$$
+f = f_i e^i
+$$
+
+这说明向量空间$$V$$上的任意一个线性函数$$f$$能够表示成线性函数$$e^1, ..., e^n$$的线性组合，组合系数$$f_i$$正好是线性函数$$f$$在基底向量$$\boldsymbol{e}_i$$上的值。下面要证明这$$n$$哥线性函数$$e^1, ..., e^n$$是线性无关的。假定有$$n$$个实数$$\alpha_1, ..., \alpha_n$$使得线性组合$$\alpha_1 e^1 + \cdots + \alpha_n e^n$$为零，即
+
+$$
+\alpha_1 e^1 + \cdots + \alpha_n e^n = 0
+$$
+
+将这个零函数在基底$$\boldsymbol{e}_k$$上求值得到
+
+$$
+0 = \alpha_i e^i (\boldsymbol{e}_k) = \alpha_i \delta_k^i = \alpha_k, \ \ \ \forall k
+$$
+
+这意味着所有的实数$$\alpha_1, ..., \alpha_n$$必须为零，因此线性函数$$e^1, ..., e^n$$是线性无关的，故它们构成对偶向量空间$$V^*$$的基底，特别是$$\dim{V^*} = n$$。$$V$$上的线性函数也称为一次形式，或者1-形式。
+
+类似地，我们可以考虑线性空间$$V$$上的多重线性函数。设
+
+$$
+f: \underbrace{V \times \cdots \times V}_{r个} \rightarrow \mathbb{R}
+$$
+
+是$$V$$上的$$r$$元函数。如果它对于每一个自变量来说都是线性函数，则称它是$$r$$重线性函数。线性空间$$V$$上全体$$r$$重线性函数的集合关于加法和数乘法自然是封闭的，因此它本身是一个向量空间，记为$$\bigotimes^r V^*$$，或者$$V_r$$。
+
+### 外积
