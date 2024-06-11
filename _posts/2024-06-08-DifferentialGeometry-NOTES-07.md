@@ -84,7 +84,7 @@ $$
 f = f_i e^i
 $$
 
-这说明向量空间$$V$$上的任意一个线性函数$$f$$能够表示成线性函数$$e^1, ..., e^n$$的线性组合，组合系数$$f_i$$正好是线性函数$$f$$在基底向量$$\boldsymbol{e}_i$$上的值。下面要证明这$$n$$哥线性函数$$e^1, ..., e^n$$是线性无关的。假定有$$n$$个实数$$\alpha_1, ..., \alpha_n$$使得线性组合$$\alpha_1 e^1 + \cdots + \alpha_n e^n$$为零，即
+这说明向量空间$$V$$上的任意一个线性函数$$f$$能够表示成线性函数$$e^1, ..., e^n$$的线性组合，组合系数$$f_i$$正好是线性函数$$f$$在基底向量$$\boldsymbol{e}_i$$上的值。下面要证明这$$n$$个线性函数$$e^1, ..., e^n$$是线性无关的。假定有$$n$$个实数$$\alpha_1, ..., \alpha_n$$使得线性组合$$\alpha_1 e^1 + \cdots + \alpha_n e^n$$为零，即
 
 $$
 \alpha_1 e^1 + \cdots + \alpha_n e^n = 0
@@ -211,7 +211,7 @@ $$
 所谓的反对称化运算是将一个$$r$$重线性函数变成一个$$r$$重反对称线性函数的手段。实际上，$$r$$重线性函数$$f$$的反对称化(记为$$[f_1]$$)就是将它的自变量做所有的置换，然后取它们的值的交替平均值。例如，设$$f$$是$$V$$上的一个2重线性函数，则
 
 $$
-[f] (\boldsymbol{x}, \boldsymbol{y}) = \frac{1}{2} (f (\boldsymbol{x}, \boldsymbol{y}) - f (\boldsymbol{y}, \boldsymbol{x})), \ \ \ \forall \boldsymbol{x}, \boldsymbol{y} \in V
+[f] (\boldsymbol{x}, \boldsymbol{y}) = \frac{1}{2} \big( f (\boldsymbol{x}, \boldsymbol{y}) - f (\boldsymbol{y}, \boldsymbol{x}) \big), \ \ \ \forall \boldsymbol{x}, \boldsymbol{y} \in V
 $$
 
 如果$$f$$是$$V$$上的一个3重线性函数，则
