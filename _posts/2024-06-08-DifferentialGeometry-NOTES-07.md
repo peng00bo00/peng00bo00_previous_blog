@@ -205,3 +205,84 @@ $$
 根据行列式的形式，函数$$D^{j_1 ... j_r} (\boldsymbol{x}_1, ..., \boldsymbol{x}_r)$$是$$\boldsymbol{x}_1, ..., \boldsymbol{x}_r$$的反对称的$$r$$重线性函数，即$$D^{j_1 ... j_r}$$是一个$$r$$次外形式。
 
 ### 外积
+
+以后我们要证明任意一个$$r$$次外形式无非是这样的一些行列式的线性组合。为此我们先介绍反对称化运算和外积运算这两个概念。
+
+所谓的反对称化运算是将一个$$r$$重线性函数变成一个$$r$$重反对称线性函数的手段。实际上，$$r$$重线性函数$$f$$的反对称化(记为$$[f_1]$$)就是将它的自变量做所有的置换，然后取它们的值的交替平均值。例如，设$$f$$是$$V$$上的一个2重线性函数，则
+
+$$
+[f] (\boldsymbol{x}, \boldsymbol{y}) = \frac{1}{2} (f (\boldsymbol{x}, \boldsymbol{y}) - f (\boldsymbol{y}, \boldsymbol{x})), \ \ \ \forall \boldsymbol{x}, \boldsymbol{y} \in V
+$$
+
+如果$$f$$是$$V$$上的一个3重线性函数，则
+
+$$
+\begin{aligned}
+[f] (\boldsymbol{x}, \boldsymbol{y}) = \frac{1}{6} \big( &f (\boldsymbol{x}, \boldsymbol{y}, \boldsymbol{z}) - f (\boldsymbol{y}, \boldsymbol{x}, \boldsymbol{z}) + f (\boldsymbol{y}, \boldsymbol{z}, \boldsymbol{x}) \\
+- &f (\boldsymbol{z}, \boldsymbol{y}, \boldsymbol{x}) + f (\boldsymbol{z}, \boldsymbol{x}, \boldsymbol{y}) - f (\boldsymbol{x}, \boldsymbol{z}, \boldsymbol{y}) \big)
+\end{aligned}
+$$
+
+其中$$\forall \boldsymbol{x}, \boldsymbol{y}, \boldsymbol{z} \in V$$。一般地，设$$f$$是$$V$$上的一个$$r$$重线性函数，则
+
+$$
+[f] (\boldsymbol{x}_1, ..., \boldsymbol{x}_r) = \frac{1}{r!} \sum_{\sigma \in \mathfrak{G}_r} \text{sign} (\sigma) \cdot f (\boldsymbol{x}_{\sigma(1)}, ..., \boldsymbol{x}_{\sigma(r)})
+$$
+
+其中$$\mathfrak{G}_r$$是$$r$$个整数$$\{ 1, ..., r \}$$的置换群。很明显，$$[f]$$是一个$$r$$次外形式。如果$$f$$本身是$$r$$次外形式，则$$[f] = f$$。
+
+向量空间$$V$$上的全体$$r$$次外形式的几何记为$$\bigwedge^r V^*$$，因为加法和数乘法在集合$$\bigwedge^r V^*$$中是封闭的，因此它自然是一个向量空间。更要紧的一个事实是在外形式之间还能够定义外积运算， 它在实质上是张量积和反对称化运算的复合。
+
+**定义7.1** 设$$f \in \bigwedge^r V^*$$，$$g \in \bigwedge^s V^*$$，则$$f$$和$$g$$的**外积**$$f \wedge g$$是一个$$(r+s)$$次外形式，定义为$$f \wedge g = \frac{(r+s)!}{r! s!} [f \otimes g]$$
+{:.success}
+
+根据**定义7.1**，设$$f$$、$$g$$是向量空间$$V$$上的两个一次形式，则它们的外积为
+
+$$
+\begin{aligned}
+f \wedge g (\boldsymbol{x}, \boldsymbol{y}) &= 2 [f \otimes g] (\boldsymbol{x}, \boldsymbol{y}) = f \otimes g (\boldsymbol{x}, \boldsymbol{y}) - f \otimes g (\boldsymbol{y}, \boldsymbol{x}) \\
+&= f(\boldsymbol{x}) g(\boldsymbol{y}) - f(\boldsymbol{y}) g(\boldsymbol{x}) \\
+&= 
+\begin{vmatrix}
+f(\boldsymbol{x}) & f(\boldsymbol{y}) \\
+g(\boldsymbol{x}) & g(\boldsymbol{y}) \\
+\end{vmatrix}
+\end{aligned}
+$$
+
+其中$$\boldsymbol{x}, \boldsymbol{y} \in V$$。类似地，设$$f$$、$$g$$、$$h$$是向量空间$$V$$上的三个一次形式，它们的外积为
+
+$$
+f \wedge (g \wedge h) (\boldsymbol{x}, \boldsymbol{y}, \boldsymbol{z}) = 
+\begin{vmatrix}
+f(\boldsymbol{x}) & f(\boldsymbol{y}) & f(\boldsymbol{z}) \\
+g(\boldsymbol{x}) & g(\boldsymbol{y}) & g(\boldsymbol{z}) \\
+h(\boldsymbol{x}) & h(\boldsymbol{y}) & h(\boldsymbol{z}) \\
+\end{vmatrix}
+$$
+
+**定理7.1** 外积运算遵循下列运算法则：  
+(1) 分配率：$$(f_1 + f_2) \wedge g = f_1 \wedge g + f_2 \wedge g$$  
+(2) 反交换律：设$$f \in \bigwedge^r V^*$$，$$g \in \bigwedge^s V^*$$，则$$f \wedge g = (-1)^{rs} g \wedge f$$  
+(3) 结合律：$$f \wedge (g \wedge h) = (f \wedge g) \wedge h$$  
+{:.info}
+
+根据结合律，任意多个外形式的外积是有意义的。例如：3个外形式$$f$$、$$g$$、$$h$$的外积$$f \wedge g \wedge h$$可以写成$$f \wedge (g \wedge h)$$，也可以写成$$(f \wedge g) \wedge h$$。
+
+由反交换律得知，如果$$f$$、$$g$$是$$V$$上的一次形式，则
+
+$$
+f \wedge g = - g \wedge f
+$$
+
+特别地，
+
+$$
+f \wedge f = - f \wedge f = 0
+$$
+
+另外，如果在$$f$$、$$g$$中至少有一个是偶次外形式，则下面的交换律成立：
+
+$$
+f \wedge g = g \wedge f
+$$
