@@ -233,7 +233,7 @@ $$
 
 向量空间$$V$$上的全体$$r$$次外形式的几何记为$$\bigwedge^r V^*$$，因为加法和数乘法在集合$$\bigwedge^r V^*$$中是封闭的，因此它自然是一个向量空间。更要紧的一个事实是在外形式之间还能够定义外积运算， 它在实质上是张量积和反对称化运算的复合。
 
-**定义7.1** 设$$f \in \bigwedge^r V^*$$，$$g \in \bigwedge^s V^*$$，则$$f$$和$$g$$的**外积**$$f \wedge g$$是一个$$(r+s)$$次外形式，定义为$$f \wedge g = \frac{(r+s)!}{r! s!} [f \otimes g]$$
+**定义7.1** 设$$f \in \bigwedge^r V^*$$，$$g \in \bigwedge^s V^*$$，则$$f$$和$$g$$的**外积**$$f \wedge g$$是一个$$(r+s)$$次外形式，定义为$$f \wedge g = \frac{(r+s)!}{r! s!} [f \otimes g]$$。
 {:.success}
 
 根据**定义7.1**，设$$f$$、$$g$$是向量空间$$V$$上的两个一次形式，则它们的外积为
@@ -286,3 +286,82 @@ $$
 $$
 f \wedge g = g \wedge f
 $$
+
+现在设$$f^1, ..., f^r$$是$$V$$上的$$r$$个一次形式，则有
+
+$$
+f^1 \wedge \cdots \wedge f^r = r! [f^1 \otimes \cdots \otimes f^r]
+$$
+
+任意取$$\boldsymbol{x}_1, ..., \boldsymbol{x}_r \in V$$，则
+
+$$
+\begin{aligned}
+f^1 \wedge \cdots \wedge f^r (\boldsymbol{x}_1, ..., \boldsymbol{x}_r) &= r! [f^1 \otimes \cdots \otimes f^r] (\boldsymbol{x}_1, ..., \boldsymbol{x}_r) \\
+&=
+\begin{vmatrix}
+f^1 (\boldsymbol{x}_1) & \cdots & f^1 (\boldsymbol{x}_r) \\
+\vdots & & \vdots \\
+f^r (\boldsymbol{x}_1) & \cdots & f^r (\boldsymbol{x}_r) \\
+\end{vmatrix}
+\end{aligned}
+$$
+
+特别地，在$$V^*$$的基底$$\{ e^i \}$$中任意取定$$r$$个成员$$e^{j_1}, ..., e^{j_r}$$，则由上式得到
+
+$$
+\begin{aligned}
+e^{j_1} \wedge \cdots \wedge e^{j_r} (\boldsymbol{x}_1, ..., \boldsymbol{x}_r) &= 
+\begin{vmatrix}
+e^{j_1} (\boldsymbol{x}_1) & \cdots & e^{j_1} (\boldsymbol{x}_r) \\
+\vdots & & \vdots \\
+e^{j_r} (\boldsymbol{x}_1) & \cdots & e^{j_r} (\boldsymbol{x}_r) \\
+\end{vmatrix} \\
+&=
+\begin{vmatrix}
+x_1^{j_1} & \cdots & x_r^{j_1} \\
+\vdots & & \vdots \\
+x_1^{j_r} & \cdots & x_r^{j_r} \\
+\end{vmatrix}
+\end{aligned}
+$$
+
+和前面相对照不难知道
+
+$$
+D^{j_1 \cdots j_r} = e^{j_1} \wedge \cdots \wedge e^{j_r}
+$$
+
+若在$$V$$的基底$$\{ \boldsymbol{e}_i \}$$中任意取定$$r$$个成员$$e_{i_1}, ..., e_{i_r}$$，则由上面的式子得到
+
+$$
+e^{j_1} \wedge \cdots \wedge e^{j_r} (\boldsymbol{e}_{i_1}, ..., \boldsymbol{e}_{i_r}) = 
+\begin{vmatrix}
+\delta_{i_1}^{j_1} & \cdots & \delta_{i_r}^{j_1} \\
+\vdots & & \vdots \\
+\delta_{i_1}^{j_r} & \cdots & \delta_{i_r}^{j_r} \\
+\end{vmatrix}
+\equiv \delta_{i_1 \cdots i_r}^{j_1 \cdots j_r}
+$$
+
+我们把$$\delta_{i_1 \cdots i_r}^{j_1 \cdots j_r}$$称为广义的Kronecker $$\delta$$记号。由它的定义式即知
+
+$$
+\delta_{i_1 \cdots i_r}^{j_1 \cdots j_r} = 
+\begin{cases}
+1, &\text{若$i_1, ..., i_r$互不相同，且$j_1, ..., j_r$是$i_1, ..., i_r$的偶排列} \\
+-1, &\text{若$i_1, ..., i_r$互不相同，且$j_1, ..., j_r$是$i_1, ..., i_r$的奇排列} \\
+0, &\text{其它情形}
+\end{cases}
+$$
+
+根据反交换律，对于一次形式$$f^1, ..., f^r$$的外积$$f^1 \wedge \cdots \wedge f^r$$，交换其中的任意两个因子，则该外积必反号。所以，对任意的$$\sigma \in \mathfrak{G}_r$$有
+
+$$
+\begin{aligned}
+f^{\sigma (1)} \wedge \cdots \wedge f^{\sigma (r)} &= \text{sign} (\sigma) \cdot f^1 \wedge \cdots \wedge f^r \\
+&= \delta_{1 \cdots r}^{\sigma (1) \cdots \sigma (r)} f^1 \wedge \cdots \wedge f^r
+\end{aligned}
+$$
+
+### 外代数
