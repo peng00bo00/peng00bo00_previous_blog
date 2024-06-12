@@ -451,3 +451,42 @@ $$
 外多项式的形式化定义的好处在于消除外形式和外积的神秘感。从普通的多项式出发，只要规定字母之间的乘法是反交换的，则所得到的便是外多项式。
 
 具有反交换乘法的代数结构的例子还有：设$$\mathbb{R}^3$$是三维向量空间，"×"是该空间上的向量积(叉积)。容易验证，空间$$\mathbb{R}^3$$关于向量积是一个代数。不过，向量积不具有结合律，而满足所谓的[Jacobi恒等式](https://en.wikipedia.org/wiki/Jacobi_identity)，因此$$\mathbb{R}^3$$关于向量积不是外代数，而是所谓的[李代数](https://en.wikipedia.org/wiki/Lie_algebra)。
+
+最后，我们叙述一个重要的定理，它在微分几何中是十分有用的。
+
+**定理7.3 (Cartan引理)** 设$$\omega^1, ..., \omega^r$$，$$\theta_1, ..., \theta_r$$是$$n$$维向量空间$$V$$的$$2r$$个一次形式，其中$$\omega^1, ..., \omega^r$$是线性无关的。如果恒等式$$\sum_{\alpha = 1}^r \omega^\alpha \wedge \theta_\alpha = 0$$成立，则每一个$$\theta_\alpha$$必定是$$\omega^1, ..., \omega^r$$的线性组合，即$$\theta_\alpha = \sum_{\beta = 1}^r a_{\alpha \beta} \omega^\beta$$，并且组合系数$$a_{\alpha \beta}$$是对称的，即$$a_{\alpha \beta} = a_{\beta \alpha}$$。
+{:.info}
+
+**证明** 因为$$\omega^1, ..., \omega^r$$是线性无关的，所以可以把它们扩充成为对偶空间$$V^*$$的一个基底$$\omega^1, ..., \omega^r, \omega^{r+1}, ..., \omega^n$$，因此每一个一次形式$$\theta_\alpha$$可以由该基底表示，命
+
+$$
+\theta_\alpha = \sum_{i=1}^n a_{\alpha i} \omega^i
+$$
+
+已知空间$$\bigwedge^2 V^*$$的基底是$$\{ \omega^i \wedge \omega^j, 1 \leq i \lt j \leq n \}$$，将上式代入已知条件$$\sum_{\alpha = 1}^r \omega^\alpha \wedge \theta_\alpha = 0$$得到
+
+$$
+\begin{aligned}
+0 & = \sum_{\alpha = 1}^r \omega^\alpha \wedge \theta_\alpha = \sum_{\alpha = 1}^r \sum_{i = 1}^n a_{\alpha i} \omega^\alpha \wedge \omega^i \\
+&= \sum_{\alpha = 1}^r \sum_{\beta = 1}^r a_{\alpha \beta} \omega^\alpha \wedge \omega^\beta + \sum_{\alpha = 1}^r \sum_{\xi = r+1}^n a_{\alpha \xi} \omega^\alpha \wedge \omega^\xi \\
+&= \sum_{1 \leq \alpha \lt \beta \leq r} (a_{\alpha \beta} - a_{\beta \alpha}) \omega^\alpha \wedge \omega^\beta + \sum_{\alpha = 1}^r \sum_{\xi = r+1}^n a_{\alpha \xi} \omega^\alpha \wedge \omega^\xi
+\end{aligned}
+$$
+
+于是所有的组合系数必须为零，即
+
+$$
+a_{\alpha \beta} - a_{\beta \alpha} = 0, \ \ \ \forall 1 \leq \alpha \lt \beta \leq r
+$$
+
+$$
+a _{\alpha \xi} = 0, \ \ \ \forall 1 \leq \alpha \leq r \lt \xi \leq n
+$$
+
+这样$$\theta_\alpha$$成为
+
+$$
+\theta_\alpha = \sum_{\beta = 1}^r a_{\alpha \beta} \omega^\beta
+$$
+
+证毕∎
