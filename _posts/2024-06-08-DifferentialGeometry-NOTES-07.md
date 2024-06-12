@@ -29,7 +29,7 @@ $$
 设$$f: V \rightarrow \mathbb{R}$$是向量空间$$V$$上的函数。如果对于任意的$$\boldsymbol{x}, \boldsymbol{y} \in V$$及$$\alpha \in \mathbb{R}$$总有
 
 $$
-f(\boldsymbol{x} + \boldsymbol{y}) = f(\boldsymbol{x}) + f(\boldsymbol{y}), \ \ \ f(\boldsymbol{x}) = \alpha \cdot f(\boldsymbol{x})
+f(\boldsymbol{x} + \boldsymbol{y}) = f(\boldsymbol{x}) + f(\boldsymbol{y}), \ \ \ f(\alpha \cdot \boldsymbol{x}) = \alpha \cdot f(\boldsymbol{x})
 $$
 
 则称$$f$$是向量空间$$V$$上的线性函数。在固定的基底$$\{ \boldsymbol{e}_i \}$$下，取向量$$\boldsymbol{x}\in V$$在该基底下的第$$j$$的分量，显然它是在向量空间$$V$$的一个线性函数，记为$$e^j$$，即
@@ -365,3 +365,52 @@ f^{\sigma (1)} \wedge \cdots \wedge f^{\sigma (r)} &= \text{sign} (\sigma) \cdot
 $$
 
 ### 外代数
+
+**定理7.2** 设$$\{ e^1, ..., e^n \}$$是对偶向量空间$$V^*$$的一个基底，则$$\{ e^{j_1} \wedge \cdots \wedge e^{j_r} \}$$是$$r$$次外形式空间$$\bigwedge^r V^*$$的基底。特别是，空间$$\bigwedge^r V^*$$的维数是$$\dim $$\bigwedge^r V^* = C_n^r$$。当$$r \gt n$$时，$$\bigwedge^r V^* = \{ 0 \}$$。
+{:.info}
+
+**证明** 设$$f \in \bigwedge^r V^*$$，则$$f$$作为[$$r$$重线性函数](/2024/06/08/DifferentialGeometry-NOTES-07.html#多重线性函数)可以表示为
+
+$$
+f = f_{j_1 \cdots j_r} e^{j_1} \otimes \cdots \otimes e^{j_r}
+$$
+
+其中
+
+$$
+f_{j_1 \cdots j_r} = f(\boldsymbol{e}_{j_1}, ..., \boldsymbol{e}_{j_r})
+$$
+
+这里$$\{ \boldsymbol{e}_i \}$$是向量空间$$V$$中对偶的基底。因为$$f$$的反对称性，所以系数$$f_{j_1 \cdots j_r}$$关于下指标是反对称的，即
+
+$$
+f_{j_{\sigma(1)} \cdots j_{\sigma(r)}} = \text{sign} (\sigma) f_{j_1 \cdots j_r}, \ \ \ \forall \sigma \in \mathfrak{G}_r
+$$
+
+因此
+
+$$
+\begin{aligned}
+f &= [f] = f_{j_1 \cdots j_r} [e^{j_1} \otimes \cdots \otimes e^{j_r}] = \frac{1}{r!} f_{j_1 \cdots j_r} e^{j_1} \wedge \cdots \wedge e^{j_r} \\
+&= \sum_{1 \leq j_1 \lt \cdots \lt j_r \leq n} f_{j_1 \cdots j_r} e^{j_1} \wedge \cdots \wedge e^{j_r}
+\end{aligned}
+$$
+
+这说明任意一个$$r$$次外形式$$f$$都能够表示成$$e^{j_1} \wedge \cdots \wedge e^{j_r}$$，$$1 \leq j_1 \lt \cdots \lt j_r \leq n$$的线性组合。
+
+为了证明这$$C_n^r$$个$$r$$次形式$$e^{j_1} \wedge \cdots \wedge e^{j_r}$$，$$1 \leq j_1 \lt \cdots \lt j_r \leq n$$是线性无关的，假定有一组实数$$_{j_1 \cdots j_r}$$，$$1 \leq j_1 \lt \cdots \lt j_r \leq n$$，使得线性组合
+
+$$
+\sum_{1 \leq j_1 \lt \cdots \lt j_r \leq n} f_{j_1 \cdots j_r} e^{j_1} \wedge \cdots \wedge e^{j_r} = 0
+$$
+
+将这个零函数在向量$$\boldsymbol{e}_{i_1}, ..., \boldsymbol{e}_{i_r}$$，$$1 \leq i_1 \lt \cdots \lt i_r \leq n$$上求值，得到
+
+$$
+\begin{aligned}
+0 &= \sum_{1 \leq j_1 \lt \cdots \lt j_r \leq n} f_{j_1 \cdots j_r} e^{j_1} \wedge \cdots \wedge e^{j_r} (\boldsymbol{e}_{i_1}, ..., \boldsymbol{e}_{i_r}) \\
+&= \sum_{1 \leq j_1 \lt \cdots \lt j_r \leq n} f_{j_1 \cdots j_r} \delta_{i_1 \cdots i_r}^{j_1 \cdots j_r} = f_{i_1 \cdots i_r}
+\end{aligned} 
+$$
+
+由此可见，这组实数$$f_{j_1 \cdots j_r}$$，$$1 \leq j_1 \lt \cdots \lt j_r \leq n$$必须全部为零。证毕∎
