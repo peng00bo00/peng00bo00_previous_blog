@@ -366,11 +366,10 @@ $$
 
 ### 外代数
 
-**定理7.2** 设$$\{ e^1, ..., e^n \}$$是对偶向量空间$$V^*$$的一个基底，则$$\{ e^{j_1} \wedge \cdots \wedge e^{j_r} \}$$是$$r$$次外形式空间$$\bigwedge^r V^*$$的基底。特别是，空间$$\bigwedge^r V^*$$的维数是$$\dim $$\bigwedge^r V^* = C_n^r$$。当$$r \gt n$$时，$$\bigwedge^r V^* = \{ 0 \}$$。
+**定理7.2** 设$$\{ e^1, ..., e^n \}$$是对偶向量空间$$V^*$$的一个基底，则$$\{ e^{j_1} \wedge \cdots \wedge e^{j_r}, 1\leq j_1 \lt \cdots \lt j_r \leq n \}$$是$$r$$次外形式空间$$\bigwedge^r V^*$$的基底。特别是，空间$$\bigwedge^r V^*$$的维数是$$\dim \bigwedge^r V^* = C_n^r$$。当$$r \gt n$$时，$$\bigwedge^r V^* = \{ 0 \}$$。
 {:.info}
 
 **证明** 设$$f \in \bigwedge^r V^*$$，则$$f$$作为[$$r$$重线性函数](/2024/06/08/DifferentialGeometry-NOTES-07.html#多重线性函数)可以表示为
-
 $$
 f = f_{j_1 \cdots j_r} e^{j_1} \otimes \cdots \otimes e^{j_r}
 $$
@@ -414,3 +413,41 @@ $$
 $$
 
 由此可见，这组实数$$f_{j_1 \cdots j_r}$$，$$1 \leq j_1 \lt \cdots \lt j_r \leq n$$必须全部为零。证毕∎
+
+上面的构造可以从代数上进行抽象。假定$$W$$是任意一个$$n$$维向量空间，它的一个基底是$$\{ \boldsymbol{w}_1, ..., \boldsymbol{w}_n \}$$。把$$\boldsymbol{w}_1, ..., \boldsymbol{w}_n$$看作$$n$$个字母，构造实系数多项式，只是要求字母之间的乘法不是普通的交换乘法，而是反交换乘法。也就是在交换任意两个字母的位置时该乘积变号：
+
+$$
+\boldsymbol{w}_i \wedge \boldsymbol{w}_j = - \boldsymbol{w}_j \wedge \boldsymbol{w}_i, \ \ \ \forall 1 \leq i, j \leq n
+$$
+
+把这种乘法称为外积，假定多个字母的外积遵循结合律，同时假定分配律也成立。如此得到的多项式称为外多项式。由于
+
+$$
+\boldsymbol{w}_i \wedge \boldsymbol{w}_i = - \boldsymbol{w}_i \wedge \boldsymbol{w}_i
+$$
+
+故
+
+$$
+\boldsymbol{w}_i \wedge \boldsymbol{w}_i = 0, \ \ \ \forall i
+$$
+
+因此在外多项式的每一项中同一个字母不能出现两次，于是高于$$n$$次的齐次外多项式必定是零。这样，一次外多项式是字母$$\boldsymbol{w}_1, ..., \boldsymbol{w}_n$$的线性组合，它们构成向量空间$$W$$本身。二次外多项式是$$\boldsymbol{w}_i \wedge \boldsymbol{w}_j$$，$$1 \leq i \lt j \leq n$$的线性组合，它们构成的空间记成$$\bigwedge^2 W$$。一般地，$$k$$次外多项式是
+
+$$
+\boldsymbol{w}_{i_1} \wedge \cdots \wedge \boldsymbol{w}_{i_k}, \ \ \ 1 \leq i_i \lt \cdots \lt i_k \leq n
+$$
+
+的线性组合，它们构成的空间记成$$\bigwedge^k W$$。零次外多项式定义为实数本身。全体外多项式的集合记为
+
+$$
+\bigwedge (W) = \sum_{k=0}^n \bigwedge^k W
+$$
+
+其元素是各次外多项式的形式和。在集合$$\bigwedge (W)$$中有加法和外积运算，并且外积运算适合分配律、结合律和反交换律，所以从代数上讲，$$\bigwedge (W)$$是一个结合代数，称为向量空间$$W$$上的**外代数**。
+
+由此可见向量空间$$V$$上的外形式就是其对偶空间$$V^*$$的基底向量$$e^1, ..., e^n$$的外多项式。但是，我们在本节具体地、构造性地定义了外形式的外积，而不只是一种抽象的规定。这就是说，本节叙述的外形式的理论具体地构造出一个外代数。
+
+外多项式的形式化定义的好处在于消除外形式和外积的神秘感。从普通的多项式出发，只要规定字母之间的乘法是反交换的，则所得到的便是外多项式。
+
+具有反交换乘法的代数结构的例子还有：设$$\mathbb{R}^3$$是三维向量空间，"×"是该空间上的向量积(叉积)。容易验证，空间$$\mathbb{R}^3$$关于向量积是一个代数。不过，向量积不具有结合律，而满足所谓的[Jacobi恒等式](https://en.wikipedia.org/wiki/Jacobi_identity)，因此$$\mathbb{R}^3$$关于向量积不是外代数，而是所谓的[李代数](https://en.wikipedia.org/wiki/Lie_algebra)。
