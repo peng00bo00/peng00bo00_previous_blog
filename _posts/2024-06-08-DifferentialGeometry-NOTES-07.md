@@ -607,6 +607,44 @@ $$
 
 ### 外微分式
 
+现在，我们要给出外微分式的定义。
+
+**定义7.2** 设$$D$$是$$n$$为欧式空间$$\mathbb{E}^n$$中的一个区域，$$(u^1, ..., u^n)$$是区域$$D$$上的曲纹坐标系。如果以连续可微的方式在每一点$$p = (u^1, ..., u^n) \in D$$给定了一个$$r$$次外形式  
+$$\varphi (p) = \frac{1}{r!} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\
+= \sum_{1 \leq i_1 \lt \cdots \lt i_r \leq n} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}$$  
+其中假定系数函数$$\varphi_{i_1 \cdots i_r} (u^1, ..., u^n)$$对于下指标是反对称的，则称$$\varphi$$是定义在$$D$$上的**$$r$$次外微分式**。
+{:.success}
+
+在这里，所谓的"以连续可微的方式"是指系数$$\varphi_{i_1 \cdots i_r} (u^1, ..., u^n)$$，$$1 \leq i_1 \lt \cdots \lt i_r \leq n$$是$$u^1, ..., u^n$$的连续可微函数，即$$\varphi_{i_1 \cdots i_r} (u^1, ..., u^n)$$是$$u^1, ..., u^n$$的光滑函数。
+
+设$$f: D \rightarrow \mathbb{R}$$是定义在$$D$$上的连续可微函数，则它的微分
+
+$$
+\mathrm{d} f = \frac{\partial f}{\partial u^i} \mathrm{d} u^i
+$$
+
+即为区域$$D$$上的1次微分式，因而也是$$D$$上的一个1次外微分式。
+
+设$$S$$是三维欧式空间$$\mathbb{E}^3$$中的一块正则参数曲面，参数方程是
+
+$$
+\boldsymbol{r} = \boldsymbol{r} (u^1, u^2)
+$$
+
+并且它的第一基本形式是
+
+$$
+\mathrm{I} = g_{\alpha \beta} \mathrm{d} u^\alpha \mathrm{d} u^\beta
+$$
+
+命
+
+$$
+\mathrm{d} \sigma = \sqrt{g_{11} g_{22} - (g_{12})^2} \mathrm{d} u^1 \wedge \mathrm{d} u^2
+$$
+
+则$$\mathrm{d} \sigma$$是曲面$$S$$上的一个2次微分式。
+
 ### 外微分
 
 ### Stokes公式
