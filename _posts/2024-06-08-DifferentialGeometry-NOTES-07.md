@@ -610,7 +610,7 @@ $$
 现在，我们要给出外微分式的定义。
 
 **定义7.2** 设$$D$$是$$n$$为欧式空间$$\mathbb{E}^n$$中的一个区域，$$(u^1, ..., u^n)$$是区域$$D$$上的曲纹坐标系。如果以连续可微的方式在每一点$$p = (u^1, ..., u^n) \in D$$给定了一个$$r$$次外形式  
-$$\varphi (p) = \frac{1}{r!} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\
+$$\varphi (p) = \frac{1}{r!} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\ 
 = \sum_{1 \leq i_1 \lt \cdots \lt i_r \leq n} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}$$  
 其中假定系数函数$$\varphi_{i_1 \cdots i_r} (u^1, ..., u^n)$$对于下指标是反对称的，则称$$\varphi$$是定义在$$D$$上的**$$r$$次外微分式**。
 {:.success}
@@ -644,6 +644,97 @@ $$
 $$
 
 则$$\mathrm{d} \sigma$$是曲面$$S$$上的一个2次微分式。
+
+容易证明：2次微分式$$\mathrm{d} \sigma$$在曲面$$S$$的保持定向的容许参数变换下是不变的。实际上，如果$$(\tilde{u}^1, \tilde{u}^2)$$是曲面$$S$$的另一个保持定向的参数系，于是$$\tilde{u}^\alpha = \tilde{u}^\alpha (u^1, u^2)$$的至少3次以上连续可微的函数，并且
+
+$$
+\frac{\partial (\tilde{u}^1, \tilde{u}^2)}{\partial (u^1, u^2)} \gt 0
+$$
+
+假定曲面$$S$$的第一基本形式用新参数$$(\tilde{u}^1, \tilde{u}^2)$$的表达式是
+
+$$
+\mathrm{I} = \tilde{g}_{\alpha \beta} \mathrm{d} \tilde{u}^\alpha \mathrm{d} \tilde{u}^\beta
+$$
+
+则根据[第一基本形式的不变性](/2023/10/18/DifferentialGeometry-NOTES-03.html#第一基本形式的不变性)，在第一类基本量$$\tilde{g}_{\alpha \beta}$$和$$g_{\alpha \beta}$$之间有关系式
+
+$$
+\begin{pmatrix}
+g_{11} & g_{12} \\ g_{21} & g_{22}
+\end{pmatrix}
+=
+J \cdot
+\begin{pmatrix}
+\tilde{g}_{11} & \tilde{g}_{12} \\ \tilde{g}_{21} & \tilde{g}_{22}
+\end{pmatrix}
+\cdot J^T
+$$
+
+其中
+
+$$
+J = 
+\begin{pmatrix}
+\frac{\partial \tilde{u}^1}{\partial u^1} & \frac{\partial \tilde{u}^2}{\partial u^1} \\
+\frac{\partial \tilde{u}^1}{\partial u^2} & \frac{\partial \tilde{u}^2}{\partial u^2} \\
+\end{pmatrix}
+$$
+
+对等式两边取行列式得到
+
+$$
+g_{11} g_{22} - (g_{12})^2 = (\det{J})^2 (\tilde{g}_{11} \tilde{g}_{22} - (\tilde{g}_{12})^2)
+$$
+
+因此
+
+$$
+\sqrt{g_{11} g_{22} - (g_{12})^2} = \vert \det{J} \vert \cdot \sqrt{\tilde{g}_{11} \tilde{g}_{22} - (\tilde{g}_{12})^2}
+$$
+
+但是根据已知条件，Jacobi行列式大于0
+
+$$
+\det{J} = 
+\begin{vmatrix}
+\frac{\partial \tilde{u}^1}{\partial u^1} & \frac{\partial \tilde{u}^2}{\partial u^1} \\
+\frac{\partial \tilde{u}^1}{\partial u^2} & \frac{\partial \tilde{u}^2}{\partial u^2} \\
+\end{vmatrix}
+= \frac{\partial (\tilde{u}^1, \tilde{u}^2)}{\partial (u^1, u^2)} \gt 0
+$$
+
+所以关于第一基本形式的等式成为
+
+$$
+\sqrt{g_{11} g_{22} - (g_{12})^2} = \det{J} \cdot \sqrt{\tilde{g}_{11} \tilde{g}_{22} - (\tilde{g}_{12})^2}
+$$
+
+在另一方面，对函数$$\tilde{u}^\alpha (u^1, u^2)$$求微分得到
+
+$$
+\mathrm{d} \tilde{u}^\alpha = \frac{\partial \tilde{u}^\alpha}{\partial u^1} \mathrm{d} u^1 + \frac{\partial \tilde{u}^\alpha}{\partial u^2} \mathrm{d} u^2, \ \ \ \alpha = 1, 2
+$$
+
+因此
+
+$$
+\begin{aligned}
+\mathrm{d} \tilde{u}^1 \wedge \mathrm{d} \tilde{u}^2 &= \bigg( \frac{\partial \tilde{u}^1}{\partial u^1} \mathrm{d} u^1 + \frac{\partial \tilde{u}^1}{\partial u^2} \mathrm{d} u^2 \bigg) \wedge \bigg( \frac{\partial \tilde{u}^2}{\partial u^1} \mathrm{d} u^1 + \frac{\partial \tilde{u}^2}{\partial u^2} \mathrm{d} u^2 \bigg) \\
+&= \frac{\partial (\tilde{u}^1, \tilde{u}^2)}{\partial (u^1, u^2)} \mathrm{d} u^1 \wedge \mathrm{d} u^2
+\end{aligned}
+$$
+
+综合前面的推导可以得到
+
+$$
+\begin{aligned}
+\sqrt{\tilde{g}_{11} \tilde{g}_{22} - (\tilde{g}_{12})^2} \mathrm{d} \tilde{u}^1 \wedge \mathrm{d} \tilde{u}^2 &= \sqrt{\tilde{g}_{11} \tilde{g}_{22} - (\tilde{g}_{12})^2} \frac{\partial (\tilde{u}^1, \tilde{u}^2)}{\partial (u^1, u^2)} \mathrm{d} u^1 \wedge \mathrm{d} u^2 \\
+&= \sqrt{g_{11} g_{22} - (g_{12})^2} \mathrm{d} u^1 \wedge \mathrm{d} u^2
+\end{aligned}
+$$
+
+这就证明了2次微分式$$\mathrm{d} \sigma$$在曲面$$S$$的保持定向的容许参数变换下是不变的。
 
 ### 外微分
 
