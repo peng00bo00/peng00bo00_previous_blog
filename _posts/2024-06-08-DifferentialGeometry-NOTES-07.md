@@ -610,8 +610,12 @@ $$
 现在，我们要给出外微分式的定义。
 
 **定义7.2** 设$$D$$是$$n$$为欧式空间$$\mathbb{E}^n$$中的一个区域，$$(u^1, ..., u^n)$$是区域$$D$$上的曲纹坐标系。如果以连续可微的方式在每一点$$p = (u^1, ..., u^n) \in D$$给定了一个$$r$$次外形式  
-$$\varphi (p) = \frac{1}{r!} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \newline
-= \sum_{1 \leq i_1 \lt \cdots \lt i_r \leq n} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}$$
+$$
+\begin{aligned}
+\varphi (p) &= \frac{1}{r!} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\
+&= \sum_{1 \leq i_1 \lt \cdots \lt i_r \leq n} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
+\end{aligned}
+$$
 ，  
 其中假定系数函数$$\varphi_{i_1 \cdots i_r} (u^1, ..., u^n)$$对于下指标是反对称的，则称$$\varphi$$是定义在$$D$$上的**$$r$$次外微分式**。
 {:.success}
