@@ -786,7 +786,7 @@ $$
 
 **定义7.3** 设
 $$
-\varphi (p) = \frac{1}{r!} \varphi_{i_1 \cdots i_r} \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
+\varphi = \frac{1}{r!} \varphi_{i_1 \cdots i_r} \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
 $$
 是定义在区域$$D$$上的一个$$r$$次外微分式。用如下的方式定义$$r+1$$次外微分式：  
 $$
@@ -795,17 +795,16 @@ $$
 &= \frac{1}{r!} \frac{\partial \varphi_{i_1 \cdots i_r}}{\partial u^j} \mathrm{d} u^j \wedge \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
 \end{aligned}
 $$
-，  
 称为$$\varphi$$的**外微分**。如果$$\varphi: D \rightarrow \mathbb{R}$$是定义在$$D$$上的连续可微函数(即零次外微分式)，则它的外微分$$\mathrm{d} \varphi$$就是它的普通微分。
 {:.success}
 
 **定理7.4** 外微分运算$$\mathrm{d}$$遵循下面的运算法则：  
-(1) $$\mathrm{d}$$是线性算子，即对于任意的外微分式$$\varphi^1$$、$$\varphi^2$$有  
+(1) $$\mathrm{d}$$是线性算子，即对于任意的外微分式$$\varphi^1$$、$$\varphi^2$$有
 $$\mathrm{d} (\varphi^1 + \varphi^2) = \mathrm{d} \varphi^1 + \mathrm{d} \varphi^2$$
 ，
 $$\mathrm{d} (c \cdot \varphi^1) = c \cdot \mathrm{d} \varphi^1, \ \ \ \forall c \in \mathbb{R}
 $$  
-(2) $$\mathrm{d} \circ \mathrm{d} = 0$$，即对于任意一个外微分式$$\varphi$$，有  
+(2) $$\mathrm{d} \circ \mathrm{d} = 0$$，即对于任意一个外微分式$$\varphi$$，有
 $$
 \mathrm{d} (\mathrm{d} \varphi) = 0
 $$  
@@ -826,6 +825,26 @@ $$
 $$
 \mathrm{d} (\varphi \wedge \psi) = \mathrm{d} \varphi \wedge \psi - \varphi \wedge \mathrm{d} \psi
 $$
+
+外微分运算还有一个更重要的性质，也就是外微分$$\mathrm{d}$$与外微分式的参数表示的方式无关，这称为"外微分$$\mathrm{d}$$的形式不变性"，是微积分学中"一次微分的形式不变性"的推广。确切地说我们有下面的定理。
+
+**定理7.5** 设$$\varphi$$是定义在$$n$$维区域$$D$$上的一个$$r$$次外微分式，它在曲纹坐标系$$(u^1, ..., u^n)$$下的表示是  
+$$
+\varphi = \frac{1}{r!} \varphi_{i_1 \cdots i_r} (u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
+$$  
+在另一个曲纹坐标系$$(\tilde{u}^1, ..., \tilde{u}^n)$$下的表示是
+$$
+\varphi = \frac{1}{r!} \tilde{\varphi}_{i_1 \cdots i_r} (\tilde{u}^1, ..., \tilde{u}^n) \mathrm{d} \tilde{u}^{i_1} \wedge \cdots \wedge \mathrm{d} \tilde{u}^{i_r}
+$$  
+其中假定$$\varphi_{i_1 \cdots i_r}$$和$$\tilde{\varphi}_{i_1 \cdots i_r}$$对下指标都是反对称的，则有
+$$
+\mathrm{d} \varphi_{i_1 \cdots i_r} \wedge \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} = \mathrm{d} \tilde{\varphi}_{i_1 \cdots i_r} \wedge \mathrm{d} \tilde{u}^{i_1} \wedge \cdots \wedge \mathrm{d} \tilde{u}^{i_r}
+$$
+{:.info}
+
+**证明**
+
+证毕∎
 
 ### Stokes公式
 
