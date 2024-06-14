@@ -843,9 +843,104 @@ $$
 $$
 {:.info}
 
-**证明**
+**证明** 由于不同的曲纹坐标系之间有容许的坐标变换，设为
+
+$$
+\tilde{u}^i = \tilde{u}^i (u^1, ..., u^n), \ \ \ 1 \leq i \leq n
+$$
+
+故
+
+$$
+\mathrm{d} \tilde{u}^i = \frac{\partial \tilde{u}^i}{\partial u^j} \cdot \mathrm{d} u^j
+$$
+
+因此
+
+$$
+\begin{aligned}
+\varphi_{i_1 \cdots i_r} &(u^1, ..., u^n) \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\
+&= \tilde{\varphi}_{j_1 \cdots j_r} (\tilde{u}^1, ..., \tilde{u}^n) \mathrm{d} \tilde{u}^{j_1} \wedge \cdots \wedge \mathrm{d} \tilde{u}^{j_r} \\
+&= \tilde{\varphi}_{j_1 \cdots j_r} (\tilde{u}^1, ..., \tilde{u}^n) \frac{\partial \tilde{u}^{j_1}}{\partial u^{i_1}} \cdots \frac{\partial \tilde{u}^{j_r}}{\partial u^{i_r}} \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
+\end{aligned}
+$$
+
+很明显，$$\tilde{\varphi}_{j_1 \cdots j_r} \frac{\partial \tilde{u}^{j_1}}{\partial \tilde{u}^{i_1}} \cdots \frac{\partial \tilde{u}^{j_r}}{\partial \tilde{u}^{i_r}}$$对于下指标$$i_1, ..., i_r$$仍然是反对称的，因此比较上式的前后两端的系数得到
+
+$$
+\varphi_{i_1 \cdots i_r} = \tilde{\varphi}_{j_1 \cdots j_r} \frac{\partial \tilde{u}^{j_1}}{\partial u^{i_1}} \cdots \frac{\partial \tilde{u}^{j_r}}{\partial u^{i_r}}
+$$
+
+对上式求微分得到
+
+$$
+\begin{aligned}
+\mathrm{d} \varphi_{i_1 \cdots i_r} &= \frac{\partial}{\partial u^k} \bigg( \tilde{\varphi}_{j_1 \cdots j_r} \frac{\partial \tilde{u}^{j_1}}{\partial \tilde{u}^{i_1}} \cdots \frac{\partial \tilde{u}^{j_r}}{\partial \tilde{u}^{i_r}} \bigg) \mathrm{d} u^k \\
+&= \bigg(
+\frac{\partial \tilde{\varphi}_{j_1 \cdots j_r}}{\partial \tilde{u}^l} \frac{\partial \tilde{u}^l}{\partial u^k} \frac{\partial \tilde{u}^{j_1}}{\partial u^{i_1}} \cdots \frac{\partial \tilde{u}^{j_r}}{\partial u^{i_r}} + \tilde{\varphi}_{j_1 \cdots j_r} \frac{\partial^2 \tilde{u}^{j_1}}{\partial u^k \partial u^{i_1}} \cdots \frac{\partial \tilde{u}^{j_r}}{\partial u^{i_r}} \\
+&+ \cdots + \tilde{\varphi}_{j_1 \cdots j_r} \frac{\partial \tilde{u}^{j_1}}{\partial u^{i_1}} \cdots \frac{\partial^2 \tilde{u}^{j_r}}{\partial u^k \partial u^{i_r}}
+\bigg)
+\mathrm{d} u^k
+\end{aligned}
+$$
+
+所以
+
+$$
+\begin{aligned}
+\mathrm{d} \varphi_{i_1 \cdots i_r} &\wedge \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\
+&= \bigg( 
+\frac{\partial \tilde{\varphi}_{j_1 \cdots j_r}}{\partial \tilde{u}^l} \frac{\partial \tilde{u}^l}{\partial u^k} \frac{\partial \tilde{u}^{j_1}}{\partial u^{i_1}} \cdots \frac{\partial \tilde{u}^{j_r}}{\partial u^{i_r}} + \tilde{\varphi}_{j_1 \cdots j_r} \frac{\partial^2 \tilde{u}^{j_1}}{\partial u^k \partial u^{i_1}} \cdots \frac{\partial \tilde{u}^{j_r}}{\partial u^{i_r}} \\
+&+ \cdots + \tilde{\varphi}_{j_1 \cdots j_r} \frac{\partial \tilde{u}^{j_1}}{\partial u^{i_1}} \cdots \frac{\partial^2 \tilde{u}^{j_r}}{\partial u^k \partial u^{i_r}}
+\bigg) \mathrm{d} u^k \wedge \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\
+&= \frac{\partial \tilde{\varphi}_{j_1 \cdots j_r}}{\partial \tilde{u}^l} \frac{\partial \tilde{u}^l}{\partial u^k} \frac{\partial \tilde{u}^{j_1}}{\partial u^{i_1}} \cdots \frac{\partial \tilde{u}^{j_r}}{\partial u^{i_r}} \mathrm{d} u^k \wedge \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\
+&= \frac{\partial \tilde{\varphi}_{j_1 \cdots j_r}}{\partial \tilde{u}^l} \mathrm{d} \tilde{u}^l \wedge \mathrm{d} \tilde{u}^{j_1} \wedge \cdots \wedge \mathrm{d} \tilde{u}^{j_r} \\
+&= \mathrm{d} \tilde{\varphi}_{j_1 \cdots j_r} \wedge \mathrm{d} \tilde{u}^{j_1} \wedge \cdots \wedge \mathrm{d} \tilde{u}^{j_r}
+\end{aligned}
+$$
+
+在这里，第二个等号成立的理由是除了第1项以外，其余各项全部为零，例如
+
+$$
+\begin{aligned}
+\frac{\partial^2 \tilde{u}^{j_1}}{\partial u^k \partial u^{i_1}} &\cdots \frac{\partial \tilde{u}^{j_r}}{\partial u^{i_r}} \mathrm{d} u^k \wedge \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\
+&= \frac{1}{2} \bigg( \frac{\partial^2 \tilde{u}^{j_1}}{\partial u^k \partial u^{i_1}} - \frac{\partial^2 \tilde{u}^{j_1}}{\partial u^{i_1} \partial u^k} \bigg) \cdots \frac{\partial \tilde{u}^{j_r}}{\partial u^{i_r}} \mathrm{d} u^k \wedge \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\
+&= 0
+\end{aligned}
+$$
 
 证毕∎
+
+根据**定理7.5**，外微分实际上是定义在整个正则曲面$$S$$上的算子，或者更一般地，外微分是定义在光滑流形上的算子。因为在这种空间每一点的邻域内有局部坐标系，而在不同的局部坐标系之间有容许的坐标变换，但是外微分算子与局部坐标系的选取无关，所以它是在整个空间上定义好的算子。这就是说，给定一个定义在光滑流形$$M$$上的一个$$r$$次外微分式，尽管在不同的局部坐标系下，外微分式有不同的表达式，但是它们的外微分仍旧是同一个外微分式在相应的局部坐标系下的表达式。因此，外微分运算把定义在整个流形$$M$$上的一个$$r$$次外微分式变成定义在整个流形$$M$$上的一个确定的$$r+l$$次外微分式。
+
+**定理7.5**还可以作一些推广，这在以后十分有用。设有另一个$$m$$维区域$$\tilde{D}$$，曲纹坐标系是$$(\tilde{u}^1, ..., \tilde{u}^m)$$，并且$$\sigma: D \rightarrow \tilde{D}$$是一个连续可微映射，表示为
+
+$$
+\tilde{u}^\alpha = \tilde{u}^\alpha (u^1, ..., u^n), \ \ \ \alpha = 1, ..., m
+$$
+
+映射$$\sigma$$诱导出一个映射$$\sigma^*$$，它把定义在区域$$\tilde{D}$$上的$$r$$次外微分式变为区域$$D$$上的$$r$$次外微分式。例如，设
+
+$$
+\tilde{\varphi} = \frac{1}{r!} \sum_{1 \leq \alpha_1, ..., \alpha_r \leq m} \tilde{\varphi}_{\alpha_1 ... \varphi_r} (\tilde{u}^1, ..., \tilde{u}^m) \mathrm{d} \tilde{u}^{\alpha_1} \wedge \cdots \wedge \mathrm{d} \tilde{u}^{\alpha_r}
+$$
+
+则$$\sigma^* \tilde{\varphi}$$是区域$$D$$上的$$r$$次外微分形式，它是把$$\tilde{u}^\alpha$$代入$$\tilde{\varphi}$$式所得到的结果，即
+
+$$
+\begin{aligned}
+\sigma^* \tilde{\varphi} &= \frac{1}{r!} \tilde{\varphi}_{\alpha_1 ... \varphi_r} (\tilde{u}^1 (u^1, ..., u^n), ..., \tilde{u}^m (u^1, ..., u^n)) \\
+&\cdot \frac{\partial \tilde{u}^{\alpha_1}}{\partial u^{i_1}} \cdots \frac{\partial \tilde{u}^{\alpha_r}}{\partial u^{i_r}} \mathrm{d} u^{\alpha_1} \wedge \cdots \wedge \mathrm{d} u^{\alpha_r}
+\end{aligned}
+$$
+
+其中指标$$\alpha_1, ..., \alpha_r$$的取值范围从1到$$m$$，指标$$i_1, ..., i_r$$的取值范围从1到$$n$$，并且上式使用了Einstein和式约定。通常，我们把$$\sigma^* \tilde{\varphi}$$称为区域$$\tilde{D}$$上的$$r$$次外微分式$$\tilde{\varphi}$$通过映射$$\sigma$$在区域$$D$$上的**拉回**。
+
+**定理7.9** 设$$\sigma: \tilde{D} \rightarrow D$$是连续可微映射，则对区域$$\tilde{D}$$上的任意外微分式$$\tilde{varphi}$$、$$\tilde{\psi}$$有下面的等式：  
+(1) $$\sigma^* (\varphi + \psi) = \sigma^* \varphi + \sigma^* \psi $$  
+(2) $$\sigma^* (\varphi \wedge \psi) = \sigma^* \varphi \wedge \sigma^* \psi $$  
+(3) $$\sigma^* (\mathrm{d} \varphi) = \mathrm{d} (\sigma^* \varphi)$$
+{:.info}
 
 ### Stokes公式
 
