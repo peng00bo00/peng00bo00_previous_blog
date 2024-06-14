@@ -788,13 +788,13 @@ $$
 $$
 \varphi = \frac{1}{r!} \varphi_{i_1 \cdots i_r} \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
 $$
-是定义在区域$$D$$上的一个$$r$$次外微分式。用如下的方式定义$$r+1$$次外微分式：  
+是定义在区域$$D$$上的一个$$r$$次外微分式。用如下的方式定义$$r+1$$次外微分式：
 $$
 \begin{aligned}
 \mathrm{d} \varphi &= \frac{1}{r!} \mathrm{d} \varphi_{i_1 \cdots i_r} \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\
 &= \frac{1}{r!} \frac{\partial \varphi_{i_1 \cdots i_r}}{\partial u^j} \mathrm{d} u^j \wedge \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
 \end{aligned}
-$$
+$$  
 称为$$\varphi$$的**外微分**。如果$$\varphi: D \rightarrow \mathbb{R}$$是定义在$$D$$上的连续可微函数(即零次外微分式)，则它的外微分$$\mathrm{d} \varphi$$就是它的普通微分。
 {:.success}
 
@@ -835,8 +835,9 @@ $$
 在另一个曲纹坐标系$$(\tilde{u}^1, ..., \tilde{u}^n)$$下的表示是
 $$
 \varphi = \frac{1}{r!} \tilde{\varphi}_{i_1 \cdots i_r} (\tilde{u}^1, ..., \tilde{u}^n) \mathrm{d} \tilde{u}^{i_1} \wedge \cdots \wedge \mathrm{d} \tilde{u}^{i_r}
-$$  
-其中假定$$\varphi_{i_1 \cdots i_r}$$和$$\tilde{\varphi}_{i_1 \cdots i_r}$$对下指标都是反对称的，则有
+$$
+，  
+其中假定$$\varphi_{i_1 \cdots i_r}$$和$$\tilde{\varphi}_{i_1 \cdots i_r}$$对下指标都是反对称的，则有  
 $$
 \mathrm{d} \varphi_{i_1 \cdots i_r} \wedge \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} = \mathrm{d} \tilde{\varphi}_{i_1 \cdots i_r} \wedge \mathrm{d} \tilde{u}^{i_1} \wedge \cdots \wedge \mathrm{d} \tilde{u}^{i_r}
 $$
