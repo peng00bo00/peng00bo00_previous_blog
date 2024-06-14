@@ -936,7 +936,7 @@ $$
 
 其中指标$$\alpha_1, ..., \alpha_r$$的取值范围从1到$$m$$，指标$$i_1, ..., i_r$$的取值范围从1到$$n$$，并且上式使用了Einstein和式约定。通常，我们把$$\sigma^* \tilde{\varphi}$$称为区域$$\tilde{D}$$上的$$r$$次外微分式$$\tilde{\varphi}$$通过映射$$\sigma$$在区域$$D$$上的**拉回**。
 
-**定理7.9** 设$$\sigma: \tilde{D} \rightarrow D$$是连续可微映射，则对区域$$\tilde{D}$$上的任意外微分式$$\tilde{varphi}$$、$$\tilde{\psi}$$有下面的等式：  
+**定理7.6** 设$$\sigma: \tilde{D} \rightarrow D$$是连续可微映射，则对区域$$\tilde{D}$$上的任意外微分式$$\tilde{\varphi}$$、$$\tilde{\psi}$$有下面的等式：  
 (1) $$\sigma^* (\varphi + \psi) = \sigma^* \varphi + \sigma^* \psi $$  
 (2) $$\sigma^* (\varphi \wedge \psi) = \sigma^* \varphi \wedge \sigma^* \psi $$  
 (3) $$\sigma^* (\mathrm{d} \varphi) = \mathrm{d} (\sigma^* \varphi)$$
