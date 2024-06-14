@@ -942,7 +942,40 @@ $$
 (3) $$\sigma^* (\mathrm{d} \varphi) = \mathrm{d} (\sigma^* \varphi)$$
 {:.info}
 
+把微积分学中的重积分的被积表达式写成外微分式是更加自然的，因为此时积分的变扯替换公式可以通过直接计算得到。例如，考虑二维区域上的重积分$$\iint_D f(x, y) \ \mathrm{d} x \mathrm{d} y$$，其中的$$\mathrm{d} x \mathrm{d} y$$应该换成$$\mathrm{d} x \wedge \mathrm{d} y$$。如果有变量替换
+
+$$
+x = x(u, v), \ \ \ y = y(u, v), \ \ \ (u, v) \in \tilde{D}
+$$
+
+则
+
+$$
+\mathrm{d} x \wedge \mathrm{d} y = 
+\begin{vmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \\
+\end{vmatrix}
+\mathrm{d} u \wedge \mathrm{d} v = \frac{\partial (x, y)}{\partial (u, v)} \mathrm{d} u \wedge \mathrm{d} v
+$$
+
+所以
+
+$$
+\iint_D f(x, y) \ \mathrm{d} x \wedge \mathrm{d} y = \iint_{\tilde{D}} f(x(u, v), y(u, v)) \cdot \frac{\partial (x, y)}{\partial (u, v)} \mathrm{d} u \wedge \mathrm{d} v
+$$
+
+这正好是二重积分的变量替换么丐飞三重积分的情况是一样的。
+
 ### Stokes公式
+
+采用外微分的语言，积分的Green公式、Stokes公式和Gauss 公式可以统一地表述如下：设$$G$$是$$n$$维欧式空间$$\mathbb{E}^n$$中的一个$$r$$维有向曲面上的一个区域，$$\partial G$$是$$G$$的边界，具有从$$G$$诱导的定向，$$\omega$$是定义在$$G$$上的$$r-1$$次外微分式，则有
+
+$$
+\int_{\partial G} \omega = \int_G \mathrm{d} \omega
+$$
+
+上式统称为**Stokes公式**。
 
 ## E³中的标架族
 
