@@ -743,7 +743,42 @@ $$
 
 这个事实蕴涵着一个十分重要的结果。我们在前已经定义过[正则曲面](/2023/10/18/DifferentialGeometry-NOTES-03.html#正则曲面)的概念(**定义3.1**)，它是一片、一片正则参数曲面粘合的结果，在重叠部分会有多个曲纹坐标系，但是在不同的曲纹坐标系之间的变换都是容许的参数变换。上面的断言表明，虽然2次微分式$$\mathrm{d} \sigma$$在曲面$$S$$的每一个参数表示是$$\mathrm{d} \sigma = \sqrt{g_{11} g_{22} - (g_{12})^2} \mathrm{d} u^1 \wedge \mathrm{d} u^2$$，但是它在实际上是定义在整个有向正则曲面$$S$$上的2次外微分式。同样，有向抽象曲面(二维黎曼流形)上也有定义在整个曲面上的2次微分式$$\mathrm{d} \sigma$$。在这里，我们具体地描述了构造定义在整个有向曲面$$S$$上的量的一种方式，即这个量可以用局部坐标来表示、但是与局部坐标系的选择无关。这种方式有普遍意义。
 
-2次外微分式$$\mathrm{d} \sigma$$称为在曲面$$S$$上的**面积元素**，
+2次外微分式$$\mathrm{d} \sigma$$称为在曲面$$S$$上的**面积元素**，其理由如下：假设在曲纹坐标系$$(u^1, u^2)$$下，在点$$p$$给定两个切向量
+
+$$
+\boldsymbol{a} = a^1 \boldsymbol{r}_1 + a^2 \boldsymbol{r}_2, \ \ \
+\boldsymbol{b} = b^1 \boldsymbol{r}_1 + b^2 \boldsymbol{r}_2
+$$
+
+那么
+
+$$
+\begin{aligned}
+\mathrm{d} \sigma (\boldsymbol{a}, \boldsymbol{b}) &= \sqrt{g_{11} g_{22} - (g_{12})^2} \mathrm{d} u^1 \wedge \mathrm{d} u^2 (\boldsymbol{a}, \boldsymbol{b}) \\
+&= \sqrt{g_{11} g_{22} - (g_{12})^2} \big( \mathrm{d} u^1 (\boldsymbol{a}) \mathrm{d} u^2 (\boldsymbol{b}) - \mathrm{d} u^1 (\boldsymbol{b}) \mathrm{d} u^2 (\boldsymbol{a}) \big) \\
+&= \sqrt{g_{11} g_{22} - (g_{12})^2} (a^1 b^2 - b^1 a^2)
+\end{aligned}
+$$
+
+作切向量$$\boldsymbol{a}$$、$$\boldsymbol{b}$$的向量积得到
+
+$$
+\begin{aligned}
+\boldsymbol{a} \times \boldsymbol{b} &= (a^1 b^2 - b^1 a^2) \boldsymbol{r}_1 \times \boldsymbol{r}_2 \\
+&= (a^1 b^2 - b^1 a^2) \vert \boldsymbol{r}_1 \times \boldsymbol{r}_2 \vert \cdot \boldsymbol{n} \\
+&= (a^1 b^2 - b^1 a^2) ( \vert \boldsymbol{r}_1 \vert \cdot \vert \boldsymbol{r}_2 \vert \sin{\angle (\boldsymbol{a} , \boldsymbol{b})} ) \cdot \boldsymbol{n} \\
+&= (a^1 b^2 - b^1 a^2) \vert \boldsymbol{r}_1 \vert \cdot \vert \boldsymbol{r}_2 \vert \sqrt{1 - \cos^2{\angle (\boldsymbol{a} , \boldsymbol{b})} } \cdot \boldsymbol{n} \\
+&= (a^1 b^2 - b^1 a^2) \sqrt{g_{11} g_{22} - (g_{12})^2} \cdot \boldsymbol{n}
+\end{aligned}
+$$
+
+因此
+
+$$
+\mathrm{d} \sigma (\boldsymbol{a}, \boldsymbol{b}) = \pm \vert \boldsymbol{a} \times \boldsymbol{b} \vert
+$$
+
+换言之，$$\mathrm{d} \sigma (\boldsymbol{a}, \boldsymbol{b})$$恰好是切向量$$\boldsymbol{a} \times \boldsymbol{b}$$所张的平行四边形的有向面积。
 
 ### 外微分
 
