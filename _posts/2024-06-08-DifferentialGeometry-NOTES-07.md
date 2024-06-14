@@ -782,6 +782,51 @@ $$
 
 ### 外微分
 
+区域$$D$$上的任意两个同次的外微分式能够以逐点计算的方式作加法和外积运算。对于外微分式来说，更重要的一种运算是外微分，它把$$r$$次外微分式变为一个$$r+1$$次外微分式。
+
+**定义7.3** 设
+$$
+\varphi (p) = \frac{1}{r!} \varphi_{i_1 \cdots i_r} \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
+$$
+是定义在区域$$D$$上的一个$$r$$次外微分式。用如下的方式定义$$r+1$$次外微分式：  
+$$
+\begin{aligned}
+\mathrm{d} \varphi &= \frac{1}{r!} \mathrm{d} \varphi_{i_1 \cdots i_r} \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r} \\
+&= \frac{1}{r!} \frac{\partial \varphi_{i_1 \cdots i_r}}{\partial u^j} \mathrm{d} u^j \wedge \mathrm{d} u^{i_1} \wedge \cdots \wedge \mathrm{d} u^{i_r}
+\end{aligned}
+$$
+，  
+称为$$\varphi$$的**外微分**。如果$$\varphi: D \rightarrow \mathbb{R}$$是定义在$$D$$上的连续可微函数(即零次外微分式)，则它的外微分$$\mathrm{d} \varphi$$就是它的普通微分。
+{:.success}
+
+**定理7.4** 外微分运算$$\mathrm{d}$$遵循下面的运算法则：  
+(1) $$\mathrm{d}$$是线性算子，即对于任意的外微分式$$\varphi^1$$、$$\varphi^2$$有  
+$$\mathrm{d} (\varphi^1 + \varphi^2) = \mathrm{d} \varphi^1 + \mathrm{d} \varphi^2$$
+，
+$$\mathrm{d} (c \cdot \varphi^1) = c \cdot \mathrm{d} \varphi^1, \ \ \ \forall c \in \mathbb{R}
+$$  
+(2) $$\mathrm{d} \circ \mathrm{d} = 0$$，即对于任意一个外微分式$$\varphi$$，有  
+$$
+\mathrm{d} (\mathrm{d} \varphi) = 0
+$$  
+(3) 若$$\varphi$$是$$r$$次外微分式，则对于任意一个外微分式$$\psi$$，有
+$$
+\mathrm{d} (\varphi \wedge \psi) = \mathrm{d} \varphi \wedge \psi + (-1)^r \varphi \wedge \mathrm{d} \psi
+$$
+{:.info}
+
+关于运算法则(3)有两个特殊情形需要特别强调一些。若$$f$$是定义在区域$$D$$上的零次外微分式，即$$f$$是定义在区域$$D$$上的连续可微函数，则由(3)得到
+
+$$
+\mathrm{d} (f \psi) = \mathrm{d} f \wedge \psi + f \mathrm{d} \psi
+$$
+
+若$$\varphi$$是定义在区域$$D$$上的一次外微分式，则
+
+$$
+\mathrm{d} (\varphi \wedge \psi) = \mathrm{d} \varphi \wedge \psi - \varphi \wedge \mathrm{d} \psi
+$$
+
 ### Stokes公式
 
 ## E³中的标架族
