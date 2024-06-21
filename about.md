@@ -30,7 +30,7 @@ aside:
 
 **Hi there!**
 
-My name is **Bo Peng (彭博)**, a PhD graduate from [NYU Abu Dhabi](https://nyuad.nyu.edu/en/).  in civil engineering. Alongside my PhD, I also completed a second master's degree in computer science through [Georgia Tech's OMSCS program](https://omscs.gatech.edu/). I am passionate about computer graphics (CG), particularly in the field of geometry geometry modeling and processing. Additionally, my research experience includes machine learning and computer vision. This blog is my platform to share and document the insights and knowledge I've gained throughout this journey.
+My name is **Bo Peng (彭博)**, and I hold a PhD in civil engineering from [NYU Abu Dhabi](https://nyuad.nyu.edu/en/). Alongside my doctoral studies, I also completed a second master's degree in computer science through [Georgia Tech's OMSCS program](https://omscs.gatech.edu/). My passion lies in computer graphics (CG), particularly in geometry modeling and processing. Additionally, my research experience spans computer vision (CV), machine learning (ML), and deep learning (DL). This blog serves as a platform to share and document the insights and knowledge I've gained from my academic and research journey. My goal is to contribute to the convergence of engineering, computer science, and emerging technologies.
 
 ## Education
 - **New York University Abu Dhabi** <span style="float:right">2019.09 - 2024.05</span> \
