@@ -673,3 +673,6 @@ GAMES001:
       - title: 线性系统
         url: /2024/06/21/GAMES001-NOTES-12.html
   - title: "Part IV: 优化与拓扑"
+    children:
+      - title: 优化基础
+        url: /2024/07/03/GAMES001-NOTES-13.html
