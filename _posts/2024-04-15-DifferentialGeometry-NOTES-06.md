@@ -4,7 +4,7 @@ title: 微分几何笔记06-测地曲率和测地线
 tags: ["CG", "Geometry Processing", "Math", "Differential Geometry"]
 key: DifferentialGeometry-06
 aside:
-  toc: false
+  toc: true
 sidebar:
   nav: DifferentialGeometry
 ---
